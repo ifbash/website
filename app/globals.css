@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 220 26% 14%;
+    --foreground: 213 31% 91%;
+    --card: 222 84% 5%;
+    --card-foreground: 213 31% 91%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 263 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 10% 64.9%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 28% 18%;
+    --input: 215 28% 18%;
+    --ring: 263 70% 50.4%;
+    --chart-1: 221 83% 53%;
+    --chart-2: 212 95% 68%;
+    --chart-3: 216 92% 79%;
+    --chart-4: 210 98% 78%;
+    --chart-5: 212 97% 87%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 220 26% 14%;
+    --foreground: 213 31% 91%;
+    --card: 222 84% 5%;
+    --card-foreground: 213 31% 91%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 213 31% 91%;
+    --primary: 263 70% 50.4%;
+    --primary-foreground: 210 20% 98%;
+    --secondary: 215 28% 17%;
+    --secondary-foreground: 210 20% 98%;
+    --muted: 215 28% 17%;
+    --muted-foreground: 217 10% 64.9%;
+    --accent: 215 28% 17%;
+    --accent-foreground: 210 20% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 215 28% 18%;
+    --input: 215 28% 18%;
+    --ring: 263 70% 50.4%;
+    --chart-1: 221 83% 53%;
+    --chart-2: 212 95% 68%;
+    --chart-3: 216 92% 79%;
+    --chart-4: 210 98% 78%;
+    --chart-5: 212 97% 87%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Moondust theme enhancements */
+.moondust-gradient {
+  background: linear-gradient(135deg, hsl(221, 83%, 53%) 0%, hsl(212, 95%, 68%) 100%);
+}
+
+.moondust-card {
+  background: linear-gradient(145deg, hsl(222, 84%, 4%) 0%, hsl(215, 28%, 17%) 100%);
+  border: 1px solid hsl(215, 28%, 18%);
+}
+
+.moondust-glow {
+  box-shadow: 0 0 20px hsla(221, 83%, 53%, 0.4);
+}
+
+.moondust-text-gradient {
+  background: linear-gradient(135deg, #6c28d9, #26a3d9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.min-w-\[8rem\] {
+    min-width: 6rem;
+}
+.desc{
+    font-size: 12px; /* 14px */
+  -webkit-text-fill-color: #1a2e61;  
+}
+.leading-snug {
+    line-height: 1.375;
+    font-size: 12px;
+}
+
+.hand-wave-icon::before{
+    background: rgba(0,0,0,0) url("https://seclgroup.com/wp-content/themes/seclgroup/assets/images/request-hand-wave.png") no-repeat center;
+    animation-name: wave-animation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    transform-origin: 50% 100%;
+}
