@@ -182,7 +182,7 @@ export default function Home() {
           </ScrollAnimation>
           <ScrollAnimation delay={0.2}>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Let's discuss how our ServiceNow and SAP expertise can drive your digital transformation journey.
+              Let&apos;s discuss how our ServiceNow and SAP expertise can drive your digital transformation journey.
             </p>
           </ScrollAnimation>
           <ScrollAnimation delay={0.4}>
