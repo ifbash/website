@@ -20,19 +20,63 @@ export default function Home() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 px-6">
-        <div className="container mx-auto max-w-6xl">
+      <section
+        className="py-20 px-6 relative overflow-hidden"
+        style={{
+          background: "linear-gradient(135deg, #f7f8fa 60%, #e6f0fa 100%)",
+        }}
+      >
+        {/* Beautiful Light Blue Soothing Background Image with Decorative Overlay */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full"
+          style={{
+            backgroundImage: `
+              linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%),
+              url('http://backgroundsy.com/wp-content/uploads/light-blue-background.jpg')
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            opacity: 1,
+            zIndex: 0,
+            pointerEvents: "none",
+          }}
+        />
+        {/* Decorative SVG shapes for extra design */}
+        <svg
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
+          viewBox="0 0 1440 320"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          style={{ zIndex: 1 }}
+        >
+          <path
+            fill="#e6f0fa"
+            fillOpacity="0.6"
+            d="M0,160L80,165.3C160,171,320,181,480,165.3C640,149,800,107,960,117.3C1120,128,1280,192,1360,224L1440,256L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+          />
+          <circle cx="1200" cy="80" r="60" fill="#26a3d9" fillOpacity="0.12" />
+          <circle cx="200" cy="220" r="40" fill="#6c28d9" fillOpacity="0.10" />
+        </svg>
+        <div className="container mx-auto max-w-6xl relative z-10">
           <ScrollAnimation className="text-center space-y-8">
             <ScrollAnimation delay={0.2}>
-              <h1 className="text-5xl md:text-6xl font-light text-foreground leading-tight">
+              <h1 className="text-5xl md:text-6xl font-light text-[#1a2e61] leading-tight">
                 Transform Your Business with
-                <span className="block font-medium moondust-text-gradient">
+                <span
+                  className="block font-medium"
+                  style={{
+                    background: "linear-gradient(135deg, #6c28d9, #26a3d9)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
                   ServiceNow & SAP
                 </span>
               </h1>
             </ScrollAnimation>
             <ScrollAnimation delay={0.4}>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xl text-[#1a2e61] max-w-3xl mx-auto leading-relaxed opacity-80">
                 We deliver enterprise-grade consulting services that streamline operations, 
                 enhance productivity, and drive digital transformation across your organization.
               </p>
@@ -43,7 +87,11 @@ export default function Home() {
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="lg" className="px-8 py-3">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-3 text-white bg-[#1a2e61] border-[#1a2e61] hover:bg-[#1a2e61] hover:text-white"
+                >
                   View Our Work
                 </Button>
               </div>
