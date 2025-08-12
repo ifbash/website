@@ -71,7 +71,7 @@ export default function Home() {
                     WebkitTextFillColor: "transparent",
                   }}
                 >
-                  ServiceNow & SAP
+                  ServiceNow
                 </span>
               </h1>
             </ScrollAnimation>
@@ -148,42 +148,7 @@ export default function Home() {
               </Card>
             </StaggerItem>
 
-            {/* SAP Card */}
-            <StaggerItem>
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center">
-                      <Database className="h-6 w-6 text-chart-4" />
-                    </div>
-                    <h3 className="text-2xl font-medium text-foreground">SAP</h3>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    End-to-end SAP solutions including S/4HANA implementation, SuccessFactors, 
-                    and cloud migration strategies.
-                  </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">S/4HANA Implementation</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">SuccessFactors HCM</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">Analytics Cloud</span>
-                    </li>
-                  </ul>
-                  <Link href="/portfolio/sap">
-                    <Button variant="outline" className="w-full">
-                      Explore SAP Solutions
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            </StaggerItem>
+           
           </StaggerContainer>
         </div>
       </section>
@@ -230,7 +195,7 @@ export default function Home() {
           </ScrollAnimation>
           <ScrollAnimation delay={0.2}>
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Let&apos;s discuss how our ServiceNow and SAP expertise can drive your digital transformation journey.
+              Let&apos;s discuss how our ServiceNow expertise can drive your digital transformation journey.
             </p>
           </ScrollAnimation>
           <ScrollAnimation delay={0.4}>
@@ -258,7 +223,7 @@ export default function Home() {
                 <span className="font-semibold text-xl text-foreground">TechConsult</span>
               </div>
               <p className="text-muted-foreground text-sm">
-                Leading ServiceNow and SAP consulting firm delivering enterprise transformation solutions.
+                Leading ServiceNow consulting firm delivering enterprise transformation solutions.
               </p>
             </div>
             
@@ -266,7 +231,6 @@ export default function Home() {
               <h4 className="font-medium text-foreground mb-4">Services</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><Link href="/services/servicenow" className="hover:text-foreground">ServiceNow</Link></li>
-                <li><Link href="/services/sap" className="hover:text-foreground">SAP Solutions</Link></li>
                 <li><Link href="/services/digital-transformation" className="hover:text-foreground">Digital Transformation</Link></li>
               </ul>
             </div>

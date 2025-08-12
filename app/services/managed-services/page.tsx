@@ -2,68 +2,70 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Users, 
-  Award, 
-  Target, 
-  TrendingUp, 
-  Calendar, 
-  BookOpen,
+import {
+  Settings,
+  Users,
+  BarChart3,
+  Award,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  MonitorCheck,
+  ShieldCheck,
+  RefreshCcw,
+  LifeBuoy
 } from "lucide-react";
 
-export default function SuccessFactorsPage() {
+export default function ManagedServicesPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Users className="h-8 w-8 text-chart-2" />
-            <Badge variant="outline" className="text-chart-2 border-chart-2/20">SAP</Badge>
+            <MonitorCheck className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">Service</Badge>
           </div>
           <h1 className="text-4xl font-light text-foreground mb-4">
-            SAP SuccessFactors
+            Managed Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Empower your workforce with comprehensive Human Capital Management solutions 
-            that drive employee engagement, performance, and organizational success.
+            Proactive management and support for your critical IT systems and business applications. 
+            Our managed services team ensures reliability, security, and performance—so you can focus on growth.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* Managed Services Solutions */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">SuccessFactors Modules</h2>
-          
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Managed Services Solutions</h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-chart-2" />
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Settings className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Employee Central</CardTitle>
+                <CardTitle className="text-lg">Application Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Centralized HR system of record with global capabilities.
+                  End-to-end monitoring, maintenance, and optimization of your business applications.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Employee profiles</span>
+                    <span>24/7 Monitoring & Support</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Organizational management</span>
+                    <span>Incident & Problem Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Global compliance</span>
+                    <span>Performance Optimization</span>
                   </li>
                 </ul>
               </CardContent>
@@ -71,27 +73,27 @@ export default function SuccessFactorsPage() {
 
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Award className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <ShieldCheck className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Performance & Goals</CardTitle>
+                <CardTitle className="text-lg">Security & Compliance</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Drive performance with continuous feedback and goal alignment.
+                  Protect your data and systems with robust security and compliance management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Goal management</span>
+                    <span>Threat Detection & Response</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Performance reviews</span>
+                    <span>Vulnerability Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>360-degree feedback</span>
+                    <span>Regulatory Compliance</span>
                   </li>
                 </ul>
               </CardContent>
@@ -100,26 +102,26 @@ export default function SuccessFactorsPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Target className="h-6 w-6 text-chart-3" />
+                  <RefreshCcw className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Recruiting</CardTitle>
+                <CardTitle className="text-lg">Cloud & Infrastructure Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Attract and hire top talent with intelligent recruiting tools.
+                  Ensure high availability and scalability of your cloud and IT infrastructure.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Candidate management</span>
+                    <span>Cloud Operations & Optimization</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Interview scheduling</span>
+                    <span>Backup & Disaster Recovery</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Offer management</span>
+                    <span>Capacity Planning</span>
                   </li>
                 </ul>
               </CardContent>
@@ -128,26 +130,26 @@ export default function SuccessFactorsPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <BookOpen className="h-6 w-6 text-chart-4" />
+                  <Users className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Learning</CardTitle>
+                <CardTitle className="text-lg">End User Support</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Develop your workforce with personalized learning experiences.
+                  Responsive helpdesk and technical support for your teams and users.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Learning paths</span>
+                    <span>Helpdesk Services</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Compliance training</span>
+                    <span>Remote & Onsite Support</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Skills development</span>
+                    <span>Knowledge Base & Self-Service</span>
                   </li>
                 </ul>
               </CardContent>
@@ -156,54 +158,26 @@ export default function SuccessFactorsPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <TrendingUp className="h-6 w-6 text-chart-5" />
+                  <LifeBuoy className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Compensation</CardTitle>
+                <CardTitle className="text-lg">Proactive Maintenance</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Manage compensation and rewards with transparency and fairness.
+                  Prevent issues before they impact your business with regular health checks and updates.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Salary planning</span>
+                    <span>System Health Monitoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Variable pay</span>
+                    <span>Patch Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Total rewards</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Calendar className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Time & Attendance</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Streamline time tracking and workforce scheduling.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Time tracking</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Absence management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Workforce scheduling</span>
+                    <span>Preventive Maintenance</span>
                   </li>
                 </ul>
               </CardContent>
@@ -212,17 +186,66 @@ export default function SuccessFactorsPage() {
         </div>
       </section>
 
+      {/* Managed Services Approach */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Our Managed Services Approach</h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <MonitorCheck className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">1. Monitor</h3>
+              <p className="text-muted-foreground text-sm">
+                Proactively monitor systems and applications for optimal performance.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <ShieldCheck className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">2. Protect</h3>
+              <p className="text-muted-foreground text-sm">
+                Safeguard your environment with robust security and compliance controls.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <RefreshCcw className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">3. Maintain</h3>
+              <p className="text-muted-foreground text-sm">
+                Perform regular updates, health checks, and preventive maintenance.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">4. Support</h3>
+              <p className="text-muted-foreground text-sm">
+                Provide responsive helpdesk and technical support for your users.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 px-6 bg-secondary/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-light text-foreground mb-6">
-            Transform Your HR Operations
+          <h2 className="text-3xl font-light text-white mb-6">
+            Ready for Hassle-Free IT Operations?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Empower your workforce with SAP SuccessFactors' comprehensive HCM solutions.
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Let our managed services experts keep your systems running smoothly and securely.
           </p>
-          <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3 moondust-glow">
-            Enhance Employee Experience
+          <Button size="lg" variant="secondary" className="px-8 py-3">
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

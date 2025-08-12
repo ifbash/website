@@ -3,67 +3,68 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  Workflow, 
-  Zap, 
-  Globe, 
-  Shield, 
-  Database, 
-  Settings,
+  Users,
+  BarChart3,
+  Award,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Settings,
+  Lightbulb,
+  ClipboardCheck,
+  Rocket
 } from "lucide-react";
 
-export default function IntegrationPage() {
+export default function ConsultingPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-950/20 dark:to-purple-950/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Workflow className="h-8 w-8 text-primary" />
-            <Badge variant="outline" className="text-primary border-primary/20">SAP</Badge>
+            <Lightbulb className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">Service</Badge>
           </div>
           <h1 className="text-4xl font-light text-foreground mb-4">
-            SAP Integration
+            Consulting Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Connect your SAP landscape with third-party systems through robust integration 
-            solutions that ensure seamless data flow and business process automation.
+            Unlock business value with expert consulting for strategy, process improvement, and technology enablement. 
+            Our consultants partner with you to deliver tailored solutions and measurable results.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* Consulting Solutions */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Integration Solutions</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Consulting Solutions</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Workflow className="h-6 w-6 text-primary" />
+                  <Settings className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">SAP Integration Suite</CardTitle>
+                <CardTitle className="text-lg">Business Process Consulting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Comprehensive integration platform for connecting SAP and non-SAP systems.
+                  Analyze, redesign, and optimize your business processes for efficiency and growth.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Cloud Integration</span>
+                    <span>Process Mapping & Analysis</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>API Management</span>
+                    <span>Workflow Optimization</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Event Mesh</span>
+                    <span>Performance Improvement</span>
                   </li>
                 </ul>
               </CardContent>
@@ -72,26 +73,26 @@ export default function IntegrationPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Zap className="h-6 w-6 text-chart-2" />
+                  <BarChart3 className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Process Orchestration</CardTitle>
+                <CardTitle className="text-lg">Technology Consulting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Orchestrate complex business processes across multiple systems.
+                  Leverage the right technologies to support your business strategy and digital transformation.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Workflow automation</span>
+                    <span>Platform Selection & Evaluation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Business rules</span>
+                    <span>Solution Architecture</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Exception handling</span>
+                    <span>Cloud & Digital Enablement</span>
                   </li>
                 </ul>
               </CardContent>
@@ -100,26 +101,26 @@ export default function IntegrationPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Globe className="h-6 w-6 text-chart-3" />
+                  <Users className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">API Management</CardTitle>
+                <CardTitle className="text-lg">Change Management Consulting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Secure and manage APIs for seamless system connectivity.
+                  Drive successful adoption of new processes and technologies through effective change management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>API gateway</span>
+                    <span>Stakeholder Engagement</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Developer portal</span>
+                    <span>Training & Enablement</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Analytics & monitoring</span>
+                    <span>Communication Planning</span>
                   </li>
                 </ul>
               </CardContent>
@@ -128,26 +129,26 @@ export default function IntegrationPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Database className="h-6 w-6 text-chart-4" />
+                  <ClipboardCheck className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Data Integration</CardTitle>
+                <CardTitle className="text-lg">Project Management Consulting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Real-time and batch data integration across your enterprise.
+                  Ensure your projects are delivered on time, within scope, and on budget.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Real-time replication</span>
+                    <span>Project Planning & Execution</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Data transformation</span>
+                    <span>Risk Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Master data sync</span>
+                    <span>Quality Assurance</span>
                   </li>
                 </ul>
               </CardContent>
@@ -156,54 +157,26 @@ export default function IntegrationPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Shield className="h-6 w-6 text-chart-5" />
+                  <Award className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Security & Governance</CardTitle>
+                <CardTitle className="text-lg">Performance & Analytics Consulting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Enterprise-grade security and governance for all integrations.
+                  Use data-driven insights to monitor, measure, and optimize business performance.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Identity management</span>
+                    <span>KPIs & Metrics Definition</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Data encryption</span>
+                    <span>Dashboard & Reporting</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Compliance monitoring</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Monitoring & Operations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Comprehensive monitoring and operational management capabilities.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Real-time monitoring</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Alerting & notifications</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Performance analytics</span>
+                    <span>Continuous Improvement</span>
                   </li>
                 </ul>
               </CardContent>
@@ -212,17 +185,66 @@ export default function IntegrationPage() {
         </div>
       </section>
 
+      {/* Consulting Approach */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Our Consulting Approach</h2>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Lightbulb className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">1. Discover</h3>
+              <p className="text-muted-foreground text-sm">
+                Assess your business needs, challenges, and opportunities.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Settings className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
+              <p className="text-muted-foreground text-sm">
+                Develop tailored strategies and solutions for your goals.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Rocket className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">3. Deliver</h3>
+              <p className="text-muted-foreground text-sm">
+                Execute solutions and drive measurable business outcomes.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
+              <p className="text-muted-foreground text-sm">
+                Monitor, analyze, and continuously improve results.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 px-6 bg-secondary/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-light text-foreground mb-6">
-            Connect Your Enterprise Ecosystem
+          <h2 className="text-3xl font-light text-white mb-6">
+            Ready to Elevate Your Business?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Build seamless integrations between SAP and third-party systems with enterprise-grade security and governance.
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Partner with our consulting experts to unlock new opportunities and drive transformation.
           </p>
-          <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3 moondust-glow">
-            Integrate Your Systems
+          <Button size="lg" variant="secondary" className="px-8 py-3">
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

@@ -3,95 +3,68 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
-  BarChart3, 
-  TrendingUp, 
-  Brain, 
-  Target, 
-  Database, 
-  Zap,
+  Settings,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Database,
+  Users,
+  BarChart3,
+  Rocket,
+  Layers,
+  ClipboardCheck
 } from "lucide-react";
 
-export default function AnalyticsCloudPage() {
+export default function ImplementationPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-cyan-50 to-blue-50 dark:from-cyan-950/20 dark:to-blue-950/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <BarChart3 className="h-8 w-8 text-chart-1" />
-            <Badge variant="outline" className="text-chart-1 border-chart-1/20">SAP</Badge>
+            <Rocket className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">Service</Badge>
           </div>
           <h1 className="text-4xl font-light text-foreground mb-4">
-            SAP Analytics Cloud
+            Implementation Services
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Unify business intelligence, planning, and predictive analytics in one cloud platform 
-            to drive data-driven decisions across your organization.
+            Seamless deployment of enterprise solutions tailored to your business needs. 
+            Our implementation experts ensure successful rollouts, integration, and adoption of platforms like ServiceNow and SAP.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* Implementation Solutions */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Analytics Cloud Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Implementation Solutions</h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-1" />
-                </div>
-                <CardTitle className="text-lg">Business Intelligence</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Create interactive dashboards and reports with self-service analytics.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Interactive dashboards</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Self-service analytics</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Mobile access</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Target className="h-6 w-6 text-primary" />
+                  <Settings className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Planning</CardTitle>
+                <CardTitle className="text-lg">Platform Deployment</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Collaborative planning and budgeting with real-time data integration.
+                  End-to-end deployment of ServiceNow, SAP, and other enterprise platforms.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Financial planning</span>
+                    <span>Solution Configuration</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Workforce planning</span>
+                    <span>Custom Module Development</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Sales planning</span>
+                    <span>System Integration</span>
                   </li>
                 </ul>
               </CardContent>
@@ -100,26 +73,26 @@ export default function AnalyticsCloudPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Brain className="h-6 w-6 text-chart-2" />
+                  <Database className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Predictive Analytics</CardTitle>
+                <CardTitle className="text-lg">Data Migration</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Machine learning and AI-powered insights for predictive analytics.
+                  Secure and efficient migration of legacy data to new platforms.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Machine learning</span>
+                    <span>Data Mapping & Cleansing</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Forecasting</span>
+                    <span>Migration Validation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Smart insights</span>
+                    <span>Post-Migration Support</span>
                   </li>
                 </ul>
               </CardContent>
@@ -128,26 +101,26 @@ export default function AnalyticsCloudPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Database className="h-6 w-6 text-chart-3" />
+                  <Layers className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Data Integration</CardTitle>
+                <CardTitle className="text-lg">Integration Services</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Connect and blend data from multiple sources for unified analytics.
+                  Connect your enterprise systems for seamless data flow and process automation.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Data connectors</span>
+                    <span>API & Middleware Integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Data preparation</span>
+                    <span>Third-Party System Connectivity</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Real-time data</span>
+                    <span>Process Automation</span>
                   </li>
                 </ul>
               </CardContent>
@@ -156,26 +129,26 @@ export default function AnalyticsCloudPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <TrendingUp className="h-6 w-6 text-chart-4" />
+                  <Users className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Enterprise Performance</CardTitle>
+                <CardTitle className="text-lg">User Enablement & Training</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Monitor KPIs and performance metrics across your organization.
+                  Empower your teams with hands-on training and enablement programs.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>KPI monitoring</span>
+                    <span>Role-Based Training</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Scorecards</span>
+                    <span>Knowledge Transfer</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Alerts & notifications</span>
+                    <span>Adoption Support</span>
                   </li>
                 </ul>
               </CardContent>
@@ -184,26 +157,26 @@ export default function AnalyticsCloudPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Zap className="h-6 w-6 text-chart-5" />
+                  <ClipboardCheck className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Augmented Analytics</CardTitle>
+                <CardTitle className="text-lg">Quality Assurance</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  AI-powered insights and automated data discovery capabilities.
+                  Rigorous testing and validation to ensure reliable solution performance.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Smart discovery</span>
+                    <span>Functional & UAT Testing</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Natural language</span>
+                    <span>Performance Validation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Auto insights</span>
+                    <span>Go-Live Readiness</span>
                   </li>
                 </ul>
               </CardContent>
@@ -212,17 +185,66 @@ export default function AnalyticsCloudPage() {
         </div>
       </section>
 
+      {/* Implementation Approach */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Our Implementation Approach</h2>
+          
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Settings className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">1. Plan</h3>
+              <p className="text-muted-foreground text-sm">
+                Define project scope, objectives, and success criteria.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Layers className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">2. Build</h3>
+              <p className="text-muted-foreground text-sm">
+                Configure, develop, and integrate solutions tailored to your needs.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <ClipboardCheck className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">3. Validate</h3>
+              <p className="text-muted-foreground text-sm">
+                Test and ensure quality, performance, and user acceptance.
+              </p>
+            </div>
+            
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Rocket className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">4. Launch</h3>
+              <p className="text-muted-foreground text-sm">
+                Go live with confidence and ongoing support for success.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 px-6 bg-secondary/20">
+      <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-light text-foreground mb-6">
-            Unlock the Power of Your Data
+          <h2 className="text-3xl font-light text-white mb-6">
+            Ready for Seamless Implementation?
           </h2>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Transform decision-making with SAP Analytics Cloud's unified platform for BI, planning, and predictive analytics.
+          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+            Let our implementation experts deliver reliable, scalable solutions for your business.
           </p>
-          <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3 moondust-glow">
-            Discover Analytics Insights
+          <Button size="lg" variant="secondary" className="px-8 py-3">
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

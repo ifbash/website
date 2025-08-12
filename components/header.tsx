@@ -130,39 +130,7 @@ const portfolioItems = {
       href: "/portfolio/servicenow/app-engine",
       description: "Custom Application Development and Platform Automation",
     },
-  ],
-  sap: [
-    {
-      title: "SAP S/4HANA",
-      href: "/portfolio/sap/s4hana",
-      description: "Next-generation ERP suite implementation and migration",
-    },
-    {
-      title: "SAP SuccessFactors",
-      href: "/portfolio/sap/successfactors",
-      description: "Cloud-based Human Capital Management solutions",
-    },
-    {
-      title: "SAP Ariba",
-      href: "/portfolio/sap/ariba",
-      description: "Procurement and supply chain management solutions",
-    },
-    {
-      title: "SAP Concur",
-      href: "/portfolio/sap/concur",
-      description: "Travel and expense management solutions",
-    },
-    {
-      title: "SAP Analytics Cloud",
-      href: "/portfolio/sap/analytics-cloud",
-      description: "Business intelligence and analytics platform",
-    },
-    {
-      title: "SAP Integration",
-      href: "/portfolio/sap/integration",
-      description: "API management and system integration solutions",
-    },
-  ],
+  ]
 };
 
 const industryItems = [
@@ -183,11 +151,11 @@ const industryItems = [
   },
   {
     title: "Technology Providers",
-    href: "/industries/technology",
+    href: "/industries/technology-provider",
     description: "Software and technology companies",
   },
   {
-    title: "Punlic Sector",
+    title: "Public Sector",
     href: "/industries/public-sector",
     description: "Government and public service organizations",
   },
@@ -350,18 +318,6 @@ export function Header() {
                       >
                         ServiceNow
                       </button>
-                      <button
-                        className={`px-4 py-2 font-semibold border-b-2 transition-colors bg-transparent text-[#1a2e61] ${
-                          portfolioTab === "sap"
-                            ? "border-primary text-primary"
-                            : "border-transparent hover:text-primary"
-                        }`}
-                        style={{ background: "transparent", boxShadow: "none" }}
-                        onMouseEnter={() => setPortfolioTab("sap")}
-                        onFocus={() => setPortfolioTab("sap")}
-                      >
-                        SAP
-                      </button>
                     </div>
                     <div>
                       {portfolioTab === "servicenow" && (
@@ -381,23 +337,7 @@ export function Header() {
                           ))}
                         </ul>
                       )}
-                      {portfolioTab === "sap" && (
-                        <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2">
-                          {portfolioItems.sap.map((item) => (
-                            <li key={item.title}>
-                              <Link
-                                href={item.href}
-                                className="block p-2 rounded-md hover:bg-accent transition-colors text-[#1a2e61]"
-                              >
-                                <div className="text-sm font-medium">{item.title}</div>
-                                <div className="text-xs mt-1" style={{ color: "#1a2e61" }}>
-                                  <span className="desc">{item.description}</span>
-                                </div>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
+                      
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -527,20 +467,6 @@ export function Header() {
                       <div className="text-sm font-medium text-foreground mb-2">ServiceNow</div>
                       <div className="space-y-1">
                         {portfolioItems.servicenow.slice(0, 3).map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            className="block text-xs text-muted-foreground hover:text-foreground"
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-sm font-medium text-foreground mb-2">SAP</div>
-                      <div className="space-y-1">
-                        {portfolioItems.sap.slice(0, 3).map((item) => (
                           <Link
                             key={item.title}
                             href={item.href}
