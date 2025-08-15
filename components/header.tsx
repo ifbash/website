@@ -523,7 +523,7 @@ export function Header() {
                 <NavigationMenuTrigger
                   className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
                 >
-                  Company
+                  Compan
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2 bg-white">
