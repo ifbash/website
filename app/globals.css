@@ -137,3 +137,9 @@
 .text-rotate-container {
   perspective: 400px;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Akkurat', 'Nunito Sans', Arial, sans-serif;
+}

@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Bolt, Workflow, Settings, CheckCircle, ArrowRight, BarChart3 } from "lucide-react";
+import { Bolt, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users } from "lucide-react";
 
 export default function EnergyUtilitiesPage() {
   return (
@@ -11,17 +11,36 @@ export default function EnergyUtilitiesPage() {
 
       {/* Hero Section */}
       <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex items-center space-x-3 mb-6">
-            <Bolt className="h-8 w-8 text-primary" />
-            <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
+          <div className="flex-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <Bolt className="h-8 w-8 text-primary" />
+              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+            </div>
+            <h1 className="text-4xl font-light text-foreground mb-4">
+              Energy & Utilities Industry Solutions
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
+              Modernize energy and utility operations, asset management, and customer service with ServiceNow-powered digital workflows and automation.
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-6">
+              <li>Automate asset tracking and field service operations</li>
+              <li>Enhance IT reliability and security</li>
+              <li>Deliver seamless customer support and analytics</li>
+              <li>Leverage data for smarter energy decisions</li>
+            </ul>
+            <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
+              Explore Energy & Utilities Solutions
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
-          <h1 className="text-4xl font-light text-foreground mb-4">
-            Energy & Utilities Industry Solutions
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Modernize energy and utility operations, asset management, and customer service with ServiceNow-powered digital workflows and automation.
-          </p>
+          <div className="flex-1 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
+              alt="Energy Utilities Innovation"
+              className="rounded-xl shadow-lg w-full max-w-md object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -119,6 +138,83 @@ export default function EnergyUtilitiesPage() {
         </div>
       </section>
 
+      {/* Energy & Utilities Transformation Benefits */}
+      <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-blue-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
+            Why Digital Transformation Matters in Energy & Utilities
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+                alt="Smart Grid"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Smart Grid & Reliability</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Integrate IoT and automation for predictive maintenance, outage management, and optimized grid operations.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Customer Experience"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Customer Experience</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Deliver seamless omni-channel support, proactive notifications, and personalized engagement for utility customers.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Sustainability & Analytics"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Sustainability & Analytics</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Use real-time analytics to optimize energy usage, reduce costs, and support sustainability initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Energy & Utilities Team & Collaboration */}
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
+            Collaboration & Growth in Energy & Utilities
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
+                alt="Energy Utilities Team"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Foster collaboration and knowledge sharing across field, IT, and customer service teams for faster innovation and growth.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
+                alt="Partner Collaboration"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Partner Collaboration</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Build strong partnerships with suppliers and regulators through transparent communication and shared data.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Approach Section */}
       <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
@@ -179,6 +275,13 @@ export default function EnergyUtilitiesPage() {
             Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+          <div className="mt-8 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+              alt="Energy Utilities Team"
+              className="rounded-xl shadow-lg w-full max-w-md object-cover"
+            />
+          </div>
         </div>
       </section>
     </div>

@@ -139,54 +139,122 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-16 px-6 bg-secondary/20">
+      <section className="py-16 px-6 bg-gradient-to-br from-[#e6f0fa] via-[#dbeafe] to-[#f7f8fa]">
         <div className="container mx-auto max-w-6xl">
           <ScrollAnimation className="text-center mb-16">
-            <h2 className="text-3xl font-light text-foreground mb-4">Our Expertise</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Specialized consulting services designed to maximize your technology investments
+            <h2 className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#6c28d9] via-[#26a3d9] to-[#1a2e61] mb-4 tracking-tight drop-shadow-lg">
+              ServiceNow Expertise: AI & CRM Transformation
+            </h2>
+            <p className="text-lg text-[#1a2e61] max-w-2xl mx-auto font-medium drop-shadow-sm">
+              We specialize in leveraging ServiceNow’s advanced AI and CRM capabilities to drive digital transformation, automation, and customer engagement.
             </p>
           </ScrollAnimation>
-          
-          <StaggerContainer className="grid md:grid-cols-2 gap-8">
-            {/* ServiceNow Card */}
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
+            {/* ServiceNow AI */}
             <StaggerItem>
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center">
-                      <Settings className="h-6 w-6 text-primary" />
-                    </div>
-                    <h3 className="text-2xl font-medium text-foreground">ServiceNow</h3>
+              <Card className="shadow-2xl border-none bg-gradient-to-br from-[#26a3d9]/60 via-white/80 to-[#6c28d9]/10 backdrop-blur-lg hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-8 flex flex-col items-center text-center">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#26a3d9] to-[#6c28d9] flex items-center justify-center mb-6 shadow-lg">
+                    <BarChart3 className="h-8 w-8 text-white" />
                   </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Complete ServiceNow platform implementation, from ITSM and ITOM to HR Service Delivery 
-                    and custom application development.
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#26a3d9] to-[#6c28d9] mb-2 drop-shadow">
+                    AI-Powered Automation
+                  </h3>
+                  <p className="text-base text-[#1a2e61] mb-4 font-medium">
+                    Harness ServiceNow’s Gen AI and Agentic AI to automate workflows, optimize processes, and deliver predictive insights.
                   </p>
-                  <ul className="space-y-3 mb-6">
-                    <li className="flex items-center space-x-2">
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#26a3d9] font-semibold">
                       <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">IT Service Management</span>
+                      <span>Gen AI for ITSM & HR</span>
                     </li>
-                    <li className="flex items-center space-x-2">
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#26a3d9] font-semibold">
                       <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">Security Operations</span>
+                      <span>Agentic AI Workflows</span>
                     </li>
-                    <li className="flex items-center space-x-2">
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#26a3d9] font-semibold">
                       <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-foreground/80">HR Service Delivery</span>
+                      <span>Process Optimization</span>
                     </li>
                   </ul>
-                  <Link href="/portfolio/servicenow">
-                    <Button variant="outline" className="w-full">
-                      Explore ServiceNow Solutions
+                  <Link href="/services/gen-ai">
+                    <Button variant="outline" className="w-full bg-gradient-to-r from-[#26a3d9] to-[#6c28d9] text-white font-bold hover:from-[#6c28d9] hover:to-[#26a3d9]">
+                      Explore ServiceNow AI
                     </Button>
                   </Link>
                 </CardContent>
               </Card>
             </StaggerItem>
-
-           
+            {/* ServiceNow CRM */}
+            <StaggerItem>
+              <Card className="shadow-2xl border-none bg-gradient-to-br from-[#6c28d9]/60 via-white/80 to-[#26a3d9]/10 backdrop-blur-lg hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-8 flex flex-col items-center text-center">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#6c28d9] to-[#26a3d9] flex items-center justify-center mb-6 shadow-lg">
+                    <Users className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#6c28d9] to-[#26a3d9] mb-2 drop-shadow">
+                    CRM Driven Experiences
+                  </h3>
+                  <p className="text-base text-[#1a2e61] mb-4 font-medium">
+                    Deliver personalized customer journeys and omnichannel engagement with ServiceNow’s CRM solutions.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#6c28d9] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Customer 360° Insights</span>
+                    </li>
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#6c28d9] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Omnichannel Engagement</span>
+                    </li>
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#6c28d9] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>CRM Integration</span>
+                    </li>
+                  </ul>
+                  <Link href="/services/crm">
+                    <Button variant="outline" className="w-full bg-gradient-to-r from-[#6c28d9] to-[#26a3d9] text-white font-bold hover:from-[#26a3d9] hover:to-[#6c28d9]">
+                      Enhance ServiceNow CRM
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </StaggerItem>
+            {/* ServiceNow Platform */}
+            <StaggerItem>
+              <Card className="shadow-2xl border-none bg-gradient-to-br from-[#1a2e61]/60 via-white/80 to-[#26a3d9]/10 backdrop-blur-lg hover:scale-105 transition-transform duration-300">
+                <CardContent className="p-8 flex flex-col items-center text-center">
+                  <div className="h-16 w-16 rounded-full bg-gradient-to-br from-[#1a2e61] to-[#26a3d9] flex items-center justify-center mb-6 shadow-lg">
+                    <Settings className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#1a2e61] to-[#26a3d9] mb-2 drop-shadow">
+                    ServiceNow Platform
+                  </h3>
+                  <p className="text-base text-[#1a2e61] mb-4 font-medium">
+                    Full-spectrum ServiceNow consulting: implementation, integration, and managed services for enterprise transformation.
+                  </p>
+                  <ul className="space-y-2 mb-4">
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#1a2e61] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>ITSM, HRSD, SecOps</span>
+                    </li>
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#1a2e61] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Integration & Automation</span>
+                    </li>
+                    <li className="flex items-center justify-center space-x-2 text-sm text-[#1a2e61] font-semibold">
+                      <CheckCircle className="h-4 w-4 text-green-500" />
+                      <span>Managed Services</span>
+                    </li>
+                  </ul>
+                  <Link href="/portfolio/servicenow">
+                    <Button variant="outline" className="w-full bg-gradient-to-r from-[#1a2e61] to-[#26a3d9] text-white font-bold hover:from-[#26a3d9] hover:to-[#1a2e61]">
+                      Discover ServiceNow Platform
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            </StaggerItem>
           </StaggerContainer>
         </div>
       </section>

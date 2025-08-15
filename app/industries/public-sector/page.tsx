@@ -2,7 +2,7 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Building, Workflow, Settings, CheckCircle, ArrowRight, BarChart3 } from "lucide-react";
+import { Building, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users } from "lucide-react";
 
 export default function PublicSectorPage() {
   return (
@@ -11,17 +11,36 @@ export default function PublicSectorPage() {
 
       {/* Hero Section */}
       <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <div className="flex items-center space-x-3 mb-6">
-            <Building className="h-8 w-8 text-primary" />
-            <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+        <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
+          <div className="flex-1">
+            <div className="flex items-center space-x-3 mb-6">
+              <Building className="h-8 w-8 text-primary" />
+              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+            </div>
+            <h1 className="text-4xl font-light text-foreground mb-4">
+              Public Sector Solutions
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
+              Modernize government and public service organizations with ServiceNow-powered digital workflows, improving citizen services, operational efficiency, and compliance.
+            </p>
+            <ul className="list-disc pl-6 text-muted-foreground mb-6">
+              <li>Deliver responsive and transparent citizen services</li>
+              <li>Automate regulatory compliance and reporting</li>
+              <li>Enhance IT reliability and security</li>
+              <li>Empower teams for better collaboration and innovation</li>
+            </ul>
+            <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
+              Explore Public Sector Solutions
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
           </div>
-          <h1 className="text-4xl font-light text-foreground mb-4">
-            Public Sector Solutions
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Modernize government and public service organizations with ServiceNow-powered digital workflows, improving citizen services, operational efficiency, and compliance.
-          </p>
+          <div className="flex-1 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=600&q=80"
+              alt="Public Sector Innovation"
+              className="rounded-xl shadow-lg w-full max-w-md object-cover"
+            />
+          </div>
         </div>
       </section>
 
@@ -32,7 +51,7 @@ export default function PublicSectorPage() {
             ServiceNow for Government & Public Services: Key Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Workflow className="h-6 w-6 text-primary" />
@@ -60,10 +79,10 @@ export default function PublicSectorPage() {
               </CardContent>
             </Card>
 
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-chart-2" />
+                <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center mb-3">
+                  <Settings className="h-6 w-6 text-indigo-600" />
                 </div>
                 <CardTitle className="text-lg">IT & Operations Management</CardTitle>
               </CardHeader>
@@ -88,10 +107,10 @@ export default function PublicSectorPage() {
               </CardContent>
             </Card>
 
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-3" />
+                <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3">
+                  <BarChart3 className="h-6 w-6 text-blue-600" />
                 </div>
                 <CardTitle className="text-lg">Regulatory Compliance & Reporting</CardTitle>
               </CardHeader>
@@ -115,6 +134,83 @@ export default function PublicSectorPage() {
                 </ul>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Public Sector Transformation Benefits */}
+      <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-blue-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
+            Why Digital Transformation Matters in the Public Sector
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+                alt="Citizen Services"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Citizen Services</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Deliver faster, more transparent services to citizens with digital portals and automated workflows.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                alt="Operational Efficiency"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Operational Efficiency</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Streamline government operations, reduce manual work, and improve service delivery with automation.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
+                alt="Compliance & Security"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Compliance & Security</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Automate regulatory compliance, documentation, and reporting to meet public sector standards and audits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Public Sector Team & Collaboration */}
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
+            Collaboration & Innovation in Public Services
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
+                alt="Public Sector Team"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Foster collaboration and knowledge sharing across departments for faster problem-solving and innovation.
+              </p>
+            </div>
+            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
+              <img
+                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
+                alt="Community Engagement"
+                className="h-24 w-full object-cover rounded-lg mb-4"
+              />
+              <h3 className="text-lg font-semibold text-primary mb-2">Community Engagement</h3>
+              <p className="text-muted-foreground text-sm text-center">
+                Build trust and transparency with citizens through open communication and digital engagement platforms.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -179,6 +275,13 @@ export default function PublicSectorPage() {
             Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
+          <div className="mt-8 flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+              alt="Public Sector Team"
+              className="rounded-xl shadow-lg w-full max-w-md object-cover"
+            />
+          </div>
         </div>
       </section>
     </div>

@@ -69,7 +69,10 @@ export default function AboutUsPage() {
             Our Story
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
-            Founded by passionate technologists, our organization has grown into a trusted ServiceNow partner serving clients across industries and continents. We believe in the power of digital workflows to transform how people work, connect, and innovate.
+            The name <b>ifBash</b> is our philosophy. <br /><br />
+            <b>“if”</b> stands for curiosity—the power of asking “why?” and challenging what’s possible. Every transformation begins with a question: <i>“What if we could do things better?”</i><br /><br />
+            <b>“Bash”</b> is our commitment to action—solving the “if” and “why” with technology, creativity, and expertise. We turn questions into solutions, using ServiceNow and digital innovation to make a real impact.<br /><br />
+            Our story is about combining vision and execution. We believe every “if” deserves a “Bash”—and that’s how we help organizations transform, grow, and succeed.
           </p>
           <Button variant="secondary" size="lg" className="px-8 py-3">
             Learn More About Our Journey

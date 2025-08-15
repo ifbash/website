@@ -388,25 +388,25 @@ export function Header() {
       className="sticky top-0 z-50 w-full border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/60"
       style={{ backgroundColor: "#fff", color: "#1a2e61" }}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-6">
+      <div className="container mx-auto flex h-16 items-center justify-between px-8">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="h-8 w-8 rounded moondust-gradient flex items-center justify-center moondust-glow" style={{ background: "#1a2e61" }}>
-              <span className="text-white font-bold text-sm">IB</span>
+          <Link href="/" className="flex items-center space-x-4">
+            <div className="h-10 w-10 rounded moondust-gradient flex items-center justify-center moondust-glow" style={{ background: "#1a2e61" }}>
+              <span className="text-white font-bold text-base">IB</span>
             </div>
             <span className="font-semibold text-xl moondust-text-gradient" style={{ color: "#1a2e61" }}>ifBash</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-1">
+        <div className="hidden lg:flex items-center space-x-2">
           <NavigationMenu>
             <NavigationMenuList>
               {/* Services */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
                 >
                   Services
                 </NavigationMenuTrigger>
@@ -428,26 +428,12 @@ export function Header() {
 
               {/* Portfolio */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                <NavigationMenuTrigger className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
                 >
                   Portfolio
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="w-[875px] p-4 bg-white">
-                    {/* <div className="flex space-x-6 border-b border-border mb-4">
-                      <button
-                        className={`px-4 py-2 font-semibold border-b-2 transition-colors bg-transparent text-[#1a2e61] ${
-                          portfolioTab === "servicenow"
-                            ? "border-primary text-primary"
-                            : "border-transparent hover:text-primary"
-                        }`}
-                        style={{ background: "transparent", boxShadow: "none" }}
-                        onMouseEnter={() => setPortfolioTab("servicenow")}
-                        onFocus={() => setPortfolioTab("servicenow")}
-                      >
-                        ServiceNow
-                      </button>
-                    </div> */}
                     <div>
                       {portfolioTab === "servicenow" && (
                         <ul className="grid w-[825px] gap-2 p-4 md:grid-cols-3">
@@ -466,7 +452,6 @@ export function Header() {
                           ))}
                         </ul>
                       )}
-                      
                     </div>
                   </div>
                 </NavigationMenuContent>
@@ -475,7 +460,7 @@ export function Header() {
               {/* Solutions */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
                 >
                   Solutions
                 </NavigationMenuTrigger>
@@ -497,7 +482,7 @@ export function Header() {
               {/* Industries */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
                 >
                   Industries
                 </NavigationMenuTrigger>
@@ -521,7 +506,7 @@ export function Header() {
               {/* Company */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
                 >
                   Company
                 </NavigationMenuTrigger>
@@ -550,47 +535,47 @@ export function Header() {
         {/* Right Side Actions */}
         <div className="flex items-center space-x-4">
           {/* Learning Center */}
-          <Link href="/learning-center" legacyBehavior passHref>
+          <Link href="/learning-center">
             <Button
               variant="outline"
               size="sm"
-              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-7"
+              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-8"
             >
               Learning Center
             </Button>
           </Link>
 
-          <Link href="/learning-center" legacyBehavior passHref>
+          <Link href="/learning-center">
             <Button
               variant="outline"
               size="sm"
-              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-7"
+              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-8"
             >
               Contact Us
             </Button>
           </Link>
 
           {/* Language Selector */}
-          <div style={{ position: "relative", left: "-50px" }}>
+          <div>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-white"
+                  className="text-white text-base font-semibold px-4 py-2 h-8"
                   style={{ color: "#1a2e61" }}
                 >
-                  <Globe className="h-4 w-4 mr-1" />
+                  <Globe className="h-5 w-5 mr-2" />
                   {languages.find(lang => lang.code === currentLanguage)?.code}
-                  <ChevronDown className="h-3 w-3 ml-1" />
+                  <ChevronDown className="h-4 w-4 ml-2" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-10 bg-white">
+              <DropdownMenuContent align="end" className="w-32 bg-white">
                 {languages.map((language) => (
                   <DropdownMenuItem
                     key={language.code}
                     onClick={() => setCurrentLanguage(language.code)}
-                    className="flex items-center space-x-2"
+                    className="flex items-center space-x-2 text-base"
                   >
                     <span>{language.name}</span>
                   </DropdownMenuItem>
