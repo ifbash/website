@@ -1,3 +1,5 @@
+"use client";
+
 import { Header } from "@/components/header";
 import { ScrollAnimation, StaggerContainer, StaggerItem } from "@/components/scroll-animation";
 import { Button } from "@/components/ui/button";
@@ -13,8 +15,27 @@ import {
   Globe
 } from "lucide-react";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+const rollerPoints = [
+  "Unlock the full potential of your business with ServiceNow's powerful AI and CRM capabilities.",
+  "Accelerate Workflows — AI-driven automation eliminates bottlenecks for faster results.",
+  "Build Deeper Relationships — CRM tools make every customer interaction meaningful.",
+  "Experience a future where speed meets connection — all in one platform.",
+];
 
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % rollerPoints.length);
+    }, 6000); // Change text every 3 seconds
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -26,22 +47,21 @@ export default function Home() {
           background: "linear-gradient(135deg, #f7f8fa 60%, #e6f0fa 100%)",
         }}
       >
-        {/* Beautiful Light Blue Soothing Background Image with Decorative Overlay */}
+        {/* Hero Background Image */}
         <div
           aria-hidden="true"
           className="absolute inset-0 w-full h-full"
           style={{
-            backgroundImage: `
-              linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%),
-              url('http://backgroundsy.com/wp-content/uploads/light-blue-background.jpg')
-            `,
+            backgroundImage:
+              "linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%), url('http://backgroundsy.com/wp-content/uploads/light-blue-background.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             opacity: 1,
             zIndex: 0,
-            pointerEvents: "none",
+            pointerEvents: "none"
           }}
-        />
+        ></div>
+        
         {/* Decorative SVG shapes for extra design */}
         <svg
           className="absolute top-0 left-0 w-full h-full pointer-events-none"
@@ -59,44 +79,62 @@ export default function Home() {
           <circle cx="200" cy="220" r="40" fill="#6c28d9" fillOpacity="0.10" />
         </svg>
         <div className="container mx-auto max-w-6xl relative z-10">
-          <ScrollAnimation className="text-center space-y-8">
-            <ScrollAnimation delay={0.2}>
-              <h1 className="text-5xl md:text-6xl font-light text-[#1a2e61] leading-tight">
-                Transform Your Business with
-                <span
-                  className="block font-medium"
-                  style={{
+          <div className="text-center space-y-10">
+            <h1 className="text-5xl md:text-6xl font-light text-[#1a2e61] leading-tight">
+              Transform with
+              <span style={{
                     background: "linear-gradient(135deg, #6c28d9, #26a3d9)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                  }}
+                    fontWeight: 600
+                  }}> ServiceNow </span>
+                <span
+                  className="block font-medium"                  
                 >
-                  ServiceNow
+                Smarter with  <span style={{
+                    background: "linear-gradient(135deg, #6c28d9, #26a3d9)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: "600"
+                  }}>AI</span>, Stronger with  <span style={{
+                    background: "linear-gradient(135deg, #6c28d9, #26a3d9)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    fontWeight: 600
+                  }}>CRM</span>
                 </span>
-              </h1>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.4}>
-              <p className="text-xl text-[#1a2e61] max-w-3xl mx-auto leading-relaxed opacity-80">
-                We deliver enterprise-grade consulting services that streamline operations, 
-                enhance productivity, and drive digital transformation across your organization.
-              </p>
-            </ScrollAnimation>
-            <ScrollAnimation delay={0.6}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3 moondust-glow">
-                  Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="px-8 py-3 text-white bg-[#1a2e61] border-[#1a2e61] hover:bg-[#1a2e61] hover:text-white"
+            </h1>
+            {/* Roller Animation */}
+            <div className="relative h-24 mt-4 flex items-center justify-center overflow-hidden" style={{ perspective: 600 }}>
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{
+                    opacity: 0,
+                    y: -60,
+                    rotateX: 90,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    rotateX: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 60,
+                    rotateX: -90,
+                  }}
+                  transition={{ duration: 0.7, ease: "easeInOut" }}
+                  className="absolute w-full"
                 >
-                  View Our Work
-                </Button>
-              </div>
-            </ScrollAnimation>
-          </ScrollAnimation>
+                  <p className="text-3xl text-center text-[#1a2e61] max-w-3xl mx-auto leading-relaxed opacity-80">
+                    {rollerPoints[currentIndex]}
+                  </p>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+            {/* End Roller Animation */}
+          </div>
         </div>
       </section>
 

@@ -108,6 +108,7 @@
 .desc{
     font-size: 12px; /* 14px */
   -webkit-text-fill-color: #1a2e61;  
+  display: none;
 }
 .leading-snug {
     line-height: 1.375;
@@ -120,4 +121,19 @@
     animation-duration: 2.5s;
     animation-iteration-count: infinite;
     transform-origin: 50% 100%;
+}
+
+@keyframes rotate {
+  0% {
+    transform: perspective(400px) rotateX(-90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(400px) rotateX(0);
+    opacity: 1;
+  }
+}
+
+.text-rotate-container {
+  perspective: 400px;
 }

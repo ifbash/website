@@ -26,16 +26,30 @@ import {
   ChevronDown,
   Settings,
   Database,
+  Briefcase,
+  MapPin,
+  Newspaper,
   Users,
+  Info,
   BarChart3,
   Shield,
   Workflow,
   Building,
   GraduationCap,
-  Briefcase,
+  Car,
+  Factory,
+  ShoppingBag,
+  HeartPulse,
+  FlaskConical,
+  Wifi,
+  Bolt,
+  Building2,
+  MonitorSmartphone,
+  Landmark,
 } from "lucide-react";
 import { title } from "node:process";
 import { useState } from "react";
+import { Portal } from "vaul";
 
 const serviceItems = [
   
@@ -50,6 +64,18 @@ const serviceItems = [
     href: "/services/implementation",
     description: "End-to-end implementation and configuration",
     icon: Settings,
+  },  
+  {
+    title: "Gen AI and Agentic AI",
+    href: "/services/gen-ai",
+    description: "AI-driven solutions for enhanced business processes",
+    icon: GraduationCap,
+  },
+  {
+    title: "CRM Driven Experiences ",
+    href: "/services/crm",
+    description: "Tailored CRM solutions for enhanced customer engagement",
+    icon: Briefcase,
   },
   {
     title: "Consulting",  
@@ -89,46 +115,91 @@ const portfolioItems = {
       href: "/portfolio/servicenow/itom",
       description: "Discovery, Event Management, and Orchestration",
     },
-     {
-      title: "Governance, Risk, and Compliance (GRC)",
-      href: "/portfolio/servicenow/grc",
-      description: "Policy and Compliance Management",
-    },
     {
       title: "Security Operations (SecOps)",
       href: "/portfolio/servicenow/secops",
       description: "Vulnerability Response and Security Incident Response",
     },
     {
-      title: "HR Service Delivery",
+      title: "HR Service Delivery (HRSD)",
       href: "/portfolio/servicenow/hrsd",
       description: "Employee Service Center and HR Case Management",
     },
     {
-      title: "Customer Service Management",
+      title: "Workflow Data Fabric (WDF)",
+      href: "/portfolio/servicenow/workflow",
+      description: "Workflow Automation and Orchestration",
+    },
+    {
+      title: "Workplace Service Delivery (WSD)",
+      href: "/portfolio/servicenow/workplace",
+      description: "Workplace Services and Employee Experience",
+    },
+    {
+      title: "Customer Service Management (CSM)",
       href: "/portfolio/servicenow/csm",
       description: "Customer Service Operations and Field Service Management",
     },    
     {
-      title: "Field Service Management",
+      title: "Field Service Management (FSM)",
       href: "/portfolio/servicenow/field-service",
       description: "Field Service Operations and Scheduling",
+    },
+    {
+      title: "Strategic Portfolio Management (SPM)",
+      href: "/portfolio/servicenow/spm",
+      description: "Strategic Planning and Portfolio Management",
     },
     {
       title: "IT Asset Management (SAM / HAM)",
       href: "/portfolio/servicenow/itam",
       description: "Asset Lifecycle Management and Software Asset Management",
     },
-    
+    {
+      title: "Enterprise Asset Management (EAM)",
+      href: "/portfolio/servicenow/eam",
+      description: "Enterprise Asset Management and Optimization",
+    },
+    {
+      title: "Sourcing and Procurement Operations (SPO)",
+      href: "/portfolio/servicenow/sourcing",
+      description: "Sourcing and Procurement Management",
+    },
+    {
+      title: "Service Portal",
+      href: "/portfolio/servicenow/service-portal",
+      description: "Service Portal for User Self-Service",
+    },
+    {
+      title: "Integration",
+      href: "/portfolio/servicenow/integration",
+      description: "Integration Solutions for ServiceNow",
+    },
+    {
+      title: "Sales and Order Management (SOM)",
+      href: "/portfolio/servicenow/sales-order",
+      description: "Sales and Order Management Solutions",
+    },
     {
       title: "IT Business Management (ITBM)",
       href: "/portfolio/servicenow/itbm",
       description: "Project Portfolio Management and Financial Management",
     },
     {
-      title: "App Engine & Development",
+      title: "App Engine & Development (AED)",
       href: "/portfolio/servicenow/app-engine",
       description: "Custom Application Development and Platform Automation",
+    },
+    
+     {
+      title: "Governance, Risk, and Compliance (GRC)",
+      href: "/portfolio/servicenow/grc",
+      description: "Policy and Compliance Management",
+    },    
+    {
+      title: "Telecommunication Service Management (TSM)",
+      href: "/portfolio/servicenow/telecom",
+      description: "Telecom Service Operations and Management",
     },
   ]
 };
@@ -138,51 +209,61 @@ const industryItems = [
     title: "Automotive",
     href: "/industries/automotive",
     description: "Automotive manufacturing and supply chain solutions",
+    icon: Car,
   },
   {
     title: "Manufacturing",
     href: "/industries/manufacturing",
     description: "Discrete and process manufacturing solutions",
+    icon: Factory,
   },
   {
     title: "Consumer Goods",
     href: "/industries/consumer-goods",
     description: "Consumer products and retail solutions",
+    icon: ShoppingBag,
   },
   {
     title: "Technology Providers",
     href: "/industries/technology-provider",
     description: "Software and technology companies",
+    icon: MonitorSmartphone,
   },
   {
     title: "Public Sector",
     href: "/industries/public-sector",
     description: "Government and public service organizations",
+    icon: Landmark, // Updated to use Landmark icon
   },
   {
     title: "Healthcare",
     href: "/industries/healthcare",
     description: "Healthcare providers and life sciences solutions",
+    icon: HeartPulse,
   },
   {
     title: "Life Sciences",
     href: "/industries/life-sciences",
     description: "Pharmaceuticals and biotechnology solutions",
+    icon: FlaskConical,
   },
   {
     title: "Retail",
     href: "/industries/retail",
     description: "Retail operations and consumer goods",
+    icon: ShoppingBag,
   },
   {
     title: "Telecoms",
     href: "/industries/telecoms",
     description: "Telecom service providers and network solutions",
+    icon: Wifi,
   },
   {
     title: "Energy & Utilities",
     href: "/industries/energy-utilities",
     description: "Energy production and utility management solutions",
+    icon: Bolt,
   },
   
 ];
@@ -192,21 +273,25 @@ const companyItems = [
     title: "Careers",
     href: "/company/careers",
     description: "Join our team and shape the future of technology consulting",
+    icon: Users,
   },
   {
     title: "Location",
     href: "/company/location",
     description: "Find our offices and remote work opportunities",
+    icon: MapPin,
   },
   {
     title: "Newsroom",
     href: "/company/newsroom",
     description: "Latest news and updates from our company",
+    icon: Newspaper,
   },
   {
     title: "About Us",
     href: "/company/about",
     description: "Learn more about our company and values",
+    icon: Info,
   },
 ];
 
@@ -215,6 +300,19 @@ const languages = [
   { code: "ar", name: "العربية", flag: "🇸🇦" },
   { code: "es", name: "Español", flag: "🇪🇸" },
   { code: "de", name: "Deutsch", flag: "🇩🇪" },
+];
+
+const solutionsItems = [
+  { title: "CRM", href: "/solutions/crm", icon: Briefcase },
+  { title: "Risk and Security", href: "/solutions/risk-security", icon: Shield },
+  { title: "Employee", href: "/solutions/employee", icon: Users },
+  { title: "Customer", href: "/solutions/customer", icon: BarChart3 },
+  { title: "Technology", href: "/solutions/technology", icon: Settings },
+  { title: "Human Resources", href: "/solutions/hr", icon: GraduationCap },
+  { title: "Finance and Supply Chain", href: "/solutions/finance-supply", icon: Database },
+  { title: "IT and Digital Operations", href: "/solutions/it-digital", icon: Workflow },
+  { title: "App Development", href: "/solutions/app-development", icon: Building },
+  { title: "Core Business Transformation", href: "/solutions/core-business", icon: Globe },
 ];
 
 const ListItem = React.forwardRef<
@@ -249,6 +347,37 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
+const SolutionListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a"> & {
+    title: string;
+    icon?: React.ComponentType<{ className?: string }>;
+    href: string;
+  }
+>(({ className, title, icon: Icon, href, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          href={href}
+          className={cn(
+            "block select-none space-x-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group font-large text-[#1a2e61]",
+            className
+          )}
+          {...props}
+        >
+          <div className="flex items-center space-x-2">
+            {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground" />}
+            <span className="text-sm font-medium leading-none">{title}</span>
+          </div>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+SolutionListItem.displayName = "SolutionListItem";
 
 export function Header() {
   const [currentLanguage, setCurrentLanguage] = React.useState("en");
@@ -304,8 +433,8 @@ export function Header() {
                   Portfolio
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[550px] p-4 bg-white">
-                    <div className="flex space-x-6 border-b border-border mb-4">
+                  <div className="w-[875px] p-4 bg-white">
+                    {/* <div className="flex space-x-6 border-b border-border mb-4">
                       <button
                         className={`px-4 py-2 font-semibold border-b-2 transition-colors bg-transparent text-[#1a2e61] ${
                           portfolioTab === "servicenow"
@@ -318,10 +447,10 @@ export function Header() {
                       >
                         ServiceNow
                       </button>
-                    </div>
+                    </div> */}
                     <div>
                       {portfolioTab === "servicenow" && (
-                        <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2">
+                        <ul className="grid w-[825px] gap-2 p-4 md:grid-cols-3">
                           {portfolioItems.servicenow.map((item) => (
                             <li key={item.title}>
                               <Link
@@ -343,6 +472,28 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
+              {/* Solutions */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger
+                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient"
+                >
+                  Solutions
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2 bg-white">
+                    {solutionsItems.map((item) => (
+                      <SolutionListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        icon={item.icon}
+                        className="bg-white hover:bg-accent transition-colors font-large text-[#1a2e61]"
+                      />
+                    ))}
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
               {/* Industries */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
@@ -357,7 +508,8 @@ export function Header() {
                         key={item.title}
                         title={item.title}
                         href={item.href}
-                        icon={Building} className="bg-white hover:bg-accent transition-colors text-[#1a2e61]"
+                        icon={item.icon}
+                        className="bg-white hover:bg-accent transition-colors text-[#1a2e61]"
                       >
                         <span className="desc">{item.description}</span>
                       </ListItem>
@@ -380,7 +532,8 @@ export function Header() {
                         key={item.title}
                         title={item.title}
                         href={item.href}
-                        icon={Building} className="bg-white hover:bg-accent transition-colors text-[#1a2e61]"
+                        icon={item.icon}
+                        className="bg-white hover:bg-accent transition-colors text-[#1a2e61]"
                       >
                         <span className="desc">{item.description}</span>
                       </ListItem>
@@ -389,11 +542,7 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              <NavigationMenuItem>
-                <NavigationMenuLink href="/contactus" className="bg-transparent border-none shadow-none font-medium px-4 py-2 transition-colors moondust-text-gradient">
-                  Contact Us
-                </NavigationMenuLink>
-              </NavigationMenuItem>
+              
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -402,37 +551,53 @@ export function Header() {
         <div className="flex items-center space-x-4">
           {/* Learning Center */}
           <Link href="/learning-center" legacyBehavior passHref>
-            <Button variant="outline" size="sm" className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 h-11 rounded-md moondust-gradient hover:opacity-90 text-white px-8 py-3 moondust-glow">
+            <Button
+              variant="outline"
+              size="sm"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-7"
+            >
               Learning Center
             </Button>
           </Link>
 
+          <Link href="/learning-center" legacyBehavior passHref>
+            <Button
+              variant="outline"
+              size="sm"
+              className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-7"
+            >
+              Contact Us
+            </Button>
+          </Link>
+
           {/* Language Selector */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="text-white"
-                style={{ backgroundColor: "#1a2e61" }}
-              >
-                <Globe className="h-4 w-4 mr-1" />
-                {languages.find(lang => lang.code === currentLanguage)?.name}
-                <ChevronDown className="h-3 w-3 ml-1" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-10 bg-white">
-              {languages.map((language) => (
-                <DropdownMenuItem
-                  key={language.code}
-                  onClick={() => setCurrentLanguage(language.code)}
-                  className="flex items-center space-x-2"
+          <div style={{ position: "relative", left: "-50px" }}>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-white"
+                  style={{ color: "#1a2e61" }}
                 >
-                  <span>{language.name}</span>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+                  <Globe className="h-4 w-4 mr-1" />
+                  {languages.find(lang => lang.code === currentLanguage)?.code}
+                  <ChevronDown className="h-3 w-3 ml-1" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-10 bg-white">
+                {languages.map((language) => (
+                  <DropdownMenuItem
+                    key={language.code}
+                    onClick={() => setCurrentLanguage(language.code)}
+                    className="flex items-center space-x-2"
+                  >
+                    <span>{language.name}</span>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
 
           {/* Mobile Menu */}
           <div className="lg:hidden">

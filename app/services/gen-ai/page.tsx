@@ -3,52 +3,56 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Brain,
+  Bot,
   Users,
   BarChart3,
-  Award,
-  CheckCircle,
-  ArrowRight,
-  Lightbulb,
   Rocket,
   Shield,
   Star,
   Quote,
-  Settings,
-  TrendingUp,
-  Compass,
+  Sparkles,
+  Workflow,
+  CheckCircle,
+  ArrowRight,
 } from "lucide-react";
 
-export default function AdvisoryPage() {
+export default function GenAIPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
       <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50 relative overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-30" style={{
-          backgroundImage: `
-            linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%),
-            url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1200&q=80')
-          `,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }} />
+        <div
+          className="absolute inset-0 z-0 opacity-30"
+          style={{
+            backgroundImage: `
+              linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%),
+              url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80')
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="flex items-center space-x-3 mb-6">
-            <Compass className="h-8 w-8 text-primary" />
-            <Badge variant="outline" className="text-primary border-primary/20">Service</Badge>
+            <Sparkles className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">
+              Service
+            </Badge>
           </div>
           <h1 className="text-4xl font-light text-foreground mb-4">
-            Advisory Services for ServiceNow, AI & CRM
+            Gen AI & Agentic AI Solutions for ServiceNow, AI & CRM
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Empower your leadership team with strategic advisory for ServiceNow, AI, and CRM. Navigate digital transformation, maximize ROI, and future-proof your enterprise with expert guidance tailored to your business goals.
+            Unlock the next level of automation and intelligence with Generative AI and Agentic AI. Enhance ServiceNow workflows, CRM engagement, and business decision-making with advanced AI agents that learn, adapt, and act autonomously.
           </p>
           {/* Executive Quote/Testimonial */}
           <div className="mt-8 flex items-center justify-center">
             <Quote className="h-6 w-6 text-primary mr-2" />
             <span className="italic text-lg text-muted-foreground max-w-2xl">
-              “ifBash’s advisory team helped us define our digital roadmap and unlock new value from ServiceNow and AI. Our board saw a 30% increase in strategic project success and a 20% boost in customer engagement.”
+              “Gen AI agents from ifBash transformed our customer service and internal operations. We saw a 50% reduction in manual tasks and a 35% increase in customer satisfaction within months.”
             </span>
             <Star className="h-5 w-5 text-yellow-400 ml-2" />
           </div>
@@ -60,57 +64,59 @@ export default function AdvisoryPage() {
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <h3 className="text-3xl font-bold text-primary mb-2">30%</h3>
-              <p className="text-muted-foreground">Increase in Strategic Project Success</p>
+              <h3 className="text-3xl font-bold text-primary mb-2">50%</h3>
+              <p className="text-muted-foreground">Reduction in Manual Workflows</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-primary mb-2">20%</h3>
-              <p className="text-muted-foreground">Boost in Customer Engagement</p>
+              <h3 className="text-3xl font-bold text-primary mb-2">35%</h3>
+              <p className="text-muted-foreground">Increase in Customer Satisfaction</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-primary mb-2">99.5%</h3>
-              <p className="text-muted-foreground">Executive Satisfaction Rate</p>
+              <h3 className="text-3xl font-bold text-primary mb-2">24/7</h3>
+              <p className="text-muted-foreground">AI Agent Availability</p>
             </div>
           </div>
           <div className="mt-8 text-center">
             <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-              Case Study: Advisory for Digital Transformation in Insurance
+              Case Study: AI-Driven Transformation in Retail
             </span>
             <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              An insurance leader partnered with ifBash for strategic advisory on ServiceNow and AI. The result: a clear transformation roadmap, accelerated project delivery, and measurable improvements in customer experience.
+              A leading retailer partnered with ifBash to deploy Gen AI and Agentic AI agents integrated with ServiceNow and CRM. The result: automated support, predictive sales insights, and round-the-clock customer engagement.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Advisory Solutions */}
+      {/* Gen AI & Agentic AI Solutions */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Advisory Solutions</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">
+            Gen AI & Agentic AI Solutions
+          </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Lightbulb className="h-6 w-6 text-primary" />
+                  <Bot className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Digital Strategy & Roadmap</CardTitle>
+                <CardTitle className="text-lg">Autonomous AI Agents</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Define and align your digital transformation strategy for ServiceNow, AI, and CRM.
+                  Deploy AI agents that handle tasks, learn from data, and interact with users across ServiceNow and CRM platforms.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Vision & Goal Setting</span>
+                    <span>Automated Ticket Resolution</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Transformation Roadmap</span>
+                    <span>Customer Query Handling</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Executive Workshops</span>
+                    <span>Workflow Orchestration</span>
                   </li>
                 </ul>
               </CardContent>
@@ -119,26 +125,26 @@ export default function AdvisoryPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-chart-2" />
+                  <Brain className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Technology Advisory</CardTitle>
+                <CardTitle className="text-lg">Generative AI Insights</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Expert guidance on platform selection, integration, and innovation.
+                  Leverage Gen AI to generate actionable insights, automate reporting, and personalize customer communications.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>ServiceNow & AI Platform Selection</span>
+                    <span>Predictive Analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>CRM Integration Strategy</span>
+                    <span>Automated Knowledge Base Creation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Innovation Enablement</span>
+                    <span>Personalized CRM Messaging</span>
                   </li>
                 </ul>
               </CardContent>
@@ -147,75 +153,30 @@ export default function AdvisoryPage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <TrendingUp className="h-6 w-6 text-chart-3" />
+                  <Workflow className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Change & Value Realization</CardTitle>
+                <CardTitle className="text-lg">AI-Enhanced Workflows</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Drive adoption, measure impact, and ensure business value from transformation.
+                  Integrate Gen AI and Agentic AI into ServiceNow workflows for end-to-end automation and optimization.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Stakeholder Alignment</span>
+                    <span>Process Automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Value Tracking & KPIs</span>
+                    <span>Real-Time Decision Support</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Change Management</span>
+                    <span>Continuous Improvement</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Advisory Approach */}
-      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Our Advisory Approach</h2>
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Compass className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
-              <p className="text-muted-foreground text-sm">
-                Understand your business goals, challenges, and opportunities.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Lightbulb className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">2. Advise</h3>
-              <p className="text-muted-foreground text-sm">
-                Deliver strategic recommendations and actionable insights.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Rocket className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">3. Enable</h3>
-              <p className="text-muted-foreground text-sm">
-                Support execution and change management for success.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Award className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">4. Realize</h3>
-              <p className="text-muted-foreground text-sm">
-                Measure outcomes and optimize for continuous value.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -236,7 +197,7 @@ export default function AdvisoryPage() {
                 <strong>Scalability:</strong> Grows with your business and adapts to change.
               </li>
               <li>
-                <strong>Integration:</strong> Seamless with AI, CRM, and legacy systems.
+                <strong>Integration:</strong> Seamless with Gen AI, Agentic AI, CRM, and legacy systems.
               </li>
               <li>
                 <strong>Proven Results:</strong> Trusted by global leaders for transformation.
@@ -250,16 +211,16 @@ export default function AdvisoryPage() {
             </h3>
             <ul className="space-y-3 text-muted-foreground text-sm">
               <li>
-                <strong>Expertise:</strong> Deep experience in ServiceNow, AI, and CRM advisory.
+                <strong>Expertise:</strong> Deep experience in Gen AI, Agentic AI, ServiceNow, and CRM implementations.
               </li>
               <li>
-                <strong>Innovation:</strong> Strategic vision and actionable guidance for your industry.
+                <strong>Innovation:</strong> Pioneering AI solutions tailored to your industry.
               </li>
               <li>
                 <strong>Customer-Centric:</strong> Proven track record of delivering measurable business value.
               </li>
               <li>
-                <strong>End-to-End Support:</strong> From strategy to execution and optimization.
+                <strong>End-to-End Support:</strong> From strategy to deployment and optimization.
               </li>
             </ul>
           </div>
@@ -270,10 +231,10 @@ export default function AdvisoryPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Ready for Strategic Advisory?
+            Ready to Transform with Gen AI & Agentic AI?
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Partner with ifBash to define your digital strategy and unlock new business value.
+            Let ifBash help you unlock the full potential of ServiceNow, AI, and CRM for your business.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Schedule Consultation
