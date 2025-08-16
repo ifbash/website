@@ -329,14 +329,25 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent focus:bg-accent group",
             className
           )}
           {...props}
         >
           <div className="flex items-center space-x-2">
             {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground" />}
-            <div className="text-sm font-medium leading-none">{title}</div>
+            {/* Gradient text for menu item title */}
+            <div
+              className="text-sm font-medium leading-none moondust-text-gradient"
+              style={{
+                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {title}
+            </div>
           </div>
           <p className="line-clamp-2 text-sm leading-snug" style={{ color: "#1a2e61" }}>
             {children}
@@ -363,14 +374,25 @@ const SolutionListItem = React.forwardRef<
           ref={ref}
           href={href}
           className={cn(
-            "block select-none space-x-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground group font-large text-[#1a2e61]",
+            "block select-none space-x-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent focus:bg-accent group font-large",
             className
           )}
           {...props}
         >
           <div className="flex items-center space-x-2">
             {Icon && <Icon className="h-4 w-4 text-muted-foreground group-hover:text-accent-foreground" />}
-            <span className="text-sm font-medium leading-none">{title}</span>
+            {/* Gradient text for menu item title */}
+            <span
+              className="text-sm font-medium leading-none moondust-text-gradient"
+              style={{
+                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              {title}
+            </span>
           </div>
         </a>
       </NavigationMenuLink>
@@ -388,25 +410,31 @@ export function Header() {
       className="sticky top-0 z-50 w-full border-b border-border backdrop-blur supports-[backdrop-filter]:bg-background/60"
       style={{ backgroundColor: "#fff", color: "#1a2e61" }}
     >
-      <div className="container mx-auto flex h-16 items-center justify-between px-8">
+      <div className="container mx-auto flex h-16 items-center justify-between px-6">
         {/* Logo */}
         <div className="flex items-center">
-          <Link href="/" className="flex items-center space-x-4">
-            <div className="h-10 w-10 rounded moondust-gradient flex items-center justify-center moondust-glow" style={{ background: "#1a2e61" }}>
-              <span className="text-white font-bold text-base">IB</span>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="h-8 w-8 rounded moondust-gradient flex items-center justify-center moondust-glow" style={{ background: "#1a2e61" }}>
+              <span className="text-white font-bold text-sm">IB</span>
             </div>
             <span className="font-semibold text-xl moondust-text-gradient" style={{ color: "#1a2e61" }}>ifBash</span>
           </Link>
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-2">
+        <div className="hidden lg:flex items-center space-x-1">
           <NavigationMenu>
             <NavigationMenuList>
               {/* Services */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   Services
                 </NavigationMenuTrigger>
@@ -417,7 +445,8 @@ export function Header() {
                         key={item.title}
                         title={item.title}
                         href={item.href}
-                        icon={item.icon} className="bg-white hover:bg-accent transition-colors font-large text-[#1a2e61]"
+                        icon={item.icon}
+                        className="bg-white hover:bg-accent transition-colors font-large text-[#1a2e61]"
                       >
                         <span className="desc">{item.description}</span>
                       </ListItem>
@@ -428,7 +457,14 @@ export function Header() {
 
               {/* Portfolio */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
+                <NavigationMenuTrigger
+                  className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   Portfolio
                 </NavigationMenuTrigger>
@@ -441,10 +477,18 @@ export function Header() {
                             <li key={item.title}>
                               <Link
                                 href={item.href}
-                                className="block p-2 rounded-md hover:bg-accent transition-colors text-[#1a2e61]"
+                                className="block p-2 rounded-md hover:bg-accent transition-colors"
+                                style={{
+                                  background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                  WebkitBackgroundClip: "text",
+                                  WebkitTextFillColor: "transparent",
+                                  backgroundClip: "text",
+                                  fontWeight: 500,
+                                  fontSize: "0.95rem", // Match submenu font size
+                                }}
                               >
-                                <div className="text-sm font-medium">{item.title}</div>
-                                <div className="text-xs mt-1" style={{ color: "#1a2e61" }}>
+                                {item.title}
+                                <div className="text-xs mt-1" style={{ color: "#1a2e61", WebkitTextFillColor: "#1a2e61", background: "none" }}>
                                   <span className="desc">{item.description}</span>
                                 </div>
                               </Link>
@@ -460,7 +504,13 @@ export function Header() {
               {/* Solutions */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   Solutions
                 </NavigationMenuTrigger>
@@ -482,7 +532,13 @@ export function Header() {
               {/* Industries */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   Industries
                 </NavigationMenuTrigger>
@@ -506,7 +562,13 @@ export function Header() {
               {/* Company */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
-                  className="bg-transparent border-none shadow-none font-medium px-4 py-2 text-base transition-colors moondust-text-gradient"
+                  className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
                   Company
                 </NavigationMenuTrigger>
@@ -526,8 +588,6 @@ export function Header() {
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
-
-              
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -535,48 +595,55 @@ export function Header() {
         {/* Right Side Actions */}
         <div className="flex items-center space-x-4">
           {/* Learning Center */}
-          <Link href="/learning-center">
+          <Link href="/learning-center" legacyBehavior passHref>
             <Button
               variant="outline"
-              size="sm"
-              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-8"
+              size="lg"
+              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-6 py-2 moondust-glow h-9"
             >
               Learning Center
             </Button>
           </Link>
 
-          <Link href="/learning-center">
+          {/* Contact Us */}
+          <Link href="/contact-us" legacyBehavior passHref>
             <Button
               variant="outline"
-              size="sm"
-              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-5 py-2 moondust-glow h-8"
+              size="lg"
+              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-6 py-2 moondust-glow h-9"
             >
               Contact Us
             </Button>
           </Link>
 
           {/* Language Selector */}
-          <div>
+          <div style={{ position: "relative", left: "0px" }}>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
-                  size="sm"
-                  className="text-white text-base font-semibold px-4 py-2 h-8"
-                  style={{ color: "#1a2e61" }}
+                  size="lg"
+                  className="text-base font-semibold moondust-text-gradient"
+                  style={{
+                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
                 >
-                  <Globe className="h-5 w-5 mr-2" />
+                  <Globe className="h-5 w-5 mr-1" />
                   {languages.find(lang => lang.code === currentLanguage)?.code}
-                  <ChevronDown className="h-4 w-4 ml-2" />
+                  <ChevronDown className="h-4 w-4 ml-1" />
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-32 bg-white">
+              <DropdownMenuContent align="end" className="w-32 bg-white mt-2 z-50">
                 {languages.map((language) => (
                   <DropdownMenuItem
                     key={language.code}
                     onClick={() => setCurrentLanguage(language.code)}
                     className="flex items-center space-x-2 text-base"
                   >
+                    <span>{language.flag}</span>
                     <span>{language.name}</span>
                   </DropdownMenuItem>
                 ))}
@@ -594,7 +661,7 @@ export function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                 <nav className="flex flex-col space-y-4 mt-6">
-                  <Link href="/services" className="text-lg font-medium text-foreground hover:text-primary">
+                  <Link href="/services" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
                     Services
                   </Link>
                   <div className="pl-4 space-y-2">
@@ -602,25 +669,36 @@ export function Header() {
                       <Link
                         key={item.title}
                         href={item.href}
-                        className="block text-sm text-muted-foreground hover:text-foreground"
+                        className="block text-base moondust-text-gradient hover:text-foreground"
+                        style={{
+                          background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          backgroundClip: "text",
+                        }}
                       >
                         {item.title}
                       </Link>
                     ))}
                   </div>
-                  
-                  <Link href="/portfolio" className="text-lg font-medium text-foreground hover:text-primary">
+                  <Link href="/portfolio" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
                     Portfolio
                   </Link>
                   <div className="pl-4 space-y-3">
                     <div>
-                      <div className="text-sm font-medium text-foreground mb-2">ServiceNow</div>
+                      <div className="text-base font-semibold moondust-text-gradient mb-2">ServiceNow</div>
                       <div className="space-y-1">
                         {portfolioItems.servicenow.slice(0, 3).map((item) => (
                           <Link
                             key={item.title}
                             href={item.href}
-                            className="block text-xs text-muted-foreground hover:text-foreground"
+                            className="block text-base moondust-text-gradient hover:text-foreground"
+                            style={{
+                              background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                              WebkitBackgroundClip: "text",
+                              WebkitTextFillColor: "transparent",
+                              backgroundClip: "text",
+                            }}
                           >
                             {item.title}
                           </Link>
@@ -628,15 +706,17 @@ export function Header() {
                       </div>
                     </div>
                   </div>
-
-                  <Link href="/industries" className="text-lg font-medium text-foreground hover:text-primary">
+                  <Link href="/industries" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
                     Industries
                   </Link>
-                  <Link href="/careers" className="text-lg font-medium text-foreground hover:text-primary">
+                  <Link href="/careers" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
                     Careers
                   </Link>
-                  <Link href="/learning-center" className="text-lg font-medium text-foreground hover:text-primary">
+                  <Link href="/learning-center" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
                     Learning Center
+                  </Link>
+                  <Link href="/contact-us" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                    Contact Us
                   </Link>
                 </nav>
               </SheetContent>
