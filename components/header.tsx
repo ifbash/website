@@ -254,8 +254,8 @@ const industryItems = [
     icon: ShoppingBag,
   },
   {
-    title: "Telecoms",
-    href: "/industries/telecoms",
+    title: "Telecom",
+    href: "/industries/telecom",
     description: "Telecom service providers and network solutions",
     icon: Wifi,
   },
@@ -455,7 +455,7 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-              {/* Portfolio */}
+                            {/* Portfolio */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
@@ -469,35 +469,18 @@ export function Header() {
                   Portfolio
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <div className="w-[875px] p-4 bg-white">
-                    <div>
-                      {portfolioTab === "servicenow" && (
-                        <ul className="grid w-[825px] gap-2 p-4 md:grid-cols-3">
-                          {portfolioItems.servicenow.map((item) => (
-                            <li key={item.title}>
-                              <Link
-                                href={item.href}
-                                className="block p-2 rounded-md hover:bg-accent transition-colors"
-                                style={{
-                                  background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                                  WebkitBackgroundClip: "text",
-                                  WebkitTextFillColor: "transparent",
-                                  backgroundClip: "text",
-                                  fontWeight: 500,
-                                  fontSize: "0.95rem", // Match submenu font size
-                                }}
-                              >
-                                {item.title}
-                                <div className="text-xs mt-1" style={{ color: "#1a2e61", WebkitTextFillColor: "#1a2e61", background: "none" }}>
-                                  <span className="desc">{item.description}</span>
-                                </div>
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
+                  <ul className="grid w-[850px] gap-3 p-4 md:grid-cols-3 bg-white">
+                    {portfolioItems.servicenow.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        className="bg-white hover:bg-accent transition-colors font-large text-[#1a2e61]"
+                      >
+                        <span className="desc">{item.description}</span>
+                      </ListItem>
+                    ))}
+                  </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -515,7 +498,7 @@ export function Header() {
                   Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[500px] gap-3 p-4 md:grid-cols-2 bg-white">
+                  <ul className="grid w-[600px] gap-2 p-4 md:grid-cols-2 bg-white">
                     {solutionsItems.map((item) => (
                       <SolutionListItem
                         key={item.title}
