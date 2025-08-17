@@ -2,22 +2,28 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  Shield, 
-  AlertTriangle, 
-  Eye, 
-  Lock, 
-  FileSearch, 
+import {
+  Shield,
+  AlertTriangle,
+  Eye,
+  Lock,
+  FileSearch,
   Users,
   CheckCircle,
-  ArrowRight
+  ArrowRight,
+  Zap,
+  Bot,
+  Link2,
+  BarChart2,
+  Server,
+  BookOpen,
 } from "lucide-react";
 
 export default function SecOpsPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
@@ -25,12 +31,14 @@ export default function SecOpsPage() {
             <Shield className="h-8 w-8 text-chart-1" />
             <Badge variant="outline" className="text-chart-1 border-chart-1/20">ServiceNow</Badge>
           </div>
-          <h1 className="text-4xl font-light text-foreground mb-4">
-            Security Operations (SecOps)
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Next-Gen Security Operations (SecOps) with ServiceNow
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Strengthen your security posture with integrated vulnerability management, 
-            threat intelligence, and automated incident response capabilities.
+          <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
+            Proactively defend your organization with automated threat response, integrated risk management, and real-time security intelligence. Accelerate detection, investigation, and remediation—powered by ServiceNow and partner best practices.
+          </p>
+          <p className="text-lg text-primary font-medium max-w-2xl">
+            Unify your security teams, automate workflows, and stay ahead of evolving threats.
           </p>
         </div>
       </section>
@@ -38,9 +46,9 @@ export default function SecOpsPage() {
       {/* Core Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Security Operations Capabilities</h2>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive SecOps Capabilities</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Vulnerability Response */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
@@ -69,6 +77,7 @@ export default function SecOpsPage() {
               </CardContent>
             </Card>
 
+            {/* Security Incident Response */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
@@ -78,7 +87,7 @@ export default function SecOpsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Streamline security incident handling with automated playbooks.
+                  Streamline security incident handling with automated playbooks and rapid investigation.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -97,6 +106,7 @@ export default function SecOpsPage() {
               </CardContent>
             </Card>
 
+            {/* Threat Intelligence */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
@@ -106,7 +116,7 @@ export default function SecOpsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Leverage threat intelligence to enhance security decision-making.
+                  Leverage threat intelligence to enhance security decision-making and proactive defense.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -125,6 +135,7 @@ export default function SecOpsPage() {
               </CardContent>
             </Card>
 
+            {/* Configuration Compliance */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
@@ -134,7 +145,7 @@ export default function SecOpsPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Monitor and enforce security configuration standards.
+                  Monitor and enforce security configuration standards across your environment.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -153,6 +164,7 @@ export default function SecOpsPage() {
               </CardContent>
             </Card>
 
+            {/* Risk Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
@@ -181,6 +193,7 @@ export default function SecOpsPage() {
               </CardContent>
             </Card>
 
+            {/* Identity & Access */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
@@ -208,6 +221,151 @@ export default function SecOpsPage() {
                 </ul>
               </CardContent>
             </Card>
+
+            {/* Security Automation & Orchestration */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <Zap className="h-6 w-6 text-chart-2" />
+                </div>
+                <CardTitle className="text-lg">Security Automation & Orchestration</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Automate repetitive security tasks and orchestrate complex response workflows.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated playbooks</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Third-party integrations</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Self-healing actions</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Security Operations Analytics */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
+                  <BarChart2 className="h-6 w-6 text-chart-3" />
+                </div>
+                <CardTitle className="text-lg">Security Operations Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Gain actionable insights with real-time dashboards and advanced analytics.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Real-time dashboards</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Threat trends</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Compliance metrics</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Third-Party Integrations */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Link2 className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Third-Party Integrations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Integrate with SIEM, endpoint, and cloud security tools for unified response.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>SIEM integration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Endpoint protection</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Cloud security</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Security Knowledge Base */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <BookOpen className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Security Knowledge Base</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Centralize security best practices, incident records, and remediation guides.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Incident records</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Remediation guides</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Best practices</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Endpoint & Server Security */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Server className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">Endpoint & Server Security</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Monitor and protect endpoints and servers from threats and vulnerabilities.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Endpoint monitoring</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Patch management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Threat detection</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -219,7 +377,7 @@ export default function SecOpsPage() {
             Strengthen Your Security Posture
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Implement comprehensive security operations with automated threat response and risk management.
+            Implement comprehensive security operations with automated threat response, risk management, and actionable intelligence—powered by ServiceNow SecOps.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
             Secure Your Organization
