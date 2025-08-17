@@ -2,7 +2,23 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Factory, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users, Shield } from "lucide-react";
+import {
+  Factory,
+  Workflow,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  BarChart3,
+  Brain,
+  Users,
+  Shield,
+  Rocket,
+  MessageCircle,
+  Sparkles,
+  Leaf,
+  Wrench,
+  Package,
+} from "lucide-react";
 
 export default function ManufacturingPage() {
   return (
@@ -15,19 +31,20 @@ export default function ManufacturingPage() {
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-6">
               <Factory className="h-8 w-8 text-primary" />
-              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+              <Badge variant="outline" className="text-primary border-primary/20">Manufacturing</Badge>
             </div>
-            <h1 className="text-4xl font-light text-foreground mb-4">
-              Manufacturing Industry Solutions
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Transform Manufacturing with ServiceNow & IfBash
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-              Drive operational excellence, agility, and innovation in manufacturing with ServiceNow-powered digital workflows and automation.
+              Drive operational excellence, resilience, and innovation across plants, supply chains, and customer service. IfBash leverages ServiceNow, AI, and CRM to help manufacturers modernize operations, connect ecosystems, and deliver seamless experiences.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-6">
-              <li>Streamline production and reduce downtime</li>
-              <li>Enhance supply chain visibility and collaboration</li>
-              <li>Improve quality control and compliance</li>
-              <li>Leverage real-time analytics for smarter decisions</li>
+              <li>Boost production efficiency and reduce downtime with predictive AI</li>
+              <li>Enhance supplier collaboration, compliance, and transparency</li>
+              <li>Deliver frictionless customer journeys from order to aftersales</li>
+              <li>Leverage real-time analytics and CRM for smarter decisions</li>
+              <li>Enable smart factories and digital services</li>
             </ul>
             <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
               Explore Manufacturing Solutions
@@ -51,85 +68,198 @@ export default function ManufacturingPage() {
             ServiceNow for Manufacturing: Key Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
+            {/* Smart Factory & Asset Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Workflow className="h-6 w-6 text-primary" />
+                  <Settings className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Production Process Automation</CardTitle>
+                <CardTitle className="text-lg">Smart Factory & Asset Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate and optimize production workflows for improved efficiency and reduced downtime.
+                  Optimize plant operations, asset lifecycle, and maintenance with AI-powered workflows and IoT integration.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Work Order Management</span>
+                    <span>Predictive Maintenance & Monitoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Equipment Maintenance Scheduling</span>
+                    <span>Asset Lifecycle Automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Incident & Issue Tracking</span>
+                    <span>Downtime & Incident Management</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
-
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
+            {/* Supply Chain & Supplier Collaboration */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-indigo-600" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <Package className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Supply Chain Visibility</CardTitle>
+                <CardTitle className="text-lg">Supply Chain & Supplier Collaboration</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Gain real-time visibility and control over your supply chain operations.
+                  Streamline onboarding, compliance, and issue resolution with automated workflows and AI-powered analytics.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Supplier Collaboration Portals</span>
+                    <span>Supplier Portal & Case Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Inventory & Logistics Tracking</span>
+                    <span>Quality Issue Tracking & Predictive Alerts</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Compliance & Quality Management</span>
+                    <span>Compliance Automation & Documentation</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
-
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
+            {/* Field Service & Workforce Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-blue-600" />
+                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
+                  <Wrench className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Operational Analytics</CardTitle>
+                <CardTitle className="text-lg">Field Service & Workforce</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Leverage data-driven insights to monitor, measure, and optimize manufacturing performance.
+                  Empower field teams with mobile tools, automated scheduling, and real-time safety alerts.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Production KPIs & Dashboards</span>
+                    <span>Mobile Work Orders & Dispatch</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Predictive Maintenance Analytics</span>
+                    <span>Automated Scheduling & Routing</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Continuous Improvement Tracking</span>
+                    <span>Safety & Compliance Monitoring</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            {/* Customer Experience & Order Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <BarChart3 className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Customer Experience & Order Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Deliver seamless support, order tracking, and personalized journeys with unified CRM and AI-powered service management.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Order Status & Case Management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Omnichannel CRM & Virtual Agents</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Aftersales Service Requests</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            {/* Sustainability & ESG Reporting */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Leaf className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">Sustainability & ESG</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Track, report, and optimize sustainability initiatives and regulatory compliance with digital workflows.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>ESG Data Collection & Reporting</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Regulatory Compliance Automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Carbon Footprint Tracking</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            {/* AI & Analytics */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Brain className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">AI & Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Harness AI and analytics for predictive insights, process optimization, and smarter business decisions.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Predictive Quality & Maintenance</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Supply Chain Risk Analytics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Sentiment & Loyalty Analysis</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+            {/* CRM & Partner Network */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">CRM & Partner Network</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Connect distributors, partners, and customers with unified CRM, sales, and service management.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Partner Portal & Collaboration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Sales & Service Performance Analytics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Engagement & Loyalty Programs</span>
                   </li>
                 </ul>
               </CardContent>
@@ -147,68 +277,35 @@ export default function ManufacturingPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
+                src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=400&q=80"
                 alt="Smart Factory"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
               <h3 className="text-lg font-semibold text-primary mb-2">Smart Factory</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Integrate IoT, robotics, and automation for predictive maintenance, quality control, and optimized production lines.
+                Integrate IoT, AI, and automation for predictive maintenance, quality control, and optimized production lines.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
+                src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
                 alt="Supply Chain"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
               <h3 className="text-lg font-semibold text-primary mb-2">Agile Supply Chain</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Enable real-time data sharing, supplier collaboration, and logistics tracking for resilient operations.
+                Respond faster to market changes and disruptions with real-time visibility and automation.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
-                alt="Quality Control"
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Customer Experience"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Quality & Compliance</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Customer Experience</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Automate compliance checks, documentation, and reporting to meet industry standards and customer expectations.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Manufacturing Team & Collaboration */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            Collaboration & Safety in Manufacturing
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
-                alt="Manufacturing Team"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Foster collaboration and knowledge sharing across production, engineering, and quality teams for faster problem-solving and innovation.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
-                alt="Safety & Compliance"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Safety & Compliance</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Ensure workplace safety and regulatory compliance with automated reporting, incident management, and training workflows.
+                Deliver frictionless support, order tracking, and personalized journeys to build loyalty and trust.
               </p>
             </div>
           </div>
@@ -228,7 +325,7 @@ export default function ManufacturingPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
               <p className="text-muted-foreground text-sm">
-                Evaluate current manufacturing processes and technology landscape.
+                Analyze current processes, technology, and data landscape for transformation readiness.
               </p>
             </div>
             <div className="text-center">
@@ -237,7 +334,7 @@ export default function ManufacturingPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
               <p className="text-muted-foreground text-sm">
-                Architect ServiceNow solutions tailored for manufacturing needs.
+                Develop tailored ServiceNow, AI, and CRM solutions for manufacturing needs.
               </p>
             </div>
             <div className="text-center">
@@ -246,7 +343,7 @@ export default function ManufacturingPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">3. Implement</h3>
               <p className="text-muted-foreground text-sm">
-                Deploy and integrate digital workflows across production and supply chain.
+                Deploy and integrate digital workflows across plants, supply chain, and customer service.
               </p>
             </div>
             <div className="text-center">
@@ -255,8 +352,63 @@ export default function ManufacturingPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
               <p className="text-muted-foreground text-sm">
-                Continuously improve operations and drive innovation with analytics.
+                Continuously improve processes and drive innovation with analytics and AI.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why IfBash & ServiceNow Section */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-8 text-center">
+            Why IfBash & ServiceNow for Manufacturing?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4">
+              <Shield className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Industry Expertise & Security
+                </h3>
+                <p className="text-muted-foreground">
+                  Proven delivery for global manufacturers, suppliers, and distributors. Enterprise-grade security, compliance, and data protection.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Sparkles className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  AI & CRM Innovation
+                </h3>
+                <p className="text-muted-foreground">
+                  Integrated AI, analytics, and CRM for predictive insights, automation, and customer engagement.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Rocket className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Scalable, Future-Proof Solutions
+                </h3>
+                <p className="text-muted-foreground">
+                  Flexible platforms that grow with your business and adapt to new manufacturing trends.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <MessageCircle className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  End-to-End Partnership
+                </h3>
+                <p className="text-muted-foreground">
+                  From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -266,10 +418,10 @@ export default function ManufacturingPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Transform Manufacturing with ServiceNow
+            Drive Manufacturing Innovation with ServiceNow & IfBash
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Empower your manufacturing business with digital workflows, automation, and actionable insights.
+            Transform your manufacturing business with digital workflows, AI, CRM, and customer-centric solutions.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Schedule Consultation
@@ -277,7 +429,7 @@ export default function ManufacturingPage() {
           </Button>
           <div className="mt-8 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=80"
               alt="Manufacturing Team"
               className="rounded-xl shadow-lg w-full max-w-md object-cover"
             />

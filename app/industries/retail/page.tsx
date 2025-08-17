@@ -2,7 +2,20 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ShoppingBag, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users } from "lucide-react";
+import {
+  ShoppingCart,
+  Workflow,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  BarChart3,
+  Brain,
+  Users,
+  Shield,
+  Rocket,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 
 export default function RetailPage() {
   return (
@@ -10,24 +23,25 @@ export default function RetailPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+      <section className="py-16 px-6 bg-gradient-to-r from-pink-50 to-blue-50">
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-6">
-              <ShoppingBag className="h-8 w-8 text-primary" />
-              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+              <ShoppingCart className="h-8 w-8 text-primary" />
+              <Badge variant="outline" className="text-primary border-primary/20">Retail</Badge>
             </div>
-            <h1 className="text-4xl font-light text-foreground mb-4">
-              Retail Industry Solutions
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Transform Retail Experiences with ServiceNow & IfBash
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-              Enhance retail operations, customer experience, and supply chain agility with ServiceNow-powered digital workflows and automation.
+              Deliver seamless, personalized, and efficient shopping journeys. IfBash leverages ServiceNow, AI, and CRM to help retailers modernize store operations, optimize supply chains, and engage customers across every channel.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-6">
-              <li>Streamline store operations and reduce downtime</li>
-              <li>Accelerate omni-channel customer engagement</li>
-              <li>Optimize inventory and supply chain management</li>
-              <li>Leverage analytics for smarter retail decisions</li>
+              <li>Digitize store operations and workforce management</li>
+              <li>Enhance omnichannel customer journeys with CRM and AI</li>
+              <li>Optimize supply chain, inventory, and fulfillment</li>
+              <li>Automate compliance, promotions, and service requests</li>
+              <li>Leverage analytics for smarter merchandising and loyalty</li>
             </ul>
             <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
               Explore Retail Solutions
@@ -36,7 +50,7 @@ export default function RetailPage() {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80"
               alt="Retail Innovation"
               className="rounded-xl shadow-lg w-full max-w-md object-cover"
             />
@@ -51,85 +65,175 @@ export default function RetailPage() {
             ServiceNow for Retail: Key Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Store Operations & Workforce */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Workflow className="h-6 w-6 text-primary" />
+                  <Settings className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Store Operations Automation</CardTitle>
+                <CardTitle className="text-lg">Store Operations & Workforce</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Streamline store operations, task management, and incident resolution with automated workflows.
+                  Digitize store processes, automate scheduling, and empower staff with mobile tools and real-time insights.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Task & Work Order Management</span>
+                    <span>Workforce Scheduling & Task Automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Incident & Issue Tracking</span>
+                    <span>Incident & Change Management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Inventory & Asset Management</span>
+                    <span>Mobile Store Operations</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
+            {/* Omnichannel Customer Experience */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-chart-2" />
+                  <BarChart3 className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Omni-channel Customer Service</CardTitle>
+                <CardTitle className="text-lg">Omnichannel Customer Experience</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Deliver seamless customer support and engagement across all channels.
+                  Deliver seamless support, personalized offers, and loyalty programs with unified CRM and AI-powered service management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Unified Service Requests</span>
+                    <span>Omnichannel CRM & Virtual Agents</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Returns & Claims Automation</span>
+                    <span>Personalized Promotions & Loyalty</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Feedback Management</span>
+                    <span>Customer Feedback & Analytics</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
+            {/* Supply Chain & Inventory Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-3" />
+                  <Workflow className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Retail Analytics & Insights</CardTitle>
+                <CardTitle className="text-lg">Supply Chain & Inventory</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Use data-driven insights to monitor, measure, and optimize retail performance and customer satisfaction.
+                  Optimize inventory, automate replenishment, and improve supplier collaboration for agile fulfillment.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Sales & Operations Dashboards</span>
+                    <span>Inventory Visibility & Analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Experience Analytics</span>
+                    <span>Supplier Portal & Collaboration</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Continuous Improvement Tracking</span>
+                    <span>Automated Replenishment & Fulfillment</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Promotions, Compliance & Service Requests */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Sparkles className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Promotions, Compliance & Service</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Automate promotions, ensure regulatory compliance, and manage service requests efficiently.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Promotion Management Automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Regulatory Compliance Tracking</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Service Request Automation</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* AI & Analytics for Retail */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Brain className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">AI & Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Harness AI and analytics for predictive insights, merchandising optimization, and smarter business decisions.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Demand Forecasting & Inventory Optimization</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Sentiment & Loyalty Analysis</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Sales Performance Dashboards</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* CRM & Partner Network Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">CRM & Partner Network</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Connect stores, suppliers, and customers with unified CRM, collaboration, and service management.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Partner Portal & Collaboration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Sales & Service Performance Analytics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Engagement & Loyalty Programs</span>
                   </li>
                 </ul>
               </CardContent>
@@ -139,7 +243,7 @@ export default function RetailPage() {
       </section>
 
       {/* Retail Transformation Benefits */}
-      <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-blue-50">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-pink-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-10 text-center">
             Why Digital Transformation Matters in Retail
@@ -147,68 +251,35 @@ export default function RetailPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1511918984145-48de785d4c4e?auto=format&fit=crop&w=400&q=80"
-                alt="Agile Supply Chain"
+                src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80"
+                alt="Omnichannel Experience"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Agile Supply Chain</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Omnichannel Experience</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Respond quickly to market changes and consumer demand with real-time supply chain visibility and automation.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                alt="Customer Experience"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Customer Experience</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Deliver seamless omni-channel support, returns management, and personalized engagement for shoppers.
+                Deliver seamless shopping journeys and personalized engagement across every channel.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
                 src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
-                alt="Retail Analytics"
+                alt="Store Operations"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Retail Analytics</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Store Operations</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Use real-time analytics to optimize sales, operations, and customer satisfaction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Retail Team & Collaboration */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            Collaboration & Growth in Retail
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
-                alt="Retail Team"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Foster collaboration and knowledge sharing across store, supply chain, and customer service teams for faster innovation and growth.
+                Digitize and automate store processes for greater efficiency, compliance, and staff empowerment.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
-                alt="Retailer Collaboration"
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Supply Chain"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Retailer Collaboration</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Supply Chain</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Build strong partnerships with suppliers and brands through transparent communication and shared data.
+                Optimize inventory, automate replenishment, and improve supplier collaboration for agile fulfillment.
               </p>
             </div>
           </div>
@@ -216,7 +287,7 @@ export default function RetailPage() {
       </section>
 
       {/* Approach Section */}
-      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-pink-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-12 text-center">
             Our Approach for Retail Transformation
@@ -228,7 +299,7 @@ export default function RetailPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
               <p className="text-muted-foreground text-sm">
-                Analyze current store, customer, and supply chain processes.
+                Analyze current processes, technology, and data landscape for transformation readiness.
               </p>
             </div>
             <div className="text-center">
@@ -237,7 +308,7 @@ export default function RetailPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
               <p className="text-muted-foreground text-sm">
-                Develop ServiceNow solutions tailored for retail challenges.
+                Develop tailored ServiceNow, AI, and CRM solutions for retail needs.
               </p>
             </div>
             <div className="text-center">
@@ -246,30 +317,85 @@ export default function RetailPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">3. Implement</h3>
               <p className="text-muted-foreground text-sm">
-                Deploy and integrate digital workflows across store operations, customer service, and analytics.
+                Deploy and integrate digital workflows across stores, supply chain, and customer service.
               </p>
             </div>
             <div className="text-center">
               <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <ShoppingBag className="h-8 w-8 text-primary" />
+                <ShoppingCart className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
               <p className="text-muted-foreground text-sm">
-                Continuously improve operations and customer experience with analytics.
+                Continuously improve processes and drive innovation with analytics and AI.
               </p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Why IfBash & ServiceNow Section */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-pink-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-8 text-center">
+            Why IfBash & ServiceNow for Retail?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4">
+              <Shield className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Industry Expertise & Security
+                </h3>
+                <p className="text-muted-foreground">
+                  Proven delivery for global retailers, brands, and marketplaces. Enterprise-grade security, compliance, and data protection.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Sparkles className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  AI & CRM Innovation
+                </h3>
+                <p className="text-muted-foreground">
+                  Integrated AI, analytics, and CRM for predictive insights, automation, and customer engagement.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Rocket className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Scalable, Future-Proof Solutions
+                </h3>
+                <p className="text-muted-foreground">
+                  Flexible platforms that grow with your business and adapt to new retail trends.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <MessageCircle className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  End-to-End Partnership
+                </h3>
+                <p className="text-muted-foreground">
+                  From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
+      <section className="py-16 px-6 bg-gradient-to-r from-pink-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Transform Retail with ServiceNow
+            Drive Retail Innovation with ServiceNow & IfBash
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Empower your retail business with digital workflows, automation, and actionable insights.
+            Transform your retail business with digital workflows, AI, CRM, and customer-centric solutions.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Schedule Consultation
@@ -277,7 +403,7 @@ export default function RetailPage() {
           </Button>
           <div className="mt-8 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=600&q=80"
               alt="Retail Team"
               className="rounded-xl shadow-lg w-full max-w-md object-cover"
             />

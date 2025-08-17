@@ -2,7 +2,20 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Wifi, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users } from "lucide-react";
+import {
+  Wifi,
+  Workflow,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  BarChart3,
+  Brain,
+  Users,
+  Shield,
+  Rocket,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 
 export default function TelecomsPage() {
   return (
@@ -15,19 +28,20 @@ export default function TelecomsPage() {
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-6">
               <Wifi className="h-8 w-8 text-primary" />
-              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+              <Badge variant="outline" className="text-primary border-primary/20">Telecoms</Badge>
             </div>
-            <h1 className="text-4xl font-light text-foreground mb-4">
-              Telecoms Industry Solutions
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Accelerate Telecoms Transformation with ServiceNow & IfBash
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-              Transform telecom operations, customer experience, and network management with ServiceNow-powered digital workflows and automation.
+              Modernize network operations, customer experience, and service delivery. IfBash leverages ServiceNow, AI, and CRM to help telecoms providers automate workflows, optimize field service, and deliver seamless omni-channel support.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-6">
-              <li>Automate network monitoring and incident management</li>
-              <li>Enhance omni-channel customer support</li>
-              <li>Optimize asset and configuration management</li>
-              <li>Leverage analytics for smarter decisions</li>
+              <li>Automate network monitoring, incident, and change management</li>
+              <li>Enhance omni-channel customer journeys with CRM and AI</li>
+              <li>Optimize field service, provisioning, and order fulfillment</li>
+              <li>Leverage analytics for predictive maintenance and churn reduction</li>
+              <li>Ensure compliance, security, and data protection</li>
             </ul>
             <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
               Explore Telecoms Solutions
@@ -51,85 +65,175 @@ export default function TelecomsPage() {
             ServiceNow for Telecoms: Key Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Network Operations & Incident Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Workflow className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Network Operations Automation</CardTitle>
+                <CardTitle className="text-lg">Network Operations & Incident Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate network monitoring, incident management, and maintenance scheduling for improved uptime.
+                  Automate network monitoring, incident response, and change management for improved uptime and service quality.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Incident & Outage Tracking</span>
+                    <span>Real-Time Network Monitoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Preventive Maintenance Automation</span>
+                    <span>Incident & Change Automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Asset & Configuration Management</span>
+                    <span>Predictive Maintenance with AI</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
+            {/* Field Service & Order Fulfillment */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
                   <Settings className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Customer Service Management</CardTitle>
+                <CardTitle className="text-lg">Field Service & Order Fulfillment</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Deliver seamless omni-channel support and automate service requests for telecom customers.
+                  Streamline provisioning, dispatch, and service delivery with automated workflows and mobile tools.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Unified Service Request Automation</span>
+                    <span>Automated Dispatch & Scheduling</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Feedback & Case Management</span>
+                    <span>Order Provisioning & Activation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Returns & Claims Processing</span>
+                    <span>Mobile Field Service Management</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
+            {/* Customer Experience & CRM */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
                   <BarChart3 className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Telecom Analytics & Insights</CardTitle>
+                <CardTitle className="text-lg">Customer Experience & CRM</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Use data-driven insights to monitor, measure, and optimize network performance and customer satisfaction.
+                  Deliver seamless omni-channel support, personalized offers, and loyalty programs with unified CRM and AI-powered service management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Network Performance Dashboards</span>
+                    <span>Omnichannel CRM & Virtual Agents</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Experience Analytics</span>
+                    <span>Customer Feedback & Analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Continuous Improvement Tracking</span>
+                    <span>Loyalty & Retention Programs</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Product & Service Lifecycle Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Rocket className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Product & Service Lifecycle</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Manage product launches, updates, and retirements with automated workflows and compliance tracking.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Product Launch Automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Service Update & Retirement Management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Regulatory Compliance Tracking</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* AI & Analytics for Telecoms */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Brain className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">AI & Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Harness AI and analytics for predictive insights, network optimization, and smarter business decisions.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Predictive Network Performance</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Sentiment & Churn Analysis</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Operational Dashboards & KPIs</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* CRM & Partner Ecosystem */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">CRM & Partner Ecosystem</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Connect resellers, partners, and customers with unified CRM, collaboration, and service management.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Partner Portal & Collaboration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Sales & Service Performance Analytics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Customer Engagement & Loyalty Programs</span>
                   </li>
                 </ul>
               </CardContent>
@@ -164,51 +268,18 @@ export default function TelecomsPage() {
               />
               <h3 className="text-lg font-semibold text-primary mb-2">Customer Experience</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Deliver seamless omni-channel support and automate service requests for telecom customers.
+                Deliver seamless omni-channel support and automate service requests for telecoms customers.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
                 src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80"
-                alt="Telecom Analytics"
+                alt="Telecoms Analytics"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Telecom Analytics</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Telecoms Analytics</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Use real-time analytics to optimize network performance and customer satisfaction.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Telecoms Team & Collaboration */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            Collaboration & Growth in Telecoms
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
-                alt="Telecoms Team"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Foster collaboration and knowledge sharing across network, customer service, and analytics teams for faster innovation and growth.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
-                alt="Partner Collaboration"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Partner Collaboration</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Build strong partnerships with vendors and clients through transparent communication and shared data.
+                Use real-time analytics and AI to optimize network performance and customer satisfaction.
               </p>
             </div>
           </div>
@@ -228,7 +299,7 @@ export default function TelecomsPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
               <p className="text-muted-foreground text-sm">
-                Analyze current network, customer, and service processes.
+                Analyze current network, customer, and service processes for transformation readiness.
               </p>
             </div>
             <div className="text-center">
@@ -237,7 +308,7 @@ export default function TelecomsPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
               <p className="text-muted-foreground text-sm">
-                Develop ServiceNow solutions tailored for telecom challenges.
+                Develop tailored ServiceNow, AI, and CRM solutions for telecoms needs.
               </p>
             </div>
             <div className="text-center">
@@ -255,8 +326,63 @@ export default function TelecomsPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
               <p className="text-muted-foreground text-sm">
-                Continuously improve operations and customer experience with analytics.
+                Continuously improve operations and customer experience with analytics and AI.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why IfBash & ServiceNow Section */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-8 text-center">
+            Why IfBash & ServiceNow for Telecoms?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4">
+              <Shield className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Industry Expertise & Security
+                </h3>
+                <p className="text-muted-foreground">
+                  Proven delivery for telecoms operators, service providers, and resellers. Enterprise-grade security, compliance, and data protection.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Sparkles className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  AI & CRM Innovation
+                </h3>
+                <p className="text-muted-foreground">
+                  Integrated AI, analytics, and CRM for predictive insights, automation, and customer engagement.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Rocket className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Scalable, Future-Proof Solutions
+                </h3>
+                <p className="text-muted-foreground">
+                  Flexible platforms that grow with your business and adapt to new telecoms trends.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <MessageCircle className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  End-to-End Partnership
+                </h3>
+                <p className="text-muted-foreground">
+                  From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -266,10 +392,10 @@ export default function TelecomsPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Transform Telecoms with ServiceNow
+            Drive Telecoms Innovation with ServiceNow & IfBash
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Empower your telecom business with digital workflows, automation, and actionable insights.
+            Transform your telecoms business with digital workflows, AI, CRM, and customer-centric solutions.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Schedule Consultation

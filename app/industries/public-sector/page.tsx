@@ -2,7 +2,20 @@ import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Building, Workflow, Settings, CheckCircle, ArrowRight, BarChart3, Users } from "lucide-react";
+import {
+  Landmark,
+  Workflow,
+  Settings,
+  CheckCircle,
+  ArrowRight,
+  BarChart3,
+  Brain,
+  Users,
+  Shield,
+  Rocket,
+  MessageCircle,
+  Sparkles,
+} from "lucide-react";
 
 export default function PublicSectorPage() {
   return (
@@ -14,20 +27,21 @@ export default function PublicSectorPage() {
         <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-6">
-              <Building className="h-8 w-8 text-primary" />
-              <Badge variant="outline" className="text-primary border-primary/20">Industry</Badge>
+              <Landmark className="h-8 w-8 text-primary" />
+              <Badge variant="outline" className="text-primary border-primary/20">Public Sector</Badge>
             </div>
-            <h1 className="text-4xl font-light text-foreground mb-4">
-              Public Sector Solutions
+            <h1 className="text-4xl font-bold text-foreground mb-4">
+              Modernize Public Services with ServiceNow & IfBash
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-              Modernize government and public service organizations with ServiceNow-powered digital workflows, improving citizen services, operational efficiency, and compliance.
+              Deliver efficient, transparent, and citizen-centric services. IfBash leverages ServiceNow, AI, and CRM to help public sector organizations streamline operations, enhance engagement, and ensure compliance.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-6">
-              <li>Deliver responsive and transparent citizen services</li>
-              <li>Automate regulatory compliance and reporting</li>
-              <li>Enhance IT reliability and security</li>
-              <li>Empower teams for better collaboration and innovation</li>
+              <li>Digitize citizen services and case management</li>
+              <li>Automate workflows for faster response and transparency</li>
+              <li>Enhance engagement with CRM and omni-channel support</li>
+              <li>Enable compliance, security, and data protection</li>
+              <li>Leverage AI for predictive insights and operational efficiency</li>
             </ul>
             <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
               Explore Public Sector Solutions
@@ -36,7 +50,7 @@ export default function PublicSectorPage() {
           </div>
           <div className="flex-1 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
               alt="Public Sector Innovation"
               className="rounded-xl shadow-lg w-full max-w-md object-cover"
             />
@@ -48,88 +62,178 @@ export default function PublicSectorPage() {
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-12 text-center">
-            ServiceNow for Government & Public Services: Key Use Cases
+            ServiceNow for Public Sector: Key Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
+            {/* Citizen Services & Case Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Workflow className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Citizen Service Management</CardTitle>
+                <CardTitle className="text-lg">Citizen Services & Case Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Deliver responsive, transparent, and efficient citizen services through unified case management and self-service portals.
+                  Digitize service requests, automate case management, and improve transparency for citizens and agencies.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Citizen Request Automation</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Service Portals & Knowledge Base</span>
+                    <span>Service Request Automation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
                     <span>Case Tracking & Resolution</span>
                   </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-indigo-600" />
-                </div>
-                <CardTitle className="text-lg">IT & Operations Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Enhance reliability and security of government IT infrastructure and operations.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Incident & Change Management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Asset & Configuration Management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Security & Compliance Automation</span>
+                    <span>Citizen Portal & Self-Service</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            <Card className="border-border shadow-sm hover:shadow-lg transition-all duration-300">
+            {/* Grants, Permits & Licensing */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-blue-600" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <Settings className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Regulatory Compliance & Reporting</CardTitle>
+                <CardTitle className="text-lg">Grants, Permits & Licensing</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate compliance tracking, reporting, and policy management for public sector mandates.
+                  Streamline application, review, and approval processes for grants, permits, and licenses.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Policy & Document Management</span>
+                    <span>Online Applications & Tracking</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Audit Trail & Reporting Automation</span>
+                    <span>Automated Review & Approval</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Risk & Compliance Dashboards</span>
+                    <span>Compliance Documentation</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Employee & Agency Service Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
+                  <BarChart3 className="h-6 w-6 text-chart-3" />
+                </div>
+                <CardTitle className="text-lg">Employee & Agency Service Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Enhance internal operations with automated HR, IT, and procurement workflows for public sector teams.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>HR & IT Service Automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Procurement & Asset Management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Performance Analytics</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Compliance, Security & Risk */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Shield className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Compliance, Security & Risk</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Protect data, ensure regulatory compliance, and manage risk with automated security workflows.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Security Incident Response</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Compliance Automation & Reporting</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Risk Management & Analytics</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* AI & Analytics for Public Sector */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Brain className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">AI & Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Harness AI and analytics for predictive insights, process optimization, and smarter policy decisions.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Predictive Service Demand</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Citizen Sentiment Analysis</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Operational Performance Dashboards</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* CRM & Stakeholder Engagement */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">CRM & Stakeholder Engagement</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Connect citizens, agencies, and partners with unified CRM, collaboration, and service management.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Stakeholder Portal & Collaboration</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Engagement & Feedback Programs</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-green-500" />
+                    <span>Service Performance Analytics</span>
                   </li>
                 </ul>
               </CardContent>
@@ -142,7 +246,7 @@ export default function PublicSectorPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-blue-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            Why Digital Transformation Matters in the Public Sector
+            Why Digital Transformation Matters in Public Sector
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
@@ -153,18 +257,7 @@ export default function PublicSectorPage() {
               />
               <h3 className="text-lg font-semibold text-primary mb-2">Citizen Services</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Deliver faster, more transparent services to citizens with digital portals and automated workflows.
-              </p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                alt="Operational Efficiency"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Operational Efficiency</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Streamline government operations, reduce manual work, and improve service delivery with automation.
+                Digitize and automate service delivery for faster, more transparent citizen outcomes.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
@@ -175,40 +268,18 @@ export default function PublicSectorPage() {
               />
               <h3 className="text-lg font-semibold text-primary mb-2">Compliance & Security</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Automate regulatory compliance, documentation, and reporting to meet public sector standards and audits.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Public Sector Team & Collaboration */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            Collaboration & Innovation in Public Services
-          </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-              <img
-                src="https://images.unsplash.com/photo-1465101178521-c1a4c8a0f3b7?auto=format&fit=crop&w=400&q=80"
-                alt="Public Sector Team"
-                className="h-24 w-full object-cover rounded-lg mb-4"
-              />
-              <h3 className="text-lg font-semibold text-primary mb-2">Empowered Teams</h3>
-              <p className="text-muted-foreground text-sm text-center">
-                Foster collaboration and knowledge sharing across departments for faster problem-solving and innovation.
+                Protect sensitive data, ensure regulatory compliance, and manage risk with automated workflows.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
-                src="https://images.unsplash.com/photo-1508385082359-f48fa9f0a2c1?auto=format&fit=crop&w=400&q=80"
-                alt="Community Engagement"
+                src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
+                alt="Stakeholder Engagement"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Community Engagement</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Stakeholder Engagement</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Build trust and transparency with citizens through open communication and digital engagement platforms.
+                Deliver frictionless omni-channel support and engagement to build trust and transparency.
               </p>
             </div>
           </div>
@@ -228,7 +299,7 @@ export default function PublicSectorPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
               <p className="text-muted-foreground text-sm">
-                Analyze current citizen service, IT, and compliance processes.
+                Analyze current processes, technology, and data landscape for transformation readiness.
               </p>
             </div>
             <div className="text-center">
@@ -237,7 +308,7 @@ export default function PublicSectorPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
               <p className="text-muted-foreground text-sm">
-                Develop ServiceNow solutions tailored for government and public service needs.
+                Develop tailored ServiceNow, AI, and CRM solutions for public sector needs.
               </p>
             </div>
             <div className="text-center">
@@ -246,17 +317,72 @@ export default function PublicSectorPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">3. Implement</h3>
               <p className="text-muted-foreground text-sm">
-                Deploy and integrate digital workflows across citizen services, IT, and compliance.
+                Deploy and integrate digital workflows across citizen services, agency operations, and compliance.
               </p>
             </div>
             <div className="text-center">
               <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                <Building className="h-8 w-8 text-primary" />
+                <Landmark className="h-8 w-8 text-primary" />
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
               <p className="text-muted-foreground text-sm">
-                Continuously improve service delivery and compliance with analytics.
+                Continuously improve processes and drive innovation with analytics and AI.
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why IfBash & ServiceNow Section */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-8 text-center">
+            Why IfBash & ServiceNow for Public Sector?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4">
+              <Shield className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Industry Expertise & Security
+                </h3>
+                <p className="text-muted-foreground">
+                  Proven delivery for government, education, and public agencies. Enterprise-grade security, compliance, and data protection.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Sparkles className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  AI & CRM Innovation
+                </h3>
+                <p className="text-muted-foreground">
+                  Integrated AI, analytics, and CRM for predictive insights, automation, and citizen engagement.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <Rocket className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Scalable, Future-Proof Solutions
+                </h3>
+                <p className="text-muted-foreground">
+                  Flexible platforms that grow with your agency and adapt to new public sector trends.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <MessageCircle className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  End-to-End Partnership
+                </h3>
+                <p className="text-muted-foreground">
+                  From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -266,10 +392,10 @@ export default function PublicSectorPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Modernize Public Services with ServiceNow
+            Drive Public Sector Innovation with ServiceNow & IfBash
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Empower your government or public service organization with digital workflows, automation, and actionable insights.
+            Transform your public sector organization with digital workflows, AI, CRM, and citizen-centric solutions.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Schedule Consultation
@@ -277,7 +403,7 @@ export default function PublicSectorPage() {
           </Button>
           <div className="mt-8 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80"
+              src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
               alt="Public Sector Team"
               className="rounded-xl shadow-lg w-full max-w-md object-cover"
             />
