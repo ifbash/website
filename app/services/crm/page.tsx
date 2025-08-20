@@ -3,31 +3,39 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Workflow,
+  Target,
   Users,
-  Database,
   BarChart3,
+  Lightbulb,
   Rocket,
+  CheckCircle,
+  ArrowRight,
+  TrendingUp,
   Shield,
+  Zap,
+  Award,
+  Brain,
+  Database,
+  UserCheck,
+  MessageCircle,
   Star,
   Quote,
-  MessageCircle,
-  CheckCircle,
-  Sparkles,
 } from "lucide-react";
 
-export default function CRMPage() {
+export default function DigitalTransformationPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
       {/* Hero Section */}
-      <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50 relative overflow-hidden">
+      <section className="py-16 px-6 bg-gradient-to-r from-purple-50 to-blue-50 relative overflow-hidden">
         <div
           className="absolute inset-0 z-0 opacity-30"
           style={{
             backgroundImage: `
               linear-gradient(135deg, rgba(247,248,250,0.92) 60%, rgba(38,163,217,0.18) 100%),
-              url('https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80')
+              url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80')
             `,
             backgroundSize: "cover",
             backgroundPosition: "center",
@@ -35,208 +43,267 @@ export default function CRMPage() {
         />
         <div className="container mx-auto max-w-6xl relative z-10">
           <div className="flex items-center space-x-3 mb-6">
-            <MessageCircle className="h-8 w-8 text-primary" />
+            <Database className="h-8 w-8 text-primary" />
             <Badge variant="outline" className="text-primary border-primary/20">
-              Service
+              IfBash CRM for ServiceNow
             </Badge>
           </div>
-          <h1 className="text-4xl font-light text-foreground mb-4">
-            CRM-Driven Experiences with ServiceNow, AI & CRM
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Transform Customer Engagement with ServiceNow CRM
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed">
-            Deliver seamless, personalized customer journeys and empower your teams with CRM solutions powered by ServiceNow and AI. Transform engagement, automate service, and drive loyalty with data-driven insights and intelligent workflows.
+            Unlock seamless customer experiences and operational efficiency. IfBash leverages ServiceNow CRM to unify customer data, automate service processes, and deliver personalized engagement—driving loyalty and measurable business impact.
           </p>
           {/* Executive Quote/Testimonial */}
           <div className="mt-8 flex items-center justify-center">
             <Quote className="h-6 w-6 text-primary mr-2" />
             <span className="italic text-lg text-muted-foreground max-w-2xl">
-              “ifBash helped us unify our customer data and automate service workflows. Our NPS improved by 20 points and our support costs dropped by 30% in the first year.”
+              “IfBash’s ServiceNow CRM expertise helped us centralize customer interactions, automate support, and boost satisfaction. Their integration and delivery made transformation easy.”
             </span>
             <Star className="h-5 w-5 text-yellow-400 ml-2" />
           </div>
         </div>
       </section>
 
-      {/* Results & Case Study */}
-      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
+      {/* Results & Metrics */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-purple-50">
         <div className="container mx-auto max-w-6xl">
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <h3 className="text-3xl font-bold text-primary mb-2">+20</h3>
-              <p className="text-muted-foreground">NPS Improvement</p>
+              <h3 className="text-3xl font-bold text-primary mb-2">50%</h3>
+              <p className="text-muted-foreground">Faster Case Resolution</p>
             </div>
             <div>
-              <h3 className="text-3xl font-bold text-primary mb-2">30%</h3>
-              <p className="text-muted-foreground">Reduction in Support Costs</p>
+              <h3 className="text-3xl font-bold text-primary mb-2">35%</h3>
+              <p className="text-muted-foreground">Increase in Customer Satisfaction</p>
             </div>
             <div>
               <h3 className="text-3xl font-bold text-primary mb-2">99.9%</h3>
-              <p className="text-muted-foreground">Customer Data Accuracy</p>
+              <p className="text-muted-foreground">CRM Platform Uptime</p>
             </div>
-          </div>
-          <div className="mt-8 text-center">
-            <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
-              Case Study: CRM Transformation in Telecom
-            </span>
-            <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-              A telecom leader partnered with ifBash to implement ServiceNow CRM and AI-driven automation. The result: unified customer profiles, predictive support, and measurable improvements in customer satisfaction and operational efficiency.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* CRM Solutions */}
+      {/* CRM Services for ServiceNow */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-12 text-center">
-            CRM-Driven Solutions
+            IfBash CRM Services for ServiceNow
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card>
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-primary" />
+                  <Database className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Unified Customer Profiles</CardTitle>
+                <CardTitle className="text-lg">CRM Implementation & Integration</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Integrate data from every touchpoint for a 360° customer view.
+                  Deploy and connect ServiceNow CRM with existing systems for unified customer data and streamlined operations.
                 </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Real-Time Data Sync</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Personalized Engagement</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Journey Mapping</span>
-                  </li>
-                </ul>
               </CardContent>
             </Card>
-
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card>
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                  <Database className="h-6 w-6 text-chart-2" />
+                  <Users className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">AI-Powered Service Automation</CardTitle>
+                <CardTitle className="text-lg">Customer Service Automation</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate support, case routing, and feedback with intelligent AI.
+                  Automate case management, routing, and support workflows to resolve issues faster and improve customer satisfaction.
                 </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Predictive Case Resolution</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Virtual Agents & Chatbots</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Automated Feedback Collection</span>
-                  </li>
-                </ul>
               </CardContent>
             </Card>
-
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+            <Card>
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-3" />
+                  <MessageCircle className="h-6 w-6 text-chart-3" />
+                </div>
+                <CardTitle className="text-lg">Omni-channel Engagement</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Enable seamless communication across email, chat, and portals for a unified customer experience.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <BarChart3 className="h-6 w-6 text-chart-4" />
                 </div>
                 <CardTitle className="text-lg">Customer Insights & Analytics</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Gain actionable insights to drive loyalty and growth.
+                  Gain actionable insights with real-time dashboards and analytics to improve service and drive loyalty.
                 </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Churn Prediction</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Customer Segmentation</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>Sales & Service Analytics</span>
-                  </li>
-                </ul>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <UserCheck className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">Personalized Customer Journeys</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Deliver tailored experiences and proactive support throughout the customer lifecycle.
+                </p>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Rocket className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Change Management & Training</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Ensure successful CRM adoption with stakeholder enablement, training, and ongoing support.
+                </p>
               </CardContent>
             </Card>
           </div>
         </div>
       </section>
 
-      {/* Why ServiceNow & Why ifBash Sidebars */}
-      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-8">
-          <div className="bg-white rounded-xl shadow-lg border border-primary/10 p-6">
-            <h3 className="text-xl font-semibold text-primary mb-4 flex items-center">
-              <Shield className="h-6 w-6 mr-2" />
-              Why ServiceNow?
-            </h3>
-            <ul className="space-y-3 text-muted-foreground text-sm">
-              <li>
-                <strong>Security & Compliance:</strong> Enterprise-grade protection and regulatory confidence.
-              </li>
-              <li>
-                <strong>Scalability:</strong> Grows with your business and adapts to change.
-              </li>
-              <li>
-                <strong>Integration:</strong> Seamless with AI, CRM, and legacy systems.
-              </li>
-              <li>
-                <strong>Proven Results:</strong> Trusted by global leaders for transformation.
-              </li>
-            </ul>
+      {/* CRM Transformation Framework */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">
+            IfBash CRM Transformation Framework
+          </h2>
+          <div className="grid md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Target className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
+              <p className="text-muted-foreground text-sm">
+                Evaluate CRM maturity, integration needs, and customer experience goals.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Lightbulb className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">2. Strategize</h3>
+              <p className="text-muted-foreground text-sm">
+                Design CRM transformation roadmaps leveraging ServiceNow for measurable outcomes.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">3. Execute</h3>
+              <p className="text-muted-foreground text-sm">
+                Implement CRM workflows, automation, and integrations with speed and precision.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <TrendingUp className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
+              <p className="text-muted-foreground text-sm">
+                Continuously improve CRM processes and experiences for sustained value.
+              </p>
+            </div>
           </div>
-          <div className="bg-white rounded-xl shadow-lg border border-primary/10 p-6">
-            <h3 className="text-xl font-semibold text-primary mb-4 flex items-center">
-              <Star className="h-6 w-6 mr-2" />
-              Why ifBash?
-            </h3>
-            <ul className="space-y-3 text-muted-foreground text-sm">
-              <li>
-                <strong>Expertise:</strong> Deep experience in ServiceNow, AI, and CRM implementations.
-              </li>
-              <li>
-                <strong>Innovation:</strong> Pioneering solutions tailored to your industry.
-              </li>
-              <li>
-                <strong>Customer-Centric:</strong> Proven track record of delivering measurable business value.
-              </li>
-              <li>
-                <strong>End-to-End Support:</strong> From strategy to deployment and optimization.
-              </li>
-            </ul>
+        </div>
+      </section>
+
+      {/* Differentiation Section */}
+      <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-purple-50">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-8 text-center">
+            Why IfBash CRM & ServiceNow?
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="flex items-start space-x-4">
+              <Shield className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Enterprise-Grade Security & Compliance
+                </h3>
+                <p className="text-muted-foreground">
+                  IfBash and ServiceNow CRM deliver robust data protection, privacy, and regulatory compliance for customer operations.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-start space-x-4">
+              <BarChart3 className="h-8 w-8 text-primary mt-1" />
+              <div>
+                <h3 className="text-xl font-medium text-foreground mb-2">
+                  Scalable & Future-Proof CRM
+                </h3>
+                <p className="text-muted-foreground">
+                  Our CRM solutions adapt to evolving business needs and integrate seamlessly with your enterprise ecosystem.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Benefits */}
+      <section className="py-16 px-6">
+        <div className="container mx-auto max-w-6xl">
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">
+            The IfBash CRM Advantage
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Proven CRM Expertise</h3>
+              <p className="text-muted-foreground">
+                Years of experience delivering CRM transformation for global organizations.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Brain className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">AI-Driven Customer Service</h3>
+              <p className="text-muted-foreground">
+                Automate support, personalize engagement, and gain insights with ServiceNow CRM and AI.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Unified Customer Data</h3>
+              <p className="text-muted-foreground">
+                Centralize customer information for seamless experiences and better decision-making.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
+      <section className="py-16 px-6 bg-gradient-to-r from-blue-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Ready to Transform Your CRM Experience?
+            Ready to Transform Customer Engagement?
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Let ifBash help you deliver seamless, data-driven customer experiences with ServiceNow, AI, and CRM.
+            Discover how IfBash and ServiceNow CRM can help your organization deliver seamless customer experiences and drive loyalty.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
-            Schedule Consultation
-            <Rocket className="ml-2 h-4 w-4" />
+            Connect with CRM Experts
+            <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>
       </section>

@@ -28,23 +28,23 @@ export default function ServiceNowAppDevPage() {
           <div className="flex-1">
             <div className="flex items-center space-x-3 mb-6">
               <Building className="h-8 w-8 text-primary" />
-              <Badge variant="outline" className="text-primary border-primary/20">App Development</Badge>
+              <Badge variant="outline" className="text-primary border-primary/20">IT Digital Solutions</Badge>
             </div>
             <h1 className="text-4xl font-bold text-foreground mb-4">
-              Premium ServiceNow App Development for Enterprise Leaders
+              Enterprise IT Digital Transformation for Business Leaders
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-              Accelerate digital transformation and business agility with custom ServiceNow applications from IfBash. Designed for C-suite priorities, our solutions deliver measurable ROI, innovation, and seamless integration across your enterprise.
+              Accelerate your digital transformation and business agility with IfBash’s IT Digital solutions. We deliver measurable ROI, innovation, and seamless integration across your enterprise—empowering C-suite priorities and future-proofing your organization.
             </p>
             <ul className="list-disc pl-6 text-muted-foreground mb-6">
-              <li>Rapid prototyping and deployment for faster time-to-value</li>
+              <li>Rapid deployment of digital platforms and automation</li>
               <li>Enterprise-grade security, compliance, and scalability</li>
               <li>Seamless integration with ERP, CRM, and legacy systems</li>
               <li>Real-time analytics and executive dashboards</li>
-              <li>White-glove service and ongoing optimization</li>
+              <li>Continuous optimization and support</li>
             </ul>
             <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
-              Explore ServiceNow Solutions
+              Explore IT Digital Solutions
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
@@ -58,11 +58,11 @@ export default function ServiceNowAppDevPage() {
         </div>
       </section>
 
-      {/* ServiceNow App Development Use Cases */}
+      {/* IT Digital Transformation Use Cases */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-12 text-center">
-            ServiceNow App Development: Key Enterprise Use Cases
+            IT Digital Transformation: Key Enterprise Use Cases
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Workflow Automation */}
@@ -71,7 +71,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Workflow className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Workflow Automation</CardTitle>
+                <CardTitle className="text-lg">Workflow Automation & Digitalization</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -88,7 +88,7 @@ export default function ServiceNowAppDevPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-green-500" />
-                    <span>IT Service Management</span>
+                    <span>IT Service Management & Digital Operations</span>
                   </li>
                 </ul>
               </CardContent>
@@ -100,7 +100,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
                   <Settings className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Integration & Data Management</CardTitle>
+                <CardTitle className="text-lg">Integration & Unified Data Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -129,7 +129,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
                   <BarChart3 className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Executive Dashboards & Analytics</CardTitle>
+                <CardTitle className="text-lg">Executive Dashboards & Digital Analytics</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -158,7 +158,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
                   <Shield className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Security & Compliance</CardTitle>
+                <CardTitle className="text-lg">Security, Compliance & Risk Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -187,7 +187,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
                   <Users className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Employee & Customer Experience</CardTitle>
+                <CardTitle className="text-lg">Employee & Customer Digital Experience</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -216,7 +216,7 @@ export default function ServiceNowAppDevPage() {
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Rocket className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Innovation & Scalability</CardTitle>
+                <CardTitle className="text-lg">Innovation, Modernization & Scalability</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
@@ -246,27 +246,27 @@ export default function ServiceNowAppDevPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-50 to-blue-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-            How IfBash Accelerates Your ServiceNow Journey
+            How IfBash Accelerates Your IT Digital Journey
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
                 src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80"
-                alt="Custom App Development"
+                alt="Custom IT Solutions"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Custom App Development</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Custom IT Solutions</h3>
               <p className="text-muted-foreground text-sm text-center">
-                Tailored ServiceNow apps for unique business needs, delivered with speed and precision.
+                Tailored digital platforms and automation for unique business needs, delivered with speed and precision.
               </p>
             </div>
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
                 src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80"
-                alt="Workflow Automation"
+                alt="Digital Workflow Automation"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Workflow Automation</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Digital Workflow Automation</h3>
               <p className="text-muted-foreground text-sm text-center">
                 Streamline processes and boost productivity with intelligent automation and integration.
               </p>
@@ -274,10 +274,10 @@ export default function ServiceNowAppDevPage() {
             <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
               <img
                 src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-                alt="Analytics & Insights"
+                alt="Digital Analytics & Insights"
                 className="h-24 w-full object-cover rounded-lg mb-4"
               />
-              <h3 className="text-lg font-semibold text-primary mb-2">Analytics & Insights</h3>
+              <h3 className="text-lg font-semibold text-primary mb-2">Digital Analytics & Insights</h3>
               <p className="text-muted-foreground text-sm text-center">
                 Real-time dashboards and predictive analytics for executive decision-making.
               </p>
@@ -290,7 +290,7 @@ export default function ServiceNowAppDevPage() {
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-3xl font-light text-foreground mb-8 text-center">
-            Case Study: Global Manufacturer Digital Transformation
+            Case Study: Global Manufacturer IT Digital Transformation
           </h2>
           <div className="bg-gray-50 rounded-xl shadow-lg p-8 flex flex-col md:flex-row gap-8">
             <div className="flex-1">
@@ -300,7 +300,7 @@ export default function ServiceNowAppDevPage() {
               </p>
               <h3 className="text-xl font-semibold mb-4 text-blue-700">Solution</h3>
               <p className="mb-6 text-muted-foreground">
-                IfBash delivered custom ServiceNow apps, automating core processes and integrating ERP/CRM platforms.
+                IfBash delivered custom IT digital solutions, automating core processes and integrating ERP/CRM platforms.
               </p>
               <h3 className="text-xl font-semibold mb-4 text-blue-700">Results</h3>
               <ul className="list-disc ml-6 mb-4 text-muted-foreground">
@@ -324,58 +324,36 @@ export default function ServiceNowAppDevPage() {
         </div>
       </section>
 
-      {/* Why IfBash & ServiceNow Section */}
+      {/* Why IfBash & IT Digital Section */}
       <section className="py-10 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
         <div className="container mx-auto max-w-6xl">
           <h2 className="text-3xl font-light text-foreground mb-8 text-center">
-            Why IfBash & ServiceNow for Enterprise App Development?
+            Why IfBash for Enterprise IT Digital Transformation?
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="flex items-start space-x-4">
-              <Shield className="h-8 w-8 text-primary mt-1" />
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-2">
-                  Enterprise Expertise & Security
-                </h3>
-                <p className="text-muted-foreground">
-                  Proven delivery for global organizations. Enterprise-grade security, compliance, and data protection.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Sparkles className="h-8 w-8 text-primary mt-1" />
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-2">
-                  Innovation & AI Integration
-                </h3>
-                <p className="text-muted-foreground">
-                  Integrated AI, analytics, and automation for smarter, faster business outcomes.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <Rocket className="h-8 w-8 text-primary mt-1" />
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-2">
-                  Scalable, Future-Proof Solutions
-                </h3>
-                <p className="text-muted-foreground">
-                  Flexible platforms that grow with your business and adapt to new challenges.
-                </p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-4">
-              <MessageCircle className="h-8 w-8 text-primary mt-1" />
-              <div>
-                <h3 className="text-xl font-medium text-foreground mb-2">
-                  End-to-End Partnership
-                </h3>
-                <p className="text-muted-foreground">
-                  From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
-                </p>
-              </div>
-            </div>
-          </div>
+          <h3 className="text-xl font-medium text-foreground mb-2">
+            Enterprise Expertise & Security
+          </h3>
+          <p className="text-muted-foreground">
+            Proven delivery for global organizations. Enterprise-grade security, compliance, and data protection.
+          </p>
+          <h3 className="text-xl font-medium text-foreground mb-2">
+            Innovation & AI Integration
+          </h3>
+          <p className="text-muted-foreground">
+            Integrated AI, analytics, and automation for smarter, faster business outcomes.
+          </p>
+          <h3 className="text-xl font-medium text-foreground mb-2">
+            Scalable, Future-Proof Solutions
+          </h3>
+          <p className="text-muted-foreground">
+            Flexible digital platforms that grow with your business and adapt to new challenges.
+          </p>
+          <h3 className="text-xl font-medium text-foreground mb-2">
+            End-to-End Partnership
+          </h3>
+          <p className="text-muted-foreground">
+            From strategy to implementation and optimization, IfBash is your partner for continuous digital transformation.
+          </p>
         </div>
       </section>
 
@@ -383,13 +361,13 @@ export default function ServiceNowAppDevPage() {
       <section className="py-16 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-white mb-6">
-            Transform Your Enterprise with ServiceNow & IfBash
+            Transform Your Enterprise with IT Digital Solutions & IfBash
           </h2>
           <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Accelerate your ServiceNow journey with premium app development, tailored for leaders who demand results.
+            Accelerate your IT digital journey with premium solutions, tailored for leaders who demand results.
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
-            Schedule Consultation
+            Schedule IT Digital Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
           <div className="mt-8 flex justify-center">
