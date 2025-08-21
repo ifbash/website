@@ -127,7 +127,7 @@ const portfolioItems = {
     },
     {
       title: "Workflow Data Fabric (WDF)",
-      href: "/portfolio/servicenow/workflow",
+      href: "/portfolio/servicenow/wdf",
       description: "Workflow Automation and Orchestration",
     },
     {
@@ -142,7 +142,7 @@ const portfolioItems = {
     },    
     {
       title: "Field Service Management (FSM)",
-      href: "/portfolio/servicenow/field-service",
+      href: "/portfolio/servicenow/fsm",
       description: "Field Service Operations and Scheduling",
     },
     {
@@ -177,7 +177,7 @@ const portfolioItems = {
     },
     {
       title: "Sales and Order Management (SOM)",
-      href: "/portfolio/servicenow/sales-order",
+      href: "/portfolio/servicenow/som",
       description: "Sales and Order Management Solutions",
     },
     {
@@ -198,7 +198,7 @@ const portfolioItems = {
     },    
     {
       title: "Telecommunication Service Management (TSM)",
-      href: "/portfolio/servicenow/telecom",
+      href: "/portfolio/servicenow/tsm",
       description: "Telecom Service Operations and Management",
     },
   ]
