@@ -3,19 +3,20 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Settings,
   Layers,
-  BarChart3,
-  Clock,
+  BarChart2,
+  PieChart,
   Users,
+  Clock,
   CheckCircle,
   ArrowRight,
-  BookOpen,
+  FileText,
   Link2,
-  Shield,
-  Zap,
-  UserCheck,
-  ListChecks,
-  MapPin,
+  RefreshCw,
+  MonitorSmartphone,
+  BookOpen,
+  Bot,
 } from "lucide-react";
 
 export default function SPMPage() {
@@ -27,166 +28,282 @@ export default function SPMPage() {
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Layers className="h-8 w-8 text-chart-5" />
-            <Badge variant="outline" className="text-chart-5 border-chart-5/20">ServiceNow</Badge>
+            <Settings className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Transform Strategic Portfolio Management with ServiceNow SPM
+            Drive Business Outcomes with ServiceNow Strategic Portfolio Management (SPM)
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Align strategy, investments, and execution across your enterprise. ServiceNow SPM enables organizations to prioritize initiatives, optimize resources, and deliver business outcomes through unified planning, tracking, and analytics.
+            Align strategy to execution, prioritize investments, and accelerate value delivery. ServiceNow SPM empowers organizations to plan, track, and deliver portfolios, programs, and projects with real-time visibility, GenAI-powered insights, and unified workflows.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Make smarter decisions, maximize value, and accelerate transformation with Strategic Portfolio Management.
+            Transform your enterprise portfolio management with connected planning, agile execution, and intelligent decision-making.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* SPM Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive SPM Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow SPM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Portfolio Planning & Prioritization */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Portfolio Planning & Prioritization</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Strategically plan, prioritize, and manage portfolios to maximize business value.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Portfolio analysis</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Initiative prioritization</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Scenario planning</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
             {/* Demand Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <ListChecks className="h-6 w-6 text-chart-4" />
+                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
+                  <Layers className="h-6 w-6 text-chart-1" />
                 </div>
                 <CardTitle className="text-lg">Demand Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Capture, assess, and prioritize business demands to align investments with strategy.
+                  Capture, assess, and prioritize business demands to ensure investments align with strategic goals.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Demand intake & assessment</span>
+                    <span>Centralized demand intake</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Business case analysis</span>
+                    <span>GenAI-powered prioritization</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Prioritization workflows</span>
+                    <span>Impact analysis</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Resource & Financial Management */}
+            {/* Project & Program Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Clock className="h-6 w-6 text-chart-5" />
+                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
+                  <BarChart2 className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Resource & Financial Management</CardTitle>
+                <CardTitle className="text-lg">Project & Program Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Optimize resource allocation and manage budgets to ensure efficient delivery.
+                  Plan, execute, and monitor projects and programs with agile and waterfall methodologies, real-time dashboards, and automated workflows.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Agile & waterfall support</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated status reporting</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Resource management</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Portfolio Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <PieChart className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Portfolio Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Optimize portfolios by balancing investments, tracking performance, and aligning initiatives to business strategy.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Portfolio planning</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Performance analytics</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Strategic alignment</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Resource Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Users className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">Resource Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Allocate, track, and optimize resources across projects and portfolios for maximum productivity and value.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Resource allocation</span>
+                  </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
                     <span>Capacity planning</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Budget tracking</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Investment optimization</span>
+                    <span>Utilization analytics</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Roadmapping & Strategic Alignment */}
+            {/* Financial Planning & Tracking */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <BookOpen className="h-6 w-6 text-chart-3" />
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <FileText className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Roadmapping & Strategic Alignment</CardTitle>
+                <CardTitle className="text-lg">Financial Planning & Tracking</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Visualize roadmaps and ensure initiatives are aligned with business strategy.
+                  Manage budgets, forecasts, and actuals to maximize ROI and control costs across portfolios and projects.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Roadmap visualization</span>
+                    <span>Budget management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Forecasting & tracking</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>ROI analytics</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Roadmapping & Strategic Planning */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <RefreshCw className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Roadmapping & Strategic Planning</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Visualize and communicate strategy, timelines, and dependencies to keep teams aligned and focused on outcomes.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Interactive roadmaps</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Strategic goal tracking</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Dependency management</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Agile Delivery */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <MonitorSmartphone className="h-6 w-6 text-chart-2" />
+                </div>
+                <CardTitle className="text-lg">Agile Delivery</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Enable agile teams to plan, execute, and deliver work faster with integrated boards, sprints, and reporting.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Scrum & Kanban boards</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Sprint planning</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Velocity tracking</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* GenAI & Predictive Insights */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Bot className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">GenAI & Predictive Insights</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Leverage GenAI and predictive analytics for smarter planning, risk mitigation, and faster decision-making.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>GenAI-powered recommendations</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Risk prediction</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated insights</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Reporting & Analytics */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <BookOpen className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">Reporting & Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Real-time dashboards and advanced analytics to monitor progress, performance, and outcomes.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Custom dashboards</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated reporting</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
                     <span>Outcome tracking</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Stakeholder alignment</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Performance Analytics */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-1" />
-                </div>
-                <CardTitle className="text-lg">Performance Analytics</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Monitor KPIs, portfolio health, and business outcomes with real-time dashboards.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>KPI dashboards</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Portfolio health analytics</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Outcome measurement</span>
                   </li>
                 </ul>
               </CardContent>
@@ -202,78 +319,20 @@ export default function SPMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Connect SPM with ITBM, ERP, HR, and financial systems for unified portfolio management.
+                  Connect SPM with ITSM, ITOM, HR, Finance, and other enterprise systems for unified portfolio management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>ITBM integration</span>
+                    <span>API & connectors</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>ERP & HR connectors</span>
+                    <span>Cross-platform integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Financial data sync</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Compliance & Risk Management */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Shield className="h-6 w-6 text-chart-4" />
-                </div>
-                <CardTitle className="text-lg">Compliance & Risk Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Ensure strategic initiatives comply with policies and mitigate risks proactively.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Policy enforcement</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Risk assessments</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Audit trails</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Collaboration & Stakeholder Engagement */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-chart-5" />
-                </div>
-                <CardTitle className="text-lg">Collaboration & Stakeholder Engagement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Foster collaboration and alignment across teams and stakeholders for successful delivery.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Collaboration portals</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Stakeholder communication</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Progress sharing</span>
+                    <span>Unified data model</span>
                   </li>
                 </ul>
               </CardContent>
@@ -282,17 +341,58 @@ export default function SPMPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Benefits */}
       <section className="py-16 px-6 bg-secondary/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Unlock strategic value with ServiceNow SPM: align investments, accelerate delivery, and drive measurable outcomes with GenAI-powered insights and unified workflows.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Faster Value Delivery</h3>
+              <p className="text-muted-foreground">
+                Accelerate project execution and time-to-value with connected planning and agile delivery.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-chart-2" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Smarter Decisions</h3>
+              <p className="text-muted-foreground">
+                Make informed investment choices with GenAI-powered analytics and real-time portfolio insights.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-5/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-chart-5" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Strategic Alignment</h3>
+              <p className="text-muted-foreground">
+                Ensure every initiative supports business goals with unified strategy-to-execution workflows.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Accelerate Strategic Outcomes
+            Ready to Transform Your Portfolio Management?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Transform portfolio planning, execution, and value delivery with ServiceNow SPM and IfBash expertise.
+            Discover how ServiceNow SPM, powered by GenAI, predictive analytics, and unified workflows, can help you deliver strategic outcomes and maximize business value.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
-            Explore SPM Solutions
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

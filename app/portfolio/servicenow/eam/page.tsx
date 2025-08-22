@@ -3,23 +3,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Headphones,
-  MapPin,
-  Clock,
+  Settings,
+  AlertTriangle,
+  RefreshCw,
+  FileText,
   Users,
-  BarChart3,
-  MessageCircle,
+  Clock,
   CheckCircle,
   ArrowRight,
+  Database,
   BookOpen,
+  MonitorSmartphone,
+  Layers,
   Bot,
-  Link2,
-  Shield,
-  Zap,
   UserCheck,
+  BarChart2,
+  PieChart,
+  Zap,
+  Link2,
 } from "lucide-react";
 
-export default function CSMPage() {
+export default function EAMPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -28,274 +32,245 @@ export default function CSMPage() {
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Headphones className="h-8 w-8 text-chart-5" />
-            <Badge variant="outline" className="text-chart-5 border-chart-5/20">ServiceNow</Badge>
+            <Settings className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Transform Customer Service Management with ServiceNow
+            Optimize Enterprise Asset Management with ServiceNow EAM
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Deliver proactive, personalized, and connected customer experiences. Empower your teams with intelligent automation, omnichannel engagement, and seamless field service—driven by ServiceNow and partner innovation.
+            Digitally manage the full lifecycle of your enterprise assets. ServiceNow EAM automates asset tracking, maintenance, and compliance—empowering organizations to maximize asset value, reduce costs, and ensure operational resilience.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Resolve issues faster, boost satisfaction, and build lasting customer relationships.
+            Unlock visibility, control, and efficiency with GenAI-powered workflows and unified asset management.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* EAM Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive CSM Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow EAM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Case Management */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <MessageCircle className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Case Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Centralized platform for managing customer cases, requests, and interactions.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated case routing</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Resolution workflows</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>SLA tracking</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Omnichannel Engagement */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Headphones className="h-6 w-6 text-chart-4" />
-                </div>
-                <CardTitle className="text-lg">Omnichannel Engagement</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Connect with customers across chat, email, phone, portal, and social channels.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Unified inbox</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Channel integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Consistent experience</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Field Service Management */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <MapPin className="h-6 w-6 text-chart-5" />
-                </div>
-                <CardTitle className="text-lg">Field Service Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Optimize field operations with intelligent scheduling and mobile workforce tools.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Work order management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Resource scheduling</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Mobile app support</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Knowledge Management */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <BookOpen className="h-6 w-6 text-chart-3" />
-                </div>
-                <CardTitle className="text-lg">Knowledge Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Empower customers and agents with searchable, AI-powered knowledge bases.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>AI-driven search</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Self-help articles</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Continuous improvement</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Virtual Agent & Automation */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Bot className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Virtual Agent & Automation</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  AI-powered chatbots and automated workflows for faster resolutions.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>24/7 support</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated triage</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Intelligent routing</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Customer Analytics */}
+            {/* Asset Lifecycle Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-1" />
+                  <Database className="h-6 w-6 text-chart-1" />
                 </div>
-                <CardTitle className="text-lg">Customer Analytics</CardTitle>
+                <CardTitle className="text-lg">Asset Lifecycle Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Gain actionable insights into customer behavior and service performance.
+                  Manage asset acquisition, deployment, maintenance, and retirement with automated workflows and real-time visibility.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Dashboards & reports</span>
+                    <span>Automated asset tracking</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Customer satisfaction metrics</span>
+                    <span>Lifecycle management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>GenAI-powered insights</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Preventive & Predictive Maintenance */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <RefreshCw className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Preventive & Predictive Maintenance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Automate maintenance schedules and leverage AI to predict failures, reduce downtime, and extend asset life.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated maintenance scheduling</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
                     <span>Predictive analytics</span>
                   </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Downtime reduction</span>
+                  </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Service Level Management */}
+            {/* Asset Performance & Monitoring */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Clock className="h-6 w-6 text-chart-3" />
+                  <BarChart2 className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Service Level Management</CardTitle>
+                <CardTitle className="text-lg">Asset Performance & Monitoring</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Monitor and maintain service levels with automated SLA tracking and escalation.
+                  Monitor asset health, utilization, and performance with real-time dashboards and actionable analytics.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>SLA monitoring</span>
+                    <span>Real-time asset monitoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Escalation rules</span>
+                    <span>Utilization analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Performance metrics</span>
+                    <span>Performance dashboards</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Proactive Service & Issue Prevention */}
+            {/* Work Order Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Zap className="h-6 w-6 text-chart-4" />
+                  <FileText className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Proactive Service & Issue Prevention</CardTitle>
+                <CardTitle className="text-lg">Work Order Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Identify and resolve issues before they impact customers using AI and automation.
+                  Automate work order creation, assignment, and tracking for efficient asset maintenance and service delivery.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Predictive alerts</span>
+                    <span>Automated work order generation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Root cause analysis</span>
+                    <span>Real-time status tracking</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated remediation</span>
+                    <span>Mobile work management</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Integrations */}
+            {/* Asset Inventory & Tracking */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Link2 className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Layers className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Integrations</CardTitle>
+                <CardTitle className="text-lg">Asset Inventory & Tracking</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Connect CSM with CRM, ERP, and third-party platforms for unified customer data.
+                  Maintain a centralized inventory of assets with automated tracking, barcode/RFID support, and audit trails.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>CRM integration</span>
+                    <span>Centralized asset repository</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Barcode & RFID tracking</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Audit & compliance trails</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Supplier & Contract Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Layers className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Supplier & Contract Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Manage supplier relationships, contracts, and performance for better asset outcomes and compliance.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Supplier profiles</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Contract management</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Performance analytics</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Compliance & Audit Management */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <PieChart className="h-6 w-6 text-chart-2" />
+                </div>
+                <CardTitle className="text-lg">Compliance & Audit Management</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Automate compliance tracking, audit processes, and regulatory reporting for asset operations.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated compliance checks</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Audit reporting</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Policy management</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* EAM Integrations */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <Link2 className="h-6 w-6 text-chart-4" />
+                </div>
+                <CardTitle className="text-lg">EAM Integrations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Connect EAM with IT, HR, ERP, and third-party systems for unified asset management and data flow.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>IT & HR integration</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -303,94 +278,36 @@ export default function CSMPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Partner ecosystem</span>
+                    <span>Third-party integration</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Self-Service Portal */}
+            {/* Asset Analytics */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <UserCheck className="h-6 w-6 text-chart-5" />
+                  <BarChart2 className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Self-Service Portal</CardTitle>
+                <CardTitle className="text-lg">Asset Analytics</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Empower customers to resolve issues independently with guided self-service.
+                  Monitor asset performance, utilization, and cost with real-time dashboards and actionable analytics.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Guided troubleshooting</span>
+                    <span>Performance dashboards</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Knowledge base access</span>
+                    <span>Utilization tracking</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Case creation</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Customer Communities */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-chart-1" />
-                </div>
-                <CardTitle className="text-lg">Customer Communities</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Foster peer-to-peer support and engagement through branded communities.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Community forums</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Peer support</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Knowledge sharing</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Compliance & Security */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Shield className="h-6 w-6 text-chart-3" />
-                </div>
-                <CardTitle className="text-lg">Compliance & Security</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Ensure customer data protection and regulatory compliance across all interactions.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Data privacy controls</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Audit trails</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Regulatory reporting</span>
+                    <span>Cost analytics</span>
                   </li>
                 </ul>
               </CardContent>
@@ -399,17 +316,58 @@ export default function CSMPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Benefits */}
       <section className="py-16 px-6 bg-secondary/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Maximize asset value and operational resilience with ServiceNow EAM: automate lifecycle management, ensure compliance, and gain real-time insights for measurable business impact.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Optimized Asset Utilization</h3>
+              <p className="text-muted-foreground">
+                Increase asset ROI and reduce costs with automated tracking and predictive maintenance.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-chart-2" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Unified Asset Visibility</h3>
+              <p className="text-muted-foreground">
+                Gain real-time visibility and control across all enterprise assets and locations.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-5/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-chart-5" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Compliance & Resilience</h3>
+              <p className="text-muted-foreground">
+                Ensure regulatory compliance and operational resilience with automated audit and policy management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Elevate Your Customer Experience
+            Ready to Transform Your Enterprise Asset Management?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Transform customer service operations with proactive, automated, and connected service management.
+            Discover how ServiceNow EAM, powered by GenAI, automation, and unified workflows, can optimize your asset operations and drive business outcomes.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
-            Enhance Customer Service
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

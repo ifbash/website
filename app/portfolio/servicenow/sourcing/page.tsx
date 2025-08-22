@@ -3,20 +3,27 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  ShoppingCart,
+  Settings,
+  AlertTriangle,
+  RefreshCw,
   FileText,
-  Clock,
   Users,
-  BarChart3,
+  Clock,
   CheckCircle,
   ArrowRight,
-  Link2,
-  Shield,
-  Zap,
+  Database,
+  BookOpen,
+  MonitorSmartphone,
+  Layers,
+  Bot,
   UserCheck,
+  BarChart2,
+  PieChart,
+  Zap,
+  Link2,
 } from "lucide-react";
 
-export default function SPOPage() {
+export default function SOMPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -25,37 +32,66 @@ export default function SPOPage() {
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <ShoppingCart className="h-8 w-8 text-chart-5" />
-            <Badge variant="outline" className="text-chart-5 border-chart-5/20">ServiceNow</Badge>
+            <Settings className="h-8 w-8 text-primary" />
+            <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Modernize Sourcing & Procurement Operations with ServiceNow SPO
+            Streamline Procurement with ServiceNow Procurement Service Management (SOM)
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Streamline sourcing, automate procurement workflows, and gain real-time visibility into supplier performance. ServiceNow SPO empowers organizations to optimize costs, ensure compliance, and accelerate procurement cycles with intelligent automation and analytics.
+            Digitize and automate procurement workflows with ServiceNow SOM: accelerate sourcing, approvals, and supplier collaboration. Empower teams with GenAI-powered automation, unified requests, and real-time visibility for smarter, faster procurement.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Drive efficiency, reduce risk, and enhance supplier collaboration with unified procurement management.
+            Unlock agility, compliance, and cost savings with connected procurement and intelligent automation.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* SOM Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive SPO Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow SOM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Sourcing Management */}
+            {/* Procurement Request Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <FileText className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
+                  <FileText className="h-6 w-6 text-chart-1" />
                 </div>
-                <CardTitle className="text-lg">Sourcing Management</CardTitle>
+                <CardTitle className="text-lg">Procurement Request Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Centralize sourcing events, supplier evaluation, and contract management.
+                  Centralize procurement requests, automate approvals, and provide a unified portal for employees.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Unified request portal</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated approval workflows</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>GenAI-powered recommendations</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Sourcing & Supplier Collaboration */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Layers className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Sourcing & Supplier Collaboration</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Digitize sourcing events, manage supplier onboarding, and enable real-time collaboration for faster outcomes.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -64,56 +100,56 @@ export default function SPOPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Bid & RFP automation</span>
+                    <span>Digital sourcing events</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Contract lifecycle management</span>
+                    <span>Collaboration tools</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Procurement Automation */}
+            {/* Purchase Order Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <ShoppingCart className="h-6 w-6 text-chart-4" />
+                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
+                  <Database className="h-6 w-6 text-chart-3" />
                 </div>
-                <CardTitle className="text-lg">Procurement Automation</CardTitle>
+                <CardTitle className="text-lg">Purchase Order Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate purchase requests, approvals, and order processing for faster procurement cycles.
+                  Automate purchase order creation, tracking, and approvals for efficient, compliant procurement.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Purchase requisition workflows</span>
+                    <span>Automated PO creation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated approvals</span>
+                    <span>Real-time PO tracking</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Order tracking</span>
+                    <span>Digital approvals</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Supplier Performance & Collaboration */}
+            {/* Supplier Performance & Risk */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-chart-5" />
+                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
+                  <BarChart2 className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Supplier Performance & Collaboration</CardTitle>
+                <CardTitle className="text-lg">Supplier Performance & Risk</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Monitor supplier KPIs, manage relationships, and foster collaboration.
+                  Monitor supplier performance, manage risk, and ensure compliance with real-time analytics and dashboards.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -122,27 +158,56 @@ export default function SPOPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Supplier scorecards</span>
+                    <span>Risk management</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Collaboration portals</span>
+                    <span>Compliance tracking</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Analytics & Reporting */}
+            {/* Contract Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <BarChart3 className="h-6 w-6 text-chart-1" />
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <Layers className="h-6 w-6 text-chart-5" />
                 </div>
-                <CardTitle className="text-lg">Analytics & Reporting</CardTitle>
+                <CardTitle className="text-lg">Contract Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Gain insights into spend, procurement cycles, and supplier performance.
+                  Digitize contract creation, approvals, and renewals for improved compliance and supplier relationships.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated contract workflows</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Renewal reminders</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Compliance management</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Procurement Analytics */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <PieChart className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Procurement Analytics</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Gain actionable insights into spend, supplier performance, and process efficiency with real-time analytics.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -151,56 +216,27 @@ export default function SPOPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Cycle time metrics</span>
+                    <span>Supplier scorecards</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Supplier performance reports</span>
+                    <span>Process optimization</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Compliance & Risk Management */}
+            {/* SOM Integrations */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Shield className="h-6 w-6 text-primary" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <Link2 className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Compliance & Risk Management</CardTitle>
+                <CardTitle className="text-lg">SOM Integrations</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Ensure procurement compliance and mitigate supplier risks with automated controls.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Policy enforcement</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Risk assessments</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Audit trails</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Integrations */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Link2 className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">Integrations</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Connect SPO with ERP, finance, inventory, and supplier systems for unified procurement data.
+                  Connect SOM with ERP, finance, IT, and third-party systems for unified procurement and data flow.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -213,36 +249,7 @@ export default function SPOPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Supplier data sync</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Self-Service Portal */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <UserCheck className="h-6 w-6 text-chart-5" />
-                </div>
-                <CardTitle className="text-lg">Self-Service Portal</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Empower employees to initiate and track procurement requests independently.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Request submission</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Status tracking</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Knowledge base access</span>
+                    <span>Third-party integration</span>
                   </li>
                 </ul>
               </CardContent>
@@ -251,17 +258,58 @@ export default function SPOPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Benefits */}
       <section className="py-16 px-6 bg-secondary/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Accelerate procurement, reduce costs, and ensure compliance with ServiceNow SOM: automate sourcing, unify requests, and gain real-time insights for measurable business impact.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Faster Procurement Cycles</h3>
+              <p className="text-muted-foreground">
+                Accelerate sourcing and approvals with automated workflows and unified requests.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-chart-2" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Supplier Collaboration</h3>
+              <p className="text-muted-foreground">
+                Improve supplier relationships and outcomes with digital sourcing and real-time collaboration.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-5/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-chart-5" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Compliance & Savings</h3>
+              <p className="text-muted-foreground">
+                Ensure policy compliance and optimize spend with automated tracking and analytics.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Transform Your Procurement Operations
+            Ready to Transform Your Procurement Service Management?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Achieve procurement excellence with automation, analytics, and unified supplier management—powered by ServiceNow SPO and IfBash expertise.
+            Discover how ServiceNow SOM, powered by GenAI, automation, and unified workflows, can optimize your procurement operations and drive business outcomes.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
-            Explore SPO Solutions
+            Schedule Consultation
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

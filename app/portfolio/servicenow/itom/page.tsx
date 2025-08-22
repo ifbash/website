@@ -3,24 +3,30 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Monitor,
-  Search,
-  Zap,
-  Network,
-  Server,
-  Activity,
+  Settings,
+  AlertTriangle,
+  RefreshCw,
+  FileText,
+  Users,
+  Clock,
   CheckCircle,
   ArrowRight,
-  Cloud,
-  BarChart2,
+  Database,
+  BookOpen,
+  MonitorSmartphone,
   Layers,
   Bot,
-  Shield,
+  UserCheck,
+  BarChart2,
+  PieChart,
+  Zap,
   Link2,
+  Search,
+  Cloud,
+  Network,
+  Shield,
   Eye,
   Sliders,
-  Database,
-  AlertTriangle,
 } from "lucide-react";
 
 export default function ITOMPage() {
@@ -32,25 +38,25 @@ export default function ITOMPage() {
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Monitor className="h-8 w-8 text-primary" />
+            <Settings className="h-8 w-8 text-primary" />
             <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Modern IT Operations Management (ITOM) with ServiceNow
+            Modernize IT Operations Management with ServiceNow ITOM
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Unlock full-stack visibility, intelligent automation, and predictive insights. Proactively manage hybrid environments, reduce outages, and accelerate digital transformation with ServiceNow ITOM.
+            Gain end-to-end visibility, automate operations, and proactively resolve issues across hybrid and multi-cloud environments. ServiceNow ITOM empowers organizations to deliver always-on services, reduce risk, and optimize costs with AI-powered insights and automation.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Empower your IT teams to deliver resilient, agile, and cost-effective operations.
+            Accelerate digital transformation with unified operations, predictive intelligence, and resilient service delivery.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* ITOM Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive ITOM Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow ITOM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Discovery */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
@@ -62,7 +68,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automatically discover and map your entire IT infrastructure, on-premises and in the cloud.
+                  Automatically discover, map, and update your entire IT infrastructure—including cloud, containers, and on-premises assets—into a unified CMDB.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -71,11 +77,11 @@ export default function ITOMPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Real-time CMDB updates</span>
+                    <span>Cloud & container visibility</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Dependency mapping</span>
+                    <span>Real-time CMDB updates</span>
                   </li>
                 </ul>
               </CardContent>
@@ -91,20 +97,20 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Correlate, prioritize, and automate response to IT events for faster incident resolution.
+                  Correlate, prioritize, and automate response to IT events using AI/ML for faster incident resolution and reduced noise.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Event correlation</span>
+                    <span>AI-powered event correlation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Noise reduction</span>
+                    <span>Noise reduction & root cause analysis</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Auto-incident creation</span>
+                    <span>Automated incident creation</span>
                   </li>
                 </ul>
               </CardContent>
@@ -120,20 +126,20 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate repetitive IT tasks and workflows across systems for efficiency and compliance.
+                  Automate complex IT processes and workflows across hybrid environments for improved efficiency and compliance.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Workflow automation</span>
+                    <span>End-to-end workflow automation</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Self-healing operations</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
                     <span>Multi-system integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Self-healing processes</span>
                   </li>
                 </ul>
               </CardContent>
@@ -149,7 +155,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Govern, optimize, and secure hybrid and multi-cloud environments.
+                  Govern, optimize, and secure hybrid and multi-cloud resources with unified visibility and automated policy enforcement.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -158,7 +164,7 @@ export default function ITOMPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Cost optimization</span>
+                    <span>Automated provisioning & cost optimization</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -178,12 +184,12 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Visualize business service dependencies and relationships for impact analysis and rapid troubleshooting.
+                  Visualize business service dependencies and relationships for impact analysis, rapid troubleshooting, and risk mitigation.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Business service maps</span>
+                    <span>Dynamic service maps</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -207,7 +213,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Real-time performance monitoring, predictive analytics, and custom dashboards.
+                  Monitor performance in real time, leverage predictive analytics, and create custom dashboards for actionable insights.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -236,7 +242,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Leverage AI/ML for anomaly detection, root cause analysis, and proactive issue resolution.
+                  Use AI/ML for anomaly detection, root cause analysis, and proactive issue resolution to minimize outages and optimize performance.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -265,7 +271,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate incident response and routine tasks to reduce manual effort and accelerate recovery.
+                  Automate incident response and routine tasks to reduce manual effort, accelerate recovery, and enable self-healing infrastructure.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -294,7 +300,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Seamlessly connect ServiceNow ITOM with monitoring, cloud, and security tools.
+                  Seamlessly connect ServiceNow ITOM with monitoring, cloud, security, and DevOps tools for unified operations.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -303,7 +309,7 @@ export default function ITOMPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Multi-cloud support</span>
+                    <span>Multi-cloud & hybrid support</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -323,7 +329,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Ensure infrastructure and cloud resources meet security and regulatory standards.
+                  Ensure infrastructure and cloud resources meet security, regulatory, and operational standards with automated compliance checks.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -352,7 +358,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Unified monitoring across infrastructure, applications, and cloud for proactive management.
+                  Unified monitoring across infrastructure, applications, and cloud for proactive management and rapid issue detection.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -381,7 +387,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Coordinate IT changes and releases with minimal risk and maximum transparency.
+                  Coordinate IT changes and releases with automated workflows, impact analysis, and audit trails to minimize risk and maximize transparency.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -410,7 +416,7 @@ export default function ITOMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Accelerate incident response with intelligent alerting and automated ticketing.
+                  Accelerate incident response with intelligent alerting, automated ticketing, and integrated response workflows.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -432,14 +438,55 @@ export default function ITOMPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Benefits */}
       <section className="py-16 px-6 bg-secondary/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Unlock resilient IT operations with ServiceNow ITOM: AI-powered automation, predictive intelligence, and unified visibility for measurable business impact.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Proactive Resolution</h3>
+              <p className="text-muted-foreground">
+                Resolve issues before they impact users with predictive analytics and automated remediation.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
+                <Users className="h-8 w-8 text-chart-2" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Unified Visibility</h3>
+              <p className="text-muted-foreground">
+                Gain end-to-end insight across hybrid and multi-cloud environments for faster decision-making.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-5/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-chart-5" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Optimized Operations</h3>
+              <p className="text-muted-foreground">
+                Reduce costs, minimize risk, and deliver always-on services with intelligent automation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Optimize Your IT Operations
+            Ready to Transform Your IT Operations?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Transform your IT operations with intelligent automation, predictive analytics, and unified visibility. Discover how ServiceNow ITOM can future-proof your business.
+            Discover how ServiceNow ITOM, powered by AI, predictive intelligence, and unified workflows, can future-proof your business and deliver always-on services.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
             Learn More

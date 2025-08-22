@@ -36,13 +36,13 @@ export default function ITSMPage() {
             <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Elevate IT Service Management with ServiceNow
+            Modernize IT Service Management with ServiceNow ITSM
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Unleash the power of intelligent automation, agentic AI, and seamless integrations. Deliver proactive, data-driven IT services that delight users and drive business outcomes.
+            Empower your organization with ServiceNow ITSM: GenAI-powered automation, predictive intelligence, and unified workflows. Deliver resilient, efficient, and user-centric IT services that accelerate business transformation.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Experience next-gen ITSM: faster resolutions, actionable insights, and unified service experiences.
+            Experience ServiceNow ITSM: faster resolutions, smarter insights, and seamless digital workflows.
           </p>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function ITSMPage() {
       {/* Core Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive ITSM Modules</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow ITSM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Incident Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
@@ -62,20 +62,20 @@ export default function ITSMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Rapid incident resolution with automated workflows, AI-powered categorization, and intelligent routing.
+                  Accelerate incident resolution with GenAI-powered categorization, automated triage, and virtual agent support.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated ticket creation</span>
+                    <span>GenAI ticket classification</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>AI-based prioritization</span>
+                    <span>Automated routing & escalation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>SLA monitoring</span>
+                    <span>Virtual agent support</span>
                   </li>
                 </ul>
               </CardContent>
@@ -91,12 +91,12 @@ export default function ITSMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Identify and eliminate root causes to prevent recurring incidents, with AI-assisted analysis.
+                  Prevent recurring incidents with AI-driven root cause analysis and proactive problem detection.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Root cause analysis</span>
+                    <span>Predictive problem identification</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -104,7 +104,7 @@ export default function ITSMPage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Proactive problem detection</span>
+                    <span>Automated root cause analysis</span>
                   </li>
                 </ul>
               </CardContent>
@@ -120,20 +120,20 @@ export default function ITSMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Controlled change processes with risk assessment, automated approvals, and impact analysis.
+                  Streamline change processes with automated risk assessment, impact analysis, and digital approvals.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Change advisory board</span>
+                    <span>Automated risk scoring</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Risk assessment</span>
+                    <span>Impact analysis via CMDB</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated approvals</span>
+                    <span>Digital change approvals</span>
                   </li>
                 </ul>
               </CardContent>
@@ -145,24 +145,24 @@ export default function ITSMPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
                   <FileText className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Service Request</CardTitle>
+                <CardTitle className="text-lg">Service Request Management</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Self-service portal with catalog-driven request fulfillment and CRM integration for personalized service.
+                  Empower users with a unified self-service portal, automated request fulfillment, and GenAI-powered recommendations.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Service catalog</span>
+                    <span>Unified service catalog</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated fulfillment</span>
+                    <span>Automated fulfillment workflows</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Self-service portal</span>
+                    <span>GenAI recommendations</span>
                   </li>
                 </ul>
               </CardContent>
@@ -207,74 +207,45 @@ export default function ITSMPage() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Centralized knowledge base with AI-powered search and recommendations for faster resolutions.
+                  AI-powered knowledge base with GenAI search, automated article creation, and self-help resources.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>AI-driven article suggestions</span>
+                    <span>GenAI article generation</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Self-help resources</span>
+                    <span>AI-powered search</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Continuous improvement</span>
+                    <span>Self-service resources</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* CMDB */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-6/20 flex items-center justify-center mb-3">
-                  <Database className="h-6 w-6 text-chart-6" />
-                </div>
-                <CardTitle className="text-lg">CMDB</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Unified Configuration Management Database for visibility, impact analysis, and compliance.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Relationship mapping</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Impact analysis</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Audit & compliance</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Virtual Agent & AI */}
+            {/* Virtual Agent & GenAI */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
                   <Bot className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Virtual Agent & AI</CardTitle>
+                <CardTitle className="text-lg">Virtual Agent & GenAI</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  AI-powered chatbots for 24/7 support, automated triage, and predictive analytics.
+                  GenAI-powered chatbots for 24/7 support, automated triage, and predictive issue resolution.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Conversational support</span>
+                    <span>Conversational GenAI support</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Predictive issue resolution</span>
+                    <span>Predictive analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -641,7 +612,7 @@ export default function ITSMPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Transform your IT service delivery with measurable improvements powered by ServiceNow ITSM, Agentic AI, Performance Analytics, and seamless integrations.
+              Unlock resilient IT service delivery with ServiceNow ITSM: GenAI automation, predictive intelligence, and unified digital workflows for measurable business impact.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -649,18 +620,18 @@ export default function ITSMPage() {
               <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
                 <Clock className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">Faster Resolution</h3>
+              <h3 className="text-xl font-medium text-foreground mb-2">Accelerated Resolution</h3>
               <p className="text-muted-foreground">
-                Reduce incident resolution time by up to 40% with automated workflows, agentic AI, and virtual agents.
+                Resolve incidents up to 50% faster with GenAI-powered workflows and virtual agents.
               </p>
             </div>
             <div className="text-center">
               <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
                 <Users className="h-8 w-8 text-chart-2" />
               </div>
-              <h3 className="text-xl font-medium text-foreground mb-2">Actionable Insights</h3>
+              <h3 className="text-xl font-medium text-foreground mb-2">Smarter Insights</h3>
               <p className="text-muted-foreground">
-                Make smarter decisions with real-time analytics, reporting, and performance dashboards.
+                Drive decisions with predictive analytics, performance dashboards, and real-time reporting.
               </p>
             </div>
             <div className="text-center">
@@ -669,7 +640,7 @@ export default function ITSMPage() {
               </div>
               <h3 className="text-xl font-medium text-foreground mb-2">Unified Experience</h3>
               <p className="text-muted-foreground">
-                Integrate ITSM with CRM and enterprise tools for seamless, personalized service delivery.
+                Deliver seamless, personalized service across ITSM, CRM, and enterprise platforms.
               </p>
             </div>
           </div>
@@ -680,10 +651,10 @@ export default function ITSMPage() {
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Ready to Transform Your IT Service Management?
+            Ready to Modernize Your IT Service Management?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover how ServiceNow ITSM, powered by Agentic AI, Performance Analytics, and integrations, can streamline your IT operations and elevate service delivery.
+            Discover how ServiceNow ITSM, powered by GenAI, predictive intelligence, and unified workflows, can transform your IT operations and elevate service delivery.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
             Schedule Consultation
