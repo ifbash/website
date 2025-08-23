@@ -50,6 +50,12 @@ import {
 import { title } from "node:process";
 import { useState } from "react";
 import { Portal } from "vaul";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const serviceItems = [
   
@@ -450,7 +456,7 @@ export function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
-                            {/* Portfolio */}
+              {/* Portfolio */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger
                   className="bg-transparent border-none shadow-none font-semibold text-[1.05rem] px-5 py-2 transition-colors moondust-text-gradient"
@@ -568,32 +574,35 @@ export function Header() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
+          {/* Learning Center & Contact Us (desktop only) */}
+          <Link
+            href="/learning-center"
+            className="ml-4 text-base font-semibold moondust-text-gradient hover:text-primary hidden lg:inline-block"
+            style={{
+              background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Learning Center
+          </Link>
+          <Link
+            href="/contact-us"
+            className="ml-2 text-base font-semibold moondust-text-gradient hover:text-primary hidden lg:inline-block"
+            style={{
+              background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            Contact Us
+          </Link>
         </div>
 
         {/* Right Side Actions */}
         <div className="flex items-center space-x-4">
-          {/* Learning Center */}
-          <Link href="/learning-center" legacyBehavior passHref>
-            <Button
-              variant="outline"
-              size="lg"
-              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-6 py-2 moondust-glow h-9"
-            >
-              Learning Center
-            </Button>
-          </Link>
-
-          {/* Contact Us */}
-          <Link href="/contact-us" legacyBehavior passHref>
-            <Button
-              variant="outline"
-              size="lg"
-              className="inline-flex items-center justify-center whitespace-nowrap text-base font-semibold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary hover:bg-primary/90 rounded-full moondust-gradient hover:opacity-90 text-white px-6 py-2 moondust-glow h-9"
-            >
-              Contact Us
-            </Button>
-          </Link>
-
           {/* Language Selector */}
           <div style={{ position: "relative", left: "0px" }}>
             <DropdownMenu>
@@ -638,64 +647,175 @@ export function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                <nav className="flex flex-col space-y-4 mt-6">
-                  <Link href="/services" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
-                    Services
-                  </Link>
-                  <div className="pl-4 space-y-2">
-                    {serviceItems.map((item) => (
-                      <Link
-                        key={item.title}
-                        href={item.href}
-                        className="block text-base moondust-text-gradient hover:text-foreground"
-                        style={{
-                          background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                          WebkitBackgroundClip: "text",
-                          WebkitTextFillColor: "transparent",
-                          backgroundClip: "text",
-                        }}
-                      >
-                        {item.title}
-                      </Link>
-                    ))}
-                  </div>
-                  <Link href="/portfolio" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
-                    Portfolio
-                  </Link>
-                  <div className="pl-4 space-y-3">
-                    <div>
-                      <div className="text-base font-semibold moondust-text-gradient mb-2">ServiceNow</div>
-                      <div className="space-y-1">
-                        {portfolioItems.servicenow.slice(0, 3).map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            className="block text-base moondust-text-gradient hover:text-foreground"
-                            style={{
-                              background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                              WebkitBackgroundClip: "text",
-                              WebkitTextFillColor: "transparent",
-                              backgroundClip: "text",
-                            }}
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <Link href="/industries" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
-                    Industries
-                  </Link>
-                  <Link href="/careers" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
-                    Careers
-                  </Link>
-                  <Link href="/learning-center" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                <nav className="flex flex-col space-y-2 mt-6">
+                  <Accordion type="multiple" className="w-full">
+                    {/* Services */}
+                    <AccordionItem value="services">
+                      <AccordionTrigger className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                        Services
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pl-2 space-y-2">
+                          {serviceItems.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              className="block text-base moondust-text-gradient hover:text-foreground"
+                              style={{
+                                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                    {/* Portfolio */}
+                    <AccordionItem value="portfolio">
+                      <AccordionTrigger className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                        Portfolio
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pl-2 space-y-2">
+                          {portfolioItems.servicenow.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              className="block text-base moondust-text-gradient hover:text-foreground"
+                              style={{
+                                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                    {/* Solutions */}
+                    <AccordionItem value="solutions">
+                      <AccordionTrigger className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                        Solutions
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pl-2 space-y-2">
+                          {solutionsItems.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              className="block text-base moondust-text-gradient hover:text-foreground"
+                              style={{
+                                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                    {/* Industries */}
+                    <AccordionItem value="industries">
+                      <AccordionTrigger className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                        Industries
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pl-2 space-y-2">
+                          {industryItems.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              className="block text-base moondust-text-gradient hover:text-foreground"
+                              style={{
+                                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                    {/* Company */}
+                    <AccordionItem value="company">
+                      <AccordionTrigger className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                        Company
+                      </AccordionTrigger>
+                      <AccordionContent>
+                        <div className="pl-2 space-y-2">
+                          {companyItems.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              className="block text-base moondust-text-gradient hover:text-foreground"
+                              style={{
+                                background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                                WebkitBackgroundClip: "text",
+                                WebkitTextFillColor: "transparent",
+                                backgroundClip: "text",
+                              }}
+                            >
+                              {item.title}
+                            </Link>
+                          ))}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </Accordion>
+                  {/* Learning Center & Contact Us as links in mobile menu */}
+                  <Link
+                    href="/learning-center"
+                    className="mt-4 text-lg font-semibold moondust-text-gradient hover:text-primary"
+                    style={{
+                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
                     Learning Center
                   </Link>
-                  <Link href="/contact-us" className="text-lg font-semibold moondust-text-gradient hover:text-primary">
+                  <Link
+                    href="/contact-us"
+                    className="text-lg font-semibold moondust-text-gradient hover:text-primary"
+                    style={{
+                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
                     Contact Us
                   </Link>
+                  {/* Language Selector for mobile */}
+                  <div className="mt-4">
+                    <div className="text-base font-semibold mb-2">Language</div>
+                    <div className="flex flex-col space-y-2">
+                      {languages.map((language) => (
+                        <button
+                          key={language.code}
+                          onClick={() => setCurrentLanguage(language.code)}
+                          className="flex items-center space-x-2 text-base bg-transparent border-none cursor-pointer"
+                        >
+                          <span>{language.flag}</span>
+                          <span>{language.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
                 </nav>
               </SheetContent>
             </Sheet>
