@@ -3,22 +3,25 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Code,
-  Workflow,
-  Database,
-  Zap,
-  Puzzle,
   Settings,
+  Layers,
+  MonitorSmartphone,
+  Bot,
+  FileText,
+  Users,
   CheckCircle,
   ArrowRight,
+  Database,
+  BookOpen,
+  BarChart2,
+  PieChart,
+  Zap,
   Link2,
-  Shield,
-  Smartphone,
-  Users,
-  BarChart3,
-  Layers,
-  Bot,
-  GitBranch,
+  Code2,
+  Sliders,
+  Puzzle,
+  ShieldCheck,
+  Cloud,
 } from "lucide-react";
 
 export default function AppEnginePage() {
@@ -30,42 +33,42 @@ export default function AppEnginePage() {
       <section className="py-16 px-6 moondust-gradient">
         <div className="container mx-auto max-w-6xl">
           <div className="flex items-center space-x-3 mb-6">
-            <Code className="h-8 w-8 text-primary" />
+            <Settings className="h-8 w-8 text-primary" />
             <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Accelerate Enterprise Innovation with ServiceNow App Engine
+            Build Powerful Apps Fast with ServiceNow App Engine
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Build, automate, and scale apps faster. Empower business and IT teams with low-code tools, intelligent workflows, and seamless integrations—powered by ServiceNow and partner expertise.
+            Accelerate innovation with ServiceNow App Engine. Empower anyone to build, automate, and deliver enterprise-grade applications—no code, low code, or pro code—all on a single, secure platform.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
-            Transform ideas into digital workflows and apps that drive agility, efficiency, and growth.
+            Discover App Engine: rapid development, seamless automation, and scalable digital workflows.
           </p>
         </div>
       </section>
 
-      {/* Core Modules */}
+      {/* Core Capabilities */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">Comprehensive App Engine Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">App Engine Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Low-Code Development */}
+            {/* App Engine Studio */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Code className="h-6 w-6 text-primary" />
+                  <Code2 className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Low-Code Development</CardTitle>
+                <CardTitle className="text-lg">App Engine Studio</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Rapidly build apps with drag-and-drop tools for business and IT users.
+                  Visual, low-code development environment for building apps quickly and collaboratively.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Visual app builder</span>
+                    <span>Drag-and-drop UI builder</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -73,65 +76,123 @@ export default function AppEnginePage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Citizen development</span>
+                    <span>Collaboration tools</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Workflow Automation */}
+            {/* Automation Engine */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Workflow className="h-6 w-6 text-chart-4" />
+                  <Zap className="h-6 w-6 text-chart-4" />
                 </div>
-                <CardTitle className="text-lg">Workflow Automation</CardTitle>
+                <CardTitle className="text-lg">Automation Engine</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate complex business processes with intelligent, scalable workflows.
+                  Automate workflows and integrate systems with low-code, no-code, and pro-code tools.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Process designer</span>
+                    <span>Flow Designer</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Approval flows</span>
+                    <span>Integration Hub</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated notifications</span>
+                    <span>RPA & GenAI automation</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Data Management */}
+            {/* Data & Security */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Database className="h-6 w-6 text-chart-5" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <ShieldCheck className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Data Management</CardTitle>
+                <CardTitle className="text-lg">Data & Security</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Manage and integrate data across your enterprise applications.
+                  Enterprise-grade security, compliance, and data management built into every app.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Data modeling</span>
+                    <span>Role-based access</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Import sets</span>
+                    <span>Data encryption</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Transform maps</span>
+                    <span>Audit trails</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* App Templates & Store */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                  <Puzzle className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">App Templates & Store</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Jumpstart development with pre-built templates and access a marketplace of ready-to-use apps.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Industry templates</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>App marketplace</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Reusable solutions</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* Mobile App Builder */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
+                  <MonitorSmartphone className="h-6 w-6 text-chart-5" />
+                </div>
+                <CardTitle className="text-lg">Mobile App Builder</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Create mobile-first experiences for employees and customers with responsive design tools.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Mobile UI designer</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Push notifications</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Offline capabilities</span>
                   </li>
                 </ul>
               </CardContent>
@@ -141,221 +202,47 @@ export default function AppEnginePage() {
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Zap className="h-6 w-6 text-chart-3" />
+                  <Link2 className="h-6 w-6 text-chart-3" />
                 </div>
                 <CardTitle className="text-lg">Integration Hub</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Connect ServiceNow with third-party systems and applications.
+                  Connect apps to any system—cloud, on-premises, or third-party—with pre-built spokes and APIs.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Pre-built connectors</span>
+                    <span>API connectors</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>REST/SOAP APIs</span>
+                    <span>Pre-built spokes</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Data synchronization</span>
+                    <span>Secure integrations</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* App Store & Marketplace */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <Puzzle className="h-6 w-6 text-chart-1" />
-                </div>
-                <CardTitle className="text-lg">App Store & Marketplace</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Leverage pre-built applications and components from the ServiceNow Store.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Certified apps</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Spoke integrations</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Community content</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Platform Administration */}
+            {/* Governance & Lifecycle */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
                 <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-primary" />
+                  <Sliders className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle className="text-lg">Platform Administration</CardTitle>
+                <CardTitle className="text-lg">Governance & Lifecycle</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Comprehensive platform management and governance capabilities.
+                  Manage app development, deployment, and updates with built-in governance and lifecycle tools.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>User management</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Security controls</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Performance monitoring</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Mobile App Development */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-1/20 flex items-center justify-center mb-3">
-                  <Smartphone className="h-6 w-6 text-chart-1" />
-                </div>
-                <CardTitle className="text-lg">Mobile App Development</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Create mobile-ready apps for anytime, anywhere access and engagement.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Responsive design</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Push notifications</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Offline access</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Citizen Development */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Users className="h-6 w-6 text-chart-5" />
-                </div>
-                <CardTitle className="text-lg">Citizen Development</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Enable business users to safely create and deploy apps with guardrails.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Guided development</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Pre-built templates</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Governance controls</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* App Templates & Reusability */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                  <Layers className="h-6 w-6 text-chart-3" />
-                </div>
-                <CardTitle className="text-lg">App Templates & Reusability</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Accelerate delivery with ready-to-use templates and reusable components.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Industry templates</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Reusable widgets</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Accelerators</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* DevOps & CI/CD */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                  <GitBranch className="h-6 w-6 text-primary" />
-                </div>
-                <CardTitle className="text-lg">DevOps & CI/CD</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Integrate with DevOps pipelines for automated testing, deployment, and monitoring.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Pipeline integration</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Automated deployments</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Continuous monitoring</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* App Lifecycle Management */}
-            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                  <Settings className="h-6 w-6 text-chart-4" />
-                </div>
-                <CardTitle className="text-lg">App Lifecycle Management</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">
-                  Manage the entire app lifecycle from ideation to retirement.
-                </p>
-                <ul className="space-y-2 text-xs text-muted-foreground">
-                  <li className="flex items-center space-x-2">
-                    <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Version control</span>
+                    <span>Automated testing</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
@@ -363,36 +250,65 @@ export default function AppEnginePage() {
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Retirement workflows</span>
+                    <span>Change tracking</span>
                   </li>
                 </ul>
               </CardContent>
             </Card>
 
-            {/* Intelligent Automation & Bots */}
+            {/* Analytics & Reporting */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                  <Bot className="h-6 w-6 text-chart-5" />
+                <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
+                  <BarChart2 className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">Intelligent Automation & Bots</CardTitle>
+                <CardTitle className="text-lg">Analytics & Reporting</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Automate repetitive tasks and enable conversational experiences with AI bots.
+                  Gain actionable insights with real-time dashboards, KPIs, and advanced reporting tools.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Conversational interfaces</span>
+                    <span>Custom dashboards</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>Task automation</span>
+                    <span>Performance analytics</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-3 w-3 text-chart-2" />
-                    <span>AI-powered workflows</span>
+                    <span>Exportable reports</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            {/* GenAI & Intelligent Automation */}
+            <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="h-12 w-12 rounded-lg bg-chart-7/20 flex items-center justify-center mb-3">
+                  <Bot className="h-6 w-6 text-chart-7" />
+                </div>
+                <CardTitle className="text-lg">GenAI & Intelligent Automation</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground text-sm mb-4">
+                  Enhance apps with GenAI-powered chatbots, predictive analytics, and intelligent recommendations.
+                </p>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>GenAI chatbots</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Predictive insights</span>
+                  </li>
+                  <li className="flex items-center space-x-2">
+                    <CheckCircle className="h-3 w-3 text-chart-2" />
+                    <span>Automated recommendations</span>
                   </li>
                 </ul>
               </CardContent>
@@ -401,17 +317,58 @@ export default function AppEnginePage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* Benefits */}
       <section className="py-16 px-6 bg-secondary/20">
+        <div className="container mx-auto max-w-6xl">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Unlock rapid innovation with ServiceNow App Engine: build apps faster, automate workflows, and scale securely—all on a unified platform.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Faster App Delivery</h3>
+              <p className="text-muted-foreground">
+                Launch enterprise apps in days, not months, with low-code and no-code tools.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-2/20 flex items-center justify-center mx-auto mb-4">
+                <Layers className="h-8 w-8 text-chart-2" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Unified Platform</h3>
+              <p className="text-muted-foreground">
+                Build, automate, and manage all your apps on a single, secure platform.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="h-16 w-16 rounded-full bg-chart-5/20 flex items-center justify-center mx-auto mb-4">
+                <CheckCircle className="h-8 w-8 text-chart-5" />
+              </div>
+              <h3 className="text-xl font-medium text-foreground mb-2">Enterprise-Grade Security</h3>
+              <p className="text-muted-foreground">
+                Ensure compliance and protect data with built-in security and governance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-16 px-6">
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-light text-foreground mb-6">
-            Accelerate Your Digital Innovation
+            Ready to Build Apps Faster?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Build powerful custom applications and automate business processes with ServiceNow's development platform.
+            Discover how ServiceNow App Engine empowers everyone to create, automate, and scale enterprise apps—no code, low code, or pro code.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
-            Start Building
+            Explore App Engine
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </div>

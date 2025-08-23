@@ -181,11 +181,6 @@ const portfolioItems = {
       description: "Sales and Order Management Solutions",
     },
     {
-      title: "IT Business Management (ITBM)",
-      href: "/portfolio/servicenow/itbm",
-      description: "Project Portfolio Management and Financial Management",
-    },
-    {
       title: "App Engine & Development (AED)",
       href: "/portfolio/servicenow/app-engine",
       description: "Custom Application Development and Platform Automation",

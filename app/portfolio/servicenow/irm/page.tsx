@@ -23,7 +23,7 @@ import {
   Link2,
 } from "lucide-react";
 
-export default function GRCPage() {
+export default function IRMPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -36,10 +36,10 @@ export default function GRCPage() {
             <Badge variant="outline" className="text-primary border-primary/20">ServiceNow</Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
-            Transform Risk & Compliance with ServiceNow Integrated Risk Management (GRC)
+            Transform Risk & Compliance with ServiceNow Integrated Risk Management (IRM)
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-2">
-            Proactively manage risk, ensure compliance, and drive business resilience. ServiceNow GRC automates risk assessments, policy management, and audit workflows—empowering organizations to make smarter decisions and respond faster to threats.
+            Proactively manage risk, ensure compliance, and drive business resilience. ServiceNow IRM automates risk assessments, policy management, and audit workflows—empowering organizations to make smarter decisions and respond faster to threats.
           </p>
           <p className="text-lg text-primary font-medium max-w-2xl">
             Unlock visibility, agility, and confidence with GenAI-powered risk insights and unified compliance management.
@@ -50,7 +50,7 @@ export default function GRCPage() {
       {/* GRC Modules */}
       <section className="py-16 px-6">
         <div className="container mx-auto max-w-6xl">
-          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow GRC Capabilities</h2>
+          <h2 className="text-3xl font-light text-foreground mb-12 text-center">ServiceNow IRM Capabilities</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Risk Management */}
             <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
@@ -232,11 +232,11 @@ export default function GRCPage() {
                 <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
                   <Link2 className="h-6 w-6 text-chart-2" />
                 </div>
-                <CardTitle className="text-lg">GRC Integrations</CardTitle>
+                <CardTitle className="text-lg">IRM Integrations</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground text-sm mb-4">
-                  Connect GRC with IT, HR, ERP, and third-party systems for unified risk and compliance management.
+                  Connect IRM with IT, HR, ERP, and third-party systems for unified risk and compliance management.
                 </p>
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   <li className="flex items-center space-x-2">
@@ -293,7 +293,7 @@ export default function GRCPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-light text-foreground mb-4">Key Benefits</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Strengthen business resilience and compliance with ServiceNow GRC: automate risk management, unify policy controls, and gain real-time insights for measurable impact.
+              Strengthen business resilience and compliance with ServiceNow IRM: automate risk management, unify policy controls, and gain real-time insights for measurable impact.
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
@@ -335,7 +335,7 @@ export default function GRCPage() {
             Ready to Transform Your Risk & Compliance Management?
           </h2>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Discover how ServiceNow GRC, powered by GenAI, automation, and unified workflows, can strengthen your risk posture and drive business resilience.
+            Discover how ServiceNow IRM, powered by GenAI, automation, and unified workflows, can strengthen your risk posture and drive business resilience.
           </p>
           <Button size="lg" className="moondust-gradient hover:opacity-90 text-white px-8 py-3">
             Schedule Consultation
