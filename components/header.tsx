@@ -171,7 +171,7 @@ const portfolioItems = {
       description: "Service Portal for User Self-Service",
     },
     {
-      title: "Integration",
+      title: "Integration Hub",
       href: "/portfolio/servicenow/integration",
       description: "Integration Solutions for ServiceNow",
     },
@@ -187,8 +187,8 @@ const portfolioItems = {
     },
     
      {
-      title: "Governance, Risk, and Compliance (GRC)",
-      href: "/portfolio/servicenow/grc",
+      title: "Integrated Risk Management (IRM)",
+      href: "/portfolio/servicenow/irm",
       description: "Policy and Compliance Management",
     },    
     {
