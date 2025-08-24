@@ -240,28 +240,47 @@ export default function Page() {
   });
 
   useEffect(() => {
-    // Animate statistics
-    const targets = { clients: 500, implementations: 1200, satisfaction: 99, years: 15 };
+    // First, define proper types for the intervals
+    type StatKey = 'clients' | 'implementations' | 'satisfaction' | 'years';
+    type IntervalMap = { [key in StatKey]?: NodeJS.Timeout };
+
+    // Update the useEffect hook with proper typing
+    const targets: Record<StatKey, number> = {
+      clients: 500,
+      implementations: 1200,
+      satisfaction: 99,
+      years: 15
+    };
+
     const duration = 2000;
     const steps = 60;
     const stepTime = duration / steps;
 
-    const intervals = Object.keys(targets).map(key => {
-      const target = targets[key];
+    const intervals: IntervalMap = {};
+
+    Object.keys(targets).forEach((key) => {
+      const statKey = key as StatKey;
+      const target = targets[statKey];
       const increment = target / steps;
       let current = 0;
 
-      return setInterval(() => {
+      intervals[statKey] = setInterval(() => {
         current += increment;
         if (current >= target) {
           current = target;
-          clearInterval(intervals[key]);
+          if (intervals[statKey]) {
+            clearInterval(intervals[statKey]);
+          }
         }
-        setAnimatedStats(prev => ({ ...prev, [key]: Math.floor(current) }));
+        setAnimatedStats(prev => ({ ...prev, [statKey]: Math.floor(current) }));
       }, stepTime);
     });
 
-    return () => intervals.forEach(clearInterval);
+    return () => {
+      Object.values(intervals).forEach(interval => {
+        if (interval) clearInterval(interval);
+      });
+    };
   }, []);
 
   // Auto-rotate testimonials

@@ -38,10 +38,14 @@ import {
   Cog,
   Server,
   Cloud,
-  Integration,
   Workflow,
   Bug,
   Gauge,
+  Building,
+  HeartPulse,
+  MonitorSmartphone,
+  Factory,
+  Cpu
 } from "lucide-react";
 
 export default function ServiceNowConsultingPage() {
