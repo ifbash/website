@@ -45,7 +45,7 @@ export default function DigitalTransformationPage() {
           <div className="flex items-center space-x-3 mb-6">
             <Workflow className="h-8 w-8 text-primary" />
             <Badge variant="outline" className="text-primary border-primary/20">
-              IfBash Managed Services for ServiceNow
+              Managed Services for ServiceNow
             </Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">

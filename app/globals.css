@@ -78,6 +78,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Akkurat', 'Nunito Sans', Arial, sans-serif;
   }
 }
 
@@ -103,24 +104,26 @@
 }
 
 .min-w-\[8rem\] {
-    min-width: 6rem;
+  min-width: 6rem;
 }
-.desc{
-    font-size: 12px; /* 14px */
+
+.desc {
+  font-size: 12px;
   -webkit-text-fill-color: #1a2e61;  
   display: none;
 }
+
 .leading-snug {
-    line-height: 1.375;
-    font-size: 12px;
+  line-height: 1.375;
+  font-size: 12px;
 }
 
-.hand-wave-icon::before{
-    background: rgba(0,0,0,0) url("https://seclgroup.com/wp-content/themes/seclgroup/assets/images/request-hand-wave.png") no-repeat center;
-    animation-name: wave-animation;
-    animation-duration: 2.5s;
-    animation-iteration-count: infinite;
-    transform-origin: 50% 100%;
+.hand-wave-icon::before {
+  background: rgba(0,0,0,0) url("https://seclgroup.com/wp-content/themes/seclgroup/assets/images/request-hand-wave.png") no-repeat center;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 50% 100%;
 }
 
 @keyframes rotate {
@@ -138,8 +141,21 @@
   perspective: 400px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
-
-body {
-  font-family: 'Akkurat', 'Nunito Sans', Arial, sans-serif;
+/* Animation utilities */
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { 
+      transform: translateY(0px); 
+    }
+    50% { 
+      transform: translateY(-20px); 
+    }
+  }
 }
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');

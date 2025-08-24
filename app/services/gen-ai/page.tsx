@@ -40,7 +40,7 @@ export default function GenAIPage() {
           <div className="flex items-center space-x-3 mb-6">
             <Brain className="h-8 w-8 text-primary" />
             <Badge variant="outline" className="text-primary border-primary/20">
-              IfBash GenAI & Agentic AI for ServiceNow
+              GenAI & Agentic AI for ServiceNow
             </Badge>
           </div>
           <h1 className="text-4xl font-bold text-foreground mb-4">
