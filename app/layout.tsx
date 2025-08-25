@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'TechConsult - ServiceNow & SAP Consulting Services',
-  description: 'Leading consulting firm specializing in ServiceNow and SAP implementations, digital transformation, and enterprise solutions.',
+  title: 'ifBash - ServiceNow Consulting & Implementation Services',
+  description: 'Leading consulting firm specializing in ServiceNow implementations, digital transformation, and enterprise solutions.',
 };
 
 export default function RootLayout({
