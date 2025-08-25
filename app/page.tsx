@@ -288,6 +288,13 @@ const industries = [
   }
 ];
 
+type AnimatedStats = {
+  clients: number;
+  implementations: number;
+  satisfaction: number;
+  years: number;
+};
+
 export default function Page() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [isVisible, setIsVisible] = useState({});
@@ -299,7 +306,7 @@ export default function Page() {
   });
 
   useEffect(() => {
-    const targets = {
+    const targets: AnimatedStats = {
       clients: 500,
       implementations: 1500,
       satisfaction: 99,
@@ -308,23 +315,22 @@ export default function Page() {
     const duration = 2000;
     const steps = 60;
     const stepTime = duration / steps;
-    const intervals = {};
+    const intervals: { [key in keyof AnimatedStats]?: NodeJS.Timeout } = {};
 
-    Object.keys(targets).forEach((key) => {
-      const statKey = key;
-      const target = targets[statKey];
+    (Object.keys(targets) as Array<keyof AnimatedStats>).forEach((key) => {
+      const target = targets[key];
       const increment = target / steps;
       let current = 0;
 
-      intervals[statKey] = setInterval(() => {
+      intervals[key] = setInterval(() => {
         current += increment;
         if (current >= target) {
           current = target;
-          if (intervals[statKey]) {
-            clearInterval(intervals[statKey]);
+          if (intervals[key]) {
+            clearInterval(intervals[key]!);
           }
         }
-        setAnimatedStats(prev => ({ ...prev, [statKey]: Math.floor(current) }));
+        setAnimatedStats(prev => ({ ...prev, [key]: Math.floor(current) }));
       }, stepTime);
     });
 
