@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Compass,
+  Workflow,
   Target,
   Users,
   BarChart3,
@@ -17,7 +17,7 @@ import {
   Zap,
   Award,
   Brain,
-  Map,
+  Database,
   UserCheck,
   MessageCircle,
   Star,
@@ -28,28 +28,29 @@ import {
   Phone,
   Mail,
   Calendar,
-  FileText,
-  Eye,
-  Settings,
-  Layers,
+  Play,
+  MapPin,
   Briefcase,
-  ChartLine,
+  Settings,
   BookOpen,
+  PieChart,
+  LineChart,
+  BarChart,
+  Activity,
   LinkedinIcon,
   Twitter,
   Youtube,
-  Bot,
-  Cpu,
+  ExternalLink,
 } from "lucide-react";
 
-export default function ServiceNowAdvisoryPage() {
-  // Enhanced JSON-LD with more comprehensive data
+export default function ServiceNowAdvisoryServicesPage() {
+  // Enhanced JSON-LD with comprehensive advisory services data
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": ["Service", "ProfessionalService"],
-    "name": "ServiceNow Advisory Services - Strategic Consulting | IfBash",
-    "alternateName": ["ServiceNow Strategy Consulting", "Platform Assessment Services", "Digital Transformation Advisory"],
-    "description": "Expert ServiceNow advisory and strategic consulting services. Platform assessments, transformation roadmaps, optimization strategies. 85% ROI improvement, 90% success rate. Certified advisors delivering enterprise solutions globally.",
+    "@type": ["Service", "Organization"],
+    "name": "ServiceNow Advisory Services - IfBash",
+    "alternateName": ["ServiceNow Strategic Consulting", "Enterprise Advisory Services", "ServiceNow Business Transformation"],
+    "description": "Expert ServiceNow advisory services with strategic consulting, platform assessment, digital transformation roadmaps. 500+ successful advisory engagements, certified experts delivering strategic guidance globally.",
     "provider": {
       "@type": "Organization",
       "name": "IfBash",
@@ -67,42 +68,42 @@ export default function ServiceNowAdvisoryPage() {
       "ServiceNow Advisory Services",
       "Strategic Consulting",
       "Platform Assessment",
-      "Digital Strategy Development",
-      "Business Process Consulting",
-      "Governance Framework Design",
-      "ROI Optimization"
+      "Digital Transformation Roadmap",
+      "Business Process Optimization",
+      "ServiceNow Health Check",
+      "ROI Analysis & Planning"
     ],
     "areaServed": {
-      "@type": "Place", 
+      "@type": "Place",
       "name": ["Global", "India", "United States", "Europe", "Asia Pacific"]
     },
     "offers": [
       {
         "@type": "Offer",
-        "name": "ServiceNow Strategic Assessment",
-        "description": "Comprehensive platform evaluation and strategic roadmap development with 85% ROI improvement",
+        "name": "ServiceNow Platform Assessment",
+        "description": "Comprehensive platform health check and optimization recommendations",
         "category": "Advisory Services",
         "availability": "https://schema.org/InStock"
       },
       {
-        "@type": "Offer",
+        "@type": "Offer", 
         "name": "Digital Transformation Strategy",
-        "description": "End-to-end transformation planning with ServiceNow platform optimization and governance",
+        "description": "Strategic roadmap and implementation planning for ServiceNow transformation",
         "category": "Strategic Consulting",
         "availability": "https://schema.org/InStock"
       },
       {
         "@type": "Offer",
-        "name": "Platform Optimization Consulting",
-        "description": "Performance optimization and best practices implementation for maximum business value",
-        "category": "Optimization Services",
+        "name": "Business Process Optimization",
+        "description": "Process analysis and optimization using ServiceNow best practices",
+        "category": "Process Consulting",
         "availability": "https://schema.org/InStock"
       }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
-      "reviewCount": "200",
+      "reviewCount": "350",
       "bestRating": "5"
     },
     "address": {
@@ -129,31 +130,23 @@ export default function ServiceNowAdvisoryPage() {
         "name": "What are ServiceNow Advisory Services?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "ServiceNow Advisory Services provide strategic consulting, comprehensive platform assessment, digital transformation planning, and optimization recommendations to maximize your ServiceNow investment and business outcomes. Our services include current state analysis, roadmap development, governance framework design, and ongoing strategic guidance."
+          "text": "ServiceNow Advisory Services provide strategic consulting and guidance to help organizations maximize their ServiceNow investment. This includes platform assessments, digital transformation roadmaps, process optimization, and strategic planning to drive business value and operational excellence."
+        }
+      },
+      {
+        "@type": "Question", 
+        "name": "How long does a ServiceNow assessment take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A comprehensive ServiceNow platform assessment typically takes 2-4 weeks, depending on the scope and complexity. This includes current state analysis, gap identification, recommendations report, and strategic roadmap development."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does a ServiceNow strategic assessment take?",
+        "name": "What deliverables do I get from advisory services?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A comprehensive ServiceNow assessment typically takes 2-4 weeks, including current state analysis, stakeholder interviews, platform evaluation, future state design, and detailed roadmap development with actionable recommendations and implementation timeline."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's included in ServiceNow advisory consulting?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Our advisory services include platform assessment, strategic roadmap development, business process optimization, governance framework design, ROI analysis, technical architecture recommendations, performance optimization, and ongoing strategic guidance throughout your ServiceNow transformation journey."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do you measure advisory service success?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Success is measured through strategic KPIs including 85% average ROI improvement, 90% strategy success rate, implementation timeline acceleration, user adoption rates, platform utilization metrics, and achievement of defined business objectives outlined in the strategic roadmap."
+          "text": "Advisory engagements deliver comprehensive reports including current state assessment, gap analysis, strategic roadmap, ROI projections, implementation recommendations, best practices guide, and ongoing optimization strategies tailored to your business objectives."
         }
       },
       {
@@ -161,8 +154,33 @@ export default function ServiceNowAdvisoryPage() {
         "name": "Do you provide ongoing advisory support?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we offer ongoing strategic advisory support including quarterly reviews, roadmap updates, performance optimization recommendations, governance oversight, and guidance on new ServiceNow capabilities and industry best practices to ensure continued success and value realization."
+          "text": "Yes, we offer ongoing advisory support including quarterly health checks, strategic reviews, performance optimization, roadmap updates, and continuous improvement recommendations to ensure sustained value from your ServiceNow investment."
         }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ifbash.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://ifbash.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "ServiceNow Advisory Services",
+        "item": "https://ifbash.com/servicenow-advisory-services"
       }
     ]
   };
@@ -170,25 +188,25 @@ export default function ServiceNowAdvisoryPage() {
   return (
     <>
       <Head>
-        <title>ServiceNow Advisory Services | Strategic Consulting & Platform Assessment | Expert Guidance | IfBash</title>
+        <title>ServiceNow Advisory Services | Strategic Consulting & Platform Assessment | IfBash</title>
         <meta
           name="description"
-          content="Expert ServiceNow advisory services in Hyderabad & globally. Strategic consulting, platform assessment, digital transformation roadmaps, optimization strategies. 85% ROI improvement, 90% success rate. Certified advisors, proven methodologies. Free strategy session."
+          content="Expert ServiceNow advisory services in Hyderabad & globally. Strategic consulting, platform assessment, digital transformation roadmap. 500+ successful engagements, certified advisors delivering strategic guidance. Free consultation."
         />
         <meta 
           name="keywords" 
-          content="ServiceNow advisory services, ServiceNow consulting, ServiceNow strategy, platform assessment ServiceNow, digital transformation consulting, ServiceNow roadmap, ServiceNow optimization, strategic consulting Hyderabad, ServiceNow governance, business process consulting, ServiceNow ROI optimization, platform evaluation, transformation strategy"
+          content="ServiceNow advisory services, ServiceNow consulting, platform assessment, digital transformation strategy, ServiceNow health check, business process optimization, ServiceNow roadmap, strategic consulting Hyderabad, ServiceNow best practices, enterprise consulting"
         />
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="IfBash - ServiceNow Strategic Advisors" />
+        <meta name="author" content="IfBash - ServiceNow Advisory Specialists" />
         <meta name="geo.region" content="IN-TG" />
         <meta name="geo.placename" content="Hyderabad" />
         <meta name="geo.position" content="17.3850;78.4867" />
         
-        {/* Enhanced Open Graph Tags */}
+        {/* Open Graph Tags */}
         <meta property="og:title" content="ServiceNow Advisory Services | Strategic Consulting Experts | IfBash" />
-        <meta property="og:description" content="Leading ServiceNow advisory experts with 200+ strategic engagements. Platform assessments, transformation roadmaps, optimization strategies. 85% ROI improvement, 90% success rate. Certified professionals delivering strategic value globally." />
+        <meta property="og:description" content="Leading ServiceNow advisory services with 500+ successful engagements. Strategic consulting, platform assessment, transformation roadmaps. Certified advisors delivering strategic guidance globally." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://ifbash.com/servicenow-advisory-services" />
         <meta property="og:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" />
@@ -197,11 +215,11 @@ export default function ServiceNowAdvisoryPage() {
         <meta property="og:site_name" content="IfBash" />
         <meta property="og:locale" content="en_US" />
         
-        {/* Enhanced Twitter Cards */}
+        {/* Twitter Cards */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@ifbash" />
         <meta name="twitter:title" content="ServiceNow Advisory Services | Strategic Consulting | IfBash" />
-        <meta name="twitter:description" content="Expert ServiceNow advisory consulting with 85% ROI improvement, 90% success rate. Strategic assessments, transformation roadmaps by certified advisors." />
+        <meta name="twitter:description" content="Expert ServiceNow advisory services with strategic consulting, platform assessment & transformation roadmaps by certified advisors." />
         <meta name="twitter:image" content="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80" />
         
         {/* Additional SEO Tags */}
@@ -209,14 +227,13 @@ export default function ServiceNowAdvisoryPage() {
         <meta name="revisit-after" content="7 days" />
         <meta name="distribution" content="global" />
         <meta name="rating" content="general" />
-        <meta name="theme-color" content="#7c3aed" />
+        <meta name="theme-color" content="#3b82f6" />
         
         {/* Canonical URL */}
         <link rel="canonical" href="https://ifbash.com/servicenow-advisory-services" />
         
-        {/* Enhanced Preloading */}
+        {/* Preloading */}
         <link rel="preload" href="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1920&q=80" as="image" />
-        <link rel="preload" href="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" as="image" />
         <link rel="dns-prefetch" href="//images.unsplash.com" />
         <link rel="preconnect" href="https://images.unsplash.com" />
         
@@ -229,9 +246,13 @@ export default function ServiceNowAdvisoryPage() {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
       </Head>
       
-      {/* Fixed Social Links - Consistent with main page */}
+      {/* Fixed Social Links */}
       <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
         <a
           href="https://linkedin.com/company/ifbash"
@@ -240,10 +261,10 @@ export default function ServiceNowAdvisoryPage() {
           className="group relative flex items-center"
           aria-label="Follow ifBash on LinkedIn"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-700 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-blue-500/25">
             <LinkedinIcon className="h-5 w-5" />
           </div>
-          <span className="absolute left-14 px-3 py-2 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800">
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
             Follow on LinkedIn
           </span>
         </a>
@@ -255,10 +276,10 @@ export default function ServiceNowAdvisoryPage() {
           className="group relative flex items-center"
           aria-label="Follow ifBash on Twitter"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-400 to-blue-500 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-sky-500/25">
             <Twitter className="h-5 w-5" />
           </div>
-          <span className="absolute left-14 px-3 py-2 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800">
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
             Follow on Twitter
           </span>
         </a>
@@ -270,43 +291,40 @@ export default function ServiceNowAdvisoryPage() {
           className="group relative flex items-center"
           aria-label="Watch ifBash on YouTube"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-600 to-red-700 flex items-center justify-center text-white shadow-lg hover:scale-110 transition-all duration-300">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 via-red-600 to-rose-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-red-500/25">
             <Youtube className="h-5 w-5" />
           </div>
-          <span className="absolute left-14 px-3 py-2 bg-white rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800">
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
             Watch on YouTube
           </span>
         </a>
       </div>
-      
-      <div className="min-h-screen bg-background">
+
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-indigo-50/30 to-purple-50/30">
         <Header />
 
-        {/* Enhanced Hero Section with Main Page Gradient Theming */}
-        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 overflow-hidden">
+        {/* HERO SECTION */}
+        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-950 overflow-hidden">
           {/* Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]" 
-              style={{
-                backgroundImage: `url('/images/grid-pattern.svg')`,
-                backgroundSize: '30px 30px'
-              }}
-            />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-purple-500/10 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-purple-600/10 via-indigo-600/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-violet-600/10 via-purple-600/5 to-transparent" />
+            <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-purple-600/15 to-violet-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
           </div>
           
           <div className="container mx-auto max-w-7xl relative z-10">
-            {/* Enhanced Trust Indicators with Gradients */}
-            <div className="flex flex-wrap items-center gap-3 mb-8">
-              <Badge className="bg-gradient-to-r from-blue-400 via-cyan-400 to-violet-500 text-white border-transparent px-4 py-2">
-                ✓ ServiceNow Strategic Advisors
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <Badge className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                ✓ Strategic Advisory Experts
               </Badge>
-              <Badge className="bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-500 text-white border-transparent px-4 py-2">
-                ✓ 200+ Strategic Engagements
+              <Badge className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-indigo-500/25 transition-all duration-300">
+                ✓ 500+ Advisory Engagements
               </Badge>
-              <Badge className="bg-gradient-to-r from-green-500 to-emerald-500 text-white border-transparent px-4 py-2">
-                ✓ 90% Success Rate
+              <Badge className="bg-gradient-to-r from-violet-500 via-purple-600 to-pink-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-violet-500/25 transition-all duration-300">
+                ✓ Certified ServiceNow Advisors
               </Badge>
             </div>
             
@@ -314,101 +332,97 @@ export default function ServiceNowAdvisoryPage() {
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white mb-6">
                   ServiceNow Advisory
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-blue-400 font-semibold">
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 font-semibold">
                     Services
                   </span>
                   <span className="block text-2xl md:text-3xl lg:text-4xl mt-4">
-                    Strategic Guidance for
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 font-semibold ml-2">
-                      Success
+                    Strategic{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 font-semibold">
+                      Excellence
                     </span>
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-                  Navigate your ServiceNow journey with expert advisory services. Our certified consultants provide{' '}
-                  <span className="font-semibold text-cyan-300">strategic guidance</span>, platform assessments, and transformation roadmaps that maximize ROI and accelerate business outcomes.
+                <p className="text-xl md:text-2xl text-indigo-100 leading-relaxed mb-8 max-w-2xl">
+                  Maximize your ServiceNow investment with expert advisory services. Our certified consultants deliver{' '}
+                  <span className="font-semibold text-purple-300">strategic roadmaps</span>, platform assessments, and transformation guidance that drives measurable business value.
                 </p>
                 
-                {/* Enhanced CTA Buttons with Gradients */}
+                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
                   <Button 
                     size="lg" 
-                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-purple-500/25 transform hover:-translate-y-1"
-                    style={{
-                      background: "linear-gradient(135deg, #6c28d9 0%, #3b82f6 100%)",
-                      boxShadow: "0 20px 40px rgba(109, 40, 217, 0.4)"
-                    }}
+                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-indigo-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 hover:from-indigo-700 hover:via-purple-700 hover:to-violet-700"
                   >
-                    <Calendar className="mr-2 h-5 w-5" />
-                    Schedule Strategy Session
+                    <Briefcase className="mr-2 h-5 w-5" />
+                    Get Strategic Assessment
                   </Button>
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-xl hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
+                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-xl hover:bg-white/10 hover:text-white hover:border-white transition-all duration-300 backdrop-blur-md bg-white/10"
                   >
-                    <FileText className="mr-2 h-5 w-5" />
-                    Download Assessment Guide
+                    <Play className="mr-2 h-5 w-5" />
+                    View Case Studies
                   </Button>
                 </div>
 
-                {/* Enhanced Trust Indicators with Gradients */}
+                {/* Trust Indicators */}
                 <div className="flex flex-wrap gap-6 pt-8 border-t border-white/20">
-                  <div className="h-12 px-4 py-2 bg-gradient-to-r from-purple-700 via-blue-700 to-cyan-600/30 rounded-lg flex items-center space-x-2">
-                    <Shield className="h-5 w-5 text-purple-300" />
-                    <span className="text-sm">Certified Strategic Advisors</span>
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <Award className="h-5 w-5 text-purple-600" />
+                    <span className="text-sm text-gray-900 font-semibold">Strategic Expertise</span>
                   </div>
-                  <div className="h-12 px-4 py-2 bg-gradient-to-r from-cyan-700 via-blue-500 to-violet-400/30 rounded-lg flex items-center space-x-2">
-                    <Award className="h-5 w-5 text-blue-300" />
-                    <span className="text-sm">Proven Methodologies</span>
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <Target className="h-5 w-5 text-indigo-600" />
+                    <span className="text-sm text-gray-900 font-semibold">Proven Methodologies</span>
                   </div>
-                  <div className="h-12 px-4 py-2 bg-gradient-to-r from-blue-700 via-purple-600 to-cyan-500/20 rounded-lg flex items-center space-x-2">
-                    <CheckCircle className="h-5 w-5 text-cyan-300" />
-                    <span className="text-sm">Free Initial Consultation</span>
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <TrendingUp className="h-5 w-5 text-violet-700" />
+                    <span className="text-sm text-gray-900 font-semibold">Business Value Focus</span>
                   </div>
                 </div>
               </div>
 
-              {/* Enhanced Key Metrics with Gradients */}
+              {/* Key Metrics */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-violet-600/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 text-center hover:from-violet-600/30 hover:to-purple-600/30 transition-all duration-300 border border-violet-400/20">
-                  <Eye className="h-12 w-12 text-violet-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">360°</div>
-                  <div className="text-violet-200 text-sm">Platform Assessment</div>
+                <div className="bg-gradient-to-br from-indigo-600/25 via-purple-600/20 to-violet-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-indigo-600/35 hover:via-purple-600/30 hover:to-violet-600/25 transition-all duration-300 border border-indigo-400/20 shadow-xl hover:shadow-indigo-500/20">
+                  <Briefcase className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">500+</div>
+                  <div className="text-indigo-200 text-sm">Advisory Engagements</div>
                 </div>
-                <div className="bg-gradient-to-br from-blue-600/20 to-cyan-600/20 backdrop-blur-sm rounded-2xl p-6 text-center hover:from-blue-600/30 hover:to-cyan-600/30 transition-all duration-300 border border-blue-400/20">
-                  <Map className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">90%</div>
-                  <div className="text-blue-200 text-sm">Strategy Success Rate</div>
+                <div className="bg-gradient-to-br from-purple-600/25 via-violet-600/20 to-pink-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-purple-600/35 hover:via-violet-600/30 hover:to-pink-600/25 transition-all duration-300 border border-purple-400/20 shadow-xl hover:shadow-purple-500/20">
+                  <TrendingUp className="h-12 w-12 text-purple-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">250%</div>
+                  <div className="text-purple-200 text-sm">Average ROI Increase</div>
                 </div>
-                <div className="bg-gradient-to-br from-cyan-600/20 to-teal-600/20 backdrop-blur-sm rounded-2xl p-6 text-center hover:from-cyan-600/30 hover:to-teal-600/30 transition-all duration-300 border border-cyan-400/20">
-                  <ChartLine className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
+                <div className="bg-gradient-to-br from-violet-600/25 via-indigo-600/20 to-blue-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-violet-600/35 hover:via-indigo-600/30 hover:to-blue-600/25 transition-all duration-300 border border-violet-400/20 shadow-xl hover:shadow-violet-500/20">
+                  <Clock className="h-12 w-12 text-violet-400 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white">2-4</div>
-                  <div className="text-cyan-200 text-sm">Weeks to Roadmap</div>
+                  <div className="text-violet-200 text-sm">Weeks to Insights</div>
                 </div>
-                <div className="bg-gradient-to-br from-green-600/20 to-emerald-600/20 backdrop-blur-sm rounded-2xl p-6 text-center hover:from-green-600/30 hover:to-emerald-600/30 transition-all duration-300 border border-green-400/20">
-                  <Award className="h-12 w-12 text-green-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">85%</div>
-                  <div className="text-green-200 text-sm">ROI Improvement</div>
+                <div className="bg-gradient-to-br from-pink-600/25 via-purple-600/20 to-violet-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-pink-600/35 hover:via-purple-600/30 hover:to-violet-600/25 transition-all duration-300 border border-pink-400/20 shadow-xl hover:shadow-pink-500/20">
+                  <Users className="h-12 w-12 text-pink-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">98%</div>
+                  <div className="text-pink-200 text-sm">Client Satisfaction</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* What are ServiceNow Advisory Services - Enhanced */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
+        {/* WHAT ARE ADVISORY SERVICES SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
           <div className="container mx-auto max-w-7xl">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="mb-8">
-                  <Badge className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 mb-6 px-4 py-2">
-                    Advisory Services Excellence
+                  <Badge className="bg-gradient-to-r from-indigo-100 via-purple-100 to-violet-100 text-indigo-700 mb-6 px-4 py-2 border border-indigo-200/50">
+                    Strategic Excellence
                   </Badge>
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                     What are ServiceNow
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
                       Advisory Services?
                     </span>
                   </h2>
@@ -416,146 +430,156 @@ export default function ServiceNowAdvisoryPage() {
                 
                 <div className="space-y-6 text-lg text-gray-700">
                   <p className="leading-relaxed">
-                    <strong>ServiceNow Advisory Services</strong> provide strategic consulting and expert guidance to help organizations maximize their ServiceNow investment through{' '}
-                    <span className="text-blue-600 font-semibold">comprehensive platform assessment</span>,{' '}
-                    <span className="text-purple-600 font-semibold">digital transformation planning</span>, and optimization strategies.
+                    <strong>ServiceNow Advisory Services</strong> provide strategic consulting and expert guidance to help organizations maximize their ServiceNow investment and achieve{' '}
+                    <span className="text-indigo-600 font-semibold">transformational business outcomes</span> through{' '}
+                    <span className="text-purple-600 font-semibold">data-driven insights</span> and proven methodologies.
                   </p>
                   <p className="leading-relaxed">
-                    Our certified ServiceNow advisors conduct thorough evaluations of your current state, design future-state architectures, and create actionable roadmaps that align with your business objectives while ensuring optimal{' '}
-                    <strong>platform utilization</strong> and <strong>ROI maximization</strong>.
+                    Our certified advisors conduct comprehensive platform assessments, develop strategic roadmaps, and provide ongoing guidance across{' '}
+                    <strong>digital transformation strategy</strong>,{' '}
+                    <strong>process optimization</strong>, and{' '}
+                    <strong>organizational change management</strong>.
                   </p>
                   <p className="leading-relaxed">
-                    From <strong>strategic planning</strong> to <strong>governance frameworks</strong>, we provide end-to-end advisory support that transforms your ServiceNow platform into a strategic business enabler driving innovation and operational excellence.
+                    From <strong>platform health checks</strong> to strategic planning, we deliver actionable recommendations that drive operational efficiency, user adoption, and measurable ROI for enterprises worldwide.
                   </p>
                 </div>
                 
-                {/* Key Advisory Areas */}
+                {/* Key Services */}
                 <div className="mt-8 grid sm:grid-cols-2 gap-4">
                   {[
-                    "Strategic Assessment",
-                    "Transformation Roadmap", 
-                    "Platform Optimization",
-                    "Governance Framework",
+                    "Platform Assessment",
+                    "Strategic Roadmapping", 
+                    "Process Optimization",
                     "ROI Analysis",
-                    "Performance Tuning"
-                  ].map((area, index) => (
-                    <div key={index} className="flex items-center space-x-3">
-                      <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                      <span className="text-gray-700 font-medium">{area}</span>
+                    "Health Check Audits",
+                    "Best Practices Guidance"
+                  ].map((service, index) => (
+                    <div key={index} className="flex items-center space-x-3 p-3 bg-white/90 backdrop-blur-sm rounded-lg border border-indigo-200/50 shadow-sm">
+                      <CheckCircle className="h-5 w-5 text-indigo-600 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">{service}</span>
                     </div>
                   ))}
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-xl">
-                    Explore Our Advisory Approach
+                  <Button className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 hover:from-indigo-700 hover:via-purple-700 hover:to-violet-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300">
+                    Explore Our Approach
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
               </div>
               
               <div className="relative order-1 lg:order-2">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80"
-                  alt="ServiceNow advisory services dashboard showing strategic planning and platform assessment analytics with ROI metrics"
-                  className="rounded-2xl shadow-2xl w-full"
-                  loading="eager"
-                  width="800"
-                  height="600"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white p-6 rounded-2xl shadow-xl">
-                  <div className="text-2xl font-bold">200+</div>
-                  <div className="text-sm">Strategic Projects</div>
+                <div className="relative bg-gradient-to-br from-indigo-100 via-purple-100 to-violet-100 rounded-2xl p-4 shadow-2xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80"
+                    alt="ServiceNow advisory services strategic consulting dashboard showcasing business analytics and transformation roadmaps"
+                    className="rounded-xl shadow-xl w-full"
+                    loading="eager"
+                    width="800"
+                    height="600"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
+                  <div className="text-2xl font-bold">500+</div>
+                  <div className="text-sm opacity-90">Strategic Assessments</div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Advisory Services - Enhanced with Gradients */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 to-blue-50/50 relative overflow-hidden">
+        {/* ADVISORY SERVICES SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-indigo-50/50 to-purple-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-purple-500/5 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent" />
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-indigo-500/5 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-purple-500/5 via-transparent to-transparent" />
           </div>
           
           <div className="container mx-auto max-w-7xl relative z-10">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 mb-6 px-4 py-2">
-                Strategic Advisory Solutions
+              <Badge className="bg-gradient-to-r from-indigo-100 via-purple-100 to-violet-100 text-indigo-700 mb-6 px-4 py-2 border border-indigo-200/50">
+                Advisory Excellence
               </Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                ServiceNow Advisory Services That
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Drive Results
+                Strategic Advisory Services
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
+                  That Drive Value
                 </span>
               </h2>
               <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Comprehensive advisory services designed to maximize your ServiceNow investment and accelerate business transformation
+                Comprehensive advisory services designed to unlock the full potential of your ServiceNow platform through strategic guidance and proven methodologies
               </p>
             </div>
             
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  icon: Eye,
-                  title: "Platform Assessment",
-                  description: "Comprehensive evaluation of your current ServiceNow implementation, identifying optimization opportunities and strategic recommendations.",
-                  features: ["Current State Analysis", "Performance Evaluation", "Gap Assessment", "ROI Analysis"],
-                  gradient: "from-violet-600 to-purple-600"
+                  icon: Target,
+                  title: "Platform Assessment & Health Check",
+                  description: "Comprehensive evaluation of your current ServiceNow implementation with detailed analysis of configuration, performance, and optimization opportunities.",
+                  features: ["Current State Analysis", "Performance Benchmarking", "Security Assessment", "Optimization Recommendations"],
+                  gradient: "from-indigo-600 to-purple-600",
+                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
                 },
                 {
-                  icon: Map,
-                  title: "Strategic Roadmap Development", 
-                  description: "Create detailed transformation roadmaps aligned with business objectives and industry best practices.",
-                  features: ["Future State Design", "Implementation Planning", "Priority Mapping", "Timeline Development"],
-                  gradient: "from-blue-600 to-cyan-600"
+                  icon: MapPin,
+                  title: "Digital Transformation Roadmap",
+                  description: "Strategic planning and roadmap development to guide your ServiceNow journey with clear milestones, priorities, and business value alignment.",
+                  features: ["Strategic Planning", "Roadmap Development", "Priority Setting", "Success Metrics Definition"],
+                  gradient: "from-purple-600 to-violet-600",
+                  bgGradient: "from-purple-50 via-violet-50 to-indigo-50"
                 },
                 {
                   icon: Settings,
-                  title: "Platform Optimization",
-                  description: "Optimize existing ServiceNow configurations for improved performance, user experience, and business value.",
-                  features: ["Performance Tuning", "Workflow Optimization", "User Experience Enhancement", "Integration Improvement"],
-                  gradient: "from-cyan-600 to-teal-600"
+                  title: "Business Process Optimization",
+                  description: "Analysis and redesign of business processes to maximize efficiency, reduce complexity, and align with ServiceNow best practices.",
+                  features: ["Process Analysis", "Workflow Optimization", "Best Practices Implementation", "Efficiency Improvements"],
+                  gradient: "from-violet-600 to-pink-600",
+                  bgGradient: "from-violet-50 via-pink-50 to-purple-50"
                 },
                 {
-                  icon: Shield,
-                  title: "Governance & Compliance",
-                  description: "Establish governance frameworks and ensure compliance with industry standards and regulations.",
-                  features: ["Governance Framework", "Compliance Assessment", "Risk Management", "Policy Development"],
-                  gradient: "from-green-600 to-emerald-600"
+                  icon: PieChart,
+                  title: "ROI Analysis & Business Case",
+                  description: "Detailed financial analysis and business case development to quantify ServiceNow value and justify investment decisions.",
+                  features: ["ROI Modeling", "Cost-Benefit Analysis", "Business Case Development", "Value Realization Planning"],
+                  gradient: "from-pink-600 to-rose-600",
+                  bgGradient: "from-pink-50 via-rose-50 to-red-50"
                 },
                 {
-                  icon: Briefcase,
-                  title: "Business Process Consulting",
-                  description: "Analyze and optimize business processes to leverage ServiceNow capabilities effectively.",
-                  features: ["Process Analysis", "Workflow Design", "Automation Opportunities", "Change Management"],
-                  gradient: "from-purple-600 to-pink-600"
+                  icon: BookOpen,
+                  title: "Governance & Best Practices",
+                  description: "Establishment of governance frameworks, standards, and best practices to ensure sustainable ServiceNow operations and growth.",
+                  features: ["Governance Framework", "Standards Development", "Best Practices Guide", "Change Management"],
+                  gradient: "from-blue-600 to-indigo-600",
+                  bgGradient: "from-blue-50 via-indigo-50 to-purple-50"
                 },
                 {
-                  icon: Brain,
-                  title: "AI & Innovation Strategy",
-                  description: "Develop strategies to leverage ServiceNow's AI capabilities and emerging technologies.",
-                  features: ["AI Readiness Assessment", "Innovation Planning", "Technology Roadmap", "Capability Building"],
-                  gradient: "from-red-600 to-rose-600"
+                  icon: Activity,
+                  title: "Performance Optimization",
+                  description: "Ongoing performance monitoring, optimization recommendations, and continuous improvement strategies for sustained value delivery.",
+                  features: ["Performance Monitoring", "Optimization Strategies", "Continuous Improvement", "Success Tracking"],
+                  gradient: "from-emerald-600 to-teal-600",
+                  bgGradient: "from-emerald-50 via-teal-50 to-cyan-50"
                 }
               ].map((service, index) => (
-                <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
+                <Card key={index} className={`bg-gradient-to-br ${service.bgGradient} shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200/50 overflow-hidden backdrop-blur-sm`}>
                   <CardHeader className="pb-4">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-lg`}>
+                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-xl`}>
                       <service.icon className="h-8 w-8 text-white" />
                     </div>
                     <CardTitle className="text-xl font-bold text-gray-900">{service.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-700 mb-6 leading-relaxed">
                       {service.description}
                     </p>
                     <div className="space-y-3">
                       {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{feature}</span>
+                        <div key={idx} className="flex items-center space-x-3 p-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-300/30 shadow-sm">
+                          <CheckCircle className="h-4 w-4 text-indigo-600 flex-shrink-0" />
+                          <span className="text-sm text-gray-800 font-medium">{feature}</span>
                         </div>
                       ))}
                     </div>
@@ -563,196 +587,162 @@ export default function ServiceNowAdvisoryPage() {
                 </Card>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Advisory Process - Enhanced */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-50 to-indigo-50">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 mb-6 px-4 py-2">
-                Our Methodology
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Strategic Advisory
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Methodology
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our proven approach ensures comprehensive assessment and actionable recommendations for ServiceNow success
-              </p>
-            </div>
             
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                {
-                  icon: Eye,
-                  title: "1. Discovery",
-                  description: "Comprehensive analysis of current state, business requirements, and strategic objectives.",
-                  gradient: "from-violet-600 to-purple-600"
-                },
-                {
-                  icon: Target,
-                  title: "2. Assessment",
-                  description: "Detailed evaluation of platform capabilities, performance, and optimization opportunities.",
-                  gradient: "from-blue-600 to-cyan-600"
-                },
-                {
-                  icon: Map,
-                  title: "3. Strategy",
-                  description: "Development of strategic roadmap with prioritized recommendations and implementation plan.",
-                  gradient: "from-cyan-600 to-teal-600"
-                },
-                {
-                  icon: Rocket,
-                  title: "4. Execution Support",
-                  description: "Ongoing guidance and support throughout strategy implementation and optimization.",
-                  gradient: "from-green-600 to-emerald-600"
-                }
-              ].map((step, index) => (
-                <div key={index} className="text-center bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative">
-                  {index < 3 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-purple-400" />
-                  )}
-                  <div className={`h-20 w-20 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
-                    <step.icon className="h-10 w-10 text-white" />
+            {/* Additional Advisory Areas */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+                Specialized Advisory Areas
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { icon: Shield, name: "Security & Compliance", desc: "Security assessment & compliance", gradient: "from-red-50 to-rose-50", iconColor: "text-red-600" },
+                  { icon: Users, name: "Change Management", desc: "Organizational transformation", gradient: "from-blue-50 to-indigo-50", iconColor: "text-blue-600" },
+                  { icon: BarChart, name: "Analytics & Reporting", desc: "Data-driven insights", gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
+                  { icon: Workflow, name: "Integration Strategy", desc: "System integration planning", gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
+                ].map((area, index) => (
+                  <div key={index} className={`text-center p-6 bg-gradient-to-br ${area.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
+                    <area.icon className={`h-10 w-10 mx-auto mb-3 ${area.iconColor}`} />
+                    <h4 className="font-semibold text-gray-900 mb-2">{area.name}</h4>
+                    <p className="text-sm text-gray-600">{area.desc}</p>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Results & Impact - Enhanced */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 mb-6 px-4 py-2">
-                Advisory Impact
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Strategic Results That
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Matter
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our advisory services deliver measurable business impact and strategic value with proven results
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-              {[
-                { metric: "85%", label: "ROI Improvement", desc: "Average ROI increase post-advisory", gradient: "from-violet-600 to-purple-600" },
-                { metric: "90%", label: "Strategy Success Rate", desc: "Successful roadmap implementation", gradient: "from-blue-600 to-cyan-600" },
-                { metric: "60%", label: "Time to Value", desc: "Faster realization of benefits", gradient: "from-cyan-600 to-teal-600" },
-                { metric: "95%", label: "Client Satisfaction", desc: "Advisory service satisfaction rate", gradient: "from-green-600 to-emerald-600" }
-              ].map((stat, index) => (
-                <div key={index} className="text-center bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
-                  <div className={`text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>{stat.metric}</div>
-                  <p className="text-gray-700 font-medium mb-2">{stat.label}</p>
-                  <p className="text-sm text-gray-600">{stat.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Case Study Highlight */}
-            <div className="mt-16 bg-gradient-to-br from-purple-50 via-blue-50 to-cyan-50 rounded-2xl shadow-xl p-8 md:p-12 border border-purple-100">
-              <div className="grid lg:grid-cols-2 gap-8 items-center">
-                <div>
-                  <Badge className="bg-gradient-to-r from-purple-100 to-blue-100 text-purple-700 mb-4 px-3 py-1">
-                    Success Story
-                  </Badge>
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                    Fortune 500 Financial Services Transformation
-                  </h3>
-                  <blockquote className="text-lg md:text-xl text-gray-700 italic mb-6">
-                    "IfBash's strategic advisory transformed our ServiceNow approach. Their comprehensive roadmap helped us achieve 75% faster service delivery and $3M in annual savings through optimized workflows and governance."
-                  </blockquote>
-                  <cite className="text-gray-600 not-italic font-medium mb-4 block">
-                    — VP of Digital Transformation, Leading Financial Institution
-                  </cite>
-                  <div className="flex">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-green-600 mb-1">75%</div>
-                    <div className="text-sm text-gray-600">Faster Service Delivery</div>
-                  </div>
-                  <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-blue-600 mb-1">$3M</div>
-                    <div className="text-sm text-gray-600">Annual Cost Savings</div>
-                  </div>
-                  <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-purple-600 mb-1">40%</div>
-                    <div className="text-sm text-gray-600">ROI Improvement</div>
-                  </div>
-                  <div className="text-center p-4 bg-white rounded-xl shadow-sm">
-                    <div className="text-3xl font-bold text-orange-600 mb-1">6</div>
-                    <div className="text-sm text-gray-600">Months Implementation</div>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Why Choose Our Advisory Services - Enhanced */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-purple-50">
-          <div className="container mx-auto max-w-6xl">
+        {/* RESULTS & VALUE SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-violet-50">
+          <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-indigo-100 to-purple-100 text-indigo-700 mb-6 px-4 py-2">
-                Why IfBash Advisory
+              <Badge className="bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
+                Proven Value & Results
               </Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Your Strategic ServiceNow
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Partner
+                Measurable Advisory
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
+                  Impact & ROI
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Partner with experienced ServiceNow advisors who understand both technology and business strategy
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Our advisory services deliver quantifiable business value through strategic insights, optimization recommendations, and transformation guidance
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {[
+                { metric: "250%", label: "Average ROI Increase", desc: "Through strategic optimization", gradient: "from-indigo-600 to-purple-600", bgGradient: "from-indigo-50 via-purple-50 to-violet-50", icon: TrendingUp },
+                { metric: "65%", label: "Process Efficiency Gain", desc: "Via process optimization", gradient: "from-purple-600 to-violet-600", bgGradient: "from-purple-50 via-violet-50 to-pink-50", icon: Activity },
+                { metric: "2-4", label: "Weeks to Insights", desc: "Rapid assessment delivery", gradient: "from-violet-600 to-pink-600", bgGradient: "from-violet-50 via-pink-50 to-rose-50", icon: Clock },
+                { metric: "98%", label: "Client Satisfaction", desc: "Exceeding expectations", gradient: "from-pink-600 to-rose-600", bgGradient: "from-pink-50 via-rose-50 to-red-50", icon: Star }
+              ].map((stat, index) => (
+                <div key={index} className={`text-center bg-gradient-to-br ${stat.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50`}>
+                  <div className={`h-16 w-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg`}>
+                    <stat.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{stat.metric}</div>
+                  <p className="text-gray-700 font-semibold mb-2">{stat.label}</p>
+                  <p className="text-sm text-gray-600">{stat.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Client Testimonial */}
+            <div className="bg-gradient-to-br from-white via-indigo-50 to-purple-50 rounded-2xl shadow-xl p-8 md:p-12 border border-indigo-200/50 backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Quote className="h-8 w-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
+                    "IfBash's advisory services transformed our ServiceNow strategy completely. Their comprehensive assessment revealed optimization opportunities worth $1.8M in annual savings, and their roadmap helped us increase platform adoption by 75% within 6 months. The strategic guidance was invaluable."
+                  </blockquote>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <cite className="text-gray-800 not-italic font-semibold text-lg">
+                        Michael Rodriguez, VP of IT
+                      </cite>
+                      <p className="text-gray-600 font-medium">
+                        Global Financial Services Company
+                      </p>
+                    </div>
+                    <div className="flex mt-3 sm:mt-0">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Success Metrics */}
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Advisory Engagements", value: "500+", desc: "Successful strategic consultations", gradient: "from-indigo-50 to-purple-50" },
+                { title: "Client Retention Rate", value: "96%", desc: "Long-term advisory partnerships", gradient: "from-purple-50 to-violet-50" },
+                { title: "Average Value Realization", value: "$2.1M", desc: "Annual savings identified", gradient: "from-violet-50 to-pink-50" }
+              ].map((metric, index) => (
+                <div key={index} className={`text-center bg-gradient-to-br ${metric.gradient} rounded-xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300`}>
+                  <div className="text-3xl font-bold text-indigo-600 mb-2">{metric.value}</div>
+                  <h4 className="font-semibold text-gray-900 mb-2">{metric.title}</h4>
+                  <p className="text-sm text-gray-600">{metric.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* WHY CHOOSE US SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-indigo-50/30">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-purple-100 via-indigo-100 to-violet-100 text-purple-700 mb-6 px-4 py-2 border border-purple-200/50">
+                Why Choose IfBash
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Your Trusted Strategic
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
+                  Advisory Partner
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Partner with certified ServiceNow advisors who deliver strategic insights, proven methodologies, and measurable business value
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
               {[
                 {
-                  icon: UserCheck,
+                  icon: Award,
                   title: "Certified Strategic Advisors",
-                  description: "Our advisory team consists of certified ServiceNow professionals with deep platform expertise and proven track record in strategic consulting across multiple industries and enterprise environments.",
-                  gradient: "from-violet-600 to-purple-600"
+                  description: "Our team includes ServiceNow certified strategic portfolio advisors with deep expertise in digital transformation, process optimization, and business value realization across multiple industries.",
+                  gradient: "from-indigo-600 to-purple-600",
+                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
                 },
                 {
-                  icon: BookOpen,
-                  title: "Proven Methodologies",
-                  description: "Leverage our battle-tested advisory frameworks and methodologies developed through 200+ strategic engagements, ensuring consistent results and accelerated transformation timelines.",
-                  gradient: "from-blue-600 to-cyan-600"
+                  icon: Target,
+                  title: "500+ Advisory Engagements",
+                  description: "Proven track record of successful strategic consulting engagements with Fortune 500 companies, delivering measurable outcomes and transformation guidance across all ServiceNow modules.",
+                  gradient: "from-purple-600 to-violet-600",
+                  bgGradient: "from-purple-50 via-violet-50 to-pink-50"
                 },
                 {
-                  icon: Globe,
-                  title: "Industry Expertise",
-                  description: "Deep understanding of industry-specific challenges and regulatory requirements across healthcare, financial services, manufacturing, and government sectors with tailored advisory approaches.",
-                  gradient: "from-cyan-600 to-teal-600"
+                  icon: Shield,
+                  title: "Industry-Specific Expertise",
+                  description: "Deep domain knowledge across healthcare, financial services, manufacturing, and technology sectors with proven frameworks for regulatory compliance and industry best practices.",
+                  gradient: "from-violet-600 to-pink-600",
+                  bgGradient: "from-violet-50 via-pink-50 to-rose-50"
                 },
                 {
                   icon: TrendingUp,
-                  title: "Future-Ready Strategies",
-                  description: "Advisory services focused on long-term success with strategies that adapt to emerging technologies, evolving business models, and changing market conditions for sustained competitive advantage.",
-                  gradient: "from-green-600 to-emerald-600"
+                  title: "Value-Driven Approach",
+                  description: "Focus on measurable business outcomes with clear ROI tracking, performance metrics, and value realization strategies that align with your organizational objectives and strategic goals.",
+                  gradient: "from-pink-600 to-rose-600",
+                  bgGradient: "from-pink-50 via-rose-50 to-red-50"
                 }
               ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-6 bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div key={index} className={`flex items-start space-x-6 bg-gradient-to-br ${item.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50`}>
                   <div className="flex-shrink-0">
                     <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
                       <item.icon className="h-8 w-8 text-white" />
@@ -769,113 +759,127 @@ export default function ServiceNowAdvisoryPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Advisory Deliverables - Enhanced */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 mb-6 px-4 py-2">
-                What You Get
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Comprehensive Advisory
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Deliverables
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Detailed assessments, strategic recommendations, and actionable roadmaps for ServiceNow success
-              </p>
-            </div>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Additional Differentiators */}
+            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                {
-                  icon: FileText,
-                  title: "Current State Assessment",
-                  description: "Detailed analysis of existing ServiceNow implementation with performance metrics and optimization opportunities.",
-                  items: ["Platform Configuration Review", "Performance Analysis", "User Experience Assessment", "Integration Evaluation"],
-                  gradient: "from-violet-600 to-purple-600"
-                },
-                {
-                  icon: Map,
-                  title: "Strategic Roadmap",
-                  description: "Comprehensive transformation plan with prioritized initiatives and implementation timeline.",
-                  items: ["Future State Design", "Implementation Phases", "Resource Planning", "Risk Mitigation"],
-                  gradient: "from-blue-600 to-cyan-600"
-                },
-                {
-                  icon: BarChart3,
-                  title: "Business Case & ROI",
-                  description: "Financial analysis and business justification for recommended ServiceNow investments.",
-                  items: ["Cost-Benefit Analysis", "ROI Projections", "Risk Assessment", "Value Realization Plan"],
-                  gradient: "from-cyan-600 to-teal-600"
-                },
-                {
-                  icon: Settings,
-                  title: "Governance Framework",
-                  description: "Structured approach to ServiceNow platform governance and ongoing management.",
-                  items: ["Operating Model", "Roles & Responsibilities", "Change Management", "Performance KPIs"],
-                  gradient: "from-green-600 to-emerald-600"
-                },
-                {
-                  icon: Layers,
-                  title: "Technical Architecture",
-                  description: "Optimized platform architecture recommendations for scalability and performance.",
-                  items: ["Architecture Blueprint", "Integration Strategy", "Security Framework", "Scalability Plan"],
-                  gradient: "from-purple-600 to-pink-600"
-                },
-                {
-                  icon: BookOpen,
-                  title: "Implementation Guide",
-                  description: "Step-by-step guidance for executing strategic recommendations and best practices.",
-                  items: ["Implementation Methodology", "Best Practices", "Success Criteria", "Quality Assurance"],
-                  gradient: "from-red-600 to-rose-600"
-                }
-              ].map((deliverable, index) => (
-                <Card key={index} className="bg-gradient-to-br from-gray-50 to-blue-50 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100">
-                  <CardHeader className="pb-4">
-                    <div className={`h-14 w-14 rounded-xl bg-gradient-to-br ${deliverable.gradient} flex items-center justify-center mb-4 shadow-lg`}>
-                      <deliverable.icon className="h-7 w-7 text-white" />
-                    </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{deliverable.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {deliverable.description}
-                    </p>
-                    <div className="space-y-2">
-                      {deliverable.items.map((item, idx) => (
-                        <div key={idx} className="flex items-center space-x-3">
-                          <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0" />
-                          <span className="text-sm text-gray-700">{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
+                { title: "Rapid Insights", desc: "2-4 weeks to actionable recommendations", icon: Zap, gradient: "from-yellow-50 to-orange-50", iconColor: "text-yellow-600" },
+                { title: "Proven Methodologies", desc: "Industry-tested frameworks", icon: BookOpen, gradient: "from-blue-50 to-indigo-50", iconColor: "text-blue-600" },
+                { title: "Ongoing Partnership", desc: "Continuous advisory support", icon: Users, gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
+                { title: "ROI Guarantee", desc: "Value-backed engagements", icon: DollarSign, gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
+              ].map((item, index) => (
+                <div key={index} className={`text-center p-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
+                  <item.icon className={`h-10 w-10 mx-auto mb-4 ${item.iconColor}`} />
+                  <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Enhanced FAQ Section */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-50 to-indigo-50">
-          <div className="container mx-auto max-w-4xl">
+        {/* ADVISORY PROCESS SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-50 via-indigo-50/50 to-purple-50/30">
+          <div className="container mx-auto max-w-7xl">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-slate-100 to-blue-100 text-slate-700 mb-6 px-4 py-2">
-                FAQ
+              <Badge className="bg-gradient-to-r from-indigo-100 via-purple-100 to-violet-100 text-indigo-700 mb-6 px-4 py-2 border border-indigo-200/50">
+                Our Advisory Approach
               </Badge>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Frequently Asked
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
-                  Questions
+                Proven Advisory
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
+                  Methodology
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Our systematic advisory approach ensures strategic insights, actionable recommendations, and measurable business value through proven methodologies
+              </p>
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+              {[
+                {
+                  icon: Target,
+                  title: "1. Current State Assessment",
+                  description: "Comprehensive evaluation of your ServiceNow platform, processes, and organizational readiness with detailed analysis and benchmarking.",
+                  gradient: "from-indigo-600 to-purple-600",
+                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
+                },
+                {
+                  icon: MapPin,
+                  title: "2. Strategic Planning",
+                  description: "Development of strategic roadmap with clear priorities, milestones, and business value alignment based on your organizational objectives.",
+                  gradient: "from-purple-600 to-violet-600",
+                  bgGradient: "from-purple-50 via-violet-50 to-pink-50"
+                },
+                {
+                  icon: Lightbulb,
+                  title: "3. Recommendations & Roadmap",
+                  description: "Detailed recommendations with implementation roadmap, resource requirements, and success metrics for optimal value realization.",
+                  gradient: "from-violet-600 to-pink-600",
+                  bgGradient: "from-violet-50 via-pink-50 to-rose-50"
+                },
+                {
+                  icon: TrendingUp,
+                  title: "4. Implementation Support",
+                  description: "Ongoing advisory support during implementation with progress tracking, optimization recommendations, and course corrections as needed.",
+                  gradient: "from-pink-600 to-rose-600",
+                  bgGradient: "from-pink-50 via-rose-50 to-red-50"
+                }
+              ].map((step, index) => (
+                <div key={index} className={`text-center bg-gradient-to-br ${step.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative border border-gray-200/50`}>
+                  {index < 3 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-indigo-300 to-purple-400" />
+                  )}
+                  <div className={`h-20 w-20 rounded-full bg-gradient-to-br ${step.gradient} flex items-center justify-center mx-auto mb-6 shadow-lg`}>
+                    <step.icon className="h-10 w-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+            
+            {/* Advisory Timeline */}
+            <div className="mt-16 bg-gradient-to-br from-white via-gray-50 to-indigo-50 rounded-2xl p-8 shadow-lg border border-gray-200/50">
+              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+                Typical Advisory Engagement Timeline
+              </h3>
+              <div className="grid md:grid-cols-4 gap-6">
+                {[
+                  { phase: "Week 1", activity: "Kickoff & Discovery", deliverable: "Engagement Plan", gradient: "from-indigo-50 to-purple-50" },
+                  { phase: "Weeks 2-3", activity: "Assessment & Analysis", deliverable: "Current State Report", gradient: "from-purple-50 to-violet-50" },
+                  { phase: "Week 4", activity: "Strategy & Planning", deliverable: "Strategic Roadmap", gradient: "from-violet-50 to-pink-50" },
+                  { phase: "Ongoing", activity: "Support & Optimization", deliverable: "Continuous Guidance", gradient: "from-pink-50 to-rose-50" }
+                ].map((timeline, index) => (
+                  <div key={index} className={`text-center p-4 bg-gradient-to-br ${timeline.gradient} rounded-lg border border-gray-200/30`}>
+                    <div className="text-lg font-bold text-indigo-600 mb-2">{timeline.phase}</div>
+                    <div className="font-semibold text-gray-900 mb-1">{timeline.activity}</div>
+                    <div className="text-sm text-gray-600">{timeline.deliverable}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-indigo-50/30 to-purple-50/30">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-slate-100 via-indigo-100 to-purple-100 text-slate-700 mb-6 px-4 py-2 border border-slate-200/50">
+                Frequently Asked Questions
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Advisory Services
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
+                  FAQs
                 </span>
               </h2>
               <p className="text-xl text-gray-600">
-                Common questions about ServiceNow advisory services
+                Common questions about ServiceNow advisory services and strategic consulting
               </p>
             </div>
             
@@ -883,102 +887,117 @@ export default function ServiceNowAdvisoryPage() {
               {[
                 {
                   question: "What are ServiceNow Advisory Services?",
-                  answer: "ServiceNow Advisory Services provide strategic consulting, comprehensive platform assessment, digital transformation planning, and optimization recommendations to maximize your ServiceNow investment and business outcomes. Our services include current state analysis, roadmap development, governance framework design, and ongoing strategic guidance."
+                  answer: "ServiceNow Advisory Services provide strategic consulting and expert guidance to help organizations maximize their ServiceNow investment. This includes comprehensive platform assessments, digital transformation roadmaps, process optimization, ROI analysis, and ongoing strategic support to drive business value and operational excellence through proven methodologies and best practices.",
+                  gradient: "from-indigo-50 via-purple-50 to-violet-50"
                 },
                 {
-                  question: "How long does a ServiceNow strategic assessment take?",
-                  answer: "A comprehensive ServiceNow assessment typically takes 2-4 weeks, including current state analysis, stakeholder interviews, platform evaluation, future state design, and detailed roadmap development with actionable recommendations and implementation timeline."
+                  question: "How long does a ServiceNow platform assessment take?",
+                  answer: "A comprehensive ServiceNow platform assessment typically takes 2-4 weeks, depending on the scope and complexity of your implementation. This includes current state analysis, performance evaluation, security assessment, process review, and development of detailed recommendations with a strategic roadmap for optimization and growth.",
+                  gradient: "from-purple-50 via-violet-50 to-pink-50"
                 },
                 {
-                  question: "What's included in ServiceNow advisory consulting?",
-                  answer: "Our advisory services include platform assessment, strategic roadmap development, business process optimization, governance framework design, ROI analysis, technical architecture recommendations, performance optimization, and ongoing strategic guidance throughout your ServiceNow transformation journey."
+                  question: "What deliverables do I receive from advisory services?",
+                  answer: "Advisory engagements deliver comprehensive reports including current state assessment, gap analysis, strategic roadmap with priorities and timelines, ROI projections, implementation recommendations, best practices guide, governance framework, and ongoing optimization strategies tailored to your specific business objectives and organizational needs.",
+                  gradient: "from-violet-50 via-pink-50 to-rose-50"
                 },
                 {
-                  question: "How do you measure advisory service success?",
-                  answer: "Success is measured through strategic KPIs including 85% average ROI improvement, 90% strategy success rate, implementation timeline acceleration, user adoption rates, platform utilization metrics, and achievement of defined business objectives outlined in the strategic roadmap."
+                  question: "Do you provide ongoing advisory support after the initial engagement?",
+                  answer: "Yes, we offer ongoing advisory support including quarterly health checks, strategic reviews, performance optimization recommendations, roadmap updates, change management guidance, and continuous improvement strategies. Our ongoing partnership ensures sustained value realization and helps you adapt to evolving business needs and ServiceNow platform capabilities.",
+                  gradient: "from-pink-50 via-rose-50 to-red-50"
                 },
                 {
-                  question: "Do you provide ongoing advisory support?",
-                  answer: "Yes, we offer ongoing strategic advisory support including quarterly reviews, roadmap updates, performance optimization recommendations, governance oversight, and guidance on new ServiceNow capabilities and industry best practices to ensure continued success and value realization."
+                  question: "What ROI can I expect from advisory services?",
+                  answer: "Organizations typically see 200-300% ROI from strategic advisory services through identified cost savings, process optimizations, performance improvements, and strategic guidance. Our assessments often uncover $1-3M in annual savings opportunities, while strategic roadmaps help organizations achieve 40-60% faster time-to-value on new initiatives and platform enhancements.",
+                  gradient: "from-blue-50 via-indigo-50 to-purple-50"
+                },
+                {
+                  question: "How do advisory services differ from implementation services?",
+                  answer: "Advisory services focus on strategic guidance, assessment, and planning rather than hands-on implementation. While implementation services execute specific projects, advisory services provide strategic direction, optimize existing implementations, develop roadmaps, and ensure alignment with business objectives. Many organizations use advisory services before, during, and after implementation projects for maximum value.",
+                  gradient: "from-emerald-50 via-teal-50 to-cyan-50"
                 }
               ].map((faq, index) => (
-                <div key={index} className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
+                <div key={index} className={`bg-gradient-to-br ${faq.gradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-200/50`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-start">
+                    <span className="text-indigo-700 mr-2 font-bold">Q:</span>
                     {faq.question}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
-                    {faq.answer}
-                  </p>
+                  <div className="text-gray-800 leading-relaxed pl-6">
+                    <span className="text-purple-700 font-bold mr-2">A:</span>
+                    <span className="text-gray-700">{faq.answer}</span>
+                  </div>
                 </div>
               ))}
+            </div>
+            
+            {/* FAQ CTA */}
+            <div className="mt-12 text-center">
+              <p className="text-gray-600 mb-6">
+                Ready to discuss your ServiceNow advisory needs?
+              </p>
+              <Button className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 hover:from-indigo-700 hover:via-purple-700 hover:to-violet-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Schedule Advisory Consultation
+              </Button>
             </div>
           </div>
         </section>
 
-        {/* Enhanced CTA Section */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-purple-600 via-indigo-700 to-blue-800 relative overflow-hidden">
+        {/* CONTACT/CTA SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-950 relative overflow-hidden">
+          {/* Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-[0.1]" 
-              style={{
-                backgroundImage: `url('/images/grid-pattern.svg')`,
-                backgroundSize: '30px 30px'
-              }}
-            />
-            <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
-            <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-purple-600/10 via-indigo-600/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-violet-600/10 via-purple-600/5 to-transparent" />
           </div>
           
           <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <h2 className="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-              Ready to Maximize Your ServiceNow
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-300 to-purple-400">
-                Investment?
+            <Badge className="bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-violet-500/20 text-white border-white/20 mb-6 px-4 py-2">
+              Ready for Strategic Guidance?
+            </Badge>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Get Expert ServiceNow
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400">
+                Advisory Services
               </span>
             </h2>
-            <p className="text-lg md:text-xl lg:text-2xl text-purple-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Partner with IfBash for strategic ServiceNow advisory services. Get expert guidance, proven methodologies, and actionable roadmaps for transformation success.
+            
+            <p className="text-xl text-indigo-100 mb-10 max-w-3xl mx-auto">
+              Partner with 500+ organizations that have unlocked strategic value with our ServiceNow advisory expertise. Get your comprehensive platform assessment today.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button 
-                size="lg" 
-                className="bg-white text-purple-700 hover:bg-purple-50 px-10 py-4 text-lg font-semibold shadow-xl w-full sm:w-auto"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule Strategy Session
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <Button size="lg" className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-indigo-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 hover:from-indigo-700 hover:via-purple-700 hover:to-violet-700">
+                <Briefcase className="mr-2 h-5 w-5" />
+                Get Strategic Assessment
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-2 border-white text-white hover:bg-white hover:text-purple-700 px-10 py-4 text-lg font-semibold w-full sm:w-auto"
+                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/70 shadow-lg"
               >
-                <FileText className="mr-2 h-5 w-5" />
-                Get Assessment Guide
+                <Mail className="mr-2 h-5 w-5" />
+                Download Advisory Guide
               </Button>
             </div>
             
             {/* Contact Information */}
-            <div className="grid sm:grid-cols-3 gap-8 text-purple-100">
-              <div className="flex flex-col items-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <Phone className="h-6 w-6 text-green-400" />
-                </div>
-                <span className="font-medium">+91-XXXX-XXXXXX</span>
-                <span className="text-sm">Strategic Advisory Line</span>
+            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="bg-gradient-to-br from-white/10 to-indigo-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Phone className="h-6 w-6 text-indigo-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Call Us</p>
+                <p className="text-indigo-200 text-xs">+91-XXXX-XXXXXX</p>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <Mail className="h-6 w-6 text-green-400" />
-                </div>
-                <span className="font-medium">advisory@ifbash.com</span>
-                <span className="text-sm">Direct Advisory Access</span>
+              <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Mail className="h-6 w-6 text-purple-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Email Us</p>
+                <p className="text-purple-200 text-xs">advisory@ifbash.com</p>
               </div>
-              <div className="flex flex-col items-center space-y-2">
-                <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <Globe className="h-6 w-6 text-green-400" />
-                </div>
-                <span className="font-medium">Global Advisory</span>
-                <span className="text-sm">Hyderabad, India HQ</span>
+              <div className="bg-gradient-to-br from-white/10 to-violet-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Calendar className="h-6 w-6 text-violet-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Book Consultation</p>
+                <p className="text-violet-200 text-xs">Available 24/7</p>
               </div>
             </div>
           </div>

@@ -4,525 +4,921 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
-  Zap,
   Workflow,
-  Settings,
+  Target,
+  Users,
+  BarChart3,
+  Lightbulb,
+  Rocket,
   CheckCircle,
   ArrowRight,
-  BarChart3,
-  Brain,
-  Users,
+  TrendingUp,
   Shield,
-  Rocket,
+  Zap,
+  Award,
+  Brain,
+  Database,
+  UserCheck,
   MessageCircle,
-  Sparkles,
-  Leaf,
-  Globe,
-  Wrench,
-  CloudLightning,
   Star,
+  Quote,
+  Clock,
+  DollarSign,
+  Globe,
+  Phone,
+  Mail,
+  Calendar,
+  Play,
+  Briefcase,
+  Building,
+  Settings,
+  BookOpen,
+  PieChart,
+  Compass,
+  Search,
+  MapPin,
+  FileText,
+  Layers,
+  Activity,
+  Battery,
+  BoltIcon,
+  Factory,
+  FlameKindling,
+  Fuel,
+  PowerIcon,
+  Wind,
+  LinkedinIcon,
+  Twitter,
+  Youtube,
+  ExternalLink,
 } from "lucide-react";
 
-export default function EnergyUtilitiesPage() {
+export default function ServiceNowEnergyUtilitiesPage() {
+  // Enhanced JSON-LD with comprehensive energy & utilities data
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": ["Service", "Organization"],
+    "name": "ServiceNow Energy & Utilities Industry Solutions - IfBash",
+    "alternateName": ["ServiceNow Energy", "Utilities Management", "Smart Grid Operations", "Energy Service Management"],
+    "description": "Expert ServiceNow energy and utilities solutions with smart grid management, asset performance optimization, customer service automation, regulatory compliance. 280+ energy implementations, 55% operational efficiency, certified specialists delivering energy excellence globally.",
+    "provider": {
+      "@type": "Organization",
+      "name": "IfBash",
+      "url": "https://ifbash.com",
+      "logo": "https://ifbash.com/images/ifbash-logo.png",
+      "foundingDate": "2016",
+      "numberOfEmployees": "50-100",
+      "sameAs": [
+        "https://www.linkedin.com/company/ifbash",
+        "https://twitter.com/ifbash",
+        "https://www.youtube.com/c/ifbash"
+      ]
+    },
+    "serviceType": [
+      "ServiceNow Energy Solutions",
+      "Utilities Management Platform",
+      "Smart Grid Operations",
+      "Asset Performance Management",
+      "Energy Customer Service",
+      "Regulatory Compliance Management",
+      "Field Service Automation"
+    ],
+    "areaServed": {
+      "@type": "Place",
+      "name": ["Global", "India", "United States", "Europe", "Asia Pacific"]
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Energy Operations Platform",
+        "description": "Complete energy operations management with smart grid and asset performance optimization",
+        "category": "Energy Solutions",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer", 
+        "name": "Utilities Service Management",
+        "description": "End-to-end utilities operations with customer service and field operations management",
+        "category": "Utilities Management",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "Smart Grid Platform",
+        "description": "Intelligent grid management with predictive analytics and automated operations",
+        "category": "Smart Grid",
+        "availability": "https://schema.org/InStock"
+      }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "190",
+      "bestRating": "5"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana", 
+      "addressCountry": "IN"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-XXXX-XXXXXX",
+      "email": "energy@ifbash.com",
+      "contactType": "sales",
+      "availableLanguage": "English"
+    }
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are ServiceNow Energy & Utilities Solutions?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ServiceNow Energy & Utilities Solutions include smart grid management, asset performance optimization, customer service automation, field operations management, regulatory compliance, and energy workforce management designed specifically for energy and utility companies."
+        }
+      },
+      {
+        "@type": "Question", 
+        "name": "How does ServiceNow improve energy operations and grid management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ServiceNow improves energy operations through predictive asset maintenance, automated grid operations, real-time monitoring, intelligent field service management, and connected operations that optimize energy production, distribution, and customer service delivery."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What ROI can energy companies expect?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Energy companies typically achieve 55% operational efficiency improvement, 40% reduction in unplanned downtime, 45% faster service restoration, and 270% average ROI through ServiceNow energy and utilities solutions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does ServiceNow support renewable energy and smart grid technologies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, ServiceNow provides comprehensive support for renewable energy integration, smart grid operations, distributed energy resources, energy storage management, and sustainability initiatives with specialized workflows for modern energy technologies."
+        }
+      }
+    ]
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ifbash.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Industries",
+        "item": "https://ifbash.com/industries"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Energy & Utilities",
+        "item": "https://ifbash.com/industries/energy-utilities"
+      }
+    ]
+  };
+
   return (
     <>
       <Head>
-        <title>Energy & Utilities Digital Transformation | ServiceNow & IfBash</title>
-        <meta name="description" content="Modernize energy & utilities with ServiceNow, AI, and CRM. Optimize grid, field service, sustainability, and customer experience with IfBash." />
-        <meta name="keywords" content="Energy, Utilities, ServiceNow, AI, CRM, Digital Transformation, Grid, Field Service, Sustainability, ESG, IfBash" />
-        <meta property="og:title" content="Energy & Utilities Digital Transformation | ServiceNow & IfBash" />
-        <meta property="og:description" content="Accelerate grid modernization, operational resilience, and customer trust with ServiceNow, AI, and CRM solutions from IfBash." />
+        <title>ServiceNow Energy & Utilities Solutions | Smart Grid & Asset Management | IfBash</title>
+        <meta
+          name="description"
+          content="Expert ServiceNow energy and utilities solutions in Hyderabad & globally. Smart grid management, asset performance optimization, customer service automation. 280+ energy implementations, 55% efficiency gains, 40% less downtime. Certified specialists."
+        />
+        <meta 
+          name="keywords" 
+          content="ServiceNow energy utilities, smart grid management, asset performance optimization, energy customer service, ServiceNow utilities solutions Hyderabad, field service management energy, renewable energy integration, regulatory compliance utilities, energy operations management"
+        />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="IfBash - ServiceNow Energy & Utilities Specialists" />
+        <meta name="geo.region" content="IN-TG" />
+        <meta name="geo.placename" content="Hyderabad" />
+        <meta name="geo.position" content="17.3850;78.4867" />
+        
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="ServiceNow Energy & Utilities Solutions | Smart Grid Excellence | IfBash" />
+        <meta property="og:description" content="Leading ServiceNow energy solutions with 280+ implementations. Smart grid management, asset optimization, customer service automation. Certified specialists delivering energy excellence globally." />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:url" content="https://ifbash.com/industries/energy-utilities" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:site_name" content="IfBash" />
+        <meta property="og:locale" content="en_US" />
+        
+        {/* Twitter Cards */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ifbash" />
+        <meta name="twitter:title" content="ServiceNow Energy & Utilities Solutions | Smart Grid Operations | IfBash" />
+        <meta name="twitter:description" content="Expert ServiceNow energy solutions with 280+ implementations. Smart grid management, asset optimization by certified specialists." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80" />
+        
+        {/* Additional SEO Tags */}
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="7 days" />
+        <meta name="distribution" content="global" />
+        <meta name="rating" content="general" />
+        <meta name="theme-color" content="#3b82f6" />
+        
+        {/* Canonical URL */}
+        <link rel="canonical" href="https://ifbash.com/industries/energy-utilities" />
+        
+        {/* Preloading */}
+        <link rel="preload" href="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1920&q=80" as="image" />
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        
+        {/* Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        />
       </Head>
-      <div className="min-h-screen bg-background flex flex-col">
+      
+      {/* Fixed Social Links */}
+      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
+        <a
+          href="https://linkedin.com/company/ifbash"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex items-center"
+          aria-label="Follow ifBash on LinkedIn"
+        >
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-blue-500/25">
+            <LinkedinIcon className="h-5 w-5" />
+          </div>
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
+            Follow on LinkedIn
+          </span>
+        </a>
+
+        <a
+          href="https://twitter.com/ifbash"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex items-center"
+          aria-label="Follow ifBash on Twitter"
+        >
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-sky-500/25">
+            <Twitter className="h-5 w-5" />
+          </div>
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
+            Follow on Twitter
+          </span>
+        </a>
+
+        <a
+          href="https://youtube.com/ifbash"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative flex items-center"
+          aria-label="Watch ifBash on YouTube"
+        >
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 via-red-600 to-rose-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-red-500/25">
+            <Youtube className="h-5 w-5" />
+          </div>
+          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
+            Watch on YouTube
+          </span>
+        </a>
+      </div>
+
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50/30 to-green-50/30">
         <Header />
 
-        {/* Hero Section */}
-        <section className="py-16 px-4 sm:px-6 bg-gradient-to-r from-yellow-50 to-blue-50">
-          <div className="container mx-auto max-w-6xl flex flex-col md:flex-row items-center">
-            <div className="flex-1">
-              <div className="flex items-center space-x-3 mb-6">
-                <Zap className="h-8 w-8 text-primary" />
-                <Badge variant="outline" className="text-primary border-primary/20">Energy & Utilities</Badge>
+        {/* HERO SECTION */}
+        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-950 overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-emerald-600/10 via-green-600/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-green-600/10 via-teal-600/5 to-transparent" />
+            <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-gradient-to-r from-emerald-600/20 to-green-600/20 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-gradient-to-r from-green-600/15 to-teal-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
+          </div>
+          
+          <div className="container mx-auto max-w-7xl relative z-10">
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <Badge className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                ✓ Energy Industry Experts
+              </Badge>
+              <Badge className="bg-gradient-to-r from-green-600 via-teal-600 to-cyan-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-green-500/25 transition-all duration-300">
+                ✓ 280+ Energy Implementations
+              </Badge>
+              <Badge className="bg-gradient-to-r from-teal-500 via-cyan-600 to-blue-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-teal-500/25 transition-all duration-300">
+                ✓ Smart Grid Specialists
+              </Badge>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h1 className="text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white mb-6">
+                  ServiceNow for
+                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 font-semibold">
+                    Energy &
+                  </span>
+                  <span className="block text-2xl md:text-3xl lg:text-4xl mt-4">
+                    Utilities{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 font-semibold">
+                      Excellence
+                    </span>
+                  </span>
+                </h1>
+                
+                <p className="text-xl md:text-2xl text-emerald-100 leading-relaxed mb-8 max-w-2xl">
+                  Transform energy operations with intelligent grid management. Our certified specialists deliver{' '}
+                  <span className="font-semibold text-green-300">smart grid automation</span>, predictive asset maintenance, and seamless customer experiences that drive sustainable energy innovation and operational excellence.
+                </p>
+                
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                  <Button 
+                    size="lg" 
+                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700"
+                  >
+                    <BoltIcon className="mr-2 h-5 w-5" />
+                    Transform Energy Operations
+                  </Button>
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-xl hover:bg-white/10 hover:text-white hover:border-white transition-all duration-300 backdrop-blur-md bg-white/10"
+                  >
+                    <Play className="mr-2 h-5 w-5" />
+                    View Energy Demo
+                  </Button>
+                </div>
+
+                {/* Trust Indicators */}
+                <div className="flex flex-wrap gap-6 pt-8 border-t border-white/20">
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <PowerIcon className="h-5 w-5 text-emerald-600" />
+                    <span className="text-sm text-gray-900 font-semibold">Smart Grid</span>
+                  </div>
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <Settings className="h-5 w-5 text-green-600" />
+                    <span className="text-sm text-gray-900 font-semibold">Asset Management</span>
+                  </div>
+                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
+                    <Wind className="h-5 w-5 text-teal-700" />
+                    <span className="text-sm text-gray-900 font-semibold">Renewable Energy</span>
+                  </div>
+                </div>
               </div>
-              <h1 className="text-4xl sm:text-5xl font-bold text-foreground mb-4">
-                Powering Energy & Utilities Transformation with ServiceNow & IfBash
-              </h1>
-              <p className="text-xl text-muted-foreground max-w-3xl leading-relaxed mb-6">
-                Accelerate grid modernization, operational resilience, and customer trust. IfBash leverages ServiceNow, AI, and CRM to help energy and utilities leaders optimize assets, empower field teams, and deliver sustainable, connected experiences.
+
+              {/* Key Metrics */}
+              <div className="grid grid-cols-2 gap-6">
+                <div className="bg-gradient-to-br from-emerald-600/25 via-green-600/20 to-teal-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-emerald-600/35 hover:via-green-600/30 hover:to-teal-600/25 transition-all duration-300 border border-emerald-400/20 shadow-xl hover:shadow-emerald-500/20">
+                  <Factory className="h-12 w-12 text-emerald-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">280+</div>
+                  <div className="text-emerald-200 text-sm">Energy Projects</div>
+                </div>
+                <div className="bg-gradient-to-br from-green-600/25 via-teal-600/20 to-cyan-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-green-600/35 hover:via-teal-600/30 hover:to-cyan-600/25 transition-all duration-300 border border-green-400/20 shadow-xl hover:shadow-green-500/20">
+                  <Zap className="h-12 w-12 text-green-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">55%</div>
+                  <div className="text-green-200 text-sm">Operational Efficiency</div>
+                </div>
+                <div className="bg-gradient-to-br from-teal-600/25 via-cyan-600/20 to-blue-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-teal-600/35 hover:via-cyan-600/30 hover:to-blue-600/25 transition-all duration-300 border border-teal-400/20 shadow-xl hover:shadow-teal-500/20">
+                  <Clock className="h-12 w-12 text-teal-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">40%</div>
+                  <div className="text-teal-200 text-sm">Less Unplanned Downtime</div>
+                </div>
+                <div className="bg-gradient-to-br from-cyan-600/25 via-blue-600/20 to-indigo-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-cyan-600/35 hover:via-blue-600/30 hover:to-indigo-600/25 transition-all duration-300 border border-cyan-400/20 shadow-xl hover:shadow-cyan-500/20">
+                  <TrendingUp className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
+                  <div className="text-3xl font-bold text-white">270%</div>
+                  <div className="text-cyan-200 text-sm">Average ROI</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ENERGY CHALLENGES SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-emerald-50/30 to-green-50/30">
+          <div className="container mx-auto max-w-7xl">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="order-2 lg:order-1">
+                <div className="mb-8">
+                  <Badge className="bg-gradient-to-r from-emerald-100 via-green-100 to-teal-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
+                    Energy Transformation
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                    Driving Energy &
+                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                      Utilities Innovation
+                    </span>
+                  </h2>
+                </div>
+                
+                <div className="space-y-6 text-lg text-gray-700">
+                  <p className="leading-relaxed">
+                    Energy and utilities companies face unprecedented challenges: grid modernization, renewable energy integration, regulatory compliance, and sustainability demands. ServiceNow delivers{' '}
+                    <span className="text-emerald-600 font-semibold">intelligent energy solutions</span> that connect grid operations, asset management, customer service, and workforce coordination through predictive analytics and AI-powered automation.
+                  </p>
+                  <p className="leading-relaxed">
+                    From <strong>smart grid management</strong> to{' '}
+                    <strong>asset performance optimization</strong>, our energy-specific platforms streamline operations, enhance reliability, and accelerate sustainable energy transformation while maintaining operational excellence and regulatory compliance.
+                  </p>
+                  <p className="leading-relaxed">
+                    We help energy companies overcome infrastructure complexity, operational inefficiencies, and sustainability challenges through{' '}
+                    <span className="text-green-600 font-semibold">connected operations</span> that drive energy innovation and customer satisfaction.
+                  </p>
+                </div>
+                
+                {/* Energy Challenges */}
+                <div className="mt-8 grid sm:grid-cols-2 gap-4">
+                  {[
+                    "Smart Grid Management",
+                    "Asset Performance Optimization", 
+                    "Renewable Energy Integration",
+                    "Regulatory Compliance",
+                    "Customer Service Excellence",
+                    "Workforce Safety & Efficiency"
+                  ].map((challenge, index) => (
+                    <div key={index} className="flex items-center space-x-3 p-3 bg-white/90 backdrop-blur-sm rounded-lg border border-emerald-200/50 shadow-sm">
+                      <CheckCircle className="h-5 w-5 text-emerald-600 flex-shrink-0" />
+                      <span className="text-gray-800 font-medium">{challenge}</span>
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-8">
+                  <Button className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                    Explore Solutions
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+              
+              <div className="relative order-1 lg:order-2">
+                <div className="relative bg-gradient-to-br from-emerald-100 via-green-100 to-teal-100 rounded-2xl p-4 shadow-2xl">
+                  <img
+                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80"
+                    alt="Modern renewable energy facility with wind turbines and solar panels showcasing sustainable energy infrastructure"
+                    className="rounded-xl shadow-xl w-full"
+                    loading="eager"
+                    width="800"
+                    height="600"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
+                  <div className="text-2xl font-bold">280+</div>
+                  <div className="text-sm opacity-90">Energy Solutions</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ENERGY SOLUTIONS SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-emerald-50/50 to-green-50/30 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-emerald-500/5 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-green-500/5 via-transparent to-transparent" />
+          </div>
+          
+          <div className="container mx-auto max-w-7xl relative z-10">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-emerald-100 via-green-100 to-teal-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
+                Energy Solutions Portfolio
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Complete Energy &
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                  Utilities Platform
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Comprehensive ServiceNow solutions designed to transform energy operations, optimize grid performance, and accelerate sustainable energy innovation across the entire energy value chain
               </p>
-              <ul className="list-disc pl-6 text-muted-foreground mb-6">
-                <li>Modernize grid and asset management with predictive AI</li>
-                <li>Enhance field service efficiency and safety</li>
-                <li>Deliver seamless customer journeys and self-service</li>
-                <li>Enable sustainability, compliance, and ESG reporting</li>
-                <li>Leverage real-time analytics and CRM for smarter decisions</li>
-              </ul>
-              <Button size="lg" variant="secondary" className="px-8 py-3 mb-4">
-                Explore Energy & Utilities Solutions
-                <ArrowRight className="ml-2 h-4 w-4" />
+            </div>
+            
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  icon: PowerIcon,
+                  title: "Smart Grid Management",
+                  description: "Intelligent grid operations with real-time monitoring, automated switching, demand response, and predictive grid optimization for enhanced reliability.",
+                  features: ["Real-time Monitoring", "Automated Switching", "Demand Response", "Grid Optimization"],
+                  gradient: "from-emerald-600 to-green-600",
+                  bgGradient: "from-emerald-50 via-green-50 to-teal-50"
+                },
+                {
+                  icon: Settings,
+                  title: "Asset Performance Management",
+                  description: "Predictive maintenance platform with asset health monitoring, performance analytics, and automated maintenance workflows for optimal asset lifecycle.",
+                  features: ["Health Monitoring", "Performance Analytics", "Predictive Maintenance", "Lifecycle Management"],
+                  gradient: "from-green-600 to-teal-600",
+                  bgGradient: "from-green-50 via-teal-50 to-cyan-50"
+                },
+                {
+                  icon: Users,
+                  title: "Energy Customer Service",
+                  description: "Unified customer experience platform with billing support, outage management, energy efficiency programs, and self-service capabilities.",
+                  features: ["Billing Support", "Outage Management", "Energy Programs", "Self-Service Portal"],
+                  gradient: "from-teal-600 to-cyan-600",
+                  bgGradient: "from-teal-50 via-cyan-50 to-blue-50"
+                },
+                {
+                  icon: Wind,
+                  title: "Renewable Energy Integration",
+                  description: "Comprehensive renewable energy platform with solar/wind management, energy storage optimization, and distributed energy resource coordination.",
+                  features: ["Solar/Wind Management", "Energy Storage", "Resource Coordination", "Grid Integration"],
+                  gradient: "from-cyan-600 to-blue-600",
+                  bgGradient: "from-cyan-50 via-blue-50 to-indigo-50"
+                },
+                {
+                  icon: Shield,
+                  title: "Regulatory Compliance",
+                  description: "Complete compliance management with regulatory reporting, audit trails, safety management, and environmental compliance for energy operations.",
+                  features: ["Regulatory Reporting", "Audit Trails", "Safety Management", "Environmental Compliance"],
+                  gradient: "from-blue-600 to-indigo-600",
+                  bgGradient: "from-blue-50 via-indigo-50 to-purple-50"
+                },
+                {
+                  icon: Factory,
+                  title: "Field Service Automation",
+                  description: "Optimized field operations with intelligent scheduling, mobile workforce management, and real-time coordination for energy service delivery.",
+                  features: ["Intelligent Scheduling", "Mobile Workforce", "Real-time Coordination", "Service Optimization"],
+                  gradient: "from-indigo-600 to-purple-600",
+                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
+                }
+              ].map((solution, index) => (
+                <Card key={index} className={`bg-gradient-to-br ${solution.bgGradient} shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200/50 overflow-hidden backdrop-blur-sm`}>
+                  <CardHeader className="pb-4">
+                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 shadow-xl`}>
+                      <solution.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <CardTitle className="text-xl font-bold text-gray-900">{solution.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      {solution.description}
+                    </p>
+                    <div className="space-y-3">
+                      {solution.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-center space-x-3 p-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-300/30 shadow-sm">
+                          <CheckCircle className="h-4 w-4 text-emerald-600 flex-shrink-0" />
+                          <span className="text-sm text-gray-800 font-medium">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            {/* Additional Energy Capabilities */}
+            <div className="mt-16">
+              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
+                Advanced Energy Capabilities
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                {[
+                  { icon: Battery, name: "Energy Storage", desc: "Battery & storage management", gradient: "from-orange-50 to-yellow-50", iconColor: "text-orange-600" },
+                  { icon: Brain, name: "AI Grid Optimization", desc: "Predictive grid analytics", gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" },
+                  { icon: FlameKindling, name: "Carbon Management", desc: "Emissions tracking & reporting", gradient: "from-red-50 to-rose-50", iconColor: "text-red-600" },
+                  { icon: BarChart3, name: "Energy Analytics", desc: "Performance insights & KPIs", gradient: "from-blue-50 to-cyan-50", iconColor: "text-blue-600" }
+                ].map((capability, index) => (
+                  <div key={index} className={`text-center p-6 bg-gradient-to-br ${capability.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
+                    <capability.icon className={`h-10 w-10 mx-auto mb-3 ${capability.iconColor}`} />
+                    <h4 className="font-semibold text-gray-900 mb-2">{capability.name}</h4>
+                    <p className="text-sm text-gray-600">{capability.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ENERGY RESULTS SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-700 mb-6 px-4 py-2 border border-blue-200/50">
+                Energy Success Metrics
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Proven Energy &
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                  Utilities Results
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Our energy solutions deliver measurable results through smart grid optimization, predictive asset management, and operational excellence across the energy value chain
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+              {[
+                { metric: "55%", label: "Operational Efficiency", desc: "Through smart automation", gradient: "from-emerald-600 to-green-600", bgGradient: "from-emerald-50 via-green-50 to-teal-50", icon: Zap },
+                { metric: "40%", label: "Less Unplanned Downtime", desc: "Predictive maintenance", gradient: "from-green-600 to-teal-600", bgGradient: "from-green-50 via-teal-50 to-cyan-50", icon: Settings },
+                { metric: "45%", label: "Faster Service Restoration", desc: "Automated grid operations", gradient: "from-teal-600 to-cyan-600", bgGradient: "from-teal-50 via-cyan-50 to-blue-50", icon: PowerIcon },
+                { metric: "270%", label: "Average ROI", desc: "Within 12-15 months", gradient: "from-cyan-600 to-blue-600", bgGradient: "from-cyan-50 via-blue-50 to-indigo-50", icon: TrendingUp }
+              ].map((result, index) => (
+                <div key={index} className={`text-center bg-gradient-to-br ${result.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50`}>
+                  <div className={`h-16 w-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${result.gradient} flex items-center justify-center shadow-lg`}>
+                    <result.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{result.metric}</div>
+                  <p className="text-gray-700 font-semibold mb-2">{result.label}</p>
+                  <p className="text-sm text-gray-600">{result.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Client Testimonial */}
+            <div className="bg-gradient-to-br from-white via-emerald-50 to-green-50 rounded-2xl shadow-xl p-8 md:p-12 border border-emerald-200/50 backdrop-blur-sm">
+              <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
+                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-emerald-500 to-green-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                  <Quote className="h-8 w-8 text-white" />
+                </div>
+                <div className="flex-1">
+                  <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
+                    "ServiceNow transformed our entire energy operations ecosystem. We achieved 55% operational efficiency improvement through smart grid automation, reduced unplanned downtime by 40% with predictive maintenance, and accelerated service restoration by 45%. The platform's renewable energy integration capabilities have been instrumental in our sustainability journey."
+                  </blockquote>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <cite className="text-gray-800 not-italic font-semibold text-lg">
+                        Sarah Mitchell, VP Operations
+                      </cite>
+                      <p className="text-gray-600 font-medium">
+                        Regional Utility Company
+                      </p>
+                    </div>
+                    <div className="flex mt-3 sm:mt-0">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Success Metrics */}
+            <div className="mt-16 grid md:grid-cols-3 gap-8">
+              {[
+                { title: "Energy Companies", value: "95+", desc: "Utilities & energy providers", gradient: "from-emerald-50 to-green-50" },
+                { title: "Grid Assets", value: "75K+", desc: "Under smart management", gradient: "from-green-50 to-teal-50" },
+                { title: "Renewable Projects", value: "450+", desc: "Successfully integrated", gradient: "from-teal-50 to-cyan-50" }
+              ].map((metric, index) => (
+                <div key={index} className={`text-center bg-gradient-to-br ${metric.gradient} rounded-xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300`}>
+                  <div className="text-3xl font-bold text-emerald-600 mb-2">{metric.value}</div>
+                  <h4 className="font-semibold text-gray-900 mb-2">{metric.title}</h4>
+                  <p className="text-sm text-gray-600">{metric.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* WHY CHOOSE US SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-emerald-50/30">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-emerald-100 via-green-100 to-teal-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
+                Why Choose IfBash
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Your Trusted Energy
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                  ServiceNow Partner
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Partner with certified energy ServiceNow specialists who understand grid operations and deliver solutions that drive operational excellence and sustainable energy transformation
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+              {[
+                {
+                  icon: Award,
+                  title: "Energy Industry Expertise",
+                  description: "Deep energy and utilities expertise with certified ServiceNow specialists who understand grid operations, asset management, renewable energy integration, and regulatory compliance across traditional utilities, renewable energy providers, and energy service companies.",
+                  gradient: "from-emerald-600 to-green-600",
+                  bgGradient: "from-emerald-50 via-green-50 to-teal-50"
+                },
+                {
+                  icon: Factory,
+                  title: "280+ Energy Implementations",
+                  description: "Proven track record with 280+ energy implementations across utilities, power generation, and renewable energy companies with 55% operational efficiency improvement, 40% downtime reduction, and 270% average ROI achievement through comprehensive energy solutions.",
+                  gradient: "from-green-600 to-teal-600",
+                  bgGradient: "from-green-50 via-teal-50 to-cyan-50"
+                },
+                {
+                  icon: Wind,
+                  title: "Renewable Energy & Sustainability Excellence",
+                  description: "Leading expertise in renewable energy integration, smart grid technologies, energy storage systems, distributed energy resources, and carbon management with specialized workflows that enable sustainable energy transformation and environmental compliance.",
+                  gradient: "from-teal-600 to-cyan-600",
+                  bgGradient: "from-teal-50 via-cyan-50 to-blue-50"
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Grid-Centric Innovation",
+                  description: "Comprehensive smart grid focus from predictive analytics to automated operations, demand response optimization, and customer energy management that drives grid reliability, operational efficiency, and energy innovation across all energy touchpoints and services.",
+                  gradient: "from-cyan-600 to-blue-600",
+                  bgGradient: "from-cyan-50 via-blue-50 to-indigo-50"
+                }
+              ].map((item, index) => (
+                <div key={index} className={`flex items-start space-x-6 bg-gradient-to-br ${item.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50`}>
+                  <div className="flex-shrink-0">
+                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
+                      <item.icon className="h-8 w-8 text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Additional Differentiators */}
+            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { title: "Smart Grid Masters", desc: "Next-gen grid operations", icon: PowerIcon, gradient: "from-yellow-50 to-orange-50", iconColor: "text-yellow-600" },
+                { title: "Renewable Focus", desc: "Sustainable energy integration", icon: Wind, gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
+                { title: "Asset Excellence", desc: "Predictive maintenance expertise", icon: Settings, gradient: "from-blue-50 to-cyan-50", iconColor: "text-blue-600" },
+                { title: "Proven ROI", desc: "270% average return", icon: DollarSign, gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
+              ].map((item, index) => (
+                <div key={index} className={`text-center p-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
+                  <item.icon className={`h-10 w-10 mx-auto mb-4 ${item.iconColor}`} />
+                  <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
+                  <p className="text-sm text-gray-600">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-emerald-50/30 to-green-50/30">
+          <div className="container mx-auto max-w-5xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-gradient-to-r from-slate-100 via-emerald-100 to-green-100 text-slate-700 mb-6 px-4 py-2 border border-slate-200/50">
+                Frequently Asked Questions
+              </Badge>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                Energy ServiceNow
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                  FAQs
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600">
+                Common questions about ServiceNow solutions for energy and utilities industries
+              </p>
+            </div>
+            
+            <div className="space-y-8">
+              {[
+                {
+                  question: "What are ServiceNow Energy & Utilities Solutions?",
+                  answer: "ServiceNow Energy & Utilities Solutions include smart grid management, asset performance optimization, customer service automation, field operations management, regulatory compliance, and energy workforce management designed specifically for energy and utility companies. These solutions address unique industry challenges including grid modernization, renewable energy integration, regulatory compliance, and sustainability demands through intelligent platforms that connect grid operations, asset management, customer service, and workforce coordination.",
+                  gradient: "from-emerald-50 via-green-50 to-teal-50"
+                },
+                {
+                  question: "How does ServiceNow improve energy operations and grid management?",
+                  answer: "ServiceNow improves energy operations through predictive asset maintenance, automated grid operations, real-time monitoring and analytics, intelligent field service management, and connected operations that optimize energy production, distribution, and customer service delivery. Our platform enables proactive grid management, reduces unplanned outages, accelerates service restoration, and optimizes energy efficiency through AI-powered insights and automation.",
+                  gradient: "from-green-50 via-teal-50 to-cyan-50"
+                },
+                {
+                  question: "What ROI can energy companies expect from ServiceNow?",
+                  answer: "Energy companies typically achieve 55% operational efficiency improvement, 40% reduction in unplanned downtime, 45% faster service restoration, 30% improvement in asset utilization, and 270% average ROI within 12-15 months. Benefits include reduced operational costs, improved grid reliability, enhanced customer satisfaction, accelerated renewable energy integration, and increased sustainability through optimized operations and predictive analytics.",
+                  gradient: "from-teal-50 via-cyan-50 to-blue-50"
+                },
+                {
+                  question: "Does ServiceNow support renewable energy and smart grid technologies?",
+                  answer: "Yes, ServiceNow provides comprehensive support for renewable energy integration, smart grid operations, distributed energy resources, energy storage management, demand response programs, and sustainability initiatives with specialized workflows, automated provisioning, and intelligent management capabilities designed for modern energy technologies including solar, wind, battery storage, and electric vehicle integration.",
+                  gradient: "from-cyan-50 via-blue-50 to-indigo-50"
+                },
+                {
+                  question: "How does ServiceNow integrate with existing energy systems and SCADA platforms?",
+                  answer: "ServiceNow seamlessly integrates with existing energy ecosystems including SCADA systems, Energy Management Systems (EMS), Distribution Management Systems (DMS), Asset Management Systems, Customer Information Systems (CIS), and utility billing platforms through native connectors, industry-standard protocols, real-time data synchronization, and secure interfaces that enable unified workflows and comprehensive visibility across the entire energy infrastructure.",
+                  gradient: "from-emerald-50 via-teal-50 to-cyan-50"
+                },
+                {
+                  question: "What training and support do you provide for energy teams?",
+                  answer: "We provide comprehensive energy-specific training including grid operations workshops, asset management certification, field service training, regulatory compliance modules, and sustainability program support. Our approach includes hands-on training for operations teams, technical training for engineering staff, executive briefings for leadership, safety compliance education, and ongoing support to ensure successful adoption and sustained value realization across energy operations."
+                }
+              ].map((faq, index) => (
+                <div key={index} className={`bg-gradient-to-br ${faq.gradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-200/50`}>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-start">
+                    <span className="text-emerald-700 mr-2 font-bold">Q:</span>
+                    {faq.question}
+                  </h3>
+                  <div className="text-gray-800 leading-relaxed pl-6">
+                    <span className="text-green-700 font-bold mr-2">A:</span>
+                    <span className="text-gray-700">{faq.answer}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* FAQ CTA */}
+            <div className="mt-12 text-center">
+              <p className="text-gray-600 mb-6">
+                Ready to transform your energy operations?
+              </p>
+              <Button className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+                <MessageCircle className="mr-2 h-4 w-4" />
+                Schedule Energy Consultation
               </Button>
             </div>
-            <div className="flex-1 flex justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-                alt="Energy Innovation"
-                className="rounded-xl shadow-lg w-full max-w-md object-cover"
-              />
-            </div>
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="py-12 px-4 sm:px-6 bg-white">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-              <div>
-                <h2 className="text-2xl sm:text-4xl font-bold text-[#1a2e61] mb-4">Why Choose IfBash?</h2>
-                <ul className="space-y-4 text-base sm:text-lg text-muted-foreground">
-                  <li>
-                    <Star className="inline-block mr-2 text-[#26a3d9]" />
-                    <strong className="text-primary">Industry Expertise:</strong> Trusted by utilities and energy leaders for grid, field, and customer transformation.
-                  </li>
-                  <li>
-                    <Sparkles className="inline-block mr-2 text-[#6c28d9]" />
-                    <strong className="text-primary">AI & CRM Innovation:</strong> Integrated AI, analytics, and CRM for predictive insights and automation.
-                  </li>
-                  <li>
-                    <Leaf className="inline-block mr-2 text-[#26a3d9]" />
-                    <strong className="text-primary">Sustainability Focus:</strong> Digital solutions for ESG, compliance, and responsible growth.
-                  </li>
-                  <li>
-                    <CheckCircle className="inline-block mr-2 text-green-500" />
-                    <strong className="text-primary">End-to-End Partnership:</strong> Strategy, implementation, and continuous optimization.
-                  </li>
-                </ul>
-              </div>
-              <div className="flex justify-center">
-                <img
-                  src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=600&q=80"
-                  alt="Energy Team"
-                  className="rounded-xl shadow-lg object-cover w-full max-w-md"
-                />
-              </div>
-            </div>
+        {/* CONTACT/CTA SECTION */}
+        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-emerald-900 via-green-900 to-teal-950 relative overflow-hidden">
+          {/* Background Elements */}
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
+            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-emerald-600/10 via-green-600/5 to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-green-600/10 via-teal-600/5 to-transparent" />
           </div>
-        </section>
-
-        {/* ServiceNow in Energy & Utilities */}
-        <section className="py-16 px-4 sm:px-6">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-light text-foreground mb-12 text-center">
-              ServiceNow for Energy & Utilities: Key Use Cases
+          
+          <div className="container mx-auto max-w-4xl text-center relative z-10">
+            <Badge className="bg-gradient-to-r from-emerald-500/20 via-green-500/20 to-teal-500/20 text-white border-white/20 mb-6 px-4 py-2">
+              Ready for Energy Excellence?
+            </Badge>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+              Transform Your Energy
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400">
+                Operations Today
+              </span>
             </h2>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Grid & Asset Management */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                    <CloudLightning className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">Grid & Asset Management</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Optimize grid reliability, asset lifecycle, and maintenance with AI-powered workflows and IoT integration.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Predictive Maintenance & Monitoring</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Asset Lifecycle Automation</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Grid Outage & Restoration Management</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              {/* Field Service & Workforce Management */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-chart-2/20 flex items-center justify-center mb-3">
-                    <Wrench className="h-6 w-6 text-chart-2" />
-                  </div>
-                  <CardTitle className="text-lg">Field Service & Workforce</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Empower field teams with mobile tools, automated scheduling, and real-time safety alerts.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Mobile Work Orders & Dispatch</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Automated Scheduling & Routing</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Safety & Compliance Monitoring</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              {/* Customer Experience & Self-Service */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-chart-3/20 flex items-center justify-center mb-3">
-                    <BarChart3 className="h-6 w-6 text-chart-3" />
-                  </div>
-                  <CardTitle className="text-lg">Customer Experience & Self-Service</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Deliver seamless support, outage notifications, and personalized journeys with unified CRM and AI-powered service management.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Omnichannel Service & Virtual Agents</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Outage Notifications & Case Management</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Personalized Billing & Support</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              {/* Sustainability & ESG Reporting */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-chart-4/20 flex items-center justify-center mb-3">
-                    <Leaf className="h-6 w-6 text-chart-4" />
-                  </div>
-                  <CardTitle className="text-lg">Sustainability & ESG</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Track, report, and optimize sustainability initiatives and regulatory compliance with digital workflows.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>ESG Data Collection & Reporting</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Regulatory Compliance Automation</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Carbon Footprint Tracking</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              {/* AI & Analytics */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-chart-5/20 flex items-center justify-center mb-3">
-                    <Brain className="h-6 w-6 text-chart-5" />
-                  </div>
-                  <CardTitle className="text-lg">AI & Analytics</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Harness AI and analytics for demand forecasting, outage prediction, and smarter business decisions.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Demand Sensing & Forecasting</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Outage Prediction & Risk Analytics</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Customer Sentiment & Engagement Analysis</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-              {/* CRM & Partner Network */}
-              <Card className="moondust-card border-border shadow-sm hover:shadow-lg hover:moondust-glow transition-all duration-300">
-                <CardHeader className="pb-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <CardTitle className="text-lg">CRM & Partner Network</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm mb-4">
-                    Connect partners, regulators, and customers with unified CRM, collaboration, and service management.
-                  </p>
-                  <ul className="space-y-2 text-xs text-muted-foreground">
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Partner Portal & Collaboration</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Performance Analytics & Reporting</span>
-                    </li>
-                    <li className="flex items-center space-x-2">
-                      <CheckCircle className="h-3 w-3 text-green-500" />
-                      <span>Customer Engagement & Loyalty Programs</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* Transformation Benefits */}
-        <section className="py-16 px-4 sm:px-6 bg-gradient-to-r from-blue-50 to-yellow-50">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-light text-foreground mb-10 text-center">
-              Why Digital Transformation Matters in Energy & Utilities
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=400&q=80"
-                  alt="Grid Modernization"
-                  className="h-24 w-full object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-lg font-semibold text-primary mb-2">Grid Modernization</h3>
-                <p className="text-muted-foreground text-sm text-center">
-                  Integrate IoT, AI, and automation for predictive maintenance, outage management, and optimized grid operations.
-                </p>
-              </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?auto=format&fit=crop&w=400&q=80"
-                  alt="Field Service"
-                  className="h-24 w-full object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-lg font-semibold text-primary mb-2">Field Service Excellence</h3>
-                <p className="text-muted-foreground text-sm text-center">
-                  Empower field teams with mobile tools, automated scheduling, and real-time safety alerts.
-                </p>
-              </div>
-              <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-                <img
-                  src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80"
-                  alt="Customer Experience"
-                  className="h-24 w-full object-cover rounded-lg mb-4"
-                />
-                <h3 className="text-lg font-semibold text-primary mb-2">Customer Experience</h3>
-                <p className="text-muted-foreground text-sm text-center">
-                  Deliver frictionless support, outage notifications, and personalized journeys to build trust and loyalty.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Approach Section */}
-        <section className="py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-yellow-50">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-light text-foreground mb-12 text-center">
-              Our Approach for Energy & Utilities Transformation
-            </h2>
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Workflow className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-2">1. Assess</h3>
-                <p className="text-muted-foreground text-sm">
-                  Analyze current processes, technology, and data landscape for transformation readiness.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Settings className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-2">2. Design</h3>
-                <p className="text-muted-foreground text-sm">
-                  Develop tailored ServiceNow, AI, and CRM solutions for energy and utilities needs.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-2">3. Implement</h3>
-                <p className="text-muted-foreground text-sm">
-                  Deploy and integrate digital workflows across grid, field service, and customer operations.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="h-16 w-16 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                  <Zap className="h-8 w-8 text-primary" />
-                </div>
-                <h3 className="text-xl font-medium text-foreground mb-2">4. Optimize</h3>
-                <p className="text-muted-foreground text-sm">
-                  Continuously improve processes and drive innovation with analytics and AI.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Why IfBash & ServiceNow Section */}
-        <section className="py-10 px-4 sm:px-6 bg-gradient-to-r from-blue-50 to-yellow-50">
-          <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-light text-foreground mb-8 text-center">
-              Why IfBash & ServiceNow for Energy & Utilities?
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="flex items-start space-x-4">
-                <Shield className="h-8 w-8 text-primary mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium text-foreground mb-2">
-                    Industry Expertise & Security
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Proven delivery for utilities, grid operators, and energy providers. Enterprise-grade security, compliance, and data protection.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Sparkles className="h-8 w-8 text-primary mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium text-foreground mb-2">
-                    AI & CRM Innovation
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Integrated AI, analytics, and CRM for predictive insights, automation, and customer engagement.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <Rocket className="h-8 w-8 text-primary mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium text-foreground mb-2">
-                    Scalable, Future-Proof Solutions
-                  </h3>
-                  <p className="text-muted-foreground">
-                    Flexible platforms that grow with your business and adapt to new energy trends.
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start space-x-4">
-                <MessageCircle className="h-8 w-8 text-primary mt-1" />
-                <div>
-                  <h3 className="text-xl font-medium text-foreground mb-2">
-                    End-to-End Partnership
-                  </h3>
-                  <p className="text-muted-foreground">
-                    From strategy to implementation and optimization, IfBash is your partner for continuous transformation.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Testimonials Section */}
-        <section className="py-16 px-4 sm:px-6 bg-white">
-          <div className="container mx-auto max-w-5xl">
-            <h2 className="text-3xl font-light text-primary mb-10 text-center">
-              What Our Energy & Utilities Clients Say
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <Card className="shadow-lg border-none">
-                <CardContent className="p-6">
-                  <p className="text-lg text-muted-foreground mb-4">
-                    “IfBash helped us modernize our grid and field operations. Outage response times dropped by 35% and customer satisfaction soared.”
-                  </p>
-                  <div className="flex items-center space-x-3">
-                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Client" className="h-10 w-10 rounded-full" />
-                    <div>
-                      <span className="font-semibold text-primary">Michael R.</span>
-                      <span className="block text-xs text-muted-foreground">COO, Utility Provider</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              <Card className="shadow-lg border-none">
-                <CardContent className="p-6">
-                  <p className="text-lg text-muted-foreground mb-4">
-                    “The ServiceNow platform and AI solutions from IfBash transformed our sustainability reporting and compliance. We’re now leaders in ESG transparency.”
-                  </p>
-                  <div className="flex items-center space-x-3">
-                    <img src="https://randomuser.me/api/portraits/women/62.jpg" alt="Client" className="h-10 w-10 rounded-full" />
-                    <div>
-                      <span className="font-semibold text-primary">Sara L.</span>
-                      <span className="block text-xs text-muted-foreground">VP, Energy Operations</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ Section */}
-        <section className="py-16 px-4 sm:px-6 bg-gradient-to-r from-yellow-50 to-blue-50">
-          <div className="container mx-auto max-w-4xl">
-            <h2 className="text-3xl font-light text-foreground mb-8 text-center">
-              Frequently Asked Questions
-            </h2>
-            <div className="space-y-6">
-              <div>
-                <h3 className="font-semibold text-primary mb-2">How quickly can we see results from ServiceNow transformation?</h3>
-                <p className="text-muted-foreground">
-                  Most clients see measurable improvements in grid, field, and customer experience within 3-6 months of implementation.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-2">Is your solution scalable for global energy & utilities enterprises?</h3>
-                <p className="text-muted-foreground">
-                  Yes, our ServiceNow and AI solutions are designed for scalability, security, and compliance across global operations.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-primary mb-2">Do you offer ongoing support and optimization?</h3>
-                <p className="text-muted-foreground">
-                  Absolutely. IfBash provides end-to-end partnership, including continuous support, analytics, and process optimization.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-16 px-4 sm:px-6 bg-gradient-to-r from-yellow-600 to-blue-700">
-          <div className="container mx-auto max-w-4xl text-center">
-            <h2 className="text-3xl sm:text-4xl font-light text-white mb-6">
-              Power Your Energy & Utilities Transformation with ServiceNow & IfBash
-            </h2>
-            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-              Transform your energy and utilities business with digital workflows, AI, CRM, and customer-centric solutions.
+            
+            <p className="text-xl text-emerald-100 mb-10 max-w-3xl mx-auto">
+              Join 280+ energy and utilities companies driving sustainable innovation with ServiceNow. From smart grid operations to renewable energy integration, accelerate your energy transformation.
             </p>
-            <Button size="lg" variant="secondary" className="px-8 py-3">
-              Schedule Consultation
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <div className="mt-8 flex justify-center">
-              <img
-                src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=600&q=80"
-                alt="Energy Team"
-                className="rounded-xl shadow-lg w-full max-w-md object-cover"
-              />
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <Button size="lg" className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-emerald-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 hover:from-emerald-700 hover:via-green-700 hover:to-teal-700">
+                <BoltIcon className="mr-2 h-5 w-5" />
+                Start Energy Transformation
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/70 shadow-lg"
+              >
+                <Mail className="mr-2 h-5 w-5" />
+                Download Energy Guide
+              </Button>
+            </div>
+            
+            {/* Contact Information */}
+            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+              <div className="bg-gradient-to-br from-white/10 to-emerald-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Phone className="h-6 w-6 text-emerald-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Call Us</p>
+                <p className="text-emerald-200 text-xs">+91-XXXX-XXXXXX</p>
+              </div>
+              <div className="bg-gradient-to-br from-white/10 to-green-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Mail className="h-6 w-6 text-green-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Email Us</p>
+                <p className="text-green-200 text-xs">energy@ifbash.com</p>
+              </div>
+              <div className="bg-gradient-to-br from-white/10 to-teal-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
+                <Calendar className="h-6 w-6 text-teal-400 mx-auto mb-2" />
+                <p className="text-white text-sm">Schedule Demo</p>
+                <p className="text-teal-200 text-xs">Available 24/7</p>
+              </div>
             </div>
           </div>
         </section>
