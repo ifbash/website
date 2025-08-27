@@ -297,25 +297,25 @@ const industryItems = [
 const companyItems = [
   {
     title: "About ifBash",
-    href: "/about-us",
+    href: "/company/about-us",
     description: "Learn about our ServiceNow expertise, company mission, and global presence",
     icon: Info,
   },
   {
     title: "Careers & Jobs",
-    href: "/careers-servicenow-jobs", 
+    href: "/company/careers-servicenow-jobs", 
     description: "Join our team of ServiceNow certified professionals and grow your career",
     icon: GraduationCap,
   },
   {
     title: "Client Success Stories",
-    href: "/case-studies-client-success",
+    href: "/company/case-studies-client-success",
     description: "Real-world success stories, client transformations, and business outcomes",
     icon: FileText,
   },
   {
     title: "News & Industry Events",
-    href: "/news-events-servicenow",
+    href: "/company/news-events-servicenow",
     description: "Latest ServiceNow updates, industry insights, and company announcements",
     icon: Newspaper,
   },
