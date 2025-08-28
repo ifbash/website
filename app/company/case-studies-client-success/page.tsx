@@ -45,6 +45,14 @@ import {
   Shield
 } from "lucide-react";
 
+interface ColorClasses {
+  bg: string;
+  light: string;
+  badge: string;
+  button: string;
+  text: string;
+}
+
 export default function CaseStudiesPage() {
   const [selectedIndustry, setSelectedIndustry] = useState("all");
   const [selectedSolution, setSelectedSolution] = useState("all");
@@ -208,8 +216,8 @@ export default function CaseStudiesPage() {
     { number: "15+", label: "Industries Served", description: "Global reach", color: "from-teal-500 to-cyan-600" }
   ];
 
-  const getColorClasses = (color) => {
-    const colorMap = {
+  const getColorClasses = (color: string): ColorClasses => {
+    const colorMap: Record<string, ColorClasses> = {
       emerald: {
         bg: "from-emerald-500 to-green-600",
         light: "from-emerald-50 to-green-50",
