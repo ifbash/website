@@ -39,6 +39,14 @@ import {
   Play
 } from "lucide-react";
 
+interface ColorClasses {
+  bg: string;
+  light: string;
+  badge: string;
+  button: string;
+  text: string;
+}
+
 export default function NewsEventsPage() {
   const [activeTab, setActiveTab] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,8 +56,30 @@ export default function NewsEventsPage() {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "name": "News & Events - IfBash ServiceNow Solutions | Latest Updates & Industry Events",
-    "description": "Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content.",
-    "url": "https://ifbash.com/news-events"
+    "description": "Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content. Join our community events and workshops.",
+    "url": "https://ifbash.com/news-events",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "IfBash - ServiceNow Solutions & Digital Transformation Experts",
+      "url": "https://ifbash.com"
+    },
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://ifbash.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "News & Events",
+          "item": "https://ifbash.com/news-events"
+        }
+      ]
+    }
   };
 
   const newsArticles = [
@@ -149,43 +179,49 @@ export default function NewsEventsPage() {
     { number: "15+", label: "Industry Awards", description: "Recognition received", color: "from-indigo-500 to-blue-500" }
   ];
 
-  const getColorClasses = (color) => {
-    const colorMap = {
+  const getColorClasses = (color: string): ColorClasses => {
+    const colorMap: Record<string, ColorClasses> = {
       emerald: {
         bg: "from-emerald-500 to-green-600",
         light: "from-emerald-50 to-green-50",
         badge: "bg-emerald-100 text-emerald-800 border-emerald-200",
-        button: "from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800"
+        button: "from-emerald-600 to-green-700 hover:from-emerald-700 hover:to-green-800",
+        text: "text-emerald-600"
       },
       purple: {
         bg: "from-purple-500 to-violet-600",
         light: "from-purple-50 to-violet-50",
         badge: "bg-purple-100 text-purple-800 border-purple-200",
-        button: "from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800"
+        button: "from-purple-600 to-violet-700 hover:from-purple-700 hover:to-violet-800",
+        text: "text-purple-600"
       },
       orange: {
         bg: "from-orange-500 to-red-600",
         light: "from-orange-50 to-red-50",
         badge: "bg-orange-100 text-orange-800 border-orange-200",
-        button: "from-orange-600 to-red-700 hover:from-orange-700 hover:to-red-800"
+        button: "from-orange-600 to-red-700 hover:from-orange-700 hover:to-red-800",
+        text: "text-orange-600"
       },
       red: {
         bg: "from-red-500 to-rose-600",
         light: "from-red-50 to-rose-50",
         badge: "bg-red-100 text-red-800 border-red-200",
-        button: "from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800"
+        button: "from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800",
+        text: "text-red-600"
       },
       indigo: {
         bg: "from-indigo-500 to-blue-600",
         light: "from-indigo-50 to-blue-50",
         badge: "bg-indigo-100 text-indigo-800 border-indigo-200",
-        button: "from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800"
+        button: "from-indigo-600 to-blue-700 hover:from-indigo-700 hover:to-blue-800",
+        text: "text-indigo-600"
       },
       teal: {
         bg: "from-teal-500 to-cyan-600",
         light: "from-teal-50 to-cyan-50",
         badge: "bg-teal-100 text-teal-800 border-teal-200",
-        button: "from-teal-600 to-cyan-700 hover:from-teal-700 hover:to-cyan-800"
+        button: "from-teal-600 to-cyan-700 hover:from-teal-700 hover:to-cyan-800",
+        text: "text-teal-600"
       }
     };
     return colorMap[color] || colorMap.indigo;
@@ -195,26 +231,52 @@ export default function NewsEventsPage() {
     <>
       <Head>
         <title>News & Events - IfBash ServiceNow Solutions | Latest Updates & Industry Events</title>
-        <meta name="description" content="Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content." />
-        <meta name="robots" content="index, follow" />
+        <meta
+          name="description"
+          content="Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content. Join our community events and workshops."
+        />
+        <meta
+          name="keywords"
+          content="IfBash news, ServiceNow events, digital transformation webinars, ServiceNow partner events, industry insights, technology news, Hyderabad tech events"
+        />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {/* Open Graph Tags */}
+        <meta property="og:title" content="News & Events - IfBash ServiceNow Solutions | Latest Updates & Industry Events" />
+        <meta property="og:description" content="Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ifbash.com/news-events" />
+        <meta property="og:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" />
+        
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="News & Events - IfBash ServiceNow Solutions | Latest Updates & Industry Events" />
+        <meta name="twitter:description" content="Stay updated with IfBash's latest ServiceNow news, industry insights, digital transformation events, webinars, and thought leadership content." />
+        <meta name="twitter:image" content="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" />
+
         <link rel="canonical" href="https://ifbash.com/news-events" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </Head>
 
       {/* Fixed Social Links */}
       <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-        <a href="https://linkedin.com/company/ifbash" target="_blank" rel="noopener noreferrer" className="group relative">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
+        <a href="https://linkedin.com/company/ifbash" target="_blank" rel="noopener noreferrer" className="group relative flex items-center">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
             <LinkedinIcon className="h-5 w-5" />
           </div>
         </a>
-        <a href="https://twitter.com/ifbash" target="_blank" rel="noopener noreferrer" className="group relative">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
+        <a href="https://twitter.com/ifbash" target="_blank" rel="noopener noreferrer" className="group relative flex items-center">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
             <Twitter className="h-5 w-5" />
           </div>
         </a>
-        <a href="https://youtube.com/ifbash" target="_blank" rel="noopener noreferrer" className="group relative">
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-pink-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
+        <a href="https://youtube.com/ifbash" target="_blank" rel="noopener noreferrer" className="group relative flex items-center">
+          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-red-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
             <Youtube className="h-5 w-5" />
           </div>
         </a>
@@ -246,7 +308,7 @@ export default function NewsEventsPage() {
                 </h1>
                 
                 <p className="text-xl text-purple-100 leading-relaxed mb-8 max-w-2xl">
-                  Discover the latest ServiceNow innovations, industry insights, and upcoming events from IfBash. Join our community of digital transformation leaders.
+                  Discover the latest ServiceNow innovations, industry insights, and upcoming events from IfBash. Join our community of digital transformation leaders and stay ahead of the curve.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-10">
@@ -469,34 +531,118 @@ export default function NewsEventsPage() {
                 );
               })}
             </div>
+
+            {filteredItems.length === 0 && (
+              <div className="text-center py-16">
+                <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
+                  <Search className="w-12 h-12 text-gray-400" />
+                </div>
+                <h3 className="text-2xl font-semibold text-gray-900 mb-2">No content found</h3>
+                <p className="text-gray-600">Try adjusting your search or filter criteria.</p>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* Newsletter Section - Vibrant Teal Theme */}
-        <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-teal-50 via-cyan-50 to-blue-50">
+        {/* Upcoming Events Highlight */}
+        <section id="upcoming-events" className="py-20 px-4 sm:px-6 bg-gray-50">
+          <div className="container mx-auto max-w-7xl">
+            <div className="text-center mb-16">
+              <Badge className="bg-green-100 text-green-800 mb-6 px-4 py-2 border border-green-200">
+                Don't Miss Out
+              </Badge>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
+                Upcoming Events &
+                <span className="block text-green-600">
+                  Webinars
+                </span>
+              </h2>
+              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
+                Join us for exclusive events, webinars, and industry gatherings where you can connect with ServiceNow experts and fellow professionals
+              </p>
+            </div>
+            
+            <div className="grid lg:grid-cols-2 gap-8">
+              {upcomingEvents.map((event, index) => (
+                <Card key={event.id} className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <Badge className="bg-green-500 text-white">
+                        {event.type === 'webinar' ? 'Upcoming Webinar' : 'Upcoming Event'}
+                      </Badge>
+                    </div>
+                    {event.type === 'webinar' && (
+                      <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Button size="lg" className="bg-white text-black hover:bg-gray-100">
+                          <Play className="w-5 h-5 mr-2" />
+                          Register Now
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
+                      <span className="flex items-center gap-1">
+                        <Calendar className="w-4 h-4" />
+                        {new Date(event.date).toLocaleDateString()}
+                      </span>
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-4 h-4" />
+                        {event.readTime}
+                      </span>
+                      <Badge variant="secondary" className="text-xs">
+                        {event.category}
+                      </Badge>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-green-600 transition-colors duration-300">
+                      {event.title}
+                    </h3>
+                    <p className="text-gray-700 mb-6 leading-relaxed">
+                      {event.excerpt}
+                    </p>
+                    <div className="flex gap-3">
+                      <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white flex-1">
+                        {event.type === 'webinar' ? 'Register Now' : 'Learn More'}
+                        <ChevronRight className="w-4 h-4 ml-2" />
+                      </Button>
+                      <Button variant="outline" size="icon">
+                        <Share2 className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Newsletter Signup */}
+        <section className="py-20 px-4 sm:px-6 bg-white">
           <div className="container mx-auto max-w-4xl">
-            <div className="bg-white rounded-2xl p-12 shadow-xl border text-center relative overflow-hidden">
-              <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500"></div>
-              <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+            <div className="bg-blue-50 rounded-2xl p-12 shadow-lg border border-blue-200 text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Mail className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mb-4">
-                Stay in the Loop
-              </h3>
-              <p className="text-xl mb-8 text-gray-700">
+              <h3 className="text-3xl font-bold text-blue-900 mb-4">Stay in the Loop</h3>
+              <p className="text-xl mb-8 text-blue-700">
                 Subscribe to our newsletter and never miss important updates, event announcements, or industry insights from IfBash.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="flex-1 px-4 py-3 border-2 border-teal-200 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+                  className="flex-1 px-4 py-3 border-2 border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
-                <Button className="bg-gradient-to-r from-teal-600 to-cyan-700 hover:from-teal-700 hover:to-cyan-800 text-white px-8 py-3 rounded-xl shadow-lg transition-all duration-300">
+                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-3 rounded-xl shadow-lg transition-all duration-300">
                   Subscribe
                 </Button>
               </div>
-              <p className="text-sm text-teal-600 mt-4">
+              <p className="text-sm text-blue-600 mt-4">
                 No spam, unsubscribe at any time. Your privacy is important to us.
               </p>
             </div>
@@ -521,7 +667,7 @@ export default function NewsEventsPage() {
             </h2>
             
             <p className="text-xl text-purple-100 mb-10 max-w-3xl mx-auto">
-              Connect with our team of ServiceNow experts, attend our events, and be part of the digital transformation conversation.
+              Connect with our team of ServiceNow experts, attend our events, and be part of the digital transformation conversation that's shaping the future.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
