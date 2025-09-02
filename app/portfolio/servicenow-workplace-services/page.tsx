@@ -1,4 +1,4 @@
-import Head from "next/head";
+
 import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -69,6 +69,8 @@ import {
   Clipboard,
   Navigation
 } from "lucide-react";
+import Head from "next/head";
+import Image from "next/image";
 
 export default function ServiceNowWorkplaceServiceDeliveryPage() {
   // Enhanced JSON-LD with comprehensive WSD data
@@ -372,15 +374,15 @@ export default function ServiceNowWorkplaceServiceDeliveryPage() {
               </div>
               
               <div className="relative order-1 lg:order-2">
-                <div className="relative bg-gradient-to-br from-emerald-100 via-teal-100 to-cyan-100 rounded-2xl p-4 shadow-2xl">
-                  <img
+                  <Image
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
                     alt="Modern workplace service delivery platform with smart building operations and employee experience management"
                     className="rounded-xl shadow-xl w-full"
-                    loading="eager"
-                    width="800"
-                    height="600"
+                    width={800}
+                    height={600}
+                    priority
                   />
+                  
                 </div>
                 <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
                   <div className="text-2xl font-bold">500+</div>
@@ -388,7 +390,7 @@ export default function ServiceNowWorkplaceServiceDeliveryPage() {
                 </div>
               </div>
             </div>
-          </div>
+          
         </section>
 
         {/* CORE WSD MODULES */}
@@ -736,7 +738,7 @@ export default function ServiceNowWorkplaceServiceDeliveryPage() {
                 </div>
                 <div className="flex-1">
                   <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
-                    "IfBash's ServiceNow WSD implementation transformed our workplace operations completely. We achieved 40% space optimization and 85% employee satisfaction within 5 months. The AI-powered space management and automated reservation system revolutionized how our employees interact with the workplace. Our facility costs reduced by 30% while service quality improved dramatically."
+                    &quot;IfBash&apos;s ServiceNow WSD implementation transformed our workplace operations completely. We achieved 40% space optimization and 85% employee satisfaction within 5 months. The AI-powered space management and automated reservation system revolutionized how our employees interact with the workplace. Our facility costs reduced by 30% while service quality improved dramatically.&quot;
                   </blockquote>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>

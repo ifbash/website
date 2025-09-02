@@ -343,11 +343,11 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none rounded-xl p-4 leading-none no-underline outline-none transition-all duration-300 group",
+            "block select-none rounded-xl p-3 leading-none no-underline outline-none transition-all duration-300 group",
             "hover:bg-gradient-to-r hover:from-violet-50 hover:via-purple-50/80 hover:to-blue-50",
             "hover:shadow-lg hover:border-violet-100/50 border border-transparent",
             "focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2",
-            "min-h-[52px] flex items-center w-full", // Increased min height and full width
+            "min-h-[52px] flex items-center w-full",
             className
           )}
           {...props}
@@ -358,15 +358,11 @@ const ListItem = React.forwardRef<
                 <Icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600" />
               </div>
             )}
-            <div className="flex-1 min-w-0 pr-2"> {/* Added right padding */}
+            <div className="flex-1 min-w-0 pr-2">
               <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight mb-1">
                 {title}
               </div>
-              {description && (
-                <div className="text-xs text-slate-600 group-hover:text-slate-700 leading-relaxed line-clamp-2">
-                  {description}
-                </div>
-              )}
+              {/* Description hidden */}
             </div>
           </div>
         </a>
@@ -561,14 +557,14 @@ export function Header() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div 
-                      className="w-[520px] max-w-[90vw] p-6 rounded-xl border-0"
+                      className="w-[520px] max-w-[90vw] rounded-xl border-0"
                       style={{
                         background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
                         boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
                         border: "1px solid rgba(109, 40, 217, 0.1)"
                       }}
                     >
-                      <ul className="grid gap-3 p-2 grid-cols-2">
+                      <ul className="grid gap-1 p-2 grid-cols-2">
                         {serviceItems.map((item) => (
                           <ListItem
                             key={item.title}
@@ -599,13 +595,13 @@ export function Header() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div 
-                      className="w-[780px] max-w-[95vw] p-6 rounded-xl shadow-2xl border-0"
+                      className="w-[780px] max-w-[95vw] rounded-xl shadow-2xl border-0"
                       style={{
                         background: "white",
                         boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
                       }}
                     >
-                      <ul className="grid gap-3 p-3 grid-cols-3 max-h-[72vh] overflow-y-auto">
+                      <ul className="grid gap-1 p-3 grid-cols-2 max-h-[72vh] overflow-y-auto">
                         {portfolioItems.map((item) => (
                           <ListItem
                             key={item.title}
@@ -636,13 +632,13 @@ export function Header() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div 
-                      className="w-[520px] max-w-[90vw] p-6 rounded-xl shadow-2xl border-0"
+                      className="w-[520px] max-w-[90vw] rounded-xl shadow-2xl border-0"
                       style={{
                         background: "white",
                         boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
                       }}
                     >
-                      <ul className="grid gap-3 p-2 grid-cols-2">
+                      <ul className="grid gap-1 p-2 grid-cols-2">
                         {industryItems.map((item) => (
                           <ListItem
                             key={item.title}
@@ -673,13 +669,13 @@ export function Header() {
                   </NavigationMenuTrigger>
                   <NavigationMenuContent>
                     <div 
-                      className="w-[440px] max-w-[85vw] p-6 rounded-xl shadow-2xl border-0"
+                      className="w-[440px] max-w-[85vw] rounded-xl shadow-2xl border-0"
                       style={{
                         background: "white",
                         boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
                       }}
                     >
-                      <ul className="grid gap-3 p-2 grid-cols-2">
+                      <ul className="grid gap-1 p-2 grid-cols-2">
                         {companyItems.map((item) => (
                           <ListItem
                             key={item.title}
@@ -813,7 +809,7 @@ export function Header() {
                   aria-label="Mobile navigation menu"
                 >
                   {/* Mobile Header */}
-                  <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                  <div className="flex items-center justify-between border-b border-slate-100">
                     <div className="flex items-center space-x-3">
                       <div 
                         className="h-8 w-8 rounded-lg flex items-center justify-center"
@@ -834,7 +830,7 @@ export function Header() {
                     </SheetClose>
                   </div>
 
-                  <nav className="flex flex-col space-y-2 p-6" role="navigation" aria-label="Mobile navigation"> 
+                  <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation"> 
                     <Accordion type="multiple" className="w-full">
                       {/* Services Mobile */}
                       <AccordionItem value="services" className="border-blue-100">
@@ -849,12 +845,12 @@ export function Header() {
                                 key={item.title}
                                 href={item.href}
                                 onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-4 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
                               >
                                 <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  <div className="text-xs text-slate-500 group-hover:text-slate-600 mt-1 line-clamp-2">{item.description}</div>
+                                  {/* Description hidden */}
                                 </div>
                               </Link>
                             ))}
@@ -875,12 +871,12 @@ export function Header() {
                                 key={item.title}
                                 href={item.href}
                                 onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-4 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
                               >
                                 <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 flex-shrink-0 transition-colors duration-300" aria-hidden="true" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  <div className="text-xs text-slate-500 group-hover:text-slate-600 mt-1 line-clamp-2">{item.description}</div>
+                                  {/* Description hidden */}
                                 </div>
                               </Link>
                             ))}
@@ -901,12 +897,12 @@ export function Header() {
                                 key={item.title}
                                 href={item.href}
                                 onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-4 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
                               >
                                 <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  <div className="text-xs text-slate-500 group-hover:text-slate-600 mt-1 line-clamp-2">{item.description}</div>
+                                  {/* Description hidden */}
                                 </div>
                               </Link>
                             ))}
@@ -927,12 +923,12 @@ export function Header() {
                                 key={item.title}
                                 href={item.href}
                                 onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-4 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
                               >
                                 <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
                                 <div className="flex-1 min-w-0">
                                   <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  <div className="text-xs text-slate-500 group-hover:text-slate-600 mt-1 line-clamp-2">{item.description}</div>
+                                  {/* Description hidden */}
                                 </div>
                               </Link>
                             ))}
