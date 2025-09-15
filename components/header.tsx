@@ -64,6 +64,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import Image from "next/image";
 
 // Enhanced service items with better URLs and descriptions
 const serviceItems = [
@@ -520,20 +521,7 @@ export function Header() {
               className="flex items-center space-x-3 group focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 rounded-lg"
               aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
             >
-              <div 
-                className="h-10 w-10 rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-105 group-focus:scale-105"
-                style={{ 
-                  background: "linear-gradient(135deg, #1a2e61 0%, #6c28d9 50%, #26a3d9 100%)",
-                  boxShadow: "0 4px 15px rgba(109, 40, 217, 0.3)"
-                }}
-              >
-                <span className="text-white font-bold text-lg" aria-hidden="true">IB</span>
-              </div>
-              <span 
-                className="font-bold text-xl hidden sm:block text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text"
-              >
-                ifBash
-              </span>
+              <Image src="/images/logo.png" alt={"logo"} width={180} height={100} />
             </Link>
           </div>
 

@@ -592,7 +592,7 @@ return (
                     gradient="from-indigo-600 to-pink-600"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 sm:-bottom-10 sm:-left-10 w-24 h-24 sm:w-32 sm:h-32 animate-float delay-150">
+                <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-24 h-24 sm:w-32 sm:h-32 animate-float delay-150">
                   <PlaceholderImage
                     title="CRM Insights"
                     className="w-full h-full object-cover rounded-xl"
@@ -602,7 +602,7 @@ return (
               </div>
 
               {/* Quick Feature Cards */}
-              <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 w-full">
+              <div className="absolute -bottom-9 left-1/2 transform -translate-x-1/2 w-full">
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
                   {/* Stats-like cards - 2 rows of 3 */}
                   <div className="bg-gradient-to-br from-indigo-400/20 to-blue-400/20 backdrop-blur-sm rounded-xl p-4 border border-indigo-300/20">
@@ -692,7 +692,7 @@ return (
       <section className="py-16 md:py-24 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-50 relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.1]" />
         
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
