@@ -521,7 +521,7 @@ export function Header() {
               className="flex items-center space-x-3 group focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 rounded-lg"
               aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
             >
-              <Image src="/images/logo.png" alt={"logo"} width={180} height={100} />
+              <Image src="/images/logo.png" alt={"logo"} width={180} height={100} className="h-8 sm:h-10 w-auto" />
             </Link>
           </div>
 
