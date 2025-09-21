@@ -342,7 +342,7 @@ const ListItem = React.forwardRef<
             "hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95",
             "hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02]",
             "focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2",
-            "min-h-[80px] flex items-center w-full bg-white/90", // Changed from bg-white/80 to bg-white/25 (75% transparent)
+            "min-h-[80px] flex items-center w-full bg-white/80",
             className
           )}
           style={{
@@ -492,7 +492,7 @@ export function Header() {
         }}
       />
 
-      {/* Enhanced Header with logo positioning */}
+      {/* Enhanced Header with reduced height (10% smaller) */}
       <header
         className={cn(
           "sticky top-0 z-50 w-full border-b border-border/40 backdrop-blur-md supports-[backdrop-filter]:bg-background/95 transition-all duration-300",
@@ -507,9 +507,9 @@ export function Header() {
         aria-label="Main navigation"
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14">
-            {/* Logo Section - Bigger and moved 10% left */}
-            <div className="flex items-center flex-shrink-0 -ml-4"> {/* Added -ml-4 to move 10% left */}
+          <div className="flex items-center justify-between h-14"> {/* Reduced from h-16 to h-14 (12.5% reduction) */}
+            {/* Logo Section - Reduced dimensions */}
+            <div className="flex items-center flex-shrink-0">
               <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-violet-600 text-white px-4 py-2 rounded-lg z-50">
                 Skip to main content
               </a>
@@ -518,18 +518,18 @@ export function Header() {
                 className="flex items-center group focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 rounded-lg"
                 aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
               >
-                {/* Logo made bigger: from 160x36 to 180x40 */}
-                <div className="w-[180px] h-[40px] relative flex items-center"> 
+                {/* Logo with reduced dimensions */}
+                <div className="w-[250px] h-[60px] relative flex items-center"> {/* Reduced from 180x40 to 160x36 */}
                   <Image 
                     src="/images/logo.png" 
                     alt="ifBash Logo" 
-                    width={180} 
-                    height={40}
+                    width={250} 
+                    height={60}
                     className="object-contain"
                     priority
                     style={{ 
-                      width: '180px', 
-                      height: '40px',
+                      width: '250px', 
+                      height: '60px',
                       maxWidth: '100%',
                     }}
                   />
@@ -544,7 +544,7 @@ export function Header() {
                   {/* Services - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -560,10 +560,9 @@ export function Header() {
                         <div 
                           className="w-full rounded-xl shadow-2xl border-0 p-1"
                           style={{
-                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
                             boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
-                            border: "1px solid rgba(109, 40, 217, 0.1)",
-                            backdropFilter: "blur(20px)" // Enhanced blur
+                            border: "1px solid rgba(109, 40, 217, 0.1)"
                           }}
                         >
                           {/* Services Items */}
@@ -573,7 +572,7 @@ export function Header() {
                                 <Link
                                   key={item.title}
                                   href={item.href}
-                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
                                   style={{
                                     backdropFilter: "blur(12px)",
                                     boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
@@ -601,7 +600,7 @@ export function Header() {
                   {/* Portfolio - Fixed with proper containment */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -617,10 +616,9 @@ export function Header() {
                         <div 
                           className="w-full rounded-xl shadow-2xl border-0 p-1"
                           style={{
-                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
                             boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
-                            border: "1px solid rgba(109, 40, 217, 0.1)",
-                            backdropFilter: "blur(20px)" // Enhanced blur
+                            border: "1px solid rgba(109, 40, 217, 0.1)"
                           }}
                         >
                           {/* Category Tabs - Horizontal navigation */}
@@ -662,7 +660,7 @@ export function Header() {
                                 <Link
                                   key={item.title}
                                   href={`/portfolio/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
-                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
                                   style={{
                                     backdropFilter: "blur(12px)",
                                     boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
@@ -690,7 +688,7 @@ export function Header() {
                   {/* Industries - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -706,10 +704,9 @@ export function Header() {
                         <div 
                           className="w-full rounded-xl shadow-2xl border-0 p-1"
                           style={{
-                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
                             boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
-                            border: "1px solid rgba(109, 40, 217, 0.1)",
-                            backdropFilter: "blur(20px)" // Enhanced blur
+                            border: "1px solid rgba(109, 40, 217, 0.1)"
                           }}
                         >
                           {/* Industries Items */}
@@ -719,7 +716,7 @@ export function Header() {
                                 <Link
                                   key={item.title}
                                   href={item.href}
-                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
                                   style={{
                                     backdropFilter: "blur(12px)",
                                     boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
@@ -747,7 +744,7 @@ export function Header() {
                   {/* Company - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -763,10 +760,9 @@ export function Header() {
                         <div 
                           className="w-full rounded-xl shadow-2xl border-0 p-1"
                           style={{
-                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
                             boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
-                            border: "1px solid rgba(109, 40, 217, 0.1)",
-                            backdropFilter: "blur(20px)" // Enhanced blur
+                            border: "1px solid rgba(109, 40, 217, 0.1)"
                           }}
                         >
                           {/* Company Items */}
@@ -776,7 +772,7 @@ export function Header() {
                                 <Link
                                   key={item.title}
                                   href={item.href}
-                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
                                   style={{
                                     backdropFilter: "blur(12px)",
                                     boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
@@ -804,12 +800,12 @@ export function Header() {
               </NavigationMenu>
             </nav>
 
-            {/* Right Side Actions */}
+            {/* Right Side Actions - Reduced dimensions */}
             <div className="flex items-center space-x-2 flex-shrink-0">
-              {/* Contact CTA Button */}
+              {/* Contact CTA Button - Reduced size */}
               <Link
                 href="/contact-servicenow-experts"
-                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-9"
+                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-9" /* Reduced from h-10 to h-9 */
                 style={{ 
                   background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
                   boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
@@ -821,7 +817,7 @@ export function Header() {
                 <span className="whitespace-nowrap lg:hidden">Contact</span>
               </Link>
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button - Reduced size */}
               <div className="lg:hidden">
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                   <SheetTrigger asChild>
@@ -830,7 +826,7 @@ export function Header() {
                       size="sm" 
                       aria-label="Open navigation menu"
                       aria-expanded={isMobileMenuOpen}
-                      className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 h-9 w-9"
+                      className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 h-9 w-9" /* Reduced from h-10 w-10 to h-9 w-9 */
                     >
                       <Menu className="h-6 w-6 text-violet-600" aria-hidden="true" />
                     </Button>
@@ -985,7 +981,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* Enhanced CSS */}
+      {/* Enhanced CSS with improved dropdown positioning */}
       <style jsx>{`
         @media (prefers-reduced-motion: reduce) {
           * {
@@ -1021,7 +1017,7 @@ export function Header() {
         
         /* Prevent layout shift by reserving space for loading states */
         .layout-stable {
-          min-height: 56px;
+          min-height: 56px; /* Reduced from 64px to 56px */
         }
         
         /* Enhanced dropdown animations */
@@ -1063,6 +1059,53 @@ export function Header() {
         
         .overflow-y-auto::-webkit-scrollbar-thumb:hover {
           background: rgba(109, 40, 217, 0.5);
+        }
+
+        /* Enhanced hover states */
+        .submenu-hover-gradient {
+          background-image: linear-gradient(
+            to right,
+            rgba(237, 233, 254, 0.5),
+            rgba(236, 233, 253, 0.5),
+            rgba(239, 246, 255, 0.5)
+          );
+        }
+
+        /* Mobile responsive optimizations */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 1rem;
+            padding-right: 1rem;
+          }
+        }
+
+        /* Tablet optimizations */
+        @media (min-width: 641px) and (max-width: 1023px) {
+          .container {
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+        }
+
+        /* Laptop optimizations */
+        @media (min-width: 1024px) and (max-width: 1366px) {
+          .max-w-7xl {
+            max-width: 96%;
+          }
+        }
+
+        /* Large laptop and desktop optimizations */
+        @media (min-width: 1367px) {
+          .max-w-7xl {
+            max-width: 80rem;
+          }
+        }
+
+        /* Print styles */
+        @media print {
+          header {
+            display: none;
+          }
         }
 
         /* Fixed positioning for all mega menus - prevents overflow */
