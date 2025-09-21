@@ -531,7 +531,6 @@ export function Header() {
                       width: '180px', 
                       height: '40px',
                       maxWidth: '100%',
-                      height: 'auto'
                     }}
                   />
                 </div>
