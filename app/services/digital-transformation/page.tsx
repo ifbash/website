@@ -1,5 +1,5 @@
+"use client";
 import Head from "next/head";
-import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -35,9 +35,6 @@ import {
   Factory,
   HeartPulse,
   MonitorSmartphone,
-  LinkedinIcon,
-  Twitter,
-  Youtube,
   ChevronDown,
   ExternalLink,
 } from "lucide-react";
@@ -56,12 +53,7 @@ export default function ServiceNowDigitalTransformationPage() {
       "url": "https://ifbash.com",
       "logo": "https://ifbash.com/images/ifbash-logo.png",
       "foundingDate": "2016",
-      "numberOfEmployees": "50-100",
-      "sameAs": [
-        "https://www.linkedin.com/company/ifbash",
-        "https://twitter.com/ifbash",
-        "https://www.youtube.com/c/ifbash"
-      ]
+      "numberOfEmployees": "50-100"
     },
     "serviceType": [
       "ServiceNow Digital Transformation",
@@ -259,108 +251,79 @@ export default function ServiceNowDigitalTransformationPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
       </Head>
-      
-      {/* Fixed Social Links */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-        <a
-          href="https://linkedin.com/company/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on LinkedIn"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-blue-500/25">
-            <LinkedinIcon className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on LinkedIn
-          </span>
-        </a>
 
-        <a
-          href="https://twitter.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on Twitter"
+      {/* Fixed Chat Button */}
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <button
+          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 flex items-center justify-center text-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-95"
+          aria-label="Chat with ServiceNow Expert"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-sky-500/25">
-            <Twitter className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on Twitter
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-gray-50 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+            Chat with Expert
           </span>
-        </a>
-
-        <a
-          href="https://youtube.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Watch ifBash on YouTube"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 via-red-600 to-rose-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-red-500/25">
-            <Youtube className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Watch on YouTube
-          </span>
-        </a>
+          <div className="absolute inset-0 rounded-full animate-ping bg-indigo-600 opacity-20"></div>
+        </button>
       </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
-        <Header />
-
+      <div className="min-h-screen bg-gray-50">
         {/* HERO SECTION */}
-        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950 overflow-hidden">
+        <section 
+          className="relative py-16 md:py-20 px-4 sm:px-6 overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)"
+          }}
+        >
           {/* Enhanced Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-violet-600/10 via-purple-600/5 to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-600/10 via-cyan-600/5 to-transparent" />
-            <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-cyan-600/15 to-teal-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
+            <div className="absolute inset-0 bg-black/20"></div>
+            <div className="absolute top-0 left-0 w-full h-full">
+              <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+              <div className="absolute top-1/2 right-1/3 w-64 h-64 bg-purple-400/15 rounded-full blur-3xl animate-pulse delay-2000"></div>
+            </div>
           </div>
           
-          <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto relative z-10">
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-              <Badge className="bg-gradient-to-r from-blue-500 via-cyan-500 to-violet-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-cyan-500/25 transition-all duration-300">
+              <Badge className="bg-white/20 text-white border-white/30 px-4 py-2 backdrop-blur-md">
                 ✓ ServiceNow Implementation Specialists
               </Badge>
-              <Badge className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+              <Badge className="bg-white/20 text-white border-white/30 px-4 py-2 backdrop-blur-md">
                 ✓ 500+ Successful Projects
               </Badge>
-              <Badge className="bg-gradient-to-r from-emerald-500 via-green-600 to-teal-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-emerald-500/25 transition-all duration-300">
+              <Badge className="bg-white/20 text-white border-white/30 px-4 py-2 backdrop-blur-md">
                 ✓ Certified Expert Team
               </Badge>
             </div>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white mb-6">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight text-white mb-6">
                   ServiceNow Digital
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 font-semibold">
+                  <span className="block font-bold bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 bg-clip-text text-transparent">
                     Transformation
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl mt-4">
+                  <span className="block text-xl sm:text-2xl md:text-3xl lg:text-4xl mt-4">
                     Powered by{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400 font-semibold">
+                    <span className="font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-purple-300 bg-clip-text text-transparent">
                       AI Excellence
                     </span>
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
+                <p className="text-lg sm:text-xl md:text-2xl text-white/90 leading-relaxed mb-8 max-w-2xl">
                   Transform your organization with enterprise-grade ServiceNow solutions. Our certified consultants deliver{' '}
-                  <span className="font-semibold text-cyan-300">AI-powered workflow automation</span>, seamless integrations, and exceptional experiences that drive measurable ROI.
+                  <span className="font-semibold text-yellow-300">AI-powered workflow automation</span>, seamless integrations, and exceptional experiences that drive measurable ROI.
                 </p>
                 
                 {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-10">
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
                   <Button 
                     size="lg" 
-                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700"
+                    className="px-8 py-4 text-lg font-semibold bg-white text-purple-700 hover:bg-gray-100 rounded-2xl shadow-2xl hover:shadow-white/25 transition-all duration-300 transform hover:-translate-y-1"
                   >
                     <Phone className="mr-2 h-5 w-5" />
                     Get Free Assessment
@@ -368,7 +331,7 @@ export default function ServiceNowDigitalTransformationPage() {
                   <Button 
                     size="lg" 
                     variant="outline" 
-                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-xl hover:bg-white/10 hover:text-white hover:border-white transition-all duration-300 backdrop-blur-md bg-white/10"
+                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-2xl hover:bg-white/10 transition-all duration-300 backdrop-blur-md"
                   >
                     <Play className="mr-2 h-5 w-5" />
                     Watch Success Stories
@@ -377,42 +340,42 @@ export default function ServiceNowDigitalTransformationPage() {
 
                 {/* Trust Indicators */}
                 <div className="flex flex-wrap gap-6 pt-8 border-t border-white/20">
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Shield className="h-5 w-5 text-violet-600" />
-                    <span className="text-sm text-gray-900 font-semibold">Certified Professionals</span>
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 shadow">
+                    <Shield className="h-5 w-5 text-yellow-300" />
+                    <span className="text-sm text-white font-medium">Certified Professionals</span>
                   </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Award className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm text-gray-900 font-semibold">Proven Track Record</span>
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 shadow">
+                    <Award className="h-5 w-5 text-blue-300" />
+                    <span className="text-sm text-white font-medium">Proven Track Record</span>
                   </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Users className="h-5 w-5 text-cyan-700" />
-                    <span className="text-sm text-gray-900 font-semibold">Global Delivery</span>
+                  <div className="flex items-center space-x-2 bg-white/20 backdrop-blur-md rounded-xl px-4 py-2 border border-white/10 shadow">
+                    <Users className="h-5 w-5 text-green-300" />
+                    <span className="text-sm text-white font-medium">Global Delivery</span>
                   </div>
                 </div>
               </div>
 
               {/* Key Metrics */}
               <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-violet-600/25 via-purple-600/20 to-blue-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-violet-600/35 hover:via-purple-600/30 hover:to-blue-600/25 transition-all duration-300 border border-violet-400/20 shadow-xl hover:shadow-violet-500/20">
-                  <Clock className="h-12 w-12 text-violet-400 mx-auto mb-4" />
+                <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center hover:bg-white/25 transition-all duration-300 border border-white/20">
+                  <Clock className="h-12 w-12 text-yellow-300 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white">40%</div>
-                  <div className="text-violet-200 text-sm">Faster Implementation</div>
+                  <div className="text-white/80 text-sm">Faster Implementation</div>
                 </div>
-                <div className="bg-gradient-to-br from-blue-600/25 via-cyan-600/20 to-teal-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-blue-600/35 hover:via-cyan-600/30 hover:to-teal-600/25 transition-all duration-300 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20">
-                  <DollarSign className="h-12 w-12 text-blue-400 mx-auto mb-4" />
+                <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center hover:bg-white/25 transition-all duration-300 border border-white/20">
+                  <DollarSign className="h-12 w-12 text-green-300 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white">30%</div>
-                  <div className="text-blue-200 text-sm">Cost Reduction</div>
+                  <div className="text-white/80 text-sm">Cost Reduction</div>
                 </div>
-                <div className="bg-gradient-to-br from-cyan-600/25 via-teal-600/20 to-emerald-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-cyan-600/35 hover:via-teal-600/30 hover:to-emerald-600/25 transition-all duration-300 border border-cyan-400/20 shadow-xl hover:shadow-cyan-500/20">
-                  <Globe className="h-12 w-12 text-cyan-400 mx-auto mb-4" />
+                <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center hover:bg-white/25 transition-all duration-300 border border-white/20">
+                  <Globe className="h-12 w-12 text-blue-300 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white">99.9%</div>
-                  <div className="text-cyan-200 text-sm">Platform Uptime</div>
+                  <div className="text-white/80 text-sm">Platform Uptime</div>
                 </div>
-                <div className="bg-gradient-to-br from-emerald-600/25 via-green-600/20 to-teal-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-emerald-600/35 hover:via-green-600/30 hover:to-teal-600/25 transition-all duration-300 border border-green-400/20 shadow-xl hover:shadow-emerald-500/20">
-                  <Users className="h-12 w-12 text-green-400 mx-auto mb-4" />
+                <div className="bg-white/20 backdrop-blur-md rounded-2xl p-6 text-center hover:bg-white/25 transition-all duration-300 border border-white/20">
+                  <Users className="h-12 w-12 text-purple-300 mx-auto mb-4" />
                   <div className="text-3xl font-bold text-white">85%</div>
-                  <div className="text-green-200 text-sm">User Adoption</div>
+                  <div className="text-white/80 text-sm">User Adoption</div>
                 </div>
               </div>
             </div>
@@ -420,17 +383,17 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* WHAT IS SERVICENOW SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="order-2 lg:order-1">
                 <div className="mb-8">
-                  <Badge className="bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 text-purple-700 mb-6 px-4 py-2 border border-purple-200/50">
+                  <Badge className="bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 text-purple-700 mb-6 px-4 py-2">
                     Digital Transformation Excellence
                   </Badge>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                     What is ServiceNow Digital
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                    <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                       Transformation?
                     </span>
                   </h2>
@@ -439,8 +402,8 @@ export default function ServiceNowDigitalTransformationPage() {
                 <div className="space-y-6 text-lg text-gray-700">
                   <p className="leading-relaxed">
                     <strong>ServiceNow Digital Transformation</strong> leverages the world's leading cloud platform to modernize enterprise operations through{' '}
-                    <span className="text-blue-600 font-semibold">intelligent workflow automation</span>,{' '}
-                    <span className="text-purple-600 font-semibold">AI-driven insights</span>, and seamless system integration.
+                    <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent font-semibold">intelligent workflow automation</span>,{' '}
+                    <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent font-semibold">AI-driven insights</span>, and seamless system integration.
                   </p>
                   <p className="leading-relaxed">
                     Our certified ServiceNow consultants help organizations unlock operational efficiency, enhance employee experiences, and accelerate innovation across{' '}
@@ -471,7 +434,7 @@ export default function ServiceNowDigitalTransformationPage() {
                 </div>
                 
                 <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+                  <Button className="bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
                     Explore Our Methodology
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
@@ -479,7 +442,12 @@ export default function ServiceNowDigitalTransformationPage() {
               </div>
               
               <div className="relative order-1 lg:order-2">
-                <div className="relative bg-gradient-to-br from-blue-100 via-purple-100 to-cyan-100 rounded-2xl p-4 shadow-2xl">
+                <div 
+                  className="relative rounded-3xl p-6 shadow-2xl"
+                  style={{
+                    background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)"
+                  }}
+                >
                   <img
                     src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80"
                     alt="ServiceNow digital transformation dashboard showcasing AI workflow automation and real-time analytics for enterprise operations"
@@ -489,7 +457,7 @@ export default function ServiceNowDigitalTransformationPage() {
                     height="600"
                   />
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
+                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-orange-500 via-pink-500 to-red-500 text-white p-6 rounded-2xl shadow-2xl">
                   <div className="text-2xl font-bold">1,500+</div>
                   <div className="text-sm opacity-90">Successful Projects</div>
                 </div>
@@ -499,20 +467,20 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* SERVICES SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-blue-50/50 to-purple-50/30 relative overflow-hidden">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-purple-50/30 to-blue-50/20 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-purple-500/5 via-transparent to-transparent" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/5 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent" />
           </div>
           
-          <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto relative z-10">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 text-purple-700 mb-6 px-4 py-2 border border-purple-200/50">
+              <Badge className="bg-gradient-to-r from-blue-100 via-purple-100 to-pink-100 text-blue-700 mb-6 px-4 py-2">
                 Comprehensive Solutions
               </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 ServiceNow Solutions That
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   Drive Results
                 </span>
               </h2>
@@ -528,8 +496,8 @@ export default function ServiceNowDigitalTransformationPage() {
                   title: "AI Workflow Automation",
                   description: "Intelligent process automation with predictive analytics, machine learning capabilities, and AI-powered virtual agents.",
                   features: ["Process Mining & Optimization", "Predictive Analytics Dashboard", "AI Virtual Agents", "Smart Case Routing"],
-                  gradient: "from-violet-600 to-purple-600",
-                  bgGradient: "from-violet-50 via-purple-50 to-blue-50"
+                  gradient: "from-purple-600 to-pink-600",
+                  bgGradient: "from-purple-50 via-pink-50 to-rose-50"
                 },
                 {
                   icon: Database,
@@ -544,35 +512,35 @@ export default function ServiceNowDigitalTransformationPage() {
                   title: "HR Service Delivery",
                   description: "Streamline HR processes with employee self-service, automated workflows, and enhanced employee experiences.",
                   features: ["Employee Onboarding", "HR Case Management", "Self-Service Portal", "Mobile HR Access"],
-                  gradient: "from-cyan-600 to-teal-600",
-                  bgGradient: "from-cyan-50 via-teal-50 to-emerald-50"
+                  gradient: "from-green-600 to-teal-600",
+                  bgGradient: "from-green-50 via-teal-50 to-cyan-50"
                 },
                 {
                   icon: MessageCircle,
                   title: "Customer Service Management",
                   description: "Transform customer service with omnichannel support, AI-powered assistance, and proactive service delivery.",
                   features: ["Omnichannel Support", "AI Customer Assistants", "Proactive Case Management", "SLA Optimization"],
-                  gradient: "from-emerald-600 to-green-600",
-                  bgGradient: "from-emerald-50 via-green-50 to-teal-50"
+                  gradient: "from-orange-600 to-red-600",
+                  bgGradient: "from-orange-50 via-red-50 to-pink-50"
                 },
                 {
                   icon: BarChart3,
                   title: "Business Intelligence & Analytics",
                   description: "Advanced analytics and reporting capabilities for data-driven decision making and performance optimization.",
                   features: ["Real-time Dashboards", "Performance Analytics", "Custom Report Builder", "KPI Tracking & Alerts"],
-                  gradient: "from-purple-600 to-pink-600",
-                  bgGradient: "from-purple-50 via-pink-50 to-rose-50"
+                  gradient: "from-indigo-600 to-purple-600",
+                  bgGradient: "from-indigo-50 via-purple-50 to-pink-50"
                 },
                 {
                   icon: Shield,
                   title: "Security & GRC",
                   description: "Enterprise-grade security with governance, risk, and compliance management for regulatory adherence.",
                   features: ["GRC Implementation", "Risk Assessment", "Compliance Monitoring", "Security Operations"],
-                  gradient: "from-red-600 to-rose-600",
-                  bgGradient: "from-red-50 via-rose-50 to-pink-50"
+                  gradient: "from-gray-600 to-slate-600",
+                  bgGradient: "from-gray-50 via-slate-50 to-zinc-50"
                 }
               ].map((service, index) => (
-                <Card key={index} className={`bg-gradient-to-br ${service.bgGradient} shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200/50 overflow-hidden backdrop-blur-sm`}>
+                <Card key={index} className={`bg-gradient-to-br ${service.bgGradient} shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-0 overflow-hidden`}>
                   <CardHeader className="pb-4">
                     <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 shadow-xl`}>
                       <service.icon className="h-8 w-8 text-white" />
@@ -620,15 +588,15 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* RESULTS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-blue-50/30 via-purple-50/20 to-pink-50/10">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-green-100 via-emerald-100 to-teal-100 text-green-700 mb-6 px-4 py-2 border border-green-200/50">
+              <Badge className="bg-gradient-to-r from-green-100 via-emerald-100 to-teal-100 text-green-700 mb-6 px-4 py-2">
                 Proven Results & ROI
               </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Measurable Business
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                <span className="block bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Impact & ROI
                 </span>
               </h2>
@@ -639,12 +607,12 @@ export default function ServiceNowDigitalTransformationPage() {
             
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
               {[
-                { metric: "40%", label: "Faster Implementation", desc: "Accelerated delivery vs industry average", gradient: "from-violet-600 to-purple-600", bgGradient: "from-violet-50 via-purple-50 to-blue-50", icon: Clock },
-                { metric: "30%", label: "Cost Reduction", desc: "Through automation and efficiency", gradient: "from-blue-600 to-cyan-600", bgGradient: "from-blue-50 via-cyan-50 to-teal-50", icon: DollarSign },
-                { metric: "99.9%", label: "Platform Uptime", desc: "Enterprise-grade reliability", gradient: "from-cyan-600 to-teal-600", bgGradient: "from-cyan-50 via-teal-50 to-emerald-50", icon: Globe },
-                { metric: "85%", label: "User Adoption", desc: "Employee engagement success", gradient: "from-emerald-600 to-green-600", bgGradient: "from-emerald-50 via-green-50 to-teal-50", icon: Users }
+                { metric: "40%", label: "Faster Implementation", desc: "Accelerated delivery vs industry average", gradient: "from-violet-600 via-purple-600 to-indigo-600", bgGradient: "from-violet-50 via-purple-50 to-indigo-50", icon: Clock },
+                { metric: "30%", label: "Cost Reduction", desc: "Through automation and efficiency", gradient: "from-indigo-600 via-blue-600 to-cyan-600", bgGradient: "from-indigo-50 via-blue-50 to-cyan-50", icon: DollarSign },
+                { metric: "99.9%", label: "Platform Uptime", desc: "Enterprise-grade reliability", gradient: "from-cyan-600 via-teal-600 to-emerald-600", bgGradient: "from-cyan-50 via-teal-50 to-emerald-50", icon: Globe },
+                { metric: "85%", label: "User Adoption", desc: "Employee engagement success", gradient: "from-emerald-600 via-green-600 to-teal-600", bgGradient: "from-emerald-50 via-green-50 to-teal-50", icon: Users }
               ].map((stat, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${stat.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50`}>
+                <div key={index} className={`text-center bg-gradient-to-br ${stat.bgGradient} rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1`}>
                   <div className={`h-16 w-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center shadow-lg`}>
                     <stat.icon className="h-8 w-8 text-white" />
                   </div>
@@ -656,27 +624,32 @@ export default function ServiceNowDigitalTransformationPage() {
             </div>
 
             {/* Client Testimonial */}
-            <div className="bg-gradient-to-br from-white via-blue-50 to-purple-50 rounded-2xl shadow-xl p-8 md:p-12 border border-blue-200/50 backdrop-blur-sm">
+            <div 
+              className="rounded-3xl shadow-2xl p-8 md:p-12 backdrop-blur-sm"
+              style={{
+                background: "linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 50%, #00f2fe 75%, #667eea 100%)"
+              }}
+            >
               <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                <div className="h-16 w-16 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center flex-shrink-0 shadow-lg border border-white/20">
                   <Quote className="h-8 w-8 text-white" />
                 </div>
                 <div className="flex-1">
-                  <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
+                  <blockquote className="text-xl md:text-2xl text-white italic mb-6 leading-relaxed">
                     "IfBash transformed our ServiceNow implementation timeline by 40% while maintaining the highest quality standards. Their expertise in AI automation and workflow optimization delivered immediate ROI of $2.3M in operational savings and significantly improved our employee experience across all departments."
                   </blockquote>
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <cite className="text-gray-800 not-italic font-semibold text-lg">
+                      <cite className="text-white not-italic font-semibold text-lg">
                         Sarah Johnson, CTO
                       </cite>
-                      <p className="text-gray-600 font-medium">
+                      <p className="text-white/80 font-medium">
                         Fortune 500 Manufacturing Company
                       </p>
                     </div>
                     <div className="flex mt-3 sm:mt-0">
                       {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                        <Star key={i} className="h-5 w-5 text-yellow-300 fill-current" />
                       ))}
                     </div>
                   </div>
@@ -688,7 +661,7 @@ export default function ServiceNowDigitalTransformationPage() {
             <div className="mt-16 grid md:grid-cols-3 gap-8">
               {[
                 { title: "Enterprise Implementations", value: "1,500+", desc: "Successful projects across industries", gradient: "from-blue-50 to-cyan-50" },
-                { title: "Client Retention Rate", value: "98%", desc: "Long-term partnerships & satisfaction", gradient: "from-purple-50 to-violet-50" },
+                { title: "Client Retention Rate", value: "98%", desc: "Long-term partnerships & satisfaction", gradient: "from-indigo-50 to-blue-50" },
                 { title: "Average ROI Achievement", value: "340%", desc: "Within first 12 months", gradient: "from-green-50 to-emerald-50" }
               ].map((metric, index) => (
                 <div key={index} className={`text-center bg-gradient-to-br ${metric.gradient} rounded-xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300`}>
@@ -702,15 +675,15 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* WHY CHOOSE US SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50/30">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50/30">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-indigo-100 via-purple-100 to-blue-100 text-indigo-700 mb-6 px-4 py-2 border border-indigo-200/50">
+              <Badge className="bg-gradient-to-r from-indigo-100 via-blue-100 to-cyan-100 text-indigo-700 mb-6 px-4 py-2">
                 Why IfBash
               </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Your Trusted ServiceNow
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                <span className="block bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   Transformation Partner
                 </span>
               </h2>
@@ -725,8 +698,8 @@ export default function ServiceNowDigitalTransformationPage() {
                   icon: UserCheck,
                   title: "Certified ServiceNow Experts",
                   description: "Our team consists of certified ServiceNow professionals with deep platform expertise and years of implementation experience across industries including healthcare, manufacturing, and financial services.",
-                  gradient: "from-violet-600 to-purple-600",
-                  bgGradient: "from-violet-50 via-purple-50 to-blue-50"
+                  gradient: "from-indigo-600 to-blue-600",
+                  bgGradient: "from-indigo-50 via-blue-50 to-cyan-50"
                 },
                 {
                   icon: Award,
@@ -746,8 +719,8 @@ export default function ServiceNowDigitalTransformationPage() {
                   icon: TrendingUp,
                   title: "Scalable & Future-Ready Solutions",
                   description: "Solutions designed to scale with your business growth and adapt to evolving technology landscapes with seamless integration capabilities and AI-powered automation.",
-                  gradient: "from-emerald-600 to-green-600",
-                  bgGradient: "from-emerald-50 via-green-50 to-teal-50"
+                  gradient: "from-teal-600 to-emerald-600",
+                  bgGradient: "from-teal-50 via-emerald-50 to-green-50"
                 }
               ].map((item, index) => (
                 <div key={index} className={`flex items-start space-x-6 bg-gradient-to-br ${item.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50`}>
@@ -773,7 +746,7 @@ export default function ServiceNowDigitalTransformationPage() {
               {[
                 { title: "24/7 Support", desc: "Round-the-clock expert assistance", icon: Clock, gradient: "from-orange-50 to-amber-50", iconColor: "text-orange-600" },
                 { title: "Agile Methodology", desc: "Faster delivery with quality", icon: Rocket, gradient: "from-red-50 to-rose-50", iconColor: "text-red-600" },
-                { title: "Custom Integrations", desc: "Seamless system connectivity", icon: Database, gradient: "from-indigo-50 to-purple-50", iconColor: "text-indigo-600" },
+                { title: "Custom Integrations", desc: "Seamless system connectivity", icon: Database, gradient: "from-indigo-50 to-blue-50", iconColor: "text-indigo-600" },
                 { title: "Training & Enablement", desc: "User adoption & success", icon: Users, gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" }
               ].map((item, index) => (
                 <div key={index} className={`text-center p-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
@@ -787,15 +760,15 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* IMPLEMENTATION PROCESS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-50 via-blue-50/50 to-purple-50/30">
-          <div className="container mx-auto max-w-7xl">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-slate-50 via-blue-50/50 to-indigo-50/30">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-purple-100 via-blue-100 to-cyan-100 text-purple-700 mb-6 px-4 py-2 border border-purple-200/50">
+              <Badge className="bg-gradient-to-r from-indigo-100 via-blue-100 to-cyan-100 text-indigo-700 mb-6 px-4 py-2">
                 Our Methodology
               </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 Proven Implementation
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                <span className="block bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   Methodology
                 </span>
               </h2>
@@ -810,32 +783,32 @@ export default function ServiceNowDigitalTransformationPage() {
                   icon: Target,
                   title: "1. Discovery & Assessment",
                   description: "Comprehensive evaluation of your current digital maturity, business processes, and transformation readiness with detailed gap analysis.",
-                  gradient: "from-violet-600 to-purple-600",
-                  bgGradient: "from-violet-50 via-purple-50 to-blue-50"
+                  gradient: "from-violet-600 via-purple-600 to-indigo-600",
+                  bgGradient: "from-violet-50 via-purple-50 to-indigo-50"
                 },
                 {
                   icon: Lightbulb,
                   title: "2. Strategy & Design",
                   description: "Design tailored transformation roadmaps leveraging ServiceNow capabilities for maximum business impact and ROI optimization.",
-                  gradient: "from-blue-600 to-cyan-600",
-                  bgGradient: "from-blue-50 via-cyan-50 to-teal-50"
+                  gradient: "from-indigo-600 via-blue-600 to-cyan-600",
+                  bgGradient: "from-indigo-50 via-blue-50 to-cyan-50"
                 },
                 {
                   icon: Zap,
                   title: "3. Build & Deploy",
                   description: "Execute AI-powered workflows, automation, and integrations using agile methodology with continuous testing and validation.",
-                  gradient: "from-cyan-600 to-teal-600",
+                  gradient: "from-cyan-600 via-teal-600 to-emerald-600",
                   bgGradient: "from-cyan-50 via-teal-50 to-emerald-50"
                 },
                 {
                   icon: TrendingUp,
                   title: "4. Optimize & Scale",
                   description: "Continuous improvement with advanced analytics, user feedback collection, and performance optimization for sustained growth.",
-                  gradient: "from-emerald-600 to-green-600",
+                  gradient: "from-emerald-600 via-green-600 to-teal-600",
                   bgGradient: "from-emerald-50 via-green-50 to-teal-50"
                 }
               ].map((step, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${step.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative border border-gray-200/50`}>
+                <div key={index} className={`text-center bg-gradient-to-br ${step.bgGradient} rounded-3xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 relative`}>
                   {index < 3 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-blue-300 to-purple-400" />
                   )}
@@ -857,10 +830,10 @@ export default function ServiceNowDigitalTransformationPage() {
               </h3>
               <div className="grid md:grid-cols-4 gap-6">
                 {[
-                  { phase: "Weeks 1-2", activity: "Discovery & Assessment", deliverable: "Current State Analysis", gradient: "from-violet-50 to-purple-50" },
+                  { phase: "Weeks 1-2", activity: "Discovery & Assessment", deliverable: "Current State Analysis", gradient: "from-indigo-50 to-blue-50" },
                   { phase: "Weeks 3-6", activity: "Design & Planning", deliverable: "Solution Architecture", gradient: "from-blue-50 to-cyan-50" },
                   { phase: "Weeks 7-16", activity: "Build & Configure", deliverable: "Working Platform", gradient: "from-cyan-50 to-teal-50" },
-                  { phase: "Weeks 17-20", activity: "Testing & Go-Live", deliverable: "Production Deployment", gradient: "from-emerald-50 to-green-50" }
+                  { phase: "Weeks 17-20", activity: "Testing & Go-Live", deliverable: "Production Deployment", gradient: "from-teal-50 to-emerald-50" }
                 ].map((timeline, index) => (
                   <div key={index} className={`text-center p-4 bg-gradient-to-br ${timeline.gradient} rounded-lg border border-gray-200/30`}>
                     <div className="text-lg font-bold text-blue-600 mb-2">{timeline.phase}</div>
@@ -874,15 +847,15 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* FAQ SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
-          <div className="container mx-auto max-w-5xl">
+        <section className="py-5 md:py-8 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto max-w-5xl">
             <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-slate-100 via-blue-100 to-cyan-100 text-slate-700 mb-6 px-4 py-2 border border-slate-200/50">
+              <Badge className="bg-gradient-to-r from-slate-100 via-blue-100 to-cyan-100 text-slate-700 mb-6 px-4 py-2">
                 Frequently Asked Questions
               </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
                 ServiceNow Transformation
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-blue-600 to-cyan-600">
+                <span className="block bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 bg-clip-text text-transparent">
                   FAQs
                 </span>
               </h2>
@@ -896,7 +869,7 @@ export default function ServiceNowDigitalTransformationPage() {
                 {
                   question: "What is ServiceNow Digital Transformation?",
                   answer: "ServiceNow Digital Transformation is the process of modernizing enterprise operations using the ServiceNow platform to automate workflows, integrate systems, and enhance employee and customer experiences through AI-powered solutions. It includes ITSM implementation, HR automation, customer service management, business process optimization, and AI-driven analytics to drive measurable business outcomes and competitive advantage.",
-                  gradient: "from-violet-50 via-purple-50 to-blue-50"
+                  gradient: "from-indigo-50 via-blue-50 to-cyan-50"
                 },
                 {
                   question: "How long does ServiceNow implementation take?",
@@ -911,17 +884,17 @@ export default function ServiceNowDigitalTransformationPage() {
                 {
                   question: "Do you provide ServiceNow support after implementation?",
                   answer: "Yes, we provide comprehensive 24/7 support including platform maintenance, continuous optimization, user training, system updates, performance monitoring, troubleshooting, and strategic consulting. Our ongoing partnership ensures your ServiceNow investment continues to deliver value, adapts to changing business needs, and evolves with new platform capabilities and industry best practices.",
-                  gradient: "from-emerald-50 via-green-50 to-teal-50"
+                  gradient: "from-teal-50 via-emerald-50 to-green-50"
                 },
                 {
                   question: "Which ServiceNow modules and applications do you implement?",
                   answer: "We implement all major ServiceNow modules including IT Service Management (ITSM), IT Operations Management (ITOM), HR Service Delivery, Customer Service Management (CSM), Security Operations (SecOps), Governance Risk & Compliance (GRC), Business Intelligence, AI and Machine Learning capabilities, Integration Hub, and custom applications. Our certified experts have deep expertise across the entire ServiceNow ecosystem.",
-                  gradient: "from-green-50 via-emerald-50 to-teal-50"
+                  gradient: "from-emerald-50 via-green-50 to-teal-50"
                 },
                 {
                   question: "How do you ensure successful user adoption?",
                   answer: "We ensure successful user adoption through comprehensive change management, role-based training programs, intuitive interface design, gradual rollout approach, continuous user feedback collection, performance monitoring, ongoing support, and user champions programs. Our approach typically achieves 85%+ user adoption rates within the first 90 days of go-live.",
-                  gradient: "from-indigo-50 via-purple-50 to-blue-50"
+                  gradient: "from-green-50 via-teal-50 to-cyan-50"
                 }
               ].map((faq, index) => (
                 <div key={index} className={`bg-gradient-to-br ${faq.gradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-200/50`}>
@@ -942,7 +915,7 @@ export default function ServiceNowDigitalTransformationPage() {
               <p className="text-gray-600 mb-6">
                 Still have questions about ServiceNow transformation?
               </p>
-              <Button className="bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 hover:from-blue-700 hover:via-purple-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
+              <Button className="bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600 hover:from-indigo-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Contact Our Experts
               </Button>
@@ -951,39 +924,43 @@ export default function ServiceNowDigitalTransformationPage() {
         </section>
 
         {/* CONTACT/CTA SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-950 relative overflow-hidden">
+        <section 
+          className="py-16 md:py-20 px-4 sm:px-6 relative overflow-hidden"
+          style={{
+            background: "linear-gradient(135deg, #1e3a8a 0%, #7c3aed 50%, #ec4899 100%)"
+          }}
+        >
           {/* Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-violet-600/10 via-purple-600/5 to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-600/10 via-cyan-600/5 to-transparent" />
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-yellow-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
           </div>
           
-          <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <Badge className="bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-cyan-500/20 text-white border-white/20 mb-6 px-4 py-2">
+          <div className="w-[92%] xl:w-[82%] 2xl:w-[72%] mx-auto max-w-4xl text-center relative z-10">
+            <Badge className="bg-white/20 text-white border-white/30 mb-6 px-4 py-2 backdrop-blur-md">
               Ready to Transform?
             </Badge>
             
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
               Start Your ServiceNow
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-blue-400 to-cyan-400">
+              <span className="block text-yellow-300">
                 Digital Transformation
               </span>
             </h2>
             
-            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
+            <p className="text-xl text-white/90 mb-10 max-w-3xl mx-auto">
               Join 1,500+ organizations that have successfully transformed their operations with our certified ServiceNow expertise. Get your free consultation today.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button size="lg" className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-purple-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 hover:from-violet-700 hover:via-purple-700 hover:to-indigo-700">
+              <Button size="lg" className="px-8 py-4 text-lg font-semibold bg-white text-purple-700 hover:bg-gray-100 rounded-2xl shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
                 <Phone className="mr-2 h-5 w-5" />
                 Schedule Free Consultation
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/70 shadow-lg"
+                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-2xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md"
               >
                 <Mail className="mr-2 h-5 w-5" />
                 Get ROI Assessment
@@ -992,20 +969,20 @@ export default function ServiceNowDigitalTransformationPage() {
             
             {/* Contact Information */}
             <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-gradient-to-br from-white/10 to-blue-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Phone className="h-6 w-6 text-blue-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Call Us</p>
-                <p className="text-blue-200 text-xs">+91-XXXX-XXXXXX</p>
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <Phone className="h-6 w-6 text-blue-300 mx-auto mb-2" />
+                <p className="text-white text-sm font-medium">Call Us</p>
+                <p className="text-white/70 text-xs">+91-XXXX-XXXXXX</p>
               </div>
-              <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Mail className="h-6 w-6 text-purple-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Email Us</p>
-                <p className="text-purple-200 text-xs">servicenow@ifbash.com</p>
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <Mail className="h-6 w-6 text-green-300 mx-auto mb-2" />
+                <p className="text-white text-sm font-medium">Email Us</p>
+                <p className="text-white/70 text-xs">servicenow@ifbash.com</p>
               </div>
-              <div className="bg-gradient-to-br from-white/10 to-cyan-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Calendar className="h-6 w-6 text-cyan-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Book Meeting</p>
-                <p className="text-cyan-200 text-xs">Available 24/7</p>
+              <div className="bg-white/20 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <Calendar className="h-6 w-6 text-yellow-300 mx-auto mb-2" />
+                <p className="text-white text-sm font-medium">Book Meeting</p>
+                <p className="text-white/70 text-xs">Available 24/7</p>
               </div>
             </div>
           </div>

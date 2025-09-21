@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useState } from "react";
 import Head from "next/head";
-import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -283,7 +282,6 @@ export default function NewsEventsPage() {
       </div>
 
       <div className="min-h-screen bg-white">
-        <Header />
 
         {/* Hero Section - Vibrant Multi-Color Gradient */}
         <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 overflow-hidden">

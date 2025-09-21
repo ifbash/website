@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -195,7 +194,6 @@ export default function ServiceNowSecOpsPage() {
       </div>
 
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50/30 to-orange-50/30">
-        <Header />
 
         {/* HERO SECTION */}
         <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-slate-900 via-red-900 to-orange-900 overflow-hidden">

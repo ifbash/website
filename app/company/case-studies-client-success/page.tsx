@@ -3,7 +3,6 @@
 import * as React from "react";
 import { useState } from "react";
 import Head from "next/head";
-import { Header } from "@/components/header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -295,7 +294,6 @@ export default function CaseStudiesPage() {
       </div>
 
       <div className="min-h-screen bg-white">
-        <Header />
 
         {/* Hero Section - Rich Gradient */}
         <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 overflow-hidden">

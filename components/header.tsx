@@ -11,17 +11,10 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import {
   Menu,
-  Globe,
   ChevronDown,
   Settings,
   Database,
@@ -40,12 +33,9 @@ import {
   MapPin,
   Newspaper,
   Briefcase,
-  Cog,
   Server,
-  UserCheck,
   Layers,
   Target,
-  Zap,
   FileText,
   CloudLightning,
   Car,
@@ -54,8 +44,10 @@ import {
   FlaskConical,
   Bolt,
   Landmark,
-  BookOpen,
   X,
+  ArrowRight,
+  Cloud,
+  Wrench,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import {
@@ -118,115 +110,75 @@ const serviceItems = [
   },
 ];
 
-// Enhanced portfolio items with better SEO-friendly URLs
+// Updated portfolio items based on official ServiceNow products by category
 const portfolioItems = [
   {
-    title: "IT Service Management (ITSM)",
-    href: "/portfolio/servicenow-itsm-solutions",
-    description: "Comprehensive ITSM: Incident, Problem, Change, and Service Request Management",
-    icon: Settings,
+    category: "IT and Digital Operations",
+    items: [
+      { title: "Enterprise Architecture", icon: Building },
+      { title: "Service Operations Workspace", icon: MonitorSmartphone },
+      { title: "Cloud Governance Suite", icon: Cloud },
+      { title: "Operational Technology Management", icon: Wrench },
+      { title: "IT Asset Management", icon: Database },
+      { title: "IT Operations Management", icon: Server },
+      { title: "IT Service Management", icon: Settings },
+      { title: "ServiceNow Cloud Observability", icon: CloudLightning },
+      { title: "Strategic Portfolio Management", icon: Target },
+      { title: "Digital End-User Experience", icon: MonitorSmartphone },
+    ],
   },
   {
-    title: "IT Operations Management (ITOM)",
-    href: "/portfolio/servicenow-itom-solutions",
-    description: "Advanced ITOM: Discovery, Event Management, Infrastructure Monitoring, and Orchestration",
-    icon: Server,
+    category: "CRM",
+    items: [
+      { title: "Customer Service Management", icon: HeartPulse },
+      { title: "Field Service Management", icon: MapPin },
+      { title: "Sales and Order Management", icon: BarChart3 },
+      { title: "Configure, Price, Quote", icon: Briefcase },
+      { title: "Financial Services Operations", icon: Briefcase },
+      { title: "Healthcare and Life Sciences Service Management", icon: HeartPulse },
+      { title: "Sales and Order Management for Technology Providers", icon: MonitorSmartphone },
+      { title: "Sales and Order Management for Telecommunications", icon: Wifi },
+      { title: "Public Sector Digital Services", icon: Landmark },
+      { title: "Telecommunications Service Management", icon: Wifi },
+      { title: "Technology Provider Service Management", icon: MonitorSmartphone },
+    ],
   },
   {
-    title: "Security Operations (SecOps)",
-    href: "/portfolio/servicenow-security-operations",
-    description: "Integrated SecOps: Vulnerability Response, Security Incident Response, and GRC",
-    icon: Shield,
+    category: "Risk and Security", 
+    items: [
+      { title: "Security Operations", icon: Shield },
+      { title: "Security Incident Response", icon: Shield },
+      { title: "Vulnerability Response", icon: Shield },
+      { title: "Threat Intelligence Security Center", icon: Shield },
+      { title: "Integrated Risk Management", icon: FileText },
+      { title: "Third-Party Risk Management", icon: Briefcase },
+      { title: "Security Posture Control", icon: Shield },
+      { title: "Privacy Management", icon: FileText },
+    ],
   },
   {
-    title: "HR Service Delivery (HRSD)",
-    href: "/portfolio/servicenow-hr-service-delivery",
-    description: "Modern HRSD: Employee Service Center, HR Case Management, and Onboarding",
-    icon: Users,
+    category: "Human Resources",
+    items: [
+      { title: "HR Service Delivery", icon: Users },
+      { title: "Talent Development", icon: GraduationCap },
+      { title: "Legal Service Delivery", icon: FileText },
+      { title: "Workplace Service Delivery", icon: Building },
+    ],
   },
   {
-    title: "Workflow Data Fabric (WDF)",
-    href: "/portfolio/servicenow-workflow-automation",
-    description: "Advanced Workflow Data Fabric: Process Automation and Intelligent Orchestration",
-    icon: Workflow,
+    category: "App Development",
+    items: [
+      { title: "App Engine", icon: CloudLightning },
+      { title: "Integration Hub", icon: Layers },
+    ],
   },
   {
-    title: "Workplace Service Delivery",
-    href: "/portfolio/servicenow-workplace-services",
-    description: "Enhanced Workplace Services: Employee Experience and Digital Workplace Solutions",
-    icon: Building,
-  },
-  {
-    title: "Customer Service Management (CSM)",
-    href: "/portfolio/servicenow-customer-service",
-    description: "Comprehensive CSM: Customer Service Operations and Omnichannel Support",
-    icon: HeartPulse,
-  },    
-  {
-    title: "Field Service Management (FSM)",
-    href: "/portfolio/servicenow-field-service",
-    description: "Complete FSM: Field Service Operations, Scheduling, and Mobile Workforce Management",
-    icon: MapPin,
-  },
-  {
-    title: "Strategic Portfolio Management",
-    href: "/portfolio/servicenow-portfolio-management",
-    description: "Enterprise SPM: Strategic Planning, Portfolio Management, and Investment Tracking",
-    icon: Target,
-  },
-  {
-    title: "IT Asset Management (SAM/HAM)",
-    href: "/portfolio/servicenow-asset-management",
-    description: "Complete ITAM: Asset Lifecycle Management, Software Asset Management, and Hardware Tracking",
-    icon: Database,
-  },
-  {
-    title: "Enterprise Asset Management (EAM)",
-    href: "/portfolio/servicenow-enterprise-asset-management",
-    description: "Advanced EAM: Enterprise Asset Management, Maintenance, and Optimization",
-    icon: Cog,
-  },
-  {
-    title: "Sourcing & Procurement Operations",
-    href: "/portfolio/servicenow-procurement-solutions",
-    description: "Streamlined SPO: Sourcing, Procurement Management, and Vendor Relations",
-    icon: Briefcase,
-  },
-  {
-    title: "Service Portal & Employee Experience",
-    href: "/portfolio/servicenow-service-portal",
-    description: "Modern Service Portal: Self-Service Capabilities and Enhanced User Experience",
-    icon: MonitorSmartphone,
-  },
-  {
-    title: "Integration Hub & APIs",
-    href: "/portfolio/servicenow-integration-solutions",
-    description: "Seamless Integration: Integration Hub, API Management, and System Connectivity",
-    icon: Layers,
-  },
-  {
-    title: "Sales & Order Management (SOM)",
-    href: "/portfolio/servicenow-sales-order-management",
-    description: "Complete SOM: Sales Operations, Order Management, and Revenue Optimization",
-    icon: BarChart3,
-  },
-  {
-    title: "App Engine & Custom Development",
-    href: "/portfolio/servicenow-custom-development",
-    description: "Custom Solutions: Application Development, Platform Automation, and Custom Workflows",
-    icon: CloudLightning,
-  },
-  {
-    title: "Integrated Risk Management (IRM)",
-    href: "/portfolio/servicenow-risk-management",
-    description: "Comprehensive IRM: Policy Management, Compliance, and Risk Assessment",
-    icon: FileText,
-  },    
-  {
-    title: "Telecom Service Management (TSM)",
-    href: "/portfolio/servicenow-telecom-solutions",
-    description: "Specialized TSM: Telecom Service Operations, Network Management, and Service Assurance",
-    icon: Wifi,
+    category: "Finance and Supply Chain",
+    items: [
+      { title: "Accounts Payable Operations", icon: BarChart3 },
+      { title: "Sourcing and Procurement Operations", icon: Briefcase },
+      { title: "Supplier Lifecycle Operations", icon: Layers },
+    ],
   },
 ];
 
@@ -322,14 +274,55 @@ const companyItems = [
   },
 ];
 
-// Enhanced language options with proper language codes
-const languages = [
-  { code: "en", name: "English", flag: "🇺🇸", locale: "en-US" },
-  { code: "es", name: "Español", flag: "🇪🇸", locale: "es-ES" },
-  { code: "ar", name: "العربية", flag: "🇸🇦", locale: "ar-SA", dir: "rtl" },
-];
+// Enhanced Mobile Portfolio Menu Component
+const MobilePortfolioMenu = ({ closeMobileMenu }: { closeMobileMenu: () => void }) => {
+  const [activeCategory, setActiveCategory] = React.useState<number | null>(null);
 
-// Enhanced ListItem component with better laptop spacing
+  return (
+    <div className="pl-2 space-y-3">
+      {portfolioItems.map((category, categoryIndex) => (
+        <div key={category.category} className="space-y-2">
+          <button
+            onClick={() => setActiveCategory(activeCategory === categoryIndex ? null : categoryIndex)}
+            className="w-full flex items-center justify-between p-4 rounded-xl bg-gradient-to-r from-violet-50/80 to-blue-50/80 hover:from-violet-100/90 hover:to-blue-100/90 transition-all duration-300 border border-violet-200/50 hover:border-violet-300/70 min-h-[56px]"
+          >
+            <span className="text-sm font-bold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text">
+              {category.category}
+            </span>
+            <ChevronDown 
+              className={cn(
+                "h-4 w-4 text-violet-600 transition-transform duration-200",
+                activeCategory === categoryIndex && "rotate-180"
+              )}
+            />
+          </button>
+          
+          {activeCategory === categoryIndex && (
+            <div className="space-y-2 pl-3">
+              {category.items.map((item) => (
+                <Link
+                  key={item.title}
+                  href={`/portfolio/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
+                  onClick={closeMobileMenu}
+                  className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group transform border border-transparent hover:border-violet-200/60 hover:bg-gradient-to-br hover:from-violet-50/80 hover:via-purple-50/60 hover:to-blue-50/80 hover:shadow-md hover:shadow-violet-200/30 hover:scale-[1.01] min-h-[52px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                >
+                  <div className="p-2.5 rounded-lg bg-violet-50 group-hover:bg-white group-hover:shadow-sm transition-all duration-300 flex-shrink-0 border border-transparent group-hover:border-violet-100">
+                    <item.icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                  </div>
+                  <span className="text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 font-medium flex-1">
+                    {item.title}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+};
+
+// Enhanced ListItem component with portfolio-style hover effects
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & {
@@ -344,26 +337,30 @@ const ListItem = React.forwardRef<
         <a
           ref={ref}
           className={cn(
-            "block select-none rounded-xl p-3 leading-none no-underline outline-none transition-all duration-300 group",
-            "hover:bg-gradient-to-r hover:from-violet-50 hover:via-purple-50/80 hover:to-blue-50",
-            "hover:shadow-lg hover:border-violet-100/50 border border-transparent",
+            "block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 group transform",
+            "border-2 border-transparent hover:border-violet-200/70",
+            "hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95",
+            "hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02]",
             "focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2",
-            "min-h-[52px] flex items-center w-full",
+            "min-h-[80px] flex items-center w-full bg-white/90", // Changed from bg-white/80 to bg-white/25 (75% transparent)
             className
           )}
+          style={{
+            backdropFilter: "blur(12px)",
+            boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+          }}
           {...props}
         >
-          <div className="flex items-start space-x-3 w-full">
+          <div className="flex items-start space-x-3 w-full min-w-0">
             {Icon && (
-              <div className="p-2.5 rounded-lg bg-violet-50 group-hover:bg-white transition-colors duration-300 flex-shrink-0">
-                <Icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600" />
+              <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                <Icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
               </div>
             )}
-            <div className="flex-1 min-w-0 pr-2">
-              <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight mb-1">
+            <div className="flex-1 min-w-0 pt-1">
+              <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
                 {title}
               </div>
-              {/* Description hidden */}
             </div>
           </div>
         </a>
@@ -374,9 +371,9 @@ const ListItem = React.forwardRef<
 ListItem.displayName = "ListItem";
 
 export function Header() {
-  const [currentLanguage, setCurrentLanguage] = useState("en");
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activePortfolioCategory, setActivePortfolioCategory] = useState(0);
 
   // Enhanced scroll detection for dynamic header styling
   useEffect(() => {
@@ -395,7 +392,7 @@ export function Header() {
 
   return (
     <>
-      {/* Enhanced SEO Schema Markup */}
+      {/* Enhanced SEO Schema Markup - Updated social media links */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -478,25 +475,24 @@ export function Header() {
                 "@type": "ContactPoint",
                 "telephone": "+1-800-IFBASH",
                 "contactType": "customer service",
-                "availableLanguage": ["English", "Spanish", "Arabic"],
                 "areaServed": "Worldwide"
               },
               {
                 "@type": "ContactPoint",
                 "email": "contact@ifbash.com",
-                "contactType": "customer support",
-                "availableLanguage": ["English", "Spanish", "Arabic"]
+                "contactType": "customer support"
               }
             ],
             "sameAs": [
               "https://www.linkedin.com/company/ifbash",
-              "https://twitter.com/ifbash",
-              "https://www.youtube.com/c/ifbash"
+              "https://x.com/ifbashx",
+              "https://www.youtube.com/@c-ifbash"
             ]
           })
         }}
       />
 
+      {/* Enhanced Header with logo positioning */}
       <header
         className={cn(
           "sticky top-0 z-50 w-full border-b border-border/40 backdrop-blur-md supports-[backdrop-filter]:bg-background/95 transition-all duration-300",
@@ -510,458 +506,487 @@ export function Header() {
         role="banner"
         aria-label="Main navigation"
       >
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8 max-w-7xl">
-          {/* Enhanced Logo with Skip Link */}
-          <div className="flex items-center">
-            <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-violet-600 text-white px-4 py-2 rounded-lg z-50">
-              Skip to main content
-            </a>
-            <Link 
-              href="/" 
-              className="flex items-center space-x-3 group focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 rounded-lg"
-              aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
-            >
-              <Image src="/images/logo.png" alt={"logo"} width={180} height={100} className="h-8 sm:h-10 w-auto" />
-            </Link>
-          </div>
-
-          {/* ENHANCED: Desktop Navigation with Better Laptop Spacing */}
-          <nav className="hidden lg:flex items-center space-x-1" role="navigation" aria-label="Main navigation">
-            <NavigationMenu>
-              <NavigationMenuList>
-                {/* Services - Enhanced laptop spacing */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger 
-                    className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600"
-                    style={{
-                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                    aria-label="Services menu"
-                  >
-                    Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div 
-                      className="w-[520px] max-w-[90vw] rounded-xl border-0"
-                      style={{
-                        background: "linear-gradient(145deg, #ffffff 0%, #f8f9ff 50%, #f1f4ff 100%)",
-                        boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
-                        border: "1px solid rgba(109, 40, 217, 0.1)"
-                      }}
-                    >
-                      <ul className="grid gap-1 p-2 grid-cols-2">
-                        {serviceItems.map((item) => (
-                          <ListItem
-                            key={item.title}
-                            title={item.title}
-                            description={item.description}
-                            href={item.href}
-                            icon={item.icon}
-                          />
-                        ))}
-                      </ul>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                {/* Portfolio - Enhanced laptop spacing */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger 
-                    className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600"
-                    style={{
-                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                    aria-label="Portfolio menu"
-                  >
-                    Portfolio
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div 
-                      className="w-[780px] max-w-[95vw] rounded-xl shadow-2xl border-0"
-                      style={{
-                        background: "white",
-                        boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
-                      }}
-                    >
-                      <ul className="grid gap-1 p-3 grid-cols-2 max-h-[72vh] overflow-y-auto">
-                        {portfolioItems.map((item) => (
-                          <ListItem
-                            key={item.title}
-                            title={item.title}
-                            description={item.description}
-                            href={item.href}
-                            icon={item.icon}
-                          />
-                        ))}
-                      </ul>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                {/* Industries - Enhanced laptop spacing */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger 
-                    className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600"
-                    style={{
-                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                    aria-label="Industries menu"
-                  >
-                    Industries
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div 
-                      className="w-[520px] max-w-[90vw] rounded-xl shadow-2xl border-0"
-                      style={{
-                        background: "white",
-                        boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
-                      }}
-                    >
-                      <ul className="grid gap-1 p-2 grid-cols-2">
-                        {industryItems.map((item) => (
-                          <ListItem
-                            key={item.title}
-                            title={item.title}
-                            description={item.description}
-                            href={item.href}
-                            icon={item.icon}
-                          />
-                        ))}
-                      </ul>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-
-                {/* Company - Enhanced laptop spacing */}
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger 
-                    className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600"
-                    style={{
-                      background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                      WebkitBackgroundClip: "text",
-                      WebkitTextFillColor: "transparent",
-                      backgroundClip: "text",
-                    }}
-                    aria-label="Company menu"
-                  >
-                    Company
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <div 
-                      className="w-[440px] max-w-[85vw] rounded-xl shadow-2xl border-0"
-                      style={{
-                        background: "white",
-                        boxShadow: "0 25px 50px rgba(0, 0, 0, 0.1)"
-                      }}
-                    >
-                      <ul className="grid gap-1 p-2 grid-cols-2">
-                        {companyItems.map((item) => (
-                          <ListItem
-                            key={item.title}
-                            title={item.title}
-                            description={item.description}
-                            href={item.href}
-                            icon={item.icon}
-                          />
-                        ))}
-                      </ul>
-                    </div>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
-          </nav>
-
-          {/* Enhanced Right Side Actions */}
-          <div className="flex items-center space-x-3">
-            {/* Learning Center Button */}
-            <Link
-              href="/learning-center-servicenow"
-              className="hidden md:inline-flex items-center px-4 py-2.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 mr-2 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
-              style={{ 
-                background: "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)",
-                boxShadow: "0 8px 25px rgba(139, 92, 246, 0.3)"
-              }}
-              aria-label="Visit Learning Center for ServiceNow training and resources"
-            >
-              <BookOpen className="h-4 w-4 mr-2" aria-hidden="true" />
-              Learning Center
-            </Link>
-
-            {/* Enhanced Contact CTA */}
-            <Link
-              href="/contact-servicenow-experts"
-              className="hidden sm:inline-flex items-center px-5 py-2.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
-              style={{ 
-                background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
-                boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
-              }}
-              aria-label="Contact ifBash ServiceNow experts to get started"
-            >
-              <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
-              Get Started
-            </Link>
-
-            {/* Enhanced Language Selector */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="lg"
-                  className="text-base font-semibold hover:bg-blue-50/30 rounded-xl transition-all duration-300 focus-visible:outline-2 focus-visible:outline-violet-600"
-                  style={{
-                    background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                  aria-label={`Current language: ${languages.find(lang => lang.code === currentLanguage)?.name}. Click to change language`}
-                >
-                  <Globe 
-                    className="h-5 w-5 mr-1" 
-                    style={{ color: "#6c28d9" }}
-                    aria-hidden="true"
-                  />
-                  <span className="hidden sm:inline">
-                    {languages.find(lang => lang.code === currentLanguage)?.code.toUpperCase()}
-                  </span>
-                  <ChevronDown 
-                    className="h-4 w-4 ml-1" 
-                    style={{ color: "#6c28d9" }}
-                    aria-hidden="true"
-                  />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="end" 
-                className="w-44 mt-2 z-50 rounded-xl shadow-xl border-0"
-                style={{
-                  background: "white",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.1)"
-                }}
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-14">
+            {/* Logo Section - Bigger and moved 10% left */}
+            <div className="flex items-center flex-shrink-0 -ml-4"> {/* Added -ml-4 to move 10% left */}
+              <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-violet-600 text-white px-4 py-2 rounded-lg z-50">
+                Skip to main content
+              </a>
+              <Link 
+                href="/" 
+                className="flex items-center group focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 rounded-lg"
+                aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
               >
-                {languages.map((language) => (
-                  <DropdownMenuItem
-                    key={language.code}
-                    onClick={() => setCurrentLanguage(language.code)}
-                    className="flex items-center space-x-3 p-3 rounded-lg transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm focus-visible:outline-2 focus-visible:outline-violet-600"
-                    role="button"
-                    aria-label={`Switch to ${language.name}`}
-                  >
-                    <span className="text-lg" aria-hidden="true">{language.flag}</span>
-                    <span 
-                      className="font-medium text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700"
+                {/* Logo made bigger: from 160x36 to 180x40 */}
+                <div className="w-[180px] h-[40px] relative flex items-center"> 
+                  <Image 
+                    src="/images/logo.png" 
+                    alt="ifBash Logo" 
+                    width={180} 
+                    height={40}
+                    className="object-contain"
+                    priority
+                    style={{ 
+                      width: '180px', 
+                      height: '40px',
+                      maxWidth: '100%',
+                      height: 'auto'
+                    }}
+                  />
+                </div>
+              </Link>
+            </div>
+
+            {/* Desktop Navigation - Centered */}
+            <nav className="hidden lg:flex items-center flex-1 justify-center" role="navigation" aria-label="Main navigation">
+              <NavigationMenu>
+                <NavigationMenuList className="flex items-center space-x-1">
+                  {/* Services - Updated with portfolio-style mega menu */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger 
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
                         WebkitTextFillColor: "transparent",
                         backgroundClip: "text",
                       }}
+                      aria-label="Services menu"
                     >
-                      {language.name}
-                    </span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            {/* Enhanced Mobile Menu */}
-            <div className="lg:hidden">
-              <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-                <SheetTrigger asChild>
-                  <Button 
-                    variant="ghost" 
-                    size="icon" 
-                    aria-label="Open navigation menu"
-                    aria-expanded={isMobileMenuOpen}
-                    className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 min-h-[44px] min-w-[44px]"
-                  >
-                    <Menu className="h-6 w-6 text-violet-600" aria-hidden="true" />
-                  </Button>
-                </SheetTrigger>
-                <SheetContent 
-                  side="right" 
-                  className="w-[320px] sm:w-[400px] overflow-y-auto max-h-screen p-0"
-                  style={{
-                    background: "white"
-                  }}
-                  aria-label="Mobile navigation menu"
-                >
-                  {/* Mobile Header */}
-                  <div className="flex items-center justify-between border-b border-slate-100">
-                    <div className="flex items-center space-x-3">
-                      <div 
-                        className="h-8 w-8 rounded-lg flex items-center justify-center"
-                        style={{ 
-                          background: "linear-gradient(135deg, #1a2e61 0%, #6c28d9 50%, #26a3d9 100%)",
-                        }}
-                      >
-                        <span className="text-white font-bold text-sm" aria-hidden="true">IB</span>
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div 
+                          className="w-full rounded-xl shadow-2xl border-0 p-1"
+                          style={{
+                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
+                            border: "1px solid rgba(109, 40, 217, 0.1)",
+                            backdropFilter: "blur(20px)" // Enhanced blur
+                          }}
+                        >
+                          {/* Services Items */}
+                          <div className="p-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                              {serviceItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  style={{
+                                    backdropFilter: "blur(12px)",
+                                    boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+                                  }}
+                                >
+                                  <div className="flex items-start space-x-3 w-full min-w-0">
+                                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                                      <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                    </div>
+                                    <div className="flex-1 min-w-0 pt-1">
+                                      <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
+                                        {item.title}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <span className="font-bold text-lg text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text">
-                        ifBash
-                      </span>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Portfolio - Fixed with proper containment */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger 
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      style={{
+                        background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                      aria-label="Portfolio menu"
+                    >
+                      Portfolio
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div 
+                          className="w-full rounded-xl shadow-2xl border-0 p-1"
+                          style={{
+                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
+                            border: "1px solid rgba(109, 40, 217, 0.1)",
+                            backdropFilter: "blur(20px)" // Enhanced blur
+                          }}
+                        >
+                          {/* Category Tabs - Horizontal navigation */}
+                          <div className="border-b border-violet-100/60">
+                            <div className="flex gap-0 overflow-x-auto scrollbar-hide">
+                              {portfolioItems.map((category, index) => (
+                                <button
+                                  key={category.category}
+                                  onMouseEnter={() => setActivePortfolioCategory(index)}
+                                  className={cn(
+                                    "px-4 py-4 text-sm font-semibold transition-all duration-300 border-b-2 whitespace-nowrap relative flex-shrink-0 min-h-[60px] flex items-center hover:bg-gradient-to-r hover:from-violet-50/60 hover:to-blue-50/60",
+                                    activePortfolioCategory === index
+                                      ? "border-violet-500 bg-gradient-to-r from-violet-50/80 to-blue-50/80"
+                                      : "border-transparent hover:border-violet-300/50"
+                                  )}
+                                >
+                                  <span 
+                                    className={cn(
+                                      "text-transparent bg-gradient-to-r bg-clip-text font-semibold transition-all duration-300",
+                                      activePortfolioCategory === index 
+                                        ? "from-violet-700 via-blue-600 to-cyan-600" 
+                                        : "from-gray-600 via-gray-700 to-gray-600 hover:from-violet-600 hover:via-blue-600 hover:to-cyan-600"
+                                    )}
+                                  >
+                                    {category.category}
+                                  </span>
+                                  {activePortfolioCategory === index && (
+                                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-500 rounded-full" />
+                                  )}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          {/* Category Items - Show active category */}
+                          <div className="p-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                              {portfolioItems[activePortfolioCategory]?.items.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={`/portfolio/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  style={{
+                                    backdropFilter: "blur(12px)",
+                                    boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+                                  }}
+                                >
+                                  <div className="flex items-start space-x-3 w-full min-w-0">
+                                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                                      <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                    </div>
+                                    <div className="flex-1 min-w-0 pt-1">
+                                      <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
+                                        {item.title}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Industries - Updated with portfolio-style mega menu */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger 
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      style={{
+                        background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                      aria-label="Industries menu"
+                    >
+                      Industries
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div 
+                          className="w-full rounded-xl shadow-2xl border-0 p-1"
+                          style={{
+                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
+                            border: "1px solid rgba(109, 40, 217, 0.1)",
+                            backdropFilter: "blur(20px)" // Enhanced blur
+                          }}
+                        >
+                          {/* Industries Items */}
+                          <div className="p-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                              {industryItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  style={{
+                                    backdropFilter: "blur(12px)",
+                                    boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+                                  }}
+                                >
+                                  <div className="flex items-start space-x-3 w-full min-w-0">
+                                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                                      <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                    </div>
+                                    <div className="flex-1 min-w-0 pt-1">
+                                      <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
+                                        {item.title}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Company - Updated with portfolio-style mega menu */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger 
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9"
+                      style={{
+                        background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
+                        WebkitBackgroundClip: "text",
+                        WebkitTextFillColor: "transparent",
+                        backgroundClip: "text",
+                      }}
+                      aria-label="Company menu"
+                    >
+                      Company
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <div 
+                          className="w-full rounded-xl shadow-2xl border-0 p-1"
+                          style={{
+                            background: "linear-gradient(145deg, rgba(255, 255, 255, 0.25) 0%, rgba(248, 249, 255, 0.25) 50%, rgba(241, 244, 255, 0.25) 100%)", // Made 75% transparent
+                            boxShadow: "0 20px 60px rgba(109, 40, 217, 0.1)",
+                            border: "1px solid rgba(109, 40, 217, 0.1)",
+                            backdropFilter: "blur(20px)" // Enhanced blur
+                          }}
+                        >
+                          {/* Company Items */}
+                          <div className="p-6">
+                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                              {companyItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/25" // Made 75% transparent
+                                  style={{
+                                    backdropFilter: "blur(12px)",
+                                    boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+                                  }}
+                                >
+                                  <div className="flex items-start space-x-3 w-full min-w-0">
+                                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                                      <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                    </div>
+                                    <div className="flex-1 min-w-0 pt-1">
+                                      <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
+                                        {item.title}
+                                      </div>
+                                    </div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </nav>
+
+            {/* Right Side Actions */}
+            <div className="flex items-center space-x-2 flex-shrink-0">
+              {/* Contact CTA Button */}
+              <Link
+                href="/contact-servicenow-experts"
+                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-9"
+                style={{ 
+                  background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
+                  boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
+                }}
+                aria-label="Contact ifBash ServiceNow experts to get started"
+              >
+                <Phone className="h-4 w-4 mr-2" aria-hidden="true" />
+                <span className="whitespace-nowrap hidden lg:inline">Get Started</span>
+                <span className="whitespace-nowrap lg:hidden">Contact</span>
+              </Link>
+
+              {/* Mobile Menu Button */}
+              <div className="lg:hidden">
+                <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                  <SheetTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      aria-label="Open navigation menu"
+                      aria-expanded={isMobileMenuOpen}
+                      className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 h-9 w-9"
+                    >
+                      <Menu className="h-6 w-6 text-violet-600" aria-hidden="true" />
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent 
+                    side="right" 
+                    className="w-[320px] sm:w-[380px] overflow-y-auto max-h-screen p-0"
+                    style={{
+                      background: "white"
+                    }}
+                    aria-label="Mobile navigation menu"
+                  >
+                    {/* Mobile Header */}
+                    <div className="flex items-center justify-between p-6 border-b border-slate-100">
+                      <div className="flex items-center space-x-3">
+                        <div 
+                          className="h-8 w-8 rounded-lg flex items-center justify-center"
+                          style={{ 
+                            background: "linear-gradient(135deg, #1a2e61 0%, #6c28d9 50%, #26a3d9 100%)",
+                          }}
+                        >
+                          <span className="text-white font-bold text-sm" aria-hidden="true">IB</span>
+                        </div>
+                        <span className="font-bold text-lg text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text">
+                          ifBash
+                        </span>
+                      </div>
+                      <SheetClose asChild>
+                        <Button variant="ghost" size="icon" className="rounded-lg" aria-label="Close menu">
+                          <X className="h-5 w-5" />
+                        </Button>
+                      </SheetClose>
                     </div>
-                    <SheetClose asChild>
-                      <Button variant="ghost" size="icon" className="rounded-lg" aria-label="Close menu">
-                        <X className="h-5 w-5" />
-                      </Button>
-                    </SheetClose>
-                  </div>
 
-                  <nav className="flex flex-col space-y-2" role="navigation" aria-label="Mobile navigation"> 
-                    <Accordion type="multiple" className="w-full">
-                      {/* Services Mobile */}
-                      <AccordionItem value="services" className="border-blue-100">
-                        <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
-                          <span>Services</span>
-                          <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="pl-2 space-y-2 max-h-[40vh] overflow-y-auto">
-                            {serviceItems.map((item) => (
-                              <Link
-                                key={item.title}
-                                href={item.href}
-                                onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
-                              >
-                                <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  {/* Description hidden */}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
+                    {/* Mobile Navigation */}
+                    <nav className="flex flex-col space-y-2 p-6" role="navigation" aria-label="Mobile navigation"> 
+                      <Accordion type="multiple" className="w-full">
+                        {/* Services Mobile */}
+                        <AccordionItem value="services" className="border-blue-100">
+                          <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
+                            <span>Services</span>
+                            <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="pl-2 space-y-2 max-h-[40vh] overflow-y-auto">
+                              {serviceItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  onClick={closeMobileMenu}
+                                  className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group transform border border-transparent hover:border-violet-200/60 hover:bg-gradient-to-br hover:from-violet-50/80 hover:via-purple-50/60 hover:to-blue-50/80 hover:shadow-md hover:shadow-violet-200/30 hover:scale-[1.01] min-h-[52px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                >
+                                  <div className="p-2.5 rounded-lg bg-violet-50 group-hover:bg-white group-hover:shadow-sm transition-all duration-300 flex-shrink-0 border border-transparent group-hover:border-violet-100">
+                                    <item.icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 font-medium">{item.title}</div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
 
-                      {/* Portfolio Mobile */}
-                      <AccordionItem value="portfolio" className="border-blue-100">
-                        <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
-                          <span>Portfolio</span>
-                          <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="pl-2 space-y-2 max-h-[40vh] overflow-y-auto">
-                            {portfolioItems.map((item) => (
-                              <Link
-                                key={item.title}
-                                href={item.href}
-                                onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
-                              >
-                                <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 flex-shrink-0 transition-colors duration-300" aria-hidden="true" />
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  {/* Description hidden */}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
+                        {/* Portfolio Mobile */}
+                        <AccordionItem value="portfolio" className="border-blue-100">
+                          <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
+                            <span>Portfolio</span>
+                            <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <MobilePortfolioMenu closeMobileMenu={closeMobileMenu} />
+                          </AccordionContent>
+                        </AccordionItem>
 
-                      {/* Industries Mobile */}
-                      <AccordionItem value="industries" className="border-blue-100">
-                        <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
-                          <span>Industries</span>
-                          <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="pl-2 space-y-2">
-                            {industryItems.map((item) => (
-                              <Link
-                                key={item.title}
-                                href={item.href}
-                                onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
-                              >
-                                <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  {/* Description hidden */}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
+                        {/* Industries Mobile */}
+                        <AccordionItem value="industries" className="border-blue-100">
+                          <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
+                            <span>Industries</span>
+                            <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="pl-2 space-y-2">
+                              {industryItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  onClick={closeMobileMenu}
+                                  className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group transform border border-transparent hover:border-violet-200/60 hover:bg-gradient-to-br hover:from-violet-50/80 hover:via-purple-50/60 hover:to-blue-50/80 hover:shadow-md hover:shadow-violet-200/30 hover:scale-[1.01] min-h-[52px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                >
+                                  <div className="p-2.5 rounded-lg bg-violet-50 group-hover:bg-white group-hover:shadow-sm transition-all duration-300 flex-shrink-0 border border-transparent group-hover:border-violet-100">
+                                    <item.icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 font-medium">{item.title}</div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
 
-                      {/* Company Mobile */}
-                      <AccordionItem value="company" className="border-blue-100">
-                        <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
-                          <span>Company</span>
-                          <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <div className="pl-2 space-y-2">
-                            {companyItems.map((item) => (
-                              <Link
-                                key={item.title}
-                                href={item.href}
-                                onClick={closeMobileMenu}
-                                className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group hover:bg-gradient-to-r hover:from-blue-50 hover:via-purple-50 hover:to-blue-50 hover:shadow-sm min-h-[44px] focus-visible:outline-2 focus-visible:outline-violet-600"
-                              >
-                                <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300 flex-shrink-0" aria-hidden="true" />
-                                <div className="flex-1 min-w-0">
-                                  <div className="text-slate-700 group-hover:text-slate-800 font-medium">{item.title}</div>
-                                  {/* Description hidden */}
-                                </div>
-                              </Link>
-                            ))}
-                          </div>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
+                        {/* Company Mobile */}
+                        <AccordionItem value="company" className="border-blue-100">
+                          <AccordionTrigger className="text-lg font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text hover:no-underline flex justify-between items-center py-4">
+                            <span>Company</span>
+                            <ChevronDown className="h-4 w-4 text-violet-600 transition-transform duration-200" aria-hidden="true" />
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <div className="pl-2 space-y-2">
+                              {companyItems.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  onClick={closeMobileMenu}
+                                  className="flex items-center space-x-3 text-sm p-3 rounded-xl transition-all duration-300 group transform border border-transparent hover:border-violet-200/60 hover:bg-gradient-to-br hover:from-violet-50/80 hover:via-purple-50/60 hover:to-blue-50/80 hover:shadow-md hover:shadow-violet-200/30 hover:scale-[1.01] min-h-[52px] focus-visible:outline-2 focus-visible:outline-violet-600"
+                                >
+                                  <div className="p-2.5 rounded-lg bg-violet-50 group-hover:bg-white group-hover:shadow-sm transition-all duration-300 flex-shrink-0 border border-transparent group-hover:border-violet-100">
+                                    <item.icon className="h-4 w-4 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 font-medium">{item.title}</div>
+                                  </div>
+                                </Link>
+                              ))}
+                            </div>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
 
-                    {/* Mobile Action Buttons */}
-                    <div className="mt-6 space-y-4 pt-6 border-t border-slate-100">
-                      <Link
-                        href="/learning-center-servicenow"
-                        onClick={closeMobileMenu}
-                        className="w-full inline-flex items-center justify-center px-4 py-3.5 text-base font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
-                        style={{ 
-                          background: "linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%)",
-                          boxShadow: "0 8px 25px rgba(139, 92, 246, 0.3)"
-                        }}
-                      >
-                        <BookOpen className="h-5 w-5 mr-2" aria-hidden="true" />
-                        Learning Center
-                      </Link>
-
-                      <Link
-                        href="/contact-servicenow-experts"
-                        onClick={closeMobileMenu}
-                        className="w-full inline-flex items-center justify-center px-4 py-3.5 text-base font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
-                        style={{ 
-                          background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
-                          boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
-                        }}
-                      >
-                        <Phone className="h-5 w-5 mr-2" aria-hidden="true" />
-                        Get Started Today
-                      </Link>
-                    </div>
-                  </nav>
-                </SheetContent>
-              </Sheet>
+                      {/* Mobile Action Buttons */}
+                      <div className="mt-6 space-y-4 pt-6 border-t border-slate-100">
+                        <Link
+                          href="/contact-servicenow-experts"
+                          onClick={closeMobileMenu}
+                          className="w-full inline-flex items-center justify-center px-4 py-3.5 text-base font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
+                          style={{ 
+                            background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
+                            boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
+                          }}
+                        >
+                          <Phone className="h-5 w-5 mr-2" aria-hidden="true" />
+                          Get Started Today
+                        </Link>
+                      </div>
+                    </nav>
+                  </SheetContent>
+                </Sheet>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Enhanced CSS with improved laptop dropdown spacing */}
+      {/* Enhanced CSS */}
       <style jsx>{`
         @media (prefers-reduced-motion: reduce) {
           * {
@@ -986,6 +1011,20 @@ export function Header() {
           box-shadow: 0 4px 15px rgba(109, 40, 217, 0.3);
         }
         
+        /* Hide scrollbar utility */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Prevent layout shift by reserving space for loading states */
+        .layout-stable {
+          min-height: 56px;
+        }
+        
         /* Enhanced dropdown animations */
         @keyframes slideInDown {
           from {
@@ -1008,14 +1047,6 @@ export function Header() {
           outline-offset: 2px;
         }
 
-        /* Text truncation for mobile and laptop */
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-
         /* Enhanced scrollbar for dropdown menus */
         .overflow-y-auto::-webkit-scrollbar {
           width: 6px;
@@ -1035,58 +1066,29 @@ export function Header() {
           background: rgba(109, 40, 217, 0.5);
         }
 
-        /* Enhanced hover states */
-        .submenu-hover-gradient {
-          background-image: linear-gradient(
-            to right,
-            rgba(237, 233, 254, 0.5),
-            rgba(236, 233, 253, 0.5),
-            rgba(239, 246, 255, 0.5)
-          );
+        /* Fixed positioning for all mega menus - prevents overflow */
+        [data-radix-navigation-menu-content] {
+          position: static !important;
+          transform: none !important;
+          left: auto !important;
+          right: auto !important;
+          width: auto !important;
         }
-
-        /* Improved contrast for accessibility */
-        @media (prefers-contrast: high) {
-          .text-slate-600 {
-            color: #1f2937;
-          }
-          .text-slate-500 {
-            color: #374151;
-          }
+        
+        /* Prevent body horizontal scroll */
+        html, body {
+          overflow-x: hidden;
         }
-
-        /* Laptop-specific optimizations with better spacing */
-        @media (min-width: 1024px) and (max-width: 1366px) {
-          .container {
-            max-width: 96%;
-          }
-          
-          /* Better laptop dropdown positioning */
-          [data-radix-popper-content-wrapper] {
-            transform: translateX(-5%) !important;
-          }
+        
+        /* Ensure proper z-index layering */
+        header {
+          position: relative;
+          z-index: 40;
         }
-
-        /* Extra wide laptop screens */
-        @media (min-width: 1367px) and (max-width: 1600px) {
-          .container {
-            max-width: 92%;
-          }
-        }
-
-        /* Print styles */
-        @media print {
-          header {
-            display: none;
-          }
-        }
-
-        /* Ensure proper dropdown alignment on all laptop sizes */
-        @media (min-width: 1024px) {
-          [data-radix-navigation-menu-content] {
-            left: 50% !important;
-            transform: translateX(-50%) !important;
-          }
+        
+        /* Navigation dropdown z-index */
+        [data-radix-navigation-menu-content] {
+          z-index: 50 !important;
         }
       `}</style>
     </>

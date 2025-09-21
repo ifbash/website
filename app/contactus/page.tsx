@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, ArrowRight, Users } from "lucide-react";
@@ -6,7 +5,6 @@ import { Mail, Phone, MapPin, ArrowRight, Users } from "lucide-react";
 export default function ContactUsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section className="py-20 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">

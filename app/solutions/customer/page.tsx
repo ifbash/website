@@ -1,4 +1,4 @@
-import { Header } from "@/components/header";
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,6 @@ import {
 export default function ServiceNowCustomerPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Header />
 
       {/* Hero Section */}
       <section className="py-16 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
