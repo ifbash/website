@@ -60,9 +60,9 @@ Wrench,
 Clock,
 Gauge,
 Network,
-Sync,
-CloudArrowDown,
-ServerStack,
+RefreshCw,
+ CloudDownload,
+  Server,
 Search,
 ChevronDown,
 Compass,
@@ -310,7 +310,7 @@ const faqs = [
 
 export default function ManagedServicesSupport() {
 const [currentTestimonial, setCurrentTestimonial] = useState(0);
-const [openFaq, setOpenFaq] = useState(null);
+const [openFaq, setOpenFaq] = useState<number | null>(null);
 const [isVisible, setIsVisible] = useState({});
 
 useEffect(() => {

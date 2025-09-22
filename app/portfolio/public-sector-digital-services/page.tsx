@@ -732,7 +732,14 @@ export default function PublicSectorDigitalServicesPage() {
                   </button>
                   
                   <button 
-                    onClick={() => document.getElementById('benefits').scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => {
+  if (typeof document !== 'undefined') {
+    const element = document.getElementById('benefits');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+}}
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
