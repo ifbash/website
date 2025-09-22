@@ -1,926 +1,978 @@
-import Head from "next/head";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { PlaceholderImage } from "@/components/placeholder-image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Workflow,
-  Target,
-  Users,
-  BarChart3,
-  Lightbulb,
-  Rocket,
-  CheckCircle,
-  ArrowRight,
-  TrendingUp,
-  Shield,
-  Zap,
-  Award,
-  Brain,
-  Database,
-  UserCheck,
-  MessageCircle,
-  Star,
-  Quote,
-  Clock,
-  DollarSign,
-  Globe,
-  Phone,
-  Mail,
-  Calendar,
-  Play,
-  Briefcase,
-  Building,
-  Settings,
-  BookOpen,
-  PieChart,
-  Compass,
-  Search,
-  MapPin,
-  FileText,
-  Layers,
-  Activity,
-  Factory,
-  Cog,
-  Truck,
+import { 
+  BarChart,
   Package,
-  Wrench,
-  Gauge,
-  Route,
-  LinkedinIcon,
-  Twitter,
-  Youtube,
-  ExternalLink,
-} from "lucide-react";
+  ChevronRight, 
+  TestTube2,
+  Stethoscope,
+  Play, 
+  Users, 
+  Zap, 
+  Shield, 
+  Award, 
+  ArrowRight, 
+  CheckCircle, 
+  Star, 
+  Bot, 
+  Brain, 
+  Workflow, 
+  Database, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Calendar, 
+  TrendingUp, 
+  Globe, 
+  Settings, 
+  Target, 
+  Lightbulb, 
+  Rocket, 
+  Heart, 
+  Building, 
+  Factory, 
+  HeartPulse, 
+  Car, 
+  Briefcase, 
+  MonitorSmartphone, 
+  Quote, 
+  Video, 
+  FileText, 
+  Download, 
+  ExternalLink, 
+  Timer, 
+  DollarSign, 
+  BarChart3, 
+  PieChart, 
+  Activity, 
+  Cpu, 
+  CloudLightning, 
+  GraduationCap, 
+  BookOpen, 
+  UserCheck, 
+  Layers, 
+  Cog, 
+  ShoppingBag, 
+  Store, 
+  Microscope, 
+  Music, 
+  MessageCircle, 
+  Wrench, 
+  Clock, 
+  Gauge, 
+  Network, 
+  RefreshCw,        // ✅ Fixed: Replace Sync with RefreshCw
+  CloudDownload,    // ✅ Fixed: Replace CloudArrowDown with CloudDownload
+  Server,           // ✅ Fixed: Replace ServerStack with Server
+  Search, 
+  ChevronDown, 
+  Wind, 
+  Sun, 
+  Battery, 
+  Fuel, 
+  Power, 
+  Plug
+} from 'lucide-react';
 
-export default function ServiceNowManufacturingPage() {
-  // Enhanced JSON-LD with comprehensive manufacturing industry data
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["Service", "Organization"],
-    "name": "ServiceNow Manufacturing Industry Solutions - IfBash",
-    "alternateName": ["ServiceNow Manufacturing", "Industry 4.0 Solutions", "Smart Factory Platform", "Manufacturing Digital Transformation"],
-    "description": "Expert ServiceNow manufacturing solutions with smart factory operations, Industry 4.0 automation, supply chain optimization, connected workforce. 300+ manufacturing implementations, 40% efficiency gains, certified specialists delivering manufacturing excellence globally.",
-    "provider": {
-      "@type": "Organization",
-      "name": "IfBash",
-      "url": "https://ifbash.com",
-      "logo": "https://ifbash.com/images/ifbash-logo.png",
-      "foundingDate": "2016",
-      "numberOfEmployees": "50-100",
-      "sameAs": [
-        "https://www.linkedin.com/company/ifbash",
-        "https://twitter.com/ifbash",
-        "https://www.youtube.com/c/ifbash"
-      ]
-    },
-    "serviceType": [
-      "ServiceNow Manufacturing Solutions",
-      "Smart Factory Operations",
-      "Industry 4.0 Implementation",
-      "Manufacturing Operations Management",
-      "Connected Workforce Solutions",
-      "Supply Chain Optimization",
-      "Manufacturing Quality Management"
-    ],
-    "areaServed": {
-      "@type": "Place",
-      "name": ["Global", "India", "United States", "Europe", "Asia Pacific"]
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Smart Factory Platform",
-        "description": "Complete smart factory platform with Industry 4.0 capabilities and connected operations",
-        "category": "Manufacturing Solutions",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer", 
-        "name": "Manufacturing Operations Management",
-        "description": "End-to-end manufacturing operations with predictive maintenance and quality control",
-        "category": "Operations Management",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Connected Workforce",
-        "description": "Digital workforce solutions with mobile-first employee experiences",
-        "category": "Workforce Solutions",
-        "availability": "https://schema.org/InStock"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "200",
-      "bestRating": "5"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana", 
-      "addressCountry": "IN"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-XXXX-XXXXXX",
-      "email": "manufacturing@ifbash.com",
-      "contactType": "sales",
-      "availableLanguage": "English"
-    }
-  };
+// Case Studies Data
+const caseStudies = [
+  {
+    client: "SteelTech Industries",
+    industry: "Steel Manufacturing",
+    challenge: "Equipment downtime across 12 facilities costing $89M annually with 34% unplanned maintenance issues affecting production schedules",
+    solution: "ServiceNow-powered predictive maintenance platform with IoT integration, automated work orders, and intelligent asset management",
+    results: ["87% reduction in unplanned downtime", "156% improvement in maintenance efficiency", "$97M annual cost savings", "99.2% equipment uptime"],
+    timeline: "20 weeks implementation",
+    image: "/images/case-studies/steeltech-manufacturing.jpg",
+    testimonial: "ifBash transformed our manufacturing operations from reactive to predictive. We now prevent equipment failures before they happen, ensuring continuous production across all our facilities."
+  },
+  {
+    client: "GlobalTech Assembly",
+    industry: "Electronics Manufacturing",
+    challenge: "Quality control issues across complex supply chain with 23% defect rates and $67M in recalls and rework costs",
+    solution: "AI-powered quality management system with real-time monitoring, automated defect detection, and supplier quality tracking",
+    results: ["91% reduction in defect rates", "78% faster quality issue resolution", "$74M cost avoidance", "Zero product recalls"],
+    timeline: "18 weeks deployment",
+    image: "/images/case-studies/globaltech-electronics.jpg",
+    testimonial: "Quality was our biggest challenge until ifBash implemented their intelligent quality management system. We've eliminated recalls and achieved six-sigma quality levels."
+  },
+  {
+    client: "ChemPro Manufacturing",
+    industry: "Chemical Processing",
+    challenge: "Safety compliance and environmental monitoring across hazardous processes with regulatory violations costing $45M in fines and shutdowns",
+    solution: "Comprehensive safety and compliance platform with real-time monitoring, automated reporting, and predictive risk analytics",
+    results: ["100% regulatory compliance", "89% reduction in safety incidents", "$52M in avoided fines", "Zero environmental violations"],
+    timeline: "22 weeks rollout",
+    image: "/images/case-studies/chempro-chemical.jpg",
+    testimonial: "Safety and compliance are non-negotiable in chemical processing. ifBash's platform ensures we maintain perfect compliance while optimizing our operations."
+  }
+];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What are ServiceNow Manufacturing Industry Solutions?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ServiceNow Manufacturing Solutions include smart factory operations, Industry 4.0 automation, operational technology management, connected workforce, supply chain optimization, and quality management designed specifically for manufacturing environments."
-        }
-      },
-      {
-        "@type": "Question", 
-        "name": "How does ServiceNow support Industry 4.0 transformation?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ServiceNow enables Industry 4.0 through IoT integration, AI-powered analytics, digital twin capabilities, predictive maintenance, real-time monitoring, and connected operations that transform traditional manufacturing into smart factories."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What ROI can manufacturing companies expect?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Manufacturing companies typically achieve 40% reduction in manual tasks, 30% faster asset audits, 20% decrease in equipment downtime, and 350% average ROI through ServiceNow manufacturing solutions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does ServiceNow integrate with manufacturing systems?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, ServiceNow seamlessly integrates with MES, ERP, SCADA, PLM, and other manufacturing systems to provide unified operations management and real-time visibility across the entire manufacturing ecosystem."
-        }
-      }
-    ]
-  };
+// Client Stories
+const clientStories = [
+  {
+    name: "Michael Rodriguez",
+    title: "VP of Operations",
+    company: "SteelTech Industries",
+    story: "ifBash's manufacturing expertise transformed our approach to maintenance. We went from fighting daily equipment failures to predicting and preventing them weeks in advance.",
+    metric: "87% reduction in unplanned downtime with $97M annual savings",
+    rating: 5,
+    avatar: "/images/testimonials/michael-rodriguez-steel.jpg"
+  },
+  {
+    name: "Dr. Susan Chen",
+    title: "Quality Director",
+    company: "GlobalTech Assembly", 
+    story: "The intelligent quality management system ifBash deployed gave us unprecedented visibility into our processes. We've achieved quality levels we never thought possible.",
+    metric: "91% defect reduction with zero product recalls in 18 months",
+    rating: 5,
+    avatar: "/images/testimonials/susan-chen-quality.jpg"
+  },
+  {
+    name: "David Thompson",
+    title: "HSE Manager",
+    company: "ChemPro Manufacturing",
+    story: "Safety compliance in chemical processing is critical. ifBash's platform ensures we maintain perfect regulatory compliance while optimizing our manufacturing efficiency.",
+    metric: "100% regulatory compliance with 89% reduction in safety incidents",
+    rating: 5,
+    avatar: "/images/testimonials/david-thompson-safety.jpg"
+  },
+  {
+    name: "Jennifer Walsh",
+    title: "Plant Manager",
+    company: "AutoParts Plus",
+    story: "The Industry 4.0 transformation ifBash led connected all our systems into one intelligent platform. We now have real-time visibility across our entire manufacturing operation.",
+    metric: "234% improvement in operational efficiency",
+    rating: 5,
+    avatar: "/images/testimonials/jennifer-walsh-plant.jpg"
+  }
+];
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://ifbash.com"
+// Manufacturing Solutions
+const manufacturingSolutions = [
+  {
+    icon: Factory,
+    title: "Smart Manufacturing & Industry 4.0",
+    description: "Transform traditional manufacturing with intelligent automation, IoT integration, and real-time operational visibility",
+    benefits: ["Real-time monitoring", "Automated workflows", "Predictive analytics"],
+    gradient: "from-orange-500 to-red-500",
+    useCases: ["Production optimization", "Equipment monitoring", "Quality control"]
+  },
+  {
+    icon: Wrench,
+    title: "Predictive Maintenance", 
+    description: "Prevent equipment failures with AI-powered predictive maintenance, automated work orders, and intelligent asset management",
+    benefits: ["Failure prediction", "Automated scheduling", "Asset optimization"],
+    gradient: "from-red-500 to-pink-500",
+    useCases: ["Equipment maintenance", "Asset lifecycle", "Downtime prevention"]
+  },
+  {
+    icon: Package,
+    title: "Supply Chain & Inventory Management",
+    description: "Optimize supply chain operations with real-time visibility, automated inventory management, and supplier integration",
+    benefits: ["Inventory optimization", "Supplier visibility", "Demand forecasting"],
+    gradient: "from-pink-500 to-purple-500",
+    useCases: ["Inventory tracking", "Supplier management", "Logistics coordination"]
+  },
+  {
+    icon: Shield,
+    title: "Safety & Compliance Management",
+    description: "Ensure workplace safety and regulatory compliance with automated monitoring, incident management, and reporting",
+    benefits: ["Safety monitoring", "Compliance automation", "Incident tracking"],
+    gradient: "from-purple-500 to-indigo-500",
+    useCases: ["Safety compliance", "Risk management", "Environmental monitoring"]
+  },
+  {
+    icon: BarChart,
+    title: "Quality Management System",
+    description: "Maintain product quality with automated inspection, defect tracking, and continuous improvement processes",
+    benefits: ["Quality tracking", "Defect prevention", "Process improvement"],
+    gradient: "from-indigo-500 to-blue-500",
+    useCases: ["Quality control", "Process monitoring", "Customer satisfaction"]
+  },
+  {
+    icon: Network,
+    title: "Digital Twin & Simulation",
+    description: "Create digital replicas of manufacturing processes for optimization, testing, and predictive analysis",
+    benefits: ["Process simulation", "Optimization testing", "Predictive modeling"],
+    gradient: "from-blue-500 to-cyan-500",
+    useCases: ["Process optimization", "Scenario planning", "Performance analysis"]
+  }
+];
+
+// Manufacturing Metrics
+const manufacturingMetrics = [
+  {
+    title: "Equipment Uptime Achievement",
+    description: "Average equipment availability improvement across manufacturing implementations",
+    stat: "99.2% Uptime",
+    icon: Factory
+  },
+  {
+    title: "Maintenance Efficiency Gains",
+    description: "Average improvement in maintenance operations and predictive capabilities",
+    stat: "156% Efficiency",
+    icon: Wrench
+  },
+  {
+    title: "Quality Improvement Rate", 
+    description: "Average reduction in defect rates and quality-related costs",
+    stat: "91% Quality Gain",
+    icon: Award
+  },
+  {
+    title: "Cost Reduction Achievement",
+    description: "Average cost savings achieved through manufacturing optimization",
+    stat: "$97M Savings",
+    icon: DollarSign
+  }
+];
+
+// Implementation Approach
+const implementationApproach = [
+  {
+    phase: "Manufacturing Assessment & Strategy",
+    duration: "Week 1-4",
+    activities: ["Production line analysis", "Equipment assessment", "Process mapping", "Quality system review", "Safety compliance audit"],
+    deliverables: ["Manufacturing digital strategy", "Equipment optimization plan", "Process improvement roadmap", "Compliance framework"],
+    icon: Search,
+    color: "from-orange-500 to-red-500"
+  },
+  {
+    phase: "Platform Configuration & Integration",
+    duration: "Week 5-12",
+    activities: ["ServiceNow manufacturing setup", "Equipment connectivity", "Process automation", "Quality system integration", "Safety monitoring deployment"],
+    deliverables: ["Configured manufacturing platform", "Connected equipment systems", "Automated workflows", "Quality dashboards"],
+    icon: Settings,
+    color: "from-red-500 to-pink-500"
+  },
+  {
+    phase: "Testing & Validation",
+    duration: "Week 13-18",
+    activities: ["System testing", "Process validation", "Quality verification", "Safety testing", "Performance benchmarking"],
+    deliverables: ["Validated manufacturing system", "Quality certifications", "Safety compliance", "Performance reports"],
+    icon: CheckCircle,
+    color: "from-pink-500 to-purple-500"
+  },
+  {
+    phase: "Deployment & Optimization",
+    duration: "Week 19-24",
+    activities: ["Production deployment", "Team training", "Performance monitoring", "Continuous improvement", "Optimization cycles"],
+    deliverables: ["Live manufacturing platform", "Trained workforce", "Monitoring systems", "Improvement plans"],
+    icon: Rocket,
+    color: "from-purple-500 to-indigo-500"
+  }
+];
+
+// FAQ Data
+const faqs = [
+  {
+    question: "How does ServiceNow enable Industry 4.0 transformation?",
+    answer: "ServiceNow provides comprehensive Industry 4.0 capabilities including IoT integration, real-time monitoring, predictive analytics, and intelligent automation. Our platform connects machines, processes, and people into a unified digital manufacturing ecosystem that enables smart decision-making and autonomous operations."
+  },
+  {
+    question: "What predictive maintenance capabilities does ServiceNow offer?",
+    answer: "ServiceNow delivers advanced predictive maintenance through AI-powered failure prediction, automated work order generation, condition-based monitoring, and intelligent scheduling. Our platform analyzes equipment data to predict failures weeks in advance, enabling proactive maintenance that prevents costly downtime."
+  },
+  {
+    question: "How can ServiceNow improve manufacturing quality management?",
+    answer: "ServiceNow transforms quality management with real-time monitoring, automated defect detection, supplier quality tracking, and continuous improvement workflows. Our platform provides end-to-end quality visibility from raw materials to finished products, enabling proactive quality control and zero-defect manufacturing."
+  },
+  {
+    question: "What safety and compliance features does ServiceNow provide for manufacturing?",
+    answer: "ServiceNow offers comprehensive safety and compliance management including incident tracking, risk assessment, regulatory reporting, environmental monitoring, and automated compliance workflows. Our platform ensures adherence to OSHA, EPA, and industry-specific regulations while maintaining operational efficiency."
+  },
+  {
+    question: "How does ServiceNow integrate with existing manufacturing systems?",
+    answer: "ServiceNow seamlessly integrates with manufacturing execution systems (MES), enterprise resource planning (ERP), programmable logic controllers (PLC), supervisory control and data acquisition (SCADA), and quality management systems. Our extensive API capabilities ensure smooth integration with existing manufacturing technology stacks."
+  },
+  {
+    question: "What ROI can manufacturers expect from ServiceNow implementations?",
+    answer: "Manufacturing companies typically see 20-35% cost reductions, 40-70% improvements in equipment uptime, and 60-90% reductions in quality issues. Most manufacturers achieve positive ROI within 12-18 months through reduced downtime, improved efficiency, and enhanced quality."
+  },
+  {
+    question: "How does ServiceNow support supply chain optimization in manufacturing?",
+    answer: "ServiceNow optimizes manufacturing supply chains through real-time inventory visibility, automated procurement, supplier performance monitoring, demand forecasting, and logistics coordination. Our platform ensures just-in-time manufacturing while preventing stockouts and reducing inventory costs."
+  },
+  {
+    question: "What training and support is provided for manufacturing implementations?",
+    answer: "We provide specialized manufacturing training including equipment maintenance procedures, quality management processes, safety protocols, and system administration. Our support includes 24/7 monitoring, preventive maintenance, performance optimization, and continuous improvement guidance."
+  }
+];
+
+export default function ManufacturingIndustrial() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+ const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState({});
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % clientStories.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Industries",
-        "item": "https://ifbash.com/industries"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "ServiceNow Manufacturing",
-        "item": "https://ifbash.com/industries/manufacturing"
-      }
-    ]
-  };
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <Head>
-        <title>ServiceNow Manufacturing Industry Solutions | Smart Factory & Industry 4.0 | IfBash</title>
-        <meta
-          name="description"
-          content="Expert ServiceNow manufacturing solutions in Hyderabad & globally. Smart factory operations, Industry 4.0 automation, connected workforce. 300+ manufacturing implementations, 40% efficiency gains, 20% downtime reduction. Certified specialists."
-        />
-        <meta 
-          name="keywords" 
-          content="ServiceNow manufacturing, smart factory, Industry 4.0, manufacturing operations, connected workforce, ServiceNow OTM, manufacturing automation Hyderabad, predictive maintenance, supply chain optimization, manufacturing digital transformation"
-        />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="IfBash - ServiceNow Manufacturing Specialists" />
-        <meta name="geo.region" content="IN-TG" />
-        <meta name="geo.placename" content="Hyderabad" />
-        <meta name="geo.position" content="17.3850;78.4867" />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="ServiceNow Manufacturing Solutions | Smart Factory Operations | IfBash" />
-        <meta property="og:description" content="Leading ServiceNow manufacturing solutions with 300+ implementations. Smart factory operations, Industry 4.0 automation, connected workforce. Certified specialists delivering manufacturing excellence globally." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ifbash.com/industries/manufacturing" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=80" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="IfBash" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ifbash" />
-        <meta name="twitter:title" content="ServiceNow Manufacturing Solutions | Smart Factory Operations | IfBash" />
-        <meta name="twitter:description" content="Expert ServiceNow manufacturing solutions with 300+ implementations. Smart factory, Industry 4.0 automation by certified specialists." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1200&q=80" />
-        
-        {/* Additional SEO Tags */}
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
-        <meta name="theme-color" content="#3b82f6" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://ifbash.com/industries/manufacturing" />
-        
-        {/* Preloading */}
-        <link rel="preload" href="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1920&q=80" as="image" />
-        <link rel="dns-prefetch" href="//images.unsplash.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-      </Head>
-      
-      {/* Fixed Social Links */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-        <a
-          href="https://linkedin.com/company/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on LinkedIn"
+      {/* Fixed Chat Button */}
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <button 
+          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95"
+          aria-label="Chat with Manufacturing Expert"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-blue-500/25">
-            <LinkedinIcon className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on LinkedIn
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+            Chat with Mfg Expert
           </span>
-        </a>
-
-        <a
-          href="https://twitter.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on Twitter"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-sky-500/25">
-            <Twitter className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on Twitter
-          </span>
-        </a>
-
-        <a
-          href="https://youtube.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Watch ifBash on YouTube"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 via-red-600 to-rose-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-red-500/25">
-            <Youtube className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Watch on YouTube
-          </span>
-        </a>
+          <div className="absolute inset-0 rounded-full animate-ping bg-orange-600 opacity-20"></div>
+        </button>
       </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/30">
-
-        {/* HERO SECTION */}
-        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-950 overflow-hidden">
-          {/* Background Elements */}
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-900 via-red-900 to-pink-900">
+          {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-indigo-600/10 via-purple-600/5 to-transparent" />
-            <div className="absolute top-1/4 right-1/3 w-96 h-96 bg-gradient-to-r from-blue-600/20 to-indigo-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/3 left-1/4 w-80 h-80 bg-gradient-to-r from-indigo-600/15 to-purple-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
-          </div>
-          
-          <div className="container mx-auto max-w-7xl relative z-10">
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-              <Badge className="bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                ✓ Manufacturing Industry Experts
-              </Badge>
-              <Badge className="bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-indigo-500/25 transition-all duration-300">
-                ✓ 300+ Manufacturing Implementations
-              </Badge>
-              <Badge className="bg-gradient-to-r from-purple-500 via-violet-600 to-pink-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                ✓ Industry 4.0 Specialists
-              </Badge>
-            </div>
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-700/20 via-transparent to-transparent animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-red-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white mb-6">
-                  ServiceNow for
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
-                    Manufacturing
+            {/* Floating Manufacturing Elements */}
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-float opacity-60" />
+            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-red-400 rounded-full animate-float delay-150 opacity-40" />
+            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-pink-400 rounded-full animate-float delay-300 opacity-80" />
+            
+            {/* Factory Pattern */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+              <Factory className="w-full h-full text-white animate-pulse" />
+            </div>
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-8">
+                {/* Trust Badges */}
+                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                  <Badge className="bg-gradient-to-r from-orange-500/90 to-red-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-orange-600 hover:to-red-700 transition-all duration-300">
+                    ✓ 99.2% Uptime
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-red-500/90 to-pink-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-red-600 hover:to-pink-700 transition-all duration-300">
+                    ✓ Industry 4.0 Ready
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-pink-500/90 to-purple-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-pink-600 hover:to-purple-600 transition-all duration-300">
+                    ✓ $97M Savings
+                  </Badge>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                  ServiceNow for{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 font-semibold">
+                    Manufacturing & Industrial
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl mt-4">
-                    Smart Factory{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
-                      Excellence
+                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                    Industry 4.0{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 font-semibold">
+                      Transformation
                     </span>
                   </span>
                 </h1>
-                
-                <p className="text-xl md:text-2xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-                  Transform manufacturing with Industry 4.0 innovation. Our certified specialists deliver{' '}
-                  <span className="font-semibold text-indigo-300">smart factory solutions</span>, connected workforce, and operational technology management that drives manufacturing excellence through intelligent automation and data-driven insights.
+
+                <p className="text-base sm:text-lg md:text-xl text-orange-100 max-w-2xl leading-relaxed">
+                  Transform manufacturing operations with <span className="font-semibold text-red-300">Industry 4.0 solutions</span>, predictive maintenance, and intelligent automation. Achieve <span className="font-semibold text-pink-300">99.2% equipment uptime</span> with <span className="font-semibold text-purple-300">$97M savings</span>.
                 </p>
-                
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                  <Button 
-                    size="lg" 
-                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-blue-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700"
+
+                {/* Key Benefits */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+                  <div className="group bg-gradient-to-br from-orange-600/20 via-red-600/20 to-pink-600/20 hover:from-orange-600/30 hover:via-red-600/30 hover:to-pink-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-orange-400/20 hover:border-orange-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">99.2%</div>
+                    <div className="text-xs sm:text-sm text-orange-100">Uptime</div>
+                  </div>
+                  <div className="group bg-gradient-to-br from-red-600/20 via-pink-600/20 to-purple-600/20 hover:from-red-600/30 hover:via-pink-600/30 hover:to-purple-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-red-400/20 hover:border-red-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400">87%</div>
+                    <div className="text-xs sm:text-sm text-red-100">Less Downtime</div>
+                  </div>
+                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-pink-600/20 via-purple-600/20 to-indigo-600/20 hover:from-pink-600/30 hover:via-purple-600/30 hover:to-indigo-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">$97M</div>
+                    <div className="text-xs sm:text-sm text-pink-100">Savings</div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                  <button 
+                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700"
+                    style={{
+                      boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
+                    }}
                   >
-                    <Factory className="mr-2 h-5 w-5" />
-                    Build Smart Factory
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-xl hover:bg-white/10 hover:text-white hover:border-white transition-all duration-300 backdrop-blur-md bg-white/10"
-                  >
-                    <Play className="mr-2 h-5 w-5" />
-                    View Manufacturing Demo
-                  </Button>
-                </div>
-
-                {/* Trust Indicators */}
-                <div className="flex flex-wrap gap-6 pt-8 border-t border-white/20">
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Cog className="h-5 w-5 text-blue-600" />
-                    <span className="text-sm text-gray-900 font-semibold">Smart Operations</span>
-                  </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Users className="h-5 w-5 text-indigo-600" />
-                    <span className="text-sm text-gray-900 font-semibold">Connected Workforce</span>
-                  </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <BarChart3 className="h-5 w-5 text-purple-700" />
-                    <span className="text-sm text-gray-900 font-semibold">Predictive Analytics</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Key Metrics */}
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-blue-600/25 via-indigo-600/20 to-purple-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-blue-600/35 hover:via-indigo-600/30 hover:to-purple-600/25 transition-all duration-300 border border-blue-400/20 shadow-xl hover:shadow-blue-500/20">
-                  <Factory className="h-12 w-12 text-blue-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">300+</div>
-                  <div className="text-blue-200 text-sm">Manufacturing Projects</div>
-                </div>
-                <div className="bg-gradient-to-br from-indigo-600/25 via-purple-600/20 to-violet-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-indigo-600/35 hover:via-purple-600/30 hover:to-violet-600/25 transition-all duration-300 border border-indigo-400/20 shadow-xl hover:shadow-indigo-500/20">
-                  <Gauge className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">40%</div>
-                  <div className="text-indigo-200 text-sm">Efficiency Gain</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-600/25 via-violet-600/20 to-pink-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-purple-600/35 hover:via-violet-600/30 hover:to-pink-600/25 transition-all duration-300 border border-purple-400/20 shadow-xl hover:shadow-purple-500/20">
-                  <Clock className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">20%</div>
-                  <div className="text-purple-200 text-sm">Less Downtime</div>
-                </div>
-                <div className="bg-gradient-to-br from-violet-600/25 via-pink-600/20 to-rose-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-violet-600/35 hover:via-pink-600/30 hover:to-rose-600/25 transition-all duration-300 border border-violet-400/20 shadow-xl hover:shadow-violet-500/20">
-                  <TrendingUp className="h-12 w-12 text-violet-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">350%</div>
-                  <div className="text-violet-200 text-sm">Average ROI</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* MANUFACTURING CHALLENGES SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
-          <div className="container mx-auto max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="mb-8">
-                  <Badge className="bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-700 mb-6 px-4 py-2 border border-blue-200/50">
-                    Manufacturing Transformation
-                  </Badge>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                    Driving Industry 4.0
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                      Manufacturing Excellence
+                    <span className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-red-400/20 to-pink-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                    <span className="relative flex items-center justify-center">
+                      Start Industry 4.0 Transformation
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </h2>
-                </div>
-                
-                <div className="space-y-6 text-lg text-gray-700">
-                  <p className="leading-relaxed">
-                    Manufacturing faces complex challenges: operational efficiency, supply chain disruption, regulatory compliance, and workforce productivity. ServiceNow delivers{' '}
-                    <span className="text-blue-600 font-semibold">unified smart factory solutions</span> that integrate operational technology, connect frontline workers, and optimize production processes through AI-powered insights.
-                  </p>
-                  <p className="leading-relaxed">
-                    From <strong>predictive maintenance</strong> to{' '}
-                    <strong>connected workforce management</strong>, our Industry 4.0 solutions streamline operations, enhance quality control, and accelerate digital transformation while maintaining safety and compliance standards.
-                  </p>
-                  <p className="leading-relaxed">
-                    We help manufacturers overcome legacy systems, fragmented processes, and operational silos through{' '}
-                    <span className="text-indigo-600 font-semibold">intelligent automation</span> that drives sustainable competitive advantage and manufacturing excellence.
-                  </p>
-                </div>
-                
-                {/* Manufacturing Challenges */}
-                <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                  {[
-                    "Operational Efficiency",
-                    "Supply Chain Visibility", 
-                    "Equipment Maintenance",
-                    "Quality Management",
-                    "Regulatory Compliance",
-                    "Workforce Productivity"
-                  ].map((challenge, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-3 bg-white/90 backdrop-blur-sm rounded-lg border border-blue-200/50 shadow-sm">
-                      <CheckCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">{challenge}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                    Explore Solutions
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </button>
+                  
+                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                    <span className="relative flex items-center justify-center">
+                      <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-pink-400 group-hover:text-pink-300" />
+                      Watch Manufacturing Demo
+                    </span>
+                  </button>
                 </div>
               </div>
-              
-              <div className="relative order-1 lg:order-2">
-                <div className="relative bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 rounded-2xl p-4 shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=800&q=80"
-                    alt="Smart manufacturing facility with connected operations and Industry 4.0 technology"
-                    className="rounded-xl shadow-xl w-full"
-                    loading="eager"
-                    width="800"
-                    height="600"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
-                  <div className="text-2xl font-bold">300+</div>
-                  <div className="text-sm opacity-90">Smart Factories</div>
+
+              {/* Right Side Visual Content */}
+              <div className="relative lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-orange-500/15 to-red-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+                    <PlaceholderImage
+                      title="Smart Manufacturing Dashboard"
+                      className="w-full h-full object-cover"
+                      gradient="from-orange-600 to-red-600"
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">99.2%</div>
+                      <div className="text-xs text-orange-200">Uptime</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">87%</div>
+                      <div className="text-xs text-red-200">Downtime ↓</div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Manufacturing Icons */}
+                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
+                    <div className="w-full h-full bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Factory className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
+                    <div className="w-full h-full bg-gradient-to-r from-red-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Wrench className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* MANUFACTURING SOLUTIONS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-blue-50/50 to-indigo-50/30 relative overflow-hidden">
+        {/* Solutions Overview Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-500/5 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-indigo-500/5 via-transparent to-transparent" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-orange-100/30 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-red-100/30 via-transparent to-transparent" />
           </div>
-          
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-700 mb-6 px-4 py-2 border border-blue-200/50">
-                Manufacturing Solutions Portfolio
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Complete Smart Factory
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  Platform
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="solutions-overview">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-pink-600">
+                  Manufacturing Solutions
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  That Drive Excellence
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Comprehensive ServiceNow manufacturing solutions designed to transform operations, connect workforce, and optimize production through Industry 4.0 innovation
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Transform every aspect of manufacturing operations with intelligent solutions designed for the Industry 4.0 era.
               </p>
             </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Factory,
-                  title: "Smart Factory Operations",
-                  description: "Complete smart factory platform with IoT integration, real-time monitoring, and AI-powered production optimization for enhanced efficiency.",
-                  features: ["IoT Integration", "Real-time Monitoring", "Production Optimization", "Quality Control"],
-                  gradient: "from-blue-600 to-indigo-600",
-                  bgGradient: "from-blue-50 via-indigo-50 to-purple-50"
-                },
-                {
-                  icon: Cog,
-                  title: "Operational Technology Management",
-                  description: "Unified OT management with asset visibility, vulnerability assessment, and security management for connected manufacturing environments.",
-                  features: ["Asset Management", "Security Monitoring", "Vulnerability Assessment", "Compliance Tracking"],
-                  gradient: "from-indigo-600 to-purple-600",
-                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
-                },
-                {
-                  icon: Users,
-                  title: "Connected Workforce",
-                  description: "Digital workforce solutions with mobile-first experiences, frontline worker support, and productivity enhancement tools.",
-                  features: ["Mobile Workforce", "Digital Work Instructions", "Knowledge Access", "Collaboration Tools"],
-                  gradient: "from-purple-600 to-violet-600",
-                  bgGradient: "from-purple-50 via-violet-50 to-pink-50"
-                },
-                {
-                  icon: Wrench,
-                  title: "Predictive Maintenance",
-                  description: "AI-powered predictive maintenance with equipment monitoring, failure prediction, and maintenance optimization for reduced downtime.",
-                  features: ["Equipment Monitoring", "Failure Prediction", "Maintenance Scheduling", "Performance Analytics"],
-                  gradient: "from-violet-600 to-pink-600",
-                  bgGradient: "from-violet-50 via-pink-50 to-rose-50"
-                },
-                {
-                  icon: Truck,
-                  title: "Supply Chain Optimization",
-                  description: "End-to-end supply chain management with supplier collaboration, risk management, and procurement optimization.",
-                  features: ["Supplier Management", "Risk Assessment", "Procurement Optimization", "Logistics Coordination"],
-                  gradient: "from-pink-600 to-rose-600",
-                  bgGradient: "from-pink-50 via-rose-50 to-red-50"
-                },
-                {
-                  icon: Shield,
-                  title: "Quality Management",
-                  description: "Comprehensive quality management with automated inspections, compliance tracking, and continuous improvement processes.",
-                  features: ["Quality Control", "Compliance Management", "Audit Automation", "Continuous Improvement"],
-                  gradient: "from-rose-600 to-red-600",
-                  bgGradient: "from-rose-50 via-red-50 to-orange-50"
-                }
-              ].map((solution, index) => (
-                <Card key={index} className={`bg-gradient-to-br ${solution.bgGradient} shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200/50 overflow-hidden backdrop-blur-sm`}>
-                  <CardHeader className="pb-4">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 shadow-xl`}>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {manufacturingSolutions.map((solution, index) => (
+                <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-orange-100 hover:border-orange-300 transform hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${solution.gradient} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
                       <solution.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{solution.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
+                    
+                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                      {solution.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
                       {solution.description}
                     </p>
-                    <div className="space-y-3">
-                      {solution.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-3 p-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-300/30 shadow-sm">
-                          <CheckCircle className="h-4 w-4 text-blue-600 flex-shrink-0" />
-                          <span className="text-sm text-gray-800 font-medium">{feature}</span>
+
+                    <div className="space-y-3 mb-6">
+                      {solution.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-center">
+                          <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
+                          <span className="text-gray-700 text-sm">{benefit}</span>
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+
+                    <div className="border-t border-gray-100 pt-4">
+                      <h4 className="text-sm font-semibold text-gray-500 mb-2">Use Cases:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {solution.useCases.map((useCase, idx) => (
+                          <span key={idx} className="px-2 py-1 bg-orange-50 text-orange-700 text-xs rounded-md">
+                            {useCase}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-            
-            {/* Additional Manufacturing Capabilities */}
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                Industry 4.0 Capabilities
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { icon: Brain, name: "AI & Machine Learning", desc: "Intelligent automation & insights", gradient: "from-cyan-50 to-blue-50", iconColor: "text-cyan-600" },
-                  { icon: Route, name: "Digital Twin", desc: "Virtual factory modeling", gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
-                  { icon: Package, name: "Inventory Management", desc: "Real-time inventory tracking", gradient: "from-orange-50 to-yellow-50", iconColor: "text-orange-600" },
-                  { icon: BarChart3, name: "Performance Analytics", desc: "Production insights & KPIs", gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
-                ].map((capability, index) => (
-                  <div key={index} className={`text-center p-6 bg-gradient-to-br ${capability.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
-                    <capability.icon className={`h-10 w-10 mx-auto mb-3 ${capability.iconColor}`} />
-                    <h4 className="font-semibold text-gray-900 mb-2">{capability.name}</h4>
-                    <p className="text-sm text-gray-600">{capability.desc}</p>
+
+            {/* Manufacturing Metrics Stats */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {manufacturingMetrics.map((metric, index) => (
+                <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                    <metric.icon className="h-8 w-8 text-white" />
                   </div>
+                  <div className="text-2xl font-bold text-orange-600 mb-2">{metric.stat}</div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{metric.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{metric.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Implementation Approach Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-orange-900 to-red-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+          
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="implementation">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">
+                  Our Manufacturing Implementation
+                </span>
+                <br />
+                <span className="text-white">
+                  Approach
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto leading-relaxed">
+                A specialized 4-phase methodology designed specifically for manufacturing industry requirements and Industry 4.0 transformation.
+              </p>
+            </div>
+
+            <div className="space-y-12">
+              {implementationApproach.map((phase, index) => (
+                <div key={index} className="group relative" data-animate id={`phase-${index}`}>
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                      <div className="flex items-center mb-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                          <phase.icon className="h-8 w-8 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold mb-2">{phase.phase}</h3>
+                          <div className="text-orange-200 flex items-center">
+                            <Clock className="h-4 w-4 mr-2" />
+                            {phase.duration}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-semibold mb-3 text-orange-200">Key Activities</h4>
+                          <div className="space-y-2">
+                            {phase.activities.map((activity, idx) => (
+                              <div key={idx} className="flex items-center">
+                                <CheckCircle className="h-4 w-4 text-orange-400 mr-3 flex-shrink-0" />
+                                <span className="text-gray-300 text-sm">{activity}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold mb-3 text-orange-200">Key Deliverables</h4>
+                          <div className="space-y-2">
+                            {phase.deliverables.map((deliverable, idx) => (
+                              <div key={idx} className="flex items-center">
+                                <FileText className="h-4 w-4 text-red-400 mr-3 flex-shrink-0" />
+                                <span className="text-gray-300 text-sm">{deliverable}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div className="relative">
+                        <div className={`aspect-square bg-gradient-to-br from-orange-500/20 to-red-500/20 rounded-3xl p-8 backdrop-blur-sm border border-orange-400/20 hover:border-orange-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                          <div className={`w-full h-full bg-gradient-to-br from-orange-600/30 to-red-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                            <div className="text-center relative z-10">
+                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400 mb-4">
+                                0{index + 1}
+                              </div>
+                              <div className="text-lg font-semibold text-orange-200">
+                                {phase.phase.split(' & ')[0]}
+                              </div>
+                              <div className="text-sm text-orange-300 mt-2">
+                                {phase.duration}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {index < implementationApproach.length - 1 && (
+                    <div className="flex justify-center mt-8 mb-8">
+                      <div className="w-px h-12 bg-gradient-to-b from-orange-500 to-red-500 opacity-50"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <button 
+                onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700 transform hover:scale-105"
+                style={{
+                  boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
+                }}
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-red-400/20 to-pink-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <span className="relative flex items-center justify-center">
+                  Start Your Manufacturing Transformation
+                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-red-50/30 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-red-100/30 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-orange-100/30 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="case-studies">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-600 to-pink-600">
+                  Manufacturing Success
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  Stories
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                See how manufacturing leaders have transformed their operations with ServiceNow solutions that deliver measurable results.
+              </p>
+            </div>
+
+            <div className="space-y-12">
+              {caseStudies.map((study, index) => (
+                <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-red-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div className="flex items-center mb-6">
+                        <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm px-4 py-2">
+                          {study.industry}
+                        </Badge>
+                        <Badge className="ml-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white text-sm px-4 py-2">
+                          {study.timeline}
+                        </Badge>
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                        {study.client}
+                      </h3>
+
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-semibold text-red-600 mb-2">Challenge</h4>
+                          <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution</h4>
+                          <p className="text-gray-600 leading-relaxed">{study.solution}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold text-green-600 mb-3">Results</h4>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            {study.results.map((result, idx) => (
+                              <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
+                                <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                                <span className="text-gray-700 text-sm font-medium">{result}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 border-l-4 border-red-500">
+                          <Quote className="h-6 w-6 text-red-500 mb-2" />
+                          <p className="text-gray-700 italic leading-relaxed">"{study.testimonial}"</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                      <div className="relative">
+                        <div className="aspect-square bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl p-6 overflow-hidden">
+                          <PlaceholderImage
+                            title={`${study.client} Manufacturing Solution`}
+                            className="w-full h-full object-cover rounded-xl"
+                            gradient="from-red-600 to-orange-600"
+                          />
+                        </div>
+                        
+                        {/* Floating Stats */}
+                        <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-red-200">
+                          <div className="text-lg font-bold text-red-600">{study.timeline.split(' ')[0]}</div>
+                          <div className="text-xs text-gray-600">Weeks</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Client Testimonials Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-r from-red-900 via-orange-900 to-pink-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-pink-700/20 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-red-700/20 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="testimonials">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-red-400 to-orange-400">
+                  What Manufacturing Leaders Say
+                </span>
+                <br />
+                <span className="text-white">
+                  About Our Solutions
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-red-100 max-w-3xl mx-auto leading-relaxed">
+                Hear from manufacturing executives who transformed their operations with our ServiceNow solutions.
+              </p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-2xl">
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                  {clientStories.map((story, index) => (
+                    <div key={index} className="w-full flex-shrink-0">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                        <div className="flex items-center mb-8">
+                          <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mr-6">
+                            <Factory className="h-8 w-8 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold">{story.name}</h3>
+                            <p className="text-red-200">{story.title}, {story.company}</p>
+                          </div>
+                        </div>
+
+                        <div className="mb-6">
+                          <Quote className="h-8 w-8 text-pink-400 mb-4" />
+                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
+                            {story.story}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex text-yellow-400 mr-3">
+                              {[...Array(story.rating)].map((_, i) => (
+                                <Star key={i} className="h-5 w-5 fill-current" />
+                              ))}
+                            </div>
+                            <span className="text-red-200 text-sm">({story.rating}.0/5.0)</span>
+                          </div>
+                          
+                          <div className="text-right">
+                            <div className="text-pink-300 font-semibold">{story.metric}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial Navigation */}
+              <div className="flex justify-center space-x-2 mt-8">
+                {clientStories.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonial 
+                        ? 'bg-pink-400 w-8' 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* MANUFACTURING RESULTS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
-                Manufacturing Success Metrics
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Proven Manufacturing
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  Transformation Results
+        {/* FAQ Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/20 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-orange-100/20 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-red-100/20 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="faq">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-pink-600">
+                  Frequently Asked Questions
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  About Manufacturing Solutions
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Our manufacturing solutions deliver measurable results through smart factory operations, connected workforce, and predictive maintenance programs
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Get answers to common questions about ServiceNow solutions for the manufacturing industry.
               </p>
             </div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {[
-                { metric: "40%", label: "Efficiency Improvement", desc: "Through smart operations", gradient: "from-blue-600 to-indigo-600", bgGradient: "from-blue-50 via-indigo-50 to-purple-50", icon: Gauge },
-                { metric: "30%", label: "Faster Asset Audits", desc: "Automated asset tracking", gradient: "from-indigo-600 to-purple-600", bgGradient: "from-indigo-50 via-purple-50 to-violet-50", icon: Clock },
-                { metric: "20%", label: "Reduced Downtime", desc: "Predictive maintenance", gradient: "from-purple-600 to-violet-600", bgGradient: "from-purple-50 via-violet-50 to-pink-50", icon: Factory },
-                { metric: "350%", label: "Average ROI", desc: "Within 12-18 months", gradient: "from-violet-600 to-pink-600", bgGradient: "from-violet-50 via-pink-50 to-rose-50", icon: TrendingUp }
-              ].map((result, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${result.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50`}>
-                  <div className={`h-16 w-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${result.gradient} flex items-center justify-center shadow-lg`}>
-                    <result.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{result.metric}</div>
-                  <p className="text-gray-700 font-semibold mb-2">{result.label}</p>
-                  <p className="text-sm text-gray-600">{result.desc}</p>
-                </div>
-              ))}
-            </div>
 
-            {/* Client Testimonial */}
-            <div className="bg-gradient-to-br from-white via-blue-50 to-indigo-50 rounded-2xl shadow-xl p-8 md:p-12 border border-blue-200/50 backdrop-blur-sm">
-              <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Quote className="h-8 w-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
-                    "ServiceNow transformed our manufacturing operations completely. We've achieved 40% efficiency gains through smart factory implementation and reduced equipment downtime by 20% with predictive maintenance. The connected workforce platform improved our frontline productivity by 35%. This is true Industry 4.0 transformation."
-                  </blockquote>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <cite className="text-gray-800 not-italic font-semibold text-lg">
-                        Sarah Johnson, Manufacturing Director
-                      </cite>
-                      <p className="text-gray-600 font-medium">
-                        Global Chemical Manufacturing
-                      </p>
-                    </div>
-                    <div className="flex mt-3 sm:mt-0">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-orange-50 transition-colors duration-200"
+                    >
+                      <h3 className="text-lg font-semibold text-gray-800 pr-8">
+                        {faq.question}
+                      </h3>
+                      <ChevronDown 
+                        className={`h-6 w-6 text-orange-600 transition-transform duration-200 flex-shrink-0 ${
+                          openFaq === index ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
+                    
+                    {openFaq === index && (
+                      <div className="px-8 pb-6">
+                        <div className="border-t border-gray-100 pt-6">
+                          <p className="text-gray-600 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Additional Success Metrics */}
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
-              {[
-                { title: "Manufacturing Plants", value: "150+", desc: "Smart factory implementations", gradient: "from-blue-50 to-indigo-50" },
-                { title: "Connected Workers", value: "50K+", desc: "Frontline employees enabled", gradient: "from-indigo-50 to-purple-50" },
-                { title: "Equipment Uptime", value: "99.2%", desc: "Predictive maintenance success", gradient: "from-purple-50 to-violet-50" }
-              ].map((metric, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${metric.gradient} rounded-xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300`}>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">{metric.value}</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{metric.title}</h4>
-                  <p className="text-sm text-gray-600">{metric.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* WHY CHOOSE US SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-blue-50/30">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-blue-100 via-indigo-100 to-purple-100 text-blue-700 mb-6 px-4 py-2 border border-blue-200/50">
-                Why Choose IfBash
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Your Trusted Manufacturing
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  ServiceNow Partner
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Partner with certified manufacturing ServiceNow specialists who understand Industry 4.0 requirements and deliver smart factory solutions that drive operational excellence
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {[
-                {
-                  icon: Award,
-                  title: "Manufacturing Industry Expertise",
-                  description: "Deep manufacturing expertise with certified ServiceNow specialists who understand production operations, quality management, supply chain complexities, and regulatory compliance across discrete, process, and hybrid manufacturing environments.",
-                  gradient: "from-blue-600 to-indigo-600",
-                  bgGradient: "from-blue-50 via-indigo-50 to-purple-50"
-                },
-                {
-                  icon: Factory,
-                  title: "300+ Manufacturing Implementations",
-                  description: "Proven track record with 300+ manufacturing implementations across automotive, chemical, electronics, and industrial sectors with 40% efficiency gains, 20% downtime reduction, and 350% average ROI achievement.",
-                  gradient: "from-indigo-600 to-purple-600",
-                  bgGradient: "from-indigo-50 via-purple-50 to-violet-50"
-                },
-                {
-                  icon: Cog,
-                  title: "Industry 4.0 Leadership",
-                  description: "Leading expertise in Industry 4.0 transformation including IoT integration, digital twin development, AI-powered predictive maintenance, and connected workforce solutions that enable smart factory operations and competitive advantage.",
-                  gradient: "from-purple-600 to-violet-600",
-                  bgGradient: "from-purple-50 via-violet-50 to-pink-50"
-                },
-                {
-                  icon: TrendingUp,
-                  title: "End-to-End Manufacturing Value",
-                  description: "Comprehensive manufacturing value chain coverage from design and engineering to production, quality, and service with integrated solutions that connect operations, supply chain, and customer service for seamless business operations.",
-                  gradient: "from-violet-600 to-pink-600",
-                  bgGradient: "from-violet-50 via-pink-50 to-rose-50"
-                }
-              ].map((item, index) => (
-                <div key={index} className={`flex items-start space-x-6 bg-gradient-to-br ${item.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50`}>
-                  <div className="flex-shrink-0">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
-                      <item.icon className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Additional Differentiators */}
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Smart Factory Experts", desc: "Industry 4.0 transformation", icon: Brain, gradient: "from-cyan-50 to-blue-50", iconColor: "text-cyan-600" },
-                { title: "Global Manufacturing", desc: "Multi-site implementations", icon: Globe, gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
-                { title: "Safety & Compliance", desc: "Regulatory standards", icon: Shield, gradient: "from-orange-50 to-yellow-50", iconColor: "text-orange-600" },
-                { title: "Proven ROI", desc: "350% average return", icon: DollarSign, gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
-              ].map((item, index) => (
-                <div key={index} className={`text-center p-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
-                  <item.icon className={`h-10 w-10 mx-auto mb-4 ${item.iconColor}`} />
-                  <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-blue-50/30 to-indigo-50/30">
-          <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-slate-100 via-blue-100 to-indigo-100 text-slate-700 mb-6 px-4 py-2 border border-slate-200/50">
-                Frequently Asked Questions
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Manufacturing ServiceNow
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  FAQs
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600">
-                Common questions about ServiceNow solutions for the manufacturing industry
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              {[
-                {
-                  question: "What are ServiceNow Manufacturing Industry Solutions?",
-                  answer: "ServiceNow Manufacturing Solutions include smart factory operations, Industry 4.0 automation, operational technology management, connected workforce, supply chain optimization, predictive maintenance, and quality management. These solutions address manufacturing challenges including operational efficiency, equipment maintenance, regulatory compliance, and workforce productivity through integrated digital platforms that connect IT and OT systems.",
-                  gradient: "from-blue-50 via-indigo-50 to-purple-50"
-                },
-                {
-                  question: "How does ServiceNow support Industry 4.0 transformation?",
-                  answer: "ServiceNow enables Industry 4.0 through IoT integration, AI-powered analytics, digital twin capabilities, predictive maintenance, real-time monitoring, connected workforce solutions, and intelligent automation. Our platform connects operational technology with information technology, enabling data-driven decision making, autonomous operations, and smart factory transformation that drives manufacturing excellence and competitive advantage.",
-                  gradient: "from-indigo-50 via-purple-50 to-violet-50"
-                },
-                {
-                  question: "What ROI can manufacturing companies expect from ServiceNow?",
-                  answer: "Manufacturing companies typically achieve 40% reduction in manual tasks, 30% faster asset audits, 20% decrease in equipment downtime, 25% improvement in operational efficiency, and 350% average ROI within 12-18 months. Benefits include improved production efficiency, enhanced quality control, reduced maintenance costs, better regulatory compliance, and increased workforce productivity through connected operations and predictive analytics.",
-                  gradient: "from-purple-50 via-violet-50 to-pink-50"
-                },
-                {
-                  question: "Does ServiceNow integrate with manufacturing systems like MES and SCADA?",
-                  answer: "Yes, ServiceNow seamlessly integrates with Manufacturing Execution Systems (MES), SCADA, ERP, PLM, and other manufacturing systems through native connectors and APIs. Our Operational Technology Management solution provides unified visibility across IT and OT environments, enabling real-time data sharing, automated workflows, and comprehensive asset management across the entire manufacturing ecosystem.",
-                  gradient: "from-violet-50 via-pink-50 to-rose-50"
-                },
-                {
-                  question: "How does ServiceNow support manufacturing compliance and quality?",
-                  answer: "ServiceNow provides comprehensive compliance and quality management including automated audit trails, regulatory reporting, quality control workflows, deviation management, and continuous monitoring. Our solutions support ISO 9001, FDA regulations, automotive standards, and other industry-specific requirements with built-in documentation, approval processes, and real-time compliance tracking that ensures manufacturing standards and regulatory adherence.",
-                  gradient: "from-emerald-50 via-teal-50 to-cyan-50"
-                },
-                {
-                  question: "What training and support do you provide for manufacturing teams?",
-                  answer: "We provide comprehensive training and support including manufacturing-specific workshops, frontline worker training, administrator certification, change management support, and ongoing maintenance. Our approach includes hands-on training for production teams, technical training for IT staff, executive briefings for leadership, and continuous support to ensure successful adoption and sustained value realization across manufacturing operations."
-                }
-              ].map((faq, index) => (
-                <div key={index} className={`bg-gradient-to-br ${faq.gradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-200/50`}>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-start">
-                    <span className="text-blue-700 mr-2 font-bold">Q:</span>
-                    {faq.question}
-                  </h3>
-                  <div className="text-gray-800 leading-relaxed pl-6">
-                    <span className="text-indigo-700 font-bold mr-2">A:</span>
-                    <span className="text-gray-700">{faq.answer}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* FAQ CTA */}
-            <div className="mt-12 text-center">
-              <p className="text-gray-600 mb-6">
-                Ready to transform your manufacturing operations?
-              </p>
-              <Button className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Schedule Manufacturing Consultation
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT/CTA SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-950 relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br from-blue-600/10 via-indigo-600/5 to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-indigo-600/10 via-purple-600/5 to-transparent" />
-          </div>
-          
-          <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <Badge className="bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-purple-500/20 text-white border-white/20 mb-6 px-4 py-2">
-              Ready for Smart Factory Transformation?
-            </Badge>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Build Your Smart Factory
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400">
-                with ServiceNow
-              </span>
-            </h2>
-            
-            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
-              Join 300+ manufacturers driving Industry 4.0 innovation with ServiceNow. From connected workforce to predictive maintenance, accelerate your digital transformation journey.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button size="lg" className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-blue-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700">
-                <Factory className="mr-2 h-5 w-5" />
-                Start Manufacturing Transformation
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/70 shadow-lg"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Download Manufacturing Guide
-              </Button>
-            </div>
-            
-            {/* Contact Information */}
-            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-gradient-to-br from-white/10 to-blue-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Phone className="h-6 w-6 text-blue-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Call Us</p>
-                <p className="text-blue-200 text-xs">+91-XXXX-XXXXXX</p>
-              </div>
-              <div className="bg-gradient-to-br from-white/10 to-indigo-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Mail className="h-6 w-6 text-indigo-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Email Us</p>
-                <p className="text-indigo-200 text-xs">manufacturing@ifbash.com</p>
-              </div>
-              <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Calendar className="h-6 w-6 text-purple-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Schedule Demo</p>
-                <p className="text-purple-200 text-xs">Available 24/7</p>
+            {/* Final CTA */}
+            <div className="text-center mt-16">
+              <div className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Ready to Transform Your Manufacturing Operations?
+                </h3>
+                <p className="text-lg md:text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
+                  Join manufacturing leaders achieving 99.2% uptime. Get Industry 4.0 solutions that deliver $97M savings and operational excellence.
+                </p>
+                <button 
+                  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  className="group px-8 py-4 text-lg font-semibold bg-white text-orange-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                >
+                  <span className="flex items-center justify-center">
+                    Schedule Your Manufacturing Consultation
+                    <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                </button>
               </div>
             </div>
           </div>
         </section>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.1; }
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        .delay-75 {
+          animation-delay: 0.75s;
+        }
+
+        .delay-150 {
+          animation-delay: 1.5s;
+        }
+
+        .delay-300 {
+          animation-delay: 3s;
+        }
+
+        .bg-grid-pattern {
+          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        }
+      `}</style>
     </>
   );
 }

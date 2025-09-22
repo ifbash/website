@@ -507,7 +507,7 @@ export function Header() {
         aria-label="Main navigation"
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14"> {/* Reduced from h-16 to h-14 (12.5% reduction) */}
+          <div className="flex items-center justify-between h-[54px]">
             {/* Logo Section - Reduced dimensions */}
             <div className="flex items-center flex-shrink-0">
               <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-violet-600 text-white px-4 py-2 rounded-lg z-50">
@@ -519,7 +519,7 @@ export function Header() {
                 aria-label="ifBash - Premier ServiceNow Partner - Go to Homepage"
               >
                 {/* Logo with reduced dimensions */}
-                <div className="w-[250px] h-[60px] relative flex items-center"> {/* Reduced from 180x40 to 160x36 */}
+                <div className="w-[250px] h-[51px] relative flex items-center">
                   <Image 
                     src="/images/logo.png" 
                     alt="ifBash Logo" 
@@ -529,7 +529,7 @@ export function Header() {
                     priority
                     style={{ 
                       width: '250px', 
-                      height: '60px',
+                      height: '51px',
                       maxWidth: '100%',
                     }}
                   />
@@ -544,7 +544,7 @@ export function Header() {
                   {/* Services - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-4 py-1.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-[32px]"
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -600,7 +600,7 @@ export function Header() {
                   {/* Portfolio - Fixed with proper containment */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-4 py-1.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-[32px]"
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -621,18 +621,19 @@ export function Header() {
                             border: "1px solid rgba(109, 40, 217, 0.1)"
                           }}
                         >
-                          {/* Category Tabs - Horizontal navigation */}
-                          <div className="border-b border-violet-100/60">
-                            <div className="flex gap-0 overflow-x-auto scrollbar-hide">
+                          {/* Side-by-side Layout */}
+                          <div className="flex">
+                            {/* Left Side - Categories */}
+                            <div className="w-64 border-r border-violet-100/60 p-4 space-y-2">
                               {portfolioItems.map((category, index) => (
                                 <button
                                   key={category.category}
                                   onMouseEnter={() => setActivePortfolioCategory(index)}
                                   className={cn(
-                                    "px-4 py-4 text-sm font-semibold transition-all duration-300 border-b-2 whitespace-nowrap relative flex-shrink-0 min-h-[60px] flex items-center hover:bg-gradient-to-r hover:from-violet-50/60 hover:to-blue-50/60",
+                                    "w-full text-left px-4 py-3 text-sm font-semibold rounded-xl transition-all duration-300 hover:bg-gradient-to-r hover:from-violet-50/60 hover:to-blue-50/60",
                                     activePortfolioCategory === index
-                                      ? "border-violet-500 bg-gradient-to-r from-violet-50/80 to-blue-50/80"
-                                      : "border-transparent hover:border-violet-300/50"
+                                      ? "bg-gradient-to-r from-violet-50/80 to-blue-50/80 shadow-sm"
+                                      : "hover:shadow-sm"
                                   )}
                                 >
                                   <span 
@@ -645,39 +646,36 @@ export function Header() {
                                   >
                                     {category.category}
                                   </span>
-                                  {activePortfolioCategory === index && (
-                                    <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-violet-500 via-blue-500 to-cyan-500 rounded-full" />
-                                  )}
                                 </button>
                               ))}
                             </div>
-                          </div>
 
-                          {/* Category Items - Show active category */}
-                          <div className="p-6">
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                              {portfolioItems[activePortfolioCategory]?.items.map((item) => (
-                                <Link
-                                  key={item.title}
-                                  href={`/portfolio/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
-                                  className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
-                                  style={{
-                                    backdropFilter: "blur(12px)",
-                                    boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
-                                  }}
-                                >
-                                  <div className="flex items-start space-x-3 w-full min-w-0">
-                                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
-                                      <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
-                                    </div>
-                                    <div className="flex-1 min-w-0 pt-1">
-                                      <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
-                                        {item.title}
+                            {/* Right Side - Items */}
+                            <div className="flex-1 p-6">
+                              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                                {portfolioItems[activePortfolioCategory]?.items.map((item) => (
+                                  <Link
+                                    key={item.title}
+                                    href={`/portfolio/${item.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`}
+                                    className="group block select-none rounded-2xl p-4 leading-none no-underline outline-none transition-all duration-300 transform border-2 border-transparent hover:border-violet-200/70 hover:bg-gradient-to-br hover:from-violet-50/95 hover:via-purple-50/80 hover:to-blue-50/95 hover:shadow-xl hover:shadow-violet-200/40 hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 min-h-[80px] bg-white/80"
+                                    style={{
+                                      backdropFilter: "blur(12px)",
+                                      boxShadow: "0 2px 10px rgba(109, 40, 217, 0.05)"
+                                    }}
+                                  >
+                                    <div className="flex items-start space-x-3 w-full min-w-0">
+                                      <div className="p-3 rounded-xl bg-gradient-to-br from-violet-50/90 to-blue-50/90 group-hover:from-white group-hover:to-violet-50 group-hover:shadow-lg transition-all duration-300 flex-shrink-0 border border-violet-100/60 group-hover:border-violet-200/90">
+                                        <item.icon className="h-5 w-5 text-violet-600 group-hover:text-blue-600 transition-colors duration-300" />
+                                      </div>
+                                      <div className="flex-1 min-w-0 pt-1">
+                                        <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text group-hover:from-violet-800 group-hover:via-blue-700 group-hover:to-cyan-700 leading-tight">
+                                          {item.title}
+                                        </div>
                                       </div>
                                     </div>
-                                  </div>
-                                </Link>
-                              ))}
+                                  </Link>
+                                ))}
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -688,7 +686,7 @@ export function Header() {
                   {/* Industries - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-4 py-1.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-[32px]"
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -744,7 +742,7 @@ export function Header() {
                   {/* Company - Updated with portfolio-style mega menu */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger 
-                      className="bg-transparent border-none shadow-none font-semibold text-base px-5 py-2 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-9" /* Reduced from h-10 to h-9 */
+                      className="bg-transparent border-none shadow-none font-semibold text-base px-4 py-1.5 transition-colors moondust-text-gradient focus-visible:outline-2 focus-visible:outline-violet-600 h-[32px]"
                       style={{
                         background: "linear-gradient(90deg, #6c28d9 0%, #26a3d9 100%)",
                         WebkitBackgroundClip: "text",
@@ -805,7 +803,7 @@ export function Header() {
               {/* Contact CTA Button - Reduced size */}
               <Link
                 href="/contact-servicenow-experts"
-                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-9" /* Reduced from h-10 to h-9 */
+                className="hidden sm:inline-flex items-center px-4 py-1.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-[32px]"
                 style={{ 
                   background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
                   boxShadow: "0 8px 25px rgba(109, 40, 217, 0.3)"
@@ -826,7 +824,7 @@ export function Header() {
                       size="sm" 
                       aria-label="Open navigation menu"
                       aria-expanded={isMobileMenuOpen}
-                      className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 h-9 w-9" /* Reduced from h-10 w-10 to h-9 w-9 */
+                      className="rounded-xl hover:bg-blue-50 transition-colors duration-300 focus-visible:outline-2 focus-visible:outline-violet-600 h-[34px] w-[34px]"
                     >
                       <Menu className="h-6 w-6 text-violet-600" aria-hidden="true" />
                     </Button>
@@ -843,7 +841,7 @@ export function Header() {
                     <div className="flex items-center justify-between p-6 border-b border-slate-100">
                       <div className="flex items-center space-x-3">
                         <div 
-                          className="h-8 w-8 rounded-lg flex items-center justify-center"
+                          className="h-7 w-7 rounded-lg flex items-center justify-center"
                           style={{ 
                             background: "linear-gradient(135deg, #1a2e61 0%, #6c28d9 50%, #26a3d9 100%)",
                           }}
@@ -1017,7 +1015,7 @@ export function Header() {
         
         /* Prevent layout shift by reserving space for loading states */
         .layout-stable {
-          min-height: 56px; /* Reduced from 64px to 56px */
+          min-height: 46px;
         }
         
         /* Enhanced dropdown animations */

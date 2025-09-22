@@ -1,622 +1,762 @@
-"use client";
-
-import * as React from "react";
-import { useState } from "react";
+'use client';
+import React, { useState, useEffect } from 'react';
 import Head from "next/head";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { 
-  MapPin, 
-  Clock, 
-  Building, 
-  Search, 
+import { PlaceholderImage } from "@/components/placeholder-image";
+import {
   Users,
-  Trophy,
-  Heart,
-  Zap,
-  ChevronRight,
-  Globe,
-  Coffee,
-  Shield,
-  Star,
-  Award,
-  Phone,
-  Mail,
-  Calendar,
-  LinkedinIcon,
-  Twitter,
-  Youtube,
   ArrowRight,
-  Target,
-  Lightbulb,
-  Code,
-  Database,
-  Cloud,
-  Settings,
-  TrendingUp,
   CheckCircle,
-  Quote,
-  Briefcase,
+  Star,
+  Heart,
+  Rocket,
+  Target,
+  Brain,
+  Globe,
+  MapPin,
+  Clock,
+  DollarSign,
+  MessageCircle,
+  Search,
+  Filter,
+  Calendar,
+  User,
   GraduationCap,
-  DollarSign
+  Coffee,
+  Briefcase,
+  Code,
+  Lightbulb,
+  Award,
+  Shield,
+  Zap,
+  Settings,
+  Database,
+  TrendingUp,
+  Quote,
+  Play,
+  Mail,
+  Phone
 } from "lucide-react";
 
 export default function CareersPage() {
+  const [selectedDepartment, setSelectedDepartment] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedDepartment, setSelectedDepartment] = useState("all");
-  const [selectedLocation, setSelectedLocation] = useState("all");
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
-  // Enhanced JSON-LD for SEO
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % employeeStories.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // SEO JSON-LD
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Careers at IfBash - Join Our ServiceNow Expert Team | Hyderabad",
-    "description": "Join IfBash's team of ServiceNow experts in Hyderabad & globally. Explore exciting career opportunities in digital transformation, workflow automation, and enterprise innovation.",
+    "@type": "Organization",
+    "name": "IfBash Careers - Join Our ServiceNow Team",
+    "description": "Join ifBash's growing team of ServiceNow experts. Competitive benefits, remote work options, career growth opportunities. Build your future in digital transformation.",
     "url": "https://ifbash.com/careers",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "IfBash - ServiceNow Solutions & Digital Transformation Experts",
-      "hiringOrganization": {
-        "@type": "Organization",
-        "name": "IfBash",
-        "url": "https://ifbash.com"
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Hyderabad",
+        "addressRegion": "Telangana",
+        "addressCountry": "India"
       }
+    },
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "IfBash",
+      "url": "https://ifbash.com"
     }
   };
 
+  // Job Openings
   const jobOpenings = [
     {
       id: 1,
       title: "Senior ServiceNow Developer",
       department: "Engineering",
-      location: "Remote",
+      location: "Remote / Hyderabad",
       type: "Full-time",
-      experience: "3-5 years",
-      description: "Lead ServiceNow platform development and customization for enterprise clients. Work with cutting-edge ServiceNow technologies and AI-powered solutions.",
-      skills: ["JavaScript", "ServiceNow", "REST APIs", "ITIL", "AI Integration"]
+      experience: "5+ years",
+      description: "Lead ServiceNow development projects and mentor junior developers in enterprise automation solutions.",
+      skills: ["ServiceNow", "JavaScript", "REST APIs", "ITIL", "Agile"],
+      salary: "₹15-25 LPA"
     },
     {
       id: 2,
       title: "ServiceNow Solution Architect",
       department: "Consulting",
-      location: "Hyderabad, India",
-      type: "Full-time",
-      experience: "5+ years",
-      description: "Design and implement complex ServiceNow solutions for Fortune 500 companies. Lead digital transformation initiatives and client engagements.",
-      skills: ["ServiceNow", "Solution Design", "Client Management", "ITSM", "Digital Strategy"]
+      location: "Hybrid / Remote",
+      type: "Full-time", 
+      experience: "7+ years",
+      description: "Design and architect enterprise ServiceNow solutions for Fortune 500 clients across multiple industries.",
+      skills: ["ServiceNow", "Enterprise Architecture", "ITSM", "ITOM", "CSM"],
+      salary: "₹20-35 LPA"
     },
     {
       id: 3,
-      title: "Technical Project Manager",
-      department: "Operations",
-      location: "Remote",
+      title: "Business Process Consultant",
+      department: "Consulting",
+      location: "Hyderabad / Remote",
       type: "Full-time",
-      experience: "4-6 years",
-      description: "Manage ServiceNow implementation projects and coordinate cross-functional teams. Drive project success and client satisfaction.",
-      skills: ["Project Management", "Agile", "ServiceNow", "Stakeholder Management"]
+      experience: "4+ years",
+      description: "Analyze and optimize business processes to maximize ServiceNow implementation value for clients.",
+      skills: ["Process Optimization", "ITIL", "Change Management", "ServiceNow", "Analytics"],
+      salary: "₹12-20 LPA"
     },
     {
       id: 4,
-      title: "ServiceNow Business Analyst",
-      department: "Consulting",
-      location: "Hyderabad, India",
-      type: "Full-time",
-      experience: "2-4 years",
-      description: "Analyze business requirements and translate them into ServiceNow solutions. Bridge the gap between business needs and technical implementation.",
-      skills: ["Business Analysis", "Process Mapping", "ServiceNow", "Documentation"]
-    },
-    {
-      id: 5,
-      title: "Sales Development Representative",
-      department: "Sales",
-      location: "Remote",
-      type: "Full-time",
-      experience: "1-3 years",
-      description: "Generate qualified leads and build relationships with potential ServiceNow clients. Drive revenue growth and market expansion.",
-      skills: ["Sales", "Lead Generation", "CRM", "Communication", "ServiceNow Knowledge"]
-    },
-    {
-      id: 6,
-      title: "UI/UX Designer",
+      title: "UX/UI Designer - ServiceNow",
       department: "Design",
       location: "Remote",
       type: "Full-time",
-      experience: "2-4 years",
-      description: "Design intuitive user experiences for ServiceNow applications and portals. Create engaging digital experiences for enterprise clients.",
-      skills: ["Figma", "UI Design", "User Research", "Prototyping", "ServiceNow Portals"]
+      experience: "3+ years", 
+      description: "Create intuitive user experiences for ServiceNow applications and portals that delight end users.",
+      skills: ["UI/UX Design", "ServiceNow Portal", "Figma", "HTML/CSS", "User Research"],
+      salary: "₹10-18 LPA"
+    },
+    {
+      id: 5,
+      title: "Technical Project Manager",
+      department: "Operations",
+      location: "Hyderabad / Remote",
+      type: "Full-time",
+      experience: "5+ years",
+      description: "Lead complex ServiceNow implementation projects from initiation to successful delivery.",
+      skills: ["Project Management", "ServiceNow", "Agile", "Scrum", "Client Management"],
+      salary: "₹15-25 LPA"
+    },
+    {
+      id: 6,
+      title: "ServiceNow Sales Engineer",
+      department: "Sales",
+      location: "Bangalore / Remote", 
+      type: "Full-time",
+      experience: "4+ years",
+      description: "Drive pre-sales technical activities and demonstrate ServiceNow value to prospective clients.",
+      skills: ["ServiceNow", "Technical Sales", "Solution Design", "Presentations", "CRM"],
+      salary: "₹12-22 LPA"
     }
   ];
 
+  // Benefits
   const benefits = [
     {
       icon: Heart,
       title: "Health & Wellness",
-      description: "Comprehensive health insurance, dental, vision, and wellness programs for you and your family",
-      color: "from-red-500 to-pink-500",
-      bgColor: "from-red-50 to-pink-50"
+      description: "Comprehensive medical coverage and wellness programs for you and your family",
+      items: ["Premium health insurance", "Mental health support", "Fitness membership", "Wellness stipend"],
+      color: "from-red-500 to-pink-500"
     },
     {
-      icon: Trophy,
-      title: "Professional Growth",
-      description: "ServiceNow certifications, training programs, conference attendance, and continuous learning opportunities",
-      color: "from-yellow-500 to-orange-500",
-      bgColor: "from-yellow-50 to-orange-50"
+      icon: Rocket,
+      title: "Career Growth",
+      description: "Continuous learning opportunities and clear advancement paths",
+      items: ["ServiceNow certifications", "Conference attendance", "Mentorship programs", "Leadership training"],
+      color: "from-blue-500 to-indigo-500"
     },
     {
       icon: Globe,
-      title: "Remote Flexibility",
-      description: "Hybrid and fully remote work options with flexible schedules and work-life balance",
-      color: "from-blue-500 to-indigo-500",
-      bgColor: "from-blue-50 to-indigo-50"
-    },
-    {
-      icon: Coffee,
       title: "Work-Life Balance",
-      description: "Unlimited PTO, sabbatical programs, mental health support, and flexible working hours",
-      color: "from-green-500 to-emerald-500",
-      bgColor: "from-green-50 to-emerald-50"
+      description: "Flexible work arrangements that support your personal life",
+      items: ["Remote work options", "Flexible hours", "Unlimited PTO", "Sabbatical programs"],
+      color: "from-green-500 to-emerald-500"
     },
     {
-      icon: Zap,
-      title: "Innovation Time",
-      description: "20% time for learning, experimentation, personal projects, and emerging technology exploration",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "from-purple-50 to-pink-50"
-    },
-    {
-      icon: Shield,
+      icon: DollarSign,
       title: "Financial Security",
-      description: "Competitive salary, equity options, performance bonuses, 401k matching, and financial planning support",
-      color: "from-indigo-500 to-purple-500",
-      bgColor: "from-indigo-50 to-purple-50"
+      description: "Competitive compensation and comprehensive financial benefits",
+      items: ["Competitive salary", "Performance bonuses", "ESOP participation", "Retirement planning"],
+      color: "from-purple-500 to-violet-500"
     }
   ];
 
-  const departments = ["all", "Engineering", "Consulting", "Sales", "Operations", "Design", "Marketing"];
-  const locations = ["all", "Remote", "Hyderabad, India", "Global", "North America", "Europe"];
-
-  const stats = [
-    { number: "50+", label: "Team Members", description: "Growing global team" },
-    { number: "9+", label: "Years Experience", description: "ServiceNow expertise" },
-    { number: "25+", label: "Countries Served", description: "Global presence" },
-    { number: "95%", label: "Employee Satisfaction", description: "Happy workforce" }
+  // Company Culture Values
+  const cultureValues = [
+    {
+      icon: Users,
+      title: "Collaborative Excellence",
+      description: "We believe the best solutions come from diverse teams working together toward common goals.",
+      color: "from-blue-500 to-indigo-500"
+    },
+    {
+      icon: Brain,
+      title: "Continuous Learning",
+      description: "We invest in our people's growth because curious minds drive innovation and transformation.",
+      color: "from-indigo-500 to-purple-500"
+    },
+    {
+      icon: Target,
+      title: "Client-Centric Impact",
+      description: "Every project we undertake is focused on delivering measurable value to our clients.",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: Shield,
+      title: "Integrity & Trust",
+      description: "We build lasting relationships through transparency, honesty, and reliable delivery.",
+      color: "from-pink-500 to-red-500"
+    }
   ];
 
+  // Employee Stories
+  const employeeStories = [
+    {
+      name: "Priya Sharma",
+      title: "Senior ServiceNow Developer",
+      story: "ifBash gave me the opportunity to work on cutting-edge projects while providing continuous learning and growth. The mentorship here is incredible.",
+      experience: "2 years at ifBash",
+      rating: 5,
+      department: "Engineering"
+    },
+    {
+      name: "Rajesh Kumar",
+      title: "Solution Architect",
+      story: "The collaborative culture and challenging projects have accelerated my career beyond my expectations. ifBash truly invests in its people.",
+      experience: "3 years at ifBash",
+      rating: 5,
+      department: "Consulting"
+    },
+    {
+      name: "Anita Patel",
+      title: "UX Designer",
+      story: "Working at ifBash has been transformative. The team's support and the innovative projects have helped me grow both professionally and personally.",
+      experience: "1.5 years at ifBash",
+      rating: 5,
+      department: "Design"
+    }
+  ];
+
+  const departments = ["All", "Engineering", "Consulting", "Design", "Operations", "Sales"];
+
   const filteredJobs = jobOpenings.filter(job => {
+    const matchesDepartment = selectedDepartment === "All" || job.department === selectedDepartment;
     const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.skills.some(skill => skill.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesDepartment = selectedDepartment === "all" || job.department === selectedDepartment;
-    const matchesLocation = selectedLocation === "all" || job.location === selectedLocation;
-    
-    return matchesSearch && matchesDepartment && matchesLocation;
+                         job.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesDepartment && matchesSearch;
   });
 
   return (
     <>
       <Head>
-        <title>Careers at IfBash - Join Our ServiceNow Expert Team | Digital Transformation Jobs</title>
+        <title>Careers at IfBash - Join Our ServiceNow Team | Remote & Hyderabad Jobs</title>
         <meta
           name="description"
-          content="Join IfBash's team of ServiceNow experts in Hyderabad & globally. Explore exciting career opportunities in digital transformation, workflow automation, and enterprise innovation."
+          content="Join ifBash's growing team of ServiceNow experts. Competitive benefits, remote work options, career growth opportunities. Build your future in digital transformation with us."
+        />
+        <meta
+          name="keywords"
+          content="ifbash careers, ServiceNow jobs, remote jobs India, Hyderabad tech jobs, digital transformation careers, ServiceNow developer jobs, solution architect jobs"
         />
         <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta property="og:title" content="Careers at IfBash - Join Our ServiceNow Team" />
+        <meta property="og:description" content="Join our growing team of ServiceNow experts. Competitive benefits, remote work options, and career growth opportunities." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ifbash.com/careers" />
+
         <link rel="canonical" href="https://ifbash.com/careers" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </Head>
 
-      {/* Fixed Social Links */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-        <a
-          href="https://linkedin.com/company/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
+      {/* Fixed Chat Button */}
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <button 
+          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-green-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95"
+          aria-label="Chat with HR"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
-            <LinkedinIcon className="h-5 w-5" />
-          </div>
-        </a>
-        <a
-          href="https://twitter.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-500 to-blue-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
-            <Twitter className="h-5 w-5" />
-          </div>
-        </a>
-        <a
-          href="https://youtube.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 to-red-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300">
-            <Youtube className="h-5 w-5" />
-          </div>
-        </a>
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+            Chat with HR
+          </span>
+          <div className="absolute inset-0 rounded-full animate-ping bg-green-600 opacity-20"></div>
+        </button>
       </div>
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-900 via-blue-900 to-indigo-900">
+          <div className="absolute inset-0 z-0">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-green-700/20 via-transparent to-transparent animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
+            
+            {/* Floating Elements */}
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-400 rounded-full animate-float opacity-60" />
+            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-float delay-150 opacity-40" />
+            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-indigo-400 rounded-full animate-float delay-300 opacity-80" />
+          </div>
 
-        {/* Hero Section - Strong Blue Gradient */}
-        <section className="relative py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-          
-          <div className="container mx-auto max-w-7xl relative z-10">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="flex items-center space-x-3 mb-6">
-                  <Briefcase className="h-8 w-8 text-blue-200" />
-                  <Badge className="bg-blue-800/50 text-blue-100 border-blue-600 px-4 py-2">
-                    Join Our Team
+              <div className="text-white space-y-8">
+                {/* Trust Badges */}
+                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                  <Badge className="bg-gradient-to-r from-green-500/90 to-blue-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-green-600 hover:to-blue-700 transition-all duration-300">
+                    ✓ Remote-First Culture
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-blue-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300">
+                    ✓ Competitive Benefits
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-indigo-500/90 to-purple-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-indigo-600 hover:to-purple-600 transition-all duration-300">
+                    ✓ Career Growth
                   </Badge>
                 </div>
-                
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-white mb-6">
-                  Build Your Career with
-                  <span className="block text-blue-200 font-light">
-                    ServiceNow Experts
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                  Join the{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400 font-semibold">
+                    ifBash Team
+                  </span>
+                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                    Build Your{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
+                      Future
+                    </span>
                   </span>
                 </h1>
-                
-                <p className="text-xl text-blue-100 leading-relaxed mb-8 max-w-2xl">
-                  Join a team of passionate professionals transforming businesses through ServiceNow innovation, AI-powered solutions, and digital transformation excellence.
+
+                <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-2xl leading-relaxed">
+                  Help organizations transform their "what if" questions into intelligent automation solutions. Build your career while making a real impact on the{' '}
+                  <span className="font-semibold text-blue-300">future of work</span>.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                  <Button 
-                    size="lg" 
-                    className="px-8 py-4 text-lg font-semibold bg-white text-blue-900 hover:bg-blue-50 rounded-xl transition-all duration-300 shadow-xl"
-                    onClick={() => document.getElementById('job-openings')?.scrollIntoView({ behavior: 'smooth' })}
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                  <button 
+                    onClick={() =>
+  document.getElementById('open-positions')?.scrollIntoView({ behavior: 'smooth' })
+}
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600 hover:from-green-700 hover:via-blue-700 hover:to-indigo-700"
+                    style={{
+                      boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)"
+                    }}
                   >
-                    <Search className="mr-2 h-5 w-5" />
-                    View Open Positions
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/70 hover:bg-white/10 rounded-xl transition-all duration-300"
-                    onClick={() => document.getElementById('culture')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    <ArrowRight className="mr-2 h-5 w-5" />
-                    Our Culture
-                  </Button>
+                    <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-blue-400/20 to-indigo-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                    <span className="relative flex items-center justify-center">
+                      View Open Positions
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                    </span>
+                  </button>
+                  
+                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                    <span className="relative flex items-center justify-center">
+                      <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-purple-400 group-hover:text-purple-300" />
+                      Meet the Team
+                    </span>
+                  </button>
                 </div>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-2 gap-6">
-                {stats.map((stat, index) => (
-                  <div key={index} className="text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                    <div className="text-3xl md:text-4xl font-bold text-white mb-2">{stat.number}</div>
-                    <div className="text-blue-200 font-semibold text-sm mb-1">{stat.label}</div>
-                    <div className="text-blue-300 text-xs">{stat.description}</div>
+              {/* Right Side Visual Content */}
+              <div className="relative lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-green-500/15 to-blue-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+                    <PlaceholderImage
+                      title="ifBash Team Culture and Growth"
+                      className="w-full h-full object-cover"
+                      gradient="from-green-600 to-blue-600"
+                    />
                   </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">50+</div>
+                      <div className="text-xs text-green-200">Team Members</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">Remote</div>
+                      <div className="text-xs text-blue-200">First Culture</div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Icons */}
+                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
+                    <div className="w-full h-full bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Users className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
+                    <div className="w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Rocket className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why ifBash Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-green-50/30 relative overflow-hidden">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
+                  Why Choose
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  ifBash?
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Join a team where curiosity meets action, where every "if" becomes an opportunity to create transformational solutions.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {cultureValues.map((value, index) => (
+                <div key={index} className="group text-center bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
+                  <div className={`w-16 h-16 mx-auto mb-4 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                    <value.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-4 text-gray-800">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits & Perks Section */}
+        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
+                  Benefits & Perks
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  We Invest in Our People
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Comprehensive benefits designed to support your personal and professional growth.
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {benefits.map((benefit, index) => (
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
+                  <div className="flex items-start space-x-6">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                      <benefit.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-800">{benefit.title}</h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed text-lg">{benefit.description}</p>
+                      <ul className="space-y-3">
+                        {benefit.items.map((item, idx) => (
+                          <li key={idx} className="flex items-center">
+                            <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                            <span className="text-gray-700">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Open Positions Section */}
+        <section id="open-positions" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
+                  Open Positions
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  Find Your Next Opportunity
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Join our mission to transform organizations through intelligent automation and ServiceNow excellence.
+              </p>
+            </div>
+
+            {/* Search and Filter */}
+            <div className="mb-12 flex flex-col md:flex-row gap-4">
+              <div className="flex-1 relative">
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                <input
+                  type="text"
+                  placeholder="Search positions..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-lg"
+                />
+              </div>
+              <div className="flex gap-2 flex-wrap">
+                {departments.map((dept) => (
+                  <button
+                    key={dept}
+                    onClick={() => setSelectedDepartment(dept)}
+                    className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+                      selectedDepartment === dept
+                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                        : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
+                    }`}
+                  >
+                    {dept}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Job Listings */}
+            <div className="space-y-6">
+              {filteredJobs.map((job) => (
+                <div key={job.id} className="group bg-white rounded-3xl p-8 md:p-12 hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-blue-200 transform hover:-translate-y-2">
+                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+                    <div className="flex-1">
+                      <div className="flex flex-wrap items-center gap-4 mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold text-gray-800">{job.title}</h3>
+                        <Badge className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border border-blue-200">
+                          {job.department}
+                        </Badge>
+                        <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200">
+                          {job.salary}
+                        </Badge>
+                      </div>
+                      
+                      <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-6">
+                        <span className="flex items-center">
+                          <MapPin className="h-5 w-5 mr-2" />
+                          {job.location}
+                        </span>
+                        <span className="flex items-center">
+                          <Clock className="h-5 w-5 mr-2" />
+                          {job.type}
+                        </span>
+                        <span className="flex items-center">
+                          <GraduationCap className="h-5 w-5 mr-2" />
+                          {job.experience}
+                        </span>
+                      </div>
+                      
+                      <p className="text-gray-700 mb-6 text-lg leading-relaxed">{job.description}</p>
+                      
+                      <div className="flex flex-wrap gap-3">
+                        {job.skills.map((skill, index) => (
+                          <span key={index} className="px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-800 rounded-xl text-sm font-medium border border-blue-200">
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="flex-shrink-0">
+                      <button 
+                        onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                        className="w-full lg:w-auto px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                      >
+                        Apply Now
+                        <ArrowRight className="ml-2 h-5 w-5 inline" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {filteredJobs.length === 0 && (
+              <div className="text-center py-16">
+                <div className="text-gray-400 mb-6">
+                  <Briefcase className="h-20 w-20 mx-auto" />
+                </div>
+                <h3 className="text-2xl font-semibold text-gray-600 mb-4">No positions found</h3>
+                <p className="text-gray-500 text-lg">Try adjusting your search criteria or check back later for new opportunities.</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* Employee Stories Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-purple-700/20 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400">
+                  What Our Team Says
+                </span>
+                <br />
+                <span className="text-white">
+                  About Working at ifBash
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+                Hear from our team members about their growth journey and experiences at ifBash.
+              </p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-2xl">
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                  {employeeStories.map((story, index) => (
+                    <div key={index} className="w-full flex-shrink-0">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                        <div className="flex items-center mb-8">
+                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-6">
+                            <User className="h-8 w-8 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold">{story.name}</h3>
+                            <p className="text-blue-200">{story.title}</p>
+                            <p className="text-purple-200 text-sm">{story.experience}</p>
+                          </div>
+                        </div>
+
+                        <div className="mb-6">
+                          <Quote className="h-8 w-8 text-purple-400 mb-4" />
+                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
+                            "{story.story}"
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex text-yellow-400 mr-3">
+                              {[...Array(story.rating)].map((_, i) => (
+                                <Star key={i} className="h-5 w-5 fill-current" />
+                              ))}
+                            </div>
+                            <span className="text-blue-200 text-sm">({story.rating}.0/5.0)</span>
+                          </div>
+                          
+                          <div className="text-right">
+                            <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-200 border border-purple-400/30">
+                              {story.department}
+                            </Badge>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Navigation */}
+              <div className="flex justify-center space-x-2 mt-8">
+                {employeeStories.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonial 
+                        ? 'bg-purple-400 w-8' 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Benefits Section - Clean White Background */}
-        <section className="py-20 px-4 sm:px-6 bg-gray-50">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-blue-100 text-blue-800 mb-6 px-4 py-2 border border-blue-200">
-                Why Choose IfBash
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                Benefits & Perks That
-                <span className="block text-blue-600">
-                  Make The Difference
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                We're not just a ServiceNow partner – we're a community of innovators, problem-solvers, and growth-minded professionals
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <Card key={index} className={`group bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border`}>
-                  <CardHeader className="pb-4">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${benefit.color} flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      <benefit.icon className="h-8 w-8 text-white" />
-                    </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{benefit.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 leading-relaxed">{benefit.description}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Job Listings Section - Pure White Background for Better Readability */}
-        <section id="job-openings" className="py-20 px-4 sm:px-6 bg-white">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-green-100 text-green-800 mb-6 px-4 py-2 border border-green-200">
-                Open Positions
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                Find Your Perfect Role in
-                <span className="block text-green-600">
-                  ServiceNow Excellence
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Explore exciting opportunities to grow your career with our team of ServiceNow specialists
-              </p>
-            </div>
-
-            {/* Search and Filters - Clean White Card */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 mb-12 border border-gray-200">
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="relative">
-                  <Search className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Search jobs, skills, or keywords..."
-                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg bg-white text-gray-900"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-                </div>
-                
-                <div className="relative">
-                  <Building className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                  <select
-                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg appearance-none bg-white text-gray-900"
-                    value={selectedDepartment}
-                    onChange={(e) => setSelectedDepartment(e.target.value)}
-                  >
-                    {departments.map(dept => (
-                      <option key={dept} value={dept}>
-                        {dept === "all" ? "All Departments" : dept}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                
-                <div className="relative">
-                  <MapPin className="absolute left-4 top-4 w-5 h-5 text-gray-400" />
-                  <select
-                    className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lg appearance-none bg-white text-gray-900"
-                    value={selectedLocation}
-                    onChange={(e) => setSelectedLocation(e.target.value)}
-                  >
-                    {locations.map(location => (
-                      <option key={location} value={location}>
-                        {location === "all" ? "All Locations" : location}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            {/* Job Listings - Clean White Cards with Strong Contrast */}
-            <div className="space-y-6">
-              {filteredJobs.length === 0 ? (
-                <div className="text-center py-16">
-                  <div className="w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center">
-                    <Search className="w-12 h-12 text-gray-400" />
-                  </div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-2">No jobs found</h3>
-                  <p className="text-gray-600">Try adjusting your search criteria or check back later for new opportunities.</p>
-                </div>
-              ) : (
-                filteredJobs.map((job) => (
-                  <Card key={job.id} className="group bg-white shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200">
-                    <CardContent className="p-8">
-                      <div className="flex flex-col lg:flex-row lg:items-center justify-between">
-                        <div className="flex-1">
-                          <div className="mb-6">
-                            <h3 className="text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300 mb-3">
-                              {job.title}
-                            </h3>
-                            <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-4">
-                              <span className="flex items-center gap-1">
-                                <Building className="w-4 h-4" />
-                                {job.department}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <MapPin className="w-4 h-4" />
-                                {job.location}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <Clock className="w-4 h-4" />
-                                {job.type}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <Users className="w-4 h-4" />
-                                {job.experience}
-                              </span>
-                            </div>
-                          </div>
-                          
-                          <p className="text-gray-700 mb-6 text-lg leading-relaxed">
-                            {job.description}
-                          </p>
-                          
-                          <div className="flex flex-wrap gap-2 mb-6">
-                            {job.skills.map((skill, skillIndex) => (
-                              <Badge key={skillIndex} className="bg-blue-50 text-blue-700 border border-blue-200 hover:bg-blue-100">
-                                {skill}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        <div className="lg:ml-8">
-                          <Button className="w-full lg:w-auto bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
-                            Apply Now
-                            <ChevronRight className="w-5 h-5" />
-                          </Button>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))
-              )}
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center mt-16">
-              <div className="bg-blue-50 rounded-2xl p-12 shadow-lg border border-blue-200">
-                <h3 className="text-3xl font-bold text-blue-900 mb-4">Don't see the right role?</h3>
-                <p className="text-xl mb-8 text-blue-700">
-                  We're always looking for talented individuals to join our team. Send us your resume!
+        {/* Call to Action */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+            <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
+              <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+              <div className="relative z-10">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                  Ready to Make Your Mark?
+                </h2>
+                <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                  Don't see the perfect role? We're always looking for exceptional talent to join our growing team. Send us your resume and let's explore opportunities together.
                 </p>
-                <Button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl shadow-lg transition-all duration-300">
-                  Submit General Application
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
+                
+                <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
+                  <button 
+                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                    className="px-8 py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  >
+                    Send Us Your Resume
+                    <ArrowRight className="ml-2 h-5 w-5 inline" />
+                  </button>
+                  <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                    <Calendar className="mr-2 h-5 w-5 inline" />
+                    Schedule a Chat
+                  </button>
+                </div>
 
-        {/* Culture Section */}
-        <section id="culture" className="py-20 px-4 sm:px-6 bg-gray-50">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-purple-100 text-purple-800 mb-6 px-4 py-2 border border-purple-200">
-                Our Culture
-              </Badge>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
-                The Philosophy Behind
-                <span className="block text-purple-600">
-                  IfBash Excellence
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                We believe in fostering an environment where innovation thrives and every team member can reach their full potential
-              </p>
-            </div>
-
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="bg-white rounded-2xl p-8 shadow-xl border">
-                <h3 className="text-3xl font-bold text-gray-900 mb-8">What Makes Us Different</h3>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 mt-1 shadow-lg">
-                      <Zap className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-2">Innovation First</h4>
-                      <p className="text-gray-700">We encourage experimentation and provide time for learning new ServiceNow technologies.</p>
-                    </div>
+                {/* Contact Information */}
+                <div className="grid sm:grid-cols-2 gap-6 max-w-md mx-auto">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                    <Mail className="h-6 w-6 text-blue-200 mx-auto mb-2" />
+                    <p className="text-white text-sm font-medium">careers@ifbash.com</p>
                   </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 mt-1 shadow-lg">
-                      <Users className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-2">Collaborative Environment</h4>
-                      <p className="text-gray-700">Cross-functional teams work together on challenging ServiceNow projects with open communication.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center text-white flex-shrink-0 mt-1 shadow-lg">
-                      <Trophy className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-semibold text-gray-900 mb-2">Growth Mindset</h4>
-                      <p className="text-gray-700">Continuous learning opportunities, ServiceNow certifications, and clear career advancement paths.</p>
-                    </div>
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                    <Phone className="h-6 w-6 text-indigo-200 mx-auto mb-2" />
+                    <p className="text-white text-sm font-medium">+91-XXXX-XXXXXX</p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="relative">
-                <div className="relative bg-gray-100 rounded-2xl p-4 shadow-xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-                    alt="IfBash team collaboration"
-                    className="rounded-xl shadow-lg w-full"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 rounded-2xl shadow-xl">
-                  <div className="text-2xl font-bold">95%</div>
-                  <div className="text-sm opacity-90">Employee Satisfaction</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section - Strong Blue Gradient */}
-        <section className="py-20 px-4 sm:px-6 bg-gradient-to-br from-blue-600 via-blue-700 to-blue-900 relative overflow-hidden">
-          <div className="absolute inset-0 bg-black/10"></div>
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-
-          <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <Badge className="bg-blue-800/50 text-blue-100 border-blue-600/50 mb-6 px-4 py-2">
-              Ready to Join Our Team?
-            </Badge>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              Start Your Journey with
-              <span className="block text-blue-200">
-                IfBash Excellence
-              </span>
-            </h2>
-            
-            <p className="text-xl text-blue-100 mb-10 max-w-3xl mx-auto">
-              Connect with our team to discover how you can grow your career with ServiceNow experts and contribute to digital transformation success stories worldwide.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button size="lg" className="px-8 py-4 text-lg font-semibold bg-white text-blue-900 hover:bg-blue-50 rounded-xl transition-all duration-300 shadow-xl">
-                <Users className="mr-2 h-5 w-5" />
-                Apply Now
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/70 hover:bg-white/10 rounded-xl transition-all duration-300"
-              >
-                <Calendar className="mr-2 h-5 w-5" />
-                Schedule Interview
-              </Button>
-            </div>
-            
-            {/* Contact Information */}
-            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <Phone className="h-6 w-6 text-blue-200 mx-auto mb-2" />
-                <p className="text-white text-sm">Call Us</p>
-                <p className="text-blue-200 text-xs">+91-XXXX-XXXXXX</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <Mail className="h-6 w-6 text-blue-200 mx-auto mb-2" />
-                <p className="text-white text-sm">Email Us</p>
-                <p className="text-blue-200 text-xs">careers@ifbash.com</p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <MapPin className="h-6 w-6 text-blue-200 mx-auto mb-2" />
-                <p className="text-white text-sm">Visit Us</p>
-                <p className="text-blue-200 text-xs">Hyderabad, India</p>
               </div>
             </div>
           </div>
         </section>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.1; }
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        .delay-75 {
+          animation-delay: 0.75s;
+        }
+
+        .delay-150 {
+          animation-delay: 1.5s;
+        }
+
+        .delay-300 {
+          animation-delay: 3s;
+        }
+
+        .bg-grid-pattern {
+          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+          background-size: 50px 50px;
+        }
+      `}</style>
     </>
   );
 }

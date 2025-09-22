@@ -1,927 +1,979 @@
-import Head from "next/head";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+'use client';
+import React, { useState, useEffect } from 'react';
+import { PlaceholderImage } from "@/components/placeholder-image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  Workflow,
-  Target,
-  Users,
-  BarChart3,
-  Lightbulb,
-  Rocket,
-  CheckCircle,
-  ArrowRight,
-  TrendingUp,
-  Shield,
-  Zap,
-  Award,
-  Brain,
-  Database,
-  UserCheck,
-  MessageCircle,
-  Star,
-  Quote,
-  Clock,
-  DollarSign,
-  Globe,
-  Phone,
-  Mail,
-  Calendar,
-  Play,
-  Briefcase,
-  Building,
-  Settings,
-  BookOpen,
-  PieChart,
-  Compass,
-  Search,
-  MapPin,
-  FileText,
-  Layers,
-  Activity,
-  ShoppingCart,
-  Store,
-  Package,
-  Truck,
+import { 
   Smartphone,
-  ShoppingBag,
-  CreditCard,
-  Monitor,
-  LinkedinIcon,
-  Twitter,
-  Youtube,
-  ExternalLink,
-} from "lucide-react";
+  Package,
+  ShoppingCart,
+  ChevronRight, 
+  TestTube2,
+  Stethoscope,
+  Play, 
+  Users, 
+  Zap, 
+  Shield, 
+  Award, 
+  ArrowRight, 
+  CheckCircle, 
+  Star, 
+  Bot, 
+  Brain, 
+  Workflow, 
+  Database, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  Calendar, 
+  TrendingUp, 
+  Globe, 
+  Settings, 
+  Target, 
+  Lightbulb, 
+  Rocket, 
+  Heart, 
+  Building, 
+  Factory, 
+  HeartPulse, 
+  Car, 
+  Briefcase, 
+  MonitorSmartphone, 
+  Quote, 
+  Video, 
+  FileText, 
+  Download, 
+  ExternalLink, 
+  Timer, 
+  DollarSign, 
+  BarChart3, 
+  PieChart, 
+  Activity, 
+  Cpu, 
+  CloudLightning, 
+  GraduationCap, 
+  BookOpen, 
+  UserCheck, 
+  Layers, 
+  Cog, 
+  ShoppingBag, 
+  Store, 
+  Microscope, 
+  Music, 
+  MessageCircle, 
+  Wrench, 
+  Clock, 
+  Gauge, 
+  Network, 
+  RefreshCw,        // ✅ Fixed: Replace Sync with RefreshCw
+  CloudDownload,    // ✅ Fixed: Replace CloudArrowDown with CloudDownload
+  Server,           // ✅ Fixed: Replace ServerStack with Server
+  Search, 
+  ChevronDown, 
+  Wind, 
+  Sun, 
+  Battery, 
+  Fuel, 
+  Power, 
+  Plug
+} from 'lucide-react';
 
-export default function ServiceNowRetailEcommercePage() {
-  // Enhanced JSON-LD with comprehensive retail & e-commerce data
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": ["Service", "Organization"],
-    "name": "ServiceNow Retail & E-commerce Solutions - IfBash",
-    "alternateName": ["ServiceNow Retail", "E-commerce Operations", "Omnichannel Commerce", "Retail Digital Transformation"],
-    "description": "Expert ServiceNow retail and e-commerce solutions with omnichannel operations, customer experience management, inventory optimization, order fulfillment. 280+ retail implementations, 45% faster order processing, certified specialists delivering retail excellence globally.",
-    "provider": {
-      "@type": "Organization",
-      "name": "IfBash",
-      "url": "https://ifbash.com",
-      "logo": "https://ifbash.com/images/ifbash-logo.png",
-      "foundingDate": "2016",
-      "numberOfEmployees": "50-100",
-      "sameAs": [
-        "https://www.linkedin.com/company/ifbash",
-        "https://twitter.com/ifbash",
-        "https://www.youtube.com/c/ifbash"
-      ]
-    },
-    "serviceType": [
-      "ServiceNow Retail Solutions",
-      "E-commerce Operations Management",
-      "Omnichannel Commerce",
-      "Customer Experience Management",
-      "Inventory Optimization",
-      "Order Fulfillment Automation",
-      "Retail Service Management"
-    ],
-    "areaServed": {
-      "@type": "Place",
-      "name": ["Global", "India", "United States", "Europe", "Asia Pacific"]
-    },
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Retail Operations Platform",
-        "description": "Complete retail operations management with store systems and omnichannel integration",
-        "category": "Retail Solutions",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer", 
-        "name": "E-commerce Management",
-        "description": "End-to-end e-commerce operations with order management and customer service",
-        "category": "E-commerce Solutions",
-        "availability": "https://schema.org/InStock"
-      },
-      {
-        "@type": "Offer",
-        "name": "Customer Experience Platform",
-        "description": "Unified customer experience management across all retail touchpoints",
-        "category": "Customer Experience",
-        "availability": "https://schema.org/InStock"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "200",
-      "bestRating": "5"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Hyderabad",
-      "addressRegion": "Telangana", 
-      "addressCountry": "IN"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+91-XXXX-XXXXXX",
-      "email": "retail@ifbash.com",
-      "contactType": "sales",
-      "availableLanguage": "English"
-    }
-  };
+// Case Studies Data
+const caseStudies = [
+  {
+    client: "MegaRetail Corp",
+    industry: "E-commerce Platform",
+    challenge: "Customer experience fragmentation across 15 channels with 45% cart abandonment rates costing $89M annually in lost sales",
+    solution: "Unified e-commerce platform with personalized experiences, automated customer service, and seamless omnichannel integration",
+    results: ["78% reduction in cart abandonment", "156% increase in conversion rates", "$134M revenue growth", "92% customer satisfaction"],
+    timeline: "18 weeks implementation",
+    image: "/images/case-studies/megaretail-corp.jpg",
+    testimonial: "ifBash transformed our e-commerce operations from fragmented to unified. Customer conversion rates soared while abandonment rates plummeted."
+  },
+  {
+    client: "FashionHub Global",
+    industry: "Fashion Retail",
+    challenge: "Inventory management chaos across 890 stores with 67% stock-outs and $67M in lost seasonal sales opportunities",
+    solution: "AI-powered inventory optimization platform with demand forecasting, automated replenishment, and real-time stock visibility",
+    results: ["89% reduction in stock-outs", "234% improvement in inventory turnover", "$78M increase in seasonal sales", "Zero overstock situations"],
+    timeline: "22 weeks rollout",
+    image: "/images/case-studies/fashionhub-global.jpg",
+    testimonial: "The inventory intelligence ifBash delivered eliminated stock-outs and maximized our seasonal sales potential across all 890 stores."
+  },
+  {
+    client: "ElectroMart Solutions",
+    industry: "Electronics Retail",
+    challenge: "Customer service inefficiencies with 34-hour average response time and 23% satisfaction rate across digital channels",
+    solution: "Automated customer experience platform with AI-powered support, real-time chat, and personalized recommendations",
+    results: ["91% faster response times", "187% improvement in satisfaction", "$45M cost savings", "95% first-call resolution"],
+    timeline: "16 weeks deployment",
+    image: "/images/case-studies/electromart-solutions.jpg",
+    testimonial: "Customer service transformation with ifBash turned our biggest weakness into our strongest competitive advantage with instant, intelligent support."
+  }
+];
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What are ServiceNow Retail & E-commerce Solutions?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ServiceNow Retail & E-commerce Solutions include omnichannel operations management, customer experience platforms, inventory optimization, order fulfillment automation, store operations, and customer service management designed specifically for retail and e-commerce companies."
-        }
-      },
-      {
-        "@type": "Question", 
-        "name": "How does ServiceNow improve retail operations and customer experience?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "ServiceNow improves retail operations through automated workflows, unified customer data, real-time inventory visibility, streamlined order management, and omnichannel integration that eliminates silos and enhances customer experiences across all touchpoints."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What ROI can retail companies expect?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Retail companies typically achieve 45% faster order processing, 35% improvement in customer satisfaction, 30% reduction in operational costs, and 320% average ROI through ServiceNow retail and e-commerce solutions."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Does ServiceNow support omnichannel retail operations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, ServiceNow provides comprehensive omnichannel support with unified customer profiles, inventory visibility across channels, seamless order management, and consistent experiences across online, mobile, and in-store touchpoints."
-        }
-      }
-    ]
-  };
+// Client Stories
+const clientStories = [
+  {
+    name: "Sarah Chen",
+    title: "Chief Digital Officer",
+    company: "MegaRetail Corp",
+    story: "ifBash's e-commerce expertise transformed our digital presence completely. We went from struggling with cart abandonment to achieving industry-leading conversion rates across all channels.",
+    metric: "78% cart abandonment reduction with 156% conversion increase",
+    rating: 5,
+    avatar: "/images/testimonials/sarah-chen-cdo.jpg"
+  },
+  {
+    name: "Michael Torres",
+    title: "VP of Operations",
+    company: "FashionHub Global", 
+    story: "Inventory nightmares became inventory intelligence with ifBash's platform. We now predict demand perfectly and never miss a seasonal sales opportunity across our 890 stores.",
+    metric: "89% stock-out reduction with $78M seasonal sales increase",
+    rating: 5,
+    avatar: "/images/testimonials/michael-torres-ops.jpg"
+  },
+  {
+    name: "Jennifer Park",
+    title: "Customer Experience Director",
+    company: "ElectroMart Solutions",
+    story: "Customer service was our weakness until ifBash built our AI-powered support platform. Response times dropped from hours to seconds with perfect satisfaction scores.",
+    metric: "91% faster responses with 187% satisfaction improvement",
+    rating: 5,
+    avatar: "/images/testimonials/jennifer-park-cx.jpg"
+  },
+  {
+    name: "David Rodriguez",
+    title: "Head of E-commerce",
+    company: "TechGoods Plus",
+    story: "The personalization engine ifBash created delivers experiences our customers love. Revenue per visitor increased dramatically while operational costs decreased significantly.",
+    metric: "245% improvement in revenue per visitor",
+    rating: 5,
+    avatar: "/images/testimonials/david-rodriguez-ecom.jpg"
+  }
+];
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://ifbash.com"
+// Retail & E-commerce Solutions
+const retailSolutions = [
+  {
+    icon: ShoppingCart,
+    title: "E-commerce Platform Optimization",
+    description: "Maximize online sales with intelligent product recommendations, personalized experiences, and conversion optimization",
+    benefits: ["Conversion optimization", "Personalized experiences", "Smart recommendations"],
+    gradient: "from-green-500 to-emerald-500",
+    useCases: ["Online sales", "Product recommendations", "Customer personalization"]
+  },
+  {
+    icon: Package,
+    title: "Inventory & Supply Chain Intelligence", 
+    description: "Optimize inventory levels with AI-powered demand forecasting, automated replenishment, and real-time stock visibility",
+    benefits: ["Demand forecasting", "Automated replenishment", "Real-time visibility"],
+    gradient: "from-emerald-500 to-teal-500",
+    useCases: ["Inventory optimization", "Demand planning", "Supply chain coordination"]
+  },
+  {
+    icon: Users,
+    title: "Customer Experience Automation",
+    description: "Deliver exceptional customer service with AI-powered support, omnichannel communication, and personalized engagement",
+    benefits: ["AI-powered support", "Omnichannel communication", "Personalized engagement"],
+    gradient: "from-teal-500 to-cyan-500",
+    useCases: ["Customer support", "Live chat", "Service automation"]
+  },
+  {
+    icon: Store,
+    title: "Omnichannel Retail Operations",
+    description: "Unify online and offline experiences with integrated POS, inventory synchronization, and customer journey tracking",
+    benefits: ["Unified experiences", "Inventory sync", "Journey tracking"],
+    gradient: "from-cyan-500 to-blue-500",
+    useCases: ["Store operations", "POS integration", "Customer journeys"]
+  },
+  {
+    icon: BarChart3,
+    title: "Retail Analytics & Intelligence",
+    description: "Leverage data insights for pricing optimization, trend analysis, and performance tracking across all channels",
+    benefits: ["Pricing optimization", "Trend analysis", "Performance tracking"],
+    gradient: "from-blue-500 to-indigo-500",
+    useCases: ["Price optimization", "Market analysis", "Performance metrics"]
+  },
+  {
+    icon: Smartphone,
+    title: "Mobile Commerce Excellence",
+    description: "Optimize mobile shopping experiences with responsive design, mobile payments, and location-based services",
+    benefits: ["Mobile optimization", "Mobile payments", "Location services"],
+    gradient: "from-indigo-500 to-purple-500",
+    useCases: ["Mobile shopping", "Mobile payments", "Location marketing"]
+  }
+];
+
+// Retail Metrics
+const retailMetrics = [
+  {
+    title: "Conversion Rate Improvement",
+    description: "Average increase in e-commerce conversion rates across retail implementations",
+    stat: "156% Better",
+    icon: TrendingUp
+  },
+  {
+    title: "Cart Abandonment Reduction",
+    description: "Average reduction in shopping cart abandonment rates and lost sales",
+    stat: "78% Reduction",
+    icon: ShoppingCart
+  },
+  {
+    title: "Revenue Growth Achievement", 
+    description: "Average revenue increase through retail optimization and customer experience improvements",
+    stat: "$134M Growth",
+    icon: DollarSign
+  },
+  {
+    title: "Customer Satisfaction Score",
+    description: "Average improvement in customer satisfaction and experience ratings",
+    stat: "92% Satisfaction",
+    icon: Heart
+  }
+];
+
+// Implementation Approach
+const implementationApproach = [
+  {
+    phase: "Retail Assessment & Strategy",
+    duration: "Week 1-3",
+    activities: ["E-commerce analysis", "Customer journey mapping", "Inventory assessment", "Channel evaluation", "Technology audit"],
+    deliverables: ["Retail digital strategy", "Customer experience roadmap", "Technology optimization plan", "Integration architecture"],
+    icon: Search,
+    color: "from-green-500 to-emerald-500"
+  },
+  {
+    phase: "Platform Configuration & Integration",
+    duration: "Week 4-12",
+    activities: ["ServiceNow retail setup", "E-commerce platform integration", "Inventory system connection", "Customer service automation", "Mobile optimization"],
+    deliverables: ["Retail platform", "Integrated e-commerce systems", "Automated workflows", "Mobile applications"],
+    icon: Settings,
+    color: "from-emerald-500 to-teal-500"
+  },
+  {
+    phase: "Testing & Optimization",
+    duration: "Week 13-16",
+    activities: ["Performance testing", "User experience validation", "Conversion optimization", "Security testing", "Staff training"],
+    deliverables: ["Optimized retail platform", "Performance reports", "Security validation", "Training materials"],
+    icon: CheckCircle,
+    color: "from-teal-500 to-cyan-500"
+  },
+  {
+    phase: "Launch & Continuous Improvement",
+    duration: "Week 17-20",
+    activities: ["Production launch", "Customer onboarding", "Performance monitoring", "A/B testing", "Optimization cycles"],
+    deliverables: ["Live retail platform", "Customer portal", "Analytics dashboard", "Improvement roadmap"],
+    icon: Rocket,
+    color: "from-cyan-500 to-blue-500"
+  }
+];
+
+// FAQ Data
+const faqs = [
+  {
+    question: "How does ServiceNow improve e-commerce conversion rates?",
+    answer: "ServiceNow enhances e-commerce conversions through intelligent product recommendations, personalized shopping experiences, abandoned cart recovery automation, and seamless checkout processes. Our platform uses AI to understand customer behavior and optimize every touchpoint in the shopping journey."
+  },
+  {
+    question: "What inventory management capabilities does ServiceNow provide for retail?",
+    answer: "ServiceNow offers comprehensive inventory management including AI-powered demand forecasting, automated replenishment, real-time stock visibility across channels, supplier management, and seasonal planning. Our platform helps retailers optimize inventory levels while preventing stock-outs and overstock situations."
+  },
+  {
+    question: "How can ServiceNow enhance customer service for retail businesses?",
+    answer: "ServiceNow transforms retail customer service with AI-powered chatbots, omnichannel support, automated ticket routing, personalized assistance, and real-time order tracking. Customers receive instant, intelligent support across all channels while reducing operational costs."
+  },
+  {
+    question: "What omnichannel retail capabilities are included?",
+    answer: "ServiceNow provides unified omnichannel experiences including inventory synchronization across channels, consistent customer profiles, seamless order fulfillment, cross-channel promotions, and integrated loyalty programs. Customers enjoy consistent experiences whether shopping online, mobile, or in-store."
+  },
+  {
+    question: "How does ServiceNow support mobile commerce optimization?",
+    answer: "ServiceNow optimizes mobile commerce through responsive design optimization, mobile payment integration, location-based marketing, push notifications, and mobile-specific personalization. Our platform ensures seamless mobile shopping experiences that drive conversions."
+  },
+  {
+    question: "What ROI can retail businesses expect from ServiceNow?",
+    answer: "Retail businesses typically see 40-80% improvements in conversion rates, 30-60% reductions in cart abandonment, and 25-50% increases in revenue per visitor. Most retailers achieve positive ROI within 12-18 months through improved sales performance and operational efficiency."
+  },
+  {
+    question: "How does ServiceNow integrate with existing retail systems?",
+    answer: "ServiceNow seamlessly integrates with e-commerce platforms, point-of-sale systems, inventory management solutions, customer relationship management tools, and marketing automation platforms. Our extensive retail API library ensures smooth integration with existing technology stacks."
+  },
+  {
+    question: "What analytics and reporting capabilities are available for retail?",
+    answer: "ServiceNow provides comprehensive retail analytics including sales performance tracking, customer behavior analysis, inventory optimization reports, conversion funnel analysis, and predictive insights. Retailers gain actionable intelligence to optimize operations and drive growth."
+  }
+];
+
+export default function RetailEcommerce() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+ const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState({});
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTestimonial(prev => (prev + 1) % clientStories.length);
+    }, 6000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
+          }
+        });
       },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Industries",
-        "item": "https://ifbash.com/industries"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Retail & E-commerce",
-        "item": "https://ifbash.com/industries/retail-ecommerce"
-      }
-    ]
-  };
+      { threshold: 0.1 }
+    );
+
+    const elements = document.querySelectorAll('[data-animate]');
+    elements.forEach(el => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
-      <Head>
-        <title>ServiceNow Retail & E-commerce Solutions | Omnichannel Operations | IfBash</title>
-        <meta
-          name="description"
-          content="Expert ServiceNow retail and e-commerce solutions in Hyderabad & globally. Omnichannel operations, customer experience management, inventory optimization. 280+ retail implementations, 45% faster processing, 35% customer satisfaction boost. Certified specialists."
-        />
-        <meta 
-          name="keywords" 
-          content="ServiceNow retail, e-commerce solutions, omnichannel operations, retail customer experience, inventory management, ServiceNow retail operations, order fulfillment automation Hyderabad, retail service management, customer journey optimization, digital commerce platform"
-        />
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="author" content="IfBash - ServiceNow Retail Specialists" />
-        <meta name="geo.region" content="IN-TG" />
-        <meta name="geo.placename" content="Hyderabad" />
-        <meta name="geo.position" content="17.3850;78.4867" />
-        
-        {/* Open Graph Tags */}
-        <meta property="og:title" content="ServiceNow Retail & E-commerce Solutions | Omnichannel Excellence | IfBash" />
-        <meta property="og:description" content="Leading ServiceNow retail solutions with 280+ implementations. Omnichannel operations, customer experience management, inventory optimization. Certified specialists delivering retail excellence globally." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ifbash.com/industries/retail-ecommerce" />
-        <meta property="og:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:site_name" content="IfBash" />
-        <meta property="og:locale" content="en_US" />
-        
-        {/* Twitter Cards */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@ifbash" />
-        <meta name="twitter:title" content="ServiceNow Retail & E-commerce Solutions | Omnichannel Operations | IfBash" />
-        <meta name="twitter:description" content="Expert ServiceNow retail solutions with 280+ implementations. Omnichannel operations, customer experience by certified specialists." />
-        <meta name="twitter:image" content="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80" />
-        
-        {/* Additional SEO Tags */}
-        <meta name="language" content="English" />
-        <meta name="revisit-after" content="7 days" />
-        <meta name="distribution" content="global" />
-        <meta name="rating" content="general" />
-        <meta name="theme-color" content="#3b82f6" />
-        
-        {/* Canonical URL */}
-        <link rel="canonical" href="https://ifbash.com/industries/retail-ecommerce" />
-        
-        {/* Preloading */}
-        <link rel="preload" href="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1920&q=80" as="image" />
-        <link rel="dns-prefetch" href="//images.unsplash.com" />
-        <link rel="preconnect" href="https://images.unsplash.com" />
-        
-        {/* Structured Data */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-        />
-      </Head>
-      
-      {/* Fixed Social Links */}
-      <div className="fixed left-4 top-1/2 -translate-y-1/2 z-50 hidden lg:flex flex-col gap-3">
-        <a
-          href="https://linkedin.com/company/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on LinkedIn"
+      {/* Fixed Chat Button */}
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <button 
+          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-green-600 to-emerald-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95"
+          aria-label="Chat with Retail Expert"
         >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-blue-500/25">
-            <LinkedinIcon className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on LinkedIn
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+            Chat with Retail Expert
           </span>
-        </a>
-
-        <a
-          href="https://twitter.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Follow ifBash on Twitter"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-sky-400 via-blue-500 to-cyan-500 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-sky-500/25">
-            <Twitter className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Follow on Twitter
-          </span>
-        </a>
-
-        <a
-          href="https://youtube.com/ifbash"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group relative flex items-center"
-          aria-label="Watch ifBash on YouTube"
-        >
-          <div className="w-12 h-12 rounded-full bg-gradient-to-r from-red-500 via-red-600 to-rose-600 flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-all duration-300 hover:shadow-red-500/25">
-            <Youtube className="h-5 w-5" />
-          </div>
-          <span className="absolute left-14 px-3 py-2 bg-white text-gray-800 rounded-md shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm border">
-            Watch on YouTube
-          </span>
-        </a>
+          <div className="absolute inset-0 rounded-full animate-ping bg-green-600 opacity-20"></div>
+        </button>
       </div>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-rose-50/30 to-pink-50/30">
-
-        {/* HERO SECTION */}
-        <section className="relative py-16 md:py-24 lg:py-32 px-4 sm:px-6 bg-gradient-to-br from-rose-900 via-pink-900 to-purple-950 overflow-hidden">
-          {/* Background Elements */}
+      <div className="min-h-screen bg-gray-50">
+        {/* Hero Section */}
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900">
+          {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-rose-600/10 via-pink-600/5 to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-pink-600/10 via-purple-600/5 to-transparent" />
-            <div className="absolute top-1/3 left-1/4 w-96 h-96 bg-gradient-to-r from-rose-600/20 to-pink-600/20 rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-gradient-to-r from-pink-600/15 to-purple-600/15 rounded-full blur-3xl animate-pulse delay-1000" />
-          </div>
-          
-          <div className="container mx-auto max-w-7xl relative z-10">
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-              <Badge className="bg-gradient-to-r from-rose-500 via-pink-500 to-purple-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-rose-500/25 transition-all duration-300">
-                ✓ Retail Industry Experts
-              </Badge>
-              <Badge className="bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-pink-500/25 transition-all duration-300">
-                ✓ 280+ Retail Implementations
-              </Badge>
-              <Badge className="bg-gradient-to-r from-purple-500 via-indigo-600 to-blue-600 text-white border-transparent px-4 py-2 shadow-lg hover:shadow-purple-500/25 transition-all duration-300">
-                ✓ Omnichannel Specialists
-              </Badge>
-            </div>
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-green-700/20 via-transparent to-transparent animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-emerald-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h1 className="text-4xl md:text-5xl lg:text-7xl font-light leading-tight text-white mb-6">
-                  ServiceNow for
-                  <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 font-semibold">
-                    Retail &
+            {/* Floating Retail Elements */}
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-400 rounded-full animate-float opacity-60" />
+            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-emerald-400 rounded-full animate-float delay-150 opacity-40" />
+            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-teal-400 rounded-full animate-float delay-300 opacity-80" />
+            
+            {/* Shopping Cart Pattern */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
+              <ShoppingCart className="w-full h-full text-white animate-pulse" />
+            </div>
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-8">
+                {/* Trust Badges */}
+                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                  <Badge className="bg-gradient-to-r from-green-500/90 to-emerald-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-green-600 hover:to-emerald-700 transition-all duration-300">
+                    ✓ 156% Better Conversions
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-emerald-500/90 to-teal-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-emerald-600 hover:to-teal-700 transition-all duration-300">
+                    ✓ 78% Less Abandonment
+                  </Badge>
+                  <Badge className="bg-gradient-to-r from-teal-500/90 to-cyan-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-teal-600 hover:to-cyan-600 transition-all duration-300">
+                    ✓ $134M Growth
+                  </Badge>
+                </div>
+
+                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                  ServiceNow for{' '}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 font-semibold">
+                    Retail & E-commerce
                   </span>
-                  <span className="block text-2xl md:text-3xl lg:text-4xl mt-4">
-                    E-commerce{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 font-semibold">
+                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                    Digital Commerce{' '}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 font-semibold">
                       Excellence
                     </span>
                   </span>
                 </h1>
-                
-                <p className="text-xl md:text-2xl text-rose-100 leading-relaxed mb-8 max-w-2xl">
-                  Transform retail operations with omnichannel excellence. Our certified specialists deliver{' '}
-                  <span className="font-semibold text-pink-300">unified commerce solutions</span>, customer experience optimization, and intelligent automation that drives retail innovation and customer satisfaction across all channels.
+
+                <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-2xl leading-relaxed">
+                  Transform retail operations with <span className="font-semibold text-emerald-300">intelligent e-commerce</span>, personalized customer experiences, and seamless omnichannel integration. Achieve <span className="font-semibold text-teal-300">156% better conversions</span> with <span className="font-semibold text-cyan-300">$134M growth</span>.
                 </p>
-                
-                {/* CTA Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 mb-10">
-                  <Button 
-                    size="lg" 
-                    className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-rose-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700"
+
+                {/* Key Benefits */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+                  <div className="group bg-gradient-to-br from-green-600/20 via-emerald-600/20 to-teal-600/20 hover:from-green-600/30 hover:via-emerald-600/30 hover:to-teal-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-green-400/20 hover:border-green-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400">156%</div>
+                    <div className="text-xs sm:text-sm text-green-100">Conversions</div>
+                  </div>
+                  <div className="group bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20 hover:from-emerald-600/30 hover:via-teal-600/30 hover:to-cyan-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-emerald-400/20 hover:border-emerald-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">78%</div>
+                    <div className="text-xs sm:text-sm text-emerald-100">Less Abandonment</div>
+                  </div>
+                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-teal-600/20 via-cyan-600/20 to-blue-600/20 hover:from-teal-600/30 hover:via-cyan-600/30 hover:to-blue-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-teal-400/20 hover:border-teal-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400">$134M</div>
+                    <div className="text-xs sm:text-sm text-teal-100">Growth</div>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                  <button 
+                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700"
+                    style={{
+                      boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)"
+                    }}
                   >
-                    <ShoppingCart className="mr-2 h-5 w-5" />
-                    Transform Retail Operations
-                  </Button>
-                  <Button 
-                    size="lg" 
-                    variant="outline" 
-                    className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/60 rounded-xl hover:bg-white/10 hover:text-white hover:border-white transition-all duration-300 backdrop-blur-md bg-white/10"
-                  >
-                    <Play className="mr-2 h-5 w-5" />
-                    View Retail Demo
-                  </Button>
-                </div>
-
-                {/* Trust Indicators */}
-                <div className="flex flex-wrap gap-6 pt-8 border-t border-white/20">
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Store className="h-5 w-5 text-rose-600" />
-                    <span className="text-sm text-gray-900 font-semibold">Store Operations</span>
-                  </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Monitor className="h-5 w-5 text-pink-600" />
-                    <span className="text-sm text-gray-900 font-semibold">E-commerce</span>
-                  </div>
-                  <div className="h-12 px-4 py-2 bg-white/20 backdrop-blur-md rounded-lg flex items-center space-x-2 border border-white/10 shadow">
-                    <Users className="h-5 w-5 text-purple-700" />
-                    <span className="text-sm text-gray-900 font-semibold">Customer Experience</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Key Metrics */}
-              <div className="grid grid-cols-2 gap-6">
-                <div className="bg-gradient-to-br from-rose-600/25 via-pink-600/20 to-purple-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-rose-600/35 hover:via-pink-600/30 hover:to-purple-600/25 transition-all duration-300 border border-rose-400/20 shadow-xl hover:shadow-rose-500/20">
-                  <ShoppingBag className="h-12 w-12 text-rose-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">280+</div>
-                  <div className="text-rose-200 text-sm">Retail Projects</div>
-                </div>
-                <div className="bg-gradient-to-br from-pink-600/25 via-purple-600/20 to-indigo-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-pink-600/35 hover:via-purple-600/30 hover:to-indigo-600/25 transition-all duration-300 border border-pink-400/20 shadow-xl hover:shadow-pink-500/20">
-                  <Zap className="h-12 w-12 text-pink-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">45%</div>
-                  <div className="text-pink-200 text-sm">Faster Order Processing</div>
-                </div>
-                <div className="bg-gradient-to-br from-purple-600/25 via-indigo-600/20 to-blue-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-purple-600/35 hover:via-indigo-600/30 hover:to-blue-600/25 transition-all duration-300 border border-purple-400/20 shadow-xl hover:shadow-purple-500/20">
-                  <Star className="h-12 w-12 text-purple-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">35%</div>
-                  <div className="text-purple-200 text-sm">Customer Satisfaction</div>
-                </div>
-                <div className="bg-gradient-to-br from-indigo-600/25 via-blue-600/20 to-cyan-600/15 backdrop-blur-md rounded-2xl p-6 text-center hover:from-indigo-600/35 hover:via-blue-600/30 hover:to-cyan-600/25 transition-all duration-300 border border-indigo-400/20 shadow-xl hover:shadow-indigo-500/20">
-                  <TrendingUp className="h-12 w-12 text-indigo-400 mx-auto mb-4" />
-                  <div className="text-3xl font-bold text-white">320%</div>
-                  <div className="text-indigo-200 text-sm">Average ROI</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* RETAIL CHALLENGES SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-rose-50/30 to-pink-50/30">
-          <div className="container mx-auto max-w-7xl">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="mb-8">
-                  <Badge className="bg-gradient-to-r from-rose-100 via-pink-100 to-purple-100 text-rose-700 mb-6 px-4 py-2 border border-rose-200/50">
-                    Retail Transformation
-                  </Badge>
-                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                    Driving Retail &
-                    <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
-                      E-commerce Innovation
+                    <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-emerald-400/20 to-teal-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                    <span className="relative flex items-center justify-center">
+                      Transform E-commerce Operations
+                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </h2>
-                </div>
-                
-                <div className="space-y-6 text-lg text-gray-700">
-                  <p className="leading-relaxed">
-                    Retail and e-commerce companies face unprecedented challenges: omnichannel customer expectations, inventory complexity, rapid fulfillment demands, and operational efficiency. ServiceNow delivers{' '}
-                    <span className="text-rose-600 font-semibold">unified retail solutions</span> that connect stores, warehouses, customers, and corporate systems through intelligent workflows and real-time visibility.
-                  </p>
-                  <p className="leading-relaxed">
-                    From <strong>omnichannel operations</strong> to{' '}
-                    <strong>customer experience management</strong>, our retail-specific platforms streamline operations, enhance customer journeys, and accelerate digital transformation while maintaining brand consistency across all touchpoints.
-                  </p>
-                  <p className="leading-relaxed">
-                    We help retailers overcome fragmented systems, operational silos, and customer service challenges through{' '}
-                    <span className="text-pink-600 font-semibold">AI-powered automation</span> that drives customer satisfaction and operational excellence.
-                  </p>
-                </div>
-                
-                {/* Retail Challenges */}
-                <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                  {[
-                    "Omnichannel Operations",
-                    "Inventory Optimization", 
-                    "Customer Experience",
-                    "Order Fulfillment",
-                    "Store Operations",
-                    "Supply Chain Visibility"
-                  ].map((challenge, index) => (
-                    <div key={index} className="flex items-center space-x-3 p-3 bg-white/90 backdrop-blur-sm rounded-lg border border-rose-200/50 shadow-sm">
-                      <CheckCircle className="h-5 w-5 text-rose-600 flex-shrink-0" />
-                      <span className="text-gray-800 font-medium">{challenge}</span>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-8">
-                  <Button className="bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-rose-500/25 transition-all duration-300">
-                    Explore Solutions
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  </button>
+                  
+                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
+                    <span className="relative flex items-center justify-center">
+                      <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-cyan-400 group-hover:text-cyan-300" />
+                      Watch Retail Demo
+                    </span>
+                  </button>
                 </div>
               </div>
-              
-              <div className="relative order-1 lg:order-2">
-                <div className="relative bg-gradient-to-br from-rose-100 via-pink-100 to-purple-100 rounded-2xl p-4 shadow-2xl">
-                  <img
-                    src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80"
-                    alt="Modern retail store with omnichannel technology and seamless customer experience"
-                    className="rounded-xl shadow-xl w-full"
-                    loading="eager"
-                    width="800"
-                    height="600"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 text-white p-6 rounded-2xl shadow-2xl border border-white/20">
-                  <div className="text-2xl font-bold">280+</div>
-                  <div className="text-sm opacity-90">Retail Solutions</div>
+
+              {/* Right Side Visual Content */}
+              <div className="relative lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-green-500/15 to-emerald-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+                    <PlaceholderImage
+                      title="E-commerce Analytics Dashboard"
+                      className="w-full h-full object-cover"
+                      gradient="from-green-600 to-emerald-600"
+                    />
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">156%</div>
+                      <div className="text-xs text-green-200">Conversions</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                      <div className="text-2xl font-bold text-white mb-1">78%</div>
+                      <div className="text-xs text-emerald-200">Less Abandonment</div>
+                    </div>
+                  </div>
+                  
+                  {/* Floating Retail Icons */}
+                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
+                    <div className="w-full h-full bg-gradient-to-r from-green-600 to-emerald-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <ShoppingCart className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
+                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
+                    <div className="w-full h-full bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
+                      <Store className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* RETAIL SOLUTIONS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-gray-50 via-rose-50/50 to-pink-50/30 relative overflow-hidden">
+        {/* Solutions Overview Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-green-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-rose-500/5 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-pink-500/5 via-transparent to-transparent" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-green-100/30 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-emerald-100/30 via-transparent to-transparent" />
           </div>
-          
-          <div className="container mx-auto max-w-7xl relative z-10">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-rose-100 via-pink-100 to-purple-100 text-rose-700 mb-6 px-4 py-2 border border-rose-200/50">
-                Retail Solutions Portfolio
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Complete Retail &
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
-                  E-commerce Platform
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="solutions-overview">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+                  Retail Solutions
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  That Drive Sales
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Comprehensive ServiceNow solutions designed to transform retail operations, enhance customer experiences, and optimize the entire retail value chain from store to customer
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Transform every aspect of retail operations with intelligent solutions designed for the digital commerce era.
               </p>
             </div>
-            
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  icon: Store,
-                  title: "Retail Operations Management",
-                  description: "Unified retail operations with store management, task automation, incident handling, and real-time visibility across all locations.",
-                  features: ["Store Management", "Task Automation", "Incident Handling", "Performance Analytics"],
-                  gradient: "from-rose-600 to-pink-600",
-                  bgGradient: "from-rose-50 via-pink-50 to-purple-50"
-                },
-                {
-                  icon: Monitor,
-                  title: "E-commerce Operations",
-                  description: "End-to-end e-commerce platform with order management, payment processing, inventory sync, and customer service integration.",
-                  features: ["Order Management", "Payment Processing", "Inventory Sync", "Customer Service"],
-                  gradient: "from-pink-600 to-purple-600",
-                  bgGradient: "from-pink-50 via-purple-50 to-indigo-50"
-                },
-                {
-                  icon: ShoppingCart,
-                  title: "Omnichannel Commerce",
-                  description: "Seamless customer experience across all channels with unified inventory, order orchestration, and consistent brand experience.",
-                  features: ["Unified Inventory", "Order Orchestration", "Channel Integration", "Brand Consistency"],
-                  gradient: "from-purple-600 to-indigo-600",
-                  bgGradient: "from-purple-50 via-indigo-50 to-blue-50"
-                },
-                {
-                  icon: Users,
-                  title: "Customer Experience Management",
-                  description: "Comprehensive customer journey optimization with personalization, loyalty programs, and omnichannel support.",
-                  features: ["Journey Optimization", "Personalization", "Loyalty Programs", "Omnichannel Support"],
-                  gradient: "from-indigo-600 to-blue-600",
-                  bgGradient: "from-indigo-50 via-blue-50 to-cyan-50"
-                },
-                {
-                  icon: Package,
-                  title: "Inventory & Fulfillment",
-                  description: "Real-time inventory management with demand forecasting, automated replenishment, and optimized fulfillment workflows.",
-                  features: ["Demand Forecasting", "Auto Replenishment", "Fulfillment Optimization", "Stock Management"],
-                  gradient: "from-blue-600 to-cyan-600",
-                  bgGradient: "from-blue-50 via-cyan-50 to-teal-50"
-                },
-                {
-                  icon: Smartphone,
-                  title: "Mobile Commerce Platform",
-                  description: "Mobile-first commerce platform with app management, push notifications, location services, and mobile payments.",
-                  features: ["Mobile App Management", "Push Notifications", "Location Services", "Mobile Payments"],
-                  gradient: "from-cyan-600 to-teal-600",
-                  bgGradient: "from-cyan-50 via-teal-50 to-green-50"
-                }
-              ].map((solution, index) => (
-                <Card key={index} className={`bg-gradient-to-br ${solution.bgGradient} shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-200/50 overflow-hidden backdrop-blur-sm`}>
-                  <CardHeader className="pb-4">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${solution.gradient} flex items-center justify-center mb-4 shadow-xl`}>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+              {retailSolutions.map((solution, index) => (
+                <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-green-100 hover:border-green-300 transform hover:-translate-y-2">
+                  <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  <div className="relative z-10">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${solution.gradient} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
                       <solution.icon className="h-8 w-8 text-white" />
                     </div>
-                    <CardTitle className="text-xl font-bold text-gray-900">{solution.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
+                    
+                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                      {solution.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 mb-6 leading-relaxed">
                       {solution.description}
                     </p>
-                    <div className="space-y-3">
-                      {solution.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center space-x-3 p-2 bg-white/80 backdrop-blur-sm rounded-lg border border-gray-300/30 shadow-sm">
-                          <CheckCircle className="h-4 w-4 text-rose-600 flex-shrink-0" />
-                          <span className="text-sm text-gray-800 font-medium">{feature}</span>
+
+                    <div className="space-y-3 mb-6">
+                      {solution.benefits.map((benefit, idx) => (
+                        <div key={idx} className="flex items-center">
+                          <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                          <span className="text-gray-700 text-sm">{benefit}</span>
                         </div>
                       ))}
                     </div>
-                  </CardContent>
-                </Card>
+
+                    <div className="border-t border-gray-100 pt-4">
+                      <h4 className="text-sm font-semibold text-gray-500 mb-2">Use Cases:</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {solution.useCases.map((useCase, idx) => (
+                          <span key={idx} className="px-2 py-1 bg-green-50 text-green-700 text-xs rounded-md">
+                            {useCase}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               ))}
             </div>
-            
-            {/* Additional Retail Capabilities */}
-            <div className="mt-16">
-              <h3 className="text-2xl font-bold text-center text-gray-900 mb-8">
-                Advanced Retail Capabilities
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                {[
-                  { icon: CreditCard, name: "Payment Integration", desc: "Multi-gateway processing", gradient: "from-orange-50 to-yellow-50", iconColor: "text-orange-600" },
-                  { icon: BarChart3, name: "Retail Analytics", desc: "Sales & customer insights", gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
-                  { icon: Truck, name: "Supply Chain", desc: "End-to-end visibility", gradient: "from-blue-50 to-cyan-50", iconColor: "text-blue-600" },
-                  { icon: Brain, name: "AI Personalization", desc: "Smart recommendations", gradient: "from-purple-50 to-violet-50", iconColor: "text-purple-600" }
-                ].map((capability, index) => (
-                  <div key={index} className={`text-center p-6 bg-gradient-to-br ${capability.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
-                    <capability.icon className={`h-10 w-10 mx-auto mb-3 ${capability.iconColor}`} />
-                    <h4 className="font-semibold text-gray-900 mb-2">{capability.name}</h4>
-                    <p className="text-sm text-gray-600">{capability.desc}</p>
+
+            {/* Retail Metrics Stats */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {retailMetrics.map((metric, index) => (
+                <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-green-200">
+                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+                    <metric.icon className="h-8 w-8 text-white" />
                   </div>
+                  <div className="text-2xl font-bold text-green-600 mb-2">{metric.stat}</div>
+                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{metric.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{metric.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Implementation Approach Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-green-900 to-emerald-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+          
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="implementation">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400">
+                  Our Retail Implementation
+                </span>
+                <br />
+                <span className="text-white">
+                  Approach
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-green-100 max-w-3xl mx-auto leading-relaxed">
+                A specialized 4-phase methodology designed specifically for retail requirements and e-commerce optimization.
+              </p>
+            </div>
+
+            <div className="space-y-12">
+              {implementationApproach.map((phase, index) => (
+                <div key={index} className="group relative" data-animate id={`phase-${index}`}>
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                      <div className="flex items-center mb-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                          <phase.icon className="h-8 w-8 text-white" />
+                        </div>
+                        <div>
+                          <h3 className="text-2xl font-bold mb-2">{phase.phase}</h3>
+                          <div className="text-green-200 flex items-center">
+                            <Clock className="h-4 w-4 mr-2" />
+                            {phase.duration}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-semibold mb-3 text-green-200">Key Activities</h4>
+                          <div className="space-y-2">
+                            {phase.activities.map((activity, idx) => (
+                              <div key={idx} className="flex items-center">
+                                <CheckCircle className="h-4 w-4 text-green-400 mr-3 flex-shrink-0" />
+                                <span className="text-gray-300 text-sm">{activity}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold mb-3 text-green-200">Key Deliverables</h4>
+                          <div className="space-y-2">
+                            {phase.deliverables.map((deliverable, idx) => (
+                              <div key={idx} className="flex items-center">
+                                <FileText className="h-4 w-4 text-emerald-400 mr-3 flex-shrink-0" />
+                                <span className="text-gray-300 text-sm">{deliverable}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div className="relative">
+                        <div className={`aspect-square bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-3xl p-8 backdrop-blur-sm border border-green-400/20 hover:border-green-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                          <div className={`w-full h-full bg-gradient-to-br from-green-600/30 to-emerald-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
+                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+                            <div className="text-center relative z-10">
+                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400 mb-4">
+                                0{index + 1}
+                              </div>
+                              <div className="text-lg font-semibold text-green-200">
+                                {phase.phase.split(' & ')[0]}
+                              </div>
+                              <div className="text-sm text-green-300 mt-2">
+                                {phase.duration}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {index < implementationApproach.length - 1 && (
+                    <div className="flex justify-center mt-8 mb-8">
+                      <div className="w-px h-12 bg-gradient-to-b from-green-500 to-emerald-500 opacity-50"></div>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <button 
+                onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700 transform hover:scale-105"
+                style={{
+                  boxShadow: "0 20px 40px rgba(34, 197, 94, 0.4)"
+                }}
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-green-400/20 via-emerald-400/20 to-teal-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <span className="relative flex items-center justify-center">
+                  Start Your Retail Transformation
+                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                </span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* Case Studies Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-emerald-100/30 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-green-100/30 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="case-studies">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600">
+                  Retail Success
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  Stories
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                See how retail leaders have transformed their operations with ServiceNow solutions that drive sales and enhance customer experiences.
+              </p>
+            </div>
+
+            <div className="space-y-12">
+              {caseStudies.map((study, index) => (
+                <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
+                  <div className="grid lg:grid-cols-2 gap-8 items-center">
+                    <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                      <div className="flex items-center mb-6">
+                        <Badge className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-sm px-4 py-2">
+                          {study.industry}
+                        </Badge>
+                        <Badge className="ml-3 bg-gradient-to-r from-green-500 to-teal-500 text-white text-sm px-4 py-2">
+                          {study.timeline}
+                        </Badge>
+                      </div>
+
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                        {study.client}
+                      </h3>
+
+                      <div className="space-y-6">
+                        <div>
+                          <h4 className="text-lg font-semibold text-red-600 mb-2">Challenge</h4>
+                          <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold text-blue-600 mb-2">Solution</h4>
+                          <p className="text-gray-600 leading-relaxed">{study.solution}</p>
+                        </div>
+
+                        <div>
+                          <h4 className="text-lg font-semibold text-green-600 mb-3">Results</h4>
+                          <div className="grid md:grid-cols-2 gap-3">
+                            {study.results.map((result, idx) => (
+                              <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
+                                <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
+                                <span className="text-gray-700 text-sm font-medium">{result}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        <div className="bg-gradient-to-r from-emerald-50 to-green-50 rounded-xl p-4 border-l-4 border-emerald-500">
+                          <Quote className="h-6 w-6 text-emerald-500 mb-2" />
+                          <p className="text-gray-700 italic leading-relaxed">"{study.testimonial}"</p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
+                      <div className="relative">
+                        <div className="aspect-square bg-gradient-to-br from-emerald-100 to-green-100 rounded-2xl p-6 overflow-hidden">
+                          <PlaceholderImage
+                            title={`${study.client} Retail Solution`}
+                            className="w-full h-full object-cover rounded-xl"
+                            gradient="from-emerald-600 to-green-600"
+                          />
+                        </div>
+                        
+                        {/* Floating Stats */}
+                        <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-emerald-200">
+                          <div className="text-lg font-bold text-emerald-600">{study.timeline.split(' ')[0]}</div>
+                          <div className="text-xs text-gray-600">Weeks</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Client Testimonials Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-r from-emerald-900 via-green-900 to-teal-900 text-white relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
+            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-teal-700/20 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-emerald-700/20 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="testimonials">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-emerald-400 to-green-400">
+                  What Retail Leaders Say
+                </span>
+                <br />
+                <span className="text-white">
+                  About Our Solutions
+                </span>
+              </h2>
+              <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
+                Hear from retail executives who transformed their operations with our ServiceNow solutions.
+              </p>
+            </div>
+
+            <div className="relative max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-2xl">
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                  {clientStories.map((story, index) => (
+                    <div key={index} className="w-full flex-shrink-0">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                        <div className="flex items-center mb-8">
+                          <div className="w-16 h-16 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full flex items-center justify-center mr-6">
+                            <ShoppingCart className="h-8 w-8 text-white" />
+                          </div>
+                          <div>
+                            <h3 className="text-xl font-bold">{story.name}</h3>
+                            <p className="text-emerald-200">{story.title}, {story.company}</p>
+                          </div>
+                        </div>
+
+                        <div className="mb-6">
+                          <Quote className="h-8 w-8 text-teal-400 mb-4" />
+                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
+                            {story.story}
+                          </p>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center">
+                            <div className="flex text-yellow-400 mr-3">
+                              {[...Array(story.rating)].map((_, i) => (
+                                <Star key={i} className="h-5 w-5 fill-current" />
+                              ))}
+                            </div>
+                            <span className="text-emerald-200 text-sm">({story.rating}.0/5.0)</span>
+                          </div>
+                          
+                          <div className="text-right">
+                            <div className="text-teal-300 font-semibold">{story.metric}</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Testimonial Navigation */}
+              <div className="flex justify-center space-x-2 mt-8">
+                {clientStories.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentTestimonial(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentTestimonial 
+                        ? 'bg-teal-400 w-8' 
+                        : 'bg-white/30 hover:bg-white/50'
+                    }`}
+                  />
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* RETAIL RESULTS SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-emerald-100 via-teal-100 to-cyan-100 text-emerald-700 mb-6 px-4 py-2 border border-emerald-200/50">
-                Retail Success Metrics
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Proven Retail &
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
-                  E-commerce Results
+        {/* FAQ Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-green-50/20 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-green-100/20 via-transparent to-transparent" />
+            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-emerald-100/20 via-transparent to-transparent" />
+          </div>
+
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-16" data-animate id="faq">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
+                  Frequently Asked Questions
+                </span>
+                <br />
+                <span className="text-gray-800">
+                  About Retail Solutions
                 </span>
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Our retail solutions deliver measurable results through omnichannel integration, operational efficiency, and enhanced customer experiences across all touchpoints
+              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                Get answers to common questions about ServiceNow solutions for retail and e-commerce.
               </p>
             </div>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {[
-                { metric: "45%", label: "Faster Order Processing", desc: "Through automation", gradient: "from-rose-600 to-pink-600", bgGradient: "from-rose-50 via-pink-50 to-purple-50", icon: Zap },
-                { metric: "35%", label: "Customer Satisfaction", desc: "Enhanced experiences", gradient: "from-pink-600 to-purple-600", bgGradient: "from-pink-50 via-purple-50 to-indigo-50", icon: Star },
-                { metric: "30%", label: "Cost Reduction", desc: "Operational optimization", gradient: "from-purple-600 to-indigo-600", bgGradient: "from-purple-50 via-indigo-50 to-blue-50", icon: DollarSign },
-                { metric: "320%", label: "Average ROI", desc: "Within 12-15 months", gradient: "from-indigo-600 to-blue-600", bgGradient: "from-indigo-50 via-blue-50 to-cyan-50", icon: TrendingUp }
-              ].map((result, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${result.bgGradient} rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50`}>
-                  <div className={`h-16 w-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br ${result.gradient} flex items-center justify-center shadow-lg`}>
-                    <result.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">{result.metric}</div>
-                  <p className="text-gray-700 font-semibold mb-2">{result.label}</p>
-                  <p className="text-sm text-gray-600">{result.desc}</p>
-                </div>
-              ))}
-            </div>
 
-            {/* Client Testimonial */}
-            <div className="bg-gradient-to-br from-white via-rose-50 to-pink-50 rounded-2xl shadow-xl p-8 md:p-12 border border-rose-200/50 backdrop-blur-sm">
-              <div className="flex flex-col md:flex-row items-start md:items-center space-y-6 md:space-y-0 md:space-x-8">
-                <div className="h-16 w-16 rounded-full bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Quote className="h-8 w-8 text-white" />
-                </div>
-                <div className="flex-1">
-                  <blockquote className="text-xl md:text-2xl text-gray-700 italic mb-6 leading-relaxed">
-                    "ServiceNow transformed our entire retail ecosystem. We achieved 45% faster order processing across all channels, improved customer satisfaction by 35%, and reduced operational costs by 30%. The unified platform connected our stores, warehouses, and e-commerce operations seamlessly, delivering the omnichannel experience our customers demand."
-                  </blockquote>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <cite className="text-gray-800 not-italic font-semibold text-lg">
-                        Emma Thompson, VP Operations
-                      </cite>
-                      <p className="text-gray-600 font-medium">
-                        Global Fashion Retailer
-                      </p>
-                    </div>
-                    <div className="flex mt-3 sm:mt-0">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                      ))}
-                    </div>
+            <div className="max-w-4xl mx-auto">
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                    <button
+                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                      className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-green-50 transition-colors duration-200"
+                    >
+                      <h3 className="text-lg font-semibold text-gray-800 pr-8">
+                        {faq.question}
+                      </h3>
+                      <ChevronDown 
+                        className={`h-6 w-6 text-green-600 transition-transform duration-200 flex-shrink-0 ${
+                          openFaq === index ? 'rotate-180' : ''
+                        }`} 
+                      />
+                    </button>
+                    
+                    {openFaq === index && (
+                      <div className="px-8 pb-6">
+                        <div className="border-t border-gray-100 pt-6">
+                          <p className="text-gray-600 leading-relaxed">
+                            {faq.answer}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
 
-            {/* Additional Success Metrics */}
-            <div className="mt-16 grid md:grid-cols-3 gap-8">
-              {[
-                { title: "Retail Locations", value: "3,500+", desc: "Stores under management", gradient: "from-rose-50 to-pink-50" },
-                { title: "Orders Processed", value: "15M+", desc: "Monthly order volume", gradient: "from-pink-50 to-purple-50" },
-                { title: "Customer Interactions", value: "50M+", desc: "Monthly touchpoints", gradient: "from-purple-50 to-indigo-50" }
-              ].map((metric, index) => (
-                <div key={index} className={`text-center bg-gradient-to-br ${metric.gradient} rounded-xl shadow-lg p-8 border border-gray-200/50 hover:shadow-xl transition-all duration-300`}>
-                  <div className="text-3xl font-bold text-rose-600 mb-2">{metric.value}</div>
-                  <h4 className="font-semibold text-gray-900 mb-2">{metric.title}</h4>
-                  <p className="text-sm text-gray-600">{metric.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* WHY CHOOSE US SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-gray-50 to-rose-50/30">
-          <div className="container mx-auto max-w-7xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-rose-100 via-pink-100 to-purple-100 text-rose-700 mb-6 px-4 py-2 border border-rose-200/50">
-                Why Choose IfBash
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Your Trusted Retail
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
-                  ServiceNow Partner
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto">
-                Partner with certified retail ServiceNow specialists who understand omnichannel commerce and deliver solutions that drive customer satisfaction and operational excellence
-              </p>
-            </div>
-            
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {[
-                {
-                  icon: Award,
-                  title: "Retail Industry Expertise",
-                  description: "Deep retail and e-commerce expertise with certified ServiceNow specialists who understand omnichannel operations, customer journey optimization, inventory management, and digital commerce across traditional retail, pure-play e-commerce, and hybrid business models.",
-                  gradient: "from-rose-600 to-pink-600",
-                  bgGradient: "from-rose-50 via-pink-50 to-purple-50"
-                },
-                {
-                  icon: ShoppingBag,
-                  title: "280+ Retail Implementations",
-                  description: "Proven track record with 280+ retail implementations across fashion, electronics, grocery, and specialty retail with 45% faster order processing, 35% customer satisfaction improvement, and 320% average ROI achievement through comprehensive retail solutions.",
-                  gradient: "from-pink-600 to-purple-600",
-                  bgGradient: "from-pink-50 via-purple-50 to-indigo-50"
-                },
-                {
-                  icon: Monitor,
-                  title: "Omnichannel Excellence",
-                  description: "Leading expertise in omnichannel commerce including unified inventory management, seamless customer experiences, cross-channel fulfillment, and integrated marketing that connects online, mobile, in-store, and social commerce for consistent brand experiences.",
-                  gradient: "from-purple-600 to-indigo-600",
-                  bgGradient: "from-purple-50 via-indigo-50 to-blue-50"
-                },
-                {
-                  icon: TrendingUp,
-                  title: "Customer-Centric Innovation",
-                  description: "Comprehensive customer experience focus from personalized shopping journeys to loyalty program management, customer service excellence, and data-driven insights that drive customer satisfaction, retention, and lifetime value across all retail touchpoints and channels.",
-                  gradient: "from-indigo-600 to-blue-600",
-                  bgGradient: "from-indigo-50 via-blue-50 to-cyan-50"
-                }
-              ].map((item, index) => (
-                <div key={index} className={`flex items-start space-x-6 bg-gradient-to-br ${item.bgGradient} rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200/50`}>
-                  <div className="flex-shrink-0">
-                    <div className={`h-16 w-16 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center shadow-lg`}>
-                      <item.icon className="h-8 w-8 text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                      {item.title}
-                    </h3>
-                    <p className="text-gray-700 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* Additional Differentiators */}
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {[
-                { title: "Omnichannel Masters", desc: "Unified commerce expertise", icon: Globe, gradient: "from-cyan-50 to-teal-50", iconColor: "text-cyan-600" },
-                { title: "Customer Experience", desc: "Journey optimization", icon: Users, gradient: "from-green-50 to-emerald-50", iconColor: "text-green-600" },
-                { title: "Mobile Commerce", desc: "Mobile-first solutions", icon: Smartphone, gradient: "from-orange-50 to-yellow-50", iconColor: "text-orange-600" },
-                { title: "Proven ROI", desc: "320% average return", icon: DollarSign, gradient: "from-violet-50 to-purple-50", iconColor: "text-violet-600" }
-              ].map((item, index) => (
-                <div key={index} className={`text-center p-6 bg-gradient-to-br ${item.gradient} rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200/50 hover:scale-105`}>
-                  <item.icon className={`h-10 w-10 mx-auto mb-4 ${item.iconColor}`} />
-                  <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                  <p className="text-sm text-gray-600">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-white via-rose-50/30 to-pink-50/30">
-          <div className="container mx-auto max-w-5xl">
-            <div className="text-center mb-16">
-              <Badge className="bg-gradient-to-r from-slate-100 via-rose-100 to-pink-100 text-slate-700 mb-6 px-4 py-2 border border-slate-200/50">
-                Frequently Asked Questions
-              </Badge>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                Retail ServiceNow
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
-                  FAQs
-                </span>
-              </h2>
-              <p className="text-xl text-gray-600">
-                Common questions about ServiceNow solutions for retail and e-commerce industries
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              {[
-                {
-                  question: "What are ServiceNow Retail & E-commerce Solutions?",
-                  answer: "ServiceNow Retail & E-commerce Solutions include omnichannel operations management, customer experience platforms, inventory optimization, order fulfillment automation, store operations management, and customer service integration designed specifically for retail and e-commerce companies. These solutions address unique retail challenges including omnichannel customer expectations, inventory complexity, rapid fulfillment demands, and operational efficiency through unified platforms that connect stores, warehouses, customers, and corporate systems.",
-                  gradient: "from-rose-50 via-pink-50 to-purple-50"
-                },
-                {
-                  question: "How does ServiceNow improve retail operations and customer experience?",
-                  answer: "ServiceNow improves retail operations through automated workflows, unified customer data management, real-time inventory visibility, streamlined order management, and omnichannel integration that eliminates operational silos. For customer experience, it provides personalized shopping journeys, consistent service across all channels, faster issue resolution, and integrated loyalty programs that enhance satisfaction and drive repeat business.",
-                  gradient: "from-pink-50 via-purple-50 to-indigo-50"
-                },
-                {
-                  question: "What ROI can retail companies expect from ServiceNow?",
-                  answer: "Retail companies typically achieve 45% faster order processing, 35% improvement in customer satisfaction, 30% reduction in operational costs, 25% increase in inventory turnover, and 320% average ROI within 12-15 months. Benefits include improved operational efficiency, enhanced customer experiences, reduced manual tasks, better inventory management, and increased sales through omnichannel optimization and automated workflows.",
-                  gradient: "from-purple-50 via-indigo-50 to-blue-50"
-                },
-                {
-                  question: "Does ServiceNow support omnichannel retail operations and inventory management?",
-                  answer: "Yes, ServiceNow provides comprehensive omnichannel support with unified customer profiles, real-time inventory visibility across all channels, seamless order management, consistent brand experiences across online, mobile, and in-store touchpoints, and integrated fulfillment options including buy-online-pickup-in-store, ship-from-store, and direct-to-customer delivery with real-time tracking and communication.",
-                  gradient: "from-indigo-50 via-blue-50 to-cyan-50"
-                },
-                {
-                  question: "How does ServiceNow integrate with existing retail systems and platforms?",
-                  answer: "ServiceNow seamlessly integrates with existing retail ecosystems including Point-of-Sale (POS) systems, e-commerce platforms, Enterprise Resource Planning (ERP), warehouse management systems, customer relationship management (CRM), payment gateways, and marketing automation platforms through native connectors, APIs, and real-time data synchronization that enables unified workflows and comprehensive visibility across the entire retail technology stack.",
-                  gradient: "from-emerald-50 via-teal-50 to-cyan-50"
-                },
-                {
-                  question: "What support do you provide for retail staff training and system adoption?",
-                  answer: "We provide comprehensive retail-specific training including store associate workshops, manager certification programs, e-commerce team training, customer service excellence modules, and change management support. Our approach includes hands-on training for frontline staff, technical training for IT teams, executive briefings for leadership, mobile app training, and ongoing support to ensure successful adoption and sustained value realization across all retail locations and departments."
-                }
-              ].map((faq, index) => (
-                <div key={index} className={`bg-gradient-to-br ${faq.gradient} rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-8 border border-gray-200/50`}>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-start">
-                    <span className="text-rose-700 mr-2 font-bold">Q:</span>
-                    {faq.question}
-                  </h3>
-                  <div className="text-gray-800 leading-relaxed pl-6">
-                    <span className="text-pink-700 font-bold mr-2">A:</span>
-                    <span className="text-gray-700">{faq.answer}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            {/* FAQ CTA */}
-            <div className="mt-12 text-center">
-              <p className="text-gray-600 mb-6">
-                Ready to transform your retail operations?
-              </p>
-              <Button className="bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl shadow-lg hover:shadow-rose-500/25 transition-all duration-300">
-                <MessageCircle className="mr-2 h-4 w-4" />
-                Schedule Retail Consultation
-              </Button>
-            </div>
-          </div>
-        </section>
-
-        {/* CONTACT/CTA SECTION */}
-        <section className="py-16 md:py-24 px-4 sm:px-6 bg-gradient-to-br from-rose-900 via-pink-900 to-purple-950 relative overflow-hidden">
-          {/* Background Elements */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-rose-600/10 via-pink-600/5 to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-pink-600/10 via-purple-600/5 to-transparent" />
-          </div>
-          
-          <div className="container mx-auto max-w-4xl text-center relative z-10">
-            <Badge className="bg-gradient-to-r from-rose-500/20 via-pink-500/20 to-purple-500/20 text-white border-white/20 mb-6 px-4 py-2">
-              Ready for Retail Excellence?
-            </Badge>
-            
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-              Transform Your Retail
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400">
-                Operations Today
-              </span>
-            </h2>
-            
-            <p className="text-xl text-rose-100 mb-10 max-w-3xl mx-auto">
-              Join 280+ retail and e-commerce companies driving omnichannel innovation with ServiceNow. From unified commerce to customer experience excellence, accelerate your retail transformation.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
-              <Button size="lg" className="px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 shadow-2xl hover:shadow-rose-500/30 transform hover:-translate-y-1 bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700">
-                <ShoppingCart className="mr-2 h-5 w-5" />
-                Start Retail Transformation
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/50 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/70 shadow-lg"
-              >
-                <Mail className="mr-2 h-5 w-5" />
-                Download Retail Guide
-              </Button>
-            </div>
-            
-            {/* Contact Information */}
-            <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-              <div className="bg-gradient-to-br from-white/10 to-rose-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Phone className="h-6 w-6 text-rose-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Call Us</p>
-                <p className="text-rose-200 text-xs">+91-XXXX-XXXXXX</p>
-              </div>
-              <div className="bg-gradient-to-br from-white/10 to-pink-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Mail className="h-6 w-6 text-pink-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Email Us</p>
-                <p className="text-pink-200 text-xs">retail@ifbash.com</p>
-              </div>
-              <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 border border-white/10">
-                <Calendar className="h-6 w-6 text-purple-400 mx-auto mb-2" />
-                <p className="text-white text-sm">Schedule Demo</p>
-                <p className="text-purple-200 text-xs">Available 24/7</p>
+            {/* Final CTA */}
+            <div className="text-center mt-16">
+              <div className="bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 rounded-3xl p-8 md:p-12 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                  Ready to Transform Your Retail Operations?
+                </h3>
+                <p className="text-lg md:text-xl text-green-100 mb-8 max-w-2xl mx-auto">
+                  Join retail leaders driving sales growth. Get e-commerce solutions that deliver 156% better conversions and $134M growth.
+                </p>
+                <button 
+                  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  className="group px-8 py-4 text-lg font-semibold bg-white text-green-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                >
+                  <span className="flex items-center justify-center">
+                    Schedule Your Retail Consultation
+                    <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+                  </span>
+                </button>
               </div>
             </div>
           </div>
         </section>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse-slow {
+          0%, 100% { opacity: 0.3; }
+          50% { opacity: 0.1; }
+        }
+
+        .animate-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        
+        .animate-pulse-slow {
+          animation: pulse-slow 4s ease-in-out infinite;
+        }
+
+        .delay-75 {
+          animation-delay: 0.75s;
+        }
+
+        .delay-150 {
+          animation-delay: 1.5s;
+        }
+
+        .delay-300 {
+          animation-delay: 3s;
+        }
+
+        .bg-grid-pattern {
+          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+        }
+      `}</style>
     </>
   );
 }
