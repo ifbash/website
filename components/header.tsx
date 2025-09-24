@@ -67,14 +67,14 @@ const serviceItems = [
     icon: Workflow,
   },
   {
-    title: "Implementation Services",
+    title: "Consulting & Implementation Services",
     href: "/services/servicenow-implementation",
     description: "End-to-end ServiceNow implementation, configuration, and deployment",
     icon: Settings,
   },  
   {
     title: "Generative AI & Agentic AI",
-    href: "/services/generative-ai-solutions",
+    href: "/services/ai-automation",
     description: "AI-driven automation and intelligent workflow solutions for enhanced business processes",
     icon: GraduationCap,
   },
@@ -85,28 +85,16 @@ const serviceItems = [
     icon: Briefcase,
   },
   {
-    title: "Enterprise Consulting",  
-    href: "/services/enterprise-consulting",
-    description: "Comprehensive consulting solutions, system integration, and enterprise architecture",
-    icon: Database,
-  },
-  {
     title: "Managed Services & Support",
     href: "/services/managed-services-support",
     description: "24/7 managed services, ongoing support, and system optimization",
     icon: Users,
   },
   {
-    title: "Process Optimization",
-    href: "/services/business-process-optimization",
+    title: "ServiceNow Custom Apps",
+    href: "/services/custom-apps",
     description: "Business process analysis, automation, and continuous improvement strategies",
     icon: BarChart3,
-  },
-  {
-    title: "Strategic Advisory",
-    href: "/services/advisory",
-    description: "Expert advisory services for technology strategy and digital business transformation",
-    icon: Shield,
   },
 ];
 
@@ -839,24 +827,26 @@ export function Header() {
                   >
                     {/* Mobile Header */}
                     <div className="flex items-center justify-between p-6 border-b border-slate-100">
-                      <div className="flex items-center space-x-3">
-                        <div 
-                          className="h-7 w-7 rounded-lg flex items-center justify-center"
-                          style={{ 
-                            background: "linear-gradient(135deg, #1a2e61 0%, #6c28d9 50%, #26a3d9 100%)",
-                          }}
-                        >
-                          <span className="text-white font-bold text-sm" aria-hidden="true">IB</span>
-                        </div>
-                        <span className="font-bold text-lg text-transparent bg-gradient-to-r from-violet-700 via-blue-600 to-cyan-600 bg-clip-text">
-                          ifBash
-                        </span>
-                      </div>
-                      <SheetClose asChild>
+                        <div className="w-[250px] h-[51px] relative flex items-center">
+                  <Image 
+                    src="/images/logo.png" 
+                    alt="ifBash Logo" 
+                    width={250} 
+                    height={60}
+                    className="object-contain"
+                    priority
+                    style={{ 
+                      width: '250px', 
+                      height: '51px',
+                      maxWidth: '100%',
+                    }}
+                  />
+                </div>
+                     {/* <SheetClose asChild>
                         <Button variant="ghost" size="icon" className="rounded-lg" aria-label="Close menu">
                           <X className="h-5 w-5" />
                         </Button>
-                      </SheetClose>
+                      </SheetClose>*/}
                     </div>
 
                     {/* Mobile Navigation */}

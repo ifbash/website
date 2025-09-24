@@ -353,7 +353,7 @@ export default function CRMCustomerEmployeeExperience() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900">
+        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-900 via-pink-900 to-purple-900">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
@@ -371,11 +371,11 @@ export default function CRMCustomerEmployeeExperience() {
             </div>
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-8">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-4 sm:space-y-8">
                 {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
                   <Badge className="bg-gradient-to-r from-rose-500/90 to-pink-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-rose-600 hover:to-pink-700 transition-all duration-300">
                     ✓ 89% Satisfaction
                   </Badge>
@@ -387,12 +387,12 @@ export default function CRMCustomerEmployeeExperience() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   CRM -{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400 font-semibold">
                     Customer & Employee
                   </span>
-                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
                     Experience{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 font-semibold">
                       Excellence
@@ -400,12 +400,12 @@ export default function CRMCustomerEmployeeExperience() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-rose-100 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-rose-100 max-w-xs sm:max-w-2xl leading-relaxed">
                   Transform experiences in <span className="font-semibold text-pink-300">14-16 weeks</span> with AI-powered CRM that unifies customer and employee journeys. <span className="font-semibold text-purple-300">89% satisfaction rates</span> with <span className="font-semibold text-indigo-300">234% engagement improvement</span>.
                 </p>
 
                 {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
                   <div className="group bg-gradient-to-br from-rose-600/20 via-pink-600/20 to-purple-600/20 hover:from-rose-600/30 hover:via-pink-600/30 hover:to-purple-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-rose-400/20 hover:border-rose-400/40 transition-all duration-300 transform hover:scale-105">
                     <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400">89%</div>
                     <div className="text-xs sm:text-sm text-rose-100">Satisfaction</div>
@@ -420,7 +420,7 @@ export default function CRMCustomerEmployeeExperience() {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700"
@@ -446,17 +446,16 @@ export default function CRMCustomerEmployeeExperience() {
               </div>
 
               {/* Right Side Visual Content */}
-              <div className="relative lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-rose-500/15 to-pink-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+              <div className="relative sm:h-[400px] lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-rose-500/15 to-pink-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
                     <PlaceholderImage
                       title="CRM Experience Dashboard"
                       className="w-full h-full object-cover"
                       gradient="from-rose-600 to-pink-600"
                     />
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                       <div className="text-2xl font-bold text-white mb-1">89%</div>
                       <div className="text-xs text-rose-200">Satisfaction</div>
@@ -485,15 +484,15 @@ export default function CRMCustomerEmployeeExperience() {
         </section>
 
         {/* Service Overview Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-rose-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-rose-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-rose-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-pink-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="service-overview">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="service-overview">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
                   Why Choose ifBash
                 </span>
@@ -502,30 +501,30 @@ export default function CRMCustomerEmployeeExperience() {
                   for Experience Excellence
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 We don't just deploy CRM - we create intelligent experience ecosystems that unify customer and employee journeys for exponential business impact.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-16">
               {crmServices.map((service, index) => (
-                <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-rose-100 hover:border-rose-300 transform hover:-translate-y-2">
+                <div key={index} className="group relative bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-rose-100 hover:border-rose-300 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
                       <service.icon className="h-8 w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                    <h3 className="text-2xl font-bold mb-2 sm:mb-4 text-gray-800">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                       {service.description}
                     </p>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {service.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-center">
                           <CheckCircle className="h-5 w-5 text-rose-500 mr-3 flex-shrink-0" />
@@ -539,9 +538,9 @@ export default function CRMCustomerEmployeeExperience() {
             </div>
 
             {/* CRM Capabilities Stats */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {crmCapabilities.map((capability, index) => (
-                <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-rose-200">
+                <div key={index} className="group text-center bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-rose-200">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-rose-500 to-pink-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
                     <capability.icon className="h-8 w-8 text-white" />
                   </div>
@@ -555,12 +554,12 @@ export default function CRMCustomerEmployeeExperience() {
         </section>
 
         {/* CRM Methodology Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-rose-900 to-pink-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-rose-900 to-pink-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-10" />
           
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="methodology">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="methodology">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-purple-400">
                   Our CRM Experience
                 </span>
@@ -569,22 +568,22 @@ export default function CRMCustomerEmployeeExperience() {
                   Implementation Methodology
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-rose-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-rose-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 A comprehensive 4-phase approach that transforms both customer and employee experiences with intelligent, unified CRM solutions.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {crmMethodology.map((phase, index) => (
                 <div key={index} className="group relative" data-animate id={`phase-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="flex items-center mb-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                      <div className="flex items-center mb-4 sm:mb-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-4 sm:mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
                           <phase.icon className="h-8 w-8 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2">{phase.phase}</h3>
+                          <h3 className="text-2xl font-bold mb-1 sm:mb-2">{phase.phase}</h3>
                           <div className="text-rose-200 flex items-center">
                             <Clock className="h-4 w-4 mr-2" />
                             {phase.duration}
@@ -592,9 +591,9 @@ export default function CRMCustomerEmployeeExperience() {
                         </div>
                       </div>
 
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         <div>
-                          <h4 className="text-lg font-semibold mb-3 text-rose-200">Key Activities</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-rose-200">Key Activities</h4>
                           <div className="space-y-2">
                             {phase.activities.map((activity, idx) => (
                               <div key={idx} className="flex items-center">
@@ -606,7 +605,7 @@ export default function CRMCustomerEmployeeExperience() {
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold mb-3 text-rose-200">Key Deliverables</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-rose-200">Key Deliverables</h4>
                           <div className="space-y-2">
                             {phase.deliverables.map((deliverable, idx) => (
                               <div key={idx} className="flex items-center">
@@ -621,17 +620,17 @@ export default function CRMCustomerEmployeeExperience() {
 
                     <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                       <div className="relative">
-                        <div className={`aspect-square bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-3xl p-8 backdrop-blur-sm border border-rose-400/20 hover:border-rose-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                        <div className={`aspect-square bg-gradient-to-br from-rose-500/20 to-pink-500/20 rounded-3xl p-2 sm:p-8 backdrop-blur-sm border border-rose-400/20 hover:border-rose-400/40 transition-all duration-500 transform group-hover:scale-105`}>
                           <div className={`w-full h-full bg-gradient-to-br from-rose-600/30 to-pink-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                             <div className="text-center relative z-10">
-                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-400 mb-4">
+                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 to-pink-400 mb-2 sm:mb-4">
                                 0{index + 1}
                               </div>
                               <div className="text-lg font-semibold text-rose-200">
                                 {phase.phase.split(' & ')[0]}
                               </div>
-                              <div className="text-sm text-rose-300 mt-2">
+                              <div className="text-sm text-rose-300 mt-1 sm:mt-2">
                                 {phase.duration}
                               </div>
                             </div>
@@ -642,7 +641,7 @@ export default function CRMCustomerEmployeeExperience() {
                   </div>
 
                   {index < crmMethodology.length - 1 && (
-                    <div className="flex justify-center mt-8 mb-8">
+                    <div className="flex justify-center mt-4 sm:mt-8 mb-4 sm:mb-8">
                       <div className="w-px h-12 bg-gradient-to-b from-rose-500 to-pink-500 opacity-50"></div>
                     </div>
                   )}
@@ -651,7 +650,7 @@ export default function CRMCustomerEmployeeExperience() {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-8 sm:mt-16">
               <button 
                 onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                 className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 hover:from-rose-700 hover:via-pink-700 hover:to-purple-700 transform hover:scale-105"
@@ -670,15 +669,15 @@ export default function CRMCustomerEmployeeExperience() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-pink-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-pink-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-pink-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-rose-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="case-studies">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="case-studies">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-600 to-purple-600">
                   Experience Transformation
                 </span>
@@ -687,17 +686,17 @@ export default function CRMCustomerEmployeeExperience() {
                   Success Stories
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 See how our CRM solutions have revolutionized customer and employee experiences with measurable business impact.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {caseStudies.map((study, index) => (
-                <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-pink-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
+                <div key={index} className="group bg-white rounded-3xl p-4 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-pink-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <div className="flex items-center mb-6">
+                      <div className="flex items-center mb-4 sm:mb-6">
                         <Badge className="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-sm px-4 py-2">
                           {study.industry}
                         </Badge>
@@ -706,23 +705,23 @@ export default function CRMCustomerEmployeeExperience() {
                         </Badge>
                       </div>
 
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
+                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">
                         {study.client}
                       </h3>
 
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         <div>
-                          <h4 className="text-lg font-semibold text-red-600 mb-2">Experience Challenge</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-red-600">Experience Challenge</h4>
                           <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold text-blue-600 mb-2">CRM Solution</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-blue-600">CRM Solution</h4>
                           <p className="text-gray-600 leading-relaxed">{study.solution}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold text-green-600 mb-3">Experience Impact</h4>
+                          <h4 className="text-lg font-semibold mb-3 text-green-600">Experience Impact</h4>
                           <div className="grid md:grid-cols-2 gap-3">
                             {study.results.map((result, idx) => (
                               <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
@@ -742,7 +741,7 @@ export default function CRMCustomerEmployeeExperience() {
 
                     <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                       <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl p-6 overflow-hidden">
+                        <div className="aspect-square bg-gradient-to-br from-pink-100 to-rose-100 rounded-2xl p-2 sm:p-6 overflow-hidden">
                           <PlaceholderImage
                             title={`${study.client} CRM Solution`}
                             className="w-full h-full object-cover rounded-xl"
@@ -765,16 +764,16 @@ export default function CRMCustomerEmployeeExperience() {
         </section>
 
         {/* Client Testimonials Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-pink-900 via-rose-900 to-purple-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-pink-900 via-rose-900 to-purple-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-purple-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-pink-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="testimonials">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="testimonials">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-rose-400 to-pink-400">
                   What Leaders Say
                 </span>
@@ -783,19 +782,19 @@ export default function CRMCustomerEmployeeExperience() {
                   About Our CRM Solutions
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-rose-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-rose-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Hear from the experience champions who trusted us with their customer and employee transformation journeys.
               </p>
             </div>
 
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
               <div className="overflow-hidden rounded-2xl">
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {clientStories.map((story, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
-                        <div className="flex items-center mb-8">
-                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-rose-500 rounded-full flex items-center justify-center mr-6">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
+                        <div className="flex items-center mb-4 sm:mb-8">
+                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-rose-500 rounded-full flex items-center justify-center mr-4 sm:mr-6">
                             <Heart className="h-8 w-8 text-white" />
                           </div>
                           <div>
@@ -804,9 +803,9 @@ export default function CRMCustomerEmployeeExperience() {
                           </div>
                         </div>
 
-                        <div className="mb-6">
+                        <div className="mb-4 sm:mb-8">
                           <Quote className="h-8 w-8 text-purple-400 mb-4" />
-                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
+                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-4 sm:mb-6">
                             {story.story}
                           </p>
                         </div>
@@ -832,7 +831,7 @@ export default function CRMCustomerEmployeeExperience() {
               </div>
 
               {/* Testimonial Navigation */}
-              <div className="flex justify-center space-x-2 mt-8">
+              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
                 {clientStories.map((_, index) => (
                   <button
                     key={index}
@@ -850,15 +849,15 @@ export default function CRMCustomerEmployeeExperience() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-rose-50/20 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-rose-50/20 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-rose-100/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-pink-100/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="faq">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="faq">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600">
                   Frequently Asked Questions
                 </span>
@@ -867,13 +866,13 @@ export default function CRMCustomerEmployeeExperience() {
                   About CRM Solutions
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Get answers to common questions about our customer and employee experience CRM solutions.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-4">
+            <div className="max-w-xs sm:max-w-4xl mx-auto">
+              <div className="space-y-1 sm:space-y-4">
                 {faqs.map((faq, index) => (
                   <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <button
@@ -905,12 +904,12 @@ export default function CRMCustomerEmployeeExperience() {
             </div>
 
             {/* Final CTA */}
-            <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white">
+            <div className="text-center mt-8 sm:mt-16">
+              <div className="bg-gradient-to-r from-rose-600 via-pink-600 to-purple-600 rounded-3xl p-4 sm:p-8 md:p-12 text-white">
                 <h3 className="text-2xl md:text-3xl font-bold mb-4">
                   Ready to Transform Customer & Employee Experience?
                 </h3>
-                <p className="text-lg md:text-xl text-rose-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-rose-100 mb-4 sm:mb-8 max-w-xs sm:max-w-2xl mx-auto leading-relaxed">
                   Join enterprises achieving 89% satisfaction rates. Get intelligent CRM that unifies experiences in 14-16 weeks.
                 </p>
                 <button 

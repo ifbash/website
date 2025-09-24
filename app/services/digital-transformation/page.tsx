@@ -327,14 +327,14 @@ useEffect(() => {
 return (
   <>
     {/* Fixed Chat Button */}
-    <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+    <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
       <button 
         onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-        className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95"
+        className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95"
         aria-label="Chat with Strategy Expert"
       >
-        <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-        <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+        <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+        <span className="absolute right-[calc(100%+4px)] px-1 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-[10px] sm:text-sm text-gray-800 min-w-[70px] sm:min-w-[120px] text-center">
           Chat with Expert
         </span>
         <div className="absolute inset-0 rounded-full animate-ping bg-emerald-600 opacity-20"></div>
@@ -343,7 +343,7 @@ return (
 
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900">
+      <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
@@ -356,11 +356,11 @@ return (
           <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-cyan-400 rounded-full animate-float delay-300 opacity-80" />
         </div>
 
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-            <div className="text-white space-y-8">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="grid lg:grid-cols-2 gap-4 xs:gap-2 sm:gap-8 lg:gap-12 items-center">
+            <div className="text-white space-y-4 xs:space-y-2 sm:space-y-8">
               {/* Trust Badges */}
-              <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+              <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 xs:mb-1 sm:mb-8 flex-wrap px-1 sm:px-0">
                 <Badge className="bg-gradient-to-r from-emerald-500/90 to-teal-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-emerald-600 hover:to-teal-700 transition-all duration-300">
                   ✓ Strategy Experts
                 </Badge>
@@ -372,12 +372,12 @@ return (
                 </Badge>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+              <h1 className="text-lg xs:text-base sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-1 sm:px-0">
                 Digital{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 font-semibold">
                   Strategy & Advisory
                 </span>
-                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                <span className="block text-sm xs:text-xs sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
                   That Drives{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 font-semibold">
                     Real Transformation
@@ -385,12 +385,12 @@ return (
                 </span>
               </h1>
 
-              <p className="text-base sm:text-lg md:text-xl text-emerald-100 max-w-2xl leading-relaxed">
+              <p className="text-xs xs:text-[11px] sm:text-base md:text-lg lg:text-xl text-emerald-100 max-w-xs xs:max-w-[90vw] sm:max-w-2xl leading-relaxed">
                 Develop winning digital strategies in <span className="font-semibold text-cyan-300">8-12 weeks</span> with executive advisory that delivers measurable business outcomes. <span className="font-semibold text-teal-300">200+ successful transformations</span> across industries.
               </p>
 
               {/* Key Benefits */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 xs:gap-0.5 sm:gap-4 mt-2 xs:mt-1 sm:mt-8 px-1 sm:px-0">
                 <div className="group bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20 hover:from-emerald-600/30 hover:via-teal-600/30 hover:to-cyan-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-emerald-400/20 hover:border-emerald-400/40 transition-all duration-300 transform hover:scale-105">
                   <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">8-12</div>
                   <div className="text-xs sm:text-sm text-emerald-100">Weeks Strategy</div>
@@ -405,7 +405,7 @@ return (
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+              <div className="flex flex-col sm:flex-row gap-2 xs:gap-1 sm:gap-4 px-2 sm:px-0">
                 <button 
                   onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                   className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700"
@@ -431,17 +431,16 @@ return (
             </div>
 
             {/* Right Side Visual Content */}
-            <div className="relative lg:h-[600px]">
-              <div className="relative z-20 bg-gradient-to-br from-emerald-500/15 to-teal-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+            <div className="relative sm:h-[400px] lg:h-[600px]">
+              <div className="relative z-20 bg-gradient-to-br from-emerald-500/15 to-teal-500/15 rounded-3xl p-2 xs:p-1 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 xs:mb-1 sm:mb-6">
                   <PlaceholderImage
                     title="Digital Strategy Roadmap Dashboard"
                     className="w-full h-full object-cover"
                     gradient="from-emerald-600 to-teal-600"
                   />
                 </div>
-                
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-1 xs:gap-0.5 sm:gap-4">
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-white mb-1">8-12</div>
                     <div className="text-xs text-emerald-200">Weeks</div>
@@ -470,15 +469,15 @@ return (
       </section>
 
       {/* Service Overview Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden">
+      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-emerald-100/30 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-teal-100/30 via-transparent to-transparent" />
         </div>
 
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16" data-animate id="service-overview">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="service-overview">
+            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
                 Why Choose ifBash
               </span>
@@ -487,12 +486,12 @@ return (
                 for Digital Strategy Advisory
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              We don't just create strategies - we craft transformation roadmaps that drive measurable business outcomes and sustainable competitive advantage.
+            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
+              We don&apos;t just create strategies - we craft transformation roadmaps that drive measurable business outcomes and sustainable competitive advantage.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 xs:gap-1 sm:gap-8 mb-6 xs:mb-4 sm:mb-16">
             {advisoryServices.map((service, index) => (
               <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-emerald-100 hover:border-emerald-300 transform hover:-translate-y-2">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -524,7 +523,7 @@ return (
           </div>
 
           {/* Strategic Capabilities Stats */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 xs:gap-1 sm:gap-8">
             {strategicCapabilities.map((capability, index) => (
               <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-200">
                 <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
@@ -540,12 +539,12 @@ return (
       </section>
 
       {/* Advisory Methodology Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 text-white relative overflow-hidden">
+      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
         
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16" data-animate id="methodology">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="methodology">
+            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
                 Our Strategic Advisory
               </span>
@@ -554,12 +553,12 @@ return (
                 Methodology
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-emerald-100 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
               A proven 4-phase approach that transforms digital strategy from concept to competitive advantage with measurable business outcomes.
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-4 xs:space-y-2 sm:space-y-12">
             {advisoryMethodology.map((phase, index) => (
               <div key={index} className="group relative" data-animate id={`phase-${index}`}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -606,7 +605,7 @@ return (
 
                   <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                     <div className="relative">
-                      <div className={`aspect-square bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-3xl p-8 backdrop-blur-sm border border-emerald-400/20 hover:border-emerald-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                      <div className={`aspect-square bg-gradient-to-br from-emerald-500/20 to-teal-500/20 rounded-3xl p-8 backdrop-blur-sm border border-emerald-400/20 hover:border-emerald-400/40 transition-all duration-500`}>
                         <div className={`w-full h-full bg-gradient-to-br from-emerald-600/30 to-teal-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
                           <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                           <div className="text-center relative z-10">
@@ -636,7 +635,7 @@ return (
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-6 xs:mt-4 sm:mt-16">
             <button 
               onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
               className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700 transform hover:scale-105"
@@ -655,15 +654,15 @@ return (
       </section>
 
       {/* Case Studies Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
+      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-teal-100/30 via-transparent to-transparent" />
           <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-emerald-100/30 via-transparent to-transparent" />
         </div>
 
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16" data-animate id="case-studies">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="case-studies">
+            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-600">
                 Strategic Transformation
               </span>
@@ -672,12 +671,12 @@ return (
                 Success Stories
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
               See how our digital strategy advisory has transformed organizations across industries with measurable business impact.
             </p>
           </div>
 
-          <div className="space-y-12">
+          <div className="space-y-4 xs:space-y-2 sm:space-y-12">
             {caseStudies.map((study, index) => (
               <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -697,17 +696,17 @@ return (
 
                     <div className="space-y-6">
                       <div>
-                        <h4 className="text-lg font-semibold text-red-600 mb-2">Strategic Challenge</h4>
+                        <h4 className="text-lg font-semibold mb-3 text-red-600">Strategic Challenge</h4>
                         <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
                       </div>
 
                       <div>
-                        <h4 className="text-lg font-semibold text-blue-600 mb-2">Strategic Solution</h4>
+                        <h4 className="text-lg font-semibold mb-3 text-blue-600">Strategic Solution</h4>
                         <p className="text-gray-600 leading-relaxed">{study.solution}</p>
                       </div>
 
                       <div>
-                        <h4 className="text-lg font-semibold text-green-600 mb-3">Business Impact</h4>
+                        <h4 className="text-lg font-semibold mb-3 text-green-600">Business Impact</h4>
                         <div className="grid md:grid-cols-2 gap-3">
                           {study.results.map((result, idx) => (
                             <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
@@ -750,16 +749,16 @@ return (
       </section>
 
       {/* Client Testimonials Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-r from-teal-900 via-emerald-900 to-cyan-900 text-white relative overflow-hidden">
+      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-r from-teal-900 via-emerald-900 to-cyan-900 text-white relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-grid-pattern opacity-10" />
           <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-cyan-700/20 via-transparent to-transparent" />
           <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent" />
         </div>
 
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16" data-animate id="testimonials">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="testimonials">
+            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400">
                 What Leaders Say
               </span>
@@ -768,12 +767,12 @@ return (
                 About Our Strategic Advisory
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-emerald-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-emerald-100 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
               Hear from the executives who trusted us with their digital transformation strategy and achieved remarkable results.
             </p>
           </div>
 
-          <div className="relative max-w-4xl mx-auto">
+          <div className="relative max-w-xs xs:max-w-[95vw] sm:max-w-4xl mx-auto">
             <div className="overflow-hidden rounded-2xl">
               <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                 {clientStories.map((story, index) => (
@@ -817,7 +816,7 @@ return (
             </div>
 
             {/* Testimonial Navigation */}
-            <div className="flex justify-center space-x-2 mt-8">
+            <div className="flex justify-center space-x-1 xs:space-x-0.5 sm:space-x-2 mt-4 xs:mt-2 sm:mt-8">
               {clientStories.map((_, index) => (
                 <button
                   key={index}
@@ -835,15 +834,15 @@ return (
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/20 relative overflow-hidden">
+      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/20 relative overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-emerald-100/20 via-transparent to-transparent" />
           <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-teal-100/20 via-transparent to-transparent" />
         </div>
 
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16" data-animate id="faq">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="faq">
+            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
                 Frequently Asked Questions
               </span>
@@ -852,13 +851,13 @@ return (
                 About Digital Strategy Advisory
               </span>
             </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
               Get answers to common questions about our digital strategy and advisory services.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="space-y-4">
+          <div className="max-w-xs xs:max-w-[95vw] sm:max-w-4xl mx-auto">
+            <div className="space-y-1 xs:space-y-0.5 sm:space-y-4">
               {faqs.map((faq, index) => (
                 <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                   <button
@@ -890,7 +889,7 @@ return (
           </div>
 
           {/* Final CTA */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-6 xs:mt-4 sm:mt-16">
             <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl p-8 md:p-12 text-white">
               <h3 className="text-2xl md:text-3xl font-bold mb-4">
                 Ready to Transform Your Digital Strategy?

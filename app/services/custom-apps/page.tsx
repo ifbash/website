@@ -345,14 +345,14 @@ export default function CustomApps() {
   return (
     <>
       {/* Fixed Chat Button */}
-      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
         <button 
           onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95"
+          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with App Expert"
         >
-          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
             Chat with App Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-amber-600 opacity-20"></div>
@@ -361,7 +361,7 @@ export default function CustomApps() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-900 via-orange-900 to-red-900">
+        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-900 via-orange-900 to-red-900">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
@@ -379,11 +379,11 @@ export default function CustomApps() {
             </div>
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-8">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-4 sm:space-y-8">
                 {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
                   <Badge className="bg-gradient-to-r from-amber-500/90 to-orange-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-amber-600 hover:to-orange-700 transition-all duration-300">
                     ✓ 16 Weeks Average
                   </Badge>
@@ -395,12 +395,12 @@ export default function CustomApps() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   ServiceNow{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 font-semibold">
                     Custom Applications
                   </span>
-                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
                     Built{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 font-semibold">
                       Perfectly
@@ -408,12 +408,12 @@ export default function CustomApps() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-amber-100 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-amber-100 max-w-xs sm:max-w-2xl leading-relaxed">
                   Build custom applications in <span className="font-semibold text-orange-300">16 weeks average</span> using ServiceNow's low-code platform. <span className="font-semibold text-red-300">67% cost savings</span> with <span className="font-semibold text-pink-300">234% ROI</span> and <span className="font-semibold text-yellow-300">89% user adoption</span>.
                 </p>
 
                 {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
                   <div className="group bg-gradient-to-br from-amber-600/20 via-orange-600/20 to-red-600/20 hover:from-amber-600/30 hover:via-orange-600/30 hover:to-red-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-amber-400/20 hover:border-amber-400/40 transition-all duration-300 transform hover:scale-105">
                     <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">16W</div>
                     <div className="text-xs sm:text-sm text-amber-100">Average Dev</div>
@@ -428,7 +428,7 @@ export default function CustomApps() {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700"
@@ -454,22 +454,21 @@ export default function CustomApps() {
               </div>
 
               {/* Right Side Visual Content */}
-              <div className="relative lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-amber-500/15 to-orange-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+              <div className="relative sm:h-[400px] lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-amber-500/15 to-orange-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
                     <PlaceholderImage
                       title="Custom App Development Studio"
                       className="w-full h-full object-cover"
                       gradient="from-amber-600 to-orange-600"
                     />
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
                       <div className="text-2xl font-bold text-white mb-1">16W</div>
                       <div className="text-xs text-amber-200">Dev Time</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
                       <div className="text-2xl font-bold text-white mb-1">234%</div>
                       <div className="text-xs text-orange-200">ROI</div>
                     </div>
@@ -493,15 +492,15 @@ export default function CustomApps() {
         </section>
 
         {/* Service Overview Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-amber-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="service-overview">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="service-overview">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">
                   Why Choose ifBash
                 </span>
@@ -510,30 +509,30 @@ export default function CustomApps() {
                   for Custom App Development
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 We don't just code applications - we create intelligent, scalable solutions that perfectly align with your unique business processes and requirements.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-16">
               {customAppServices.map((service, index) => (
-                <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100 hover:border-amber-300 transform hover:-translate-y-2">
+                <div key={index} className="group relative bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100 hover:border-amber-300 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
                       <service.icon className="h-8 w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                    <h3 className="text-2xl font-bold mb-2 sm:mb-4 text-gray-800">
                       {service.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-gray-600 mb-4 leading-relaxed">
                       {service.description}
                     </p>
 
-                    <div className="space-y-3">
+                    <div className="space-y-2">
                       {service.benefits.map((benefit, idx) => (
                         <div key={idx} className="flex items-center">
                           <CheckCircle className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
@@ -547,9 +546,9 @@ export default function CustomApps() {
             </div>
 
             {/* Custom App Capabilities Stats */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {customAppCapabilities.map((capability, index) => (
-                <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200">
+                <div key={index} className="group text-center bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
                     <capability.icon className="h-8 w-8 text-white" />
                   </div>
@@ -563,12 +562,12 @@ export default function CustomApps() {
         </section>
 
         {/* Custom App Development Methodology Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-amber-900 to-orange-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-amber-900 to-orange-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-10" />
           
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="methodology">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="methodology">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">
                   Our Custom App Development
                 </span>
@@ -577,22 +576,22 @@ export default function CustomApps() {
                   Methodology
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-amber-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-amber-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 A comprehensive 4-phase approach that transforms your unique business requirements into powerful, scalable custom applications.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {customAppMethodology.map((phase, index) => (
                 <div key={index} className="group relative" data-animate id={`phase-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="flex items-center mb-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
+                      <div className="flex items-center mb-4 sm:mb-6">
+                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-4 sm:mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
                           <phase.icon className="h-8 w-8 text-white" />
                         </div>
                         <div>
-                          <h3 className="text-2xl font-bold mb-2">{phase.phase}</h3>
+                          <h3 className="text-2xl font-bold mb-1 sm:mb-2">{phase.phase}</h3>
                           <div className="text-amber-200 flex items-center">
                             <Clock className="h-4 w-4 mr-2" />
                             {phase.duration}
@@ -600,9 +599,9 @@ export default function CustomApps() {
                         </div>
                       </div>
 
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         <div>
-                          <h4 className="text-lg font-semibold mb-3 text-amber-200">Key Activities</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-amber-200">Key Activities</h4>
                           <div className="space-y-2">
                             {phase.activities.map((activity, idx) => (
                               <div key={idx} className="flex items-center">
@@ -614,7 +613,7 @@ export default function CustomApps() {
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold mb-3 text-amber-200">Key Deliverables</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-amber-200">Key Deliverables</h4>
                           <div className="space-y-2">
                             {phase.deliverables.map((deliverable, idx) => (
                               <div key={idx} className="flex items-center">
@@ -629,17 +628,17 @@ export default function CustomApps() {
 
                     <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                       <div className="relative">
-                        <div className={`aspect-square bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-3xl p-8 backdrop-blur-sm border border-amber-400/20 hover:border-amber-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                        <div className={`aspect-square bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-3xl p-2 sm:p-8 backdrop-blur-sm border border-amber-400/20 hover:border-amber-400/40 transition-all duration-500 transform group-hover:scale-105`}>
                           <div className={`w-full h-full bg-gradient-to-br from-amber-600/30 to-orange-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                             <div className="text-center relative z-10">
-                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 mb-4">
+                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 mb-2 sm:mb-4">
                                 0{index + 1}
                               </div>
                               <div className="text-lg font-semibold text-amber-200">
                                 {phase.phase.split(' & ')[0]}
                               </div>
-                              <div className="text-sm text-amber-300 mt-2">
+                              <div className="text-sm text-amber-300 mt-1">
                                 {phase.duration}
                               </div>
                             </div>
@@ -650,7 +649,7 @@ export default function CustomApps() {
                   </div>
 
                   {index < customAppMethodology.length - 1 && (
-                    <div className="flex justify-center mt-8 mb-8">
+                    <div className="flex justify-center mt-4 sm:mt-8 mb-4 sm:mb-8">
                       <div className="w-px h-12 bg-gradient-to-b from-amber-500 to-orange-500 opacity-50"></div>
                     </div>
                   )}
@@ -659,7 +658,7 @@ export default function CustomApps() {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-8 sm:mt-16">
               <button 
                 onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                 className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700 transform hover:scale-105"
@@ -678,15 +677,15 @@ export default function CustomApps() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-orange-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-amber-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="case-studies">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="case-studies">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-red-600">
                   Custom App Development
                 </span>
@@ -695,17 +694,17 @@ export default function CustomApps() {
                   Success Stories
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 See how our custom ServiceNow applications have solved unique business challenges with tailored solutions that deliver exceptional results.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {caseStudies.map((study, index) => (
-                <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
+                <div key={index} className="group bg-white rounded-3xl p-4 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
                     <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <div className="flex items-center mb-6">
+                      <div className="flex items-center mb-4 sm:mb-6">
                         <Badge className="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm px-4 py-2">
                           {study.industry}
                         </Badge>
@@ -718,19 +717,19 @@ export default function CustomApps() {
                         {study.client}
                       </h3>
 
-                      <div className="space-y-6">
+                      <div className="space-y-4 sm:space-y-6">
                         <div>
-                          <h4 className="text-lg font-semibold text-red-600 mb-2">Business Challenge</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-red-600">Business Challenge</h4>
                           <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold text-blue-600 mb-2">Custom Solution</h4>
+                          <h4 className="text-lg font-semibold mb-2 text-blue-600">Custom Solution</h4>
                           <p className="text-gray-600 leading-relaxed">{study.solution}</p>
                         </div>
 
                         <div>
-                          <h4 className="text-lg font-semibold text-green-600 mb-3">Business Impact</h4>
+                          <h4 className="text-lg font-semibold mb-3 text-green-600">Business Impact</h4>
                           <div className="grid md:grid-cols-2 gap-3">
                             {study.results.map((result, idx) => (
                               <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
@@ -750,7 +749,7 @@ export default function CustomApps() {
 
                     <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                       <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl p-6 overflow-hidden">
+                        <div className="aspect-square bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl p-2 sm:p-6 overflow-hidden">
                           <PlaceholderImage
                             title={`${study.client} Custom App`}
                             className="w-full h-full object-cover rounded-xl"
@@ -773,16 +772,16 @@ export default function CustomApps() {
         </section>
 
         {/* Client Testimonials Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-orange-900 via-amber-900 to-red-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-orange-900 via-amber-900 to-red-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-red-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-orange-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="testimonials">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="testimonials">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-amber-400">
                   What Leaders Say
                 </span>
@@ -791,19 +790,19 @@ export default function CustomApps() {
                   About Our Custom Apps
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-orange-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-orange-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Hear from the innovators who trusted us with their unique business challenges and achieved remarkable results with custom applications.
               </p>
             </div>
 
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
               <div className="overflow-hidden rounded-2xl">
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {clientStories.map((story, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
-                        <div className="flex items-center mb-8">
-                          <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-6">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
+                        <div className="flex items-center mb-4 sm:mb-8">
+                          <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4 sm:mr-6">
                             <Code className="h-8 w-8 text-white" />
                           </div>
                           <div>
@@ -812,9 +811,9 @@ export default function CustomApps() {
                           </div>
                         </div>
 
-                        <div className="mb-6">
+                        <div className="mb-4 sm:mb-6">
                           <Quote className="h-8 w-8 text-red-400 mb-4" />
-                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
+                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-4">
                             {story.story}
                           </p>
                         </div>
@@ -840,7 +839,7 @@ export default function CustomApps() {
               </div>
 
               {/* Testimonial Navigation */}
-              <div className="flex justify-center space-x-2 mt-8">
+              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
                 {clientStories.map((_, index) => (
                   <button
                     key={index}
@@ -858,15 +857,15 @@ export default function CustomApps() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/20 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/20 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-100/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-orange-100/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="faq">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="faq">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">
                   Frequently Asked Questions
                 </span>
@@ -875,18 +874,18 @@ export default function CustomApps() {
                   About Custom App Development
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Get answers to common questions about our ServiceNow custom application development services.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-4">
+            <div className="max-w-xs sm:max-w-4xl mx-auto">
+              <div className="space-y-1 sm:space-y-4">
                 {faqs.map((faq, index) => (
                   <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <button
                       onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                      className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-amber-50 transition-colors duration-200"
+                      className="w-full px-4 py-3 sm:px-8 sm:py-4 text-left flex items-center justify-between hover:bg-amber-50 transition-colors duration-200"
                     >
                       <h3 className="text-lg font-semibold text-gray-800 pr-8">
                         {faq.question}
@@ -899,8 +898,8 @@ export default function CustomApps() {
                     </button>
                     
                     {openFaq === index && (
-                      <div className="px-8 pb-6">
-                        <div className="border-t border-gray-100 pt-6">
+                      <div className="px-4 py-3 sm:px-8 sm:py-4">
+                        <div className="border-t border-gray-100 pt-3 sm:pt-4">
                           <p className="text-gray-600 leading-relaxed">
                             {faq.answer}
                           </p>
@@ -913,12 +912,12 @@ export default function CustomApps() {
             </div>
 
             {/* Final CTA */}
-            <div className="text-center mt-16">
-              <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-3xl p-8 md:p-12 text-white">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+            <div className="text-center mt-8 sm:mt-16">
+              <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-3xl p-4 sm:p-8 md:p-12 text-white">
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 sm:mb-4">
                   Ready to Build Your Custom ServiceNow Application?
                 </h3>
-                <p className="text-lg md:text-xl text-amber-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-amber-100 mb-4 sm:mb-8 max-w-xs sm:max-w-2xl mx-auto leading-relaxed">
                   Join businesses achieving 234% ROI with custom apps. Get tailored solutions developed in 16 weeks average with 89% user adoption.
                 </p>
                 <button 
