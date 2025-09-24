@@ -266,14 +266,14 @@ export default function Telecommunications() {
   return (
     <>
       {/* Fixed Chat Button */}
-      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
         <button 
           onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-sky-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 active:scale-95"
+          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-sky-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with Telecom Expert"
         >
-          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
             Chat with Telecom Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-sky-600 opacity-20"></div>
@@ -282,7 +282,7 @@ export default function Telecommunications() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-900 via-blue-900 to-indigo-900">
+        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-sky-900 via-blue-900 to-indigo-900">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -300,11 +300,11 @@ export default function Telecommunications() {
             </div>
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-8">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-4 sm:space-y-8">
                 {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
                   <Badge className="bg-gradient-to-r from-sky-500/90 to-blue-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-sky-600 hover:to-blue-700 transition-all duration-300">
                     ✓ 99.9% Network Uptime
                   </Badge>
@@ -316,12 +316,12 @@ export default function Telecommunications() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   ServiceNow for{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400 font-semibold">
                     Telecommunications
                   </span>
-                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
                     Network{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
                       Excellence
@@ -329,12 +329,12 @@ export default function Telecommunications() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-sky-100 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-sky-100 max-w-xs sm:max-w-2xl leading-relaxed">
                   Transform telecommunications operations with <span className="font-semibold text-blue-300">intelligent network management</span>, 5G deployment acceleration, and exceptional customer experiences. Achieve <span className="font-semibold text-indigo-300">99.9% uptime</span> with <span className="font-semibold text-purple-300">$278M savings</span>.
                 </p>
 
                 {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
                   <div className="group bg-gradient-to-br from-sky-600/20 via-blue-600/20 to-indigo-600/20 hover:from-sky-600/30 hover:via-blue-600/30 hover:to-indigo-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-sky-400/20 hover:border-sky-400/40 transition-all duration-300 transform hover:scale-105">
                     <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400">99.9%</div>
                     <div className="text-xs sm:text-sm text-sky-100">Uptime</div>
@@ -349,7 +349,7 @@ export default function Telecommunications() {
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 hover:from-sky-700 hover:via-blue-700 hover:to-indigo-700"
@@ -375,17 +375,16 @@ export default function Telecommunications() {
               </div>
 
               {/* Right Side Visual Content */}
-              <div className="relative lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-sky-500/15 to-blue-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+              <div className="relative sm:h-[400px] lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-sky-500/15 to-blue-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
                     <PlaceholderImage
                       title="Network Operations Center Dashboard"
                       className="w-full h-full object-cover"
                       gradient="from-sky-600 to-blue-600"
                     />
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
                     <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
                       <div className="text-2xl font-bold text-white mb-1">99.9%</div>
                       <div className="text-xs text-sky-200">Uptime</div>
@@ -414,13 +413,8 @@ export default function Telecommunications() {
         </section>
 
         {/* Solutions Overview Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-sky-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-sky-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-sky-50/30 relative overflow-hidden">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 max-w-[98vw] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16" data-animate id="solutions-overview">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600">
@@ -495,10 +489,8 @@ export default function Telecommunications() {
         </section>
 
         {/* Implementation Approach Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-sky-900 to-blue-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-          
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-sky-900 to-blue-900 text-white relative overflow-hidden">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 max-w-[98vw] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16" data-animate id="implementation">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-400 to-indigo-400">
@@ -561,7 +553,7 @@ export default function Telecommunications() {
 
                     <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                       <div className="relative">
-                        <div className={`aspect-square bg-gradient-to-br from-sky-500/20 to-blue-500/20 rounded-3xl p-8 backdrop-blur-sm border border-sky-400/20 hover:border-sky-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                        <div className={`aspect-square bg-gradient-to-br from-sky-500/20 to-blue-500/20 rounded-3xl p-8 backdrop-blur-sm border border-sky-400/20 hover:border-sky-400/40 transition-all duration-500`}>
                           <div className={`w-full h-full bg-gradient-to-br from-sky-600/30 to-blue-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                             <div className="text-center relative z-10">
@@ -610,13 +602,8 @@ export default function Telecommunications() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-blue-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-sky-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 max-w-[98vw] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16" data-animate id="case-studies">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-sky-600 to-indigo-600">
@@ -705,14 +692,8 @@ export default function Telecommunications() {
         </section>
 
         {/* Client Testimonials Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 via-sky-900 to-indigo-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-indigo-700/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-blue-900 via-sky-900 to-indigo-900 text-white relative overflow-hidden">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 max-w-[98vw] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16" data-animate id="testimonials">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-sky-400">
@@ -790,13 +771,8 @@ export default function Telecommunications() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-sky-50/20 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-sky-100/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-blue-100/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-sky-50/20 relative overflow-hidden">
+          <div className="w-full px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 max-w-[98vw] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16" data-animate id="faq">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600">

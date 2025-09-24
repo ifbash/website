@@ -337,14 +337,14 @@ export default function TechnologySoftware() {
   return (
     <>
       {/* Fixed Chat Button */}
-      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
         <button 
           onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-          className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 active:scale-95"
+          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with Tech Expert"
         >
-          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[120px] text-center">
+          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
+          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
             Chat with Tech Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-violet-600 opacity-20"></div>
@@ -353,7 +353,7 @@ export default function TechnologySoftware() {
 
       <div className="min-h-screen bg-gray-50">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-900 via-purple-900 to-pink-900">
+        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-900 via-purple-900 to-pink-900">
           {/* Animated Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
@@ -371,11 +371,11 @@ export default function TechnologySoftware() {
             </div>
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-8">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
+              <div className="text-white space-y-4 sm:space-y-8">
                 {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
+                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
                   <Badge className="bg-gradient-to-r from-violet-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-violet-600 hover:to-purple-700 transition-all duration-300">
                     ✓ 78% Faster Dev
                   </Badge>
@@ -387,12 +387,12 @@ export default function TechnologySoftware() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   ServiceNow for{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 font-semibold">
                     Technology & Software
                   </span>
-                  <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
+                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
                     DevOps{' '}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 font-semibold">
                       Excellence
@@ -400,33 +400,30 @@ export default function TechnologySoftware() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-violet-100 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-violet-100 max-w-xs sm:max-w-2xl leading-relaxed">
                   Transform technology operations with <span className="font-semibold text-purple-300">DevOps automation</span>, cloud management, and intelligent service delivery. Achieve <span className="font-semibold text-pink-300">78% faster development</span> with <span className="font-semibold text-rose-300">$41M savings</span>.
                 </p>
 
                 {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
-                  <div className="group bg-gradient-to-br from-violet-600/20 via-purple-600/20 to-pink-600/20 hover:from-violet-600/30 hover:via-purple-600/30 hover:to-pink-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-violet-400/20 hover:border-violet-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400">78%</div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
+                  <div className="group bg-gradient-to-br from-violet-600/20 via-purple-600/20 to-pink-600/20 hover:from-violet-600/30 hover:via-purple-600/30 hover:to-pink-600/30 backdrop-blur-sm rounded-xl p-2 sm:p-4 border border-violet-400/20 hover:border-violet-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400">78%</div>
                     <div className="text-xs sm:text-sm text-violet-100">Faster Dev</div>
                   </div>
-                  <div className="group bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-rose-600/20 hover:from-purple-600/30 hover:via-pink-600/30 hover:to-rose-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400">99%</div>
+                  <div className="group bg-gradient-to-br from-purple-600/20 via-pink-600/20 to-rose-600/20 hover:from-purple-600/30 hover:via-pink-600/30 hover:to-rose-600/30 backdrop-blur-sm rounded-xl p-2 sm:p-4 border border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400">99%</div>
                     <div className="text-xs sm:text-sm text-purple-100">Uptime</div>
                   </div>
-                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-pink-600/20 via-rose-600/20 to-red-600/20 hover:from-pink-600/30 hover:via-rose-600/30 hover:to-red-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-red-400">$41M</div>
+                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-pink-600/20 via-rose-600/20 to-red-600/20 hover:from-pink-600/30 hover:via-rose-600/30 hover:to-red-600/30 backdrop-blur-sm rounded-xl p-2 sm:p-4 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300 transform hover:scale-105">
+                    <div className="text-lg sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-red-400">$41M</div>
                     <div className="text-xs sm:text-sm text-pink-100">Savings</div>
                   </div>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 hover:from-violet-700 hover:via-purple-700 hover:to-pink-700"
-                    style={{
-                      boxShadow: "0 20px 40px rgba(139, 92, 246, 0.4)"
-                    }}
+                    className="group w-full sm:w-auto min-h-[44px] sm:min-h-[56px] px-4 sm:px-8 py-2 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 hover:from-violet-700 hover:via-purple-700 hover:to-pink-700"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-violet-400/20 via-purple-400/20 to-pink-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
                     <span className="relative flex items-center justify-center">
@@ -435,7 +432,7 @@ export default function TechnologySoftware() {
                     </span>
                   </button>
                   
-                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
+                  <button className="group w-full sm:w-auto min-h-[44px] sm:min-h-[56px] px-4 sm:px-8 py-2 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                     <span className="relative flex items-center justify-center">
                       <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-pink-400 group-hover:text-pink-300" />
@@ -446,36 +443,35 @@ export default function TechnologySoftware() {
               </div>
 
               {/* Right Side Visual Content */}
-              <div className="relative lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-violet-500/15 to-purple-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
+              <div className="relative sm:h-[400px] lg:h-[600px]">
+                <div className="relative z-20 bg-gradient-to-br from-violet-500/15 to-purple-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
+                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
                     <PlaceholderImage
                       title="DevOps Automation Dashboard"
+                      
                       className="w-full h-full object-cover"
                       gradient="from-violet-600 to-purple-600"
                     />
                   </div>
-                  
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">78%</div>
+                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
+                      <div className="text-lg sm:text-2xl font-bold text-white mb-1">78%</div>
                       <div className="text-xs text-violet-200">Faster</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">99%</div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
+                      <div className="text-lg sm:text-2xl font-bold text-white mb-1">99%</div>
                       <div className="text-xs text-purple-200">Uptime</div>
                     </div>
                   </div>
-                  
                   {/* Floating Tech Icons */}
-                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
+                  <div className="absolute -top-4 -right-4 sm:-top-10 sm:-right-10 w-12 h-12 sm:w-20 sm:h-20 animate-float">
                     <div className="w-full h-full bg-gradient-to-r from-violet-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Code className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                      <Code className="h-6 w-6 sm:h-10 sm:w-10 text-white" />
                     </div>
                   </div>
-                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
+                  <div className="absolute -bottom-4 -left-4 sm:-bottom-8 sm:-left-10 w-12 h-12 sm:w-20 sm:h-20 animate-float delay-150">
                     <div className="w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <CloudLightning className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
+                      <CloudLightning className="h-6 w-6 sm:h-10 sm:w-10 text-white" />
                     </div>
                   </div>
                 </div>
@@ -485,15 +481,15 @@ export default function TechnologySoftware() {
         </section>
 
         {/* Solutions Overview Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-violet-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-violet-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-violet-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="solutions-overview">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="solutions-overview">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
                   Technology Solutions
                 </span>
@@ -502,12 +498,12 @@ export default function TechnologySoftware() {
                   That Accelerate Innovation
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Transform every aspect of technology operations with intelligent solutions designed for the modern development era.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-16">
               {technologySolutions.map((solution, index) => (
                 <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-violet-100 hover:border-violet-300 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -550,7 +546,7 @@ export default function TechnologySoftware() {
             </div>
 
             {/* Technology Metrics Stats */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {technologyMetrics.map((metric, index) => (
                 <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-violet-200">
                   <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
@@ -566,12 +562,12 @@ export default function TechnologySoftware() {
         </section>
 
         {/* Implementation Approach Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-gray-900 via-violet-900 to-purple-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-violet-900 to-purple-900 text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-grid-pattern opacity-10" />
           
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="implementation">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="implementation">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400">
                   Our Technology Implementation
                 </span>
@@ -580,12 +576,12 @@ export default function TechnologySoftware() {
                   Approach
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-violet-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-violet-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 A specialized 4-phase methodology designed specifically for technology companies and software development acceleration.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {implementationApproach.map((phase, index) => (
                 <div key={index} className="group relative" data-animate id={`phase-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -632,7 +628,7 @@ export default function TechnologySoftware() {
 
                     <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                       <div className="relative">
-                        <div className={`aspect-square bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-3xl p-8 backdrop-blur-sm border border-violet-400/20 hover:border-violet-400/40 transition-all duration-500 transform group-hover:scale-105`}>
+                        <div className={`aspect-square bg-gradient-to-br from-violet-500/20 to-purple-500/20 rounded-3xl p-8 backdrop-blur-sm border border-violet-400/20 hover:border-violet-400/40 transition-all duration-500`}>
                           <div className={`w-full h-full bg-gradient-to-br from-violet-600/30 to-purple-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
                             <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
                             <div className="text-center relative z-10">
@@ -662,10 +658,10 @@ export default function TechnologySoftware() {
             </div>
 
             {/* Call to Action */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-8 sm:mt-16">
               <button 
                 onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 hover:from-violet-700 hover:via-purple-700 hover:to-pink-700 transform hover:scale-105"
+                className="group px-8 py-4 text-sm sm:text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 hover:from-violet-700 hover:via-purple-700 hover:to-pink-700 transform hover:scale-105"
                 style={{
                   boxShadow: "0 20px 40px rgba(139, 92, 246, 0.4)"
                 }}
@@ -681,15 +677,15 @@ export default function TechnologySoftware() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-purple-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-violet-100/30 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="case-studies">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="case-studies">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-violet-600 to-pink-600">
                   Technology Success
                 </span>
@@ -698,12 +694,12 @@ export default function TechnologySoftware() {
                   Stories
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 See how technology leaders have transformed their operations with ServiceNow solutions that deliver measurable results.
               </p>
             </div>
 
-            <div className="space-y-12">
+            <div className="space-y-4 sm:space-y-12">
               {caseStudies.map((study, index) => (
                 <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
                   <div className="grid lg:grid-cols-2 gap-8 items-center">
@@ -776,16 +772,16 @@ export default function TechnologySoftware() {
         </section>
 
         {/* Client Testimonials Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-violet-900 to-pink-900 text-white relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-purple-900 via-violet-900 to-pink-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-pink-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-purple-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="testimonials">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="testimonials">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-violet-400">
                   What Technology Leaders Say
                 </span>
@@ -794,12 +790,12 @@ export default function TechnologySoftware() {
                   About Our Solutions
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-purple-100 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-purple-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Hear from technology executives who transformed their operations with our ServiceNow solutions.
               </p>
             </div>
 
-            <div className="relative max-w-4xl mx-auto">
+            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
               <div className="overflow-hidden rounded-2xl">
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {clientStories.map((story, index) => (
@@ -843,7 +839,7 @@ export default function TechnologySoftware() {
               </div>
 
               {/* Testimonial Navigation */}
-              <div className="flex justify-center space-x-2 mt-8">
+              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
                 {clientStories.map((_, index) => (
                   <button
                     key={index}
@@ -861,15 +857,15 @@ export default function TechnologySoftware() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-violet-50/20 relative overflow-hidden">
+        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-violet-50/20 relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-violet-100/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-purple-100/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-16" data-animate id="faq">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-8 sm:mb-16" data-animate id="faq">
+              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600">
                   Frequently Asked Questions
                 </span>
@@ -878,13 +874,13 @@ export default function TechnologySoftware() {
                   About Technology Solutions
                 </span>
               </h2>
-              <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
                 Get answers to common questions about ServiceNow solutions for the technology industry.
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="space-y-4">
+            <div className="max-w-xs sm:max-w-4xl mx-auto">
+              <div className="space-y-1 sm:space-y-4">
                 {faqs.map((faq, index) => (
                   <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
                     <button
@@ -916,17 +912,17 @@ export default function TechnologySoftware() {
             </div>
 
             {/* Final CTA */}
-            <div className="text-center mt-16">
+            <div className="text-center mt-8 sm:mt-16">
               <div className="bg-gradient-to-r from-violet-600 via-purple-600 to-pink-600 rounded-3xl p-8 md:p-12 text-white">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
                   Ready to Accelerate Your Technology Operations?
                 </h3>
-                <p className="text-lg md:text-xl text-violet-100 mb-8 max-w-2xl mx-auto">
+                <p className="text-xs sm:text-lg md:text-xl text-violet-100 mb-8 max-w-xs sm:max-w-2xl mx-auto">
                   Join technology leaders achieving 78% faster development. Get DevOps solutions that deliver 99% uptime and $41M savings.
                 </p>
                 <button 
                   onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                  className="group px-8 py-4 text-lg font-semibold bg-white text-violet-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                  className="group px-8 py-4 text-sm sm:text-lg font-semibold bg-white text-violet-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
                 >
                   <span className="flex items-center justify-center">
                     Schedule Your Technology Consultation
