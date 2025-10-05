@@ -701,7 +701,7 @@ export default function IntegratedRiskManagementPage() {
           content="Make risk-informed decisions and increase efficiency. Innovate at speed, with confidence, to build trust and reach your business goals with ServiceNow IRM."
         />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Head>
@@ -721,9 +721,9 @@ export default function IntegratedRiskManagementPage() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 width-sm-fix overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-900 via-cyan-900 to-sky-900">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-900 via-cyan-900 to-sky-900 py-4 sm:py-16 md:py-24 w-full">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-teal-700/20 via-transparent to-transparent animate-pulse-slow" />
@@ -735,26 +735,26 @@ export default function IntegratedRiskManagementPage() {
             <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-sky-400 rounded-full animate-float delay-300 opacity-80" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0 relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-white space-y-8">
                 {/* ServiceNow Official Badge */}
                 <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-teal-500/90 to-cyan-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-teal-600 hover:to-cyan-700 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-teal-500/90 to-cyan-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-1.5 sm:px-3 hover:from-teal-600 hover:to-cyan-700 transition-all duration-300">
                     <Award className="w-3 h-3 mr-1" />
                     ServiceNow Certified
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-cyan-500/90 to-sky-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-cyan-600 hover:to-sky-700 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-cyan-500/90 to-sky-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-1.5 sm:px-3 hover:from-cyan-600 hover:to-sky-700 transition-all duration-300">
                     <Sparkles className="w-3 h-3 mr-1" />
                     AI-Powered GRC
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-sky-500/90 to-blue-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-sky-600 hover:to-blue-600 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-sky-500/90 to-blue-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-1.5 sm:px-3 hover:from-sky-600 hover:to-blue-600 transition-all duration-300">
                     <Trophy className="w-3 h-3 mr-1" />
                     Operational Resilience
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-sky-400 font-semibold">
                     Integrated Risk
                   </span>
@@ -765,7 +765,7 @@ export default function IntegratedRiskManagementPage() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-teal-100 max-w-2xl leading-relaxed">
+                <p className="text-sm sm:text-lg md:text-xl text-green-100 max-w-[280px] sm:max-w-2xl leading-relaxed">
                   <span className="font-semibold text-cyan-300">Make risk-informed decisions and increase efficiency.</span>{' '}
                   <span className="font-semibold text-sky-300">Innovate at speed, with confidence,</span> to build trust and reach your business goals.
                 </p>
@@ -773,7 +773,7 @@ export default function IntegratedRiskManagementPage() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-teal-600 via-cyan-600 to-sky-600 hover:from-teal-700 hover:via-cyan-700 hover:to-sky-700"
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-2 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-teal-600 via-cyan-600 to-sky-600 hover:from-teal-700 hover:via-cyan-700 hover:to-sky-700"
                     style={{
                       boxShadow: "0 20px 40px rgba(20, 184, 166, 0.4)"
                     }}
@@ -794,7 +794,7 @@ export default function IntegratedRiskManagementPage() {
     }
   }
 }}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-2 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                     <span className="relative flex items-center justify-center">
@@ -856,8 +856,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-sky-600">
@@ -873,9 +873,9 @@ export default function IntegratedRiskManagementPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -903,8 +903,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Key Features Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600">
@@ -920,9 +920,9 @@ export default function IntegratedRiskManagementPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {keyFeatures.map((feature, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-cyan-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-cyan-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-sky-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -957,8 +957,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Role-Based Applications Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-sky-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-sky-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600">
@@ -974,9 +974,9 @@ export default function IntegratedRiskManagementPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-8">
               {roleBasedApps.map((roleApp, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-sky-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-sky-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-sky-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -1011,8 +1011,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Package Tiers Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
@@ -1028,9 +1028,9 @@ export default function IntegratedRiskManagementPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
               {packageTiers.map((tier, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -1070,8 +1070,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-violet-600">
@@ -1139,14 +1139,14 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-purple-900 via-violet-900 to-indigo-900 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-r from-purple-900 via-violet-900 to-indigo-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-violet-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-purple-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400">
@@ -1167,7 +1167,7 @@ export default function IntegratedRiskManagementPage() {
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {caseStudies.map((study, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
                         <div className="grid lg:grid-cols-2 gap-8">
                           <div>
                             <div className="flex items-center mb-6">
@@ -1248,8 +1248,8 @@ export default function IntegratedRiskManagementPage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
             <div className="bg-gradient-to-r from-purple-600 via-violet-600 to-indigo-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-grid-pattern opacity-10" />
               <div className="relative z-10">
@@ -1329,6 +1329,60 @@ export default function IntegratedRiskManagementPage() {
         .bg-grid-pattern {
           background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
+        }
+
+        /* Prevent horizontal scroll */
+        :root {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          
+          .text-content {
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+          
+          .card {
+            padding: 0.75rem;
+          }
+          
+          .grid-gap {
+            gap: 0.5rem;
+          }
+
+          /* Prevent text overflow */
+          h1, h2, h3, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+
+          /* Adjust card layouts */
+          .card-grid {
+            grid-template-columns: 1fr;
+          }
+
+          /* Reduce padding */
+          .section-padding {
+            padding: 1rem;
+          }
+
+          /* Adjust image sizes */
+          img {
+            max-width: 100%;
+            height: auto;
+          }
         }
       `}</style>
     </>

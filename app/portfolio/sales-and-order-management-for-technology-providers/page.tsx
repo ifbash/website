@@ -627,7 +627,7 @@ export default function SalesOrderManagementTechProvidersPage() {
           content="Streamline sales and order management to capture revenue faster, reduce costs, and capitalize on XaaS with one AI platform for technology providers."
         />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Head>
@@ -647,7 +647,7 @@ export default function SalesOrderManagementTechProvidersPage() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen  width-sm-fix overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
         <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-900 via-emerald-900 to-teal-900">
           <div className="absolute inset-0 z-0">
@@ -680,7 +680,7 @@ export default function SalesOrderManagementTechProvidersPage() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 font-semibold">
                     Sales & Order Management
                   </span>
@@ -691,7 +691,7 @@ export default function SalesOrderManagementTechProvidersPage() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-green-100 max-w-2xl leading-relaxed">
+                <p className="text-sm sm:text-lg md:text-xl text-green-100 max-w-[280px] sm:max-w-2xl leading-relaxed">
                   <span className="font-semibold text-emerald-300">Streamline sales and order management</span> to capture revenue faster, reduce costs, and{' '}
                   <span className="font-semibold text-teal-300">capitalize on XaaS opportunities</span> with one AI platform.
                 </p>
@@ -699,7 +699,7 @@ export default function SalesOrderManagementTechProvidersPage() {
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700"
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600 hover:from-green-700 hover:via-emerald-700 hover:to-teal-700"
                     style={{
                       boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)"
                     }}
@@ -720,7 +720,7 @@ export default function SalesOrderManagementTechProvidersPage() {
     }
   }
 }}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
+                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                     <span className="relative flex items-center justify-center">
@@ -782,8 +782,8 @@ export default function SalesOrderManagementTechProvidersPage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-green-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-emerald-600 to-teal-600">
@@ -799,9 +799,9 @@ export default function SalesOrderManagementTechProvidersPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-green-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -829,8 +829,8 @@ export default function SalesOrderManagementTechProvidersPage() {
         </section>
 
         {/* Featured Apps Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
@@ -846,9 +846,9 @@ export default function SalesOrderManagementTechProvidersPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {featuredApps.map((app, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-emerald-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -883,8 +883,8 @@ export default function SalesOrderManagementTechProvidersPage() {
         </section>
 
         {/* XaaS Capabilities Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-cyan-600 to-blue-600">
@@ -900,9 +900,9 @@ export default function SalesOrderManagementTechProvidersPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
               {xaasCapabilities.map((capability, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -930,8 +930,8 @@ export default function SalesOrderManagementTechProvidersPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-600">
@@ -999,7 +999,7 @@ export default function SalesOrderManagementTechProvidersPage() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-indigo-700/20 via-transparent to-transparent" />
@@ -1027,7 +1027,7 @@ export default function SalesOrderManagementTechProvidersPage() {
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {caseStudies.map((study, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
                         <div className="grid lg:grid-cols-2 gap-8">
                           <div>
                             <div className="flex items-center mb-6">
@@ -1189,6 +1189,60 @@ export default function SalesOrderManagementTechProvidersPage() {
         .bg-grid-pattern {
           background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
+        }
+
+        /* Prevent horizontal scroll */
+        :root {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          
+          .text-content {
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+          
+          .card {
+            padding: 0.75rem;
+          }
+          
+          .grid-gap {
+            gap: 0.5rem;
+          }
+
+          /* Prevent text overflow */
+          h1, h2, h3, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+
+          /* Adjust card layouts */
+          .card-grid {
+            grid-template-columns: 1fr;
+          }
+
+          /* Reduce padding */
+          .section-padding {
+            padding: 1rem;
+          }
+
+          /* Adjust image sizes */
+          img {
+            max-width: 100%;
+            height: auto;
+          }
         }
       `}</style>
     </>

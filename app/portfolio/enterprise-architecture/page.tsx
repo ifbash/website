@@ -607,7 +607,7 @@ export default function EnterpriseArchitecturePage() {
           className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95"
           aria-label="Discuss EA Implementation"
         >
-          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <MessageCircle className="h-4 w-4 sm:h-6 sm:w-6" />
           <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[160px] text-center">
             Discuss EA Implementation
           </span>
@@ -615,9 +615,9 @@ export default function EnterpriseArchitecturePage() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 overflow-x-hidden w-screen width-sm-fix">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 py-4 sm:py-16 md:py-24 px-2 sm:px-0">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-blue-700/20 via-transparent to-transparent animate-pulse-slow" />
@@ -629,26 +629,26 @@ export default function EnterpriseArchitecturePage() {
             <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-indigo-400 rounded-full animate-float delay-300 opacity-80" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="text-white space-y-8">
                 {/* ServiceNow Official Badge */}
                 <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-blue-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-blue-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-2 sm:px-3 hover:from-blue-600 hover:to-indigo-700 transition-all duration-300">
                     <Award className="w-3 h-3 mr-1" />
                     ServiceNow Certified
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-indigo-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-indigo-600 hover:to-purple-700 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-indigo-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-2 sm:px-3 hover:from-indigo-600 hover:to-purple-700 transition-all duration-300">
                     <Sparkles className="w-3 h-3 mr-1" />
                     Complete EA Suite
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-purple-500/90 to-pink-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
+                  <Badge className="bg-gradient-to-r from-purple-500/90 to-pink-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-0.5 sm:py-1 px-2 sm:px-3 hover:from-purple-600 hover:to-pink-600 transition-all duration-300">
                     <Trophy className="w-3 h-3 mr-1" />
                     Enterprise Ready
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
                   ServiceNow{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
                     Enterprise
@@ -660,14 +660,14 @@ export default function EnterpriseArchitecturePage() {
                   </span>
                 </h1>
 
-                <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
+                <p className="text-xs sm:text-base md:text-lg text-blue-100 max-w-full sm:max-w-2xl leading-relaxed">
                   <span className="font-semibold text-indigo-300">Gain data-driven insights</span> to assess, monitor, and align your application portfolio to business capabilities. <span className="font-semibold text-purple-300">Control costs and attain greater value</span> from your technology investments.
                 </p>
 
-                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-4 sm:px-0">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700"
+                    className="group w-full sm:w-auto px-3 sm:px-8 py-2 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700"
                     style={{
                       boxShadow: "0 20px 40px rgba(79, 70, 229, 0.4)"
                     }}
@@ -688,7 +688,7 @@ export default function EnterpriseArchitecturePage() {
     }
   }
 }}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
+                    className="group w-full sm:w-auto px-3 sm:px-8 py-2 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
                   >
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
                     <span className="relative flex items-center justify-center">
@@ -739,8 +739,8 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full">
+          <div className="w-[95%] sm:w-[90%] md:w-[85%] lg:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
@@ -756,21 +756,21 @@ export default function EnterpriseArchitecturePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-lg sm:rounded-2xl p-3 sm:p-8">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${benefit.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                      <benefit.icon className="h-8 w-8 text-white" />
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${benefit.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                      <benefit.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800 capitalize">
+                    <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
                       {benefit.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base mb-4 sm:mb-6">
                       {benefit.description}
                     </p>
 
@@ -786,8 +786,8 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Core Applications Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
@@ -803,21 +803,21 @@ export default function EnterpriseArchitecturePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8">
               {coreApplications.map((app, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${app.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${app.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
                       <app.icon className="h-8 w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                    <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
                       {app.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base mb-4 sm:mb-6">
                       {app.description}
                     </p>
 
@@ -840,8 +840,8 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Additional Features Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-red-600">
@@ -857,21 +857,21 @@ export default function EnterpriseArchitecturePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {additionalFeatures.map((feature, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-lg sm:rounded-2xl p-3 sm:p-8">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                      <feature.icon className="h-8 w-8 text-white" />
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
+                      <feature.icon className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
                     </div>
                     
-                    <h3 className="text-2xl font-bold mb-4 text-gray-800">
+                    <h3 className="text-lg sm:text-2xl font-bold mb-2 sm:mb-4">
                       {feature.title}
                     </h3>
                     
-                    <p className="text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-sm sm:text-base mb-4 sm:mb-6">
                       {feature.description}
                     </p>
 
@@ -894,8 +894,8 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Related Products Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-red-600 to-orange-600">
@@ -911,9 +911,9 @@ export default function EnterpriseArchitecturePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
               {relatedProducts.map((product, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
                   <div className="flex items-center mb-6">
                     <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl flex items-center justify-center mr-4 shadow-lg">
                       <product.icon className="h-8 w-8 text-white" />
@@ -946,8 +946,8 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600">
@@ -969,9 +969,9 @@ export default function EnterpriseArchitecturePage() {
                   <div key={index} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                     <button
                       onClick={() => toggleFAQ(index)}
-                      className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200"
+                      className="w-full p-3 sm:p-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200"
                     >
-                      <h3 className="text-lg font-semibold text-gray-800 pr-4">{faq.question}</h3>
+                      <h3 className="text-base sm:text-lg font-semibold text-gray-800 pr-4">{faq.question}</h3>
                       <div className={`transform transition-transform duration-300 ${
                         activeFAQ === index ? 'rotate-180' : 'rotate-0'
                       }`}>
@@ -1011,14 +1011,14 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-red-900 via-orange-900 to-yellow-900 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-gradient-to-r from-red-900 via-orange-900 to-yellow-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-orange-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-red-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-yellow-400 to-red-400">
@@ -1039,7 +1039,7 @@ export default function EnterpriseArchitecturePage() {
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {caseStudies.map((study, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-3 sm:p-8 md:p-12 border border-white/20">
                         <div className="grid lg:grid-cols-2 gap-8">
                           <div>
                             <div className="flex items-center mb-6">
@@ -1051,7 +1051,7 @@ export default function EnterpriseArchitecturePage() {
                               </Badge>
                             </div>
 
-                            <h3 className="text-2xl md:text-3xl font-bold mb-4">{study.client}</h3>
+                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{study.client}</h3>
                             
                             <div className="space-y-4 mb-6">
                               <div>
@@ -1120,45 +1120,45 @@ export default function EnterpriseArchitecturePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 px-2 sm:px-0 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+            <div className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 rounded-3xl p-4 sm:p-8 md:p-16 text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-grid-pattern opacity-10" />
               <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
+                <h2 className="text-xl sm:text-3xl md:text-4xl font-bold mb-6">
                   Ready to Realize Your Enterprise Architecture Vision?
                 </h2>
-                <p className="text-lg md:text-xl text-orange-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-sm sm:text-lg md:text-xl text-orange-100 mb-10 max-w-3xl mx-auto leading-relaxed">
                   Connect with our ServiceNow experts to discuss Enterprise Architecture implementation and accelerate your digital transformation journey.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="px-8 py-4 bg-white text-red-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="px-3 sm:px-8 py-2 sm:py-4 bg-white text-red-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Contact EA Experts
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
                   </button>
-                  <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                  <button className="px-3 sm:px-8 py-2 sm:py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                     <Download className="mr-2 h-5 w-5 inline" />
                     Get Solution Brief
                   </button>
                 </div>
 
                 {/* Contact Information */}
-                <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6 max-w-2xl mx-auto">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 sm:p-4 border border-white/20">
                     <Mail className="h-6 w-6 text-orange-200 mx-auto mb-2" />
-                    <p className="text-white text-sm font-medium">ea-experts@ifbash.com</p>
+                    <p className="text-white text-xs sm:text-sm font-medium">ea-experts@ifbash.com</p>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 sm:p-4 border border-white/20">
                     <Phone className="h-6 w-6 text-yellow-200 mx-auto mb-2" />
-                    <p className="text-white text-sm font-medium">+91-XXXX-XXXXXX</p>
+                    <p className="text-white text-xs sm:text-sm font-medium">+91-XXXX-XXXXXX</p>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
+                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-2 sm:p-4 border border-white/20">
                     <Calendar className="h-6 w-6 text-red-200 mx-auto mb-2" />
-                    <p className="text-white text-sm font-medium">Book Consultation</p>
+                    <p className="text-white text-xs sm:text-sm font-medium">Book Consultation</p>
                   </div>
                 </div>
               </div>
@@ -1201,6 +1201,34 @@ export default function EnterpriseArchitecturePage() {
         .bg-grid-pattern {
           background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
+        }
+
+        /* Base container styles */
+        .container {
+          width: 100%;
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          
+          .card {
+            padding: 0.75rem;
+          }
+          
+          .text-content {
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+          
+          .grid-container {
+            gap: 0.5rem;
+          }
         }
       `}</style>
     </>

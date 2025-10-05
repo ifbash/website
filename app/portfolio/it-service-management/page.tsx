@@ -665,7 +665,7 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
           content="Transform the impact and delivery of IT with resilient, productivity-boosting services. Streamline IT operations with comprehensive ServiceNow ITSM including incident, problem, and change management."
         />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Head>
@@ -685,9 +685,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 py-4 sm:py-16 md:py-24 w-full">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-blue-700/20 via-transparent to-transparent animate-pulse-slow" />
@@ -699,26 +699,26 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
             <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-indigo-400 rounded-full animate-float delay-300 opacity-80" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white space-y-8">
+              <div className="text-white space-y-4 sm:space-y-8 px-2 sm:px-0">
                 {/* ServiceNow Official Badge */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-blue-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
+                <div className="flex flex-wrap gap-1.5 sm:gap-4 mb-6 sm:mb-8 justify-start px-2 sm:px-0">
+                  <Badge className="text-[10px] sm:text-sm py-0.5 sm:py-1 px-1.5 sm:px-3 bg-gradient-to-r from-blue-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent whitespace-nowrap hover:from-blue-600 hover:to-purple-700 transition-all duration-300">
                     <Award className="w-3 h-3 mr-1" />
                     ServiceNow Certified
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-purple-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-purple-600 hover:to-indigo-700 transition-all duration-300">
+                  <Badge className="text-[10px] sm:text-sm py-0.5 sm:py-1 px-1.5 sm:px-3 bg-gradient-to-r from-purple-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent whitespace-nowrap hover:from-purple-600 hover:to-indigo-700 transition-all duration-300">
                     <Sparkles className="w-3 h-3 mr-1" />
                     Complete ITSM Suite
                   </Badge>
-                  <Badge className="bg-gradient-to-r from-indigo-500/90 to-blue-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-indigo-600 hover:to-blue-600 transition-all duration-300">
+                  <Badge className="text-[10px] sm:text-sm py-0.5 sm:py-1 px-1.5 sm:px-3 bg-gradient-to-r from-indigo-500/90 to-blue-500/90 backdrop-blur-sm text-white border-transparent whitespace-nowrap hover:from-indigo-600 hover:to-blue-600 transition-all duration-300">
                     <Trophy className="w-3 h-3 mr-1" />
                     ITIL Aligned
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   ServiceNow{' '}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-indigo-400 font-semibold">
                     IT Service
@@ -810,8 +810,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600">
@@ -827,9 +827,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white p-3 sm:p-8 rounded-lg sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-blue-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -857,8 +857,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* Core ITSM Modules Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600">
@@ -874,9 +874,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {coreModules.map((module, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white p-3 sm:p-8 rounded-lg sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -911,8 +911,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* ITSM Package Options Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-purple-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
@@ -928,9 +928,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
               </p>
             </div>
 
-            <div className="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-8">
               {packageOptions.map((pkg, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white p-3 sm:p-8 rounded-lg sm:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -969,8 +969,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* Platform Capabilities Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600">
@@ -986,9 +986,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {platformCapabilities.map((capability, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white p-3 sm:p-8 rounded-lg sm:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
                   <div className="flex items-center mb-6">
                     <div className={`w-16 h-16 bg-gradient-to-r ${capability.color} rounded-2xl flex items-center justify-center mr-4 shadow-lg`}>
                       <capability.icon className="h-8 w-8 text-white" />
@@ -1021,8 +1021,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-cyan-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-cyan-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-teal-600 to-green-600">
@@ -1086,14 +1086,14 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-teal-900 via-green-900 to-emerald-900 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-r from-teal-900 via-green-900 to-emerald-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-green-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400">
@@ -1114,8 +1114,8 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {caseStudies.map((study, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
-                        <div className="grid lg:grid-cols-2 gap-8">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
                           <div>
                             <div className="flex items-center mb-6">
                               <Badge className="bg-gradient-to-r from-teal-500/20 to-green-500/20 text-teal-200 border border-teal-400/30 mr-3">
@@ -1195,9 +1195,9 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <div className="bg-gradient-to-r from-teal-600 via-green-600 to-emerald-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+            <div className="bg-gradient-to-r from-teal-600 via-green-600 to-emerald-600 p-4 sm:p-8 md:p-16 rounded-xl sm:rounded-3xl text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-grid-pattern opacity-10" />
               <div className="relative z-10">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
@@ -1210,12 +1210,12 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="px-3 sm:px-8 py-2 sm:py-4 bg-white text-teal-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Contact ITSM Experts
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
                   </button>
-                  <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                  <button className="px-3 sm:px-8 py-2 sm:py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                     <Download className="mr-2 h-5 w-5 inline" />
                     Explore ITSM Guide
                   </button>
@@ -1276,6 +1276,64 @@ const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
         .bg-grid-pattern {
           background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
+        }
+
+        /* Prevent horizontal scroll */
+        :root {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          
+          .text-content {
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+          
+          .card {
+            padding: 0.75rem;
+          }
+          
+          .grid-gap {
+            gap: 0.5rem;
+          }
+
+          /* Prevent text overflow */
+          h1, h2, h3, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+
+          /* Adjust mobile font sizes */
+          .text-mobile-sm {
+            font-size: 0.75rem;
+          }
+          
+          .text-mobile-base {
+            font-size: 0.875rem;
+          }
+
+          /* Reduce padding on mobile */
+          .mobile-padding {
+            padding: 0.5rem;
+          }
+
+          /* Ensure images don't overflow */
+          img {
+            max-width: 100%;
+            height: auto;
+          }
         }
       `}</style>
     </>

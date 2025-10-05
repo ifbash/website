@@ -654,7 +654,7 @@ export default function DigitalEndUserExperiencePage() {
           content="Measure and continuously improve the technology experience for your employees. Enable self-service and engage with IT with ServiceNow Digital End-User Experience."
         />
         <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       </Head>
@@ -674,9 +674,9 @@ export default function DigitalEndUserExperiencePage() {
         </button>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
+      <div className="min-h-screen bg-gray-50 width-sm-fix overflow-x-hidden max-w-[100vw]">
         {/* Hero Section */}
-        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-900 via-purple-900 to-indigo-900">
+        <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-violet-900 via-purple-900 to-indigo-900 py-4 sm:py-16 md:py-24 w-full">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-violet-700/20 via-transparent to-transparent animate-pulse-slow" />
@@ -688,12 +688,12 @@ export default function DigitalEndUserExperiencePage() {
             <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-indigo-400 rounded-full animate-float delay-300 opacity-80" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="text-white space-y-8">
+              <div className="text-white space-y-4 sm:space-y-8 px-2 sm:px-0">
                 {/* ServiceNow Official Badge */}
-                <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-violet-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-violet-600 hover:to-purple-700 transition-all duration-300">
+                <div className="flex flex-wrap gap-1.5 sm:gap-4 mb-6 sm:mb-8">
+                  <Badge className="text-[10px] sm:text-sm py-0.5 sm:py-1 px-1.5 sm:px-3 bg-gradient-to-r from-violet-500/90 to-purple-600/90 backdrop-blur-sm text-white border-transparent whitespace-nowrap hover:from-violet-600 hover:to-purple-700 transition-all duration-300">
                     <Award className="w-3 h-3 mr-1" />
                     ServiceNow Certified
                   </Badge>
@@ -707,7 +707,7 @@ export default function DigitalEndUserExperiencePage() {
                   </Badge>
                 </div>
 
-                <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
+                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-purple-400 to-indigo-400 font-semibold">
                     Digital End-User
                   </span>
@@ -798,8 +798,8 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Benefits Section */}
-        <section id="benefits" className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-violet-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-violet-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600">
@@ -815,9 +815,9 @@ export default function DigitalEndUserExperiencePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-violet-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-violet-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -845,8 +845,8 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Featured Apps Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600">
@@ -862,9 +862,9 @@ export default function DigitalEndUserExperiencePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {featuredApps.map((app, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-indigo-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -899,8 +899,8 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Experience Metrics Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
@@ -916,9 +916,9 @@ export default function DigitalEndUserExperiencePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {experienceMetrics.map((metric, index) => (
-                <div key={index} className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
+                <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-indigo-200 transform hover:-translate-y-2">
                   <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
                   <div className="relative z-10">
@@ -946,8 +946,8 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Platform Capabilities Section */}
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-white relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-600 to-teal-600">
@@ -963,9 +963,9 @@ export default function DigitalEndUserExperiencePage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
               {platformCapabilities.map((capability, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
+                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
                   <div className="flex items-center mb-6">
                     <div className={`w-16 h-16 bg-gradient-to-r ${capability.color} rounded-2xl flex items-center justify-center mr-4 shadow-lg`}>
                       <capability.icon className="h-8 w-8 text-white" />
@@ -998,8 +998,8 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* FAQ Section - FIXED VERSION */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-cyan-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-cyan-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 via-teal-600 to-green-600">
@@ -1068,14 +1068,14 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-r from-teal-900 via-green-900 to-emerald-900 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-r from-teal-900 via-green-900 to-emerald-900 text-white relative overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-grid-pattern opacity-10" />
             <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-green-700/20 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent" />
           </div>
 
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0 relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-green-400 to-emerald-400">
@@ -1096,7 +1096,7 @@ export default function DigitalEndUserExperiencePage() {
                 <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
                   {caseStudies.map((study, index) => (
                     <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
+                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-3 sm:p-8 md:p-12 border border-white/20">
                         <div className="grid lg:grid-cols-2 gap-8">
                           <div>
                             <div className="flex items-center mb-6">
@@ -1177,9 +1177,9 @@ export default function DigitalEndUserExperiencePage() {
         </section>
 
         {/* Call to Action */}
-        <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
-          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <div className="bg-gradient-to-r from-teal-600 via-green-600 to-emerald-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
+        <section className="py-4 sm:py-16 md:py-24 w-full bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
+          <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+            <div className="bg-gradient-to-r from-teal-600 via-green-600 to-emerald-600 p-4 sm:p-8 md:p-16 rounded-xl sm:rounded-3xl text-white relative overflow-hidden">
               <div className="absolute inset-0 bg-grid-pattern opacity-10" />
               <div className="relative z-10">
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
@@ -1192,7 +1192,7 @@ export default function DigitalEndUserExperiencePage() {
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                   <button 
                     onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                    className="px-8 py-4 bg-white text-teal-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="text-xs sm:text-base px-3 sm:px-8 py-2 sm:py-4 bg-white text-teal-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Contact DEX Experts
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
@@ -1258,6 +1258,58 @@ export default function DigitalEndUserExperiencePage() {
         .bg-grid-pattern {
           background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
           background-size: 50px 50px;
+        }
+
+        /* Prevent horizontal scroll */
+        :root {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        body {
+          overflow-x: hidden;
+          max-width: 100vw;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 640px) {
+          .container {
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+          }
+          
+          .text-content {
+            font-size: 0.875rem;
+            line-height: 1.4;
+          }
+          
+          .card {
+            padding: 0.75rem;
+          }
+          
+          .grid-gap {
+            gap: 0.5rem;
+          }
+
+          /* Prevent text overflow */
+          h1, h2, h3, p {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+          }
+        }
+
+        /* Ensure images don't overflow */
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+
+        /* Adjust grid layouts for mobile */
+        @media (max-width: 640px) {
+          .grid {
+            margin-left: -0.5rem;
+            margin-right: -0.5rem;
+          }
         }
       `}</style>
     </>

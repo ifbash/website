@@ -175,5 +175,12 @@
       align-self: center;
 }
 
+
+@media (max-width: 640px) {
+  .width-sm-fix {
+    width: 97vw;
+    margin: 0 auto;
+  }
+}
 /* Font imports */
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
