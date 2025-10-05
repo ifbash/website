@@ -217,7 +217,7 @@ export function Footer() {
                 </p>
                 <div className="space-y-3">
                   <Link
-                    href="/contact-servicenow-experts"
+                    href="/get-started"
                     className="inline-flex items-center w-full justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                     style={{
                       background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",

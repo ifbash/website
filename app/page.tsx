@@ -64,6 +64,7 @@ Wrench,
 Clock // Add Clock icon
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // Enhanced testimonials with specific metrics
 const testimonials = [
@@ -376,8 +377,8 @@ return (
 
 {/* Fixed Chat Button - Right Side - Enhanced mobile experience */}
 <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-<button 
-  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+<Link 
+  href="/get-started"
   className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 flex items-center justify-center text-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-95"
   aria-label="Chat with ServiceNow Expert"
 >
@@ -386,7 +387,7 @@ return (
     Chat with Expert
   </span>
   <div className="absolute inset-0 rounded-full animate-ping bg-indigo-600 opacity-20"></div>
-</button>
+</Link>
 </div>
 
 <div className="min-h-screen bg-gray-50">
@@ -474,18 +475,18 @@ return (
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
-          <button 
-            className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-50 rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 hover:from-violet-700 hover:via-indigo-700 hover:to-blue-700"
-            style={{
-              boxShadow: "0 20px 40px rgba(90, 103, 216, 0.4)"
-            }}
+          <Link href="/get-started"
+           className="inline-flex items-center w-full justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                    style={{
+                      background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)"
+                    }}
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-violet-400/20 via-indigo-400/20 to-blue-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
             <span className="relative flex items-center justify-center">
               Start Your AI+CRM Journey
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
             </span>
-          </button>
+          </Link>
           
           <button 
             className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-50 rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
@@ -1672,15 +1673,19 @@ Tell us your top priority, and we’ll show how ServiceNow can accelerate result
           </button>
 
           <div className="sm:col-span-2">
-            <button 
-              className="w-full group relative px-8 py-6 text-lg font-semibold text-white rounded-xl overflow-hidden transition-all duration-300 transform hover:-translate-y-1 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700"
+            <Link  href="/get-started"
+              className="inline-flex items-center w-full justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+                    style={{
+                      background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
+                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)"
+                    }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12 group-hover:animate-shimmer" />
               <span className="relative flex items-center justify-center">
                 <MessageCircle className="mr-2 h-5 w-5" />
                 Let&apos;s Solve Your Challenge Together
               </span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
