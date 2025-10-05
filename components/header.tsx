@@ -790,7 +790,7 @@ export function Header() {
             <div className="flex items-center space-x-2 flex-shrink-0">
               {/* Contact CTA Button - Reduced size */}
               <Link
-                href="/contact-servicenow-experts"
+                href="/get-started"
                 className="hidden sm:inline-flex items-center px-4 py-1.5 text-sm font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2 h-[32px]"
                 style={{ 
                   background: "linear-gradient(135deg, #6c28d9 0%, #26a3d9 100%)",
@@ -948,7 +948,7 @@ export function Header() {
                       {/* Mobile Action Buttons */}
                       <div className="mt-6 space-y-4 pt-6 border-t border-slate-100">
                         <Link
-                          href="/contact-servicenow-experts"
+                          href="/get-started"
                           onClick={closeMobileMenu}
                           className="w-full inline-flex items-center justify-center px-4 py-3.5 text-base font-semibold text-white rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-violet-600 focus-visible:outline-offset-2"
                           style={{ 
