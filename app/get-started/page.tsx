@@ -388,8 +388,7 @@ export default function SmartAutomationAgenticAI() {
     <>
       {/* Fixed Chat Button */}
       <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <button 
-          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+        <a href="/get-started"
           className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-violet-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with AI Expert"
         >
@@ -398,7 +397,7 @@ export default function SmartAutomationAgenticAI() {
             Chat with AI Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-violet-600 opacity-20"></div>
-        </button>
+        </a>
       </div>
 
       <div className="bg-gray-50" >

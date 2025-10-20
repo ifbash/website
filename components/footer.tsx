@@ -137,7 +137,7 @@ export function Footer() {
                   <div className="flex items-start space-x-3">
                     <Mail className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-white font-medium">contact@ifbash.com</p>
+                      <p className="text-white font-medium">connect@ifbash.com</p>
                       <p className="text-slate-400 text-sm">General Inquiries</p>
                     </div>
                   </div>
@@ -260,7 +260,7 @@ export function Footer() {
                 </Link>
                 <div className="hidden lg:block w-px h-8 bg-white/20"></div>
                 <p className="text-slate-400 text-sm">
-                  © 2024 ifBash. All rights reserved.
+                  © 2025 ifBash. All rights reserved.
                 </p>
               </div>
 

@@ -225,8 +225,8 @@ export default function CareersPage() {
 
       {/* Fixed Chat Button */}
       <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <button 
-          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+        <a 
+          href='/get-started'
           className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-green-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with HR"
         >
@@ -235,7 +235,7 @@ export default function CareersPage() {
             Chat with HR
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-green-600 opacity-20"></div>
-        </button>
+        </a>
       </div>
 
       <div className="min-h-screen bg-gray-50">
@@ -500,13 +500,13 @@ export default function CareersPage() {
                     </div>
                     
                     <div className="flex-shrink-0">
-                      <button 
-                        onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                      <a 
+                        href='/get-started'
                         className="w-full lg:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
                       >
                         Apply Now
                         <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -624,13 +624,13 @@ export default function CareersPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-6 sm:mb-8">
-                  <button 
-                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  <a 
+                    href='/get-started'
                     className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
                   >
                     Send Us Your Resume
                     <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
-                  </button>
+                  </a>
                   <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base">
                     <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
                     Schedule a Chat

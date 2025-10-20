@@ -370,8 +370,7 @@ return (
 
     {/* Fixed Chat Button */}
     <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-      <button 
-        onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+      <a href="/get-started"
         className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95"
         aria-label="Get Latest Updates"
       >
@@ -380,7 +379,7 @@ return (
           Get Latest Updates
         </span>
         <div className="absolute inset-0 rounded-full animate-ping bg-orange-600 opacity-20"></div>
-      </button>
+      </a>
     </div>
 
     <div className="min-h-screen bg-gray-50 width-sm-fix overflow-x-hidden max-w-[100vw]">
@@ -664,12 +663,11 @@ return (
                   )}
                 </div>
 
-                <button 
-                  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                <a href="/get-started"
                   className="w-full py-3 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-xl font-semibold hover:from-red-700 hover:to-pink-700 transition-all duration-300 transform hover:scale-105"
                 >
                   Register Now
-                </button>
+                </a>
               </div>
             ))}
           </div>
@@ -845,13 +843,12 @@ return (
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <button 
-                  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                <a href="/get-started"
                   className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm"
                 >
                   <Bell className="mr-2 h-5 w-5 inline" />
                   Get Event Notifications
-                </button>
+                </a>
                 <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                   <Share2 className="mr-2 h-5 w-5 inline" />
                   Follow on Social

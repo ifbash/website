@@ -223,9 +223,7 @@ export default function AboutUsPage() {
 
       {/* Fixed Chat Button */}
       <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <button 
-          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95"
+        <a href='/get-started' className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with ifBash Expert"
         >
           <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -233,7 +231,7 @@ export default function AboutUsPage() {
             Chat with Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-blue-600 opacity-20"></div>
-        </button>
+        </a>
       </div>
 
       <div className="min-h-screen bg-gray-50">
@@ -289,8 +287,8 @@ export default function AboutUsPage() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
-                  <button 
-                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  <a 
+                    href="/get-started"
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700"
                   >
                     <span className="relative flex items-center justify-center">
@@ -298,7 +296,7 @@ export default function AboutUsPage() {
                       Contact Our Team
                       <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </button>
+                  </a>
                   
                   <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
                     <span className="relative flex items-center justify-center">
@@ -621,14 +619,12 @@ export default function AboutUsPage() {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 justify-center mb-6 sm:mb-12">
-              <Button 
-                size="lg" 
-                onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
-                className="w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 touch-manipulation"
+              <a
+                href="/get-started" className="w-full sm:w-auto min-h-[48px] flex sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-lg font-semibold text-white rounded-xl transition-all duration-300 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 hover:from-blue-700 hover:via-indigo-700 hover:to-purple-700 touch-manipulation"
               >
                 <Users className="mr-2 h-5 w-5" />
                 Contact Our Team
-              </Button>
+              </a>
               <Button 
                 size="lg" 
                 variant="outline" 
@@ -648,7 +644,7 @@ export default function AboutUsPage() {
               <div className="bg-gradient-to-br from-white/10 to-indigo-500/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <Mail className="h-8 w-8 text-indigo-400 mx-auto mb-3" />
                 <p className="text-white font-semibold mb-1">Email Us</p>
-                <p className="text-indigo-200 text-sm">info@ifbash.com</p>
+                <p className="text-indigo-200 text-sm">contact@ifbash.com</p>
               </div>
               <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <MapPin className="h-8 w-8 text-purple-400 mx-auto mb-3" />

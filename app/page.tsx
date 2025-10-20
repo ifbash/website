@@ -503,8 +503,8 @@ return (
       {/* Right Side Visual Content */}
       <div className="relative lg:h-[600px]">
         {/* Main Platform Visual */}
-        <div className="relative z-20 bg-gradient-to-br from-indigo-500/15 to-blue-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20">
-          <div className="aspect-video w-full rounded-xl overflow-hidden">
+        <div className="relative z-20 bg-gradient-to-br max-h-[380px] from-indigo-500/15 to-blue-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20">
+          <div className="aspect-video w-full rounded-xl overflow-hidden max-h-[316px]">
             <PlaceholderImage
               title="ServiceNow AI+CRM Platform Dashboard"
               className="w-full h-full object-cover"

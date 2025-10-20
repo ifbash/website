@@ -337,8 +337,7 @@ export default function ManufacturingIndustrial() {
     <>
       {/* Fixed Chat Button */}
       <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <button 
-          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+        <a href="/get-started"
           className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95"
           aria-label="Chat with Manufacturing Expert"
         >
@@ -347,7 +346,7 @@ export default function ManufacturingIndustrial() {
             Chat with Mfg Expert
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-orange-600 opacity-20"></div>
-        </button>
+        </a>
       </div>
 
       <div className="min-h-screen bg-gray-50">
@@ -420,8 +419,7 @@ export default function ManufacturingIndustrial() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
-                  <button 
-                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  <a href="/get-started"
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700"
                     style={{
                       boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
@@ -432,7 +430,7 @@ export default function ManufacturingIndustrial() {
                       Start Industry 4.0 Transformation
                       <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </button>
+                  </a>
                   
                   <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
                     <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
@@ -661,8 +659,7 @@ export default function ManufacturingIndustrial() {
 
             {/* Call to Action */}
             <div className="text-center mt-8 sm:mt-16">
-              <button 
-                onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+              <a href="/get-started"
                 className="group px-8 py-4 text-sm sm:text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700 transform hover:scale-105"
                 style={{
                   boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
@@ -673,7 +670,7 @@ export default function ManufacturingIndustrial() {
                   Start Your Manufacturing Transformation
                   <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                 </span>
-              </button>
+              </a>
             </div>
           </div>
         </section>
@@ -922,15 +919,14 @@ export default function ManufacturingIndustrial() {
                 <p className="text-xs sm:text-lg md:text-xl text-orange-100 mb-4 sm:mb-8 max-w-xs sm:max-w-2xl mx-auto">
                   Join manufacturing leaders achieving 99.2% uptime. Get Industry 4.0 solutions that deliver $97M savings and operational excellence.
                 </p>
-                <button 
-                  onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                <a href="/get-started"
                   className="group px-8 py-4 text-sm sm:text-lg font-semibold bg-white text-orange-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
                 >
                   <span className="flex items-center justify-center">
                     Schedule Your Manufacturing Consultation
                     <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                   </span>
-                </button>
+                </a>
               </div>
             </div>
           </div>

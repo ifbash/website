@@ -654,8 +654,7 @@ export default function PublicSectorDigitalServicesPage() {
 
       {/* Fixed Chat Button */}
       <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-        <button 
-          onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+        <a href="/get-started"
           className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95"
           aria-label="Discuss PSDS Implementation"
         >
@@ -664,7 +663,7 @@ export default function PublicSectorDigitalServicesPage() {
             Discuss PSDS Implementation
           </span>
           <div className="absolute inset-0 rounded-full animate-ping bg-amber-600 opacity-20"></div>
-        </button>
+        </a>
       </div>
 
       <div className="min-h-screen bg-gray-50 width-sm-fix overflow-x-hidden max-w-[100vw]">
@@ -717,8 +716,7 @@ export default function PublicSectorDigitalServicesPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
-                  <button 
-                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  <a href="/get-started"
                     className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-xs sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700"
                     style={{
                       boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)"
@@ -729,7 +727,7 @@ export default function PublicSectorDigitalServicesPage() {
                       Get PSDS Implementation
                       <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
-                  </button>
+                  </a>
                   
                   <button 
                     onClick={() => {
@@ -1187,13 +1185,12 @@ export default function PublicSectorDigitalServicesPage() {
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                  <button 
-                    onClick={() => window.open('https://meetings.hubspot.com/ifbash', '_blank')}
+                  <a href="/get-started"
                     className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Contact Government Experts
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
-                  </button>
+                  </a>
                   <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                     <Download className="mr-2 h-5 w-5 inline" />
                     Get PSDS Guide
