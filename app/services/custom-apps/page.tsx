@@ -169,36 +169,60 @@ const clientStories = [
 // Custom App Development Methodology
 const customAppMethodology = [
   {
-    phase: "Discovery & Requirements Analysis",
+    phase: "Discovery & Requirements",
     duration: "Week 1-3",
-    activities: ["Business requirement gathering", "Process mapping", "User experience design", "Technical architecture", "Feasibility assessment"],
-    deliverables: ["Requirements specification", "Technical blueprint", "UI/UX mockups", "Development roadmap"],
-    icon: Search,
-    color: "from-amber-500 to-orange-500"
+    features: [
+      "Business requirement gathering",
+      "Process mapping",
+      "User experience design",
+      "Technical architecture",
+      "Feasibility assessment"
+    ],
+    icon: "🔍",
+    color: "from-amber-600 via-orange-500 to-red-500",
+    glowColor: "from-amber-600/20 to-red-500/20"
   },
   {
-    phase: "Application Design & Prototyping",
+    phase: "Design & Prototyping",
     duration: "Week 4-6",
-    activities: ["Database schema design", "Workflow automation design", "User interface development", "Integration planning", "Security framework"],
-    deliverables: ["Application prototype", "Database design", "Integration specifications", "Security model"],
-    icon: Code,
-    color: "from-orange-500 to-red-500"
+    features: [
+      "Database schema design",
+      "Workflow automation design",
+      "User interface development",
+      "Integration planning",
+      "Security framework"
+    ],
+    icon: "💡",
+    color: "from-orange-600 via-red-500 to-amber-500",
+    glowColor: "from-orange-600/20 to-amber-500/20"
   },
   {
     phase: "Development & Integration",
     duration: "Week 7-14",
-    activities: ["Custom application coding", "ServiceNow integration", "Third-party API integration", "Mobile optimization", "Performance optimization"],
-    deliverables: ["Functional application", "Integration framework", "Mobile app", "Performance benchmarks"],
-    icon: Cog,
-    color: "from-red-500 to-pink-500"
+    features: [
+      "Custom application coding",
+      "ServiceNow integration",
+      "Third-party API integration",
+      "Mobile optimization",
+      "Performance optimization"
+    ],
+    icon: "⚙️",
+    color: "from-red-600 via-amber-500 to-orange-500",
+    glowColor: "from-red-600/20 to-orange-500/20"
   },
   {
-    phase: "Testing, Deployment & Training",
+    phase: "Testing & Deployment",
     duration: "Week 15-18",
-    activities: ["Comprehensive testing", "User acceptance testing", "Production deployment", "User training", "Documentation"],
-    deliverables: ["Tested application", "Deployment package", "Training materials", "Support documentation"],
-    icon: Rocket,
-    color: "from-pink-500 to-purple-500"
+    features: [
+      "Comprehensive testing",
+      "User acceptance testing",
+      "Production deployment",
+      "User training",
+      "Documentation"
+    ],
+    icon: "🚀",
+    color: "from-amber-500 via-orange-500 to-red-500",
+    glowColor: "from-amber-500/20 to-red-500/20"
   }
 ];
 
@@ -560,105 +584,83 @@ export default function CustomApps() {
         </section>
 
         {/* Custom App Development Methodology Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-gray-900 via-amber-900 to-orange-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-          
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="methodology">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">
-                  Our Custom App Development
+        <section className="py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 relative overflow-hidden">
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-amber-700/20 via-transparent to-transparent animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
+            
+            {/* Code Pattern */}
+            <div className="absolute inset-0">
+              <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full animate-float opacity-60" />
+              <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-orange-400 rounded-full animate-float delay-150 opacity-40" />
+              <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-red-400 rounded-full animate-float delay-300 opacity-80" />
+            </div>
+          </div>
+
+          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center mb-16">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
+                  Our Development
                 </span>
-                <br />
-                <span className="text-white">
-                  Methodology
-                </span>
+                <span className="text-white"> Methodology</span>
               </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-amber-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                A comprehensive 4-phase approach that transforms your unique business requirements into powerful, scalable custom applications.
+              <p className="text-gray-300 text-lg">
+                A proven four-phase approach that transforms your requirements into powerful, scalable custom applications.
               </p>
             </div>
 
-            <div className="space-y-4 sm:space-y-12">
-              {customAppMethodology.map((phase, index) => (
-                <div key={index} className="group relative" data-animate id={`phase-${index}`}>
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div className={`order-2 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="flex items-center mb-4 sm:mb-6">
-                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${phase.color} flex items-center justify-center mr-4 sm:mr-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                          <phase.icon className="h-8 w-8 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-2xl font-bold mb-1 sm:mb-2">{phase.phase}</h3>
-                          <div className="text-amber-200 flex items-center">
-                            <Clock className="h-4 w-4 mr-2" />
-                            {phase.duration}
+            <div className="relative">
+              {/* Journey Line */}
+              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 transform -translate-y-1/2 opacity-50" />
+              
+              {/* Journey Steps */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+                {customAppMethodology.map((step, index) => (
+                  <div key={index} className="relative group h-full">
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-r ${step.glowColor} rounded-full blur-2xl group-hover:scale-150 transition-all duration-500 opacity-80`} />
+                    <div className={`relative h-full bg-gradient-to-br ${step.color} p-6 rounded-xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm border border-white/20 flex flex-col group-hover:border-white/30 shadow-lg hover:shadow-2xl`}
+                      style={{
+                        boxShadow: "0 0 40px rgba(251, 146, 60, 0.1)"
+                      }}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent rounded-xl opacity-50" />
+                      <div className="relative">
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-2xl backdrop-blur-sm border border-white/10 shadow-inner">
+                            {step.icon}
+                          </div>
+                          <div className="text-sm text-white/90 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
+                            {step.duration}
                           </div>
                         </div>
-                      </div>
-
-                      <div className="space-y-4 sm:space-y-6">
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-amber-200">Key Activities</h4>
-                          <div className="space-y-2">
-                            {phase.activities.map((activity, idx) => (
-                              <div key={idx} className="flex items-center">
-                                <CheckCircle className="h-4 w-4 text-amber-400 mr-3 flex-shrink-0" />
-                                <span className="text-gray-300 text-sm">{activity}</span>
+                        <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/80 text-transparent bg-clip-text">
+                          {step.phase}
+                        </h3>
+                        <ul className="space-y-3 mt-auto">
+                          {step.features.map((feature, idx) => (
+                            <li key={idx} className="flex items-start gap-3 group/item">
+                              <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm">
+                                <CheckCircle className="h-3 w-3 text-white group-hover/item:text-white/90 transition-colors duration-200" />
                               </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-amber-200">Key Deliverables</h4>
-                          <div className="space-y-2">
-                            {phase.deliverables.map((deliverable, idx) => (
-                              <div key={idx} className="flex items-center">
-                                <FileText className="h-4 w-4 text-orange-400 mr-3 flex-shrink-0" />
-                                <span className="text-gray-300 text-sm">{deliverable}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
+                              <span className="text-sm text-white/80 group-hover:item:text-white transition-colors duration-200">
+                                {feature}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
-
-                    <div className={`order-1 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <div className="relative">
-                        <div className={`aspect-square bg-gradient-to-br from-amber-500/20 to-orange-500/20 rounded-3xl p-2 sm:p-8 backdrop-blur-sm border border-amber-400/20 hover:border-amber-400/40 transition-all duration-500 transform group-hover:scale-105`}>
-                          <div className={`w-full h-full bg-gradient-to-br from-amber-600/30 to-orange-600/30 rounded-2xl flex items-center justify-center relative overflow-hidden`}>
-                            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                            <div className="text-center relative z-10">
-                              <div className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 mb-2 sm:mb-4">
-                                0{index + 1}
-                              </div>
-                              <div className="text-lg font-semibold text-amber-200">
-                                {phase.phase.split(' & ')[0]}
-                              </div>
-                              <div className="text-sm text-amber-300 mt-1">
-                                {phase.duration}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
+                      <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
                     </div>
                   </div>
-
-                  {index < customAppMethodology.length - 1 && (
-                    <div className="flex justify-center mt-4 sm:mt-8 mb-4 sm:mb-8">
-                      <div className="w-px h-12 bg-gradient-to-b from-amber-500 to-orange-500 opacity-50"></div>
-                    </div>
-                  )}
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-
-            {/* Call to Action */}
-            <div className="text-center mt-8 sm:mt-16">
+            <div className="text-center mt-16">
               <a href="/get-started"
-                className="group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700 transform hover:scale-105"
+                className="inline-block group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700 transform hover:scale-105"
                 style={{
                   boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)"
                 }}
@@ -918,7 +920,7 @@ export default function CustomApps() {
                   Join businesses achieving 234% ROI with custom apps. Get tailored solutions developed in 16 weeks average with 89% user adoption.
                 </p>
                 <a href="/get-started"
-                  className="group px-8 py-4 text-lg font-semibold bg-white text-amber-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                  className="inline-block group px-8 py-4 text-lg font-semibold bg-white text-amber-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
                 >
                   <span className="flex items-center justify-center">
                     Schedule Your Custom App Consultation

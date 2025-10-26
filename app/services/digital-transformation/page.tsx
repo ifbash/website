@@ -537,17 +537,28 @@ return (
       </section>
 
       {/* Advisory Methodology Section */}
-      <section className="py-12 bg-gradient-to-r from-gray-900 via-emerald-900 to-teal-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        
-        <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <div className="text-center mb-12" data-animate id="methodology">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">
+      <section className="py-20 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 relative overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-emerald-700/20 via-transparent to-transparent animate-pulse-slow" />
+          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
+          
+          {/* Strategy Pattern Elements */}
+          <div className="absolute inset-0">
+            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float opacity-60" />
+            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-teal-400 rounded-full animate-float delay-150 opacity-40" />
+            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-cyan-400 rounded-full animate-float delay-300 opacity-80" />
+          </div>
+        </div>
+
+        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
                 Our Strategic Journey Map
               </span>
             </h2>
-            <p className="text-emerald-100 text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg">
               A streamlined approach to digital transformation excellence
             </p>
           </div>
@@ -637,7 +648,7 @@ return (
                             <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm">
                               <CheckCircle className="h-3 w-3 text-white group-hover/item:text-white/90 transition-colors duration-200" />
                             </div>
-                            <span className="text-sm text-white/80 group-hover/item:text-white transition-colors duration-200">
+                            <span className="text-sm text-white/80 group-hover:item:text-white transition-colors duration-200">
                               {feature}
                             </span>
                           </li>
@@ -909,7 +920,7 @@ return (
                 Join 200+ successful digital transformations. Get expert advisory that delivers measurable results in 8-12 weeks.
               </p>
               <a href="/get-started"
-                className="group px-8 py-4 text-lg font-semibold bg-white text-emerald-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
+                className="group inline-block px-8 py-4 text-lg font-semibold bg-white text-emerald-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
               >
                 <span className="flex items-center justify-center">
                   Schedule Your Strategy Consultation
