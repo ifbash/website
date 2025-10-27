@@ -568,7 +568,7 @@ return (
             <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 transform -translate-y-1/2 opacity-50" />
             
             {/* Journey Steps */}
-            <div className="grid grid-cols-4 gap-6 relative">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
               {[
                 {
                   phase: "Discovery & Assessment",
