@@ -571,8 +571,10 @@ export default function SmartAutomationAgenticAI() {
                               </FormLabel>
                               <FormControl>
                                 <Select onValueChange={field.onChange} defaultValue={field.value} value={field.value} >
-                                  <SelectTrigger>
-                                    <SelectValue placeholder="Select company size" />
+                                  
+                                
+                                  <SelectTrigger >
+                                    <SelectValue placeholder="Select company size" className="bg-gray-50" />
                                   </SelectTrigger>
                                   <SelectContent>
                                     <SelectItem value="1-10">1-10 employees</SelectItem>

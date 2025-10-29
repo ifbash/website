@@ -840,7 +840,7 @@ return (
             <div>
               <h4 className="text-base sm:text-lg md:text-xl font-semibold mb-2">Predictive Intelligence</h4>
               <p className="text-blue-200 leading-relaxed text-sm sm:text-base">
-                Anticipate issues before they occur with ML-powered predictive analytics that learn from your data patterns and 1,500+ implementations.
+                Anticipate issues before they occur with ML-powered predictive analytics that learn from your data patterns and implementations.
               </p>
             </div>
           </div>
@@ -1266,21 +1266,21 @@ return (
       <div className="relative h-[320px] sm:h-[400px] lg:h-[480px] bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl overflow-hidden">
         <div className="absolute inset-0 opacity-20 bg-grid-pattern"></div>
         
-        {/* Industry Stats Overlay */}
+        {/* Industry Stats Overlay
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent">
           <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
               <div className="bg-gradient-to-r from-indigo-600/20 to-indigo-600/20 backdrop-blur-sm rounded-xl p-2 sm:p-3 border border-indigo-400/20">
-                <div className="text-2xl sm:text-3xl font-bold text-gray-50">1,500+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gray-50">Many</div>
                 <div className="text-indigo-200 text-sm sm:text-base">Projects Delivered</div>
               </div>
               <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-blue-400/20">
-                <div className="text-2xl sm:text-3xl font-bold text-gray-50">10+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-gray-50">Many</div>
                 <div className="text-blue-200 text-sm sm:text-base">Industries Served</div>
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Right side - Industry Cards - RESPONSIVE FIX: Better mobile scrolling */}
@@ -1695,7 +1695,7 @@ Tell us your top priority, and we’ll show how ServiceNow can accelerate result
         <div className="relative">
           {/* Main image/chart container */}
           <div className="relative bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-2xl p-8 backdrop-blur-sm border border-indigo-500/20">
-            <div className="aspect-square w-full rounded-xl overflow-hidden">
+            <div className="w-full rounded-xl overflow-hidden">
               <div className="grid grid-cols-2 gap-4 h-full">
                 {/* Solution outcomes */}
                 <div className="space-y-3">
