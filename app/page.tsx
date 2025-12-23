@@ -70,7 +70,7 @@ import Link from 'next/link';
 const testimonials = [
 {
 name: "Sarah Johnson",
-title: "CTO, TechFlow Industries",
+title: "CTO",
 company: "Fortune 500 Manufacturing",
 content: "ifBash delivered our ServiceNow implementation in just 67 days - 23 days ahead of schedule. Within 6 months, we reduced incident resolution time by 78% and saved $2.3M in operational costs. Their expertise made all the difference.",
 rating: 5,
@@ -79,7 +79,7 @@ image: "/images/testimonials/sarah.jpg"
 },
 {
 name: "Michael Chen",
-title: "VP of Operations, GlobalTech",
+title: "VP of Operations",
 company: "Technology Provider",
 content: "The CRM integration they delivered exceeded our expectations. We saw a 200% increase in lead conversion rates within the first quarter, plus their approach meant no surprise costs. ROI achieved in just 4 months.",
 rating: 5,
@@ -198,7 +198,7 @@ name: "Automotive",
 metric: "85% faster production",
 description: "Accelerate digital transformation in automotive with intelligent workflows, predictive maintenance, and supply chain optimization",
 gradient: "from-indigo-600 to-blue-600",
-link: "/industries/automotive",
+link: "/industries/automotive-manufacturing",
 image: "/images/industries/automotive.jpg",
 tags: ["Predictive Maintenance", "Supply Chain", "Quality Control", "IoT Integration"]
 },
@@ -483,7 +483,7 @@ return (
                     }}
           >
             <span className="relative flex items-center justify-center">
-              Start Your AI+CRM Journey
+              Engage Our AI - CRM Services
               <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
             </span>
           </Link>
@@ -493,8 +493,7 @@ return (
           >
             <span className="absolute inset-0 bg-gradient-to-r from-gray-50/0 via-gray-50/5 to-gray-50/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
             <span className="relative flex items-center justify-center">
-              <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-cyan-400 group-hover:text-cyan-300" />
-              Watch Platform Demo
+              Know More About Us
             </span>
           </button>
         </div>
@@ -923,22 +922,22 @@ return (
 
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
       {/* Generative AI Card */}
-      <div className="group relative bg-white rounded-2xl p-4 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
         <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
         
         <div className="relative z-10">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 flex items-center justify-center mb-4">
-            <Brain className="h-5 w-5 text-white" />
+          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 flex items-center justify-center mb-6">
+            <Brain className="h-6 w-6 text-white" />
           </div>
           
-          <h3 className="text-lg font-bold mb-3 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+          <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
             Generative AI Solutions
           </h3>
           
           <ul className="space-y-2 mb-4">
             <li className="flex items-start">
-              <CheckCircle className="h-4 w-4 text-violet-500 mt-1 mr-2 flex-shrink-0" />
-              <span className="text-gray-700">AI-powered content generation for knowledge bases</span>
+              <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
+              <span className="text-gray-700">AI-powered generation for knowledge bases</span>
             </li>
             <li className="flex items-start">
               <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
@@ -1238,7 +1237,7 @@ return (
           24/7
         </div>
         <div className="absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center text-gray-50 font-bold text-xs sm:text-sm md:text-lg shadow-xl animate-pulse">
-          AI+
+          CRM
         </div>
       </div>
     </div>
@@ -1298,9 +1297,6 @@ return (
           >
             <div className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 bg-gradient-to-br ${industry.gradient} p-3 sm:p-4 md:p-6 flex items-center justify-center`}>
               <industry.icon className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-gray-50 transform group-hover:scale-110 transition-transform duration-300" />
-              <div className="absolute -bottom-2 right-0 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-[10px] px-2 py-0.5 rounded-full">
-                Trending
-              </div>
             </div>
             
             <div className="flex-1 p-3 sm:p-4">
@@ -1714,7 +1710,6 @@ Tell us your top priority, and we’ll show how ServiceNow can accelerate result
                         } group-hover:scale-105 transition-transform duration-300`}>
                           <span className="animate-gradient-xy">{['4hr → 10min', '-65%', '+89%', '97%'][index]}</span>
                         </div>
-                        <ArrowRight className="h-4 w-4 text-cyan-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300" />
                       </div>
                       <div className={`text-sm font-medium ${
                         index === 0
@@ -1769,7 +1764,6 @@ Tell us your top priority, and we’ll show how ServiceNow can accelerate result
         {['↑ 68%', '↑ 75%', '↑ 40%'][index]}
       </span>
     </div>
-    <ArrowRight className="h-4 w-4 text-cyan-400 opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300" />
   </div>
   <div
     className={`text-sm font-medium ${

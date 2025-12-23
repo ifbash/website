@@ -495,7 +495,7 @@ export function Header() {
         aria-label="Main navigation"
       >
         <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[54px]">
+          <div className="flex items-center justify-between h-[46px]">
             {/* Logo Section - Reduced dimensions */}
             <div className="flex items-center flex-shrink-0">
               <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-violet-600 text-white px-4 py-2 rounded-lg z-50">
