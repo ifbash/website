@@ -208,7 +208,7 @@ name: "Manufacturing",
 metric: "60% cost reduction",
 description: "Revolutionize production efficiency with AI-driven process automation, real-time monitoring, and predictive maintenance",
 gradient: "from-blue-600 to-cyan-600",
-link: "/industries/manufacturing",
+link: "/industries/manufacturing-solutions",
 image: "/images/industries/manufacturing.jpg",
 tags: ["Smart Factory", "Process Automation", "Quality Control", "Predictive Analytics"]
 },
@@ -218,7 +218,7 @@ name: "Consumer Goods",
 metric: "2x customer satisfaction",
 description: "Elevate consumer experiences with personalized service delivery, automated fulfillment, and intelligent demand forecasting",
 gradient: "from-cyan-600 to-teal-600",
-link: "/industries/consumer-goods",
+link: "/industries/consumer-goods-retail",
 image: "/images/industries/consumer-goods.jpg",
 tags: ["Demand Planning", "Order Automation", "CRM Integration", "Supply Chain"]
 },
@@ -228,7 +228,7 @@ name: "Technology Providers",
 metric: "95% automation rate",
 description: "Accelerate innovation with AI-powered development workflows, automated testing, and seamless service integration",
 gradient: "from-indigo-600 to-blue-600",
-link: "/industries/technology",
+link: "/industries/technology-software-companies",
 image: "/images/industries/technology.jpg",
 tags: ["DevOps", "AI Integration", "Service Automation", "Cloud Native"]
 },
@@ -238,7 +238,7 @@ name: "Public Sector",
 metric: "40% better service",
 description: "Transform citizen services with secure digital platforms, automated compliance, and intelligent case management",
 gradient: "from-blue-600 to-indigo-600",
-link: "/industries/public-sector",
+link: "/industries/public-sector-government",
 image: "/images/industries/public-sector.jpg",
 tags: ["Citizen Services", "Compliance", "Security", "Digital Forms"]
 },
@@ -248,7 +248,7 @@ name: "Healthcare",
 metric: "75% faster care",
 description: "Optimize patient care with AI-driven diagnostics, automated workflows, and integrated health records management",
 gradient: "from-indigo-600 to-blue-600",
-link: "/industries/healthcare",
+link: "/industries/healthcare-providers",
 image: "/images/industries/healthcare.jpg",
 tags: ["Patient Care", "Clinical Workflows", "EHR Integration", "Compliance"]
 },
@@ -258,7 +258,7 @@ name: "Life Sciences",
 metric: "3x R&D speed",
 description: "Accelerate research with automated lab management, clinical trial automation, and regulatory compliance",
 gradient: "from-rose-600 to-pink-600",
-link: "/industries/life-sciences",
+link: "/industries/healthcare-providers",
 image: "/images/industries/life-sciences.jpg",
 tags: ["Lab Management", "Clinical Trials", "Research Data", "Compliance"]
 },
@@ -268,7 +268,7 @@ name: "Retail",
 metric: "45% more sales",
 description: "Transform retail operations with omnichannel integration, intelligent inventory, and personalized customer experiences",
 gradient: "from-amber-600 to-yellow-600",
-link: "/industries/retail",
+link: "/industries/retail-ecommerce",
 image: "/images/industries/retail.jpg",
 tags: ["Omnichannel", "Inventory", "POS Integration", "CRM"]
 },
@@ -278,7 +278,7 @@ name: "Telecom",
 metric: "99% uptime",
 description: "Optimize network operations with AI-powered monitoring, automated service provisioning, and customer experience management",
 gradient: "from-emerald-600 to-green-600",
-link: "/industries/telecom",
+link: "/industries/telecommunications",
 image: "/images/industries/telecom.jpg",
 tags: ["Network Ops", "Service Delivery", "5G Ready", "Customer Experience"]
 },
@@ -476,7 +476,7 @@ return (
 
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
           <Link href="/get-started"
-           className="inline-flex items-center w-full justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
+           className="inline-flex group items-center justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
                     style={{
                       background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
                       boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)"
@@ -488,14 +488,14 @@ return (
             </span>
           </Link>
           
-          <button 
+          <Link href="company/about-us"
             className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-50 rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
           >
             <span className="absolute inset-0 bg-gradient-to-r from-gray-50/0 via-gray-50/5 to-gray-50/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
             <span className="relative flex items-center justify-center">
               Know More About Us
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -934,7 +934,7 @@ return (
             Generative AI Solutions
           </h3>
           
-          <ul className="space-y-2 mb-4">
+          <ul className="space-y-3 mb-6">
             <li className="flex items-start">
               <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
               <span className="text-gray-700">AI-powered generation for knowledge bases</span>
@@ -949,9 +949,9 @@ return (
             </li>
           </ul>
 
-          <div className="bg-violet-50 rounded-xl p-3">
-            <div className="font-semibold text-violet-600 mb-0.5">Success Metric</div>
-            <div className="text-xl font-bold text-violet-700">85% Faster</div>
+          <div className="bg-violet-50 rounded-xl p-4">
+            <div className="font-semibold text-violet-600 mb-1">Success Metric</div>
+            <div className="text-2xl font-bold text-violet-700">85% Faster</div>
             <div className="text-sm text-violet-600">Content Creation & Response Time</div>
           </div>
         </div>
@@ -1360,7 +1360,7 @@ return (
         
         <h3 className="text-lg font-bold mb-4 text-gray-300">Traditional Solutions</h3>
         
-        <ul className="space-y-3">
+        <ul className="space-y-3 min-h-[160px]">
           <li className="flex items-start">
             <div className="w-5 h-5 rounded-full bg-gray-800 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
               <span className="text-gray-400 text-xs">✕</span>
