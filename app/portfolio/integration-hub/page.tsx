@@ -654,7 +654,7 @@ export default function IntegrationHubPage() {
   const caseStudies = [
     {
       title: "Latitude Automates Workflows Between ITSM, Workday, and Active Directory with 60 Systems",
-      client: "Latitude Financial Services",
+      client: "",
       industry: "Financial Services",
       challenge: "Financial services requiring automated workflows between ServiceNow ITSM, Workday, and Microsoft Active Directory with up to 60 supportive systems integration",
       solution: "ServiceNow Integration Hub with comprehensive workflow automation, multi-system connectivity, and financial services-specific integration optimization",
@@ -664,13 +664,13 @@ export default function IntegrationHubPage() {
         { metric: "Workflow", description: "Processing accelerated" },
         { metric: "Financial", description: "Services optimized" }
       ],
-      testimonial: "Latitude leverages ServiceNow Integration Hub to automate workflows between ServiceNow ITSM, Workday, and Microsoft Active Directory with up to 60 supportive systems. It can now quickly process HR requests.",
+      testimonial: "Our company now leverages ServiceNow Integration Hub to automate workflows between ServiceNow ITSM, Workday, and Microsoft Active Directory with up to 60 supportive systems. It can now quickly process HR requests.",
       executive: "Erhan Stephenson, Head of Enterprise Service Management",
       logo: "/images/clients/latitude-logo.png"
     },
     {
       title: "TD Bank Automated 30K Requests per Month with Active Directory and SCCM Integration",
-      client: "TD Bank Group",
+      client: "",
       industry: "Banking",
       challenge: "Banking operations requiring automation of 30,000 monthly requests with comprehensive Active Directory and SCCM integration for enhanced operational efficiency",
       solution: "ServiceNow Integration Hub with banking-specific automation, identity management integration, and high-volume request processing optimization",
@@ -686,7 +686,7 @@ export default function IntegrationHubPage() {
     },
     {
       title: "American University Automated Microsoft Teams Creation for Uninterrupted Education",
-      client: "American University",
+      client: "",
       industry: "Higher Education",
       challenge: "Educational institution requiring automated Microsoft Teams creation for uninterrupted education delivery with seamless collaboration platform provisioning",
       solution: "ServiceNow Integration Hub with education-specific workflows, Microsoft Teams automation, and academic collaboration platform optimization",
@@ -702,7 +702,7 @@ export default function IntegrationHubPage() {
     },
     {
       title: "Ballad Health Automated ID and Access Management for 97% Ticket Volume Decrease",
-      client: "Ballad Health",
+      client: "",
       industry: "Healthcare",
       challenge: "Healthcare organization requiring automated ID and access management with significant ticket volume reduction and enhanced security compliance",
       solution: "ServiceNow Integration Hub with healthcare identity management, access automation, and medical industry compliance optimization for comprehensive security",

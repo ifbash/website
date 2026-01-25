@@ -1430,7 +1430,7 @@ return (
         
         <h3 className="text-lg font-bold mb-4 text-cyan-300">Future-Ready Benefits</h3>
         
-        <ul className="space-y-4">
+        <ul className="space-y-3 min-h-[160px]">
           <li className="flex items-start">
             <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
               <Bot className="h-3 w-3 text-white" />

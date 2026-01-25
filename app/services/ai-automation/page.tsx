@@ -118,7 +118,7 @@ const clientStories = [
   {
     name: "Dr. Elena Vasquez",
     title: "Chief Innovation Officer",
-    company: "AutoTech Industries",
+    company: "",
     story: "ifBash's agentic AI didn't just automate our processes - it revolutionized how we think about manufacturing intelligence. Our AI agents are like having expert technicians working 24/7.",
     metric: "156% increase in production efficiency with zero unplanned downtime",
     rating: 5,
@@ -127,7 +127,7 @@ const clientStories = [
   {
     name: "Dr. James Wilson",
     title: "Medical Director",
-    company: "HealthCare+ Network", 
+    company: "", 
     story: "The generative AI agents analyze complex patient data in minutes that used to take our team days. This isn't just automation - it's augmented intelligence that makes our clinicians superhuman.",
     metric: "94% faster patient data processing with 73% better accuracy",
     rating: 5,
@@ -136,7 +136,7 @@ const clientStories = [
   {
     name: "Maria Santos",
     title: "Head of Risk Management",
-    company: "FinanceFlow Corp",
+    company: "",
     story: "The multi-agent fraud detection system is incredible. These AI agents collaborate, learn from each other, and catch sophisticated attacks our old systems missed completely.",
     metric: "$18.9M in prevented fraud losses in the first year",
     rating: 5,
@@ -145,7 +145,7 @@ const clientStories = [
   {
     name: "David Park",
     title: "VP of Operations",
-    company: "RetailMax Enterprise",
+    company: "",
     story: "Our agentic AI handles customer service, inventory management, and demand forecasting simultaneously. It's like having an army of intelligent assistants that never sleep.",
     metric: "238% improvement in customer satisfaction scores",
     rating: 5,
@@ -795,7 +795,7 @@ export default function SmartAutomationAgenticAI() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-violet-200">{story.title}, {story.company}</p>
+                            <p className="text-violet-200">{story.title}</p>
                           </div>
                         </div>
 

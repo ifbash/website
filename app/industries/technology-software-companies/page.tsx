@@ -117,7 +117,7 @@ const clientStories = [
   {
     name: "Alex Johnson",
     title: "CTO",
-    company: "TechFlow Systems",
+    company: "",
     story: "ifBash's DevOps expertise revolutionized our development process. We went from constant deployment issues to seamless, automated releases that our team trusts completely.",
     metric: "78% faster development cycles with 91% fewer deployment failures",
     rating: 5,
@@ -126,7 +126,7 @@ const clientStories = [
   {
     name: "Maria Santos",
     title: "VP of Engineering",
-    company: "CloudTech Innovations", 
+    company: "", 
     story: "The multi-cloud management platform ifBash delivered gives us capabilities that seemed impossible before. We now manage complex cloud environments with unprecedented efficiency.",
     metric: "89% faster incident resolution with 156% customer satisfaction improvement",
     rating: 5,
@@ -135,7 +135,7 @@ const clientStories = [
   {
     name: "Dr. Robert Kim",
     title: "Chief Data Officer",
-    company: "DataAnalytics Pro",
+    company: "",
     story: "Customer success was our biggest challenge until ifBash built our automated engagement platform. Churn rates plummeted while satisfaction soared to new heights.",
     metric: "87% faster onboarding with 73% churn reduction",
     rating: 5,
@@ -144,7 +144,7 @@ const clientStories = [
   {
     name: "Jennifer Lee",
     title: "Head of Product",
-    company: "InnovateApps",
+    company: "",
     story: "The product lifecycle management system ifBash created transformed how we innovate. We now ship features faster while maintaining the highest quality standards.",
     metric: "156% improvement in product delivery speed",
     rating: 5,
@@ -778,7 +778,7 @@ export default function TechnologySoftware() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-purple-200">{story.title}, {story.company}</p>
+                            <p className="text-purple-200">{story.title}</p>
                           </div>
                         </div>
 

@@ -566,7 +566,7 @@ export default function HealthcareLifeSciencesPage() {
   const caseStudies = [
     {
       title: "Gold Coast Health Builds Workflows Across Entire Organization",
-      client: "Gold Coast Health",
+      client: "",
       industry: "Healthcare Provider",
       challenge: "Need to build workflows across entire organization for both non-clinical and clinical operations while maintaining efficiency and care quality",
       solution: "ServiceNow Healthcare and Life Sciences Service Management with comprehensive workflow automation, Patient 360 integration, and clinical system connectivity",
@@ -582,7 +582,7 @@ export default function HealthcareLifeSciencesPage() {
     },
     {
       title: "Omnicare Reaches 90% First-Contact Resolution Rate",
-      client: "Omnicare",
+      client: "",
       industry: "Healthcare Services",
       challenge: "Complex patient service requests requiring multiple touchpoints and lengthy resolution times affecting patient satisfaction and operational efficiency",
       solution: "ServiceNow HCLS with omnichannel support, virtual agent capabilities, and streamlined case management for pharmaceutical care services",
@@ -598,7 +598,7 @@ export default function HealthcareLifeSciencesPage() {
     },
     {
       title: "Orbita Achieves 70% Reduction in Nurse Response Times",
-      client: "Orbita",
+      client: "",
       industry: "Healthcare Technology",
       challenge: "Lengthy nurse response times for patient requests and clinical support affecting patient care quality and operational workflow efficiency",
       solution: "ServiceNow HCLS with AI-powered virtual agent, automated request routing, and integrated clinical workflow management for healthcare technology platform",
@@ -614,7 +614,7 @@ export default function HealthcareLifeSciencesPage() {
     },
     {
       title: "Siemens Reaches 87% Employee Satisfaction Rate in Healthcare Division",
-      client: "Siemens Healthcare",
+      client: "",
       industry: "Medical Technology",
       challenge: "Complex employee service requests and support needs across global healthcare technology operations affecting productivity and satisfaction",
       solution: "ServiceNow HCLS with comprehensive case management, self-service capabilities, and integrated support services for healthcare technology workforce",

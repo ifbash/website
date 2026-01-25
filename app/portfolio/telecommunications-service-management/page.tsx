@@ -621,7 +621,7 @@ export default function TelecommunicationsServiceManagementPage() {
   const caseStudies = [
     {
       title: "Crown Castle Achieves Million-Dollar Annual Savings with ServiceNow",
-      client: "Crown Castle",
+      client: "",
       industry: "Wireless Infrastructure",
       challenge: "Manual processes across multiple systems for Network NOC operations causing costly delays, resource inefficiencies, and poor customer service experience",
       solution: "ServiceNow TSM with Customer Service Management, Field Service Management, and integrated network operations for enterprise-grade scalability",
@@ -637,7 +637,7 @@ export default function TelecommunicationsServiceManagementPage() {
     },
     {
       title: "SoftBank Boosts Operational Efficiency with TSM Automation",
-      client: "SoftBank",
+      client: "",
       industry: "Telecommunications Service Provider",
       challenge: "Complex service operations requiring streamlined automation and improved operational efficiency across multiple service domains and customer touchpoints",
       solution: "ServiceNow Telecommunications Service Management with comprehensive automation, AI-powered workflows, and integrated service operations",
@@ -653,7 +653,7 @@ export default function TelecommunicationsServiceManagementPage() {
     },
     {
       title: "Radius Delivers New Installations 80% Faster with ServiceNow TSM",
-      client: "Radius",
+      client: "",
       industry: "Business Communications",
       challenge: "Lengthy installation processes and complex service delivery workflows affecting customer satisfaction and time-to-service for business communication solutions",
       solution: "ServiceNow TSM with accelerated service delivery, automated installation workflows, and comprehensive customer experience management",
@@ -669,7 +669,7 @@ export default function TelecommunicationsServiceManagementPage() {
     },
     {
       title: "BT Group Automates 10,000 Transactions with ServiceNow Platform",
-      client: "BT Group",
+      client: "",
       industry: "Global Telecommunications",
       challenge: "Massive transaction volumes requiring automated processing and intelligent workflow management across global telecommunications operations",
       solution: "ServiceNow TSM with large-scale automation, intelligent transaction processing, and comprehensive service management for global operations",

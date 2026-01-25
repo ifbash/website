@@ -623,7 +623,7 @@ export default function TechnologyProviderServiceManagementPage() {
   const caseStudies = [
     {
       title: "Lenovo Accelerates Time to Revenue with ServiceNow TPSM Collaboration",
-      client: "Lenovo",
+      client: "",
       industry: "Technology Hardware & Services",
       challenge: "Need to collaborate seamlessly with large enterprise customers and accelerate time to revenue while managing complex technology service portfolios and partnerships",
       solution: "ServiceNow TPSM with Service Bridge, Automation Engine, and comprehensive customer collaboration capabilities for enterprise-grade service delivery",
@@ -639,7 +639,7 @@ export default function TechnologyProviderServiceManagementPage() {
     },
     {
       title: "Auxilion Differentiates with ServiceNow TPSM Performance Excellence",
-      client: "Auxilion",
+      client: "",
       industry: "Technology Service Provider",
       challenge: "Need to continuously improve performance and efficiency while differentiating service offerings in competitive technology provider market",
       solution: "ServiceNow Technology Provider Service Management with comprehensive performance optimization, operational excellence, and service differentiation capabilities",
@@ -655,7 +655,7 @@ export default function TechnologyProviderServiceManagementPage() {
     },
     {
       title: "Global Tech Provider Transforms XaaS Operations with ServiceNow TPSM",
-      client: "Enterprise Technology Solutions",
+      client: "",
       industry: "XaaS Technology Provider",
       challenge: "Complex everything-as-a-service operations requiring unified platform for sales, service, and support with seamless customer experiences at scale",
       solution: "ServiceNow TPSM with comprehensive XaaS capabilities, AI-powered automation, and integrated ecosystem management for scalable service delivery",

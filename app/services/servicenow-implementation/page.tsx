@@ -107,7 +107,7 @@ const clientStories = [
   {
     name: "David Miller",
     title: "CTO",
-    company: "TechFlow Industries",
+    company: "",
     story: "ifBash transformed our chaotic IT landscape into a streamlined powerhouse. Their ServiceNow consulting methodology saved us months of implementation time and delivered results from day one.",
     metric: "Implementation completed 23 days ahead of schedule",
     rating: 5,
@@ -116,7 +116,7 @@ const clientStories = [
   {
     name: "Sarah Chen",
     title: "VP Operations",
-    company: "GlobalHealth Network", 
+    company: "", 
     story: "The complexity was overwhelming until ifBash stepped in. They made our 23-location ServiceNow rollout feel effortless with their proven consulting approach and deep expertise.",
     metric: "Zero downtime during migration across 23 locations",
     rating: 5,
@@ -125,7 +125,7 @@ const clientStories = [
   {
     name: "Michael Torres",
     title: "IT Director",
-    company: "FinanceCore Ltd",
+    company: "",
     story: "Security and compliance were our biggest concerns. ifBash's expertise in financial sector ServiceNow implementations gave us confidence throughout the entire consulting process.",
     metric: "Achieved SOX compliance in record time with zero findings",
     rating: 5,
@@ -134,7 +134,7 @@ const clientStories = [
   {
     name: "Jennifer Walsh",
     title: "Chief Digital Officer",
-    company: "RetailMax Corp",
+    company: "",
     story: "ifBash didn't just implement ServiceNow - they transformed how we think about IT service delivery. Their consulting expertise delivered measurable business value from week one.",
     metric: "47% improvement in customer service delivery",
     rating: 5,
@@ -778,7 +778,7 @@ export default function ServiceNowConsultingImplementation() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-purple-200">{story.title}, {story.company}</p>
+                            <p className="text-purple-200">{story.title}</p>
                           </div>
                         </div>
 

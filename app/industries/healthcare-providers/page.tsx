@@ -114,7 +114,7 @@ const clientStories = [
   {
     name: "Dr. Patricia Williams",
     title: "Chief Medical Officer",
-    company: "Regional Health Network",
+    company: "",
     story: "ifBash's healthcare expertise transformed our patient outcomes. We now predict and prevent readmissions while delivering the highest quality care in our network's history.",
     metric: "87% readmission reduction with $97M cost savings",
     rating: 5,
@@ -123,7 +123,7 @@ const clientStories = [
   {
     name: "Dr. Michael Chang",
     title: "Research Director",
-    company: "BioMed Research Institute", 
+    company: "", 
     story: "Clinical trial management was revolutionized by ifBash's platform. We accelerate life-saving research while maintaining perfect regulatory compliance.",
     metric: "78% faster trials with 94% compliance rate",
     rating: 5,
@@ -132,7 +132,7 @@ const clientStories = [
   {
     name: "Jennifer Park",
     title: "VP of Operations",
-    company: "MedDevice Solutions",
+    company: "",
     story: "Medical device safety is critical. ifBash's predictive maintenance platform ensures every device operates safely with zero incidents.",
     metric: "91% device uptime with zero safety incidents",
     rating: 5,
@@ -141,7 +141,7 @@ const clientStories = [
   {
     name: "Dr. Robert Kim",
     title: "Clinical Director",
-    company: "AdvancedCare Systems",
+    company: "",
     story: "The patient experience platform ifBash created delivers personalized care that patients love while improving our clinical outcomes dramatically.",
     metric: "234% improvement in patient engagement",
     rating: 5,
@@ -775,7 +775,7 @@ const [openFaq, setOpenFaq] = useState<number | null>(null);
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-rose-200">{story.title}, {story.company}</p>
+                            <p className="text-rose-200">{story.title}</p>
                           </div>
                         </div>
 

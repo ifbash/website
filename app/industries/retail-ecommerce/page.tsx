@@ -117,7 +117,7 @@ const clientStories = [
   {
     name: "Sarah Chen",
     title: "Chief Digital Officer",
-    company: "MegaRetail Corp",
+    company: "",
     story: "ifBash's e-commerce expertise transformed our digital presence completely. We went from struggling with cart abandonment to achieving industry-leading conversion rates across all channels.",
     metric: "78% cart abandonment reduction with 156% conversion increase",
     rating: 5,
@@ -126,7 +126,7 @@ const clientStories = [
   {
     name: "Michael Torres",
     title: "VP of Operations",
-    company: "FashionHub Global", 
+    company: "", 
     story: "Inventory nightmares became inventory intelligence with ifBash's platform. We now predict demand perfectly and never miss a seasonal sales opportunity across our 890 stores.",
     metric: "89% stock-out reduction with $78M seasonal sales increase",
     rating: 5,
@@ -135,7 +135,7 @@ const clientStories = [
   {
     name: "Jennifer Park",
     title: "Customer Experience Director",
-    company: "ElectroMart Solutions",
+    company: "",
     story: "Customer service was our weakness until ifBash built our AI-powered support platform. Response times dropped from hours to seconds with perfect satisfaction scores.",
     metric: "91% faster responses with 187% satisfaction improvement",
     rating: 5,
@@ -144,7 +144,7 @@ const clientStories = [
   {
     name: "David Rodriguez",
     title: "Head of E-commerce",
-    company: "TechGoods Plus",
+    company: "",
     story: "The personalization engine ifBash created delivers experiences our customers love. Revenue per visitor increased dramatically while operational costs decreased significantly.",
     metric: "245% improvement in revenue per visitor",
     rating: 5,
@@ -781,7 +781,7 @@ export default function RetailEcommerce() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-emerald-200">{story.title}, {story.company}</p>
+                            <p className="text-emerald-200">{story.title}</p>
                           </div>
                         </div>
 

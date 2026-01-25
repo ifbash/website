@@ -123,7 +123,7 @@ const clientStories = [
   {
     name: "Jennifer Walsh",
     title: "Chief Customer Officer",
-    company: "RetailMax Enterprise",
+    company: "",
     story: "ifBash didn't just implement a CRM - they created an experience ecosystem. Our customers and employees now have unified, intelligent interactions that drive real business value.",
     metric: "234% improvement in employee engagement with 89% customer satisfaction",
     rating: 5,
@@ -132,7 +132,7 @@ const clientStories = [
   {
     name: "Marcus Johnson",
     title: "Head of Employee Experience",
-    company: "TechServe Solutions", 
+    company: "", 
     story: "The AI-powered employee experience platform is incredible. Our staff gets instant, context-aware support that feels almost human. Productivity has skyrocketed.",
     metric: "78% faster service resolution with 91% employee satisfaction",
     rating: 5,
@@ -141,7 +141,7 @@ const clientStories = [
   {
     name: "Dr. Lisa Chen",
     title: "Chief Experience Officer",
-    company: "HealthFirst Network",
+    company: "",
     story: "The unified platform seamlessly connects patient care with staff experience. Our 45 locations now operate as one cohesive, intelligent healthcare ecosystem.",
     metric: "96% patient satisfaction with 83% staff engagement improvement",
     rating: 5,
@@ -150,7 +150,7 @@ const clientStories = [
   {
     name: "Robert Martinez",
     title: "VP Customer Success",
-    company: "ServiceFlow Inc",
+    company: "",
     story: "The intelligence built into every customer and employee interaction is remarkable. Our CRM doesn't just track relationships - it actively enhances them.",
     metric: "312% increase in customer lifetime value",
     rating: 5,
@@ -800,7 +800,7 @@ export default function CRMCustomerEmployeeExperience() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-rose-200">{story.title}, {story.company}</p>
+                            <p className="text-rose-200">{story.title}</p>
                           </div>
                         </div>
 

@@ -521,7 +521,7 @@ export default function ConfigurePriceQuotePage() {
   const caseStudies = [
     {
       title: "Keysight Speeds Quoting and Boosts Digital Commerce",
-      client: "Keysight Technologies",
+      client: "",
       industry: "Technology & Electronics",
       challenge: "Complex product configurations required extensive manual processes with lengthy quote processing times affecting sales velocity and customer experience",
       solution: "ServiceNow CPQ with advanced configuration capabilities, automated pricing, and guided selling flows for complex electronic test equipment",
@@ -537,7 +537,7 @@ export default function ConfigurePriceQuotePage() {
     },
     {
       title: "StormTrap Transforms Engineering Workflows with CPQ Self-Service",
-      client: "StormTrap",
+      client: "",
       industry: "Engineering & Construction",
       challenge: "Duplicate data entries and slow design processes were affecting customer solution delivery and engineering team productivity",
       solution: "ServiceNow CPQ with self-service tools, single data model architecture, and automated engineering workflow integration",
@@ -553,7 +553,7 @@ export default function ConfigurePriceQuotePage() {
     },
     {
       title: "Oldcastle Elevates Sales, Service, and Security Through CPQ",
-      client: "Oldcastle",
+      client: "",
       industry: "Manufacturing & Construction",
       challenge: "Siloed systems across sales, manufacturing, and admin teams created inefficiencies and inconsistent customer service experiences",
       solution: "Unified ServiceNow CPQ platform integrating all business functions with streamlined workflows and consistent data management",
@@ -569,7 +569,7 @@ export default function ConfigurePriceQuotePage() {
     },
     {
       title: "Fortress Building Products Delivers Instant, Accurate Quotes",
-      client: "Fortress Building Products",
+      client: "",
       industry: "Building Materials",
       challenge: "Manual quote processes caused delays and inaccuracies, while sales team efficiency was limited by complex product configurations",
       solution: "ServiceNow CPQ with guided selling capabilities, visual proposal generation, and automated quote processing for building materials",
@@ -585,7 +585,7 @@ export default function ConfigurePriceQuotePage() {
     },
     {
       title: "CORT Delivers Perfect-Fit Rentals with CPQ Guided Selling",
-      client: "CORT",
+      client: "",
       industry: "Furniture Rental",
       challenge: "Complex rental catalog management and order processing delays were affecting customer experience and online expansion capabilities",
       solution: "ServiceNow CPQ with guided selling for rentals, catalog management tools, and zero-delay order processing for furniture rental services",

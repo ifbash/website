@@ -623,7 +623,7 @@ export default function SourcingProcurementOperationsPage() {
   const caseStudies = [
     {
       title: "Dropbox Cuts Procurement Cycle Times by 50% in Eight Weeks with Complete Spend Control",
-      client: "Dropbox Inc.",
+      client: "",
       industry: "Technology",
       challenge: "Technology company requiring 50% reduction in procurement cycle times with complete corporate spend control and comprehensive procurement automation optimization",
       solution: "ServiceNow Sourcing and Procurement Operations with technology-specific workflows, spend management, and comprehensive procurement automation",
@@ -639,7 +639,7 @@ export default function SourcingProcurementOperationsPage() {
     },
     {
       title: "Global Manufacturing Company Automates 80% of Procurement Requests with ShoppingHub",
-      client: "Fortune 500 Manufacturing Corporation",
+      client: "",
       industry: "Manufacturing",
       challenge: "Manufacturing operations requiring automation of 80% procurement requests with comprehensive ShoppingHub deployment and supplier catalog integration",
       solution: "ServiceNow SPO with manufacturing-specific procurement workflows, ShoppingHub portal, and comprehensive supplier catalog integration optimization",
@@ -655,7 +655,7 @@ export default function SourcingProcurementOperationsPage() {
     },
     {
       title: "Healthcare Network Reduces Procurement Workload by 47% with Virtual Agent Case Management",
-      client: "Regional Healthcare Network",
+      client: "",
       industry: "Healthcare",
       challenge: "Healthcare operations requiring 47% procurement workload reduction with Virtual Agent case management and comprehensive healthcare compliance automation",
       solution: "ServiceNow SPO with healthcare-specific case management, Virtual Agent deployment, and medical industry procurement compliance optimization",
@@ -671,7 +671,7 @@ export default function SourcingProcurementOperationsPage() {
     },
     {
       title: "Financial Services Firm Achieves End-to-End Procurement Visibility with Real-Time Analytics",
-      client: "Global Financial Services Corporation",
+      client: "",
       industry: "Financial Services",
       challenge: "Financial services requiring end-to-end procurement visibility with real-time analytics and comprehensive regulatory compliance management",
       solution: "ServiceNow SPO with financial services-specific workflows, real-time analytics, and comprehensive regulatory compliance procurement optimization",

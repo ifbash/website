@@ -127,7 +127,7 @@ const clientStories = [
 {
   name: "Michael Chen",
   title: "IT Director",
-  company: "GlobalTech Corporation",
+  company: "",
   story: "ifBash's managed services team became an extension of our IT department. Their proactive monitoring and instant response transformed our ServiceNow platform reliability completely.",
   metric: "99.7% platform uptime with 89% reduction in critical incidents",
   rating: 5,
@@ -136,7 +136,7 @@ const clientStories = [
 {
   name: "Dr. Sarah Williams",
   title: "CIO",
-  company: "HealthSystem Plus", 
+  company: "", 
   story: "The healthcare expertise and compliance focus of ifBash's managed services is exceptional. We've maintained 100% HIPAA compliance while dramatically improving efficiency.",
   metric: "100% compliance adherence with 156% efficiency improvement",
   rating: 5,
@@ -145,7 +145,7 @@ const clientStories = [
 {
   name: "James Rodriguez",
   title: "VP Operations",
-  company: "Manufacturing Alliance",
+  company: "",
   story: "Four years of 24/7 support across 45 manufacturing facilities - ifBash has never let us down. Their follow-the-sun model is perfectly executed.",
   metric: "24/7 global coverage with 98% customer satisfaction over 4 years",
   rating: 5,
@@ -154,7 +154,7 @@ const clientStories = [
 {
   name: "Lisa Thompson",
   title: "Head of IT Services",
-  company: "RetailChain Inc",
+  company: "",
   story: "The proactive approach and predictive insights from ifBash's managed services team prevented countless issues. They know our ServiceNow platform better than we do.",
   metric: "85% issue prevention rate with predictive monitoring",
   rating: 5,

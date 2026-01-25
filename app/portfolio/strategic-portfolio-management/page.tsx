@@ -679,7 +679,7 @@ export default function StrategicPortfolioManagementPage() {
   const caseStudies = [
     {
       title: "T-Systems Leverages State-of-the-Art Project Management Functionality",
-      client: "T-Systems",
+      client: "",
       industry: "Technology Services",
       challenge: "Modernizing project management capabilities across global operations while leveraging meaningful data for better decision-making and strategic alignment",
       solution: "ServiceNow Strategic Portfolio Management with platform approach for enhanced project management and data-driven insights",
@@ -690,12 +690,12 @@ export default function StrategicPortfolioManagementPage() {
         { metric: "Enhanced", description: "Decision-making capability" }
       ],
       testimonial: "ServiceNow brings state-of-the-art functionality to project management. The platform approach will make it easier to leverage meaningful data.",
-      executive: "Christian Dietrich, VP, Global Project Services, T-Systems",
+      executive: "Christian Dietrich, VP, Global Project Services",
       logo: "/images/clients/t-systems-logo.png"
     },
     {
       title: "Argonne National Laboratory Centralizes Operational Service",
-      client: "Argonne National Laboratory",
+      client: "",
       industry: "Research & Science",
       challenge: "Centralizing operational service delivery to improve science needs support while maintaining research excellence and operational efficiency",
       solution: "ServiceNow SPM with centralized service delivery, resource management, and science-focused project portfolio management",
@@ -706,12 +706,12 @@ export default function StrategicPortfolioManagementPage() {
         { metric: "Optimized", description: "Resource allocation" }
       ],
       testimonial: "ServiceNow SPM enabled us to centralize operational service delivery, significantly improving our ability to support critical science research needs.",
-      executive: "Argonne National Laboratory Operations Team",
+      executive: " Operations Team",
       logo: "/images/clients/argonne-logo.png"
     },
     {
       title: "Fujitsu Standardizes IT Operations for Greater Agility",
-      client: "Fujitsu",
+      client: "",
       industry: "Technology Consulting",
       challenge: "Standardizing IT operations across global technology consulting operations to achieve greater agility and improved service delivery",
       solution: "Strategic Portfolio Management with standardized operations, agile development capabilities, and global resource management",
@@ -722,7 +722,7 @@ export default function StrategicPortfolioManagementPage() {
         { metric: "Global", description: "Resource optimization" }
       ],
       testimonial: "ServiceNow SPM allowed us to standardize IT operations globally, resulting in significantly greater agility and improved service delivery capabilities.",
-      executive: "Fujitsu IT Operations Leadership",
+      executive: "IT Operations Leadership",
       logo: "/images/clients/fujitsu-logo.png"
     }
   ];

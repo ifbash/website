@@ -590,7 +590,7 @@ export default function PublicSectorDigitalServicesPage() {
   const caseStudies = [
     {
       title: "City of Santa Monica Bridges Service-Citizen Gap with Mobile App",
-      client: "City of Santa Monica",
+      client: "",
       industry: "Municipal Government",
       challenge: "Previous process created bottlenecks for municipal departments and made it impossible to retain user insights, requiring self-service automation and better citizen connection",
       solution: "ServiceNow Customer Service Management with native mobile app, automated 62 services in 2 months, dynamic location experience, and anonymous citizen access",
@@ -606,7 +606,7 @@ export default function PublicSectorDigitalServicesPage() {
     },
     {
       title: "Federal Agency Achieves Rapid ROI with Government Transformation Suite",
-      client: "U.S. Federal Agency",
+      client: "",
       industry: "Federal Government",
       challenge: "Need to increase visibility, accelerate ROI, and drive efficiencies while managing $125 billion annual IT spend with limited auditability and usage tracking",
       solution: "ServiceNow Government Transformation Suite with asset optimization, worker time-savings, modern HR processes, and application portfolio streamlining",
@@ -622,7 +622,7 @@ export default function PublicSectorDigitalServicesPage() {
     },
     {
       title: "State Government Modernizes Citizen Services with Digital Transformation",
-      client: "State Government Agency",
+      client: "",
       industry: "State Government",
       challenge: "Outdated technology and inefficient processes not meeting citizen expectations, with inflexible systems and data accessibility issues affecting service delivery",
       solution: "ServiceNow Public Sector Digital Services with omnichannel support, AI-powered virtual agents, self-service capabilities, and unified government data model",

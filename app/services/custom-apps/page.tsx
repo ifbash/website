@@ -131,7 +131,7 @@ const clientStories = [
   {
     name: "David Kim",
     title: "VP of Operations",
-    company: "TechFlow Manufacturing",
+    company: "",
     story: "ifBash didn't just build us an app - they created a digital solution that's perfectly aligned with our manufacturing processes. Every feature serves our exact business needs.",
     metric: "156% improvement in maintenance efficiency with $15.8M annual savings",
     rating: 5,
@@ -140,7 +140,7 @@ const clientStories = [
   {
     name: "Dr. Rebecca Martinez",
     title: "Chief Medical Officer",
-    company: "HealthCare Alliance", 
+    company: "", 
     story: "The custom patient care coordination app understands healthcare workflows in ways that generic applications never could. It's like having a digital clinical assistant.",
     metric: "89% faster care coordination with 73% better patient outcomes",
     rating: 5,
@@ -149,7 +149,7 @@ const clientStories = [
   {
     name: "Jennifer Chen",
     title: "Head of Risk Management",
-    company: "FinTech Solutions",
+    company: "",
     story: "The AI-powered risk assessment application processes complex financial scenarios that would be impossible with standard tools. It's revolutionary for our industry.",
     metric: "234% increase in processing capacity with $12.7M revenue growth",
     rating: 5,
@@ -158,7 +158,7 @@ const clientStories = [
   {
     name: "Michael Thompson",
     title: "IT Director",
-    company: "LogisticsFlow Corp",
+    company: "",
     story: "Our custom supply chain optimization app handles unique logistics challenges that no commercial solution addresses. ifBash built exactly what we envisioned.",
     metric: "87% improvement in supply chain efficiency",
     rating: 5,
@@ -806,7 +806,7 @@ export default function CustomApps() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-orange-200">{story.title}, {story.company}</p>
+                            <p className="text-orange-200">{story.title}</p>
                           </div>
                         </div>
 

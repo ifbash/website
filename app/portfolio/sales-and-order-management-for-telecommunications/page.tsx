@@ -611,7 +611,7 @@ export default function TelecomOrderManagementPage() {
   const caseStudies = [
     {
       title: "ATN International Connects Remote Communities with ServiceNow Support",
-      client: "ATN International",
+      client: "",
       industry: "Telecommunications Service Provider",
       challenge: "Expanding superfast broadband connectivity to remote communities while managing complex service delivery and customer experience requirements",
       solution: "ServiceNow Order Management for Telecommunications with comprehensive service orchestration, customer experience management, and network integration capabilities",
@@ -627,7 +627,7 @@ export default function TelecomOrderManagementPage() {
     },
     {
       title: "LUMEN Creates Scalable Platform Blueprint with ServiceNow OMT",
-      client: "LUMEN",
+      client: "",
       industry: "Enterprise Communications",
       challenge: "Need to create scalable platform blueprint for rapidly bringing wide range of new revenue streams to market while managing complex service offerings",
       solution: "ServiceNow Sales and Order Management for Telecommunications with comprehensive platform blueprint, revenue stream management, and scalable architecture",
@@ -643,7 +643,7 @@ export default function TelecomOrderManagementPage() {
     },
     {
       title: "Global CSP Achieves TM Forum Integration Excellence with ServiceNow",
-      client: "International Telecommunications Group",
+      client: "",
       industry: "Global Communications Services",
       challenge: "Complex multi-vendor ecosystem integration requiring TM Forum Open API compliance and seamless interoperability across global operations",
       solution: "ServiceNow OMT with Gold Tier TM Forum certification, comprehensive Open API integration, and global ecosystem orchestration capabilities",

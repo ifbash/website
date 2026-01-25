@@ -568,7 +568,7 @@ export default function ITAssetManagementPage() {
   const caseStudies = [
     {
       title: "Uniper Saves €2M in Cost Reduction and Efficiencies with Connected IT",
-      client: "Uniper",
+      client: "",
       industry: "Energy & Utilities",
       challenge: "Managing complex IT asset landscape across global energy operations with limited visibility into asset costs, usage, and optimization opportunities",
       solution: "ServiceNow IT Asset Management with comprehensive hardware, software, and cloud asset management for connected IT operations",
@@ -584,7 +584,7 @@ export default function ITAssetManagementPage() {
     },
     {
       title: "Covéa Insurance Achieves £450K+ Estimated ROI in First Year",
-      client: "Covéa Insurance",
+      client: "",
       industry: "Financial Services",
       challenge: "Optimizing asset management processes and achieving rapid ROI while maintaining compliance and risk management in regulated insurance environment",
       solution: "ServiceNow IT Asset Management with enterprise asset management, software license optimization, and executive dashboard for first-year ROI achievement",
@@ -595,12 +595,12 @@ export default function ITAssetManagementPage() {
         { metric: "Compliance", description: "Risk management maintained" }
       ],
       testimonial: "ServiceNow delivered £450K+ estimated ROI for asset management in our first year, transforming our approach to IT asset optimization and compliance.",
-      executive: "Covéa Insurance Asset Management Team",
+      executive: "Insurance Asset Management Team",
       logo: "/images/clients/covea-logo.png"
     },
     {
       title: "Cox Automotive Streamlines Software Asset Management with Centralized Platform",
-      client: "Cox Automotive",
+      client: "",
       industry: "Automotive Technology",
       challenge: "Streamlining software asset management across diverse automotive technology portfolio with centralized platform for unified visibility and control",
       solution: "ServiceNow Software Asset Management with centralized platform, license optimization, and automated workflows for automotive technology operations",
@@ -610,8 +610,8 @@ export default function ITAssetManagementPage() {
         { metric: "Unified", description: "Visibility and control" },
         { metric: "Automated", description: "Workflow optimization" }
       ],
-      testimonial: "ServiceNow enabled Cox Automotive to streamline software asset management with one centralized platform, providing the unified visibility and control we needed.",
-      executive: "Cox Automotive IT Operations",
+      testimonial: "ServiceNow enabled to streamline software asset management with one centralized platform, providing the unified visibility and control we needed.",
+      executive: "Automotive IT Operations",
       logo: "/images/clients/cox-automotive-logo.png"
     }
   ];

@@ -618,7 +618,7 @@ export default function LegalServiceDeliveryPage() {
   const caseStudies = [
     {
       title: "Snowflake Transforms Legal Operations with Comprehensive LSD Implementation",
-      client: "Snowflake Inc.",
+      client: "",
       industry: "Cloud Data Platform",
       challenge: "Rapidly growing cloud data company requiring scalable legal operations with automated workflows, contract management, and cross-department collaboration for business velocity",
       solution: "ServiceNow Legal Service Delivery with comprehensive workflow automation, self-service legal portal, and contract management for cloud technology legal operations",
@@ -650,7 +650,7 @@ export default function LegalServiceDeliveryPage() {
     },
     {
       title: "Financial Services Organization Achieves Compliance Automation with Legal Analytics",
-      client: "International Banking Group",
+      client: "",
       industry: "Financial Services",
       challenge: "Financial services operations requiring automated compliance management, regulatory tracking, and comprehensive legal analytics for regulatory reporting",
       solution: "ServiceNow Legal Service Delivery with compliance automation, regulatory workflow management, and financial services legal analytics optimization",

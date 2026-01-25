@@ -517,8 +517,8 @@ export default function CloudGovernanceSuitePage() {
   // Case Studies (Based on ServiceNow content)
   const caseStudies = [
     {
-      title: "KeyBank Harnesses Data for Evidence-Based Decision-Making",
-      client: "KeyBank",
+      title: "Bank Data for Evidence-Based Decision-Making",
+      client: "Bank",
       industry: "Financial Services",
       challenge: "Managing complex cloud transformation while maintaining regulatory compliance and optimizing costs across multiple cloud environments",
       solution: "ServiceNow Cloud Governance Suite with AI and machine learning for efficient change management and data-driven decision making",
@@ -528,13 +528,13 @@ export default function CloudGovernanceSuitePage() {
         { metric: "AI-Powered", description: "Cloud governance" },
         { metric: "Optimized", description: "Cloud operations" }
       ],
-      testimonial: "KeyBank relies on data-driven technology in the cloud along with AI and machine learning to efficiently manage change and make evidence-based decisions.",
-      executive: "KeyBank Technology Leadership",
+      testimonial: "Our Bank relies on data-driven technology in the cloud along with AI and machine learning to efficiently manage change and make evidence-based decisions.",
+      executive: "Bank Technology Leadership",
       logo: "/images/clients/keybank-logo.png"
     },
     {
-      title: "ServiceNow Adopts AIOps to Transform IT Operations",
-      client: "ServiceNow",
+      title: "Tech Gaint Adopts AIOps to Transform IT Operations",
+      client: "",
       industry: "Technology Services",
       challenge: "Transforming internal IT operations with AIOps while managing complex cloud infrastructure and delivering great employee experiences",
       solution: "Internal implementation of ServiceNow AIOps with Cloud Governance Suite for intelligent IT operations and cloud management",
@@ -544,13 +544,13 @@ export default function CloudGovernanceSuitePage() {
         { metric: "AIOps", description: "Implementation success" },
         { metric: "Improved", description: "Employee satisfaction" }
       ],
-      testimonial: "ServiceNow is using AIOps to gain agility and intelligently deliver great experiences for our employees while optimizing our cloud operations.",
-      executive: "ServiceNow Internal IT Team",
+      testimonial: "Using AIOps to gain agility and intelligently deliver great experiences for our employees while optimizing our cloud operations.",
+      executive: "Internal IT Team",
       logo: "/images/clients/servicenow-logo.png"
     },
     {
-      title: "Open House Targets One Trillion in Sales with Cloud Management",
-      client: "Open House",
+      title: "Real estate organization Targets One Trillion in Sales with Cloud Management",
+      client: "",
       industry: "Real Estate",
       challenge: "Managing more than 240 internal systems efficiently while scaling operations to target one trillion in sales",
       solution: "ServiceNow Cloud Governance Suite for comprehensive system management and cloud optimization across complex real estate operations",
@@ -560,8 +560,8 @@ export default function CloudGovernanceSuitePage() {
         { metric: "Streamlined", description: "Cloud governance" },
         { metric: "Scalable", description: "Operations platform" }
       ],
-      testimonial: "ServiceNow enables Open House to manage more than 240 internal systems efficiently, supporting our ambitious growth targets through intelligent cloud governance.",
-      executive: "Open House IT Leadership",
+      testimonial: "ServiceNow enables us to manage more than 240 internal systems efficiently, supporting our ambitious growth targets through intelligent cloud governance.",
+      executive: "IT Leadership",
       logo: "/images/clients/openhouse-logo.png"
     }
   ];

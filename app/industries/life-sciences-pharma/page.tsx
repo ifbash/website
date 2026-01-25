@@ -115,7 +115,7 @@ const clientStories = [
   {
     name: "Dr. Amanda Foster",
     title: "Chief Scientific Officer",
-    company: "GlobalPharma Corp",
+    company: "",
     story: "ifBash's pharmaceutical expertise accelerated our drug development beyond our wildest expectations. We now bring life-saving medications to market years faster.",
     metric: "34% faster development with $1.2B cost savings",
     rating: 5,
@@ -124,7 +124,7 @@ const clientStories = [
   {
     name: "Dr. Steven Liu",
     title: "Research Director",
-    company: "BioTech Innovations", 
+    company: "", 
     story: "Research collaboration was transformed by ifBash's platform. Our teams now work seamlessly across global locations, accelerating breakthrough discoveries.",
     metric: "78% research efficiency improvement with 94% faster analysis",
     rating: 5,
@@ -133,7 +133,7 @@ const clientStories = [
   {
     name: "Maria Rodriguez",
     title: "VP of Quality",
-    company: "VaccineProduction Inc",
+    company: "",
     story: "Vaccine quality cannot be compromised. ifBash's quality management platform ensures every batch meets the highest standards with zero failures.",
     metric: "91% batch failure reduction with $52M waste savings",
     rating: 5,
@@ -142,7 +142,7 @@ const clientStories = [
   {
     name: "Dr. Robert Johnson",
     title: "Head of Regulatory Affairs",
-    company: "PharmaRegulate Solutions",
+    company: "",
     story: "Regulatory compliance complexity was eliminated by ifBash's automation. We now navigate global regulations effortlessly with perfect compliance scores.",
     metric: "100% regulatory compliance with 89% faster approvals",
     rating: 5,
@@ -776,7 +776,7 @@ export default function PharmaceuticalsBiotech() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-purple-200">{story.title}, {story.company}</p>
+                            <p className="text-purple-200">{story.title}</p>
                           </div>
                         </div>
 

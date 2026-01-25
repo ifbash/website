@@ -618,7 +618,7 @@ export default function TalentDevelopmentPage() {
   const caseStudies = [
     {
       title: "Elara Caring Differentiates Caregiver Experience with AI-Powered Talent Development",
-      client: "Elara Caring",
+      client: "",
       industry: "Healthcare Services",
       challenge: "Healthcare services requiring differentiated caregiver experience with comprehensive talent development and skills management for improved patient care outcomes",
       solution: "ServiceNow Talent Development with Skills Intelligence, caregiver development workflows, and healthcare-specific talent management for enhanced patient experience",
@@ -634,7 +634,7 @@ export default function TalentDevelopmentPage() {
     },
     {
       title: "Global Technology Firm Implements Skills-Based Workforce Management with AI Intelligence",
-      client: "Fortune 500 Technology Corporation",
+      client: "",
       industry: "Enterprise Technology",
       challenge: "Complex technology operations requiring skills-based workforce management with AI-powered talent development and strategic skills planning across global teams",
       solution: "ServiceNow Talent Development with comprehensive Skills Intelligence, Manager Hub, and technology-specific talent optimization for global workforce development",
@@ -650,7 +650,7 @@ export default function TalentDevelopmentPage() {
     },
     {
       title: "Financial Services Firm Enhances Internal Mobility with Opportunity Marketplace",
-      client: "International Banking Group",
+      client: "",
       industry: "Financial Services",
       challenge: "Financial services operations requiring enhanced internal mobility with AI-powered job matching and comprehensive career development for employee retention",
       solution: "ServiceNow Talent Development with Opportunity Marketplace, career development pathways, and financial services talent optimization for enhanced mobility",
@@ -666,7 +666,7 @@ export default function TalentDevelopmentPage() {
     },
     {
       title: "Manufacturing Company Deploys Comprehensive Skills Intelligence for Workforce Planning",
-      client: "Global Manufacturing Enterprise",
+      client: "",
       industry: "Industrial Manufacturing",
       challenge: "Manufacturing operations requiring comprehensive skills intelligence for strategic workforce planning and skills gap analysis across industrial operations",
       solution: "ServiceNow Talent Development with full Skills Intelligence platform, workforce analytics, and manufacturing-specific talent development for operational excellence",

@@ -583,8 +583,8 @@ export default function ServiceOperationsWorkspacePage() {
   // Case Studies (Exact from ServiceNow)
   const caseStudies = [
     {
-      title: "Empowering IBM's Business Transformation with the ServiceNow AI Platform",
-      client: "IBM",
+      title: "Empowering Business Transformation with the ServiceNow AI Platform",
+      client: "",
       industry: "Technology Services",
       challenge: "Business transformation requiring enhanced service operations and AI-powered automation",
       solution: "ServiceNow AI Platform with Service Operations Workspace for comprehensive operational excellence",
@@ -595,12 +595,12 @@ export default function ServiceOperationsWorkspacePage() {
         { metric: "Improved", description: "Service delivery efficiency" }
       ],
       testimonial: "ServiceNow AI Platform empowered our business transformation with intelligent service operations and comprehensive automation capabilities.",
-      executive: "IBM Leadership Team",
+      executive: "Leadership Team",
       logo: "/images/clients/ibm-logo.png"
     },
     {
-      title: "Scania Drives Employees Toward a Fully Digitalized Future",
-      client: "Scania",
+      title: "Manufacturing company Drives Employees Toward a Fully Digitalized Future",
+      client: "",
       industry: "Automotive Manufacturing",
       challenge: "Driving employees toward fully digitalized future with enhanced service operations",
       solution: "Service Operations Workspace with modern visualizations and collaborative workflows for digital transformation",
@@ -611,12 +611,12 @@ export default function ServiceOperationsWorkspacePage() {
         { metric: "Collaborative", description: "Workflow transformation" }
       ],
       testimonial: "Service Operations Workspace accelerated our journey toward a fully digitalized future with enhanced employee experience and operational excellence.",
-      executive: "Scania Digital Team",
+      executive: "Digital Team",
       logo: "/images/clients/scania-logo.png"
     },
     {
-      title: "Bell Food Group Adds Automation to Its New Recipe for Growth",
-      client: "Bell Food Group",
+      title: "Food Group Adds Automation to Its New Recipe for Growth",
+      client: "",
       industry: "Food & Beverage",
       challenge: "Adding automation to growth recipe while maintaining operational excellence",
       solution: "Automated Service Operations Workspace with guided setup and configurable interfaces for scalable growth",
@@ -627,7 +627,7 @@ export default function ServiceOperationsWorkspacePage() {
         { metric: "Optimized", description: "Business processes" }
       ],
       testimonial: "Service Operations Workspace provided the automation foundation we needed to scale our operations while maintaining quality and efficiency.",
-      executive: "Bell Food Group Operations",
+      executive: "Group Operations",
       logo: "/images/clients/bell-food-logo.png"
     }
   ];
@@ -1179,18 +1179,18 @@ export default function ServiceOperationsWorkspacePage() {
                 
                 <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
                   <a href="/get-started"
-                    className="px-8 py-4 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                    className="px-6 py-4  sm:px-12 bg-white text-indigo-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
                   >
                     Contact SOW Experts
                     <ArrowRight className="ml-2 h-5 w-5 inline" />
                   </a>
-                  <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
+                  {/*<button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
                     <Download className="mr-2 h-5 w-5 inline" />
                     View Data Sheet
-                  </button>
+                  </button>*/}
                 </div>
 
-                {/* Contact Information */}
+                {/* Contact Information
                 <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
                     <Mail className="h-6 w-6 text-purple-200 mx-auto mb-2" />
@@ -1204,7 +1204,7 @@ export default function ServiceOperationsWorkspacePage() {
                     <Calendar className="h-6 w-6 text-indigo-200 mx-auto mb-2" />
                     <p className="text-white text-sm font-medium">Book Demo</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

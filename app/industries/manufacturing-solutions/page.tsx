@@ -116,7 +116,7 @@ const clientStories = [
   {
     name: "Michael Rodriguez",
     title: "VP of Operations",
-    company: "SteelTech Industries",
+    company: "",
     story: "ifBash's manufacturing expertise transformed our approach to maintenance. We went from fighting daily equipment failures to predicting and preventing them weeks in advance.",
     metric: "87% reduction in unplanned downtime with $97M annual savings",
     rating: 5,
@@ -125,7 +125,7 @@ const clientStories = [
   {
     name: "Dr. Susan Chen",
     title: "Quality Director",
-    company: "GlobalTech Assembly", 
+    company: "", 
     story: "The intelligent quality management system ifBash deployed gave us unprecedented visibility into our processes. We've achieved quality levels we never thought possible.",
     metric: "91% defect reduction with zero product recalls in 18 months",
     rating: 5,
@@ -134,7 +134,7 @@ const clientStories = [
   {
     name: "David Thompson",
     title: "HSE Manager",
-    company: "ChemPro Manufacturing",
+    company: "",
     story: "Safety compliance in chemical processing is critical. ifBash's platform ensures we maintain perfect regulatory compliance while optimizing our manufacturing efficiency.",
     metric: "100% regulatory compliance with 89% reduction in safety incidents",
     rating: 5,
@@ -143,7 +143,7 @@ const clientStories = [
   {
     name: "Jennifer Walsh",
     title: "Plant Manager",
-    company: "AutoParts Plus",
+    company: "",
     story: "The Industry 4.0 transformation ifBash led connected all our systems into one intelligent platform. We now have real-time visibility across our entire manufacturing operation.",
     metric: "234% improvement in operational efficiency",
     rating: 5,
@@ -780,7 +780,7 @@ export default function ManufacturingIndustrial() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-red-200">{story.title}, {story.company}</p>
+                            <p className="text-red-200">{story.title}</p>
                           </div>
                         </div>
 

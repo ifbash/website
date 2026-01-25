@@ -628,7 +628,7 @@ export default function IntegratedRiskManagementPage() {
   const caseStudies = [
     {
       title: "Wipro Transforms Enterprise Risk Management with ServiceNow 'Risk Central'",
-      client: "Wipro Limited",
+      client: "",
       industry: "Technology Services",
       challenge: "Complex global operations requiring unified risk management approach across cybersecurity, governance, risk, controls, and compliance functions",
       solution: "ServiceNow IRM with centralized risk management, automated workflows, and integrated compliance monitoring for comprehensive enterprise risk strategy",
@@ -644,7 +644,7 @@ export default function IntegratedRiskManagementPage() {
     },
     {
       title: "Avanade Automates IRM and Security Processes with Enhanced Visibility",
-      client: "Avanade",
+      client: "",
       industry: "Professional Services",
       challenge: "Need to automate IRM and security processes while increasing visibility and responsiveness across global professional services operations",
       solution: "ServiceNow IRM with automated security processes, enhanced visibility dashboards, and responsive risk management for consulting operations",
@@ -660,7 +660,7 @@ export default function IntegratedRiskManagementPage() {
     },
     {
       title: "DNB Lowers Risk Vulnerabilities for Continuous Customer Service Compliance",
-      client: "DNB Bank",
+      client: "",
       industry: "Financial Services",
       challenge: "Banking operations requiring continuous customer service while maintaining legal compliance and lowering risk vulnerabilities across financial services",
       solution: "ServiceNow IRM with financial services compliance, continuous customer service monitoring, and automated vulnerability management",
@@ -676,7 +676,7 @@ export default function IntegratedRiskManagementPage() {
     },
     {
       title: "ServiceNow Increases Scalability and Slashes Costs with Integrated GRC Automation",
-      client: "ServiceNow (Now on Now)",
+      client: "",
       industry: "Software Platform",
       challenge: "Demonstrating platform effectiveness by using ServiceNow IRM internally for scalable GRC processes and self-service portals",
       solution: "ServiceNow IRM with integrated GRC automation, self-service portals, and comprehensive risk management for internal operations",

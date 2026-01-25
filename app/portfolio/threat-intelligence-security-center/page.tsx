@@ -620,7 +620,7 @@ export default function ThreatIntelligenceSecurityCenterPage() {
   const caseStudies = [
     {
       title: "Global Enterprise Transforms Threat Hunting with TISC Interactive Canvas",
-      client: "Fortune 500 Technology Corporation",
+      client: "",
       industry: "Enterprise Technology",
       challenge: "Complex threat landscape requiring advanced threat hunting capabilities with better analyst productivity and threat intelligence correlation across multiple security tools",
       solution: "ServiceNow TISC with Threat Analyst Workspace, interactive hunting canvas, and comprehensive security tool integrations for unified threat intelligence operations",
@@ -636,7 +636,7 @@ export default function ThreatIntelligenceSecurityCenterPage() {
     },
     {
       title: "Financial Services Implements MSSP-Ready TISC with Domain Separation",
-      client: "Global Financial Services Group",
+      client: "",
       industry: "Financial Services",
       challenge: "Multi-tenant security operations requiring domain separation capabilities for different business units while maintaining comprehensive threat intelligence sharing",
       solution: "ServiceNow TISC with domain separation support, MSSP capabilities, and enterprise-scale threat intelligence management for multi-tenant operations",
@@ -652,7 +652,7 @@ export default function ThreatIntelligenceSecurityCenterPage() {
     },
     {
       title: "Healthcare Organization Automates Threat Intelligence with MITRE ATT&CK Integration",
-      client: "Regional Healthcare System",
+      client: "",
       industry: "Healthcare",
       challenge: "Healthcare-specific threats requiring automated MITRE ATT&CK technique extraction and comprehensive threat intelligence correlation for patient data protection",
       solution: "ServiceNow TISC with automated MITRE ATT&CK integration, healthcare-specific threat playbooks, and comprehensive intelligence correlation for medical environments",
@@ -668,7 +668,7 @@ export default function ThreatIntelligenceSecurityCenterPage() {
     },
     {
       title: "Manufacturing Company Deploys Cloud-Integrated TISC with Microsoft Sentinel",
-      client: "Global Manufacturing Corporation",
+      client: "",
       industry: "Industrial Manufacturing",
       challenge: "Cloud-first security architecture requiring bi-directional threat intelligence integration with Microsoft Sentinel for comprehensive industrial security operations",
       solution: "ServiceNow TISC with Microsoft Sentinel integration, automated threat intel ingestion, and industrial-specific threat intelligence for OT/IT environments",

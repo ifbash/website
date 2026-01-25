@@ -570,7 +570,7 @@ export default function SalesOrderManagementTechProvidersPage() {
   const caseStudies = [
     {
       title: "Pure Storage Puts AI to Work with ServiceNow Order Management",
-      client: "Pure Storage",
+      client: "",
       industry: "Technology Storage Solutions",
       challenge: "Complex storage solutions requiring streamlined order management processes and improved customer experience with AI-powered automation needs",
       solution: "ServiceNow Sales and Order Management for Technology Providers with AI-powered workflows, automated order processing, and comprehensive customer experience management",
@@ -586,7 +586,7 @@ export default function SalesOrderManagementTechProvidersPage() {
     },
     {
       title: "Global Technology Provider Accelerates Revenue with Advanced Order Management",
-      client: "Enterprise Technology Solutions",
+      client: "",
       industry: "Technology Services",
       challenge: "Lengthy order-to-delivery cycles and complex service configurations affecting revenue growth and customer satisfaction in competitive market",
       solution: "ServiceNow SOMTP with catalog-driven orchestration, automated fulfillment workflows, and comprehensive partner ecosystem integration",
@@ -602,7 +602,7 @@ export default function SalesOrderManagementTechProvidersPage() {
     },
     {
       title: "SaaS Provider Optimizes XaaS Operations with ServiceNow Platform",
-      client: "Cloud Software Corporation",
+      client: "",
       industry: "Software as a Service",
       challenge: "Managing subscription-based services and complex billing models across multiple customer segments with scalability and automation requirements",
       solution: "Complete ServiceNow SOMTP implementation with XaaS capabilities, subscription management, usage-based billing, and automated service provisioning",

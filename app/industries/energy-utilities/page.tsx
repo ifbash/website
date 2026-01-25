@@ -112,7 +112,7 @@ const clientStories = [
   {
     name: "Robert Chen",
     title: "Chief Operations Officer",
-    company: "PowerGrid Solutions",
+    company: "",
     story: "ifBash's grid intelligence expertise revolutionized our power delivery. We went from constant outages to industry-leading reliability with AI-powered predictive operations.",
     metric: "89% outage reduction with 99.8% grid availability",
     rating: 5,
@@ -120,8 +120,8 @@ const clientStories = [
   },
   {
     name: "Dr. Sarah Martinez",
-    title: "VP of Renewable Operations",
-    company: "CleanEnergy Corp", 
+    title: "",
+    company: "", 
     story: "Renewable energy complexity became renewable energy excellence with ifBash's forecasting platform. We now optimize clean energy generation with perfect accuracy.",
     metric: "91% forecasting accuracy with $289M revenue increase",
     rating: 5,
@@ -130,7 +130,7 @@ const clientStories = [
   {
     name: "Michael Torres",
     title: "Customer Experience Director",
-    company: "UtilityCorp Networks",
+    company: "",
     story: "Multi-utility customer service chaos became unified excellence with ifBash's platform. First-call resolution and satisfaction scores reached unprecedented levels.",
     metric: "94% first-call resolution with 96% satisfaction",
     rating: 5,
@@ -138,7 +138,7 @@ const clientStories = [
   },
   {
     name: "Jennifer Park",
-    title: "Head of Smart Grid",
+    title: "",
     company: "EnergyTech Advanced",
     story: "The smart grid platform ifBash created predicts and prevents issues before they impact customers. Proactive grid management transformed our service reliability.",
     metric: "245% improvement in proactive grid management",
@@ -773,7 +773,7 @@ export default function EnergyUtilities() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-amber-200">{story.title}, {story.company}</p>
+                            <p className="text-amber-200">{story.title}</p>
                           </div>
                         </div>
 

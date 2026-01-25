@@ -664,7 +664,7 @@ export default function HRServiceDeliveryPage() {
   const caseStudies = [
     {
       title: "Ryder Transforms HR Processes with Comprehensive HRSD Implementation",
-      client: "Ryder System Inc.",
+      client: "",
       industry: "Transportation & Logistics",
       challenge: "Complex transportation operations requiring streamlined HR processes with improved employee service delivery and operational efficiency across global workforce",
       solution: "ServiceNow HRSD with Employee Center, case management automation, and comprehensive HR service delivery for transportation and logistics operations",
@@ -680,7 +680,7 @@ export default function HRServiceDeliveryPage() {
     },
     {
       title: "Siemens GBS Enriches Employee Experience with Intuitive Connected Workflows",
-      client: "Siemens Global Business Services",
+      client: "",
       industry: "Industrial Technology",
       challenge: "Global business services requiring enriched employee experience with intuitive, connected workflows across multiple business units and geographical locations",
       solution: "ServiceNow HRSD with Employee Journey Management, connected workflows, and comprehensive employee experience optimization for industrial operations",
@@ -696,7 +696,7 @@ export default function HRServiceDeliveryPage() {
     },
     {
       title: "Expedia Group Supports Complete Employee Journey with Unified Portal",
-      client: "Expedia Group",
+      client: "",
       industry: "Travel Technology",
       challenge: "Travel technology operations requiring complete employee journey support with unified portal for seamless employee experience across diverse workforce",
       solution: "ServiceNow HRSD with unified employee portal, comprehensive journey management, and travel industry-specific HR service delivery optimization",
@@ -712,7 +712,7 @@ export default function HRServiceDeliveryPage() {
     },
     {
       title: "Mondelēz International Achieves 76% Self-Service Increase with HRSD Enhancement",
-      client: "Mondelēz International",
+      client: "",
       industry: "Consumer Goods",
       challenge: "Global consumer goods operations requiring enhanced employee experience with significant self-service improvements and operational efficiency across manufacturing",
       solution: "ServiceNow HRSD with self-service optimization, employee experience enhancement, and consumer goods industry-specific HR automation",

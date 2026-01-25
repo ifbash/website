@@ -686,7 +686,7 @@ export default function ITOperationsManagementPage() {
   const caseStudies = [
     {
       title: "NBA Uses AIOps to Elevate Fan Experience with 200M Logs Daily",
-      client: "NBA",
+      client: "",
       industry: "Sports & Entertainment",
       challenge: "Analyzing massive volumes of log data (200M logs daily) while reducing alert noise and maintaining exceptional fan experience during live events",
       solution: "ServiceNow ITOM with AIOps capabilities for log analysis, alert reduction, and predictive issue resolution to support live NBA operations",
@@ -697,12 +697,12 @@ export default function ITOperationsManagementPage() {
         { metric: "Live Event", description: "Support optimization" }
       ],
       testimonial: "ServiceNow helps us constantly mature our capabilities and take our game up to the next level. AIOps enables us to analyze 200M logs daily while reducing alerts by 99.999%.",
-      executive: "Mark Bennett, SVP, Head of Technology and Infrastructure Operations, NBA",
+      executive: "Mark Bennett, SVP, Head of Technology and Infrastructure Operations",
       logo: "/images/clients/nba-logo.png"
     },
     {
       title: "Munich Re Enhances Audit Capability with End-to-End CMDB Visibility",
-      client: "Munich Re",
+      client: "",
       industry: "Financial Services",
       challenge: "Enhancing audit capability while providing end-to-end visibility of all IT assets companywide for regulatory compliance and operational excellence",
       solution: "ServiceNow ITOM with comprehensive CMDB implementation for complete IT asset visibility and audit capability enhancement",
@@ -718,7 +718,7 @@ export default function ITOperationsManagementPage() {
     },
     {
       title: "Körber Supply Chain Improves Customer Support with Data-Driven Insights",
-      client: "Körber Supply Chain",
+      client: "",
       industry: "Supply Chain Technology",
       challenge: "Improving customer support operations while reducing aged tickets and boosting mean time to resolution (MTTR) for supply chain operations",
       solution: "ServiceNow ITOM with service observability and data-driven insights for customer support optimization and operational efficiency",
@@ -729,7 +729,7 @@ export default function ITOperationsManagementPage() {
         { metric: "Operational", description: "Efficiency gains" }
       ],
       testimonial: "ServiceNow ITOM enabled us to achieve significant improvements in customer support with 58% reduction in aged tickets and 32% MTTR boost through data-driven insights.",
-      executive: "Körber Supply Chain Operations Team",
+      executive: "Supply Chain Operations Team",
       logo: "/images/clients/korber-logo.png"
     }
   ];

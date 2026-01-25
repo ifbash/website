@@ -115,7 +115,7 @@ const clientStories = [
   {
     name: "Margaret Wilson",
     title: "Chief Information Officer",
-    company: "Metro City Government",
+    company: "",
     story: "ifBash's digital government expertise revolutionized our citizen services. We went from bureaucratic delays to instant, transparent service delivery that citizens actually love using.",
     metric: "89% faster service response with 234% satisfaction increase",
     rating: 5,
@@ -124,7 +124,7 @@ const clientStories = [
   {
     name: "Dr. James Rodriguez",
     title: "State Health Director",
-    company: "State Department of Health", 
+    company: "", 
     story: "The public health platform ifBash created gives us capabilities that protect lives every day. Real-time data and automated responses have transformed our emergency preparedness.",
     metric: "94% response improvement with 100% regulatory compliance",
     rating: 5,
@@ -133,7 +133,7 @@ const clientStories = [
   {
     name: "Colonel Sarah Chen",
     title: "Cybersecurity Director",
-    company: "Federal IT Services",
+    company: "",
     story: "National security depends on rapid threat response. ifBash's cybersecurity platform reduced our response time from days to minutes, protecting critical infrastructure.",
     metric: "91% faster threat response with zero successful attacks",
     rating: 5,
@@ -142,7 +142,7 @@ const clientStories = [
   {
     name: "Robert Martinez",
     title: "Digital Services Manager",
-    company: "County Administration",
+    company: "",
     story: "The digital transformation ifBash led modernized our entire county operation. Citizens now access services 24/7 with complete transparency and satisfaction.",
     metric: "156% improvement in digital service adoption",
     rating: 5,
@@ -779,7 +779,7 @@ export default function PublicSectorGovernment() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-zinc-200">{story.title}, {story.company}</p>
+                            <p className="text-zinc-200">{story.title}</p>
                           </div>
                         </div>
 

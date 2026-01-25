@@ -46,7 +46,7 @@ const clientStories = [
   {
     name: "David Chen",
     title: "Chief Technology Officer",
-    company: "GlobalTel Networks",
+    company: "",
     story: "ifBash's network operations expertise transformed our infrastructure management completely. We went from constant outages to industry-leading reliability with AI-powered automation.",
     metric: "89% faster outage resolution with 99.9% network availability",
     rating: 5,
@@ -55,7 +55,7 @@ const clientStories = [
   {
     name: "Maria Rodriguez",
     title: "VP of Customer Experience",
-    company: "ConnectCorp Telecom", 
+    company: "", 
     story: "Customer service nightmares became customer satisfaction victories with ifBash's intelligent platform. First-call resolution and satisfaction scores reached unprecedented levels.",
     metric: "91% first-call resolution with 94% customer satisfaction",
     rating: 5,
@@ -64,7 +64,7 @@ const clientStories = [
   {
     name: "Jennifer Park",
     title: "Head of 5G Deployment",
-    company: "5GFuture Solutions",
+    company: "",
     story: "5G deployment complexity was eliminated by ifBash's coordination platform. We now deploy sites faster and more efficiently than any competitor in the market.",
     metric: "87% deployment delay reduction with $189M cost savings",
     rating: 5,
@@ -73,7 +73,7 @@ const clientStories = [
   {
     name: "Michael Torres",
     title: "Network Operations Director",
-    company: "TelecomAdvanced",
+    company: "",
     story: "The network intelligence platform ifBash created predicts and prevents issues before customers even notice. Proactive operations transformed our service quality.",
     metric: "245% improvement in proactive issue prevention",
     rating: 5,
@@ -694,7 +694,7 @@ export default function Telecommunications() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-blue-200">{story.title}, {story.company}</p>
+                            <p className="text-blue-200">{story.title}</p>
                           </div>
                         </div>
 

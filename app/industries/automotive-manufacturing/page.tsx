@@ -110,7 +110,7 @@ const clientStories = [
   {
     name: "Dr. Elena Rodriguez",
     title: "Chief Technology Officer",
-    company: "AutoTech Motors",
+    company: "",
     story: "ifBash's automotive expertise is unmatched. They understood our connected vehicle challenges and delivered a solution that's transforming how we serve 2.3 million customers.",
     metric: "89% reduction in unplanned maintenance with $52M annual savings",
     rating: 5,
@@ -119,7 +119,7 @@ const clientStories = [
   {
     name: "Marcus Thompson",
     title: "VP of Operations",
-    company: "ElectricDrive Corporation", 
+    company: "", 
     story: "The EV-specific solutions ifBash created give us capabilities that are years ahead of the competition. Battery management and charging optimization are now our competitive advantages.",
     metric: "94% improvement in battery performance with 167% customer confidence increase",
     rating: 5,
@@ -128,7 +128,7 @@ const clientStories = [
   {
     name: "Sarah Kim",
     title: "Supply Chain Director",
-    company: "GlobalAuto Supply Chain",
+    company: "",
     story: "Supply chain disruptions were costing us millions. ifBash's platform now gives us complete visibility and predictive capabilities across 450 suppliers.",
     metric: "91% reduction in supply disruptions with $31M cost avoidance",
     rating: 5,
@@ -137,7 +137,7 @@ const clientStories = [
   {
     name: "Robert Chen",
     title: "Head of Digital Innovation",
-    company: "SmartAuto Solutions",
+    company: "",
     story: "The autonomous vehicle support platform ifBash built handles complex scenarios we never thought possible. It's revolutionizing our R&D and testing processes.",
     metric: "78% faster autonomous system testing and validation",
     rating: 5,
@@ -774,7 +774,7 @@ export default function AutomotiveIndustry() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-indigo-200">{story.title}, {story.company}</p>
+                            <p className="text-indigo-200">{story.title}</p>
                           </div>
                         </div>
 

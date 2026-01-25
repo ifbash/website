@@ -116,7 +116,7 @@ const clientStories = [
   {
     name: "Sarah Mitchell",
     title: "VP of Retail Operations",
-    company: "RetailMax Global",
+    company: "",
     story: "ifBash's omnichannel approach unified our customer experience across 850 stores. We now deliver consistent, personalized service whether customers shop online or in-store.",
     metric: "89% customer satisfaction improvement with $78M revenue increase",
     rating: 5,
@@ -125,7 +125,7 @@ const clientStories = [
   {
     name: "David Chen",
     title: "Chief Supply Chain Officer",
-    company: "ConsumerBrand Corp", 
+    company: "", 
     story: "The AI-powered demand forecasting ifBash implemented transformed our supply chain. We've eliminated excess inventory and optimized our entire distribution network.",
     metric: "78% demand accuracy improvement with $52M cost savings",
     rating: 5,
@@ -134,7 +134,7 @@ const clientStories = [
   {
     name: "Jessica Rodriguez",
     title: "Chief Marketing Officer",
-    company: "FashionForward Brands",
+    company: "",
     story: "The personalized customer engagement platform ifBash built helped us connect with customers in ways we never thought possible. Engagement is through the roof.",
     metric: "145% customer engagement increase with 91% markdown reduction",
     rating: 5,
@@ -143,7 +143,7 @@ const clientStories = [
   {
     name: "Michael Park",
     title: "Head of Digital Commerce",
-    company: "ElectroGoods Plus",
+    company: "",
     story: "Our e-commerce transformation with ifBash created seamless shopping experiences. Customer satisfaction and conversion rates have never been higher.",
     metric: "234% e-commerce conversion improvement",
     rating: 5,
@@ -780,7 +780,7 @@ export default function ConsumerGoodsRetail() {
                           </div>
                           <div>
                             <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-teal-200">{story.title}, {story.company}</p>
+                            <p className="text-teal-200">{story.title}</p>
                           </div>
                         </div>
 

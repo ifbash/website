@@ -113,7 +113,7 @@ const clientStories = [
 {
   name: "Alexandra Rodriguez",
   title: "Chief Digital Officer",
-  company: "InnovateCorp",
+  company: "",
   story: "ifBash transformed our scattered digital initiatives into a cohesive, value-driven strategy. Their advisory expertise delivered measurable results from month one.",
   metric: "238% increase in process efficiency within 6 months",
   rating: 5,
@@ -122,7 +122,7 @@ const clientStories = [
 {
   name: "Dr. Marcus Chen",
   title: "VP of Innovation",
-  company: "MedTech Solutions", 
+  company: "", 
   story: "The strategic roadmap ifBash created revolutionized our product development. We're now innovating 47% faster with complete compliance confidence.",
   metric: "47% faster time-to-market for new healthcare solutions",
   rating: 5,
@@ -131,7 +131,7 @@ const clientStories = [
 {
   name: "Robert Kim",
   title: "COO",
-  company: "GlobalManufacturing Ltd",
+  company: "",
   story: "Their digital strategy unified our 34 facilities into one seamless operation. The transformation has been nothing short of remarkable.",
   metric: "$12.7M in supply chain optimization savings",
   rating: 5,
@@ -140,7 +140,7 @@ const clientStories = [
 {
   name: "Sarah Mitchell",
   title: "Head of Digital Transformation",
-  company: "FinanceForward Inc",
+  company: "",
   story: "ifBash's advisory approach gave us the confidence to make bold digital moves. Every recommendation was backed by solid business value.",
   metric: "ROI achieved 34% ahead of projected timeline",
   rating: 5,
@@ -806,7 +806,7 @@ return (
                         </div>
                         <div>
                           <h3 className="text-xl font-bold">{story.name}</h3>
-                          <p className="text-emerald-200">{story.title}, {story.company}</p>
+                          <p className="text-emerald-200">{story.title}</p>
                         </div>
                       </div>
 

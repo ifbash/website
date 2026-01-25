@@ -613,7 +613,7 @@ export default function ThirdPartyRiskManagementPage() {
   const caseStudies = [
     {
       title: "Uber Digitizes Risk Management with Complete Policy Lifecycle Visibility",
-      client: "Uber Technologies",
+      client: "",
       industry: "Transportation Technology",
       challenge: "Global transportation platform requiring digitized risk management with complete policy lifecycle visibility and regulatory horizon awareness",
       solution: "ServiceNow TPRM with digitized risk management, policy lifecycle automation, and comprehensive regulatory compliance for transportation operations",
@@ -629,7 +629,7 @@ export default function ThirdPartyRiskManagementPage() {
     },
     {
       title: "Novartis Reduces System Complexity and Streamlines Third-Party Risk Processes",
-      client: "Novartis AG",
+      client: "",
       industry: "Pharmaceutical",
       challenge: "Complex pharmaceutical operations requiring reduced system complexity and streamlined third-party risk management processes across global supply chain",
       solution: "ServiceNow TPRM with simplified system architecture, automated risk assessments, and integrated third-party management for pharmaceutical compliance",
@@ -645,7 +645,7 @@ export default function ThirdPartyRiskManagementPage() {
     },
     {
       title: "Global Financial Services Firm Implements Comprehensive TPRM with Concentration Risk Mapping",
-      client: "International Banking Group",
+      client: "",
       industry: "Financial Services",
       challenge: "Financial services operations requiring comprehensive third-party risk management with concentration risk mapping and regulatory compliance oversight",
       solution: "ServiceNow TPRM with concentration risk mapping, financial services compliance, and comprehensive vendor portfolio management for banking operations",
@@ -661,7 +661,7 @@ export default function ThirdPartyRiskManagementPage() {
     },
     {
       title: "Manufacturing Corporation Deploys AI-Powered TPRM with Fourth-Party Risk Management",
-      client: "Global Manufacturing Enterprise",
+      client: "",
       industry: "Industrial Manufacturing",
       challenge: "Complex supply chain requiring AI-powered third-party risk management with fourth-party risk visibility and supplier resilience monitoring",
       solution: "ServiceNow TPRM with AI-powered risk analytics, fourth-party risk management, and comprehensive supply chain resilience for manufacturing operations",

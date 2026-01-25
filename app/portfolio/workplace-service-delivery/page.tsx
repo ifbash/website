@@ -665,7 +665,7 @@ export default function WorkplaceServiceDeliveryPage() {
   const caseStudies = [
     {
       title: "Accenture Transforms Workplace Experience with Comprehensive WSD Implementation",
-      client: "Accenture",
+      client: "",
       industry: "Professional Services",
       challenge: "Global professional services requiring modern workplace experience with hybrid work support, space optimization, and comprehensive workplace service delivery across multiple locations",
       solution: "ServiceNow Workplace Service Delivery with space management, reservation systems, and professional services workplace optimization for enhanced employee experience",
@@ -681,7 +681,7 @@ export default function WorkplaceServiceDeliveryPage() {
     },
     {
       title: "NBA Reduces Costs and Transforms Facilities Management with Workplace Service Delivery",
-      client: "National Basketball Association",
+      client: "",
       industry: "Sports & Entertainment",
       challenge: "Sports organization requiring cost reduction and facilities management transformation with comprehensive venue management and enhanced operational efficiency",
       solution: "ServiceNow Workplace Service Delivery with facilities management optimization, maintenance workflows, and sports venue-specific workplace management",
@@ -697,7 +697,7 @@ export default function WorkplaceServiceDeliveryPage() {
     },
     {
       title: "KPMG UK Optimizes Processes with Office Concierge for 265,000 Colleagues",
-      client: "KPMG United Kingdom",
+      client: "",
       industry: "Professional Services",
       challenge: "Large-scale professional services requiring process optimization with comprehensive workplace concierge services for massive workforce across UK operations",
       solution: "ServiceNow Workplace Service Delivery with Office Concierge, process optimization, and professional services workplace management for enhanced colleague experience",
@@ -713,7 +713,7 @@ export default function WorkplaceServiceDeliveryPage() {
     },
     {
       title: "HJF Enhances Employee Workplace Experiences with Digital Workflows",
-      client: "Henry M. Jackson Foundation",
+      client: "",
       industry: "Healthcare Research",
       challenge: "Healthcare research organization requiring enhanced employee workplace experiences with digital workflow automation for research facility management",
       solution: "ServiceNow Workplace Service Delivery with digital workflows, research facility optimization, and healthcare-specific workplace service enhancement",
