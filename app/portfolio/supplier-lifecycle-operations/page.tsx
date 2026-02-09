@@ -759,7 +759,7 @@ export default function SupplierLifecycleOperationsPage() {
                 </h1>
 
                 <p className="text-sm sm:text-lg md:text-xl text-green-100 max-w-[280px] sm:max-w-2xl leading-relaxed">
-                  <span className="font-semibold text-amber-300">Create a unified digital experience that brings together your teams and suppliers,</span>{' '}
+                  <span className="font-semibold text-amber-300">Create a digital experience that brings together your teams and suppliers,</span>{' '}
                   <span className="font-semibold text-yellow-300">making supplier onboarding, offboarding, and ongoing engagement</span> easier to manage for everyone.
                 </p>
 
