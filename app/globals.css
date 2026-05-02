@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,7 +21,7 @@
 @layer base {
   :root {
     --background: 220 26% 14%;
-    --foreground: 0 100% 0%;
+    --foreground: 213 31% 91%;
     --card: 222 84% 5%;
     --card-foreground: 213 31% 91%;
     --popover: 222 84% 5%;
@@ -172,16 +174,9 @@
     }
   }
 }
-.flex-1{
-      align-self: center;
-}
-
-
 @media (max-width: 640px) {
   .width-sm-fix {
     width: 97vw;
     margin: 0 auto;
   }
 }
-/* Font imports */
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');

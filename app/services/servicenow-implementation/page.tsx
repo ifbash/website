@@ -258,8 +258,8 @@ const whyChooseUs = [
   },
   {
     title: "Proven Track Record",
-    description: "Successfully delivered 200+ ServiceNow implementations with 100% success rate",
-    stat: "200+ Implementations",
+    description: "Successfully delivered 1,500+ ServiceNow implementations with 100% success rate",
+    stat: "1,500+ Implementations",
     icon: Target
   },
   {
@@ -284,7 +284,7 @@ const faqs = [
   },
   {
     question: "What makes ifBash different from other ServiceNow consulting firms?",
-    answer: "We combine deep ServiceNow expertise with industry-specific knowledge and a proven implementation methodology. Our team of 50+ certified consultants has delivered 200+ successful implementations with a 100% success rate. We focus on rapid time-to-value and long-term platform optimization."
+    answer: "We combine deep ServiceNow expertise with industry-specific knowledge and a proven implementation methodology. Our team of 50+ certified consultants has delivered 1,500+ successful implementations with a 100% success rate. We focus on rapid time-to-value and long-term platform optimization."
   },
   {
     question: "Can you integrate ServiceNow with our existing enterprise systems?",
@@ -403,7 +403,7 @@ export default function ServiceNowConsultingImplementation() {
                 </h1>
 
                 <p className="text-xs sm:text-base md:text-lg lg:text-xl text-purple-100 max-w-xs sm:max-w-2xl leading-relaxed">
-                  Deploy production-ready ServiceNow in <span className="font-semibold text-pink-300">73 days average</span> with our proven consulting methodology. 200+ successful implementations with <span className="font-semibold text-cyan-300">100% success rate</span>.
+                  Deploy production-ready ServiceNow in <span className="font-semibold text-pink-300">73 days average</span> with our proven consulting methodology. 1,500+ successful implementations with <span className="font-semibold text-cyan-300">100% success rate</span>.
                 </p>
 
                 {/* Key Benefits */}
@@ -413,7 +413,7 @@ export default function ServiceNowConsultingImplementation() {
                     <div className="text-xs sm:text-sm text-purple-100">Avg Implementation</div>
                   </div>
                   <div className="group bg-gradient-to-br from-indigo-600/20 via-blue-600/20 to-cyan-600/20 hover:from-indigo-600/30 hover:via-blue-600/30 hover:to-cyan-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-indigo-400/20 hover:border-indigo-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400">200+</div>
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400">1,500+</div>
                     <div className="text-xs sm:text-sm text-indigo-100">Implementations</div>
                   </div>
                   <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-teal-600/20 hover:from-blue-600/30 hover:via-cyan-600/30 hover:to-teal-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-blue-400/20 hover:border-blue-400/40 transition-all duration-300 transform hover:scale-105">
@@ -889,7 +889,7 @@ export default function ServiceNowConsultingImplementation() {
                   Ready to Transform Your IT Services with ServiceNow?
                 </h3>
                 <p className="text-lg md:text-xl text-purple-100 mb-4 sm:mb-6 max-w-xs sm:max-w-2xl mx-auto leading-relaxed">
-                  Join 200+ successful implementations. Get expert ServiceNow consulting that delivers real results in 73 days average.
+                  Join 1,500+ successful implementations. Get expert ServiceNow consulting that delivers real results in 73 days average.
                 </p>
                 <a href="/get-started"
                   className="inline-block group px-8 py-4 text-lg font-semibold bg-white text-purple-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"

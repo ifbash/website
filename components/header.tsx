@@ -467,7 +467,7 @@ export function Header() {
               },
               {
                 "@type": "ContactPoint",
-                "email": "contact@ifbash.com",
+                "email": "connect@ifbash.com",
                 "contactType": "customer support"
               }
             ],

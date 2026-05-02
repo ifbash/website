@@ -130,7 +130,6 @@ export function Footer() {
                   <div className="flex items-start space-x-3">
                     <Phone className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      {/* <p className="text-white font-medium">+1 (800) IFBASH-1</p> */}
                       <p className="text-white font-medium">24/7 Support Available</p>
                     </div>
                   </div>
@@ -143,7 +142,6 @@ export function Footer() {
                   <div className="flex items-start space-x-3">
                     <MapPin className="h-5 w-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <div>
-                      {/* <p className="text-white font-medium">Global Headquarters</p> */}
                       <p className="text-white font-medium">Serving clients worldwide</p>
                     </div>
                   </div>

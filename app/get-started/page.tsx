@@ -701,12 +701,8 @@ export default function SmartAutomationAgenticAI() {
                 </h3>
                 <div className="space-y-4">
                   <div className="flex items-center">
-                    <Phone className="h-5 w-5 text-violet-600 mr-3" />
-                    <span className="text-primary-foreground">+1 (123) 456-7890</span>
-                  </div>
-                  <div className="flex items-center">
                     <Mail className="h-5 w-5 text-violet-600 mr-3" />
-                    <span className="text-primary-foreground">info@ifbash.com</span>
+                    <span className="text-primary-foreground">connect@ifbash.com</span>
                   </div>
                   <div className="flex items-center">
                     <Globe className="h-5 w-5 text-violet-600 mr-3" />

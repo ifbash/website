@@ -64,7 +64,7 @@ export default function AboutUsPage() {
       "@type": "ContactPoint",
       "telephone": "+91-XXXX-XXXXXX",
       "contactType": "customer service",
-      "email": "info@ifbash.com",
+      "email": "connect@ifbash.com",
       "availableLanguage": ["English", "Hindi"]
     },
     "sameAs": [
@@ -644,7 +644,7 @@ export default function AboutUsPage() {
               <div className="bg-gradient-to-br from-white/10 to-indigo-500/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <Mail className="h-8 w-8 text-indigo-400 mx-auto mb-3" />
                 <p className="text-white font-semibold mb-1">Email Us</p>
-                <p className="text-indigo-200 text-sm">contact@ifbash.com</p>
+                <p className="text-indigo-200 text-sm">connect@ifbash.com</p>
               </div>
               <div className="bg-gradient-to-br from-white/10 to-purple-500/10 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300">
                 <MapPin className="h-8 w-8 text-purple-400 mx-auto mb-3" />

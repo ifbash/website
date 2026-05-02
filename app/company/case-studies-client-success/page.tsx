@@ -719,7 +719,7 @@ export default function CaseStudiesPage() {
                 <div className="grid sm:grid-cols-3 gap-4 sm:gap-6 max-w-xs sm:max-w-2xl mx-auto">
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
                     <Mail className="h-6 w-6 text-blue-200 mx-auto mb-2" />
-                    <p className="text-white text-xs sm:text-sm font-medium">info@ifbash.com</p>
+                    <p className="text-white text-xs sm:text-sm font-medium">connect@ifbash.com</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
                     <Phone className="h-6 w-6 text-indigo-200 mx-auto mb-2" />
