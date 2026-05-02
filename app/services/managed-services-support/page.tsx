@@ -364,6 +364,20 @@ useEffect(() => {
 
 return (
   <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": faqs.map((faq) => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+          }))
+        })
+      }}
+    />
     {/* Fixed Chat Button */}
     <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
       <a href="/get-started"

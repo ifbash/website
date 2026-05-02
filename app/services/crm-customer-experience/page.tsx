@@ -360,6 +360,20 @@ export default function CRMCustomerEmployeeExperience() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
+            }))
+          })
+        }}
+      />
       {/* Fixed Chat Button */}
       <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
         <a href="/get-started"

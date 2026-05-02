@@ -1,8 +1,5 @@
-'use client';
+﻿'use client';
 import React, { useState, useEffect } from 'react';
-import { PlaceholderImage } from "@/components/placeholder-image";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { 
 ChevronRight, 
 Play, 
@@ -166,7 +163,7 @@ features: ["GRC", "SecOps", "Risk Management"]
 
 const stats = [
 {
-value: "95%",
+value: "75%",
 label: "Faster Resolution",
 description: "AI-powered automation reduces incident resolution time",
 icon: Zap
@@ -294,6 +291,39 @@ tags: ["Smart Grid", "Asset Management", "Compliance", "Sustainability"]
 }
 ];
 
+const agentLogs = [
+  { time: "09:41:02", agent: "NOW Assist", action: "INC-0042387 auto-resolved in 3.1s", type: "resolve" },
+  { time: "09:41:18", agent: "HR Workflows", action: "Onboarding HRSD-8821 completed", type: "complete" },
+  { time: "09:41:35", agent: "Predictive AI", action: "P1 risk detected — 3 alerts suppressed", type: "predict" },
+  { time: "09:41:52", agent: "SecOps", action: "Threat SIR-0041 contained + closed", type: "resolve" },
+  { time: "09:42:09", agent: "Field Service", action: "WO-5512 dispatched to nearest tech", type: "route" },
+  { time: "09:42:24", agent: "CRM Agent", action: "Lead CRM-44901 scored + assigned", type: "route" },
+];
+
+const aiCapabilities = [
+  {
+    icon: Brain,
+    title: "Generative AI",
+    desc: "Knowledge generation, ticket summarization, and smart recommendations via Now Assist.",
+    metric: "85% faster content",
+    color: "violet"
+  },
+  {
+    icon: Bot,
+    title: "Agentic AI",
+    desc: "Autonomous agents that resolve incidents, approve changes, and close cases — no human in the loop.",
+    metric: "92% less manual work",
+    color: "indigo"
+  },
+  {
+    icon: Zap,
+    title: "Predictive Intelligence",
+    desc: "ML models trained on your data to prevent incidents before they occur.",
+    metric: "94% prediction accuracy",
+    color: "blue"
+  },
+];
+
 type AnimatedStats = {
 clients: number;
 implementations: number;
@@ -304,6 +334,8 @@ years: number;
 export default function Page() {
 const [currentTestimonial, setCurrentTestimonial] = useState(0);
 const [isVisible, setIsVisible] = useState({});
+const [shownLogs, setShownLogs] = useState(1);
+const [activeTab, setActiveTab] = useState(0);
 const [animatedStats, setAnimatedStats] = useState({
 clients: 0,
 implementations: 0,
@@ -372,6 +404,20 @@ elements.forEach(el => observer.observe(el));
 return () => observer.disconnect();
 }, []);
 
+useEffect(() => {
+const timer = setInterval(() => {
+  setShownLogs(prev => (prev >= agentLogs.length ? 1 : prev + 1));
+}, 1000);
+return () => clearInterval(timer);
+}, []);
+
+useEffect(() => {
+const timer = setInterval(() => {
+  setActiveTab(prev => (prev + 1) % 3);
+}, 3000);
+return () => clearInterval(timer);
+}, []);
+
 return (
 <>
 
@@ -390,7 +436,7 @@ return (
 </Link>
 </div>
 
-<div className="min-h-screen bg-gray-50">
+<div>
 {/* SEO Meta Tags */}
 <script
   type="application/ld+json"
@@ -398,411 +444,240 @@ return (
     __html: JSON.stringify({
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "ifBash - ServiceNow Implementation Specialists",
+      "name": "ifBash",
       "url": "https://ifbash.com",
-      "description": "ServiceNow implementation specialists with multiple successful projects. Proven expertise in AI-powered solutions, CRM excellence, and digital transformation for enterprises worldwide.",
+      "logo": "https://ifbash.com/images/logo.png",
+      "email": "connect@ifbash.com",
+      "foundingDate": "2016",
+      "description": "ifBash is a ServiceNow and agentic AI consulting partner delivering implementations, AI automation, CRM, and digital transformation for enterprises worldwide. 1,500+ successful projects.",
       "serviceArea": "Global",
-      "expertise": ["ServiceNow Implementation", "CRM Solutions", "Digital Transformation", "Process Automation"],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.9",
-        "reviewCount": "500"
-      }
+      "knowsAbout": [
+        "ServiceNow Implementation",
+        "Agentic AI",
+        "Generative AI",
+        "ServiceNow Now Assist",
+        "AI Automation",
+        "ServiceNow AI Consulting",
+        "CRM Solutions",
+        "Digital Transformation",
+        "ITSM",
+        "ServiceNow Managed Services",
+        "ServiceNow GRC",
+        "ServiceNow SecOps"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "ServiceNow & AI Consulting Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ServiceNow Implementation", "url": "https://ifbash.com/services/servicenow-implementation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Agentic AI & AI Automation", "url": "https://ifbash.com/services/ai-automation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ServiceNow CRM & Customer Experience", "url": "https://ifbash.com/services/crm-customer-experience" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Transformation", "url": "https://ifbash.com/services/digital-transformation" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ServiceNow Managed Services", "url": "https://ifbash.com/services/managed-services-support" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "ServiceNow Custom App Development", "url": "https://ifbash.com/services/custom-apps" } }
+        ]
+      },
+      "sameAs": [
+        "https://linkedin.com/company/ifbash",
+        "https://twitter.com/ifbashx",
+        "https://youtube.com/@c-ifbash"
+      ]
     })
   }}
 />
 
 {/* Hero Section */}
-<section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
-  {/* Animated Background Elements */}
-  <div className="absolute inset-0 z-0">
-    <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-    <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-indigo-700/20 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent" />
-  </div>
+<section className="relative overflow-hidden" style={{background: '#07071a', minHeight: '100vh'}}>
+  {/* Dot grid */}
+  <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
+  {/* Glows */}
+  <div className="absolute top-0 left-0 w-[700px] h-[600px] opacity-[0.12]" style={{background: 'radial-gradient(ellipse at top left, #4f46e5, transparent 65%)'}} />
+  <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{background: 'radial-gradient(ellipse at bottom right, #7c3aed, transparent 65%)'}} />
 
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-      <div className="text-gray-50 space-y-8">
-        {/* Trust Badges - Single Line, improved mobile spacing */}
-        <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-          <Badge className="bg-gradient-to-r from-blue-500 to-indigo-600 text-gray-50 border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-            ✓ ServiceNow Consulting
-          </Badge>
-          <Badge className="bg-gradient-to-r from-indigo-500 to-blue-600 text-gray-50 border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-            ✓ AI & CRM
-          </Badge>
-          <Badge className="bg-gradient-to-r from-cyan-500 to-blue-500 text-gray-50 border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-            ✓ Enterprise Grade
-          </Badge>
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10" style={{paddingTop: '4rem', paddingBottom: '72px'}}>
+    <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      {/* LEFT */}
+      <div className="space-y-7">
+        {/* Three capability pills */}
+        <div className="flex flex-wrap gap-2">
+          {[
+            { label: 'ServiceNow', color: 'bg-indigo-500/15 border-indigo-500/30 text-indigo-300' },
+            { label: 'Agentic AI', color: 'bg-violet-500/15 border-violet-500/30 text-violet-300' },
+            { label: 'CRM', color: 'bg-blue-500/15 border-blue-500/30 text-blue-300' },
+          ].map(({ label, color }) => (
+            <span key={label} className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold ${color}`}>
+              <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
+              {label}
+            </span>
+          ))}
         </div>
 
-        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-3 sm:px-0">
-          Transform with{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-blue-400 font-semibold">
-            ServiceNow
-          </span>
-          <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4">
-            Smarter with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-blue-400 to-cyan-400 font-semibold">
-              AI
-            </span>
-            <br></br>Stronger with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 font-semibold">
-              CRM
-            </span>
+        <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.08] tracking-tight">
+          Implement. Automate.<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400">
+            Grow with ServiceNow.
           </span>
         </h1>
 
-        <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-2xl leading-relaxed">
-          Unlock ServiceNow&apos;s new era—where <span className="font-semibold text-cyan-300">AI-driven automation</span> and <span className="font-semibold text-blue-300">CRM excellence</span> are at the core.
+        <p className="text-base sm:text-lg text-slate-400 max-w-lg leading-relaxed">
+          We deliver the complete ServiceNow platform — <span className="text-white">IT, Employee & Customer workflows</span> — infused with <span className="text-white">agentic AI</span> and <span className="text-white">CRM intelligence</span>. 1,500+ enterprises. 73-day average go-live.
         </p>
 
-        {/* Quick Stats - Integrated in Hero with improved mobile layout */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-6 sm:mt-8 px-2 sm:px-0">
-          <div className="group bg-gradient-to-br from-violet-600/20 via-indigo-600/20 to-blue-600/20 hover:from-violet-600/30 hover:via-indigo-600/30 hover:to-blue-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-violet-400/20 transition-all duration-300 transform hover:scale-105">
-            <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 via-indigo-400 to-blue-400">75%</div>
-            <div className="text-xs sm:text-sm text-violet-100">Faster Resolution</div>
-          </div>
-          <div className="group bg-gradient-to-br from-blue-600/20 via-cyan-600/20 to-teal-600/20 hover:from-blue-600/30 hover:via-cyan-600/30 hover:to-teal-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-blue-400/20 transition-all duration-300 transform hover:scale-105">
-            <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400">24/7</div>
-            <div className="text-xs sm:text-sm text-blue-100">Expert Support</div>
-          </div>
-          <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20 hover:from-emerald-600/30 hover:via-teal-600/30 hover:to-cyan-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-emerald-400/20 transition-all duration-300 transform hover:scale-105">
-            <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">180%</div>
-            <div className="text-xs sm:text-sm text-emerald-100">Average ROI</div>
-          </div>
-        </div>
-
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
+        <div className="flex flex-col sm:flex-row gap-3">
           <Link href="/get-started"
-           className="inline-flex group items-center justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
-                    style={{
-                      background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)"
-                    }}
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm sm:text-base transition-all hover:-translate-y-0.5 hover:shadow-2xl"
+            style={{background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 8px 32px rgba(79,70,229,0.35)'}}
           >
-            <span className="relative flex items-center justify-center">
-              Engage Our AI - CRM Services
-              <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
+            Start Your Project <ArrowRight className="h-4 w-4" />
           </Link>
-          
-          <Link href="company/about-us"
-            className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-gray-50 rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
+          <Link href="/company/case-studies-client-success"
+            className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-slate-300 border border-white/10 hover:border-indigo-500/50 hover:text-white transition-all text-sm sm:text-base"
           >
-            <span className="absolute inset-0 bg-gradient-to-r from-gray-50/0 via-gray-50/5 to-gray-50/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-            <span className="relative flex items-center justify-center">
-              Know More About Us
-            </span>
+            See Client Results
           </Link>
         </div>
-      </div>
 
-      {/* Right Side Visual Content */}
-      <div className="relative lg:h-[600px]">
-        {/* Main Platform Visual */}
-        <div className="relative z-20 bg-gradient-to-br max-h-[380px] from-indigo-500/15 to-blue-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20">
-          <div className="aspect-video w-full rounded-xl overflow-hidden max-h-[316px]">
-            <PlaceholderImage
-              title="ServiceNow AI+CRM Platform Dashboard"
-              className="w-full h-full object-cover"
-              gradient="from-indigo-600 to-blue-600"
-            />
-          </div>
-
-          {/* Floating Elements */}
-          <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-24 h-24 sm:w-32 sm:h-32 animate-float">
-            <PlaceholderImage
-              title="AI Analytics"
-              className="w-full h-full object-cover rounded-xl"
-              gradient="from-indigo-600 to-pink-600"
-            />
-          </div>
-          <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-24 h-24 sm:w-32 sm:h-32 animate-float delay-150">
-            <PlaceholderImage
-              title="CRM Insights"
-              className="w-full h-full object-cover rounded-xl"
-              gradient="from-blue-600 to-cyan-600"
-            />
-          </div>
-        </div>
-
-        {/* Quick Feature Cards */}
-        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 max-w-3xl mx-auto -mt-40">
-            {/* Stats-like cards - 2 rows of 3 */}
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-violet-500/30 via-purple-500/20 to-indigo-500/30 backdrop-blur-sm rounded-xl p-3 border border-violet-400/30 flex flex-col items-center justify-center hover:from-violet-500/40 hover:to-indigo-500/40 transition-all duration-300">
-              <Shield className="h-6 w-6 text-violet-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">Certified</div>
-              <div className="text-xs sm:text-sm text-violet-100">Pros</div>
-            </div>
-            
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-blue-500/30 via-cyan-500/20 to-teal-500/30 backdrop-blur-sm rounded-xl p-3 border border-blue-400/30 flex flex-col items-center justify-center hover:from-blue-500/40 hover:to-teal-500/40 transition-all duration-300">
-              <Award className="h-6 w-6 text-blue-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Proven</div>
-              <div className="text-xs sm:text-sm text-blue-100">Track</div>
-            </div>
-            
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-emerald-500/30 via-teal-500/20 to-green-500/30 backdrop-blur-sm rounded-xl p-3 border border-emerald-400/30 flex flex-col items-center justify-center hover:from-emerald-500/40 hover:to-green-500/40 transition-all duration-300">
-              <Users className="h-6 w-6 text-emerald-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-400">Global</div>
-              <div className="text-xs sm:text-sm text-emerald-100">Team</div>
-            </div>
-
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-fuchsia-500/30 via-purple-500/20 to-pink-500/30 backdrop-blur-sm rounded-xl p-3 border border-fuchsia-400/30 flex flex-col items-center justify-center hover:from-fuchsia-500/40 hover:to-pink-500/40 transition-all duration-300">
-              <Bot className="h-6 w-6 text-fuchsia-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-pink-400">AI</div>
-              <div className="text-xs sm:text-sm text-fuchsia-100">Powered</div>
-            </div>
-            
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-orange-500/30 via-amber-500/20 to-yellow-500/30 backdrop-blur-sm rounded-xl p-3 border border-orange-400/30 flex flex-col items-center justify-center hover:from-orange-500/40 hover:to-yellow-500/40 transition-all duration-300">
-              <Zap className="h-6 w-6 text-orange-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Fast</div>
-              <div className="text-xs sm:text-sm text-orange-100">Setup</div>
-            </div>
-            
-            <div className="h-20 sm:h-24 bg-gradient-to-br from-sky-500/30 via-blue-500/20 to-indigo-500/30 backdrop-blur-sm rounded-xl p-3 border border-sky-400/30 flex flex-col items-center justify-center hover:from-sky-500/40 hover:to-indigo-500/40 transition-all duration-300">
-              <Users className="h-6 w-6 text-sky-200 mb-2" />
-              <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-blue-400">CRM</div>
-              <div className="text-xs sm:text-sm text-sky-100">Ready</div>
-            </div>
+        <div className="pt-5 border-t border-white/5">
+          <p className="text-xs text-slate-600 mb-3 uppercase tracking-widest font-medium">Trusted across industries</p>
+          <div className="flex flex-wrap gap-2">
+            {['Manufacturing', 'Healthcare', 'Financial Services', 'Technology', 'Energy & Utilities'].map(ind => (
+              <span key={ind} className="text-xs text-slate-500 bg-white/[0.04] border border-white/8 rounded-full px-3 py-1">{ind}</span>
+            ))}
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
 
-{/* Key Benefits Section - Gradient Themed */}
-<section className="py-6 md:py-10 bg-gray-50 relative overflow-hidden">
-<div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-    <div className="text-center mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
-          Why Global Leaders Choose Our ServiceNow Expertise
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-        Proven ServiceNow methodologies with measurable results and transparent pricing  
-      </p>
-    </div>
+      {/* RIGHT — Platform dashboard mockup */}
+      <div className="relative mt-8 lg:mt-0">
+        {/* Main card */}
+        <div className="rounded-2xl overflow-hidden border border-white/10" style={{background: '#0d0d20', boxShadow: '0 40px 80px rgba(0,0,0,0.7)'}}>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-      <div className="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-600 to-blue-500 text-gray-50 shadow-xl transform hover:scale-105 transition-all duration-300">
-        <Rocket className="h-8 w-8 sm:h-10 sm:w-10 mb-4 mx-auto text-gray-50" />
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">10x Faster Implementation</h3>
-        <p className="text-blue-100 text-sm sm:text-base">Launch ServiceNow AI+CRM in record time with our automation-driven project accelerators.</p>
-      </div>
-      
-      <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-blue-600 via-cyan-600 to-green-500 text-gray-50 shadow-xl transform hover:scale-105 transition-all duration-300">
-        <Brain className="h-8 w-8 sm:h-10 sm:w-10 mb-4 mx-auto text-gray-50" />
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">AI-First Approach</h3>
-        <p className="text-cyan-100 text-sm sm:text-base">Leverage built-in ServiceNow AI features and workflows trained on real enterprise data.</p>
-      </div>
-      
-      <div className="text-center p-6 sm:p-8 rounded-2xl bg-gradient-to-br from-cyan-600 via-teal-500 to-emerald-500 text-gray-50 shadow-xl transform hover:scale-105 transition-all duration-300 sm:col-span-2 md:col-span-1">
-        <Target className="h-8 w-8 sm:h-10 sm:w-10 mb-4 mx-auto text-gray-50" />
-        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2">Guaranteed Measurable ROI</h3>
-        <p className="text-teal-100 text-sm sm:text-base">Average 180% ROI within your first year through digital process optimization.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Enhanced Why Choose Us Section - Gradient Stats */}
-<section className="py-6 md:py-10 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-50 relative overflow-hidden">
-<div className="absolute inset-0 bg-grid-pattern opacity-10" />
-  
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-10">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-          Proven Results That Matter
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-        Join forward-thinking organizations that trust our ServiceNow expertise to drive measurable transformation
-      </p>
-    </div>
-
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-      <div className="text-center p-3 sm:p-5 rounded-2xl bg-gradient-to-br from-indigo-600 via-indigo-500 to-pink-600 border border-indigo-400/20 shadow-xl">
-        <Zap className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-4 text-gray-50" />
-        <div className="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">75%</div>
-        <div className="text-sm sm:text-lg font-semibold text-indigo-100 mb-2">Faster Resolution</div>
-        <p className="text-indigo-100 text-xs sm:text-sm">AI-powered automation reduces incident resolution time</p>
-      </div>
-      
-      <div className="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-600 via-cyan-500 to-teal-600 border border-blue-400/20 shadow-xl">
-        <DollarSign className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-4 text-gray-50" />
-        <div className="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">60%</div>
-        <div className="text-sm sm:text-lg font-semibold text-blue-100 mb-2">Cost Reduction</div>
-        <p className="text-blue-100 text-xs sm:text-sm">Streamlined processes cut operational costs</p>
-      </div>
-      
-      <div className="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-cyan-600 via-green-500 to-emerald-600 border border-cyan-400/20 shadow-xl">
-        <Bot className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-4 text-gray-50" />
-        <div className="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">24/7</div>
-        <div className="text-sm sm:text-lg font-semibold text-cyan-100 mb-2">Expert Support</div>
-        <p className="text-cyan-100 text-xs sm:text-sm">Round-the-clock intelligent assistance</p>
-      </div>
-      
-      <div className="text-center p-4 sm:p-6 rounded-2xl bg-gradient-to-br from-green-600 via-teal-500 to-blue-600 border border-green-400/20 shadow-xl">
-        <TrendingUp className="h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-4 text-gray-50" />
-        <div className="text-2xl sm:text-3xl font-bold text-gray-50 mb-2">180%</div>
-        <div className="text-sm sm:text-lg font-semibold text-green-100 mb-2">Average ROI</div>
-        <p className="text-green-100 text-xs sm:text-sm">Typical return on ServiceNow investment</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Core Services Section - Enhanced Gradients */}
-<section id="services" className="py-5 md:py-8 bg-gradient-to-br from-gray-50 to-blue-50/50 relative overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-100/30 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-100/30 via-transparent to-transparent" />
-  </div>
-
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-8">
-                  
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-3">
-        Transform Your Enterprise with{' '}
-        <br></br>
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
-          ServiceNow Intelligence
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-        Harness the power of ServiceNow to drive innovation, enhance customer experiences, and accelerate digital transformation
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 sm:gap-4 mb-6">
-      {services.map((service, index) => (
-        <div 
-          key={index}
-          className="group text-center p-3 sm:p-4 rounded-2xl transition-all duration-500 relative overflow-hidden transform hover:scale-[1.02]"
-          style={{
-            background: index === 0 
-              ? 'linear-gradient(135deg, rgba(238, 242, 255, 0.9), rgba(224, 231, 255, 0.9), rgba(199, 210, 254, 0.9))'
-              : index === 1
-              ? 'linear-gradient(135deg, rgba(236, 254, 255, 0.9), rgba(224, 242, 254, 0.9), rgba(219, 234, 254, 0.9))'
-              : 'linear-gradient(135deg, rgba(236, 254, 252, 0.9), rgba(207, 250, 254, 0.9), rgba(219, 234, 254, 0.9))',
-            boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(255, 255, 255, 0.5)'
-          }}
-        >
-          {/* Animated gradient background */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10"
-                style={{
-                  background: index === 0 
-                    ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1))'
-                    : index === 1
-                    ? 'linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1))'
-                    : 'linear-gradient(135deg, rgba(20, 184, 166, 0.1), rgba(6, 182, 212, 0.1), rgba(59, 130, 246, 0.1))',
-                  backdropFilter: 'blur(8px)'
-                }}
-          ></div>
-          
-          {/* Shimmer effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{
-                  background: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.1) 50%, transparent 75%)',
-                  backgroundSize: '200% 200%',
-                  animation: 'shimmer 3s infinite linear',
-                }}
-          ></div>
-
-          {/* Floating metric badge */}
-          <div className="absolute top-3 sm:top-4 right-3 sm:right-4 px-3 py-1.5 rounded-full text-xs font-semibold transform group-hover:scale-110 transition-all duration-300"
-                style={{
-                  background: index === 0 
-                    ? 'linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(59, 130, 246, 0.15))'
-                    : index === 1
-                    ? 'linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(59, 130, 246, 0.15))'
-                    : 'linear-gradient(135deg, rgba(20, 184, 166, 0.15), rgba(6, 182, 212, 0.15))',
-                  backdropFilter: 'blur(8px)',
-                  boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.2)'
-                }}
-          >
-            <span className={`${
-              index === 0 
-                ? 'bg-gradient-to-r from-indigo-600 to-blue-600' :
-              index === 1 
-                ? 'bg-gradient-to-r from-blue-600 to-cyan-600' :
-              'bg-gradient-to-r from-cyan-600 to-teal-600'
-            } bg-clip-text text-transparent font-bold`}>{service.metric}</span>
-          </div>
-
-          {/* Icon container with moondust theme gradient */}
-          <div className="relative w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-6">
-            {/* Glowing background effect */}
-            <div className={`absolute inset-0 rounded-2xl blur-xl opacity-40 group-hover:opacity-60 transition-opacity duration-300`}
-                  style={{
-                    background: index === 0 
-                      ? 'linear-gradient(135deg, #6c28d9, #3b82f6, #26a3d9)'
-                      : index === 1
-                      ? 'linear-gradient(135deg, #4f46e5, #3b82f6, #6c28d9)'
-                      : 'linear-gradient(135deg, #3b82f6, #6c28d9, #4f46e5)'
-                  }}
-            ></div>
-            
-            {/* Main icon container */}
-            <div className={`relative w-full h-full rounded-2xl p-4 sm:p-5 flex items-center justify-center transform group-hover:scale-110 transition-all duration-300 backdrop-blur-sm`}
-                  style={{
-                    background: index === 0 
-                      ? 'linear-gradient(135deg, rgba(108, 40, 217, 0.95), rgba(59, 130, 246, 0.95), rgba(38, 163, 217, 0.95))'
-                      : index === 1
-                      ? 'linear-gradient(135deg, rgba(79, 70, 229, 0.95), rgba(59, 130, 246, 0.95), rgba(108, 40, 217, 0.95))'
-                      : 'linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(108, 40, 217, 0.95), rgba(79, 70, 229, 0.95))',
-                    boxShadow: '0 8px 20px rgba(108, 40, 217, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.15)'
-                  }}
-            >
-              {/* Shimmer overlay */}
-              <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    style={{
-                      background: 'linear-gradient(45deg, transparent 25%, rgba(255,255,255,0.15) 50%, transparent 75%)',
-                      backgroundSize: '200% 200%',
-                      animation: 'shimmer 3s infinite linear'
-                    }}
-              ></div>
-              
-              {/* Icon */}
-              <service.icon className="h-8 w-8 sm:h-10 sm:w-10 text-white relative z-10 transform group-hover:rotate-3 transition-transform duration-300" />
+          {/* Window chrome */}
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8" style={{background: '#111130'}}>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+            </div>
+            <div className="flex items-center gap-3 text-xs font-medium">
+              {['IT Workflows', 'Employee WF', 'Customer WF'].map((tab, i) => (
+                <span key={tab} className={`px-2.5 py-1 rounded-md text-xs transition-all duration-500 ${i === activeTab ? 'bg-indigo-600/30 text-indigo-300' : 'text-slate-500'}`}>{tab}</span>
+              ))}
+            </div>
+            <div className="flex items-center gap-1.5 text-xs text-green-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+              Live
             </div>
           </div>
 
-          {/* Content with gradient text */}
-          <h3 className={`text-lg sm:text-xl md:text-2xl font-bold mb-4 bg-clip-text text-transparent transition-colors duration-300 ${
-            index === 0 
-              ? 'bg-gradient-to-r from-indigo-700 to-blue-700'
-              : index === 1
-              ? 'bg-gradient-to-r from-blue-700 to-cyan-700'
-              : 'bg-gradient-to-r from-cyan-700 to-teal-700'
-          }`}>{service.title}</h3>
-          <p className="text-gray-600 mb-6 text-sm sm:text-base">{service.description}</p>
-          
-          <div className="space-y-3">
-            {service.features.map((feature, idx) => (
-              <div key={idx} className="flex items-center space-x-3 text-left group/item">
-                <div className={`h-5 w-5 sm:h-6 sm:w-6 rounded-full flex items-center justify-center transition-colors duration-300 ${
-                  index === 0 
-                    ? 'bg-gradient-to-br from-indigo-100 to-blue-100 group-hover/item:from-indigo-200 group-hover/item:to-blue-200'
-                    : index === 1
-                    ? 'bg-gradient-to-br from-blue-100 to-cyan-100 group-hover/item:from-blue-200 group-hover/item:to-cyan-200'
-                    : 'bg-gradient-to-br from-cyan-100 to-teal-100 group-hover/item:from-cyan-200 group-hover/item:to-teal-200'
-                }`}>
-                  <CheckCircle className={`h-3 w-3 sm:h-4 sm:w-4 ${
-                    index === 0 ? 'text-indigo-600' :
-                    index === 1 ? 'text-blue-600' :
-                    'text-cyan-600'
-                  }`} />
+          {/* AI layer banner */}
+          <div className="flex items-center gap-2 px-4 py-2 border-b border-white/8" style={{background: 'linear-gradient(90deg, rgba(124,58,237,0.12), rgba(79,70,229,0.08))'}}>
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse shrink-0" />
+            <span className="text-[11px] text-violet-300 font-semibold">AI Layer active</span>
+            <span className="mx-1 text-white/10">|</span>
+            {[
+              { label: '92% auto-resolved', color: 'text-slate-400' },
+              { label: '4.2s avg', color: 'text-slate-400' },
+              { label: '500+ agents running', color: 'text-slate-400' },
+            ].map(({ label, color }) => (
+              <span key={label} className={`text-[10px] font-mono ${color} mr-2`}>{label}</span>
+            ))}
+          </div>
+
+          {/* 3-pillar metrics row */}
+          <div className="grid grid-cols-3 divide-x divide-white/8">
+            {[
+              { label: 'IT Workflows', value: '89%', sub: 'ITSM · ITOM · SecOps · GRC', color: 'text-green-400', bg: 'bg-green-500/10', activeBg: 'bg-green-500/20', icon: Shield },
+              { label: 'Employee WF', value: '4.2s', sub: 'HR · Legal · Finance · Facilities', color: 'text-violet-400', bg: 'bg-violet-500/10', activeBg: 'bg-violet-500/20', icon: Users },
+              { label: 'Customer WF', value: '+47%', sub: 'CSM · FSM · Sales · CRM', color: 'text-blue-400', bg: 'bg-blue-500/10', activeBg: 'bg-blue-500/20', icon: TrendingUp },
+            ].map(({ label, value, sub, color, bg, activeBg, icon: Icon }, i) => (
+              <div key={label} className={`p-4 text-center transition-all duration-500 ${i === activeTab ? 'bg-white/[0.04]' : ''}`}>
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center mx-auto mb-2 transition-all duration-500 ${i === activeTab ? activeBg : bg}`}>
+                  <Icon className={`h-4 w-4 ${color}`} />
                 </div>
-                <span className="text-gray-600 text-xs sm:text-sm md:text-base group-hover/item:text-gray-800 transition-colors duration-300">{feature}</span>
+                <div className={`text-xl font-bold transition-all duration-500 ${i === activeTab ? color : 'text-slate-500'}`}>{value}</div>
+                <div className={`text-[10px] mt-0.5 transition-all duration-500 ${i === activeTab ? 'text-slate-400' : 'text-slate-600'}`}>{sub}</div>
+                {i === activeTab && <div className={`h-0.5 rounded-full mt-2 mx-4 ${color.replace('text-', 'bg-')}`} />}
               </div>
             ))}
+          </div>
+
+          {/* Platform adoption bars */}
+          <div className="px-4 pt-3 pb-2 border-t border-white/8">
+            <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-3 font-medium">Platform adoption</div>
+            {[
+              { label: 'IT Platform', pct: 95, color: 'bg-green-500' },
+              { label: 'Employee Platform', pct: 87, color: 'bg-violet-500' },
+              { label: 'Customer Platform', pct: 78, color: 'bg-blue-500' },
+            ].map(({ label, pct, color }, i) => (
+              <div key={label} className="mb-2.5">
+                <div className="flex justify-between text-[11px] mb-1">
+                  <span className={`transition-colors duration-500 ${i === activeTab ? 'text-slate-200 font-medium' : 'text-slate-500'}`}>{label}</span>
+                  <span className={`font-medium transition-colors duration-500 ${i === activeTab ? 'text-slate-200' : 'text-slate-500'}`}>{pct}%</span>
+                </div>
+                <div className="h-1.5 rounded-full bg-white/8">
+                  <div className={`h-full rounded-full ${color} transition-all duration-700 ${i === activeTab ? 'opacity-100' : 'opacity-30'}`} style={{width: `${pct}%`}} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Live activity feed */}
+          <div className="px-4 py-3 border-t border-white/8">
+            <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-2.5 font-medium">Live activity</div>
+            <div className="space-y-1.5">
+              {agentLogs.map((log, i) => (
+                <div key={i} className="flex items-center gap-2 transition-all duration-500"
+                  style={{opacity: i < shownLogs ? 1 : 0, transform: i < shownLogs ? 'none' : 'translateY(4px)'}}>
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                    log.type === 'resolve' ? 'bg-green-400' :
+                    log.type === 'predict' ? 'bg-yellow-400' :
+                    log.type === 'complete' ? 'bg-cyan-400' : 'bg-blue-400'
+                  }`} />
+                  <span className="text-[11px] text-slate-400 font-mono flex-1 truncate">{log.action}</span>
+                  <span className="text-[10px] text-slate-600 font-mono shrink-0">{log.time}</span>
+                  {i < shownLogs && <CheckCircle className="h-3 w-3 text-green-500 shrink-0" />}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom bar */}
+          <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/8 bg-white/[0.015]">
+            <span className="text-[11px] text-slate-500 font-mono"><span className="text-white font-bold">247</span> events processed today</span>
+            <span className="text-[11px] text-green-400 font-mono animate-pulse">● All systems operational</span>
+          </div>
+        </div>
+
+        {/* Floating accent chips */}
+        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap">
+          🤖 500+ AI Agents
+        </div>
+        <div className="absolute -bottom-3 -left-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap" style={{animationDelay: '1.2s'}}>
+          ⚡ Full platform · 3 workflow pillars
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{/* Stats Strip */}
+<section className="bg-white border-y border-gray-100">
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+    <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
+      {[
+        { value: '1,500+', label: 'Successful implementations', icon: Rocket },
+        { value: '73 days', label: 'Average go-live time', icon: Timer },
+        { value: '75%', label: 'Faster incident resolution', icon: Zap },
+        { value: '180%', label: 'Average first-year ROI', icon: TrendingUp },
+      ].map(({ value, label, icon: Icon }, i) => (
+        <div key={i} className="flex items-center gap-4 py-6 px-6 sm:px-8">
+          <Icon className="h-6 w-6 text-indigo-500 flex-shrink-0 hidden sm:block" />
+          <div>
+            <div className="text-2xl sm:text-3xl font-bold text-indigo-600">{value}</div>
+            <div className="text-xs sm:text-sm text-gray-500 mt-0.5">{label}</div>
           </div>
         </div>
       ))}
@@ -810,1051 +685,323 @@ return (
   </div>
 </section>
 
-{/* ServiceNow AI Innovation Section */}
-<section className="py-5 md:py-8 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 text-gray-50 overflow-hidden relative">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 left-0 w-full h-full opacity-20"></div>
-  </div>
-  
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-          ServiceNow AI Excellence
-        </span>
+{/* Services */}
+<section id="services" className="py-20 bg-white">
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+    <div className="mb-12">
+      <div className="flex items-center gap-3 mb-4">
+        <span className="inline-block w-8 h-px bg-indigo-600" />
+        <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">What we do</span>
+      </div>
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-2xl">
+        One partner.<br />The entire platform.
       </h2>
-      <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-        Step into the future with ServiceNow&apos;s cutting-edge AI capabilities. From predictive analytics 
-        to intelligent automation, we help you harness AI to transform every aspect of your business.
-      </p>
     </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 items-center mb-8">
-      <div className="space-y-2 sm:space-y-4 md:space-y-5">
-        <div className="p-2 sm:p-3 rounded-2xl bg-gradient-to-r from-indigo-600/20 to-indigo-600/20 backdrop-blur-sm border border-gray-300/20 hover:from-indigo-600/30 hover:to-indigo-600/30 transition-all duration-300">
-          <div className="flex items-start space-x-3 sm:space-x-4">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
-              <Brain className="h-4 w-4 sm:h-5 sm:w-5 text-gray-50" />
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {[
+        { icon: Rocket, title: 'ServiceNow Implementation', desc: 'Production-ready in 73 days. Proven methodology, pre-built accelerators, zero surprises.', href: '/services/servicenow-implementation', tag: '73-day avg' },
+        { icon: Bot, title: 'Agentic AI Automation', desc: 'AI agents that think, act, and resolve incidents autonomously — without a human in the loop.', href: '/services/ai-automation', tag: '500+ agents live' },
+        { icon: Users, title: 'CRM & Customer Experience', desc: 'ServiceNow CSM and Sales workflows that convert, retain, and delight customers at scale.', href: '/services/crm-customer-experience', tag: '173% engagement' },
+        { icon: Shield, title: 'Managed Services', desc: '24/7 support, proactive optimization, and continuous improvement across your ServiceNow estate.', href: '/services/managed-services-support', tag: '24/7 support' },
+        { icon: Layers, title: 'Custom App Development', desc: 'Bespoke ServiceNow applications built to your exact workflows — not the other way around.', href: '/services/custom-apps', tag: 'Fully custom' },
+        { icon: TrendingUp, title: 'Digital Transformation', desc: 'End-to-end enterprise transformation programs anchored to measurable ROI and adoption.', href: '/services/digital-transformation', tag: '180% avg ROI' },
+      ].map(({ icon: Icon, title, desc, href, tag }) => (
+        <a key={title} href={href}
+          className="group border border-gray-200 hover:border-indigo-400 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 bg-white"
+        >
+          <div className="flex items-start justify-between mb-4">
+            <div className="w-11 h-11 rounded-xl bg-indigo-50 group-hover:bg-indigo-100 flex items-center justify-center transition-colors">
+              <Icon className="h-5 w-5 text-indigo-600" />
             </div>
-            <div>
-              <h4 className="text-base sm:text-lg md:text-xl font-semibold mb-2">Predictive Intelligence</h4>
-              <p className="text-blue-200 leading-relaxed text-sm sm:text-base">
-                Anticipate issues before they occur with ML-powered predictive analytics that learn from your data patterns and implementations.
-              </p>
-            </div>
+            <span className="text-xs font-medium text-indigo-600 bg-indigo-50 rounded-full px-3 py-1">{tag}</span>
           </div>
-        </div>
-
-        <div className="p-2.5 sm:p-4 rounded-2xl bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-sm border border-gray-300/20 hover:from-blue-600/30 hover:to-cyan-600/30 transition-all duration-300">
-          <div className="flex items-start space-x-3 sm:space-x-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-pink-500 flex items-center justify-center flex-shrink-0">
-              <Bot className="h-5 w-5 sm:h-6 sm:w-6 text-gray-50" />
-            </div>
-            <div>
-              <h4 className="text-base sm:text-lg md:text-xl font-semibold mb-2">Virtual Agents</h4>
-              <p className="text-blue-200 leading-relaxed text-sm sm:text-base">
-                Deploy intelligent virtual agents with pre-trained industry knowledge that provide instant, personalized support across all channels.
-              </p>
-            </div>
+          <h3 className="font-bold text-gray-900 mb-2 text-base">{title}</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+          <div className="mt-4 flex items-center gap-1 text-indigo-600 text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+            Learn more <ArrowRight className="h-3.5 w-3.5" />
           </div>
-        </div>
-
-        <div className="p-2.5 sm:p-4 rounded-2xl bg-gradient-to-r from-cyan-600/20 to-teal-600/20 backdrop-blur-sm border border-gray-300/20 hover:from-cyan-600/30 hover:to-teal-600/30 transition-all duration-300">
-          <div className="flex items-start space-x-3 sm:space-x-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-r from-green-500 to-teal-500 flex items-center justify-center flex-shrink-0">
-              <Zap className="h-5 w-5 sm:h-6 sm:w-6 text-gray-50" />
-            </div>
-            <div>
-              <h4 className="text-base sm:text-lg md:text-xl font-semibold mb-2">Intelligent Automation</h4>
-              <p className="text-blue-200 leading-relaxed text-sm sm:text-base">
-                Automate complex workflows with AI that adapts and learns, reducing manual tasks by up to 80% with built-in optimization.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div className="aspect-square w-11/12 mx-auto rounded-3xl bg-gradient-to-br from-indigo-500/20 to-blue-500/20 backdrop-blur-sm border border-gray-300/20 flex items-center justify-center">
-          <div className="w-2/3 h-2/3 rounded-2xl bg-gradient-to-br from-gray-50/10 to-gray-50/5 backdrop-blur-lg border border-gray-300/30 flex items-center justify-center">
-            <div className="text-center">
-              <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 mx-auto mb-3 sm:mb-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-indigo-500 flex items-center justify-center">
-                <Cpu className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-gray-50 animate-pulse" />
-              </div>
-              <h3 className="text-base sm:text-lg md:text-xl font-bold mb-2">AI-Powered Platform</h3>
-              <p className="text-blue-200 text-sm sm:text-base">Next-generation intelligence</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating Elements */}
-        <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-r from-pink-500 to-rose-500 flex items-center justify-center animate-bounce">
-          <Lightbulb className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-gray-50" />
-        </div>
-        <div className="absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 flex items-center justify-center animate-bounce delay-1000">
-          <Rocket className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-gray-50" />
-        </div>
-      </div>
+        </a>
+      ))}
     </div>
   </div>
 </section>
 
-{/* Advanced AI & Automation Hub Section */}
-<section className="py-10 md:py-14 bg-gradient-to-br from-gray-50 to-blue-50/50 relative overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/5 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent" />
-  </div>
-
+{/* AI Capabilities */}
+<section className="py-20 relative overflow-hidden" style={{background: '#07071a'}}>
+  <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
+  <div className="absolute top-0 right-0 w-1/2 h-full opacity-10" style={{background: 'radial-gradient(ellipse at top right, #7c3aed, transparent 60%)'}} />
   <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-12">
-                  
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        The Future of Work with
-        <span className="block mt-1.5 text-transparent bg-clip-text bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600">
-          Intelligent Automation
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-        Harness the power of ServiceNow&apos;s advanced AI capabilities with Generative AI, Agentic AI, and intelligent automation
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
-      {/* Generative AI Card */}
-      <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-violet-500/5 to-indigo-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <div className="relative z-10">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-violet-500 to-indigo-500 flex items-center justify-center mb-6">
-            <Brain className="h-6 w-6 text-white" />
-          </div>
-          
-          <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-            Generative AI Solutions
-          </h3>
-          
-          <ul className="space-y-3 mb-6">
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">AI-powered generation for knowledge bases</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Automated ticket classification and routing</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-violet-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Smart recommendations for service catalog</span>
-            </li>
-          </ul>
-
-          <div className="bg-violet-50 rounded-xl p-4">
-            <div className="font-semibold text-violet-600 mb-1">Success Metric</div>
-            <div className="text-2xl font-bold text-violet-700">85% Faster</div>
-            <div className="text-sm text-violet-600">Content Creation & Response Time</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Agentic AI Card */}
-      <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-indigo-500/5 to-blue-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <div className="relative z-10">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-500 flex items-center justify-center mb-6">
-            <Bot className="h-6 w-6 text-white" />
-          </div>
-          
-          <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent">
-            Agentic AI Automation
-          </h3>
-          
-          <ul className="space-y-3 mb-6">
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-indigo-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Autonomous workflow orchestration</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-indigo-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Self-optimizing process automation</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-indigo-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Proactive issue resolution</span>
-            </li>
-          </ul>
-
-          <div className="bg-indigo-50 rounded-xl p-4">
-            <div className="font-semibold text-indigo-600 mb-1">Success Metric</div>
-            <div className="text-2xl font-bold text-indigo-700">92% Reduced</div>
-            <div className="text-sm text-indigo-600">Manual Interventions</div>
-          </div>
-        </div>
-      </div>
-
-      {/* Intelligent CRM Card */}
-      <div className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/5 to-cyan-500/5 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        <div className="relative z-10">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mb-6">
-            <Users className="h-6 w-6 text-white" />
-          </div>
-          
-          <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-            AI-Powered CRM
-          </h3>
-          
-          <ul className="space-y-3 mb-6">
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Predictive customer insights</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Intelligent lead scoring & routing</span>
-            </li>
-            <li className="flex items-start">
-              <CheckCircle className="h-5 w-5 text-blue-500 mt-1 mr-3 flex-shrink-0" />
-              <span className="text-gray-700">Automated relationship management</span>
-            </li>
-          </ul>
-
-          <div className="bg-blue-50 rounded-xl p-4">
-            <div className="font-semibold text-blue-600 mb-1">Success Metric</div>
-            <div className="text-2xl font-bold text-blue-700">173% Higher</div>
-            <div className="text-sm text-blue-600">Customer Engagement</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {/* Feature Comparison Grid */}
-    <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-8">
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
-          ServiceNow + AI Integration Benefits
-        </h3>
-        
-        <div className="space-y-4">
-          <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-violet-50 to-indigo-50 rounded-xl">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-violet-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
-              <Bot className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800">Smart Automation</div>
-              <div className="text-sm text-gray-600">Reduce manual tasks by up to 85% with AI-driven workflows</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-indigo-50 to-blue-50 rounded-xl">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-blue-500 flex items-center justify-center flex-shrink-0">
-              <Brain className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800">Predictive Intelligence</div>
-              <div className="text-sm text-gray-600">Anticipate issues before they occur with 94% accuracy</div>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0">
-              <Zap className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <div className="font-semibold text-gray-800">Real-time Optimization</div>
-              <div className="text-sm text-gray-600">Continuous improvement with self-learning algorithms</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white rounded-2xl p-6 shadow-lg">
-        <h3 className="text-xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-          Implementation Success Metrics
-        </h3>
-
-        <div className="space-y-6">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Shield className="h-5 w-5 text-blue-500" />
-              <span className="text-gray-700">AI Adoption Rate</span>
-            </div>
-            <div className="w-48 h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-[95%] bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" />
-            </div>
-            <span className="text-blue-600 font-semibold">95%</span>
-          </div>
-
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Target className="h-5 w-5 text-blue-500" />
-              <span className="text-gray-700">Accuracy Rate</span>
-            </div>
-            <div className="w-48 h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-[98%] bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" />
-            </div>
-            <span className="text-blue-600 font-semibold">98%</span>
-          </div>
-
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Zap className="h-5 w-5 text-blue-500" />
-              <span className="text-gray-700">Time Saved</span>
-            </div>
-            <div className="w-48 h-2 bg-gray-100 rounded-full overflow-hidden">
-              <div className="h-full w-[85%] bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full" />
-            </div>
-            <span className="text-blue-600 font-semibold">85%</span>
-          </div>
-        </div>
-
-        <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl">
-          <div className="flex items-center gap-3 mb-2">
-            <Award className="h-5 w-5 text-blue-500" />
-            <span className="font-semibold text-gray-800">ROI Achievement</span>
-          </div>
-          <p className="text-sm text-gray-600">
-            Clients achieve an average of 180% ROI within 12 months of implementing our AI solutions
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* CRM Excellence Section */}
-<section className="py-16 md:py-20 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 text-gray-50 relative overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/10 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent" />
-  </div>
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-    <div className="text-center mb-8">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-          ServiceNow CRM
-        </span>
-        <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-          That Drives Results
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-50 mb-6 leading-relaxed font-light">
-          Transform customer relationships with our advanced ServiceNow CRM solutions. 
-          Create meaningful connections, streamline sales processes, and deliver exceptional customer experiences with proven methodologies.
-        </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-center">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <div className="space-y-6 sm:space-y-8 mb-8">
-          <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-indigo-900/50 to-blue-900/50 border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-50" />
-            </div>
-            <div>
-              <h4 className="text-base sm:text-lg md:text-xl font-semibold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300">360° Customer Intelligence</h4>
-              <p className="text-gray-50 text-sm sm:text-base leading-relaxed">Complete customer journey mapping with AI-powered insights, predictive analytics, and automated lead scoring.</p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-blue-900/50 to-indigo-900/50 border border-blue-500/20 hover:border-blue-500/40 transition-all duration-300">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-r from-blue-500 to-indigo-500 flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-50" />
-            </div>
-            <div>
-              <h4 className="text-sm sm:text-base md:text-lg font-semibold mb-1.5 text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-indigo-300">Omnichannel Excellence</h4>
-              <p className="text-gray-50 text-sm sm:text-base leading-relaxed">Seamless customer interactions across all touchpoints with unified communication and real-time dashboard.</p>
-            </div>
-          </div>
-
-          <div className="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 rounded-xl bg-gradient-to-r from-indigo-900/50 to-violet-900/50 border border-indigo-500/20 hover:border-indigo-500/40 transition-all duration-300">
-            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 flex items-center justify-center flex-shrink-0">
-              <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-gray-50" />
-            </div>
-            <div>
-              <h4 className="text-sm sm:text-base md:text-lg font-semibold mb-1.5 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 to-violet-300">Sales Automation</h4>
-              <p className="text-gray-50 text-sm sm:text-base leading-relaxed">Intelligent lead scoring, automated workflows, and personalized engagement strategies with measurable ROI tracking.</p>
-            </div>
-          </div>
+        <div className="flex items-center gap-3 mb-6">
+          <span className="inline-block w-8 h-px bg-violet-500" />
+          <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">AI Capabilities</span>
         </div>
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+          AI that works<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-cyan-400">while you sleep.</span>
+        </h2>
+        <p className="text-slate-400 text-lg leading-relaxed mb-10">
+          Our AI practice embeds Now Assist, agentic automation, and generative AI into every ServiceNow deployment — resolving incidents, routing cases, and predicting failures before users notice anything is wrong.
+        </p>
+        <a href="/services/ai-automation"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white border border-violet-500/40 hover:border-violet-400 hover:bg-violet-500/10 transition-all text-sm"
+        >
+          Explore AI Services <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
-
-      <div className="relative">
-        {/* CRM Dashboard Mockup */}
-        <div className="bg-gray-50 rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
-          <div className="bg-gradient-to-r from-indigo-600 to-blue-600 p-3 sm:p-4 text-gray-50">
-            <h3 className="text-sm sm:text-base md:text-lg font-semibold">ServiceNow CRM Dashboard</h3>
-            <p className="text-indigo-100 text-xs sm:text-sm">Real-time ROI tracking</p>
-          </div>
-          
-          <div className="p-3 sm:p-4 md:p-6 space-y-3 sm:space-y-4">
-            <div className="flex items-center justify-between p-2 sm:p-3 md:p-4 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl border border-green-100">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center">
-                  <TrendingUp className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-gray-50" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base">Lead Conversion</p>
-                  <p className="text-xs sm:text-xs md:text-sm text-gray-700">This quarter</p>
-                </div>
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">+47%</div>
-            </div>
-
-            <div className="flex items-center justify-between p-2 sm:p-3 md:p-4 bg-gradient-to-r from-blue-50 to-cyan-50 rounded-xl border border-blue-100">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                  <Users className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-gray-50" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base">Customer Satisfaction</p>
-                  <p className="text-xs sm:text-xs md:text-sm text-gray-700">Average score</p>
-                </div>
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">4.8/5</div>
-            </div>
-
-            <div className="flex items-center justify-between p-2 sm:p-3 md:p-4 bg-gradient-to-r from-indigo-50 to-indigo-50 rounded-xl border border-indigo-100">
-              <div className="flex items-center space-x-2 sm:space-x-3">
-                <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-gradient-to-r from-indigo-500 to-indigo-500 rounded-full flex items-center justify-center">
-                  <DollarSign className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-gray-50" />
-                </div>
-                <div>
-                  <p className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base">Revenue Growth</p>
-                  <p className="text-xs sm:text-xs md:text-sm text-gray-700">Year over year</p>
-                </div>
-              </div>
-              <div className="text-lg sm:text-xl md:text-2xl font-bold bg-gradient-to-r from-indigo-600 to-indigo-600 bg-clip-text text-transparent">+156%</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Floating Stats */}
-        <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center text-gray-50 font-bold text-xs sm:text-sm md:text-lg shadow-xl animate-pulse">
-          24/7
-        </div>
-        <div className="absolute -bottom-3 sm:-bottom-4 -left-3 sm:-left-4 w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-gradient-to-r from-green-500 to-teal-500 rounded-2xl flex items-center justify-center text-gray-50 font-bold text-xs sm:text-sm md:text-lg shadow-xl animate-pulse">
-          CRM
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Industries We Serve - RESPONSIVE FIX: Better mobile scrolling */}
-<section className="py-5 md:py-8 bg-gray-50 relative overflow-hidden">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
-    <div className="text-center mb-8">
-                  
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        Transforming
-        <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
-          Every Industry
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
-        Deep domain expertise combined with ServiceNow excellence to deliver industry-specific transformations
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 max-w-6xl mx-auto">
-      {/* Left side - Interactive Industry Showcase */}
-      <div className="relative h-[320px] sm:h-[400px] lg:h-[480px] bg-gradient-to-br from-gray-900 to-blue-900 rounded-3xl overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-grid-pattern"></div>
-        
-        {/* Industry Stats Overlay
-        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent">
-          <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 lg:p-6">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
-              <div className="bg-gradient-to-r from-indigo-600/20 to-indigo-600/20 backdrop-blur-sm rounded-xl p-2 sm:p-3 border border-indigo-400/20">
-                <div className="text-2xl sm:text-3xl font-bold text-gray-50">Many</div>
-                <div className="text-indigo-200 text-sm sm:text-base">Projects Delivered</div>
-              </div>
-              <div className="bg-gradient-to-r from-blue-600/20 to-cyan-600/20 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-blue-400/20">
-                <div className="text-2xl sm:text-3xl font-bold text-gray-50">Many</div>
-                <div className="text-blue-200 text-sm sm:text-base">Industries Served</div>
-              </div>
-            </div>
-          </div>
-        </div> */}
-      </div>
-
-      {/* Right side - Industry Cards - RESPONSIVE FIX: Better mobile scrolling */}
-      <div className="space-y-2 sm:space-y-3 overflow-y-auto max-h-[320px] sm:max-h-[400px] lg:max-h-[480px] pr-2 sm:pr-3" 
-            style={{ 
-              scrollbarWidth: 'thin', 
-              scrollbarColor: '#9333ea #f3f4f6',
-              WebkitOverflowScrolling: 'touch'
-            }}>
-        {industries.map((industry, index) => (
-          <a
-            key={index}
-            href={industry.link}
-            className="group flex bg-gradient-to-r from-gray-50 to-gray-50 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border border-gray-100 hover:border-indigo-200 touch-manipulation"
+      <div className="space-y-4">
+        {aiCapabilities.map(({ icon: Icon, title, desc, metric, color }) => (
+          <div key={title}
+            className="group flex gap-4 p-5 rounded-2xl border border-white/8 hover:border-violet-500/30 transition-all duration-200"
+            style={{background: 'rgba(255,255,255,0.03)'}}
           >
-            <div className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 flex-shrink-0 bg-gradient-to-br ${industry.gradient} p-3 sm:p-4 md:p-6 flex items-center justify-center`}>
-              <industry.icon className="h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-gray-50 transform group-hover:scale-110 transition-transform duration-300" />
+            <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+              color === 'violet' ? 'bg-violet-500/20' : color === 'indigo' ? 'bg-indigo-500/20' : 'bg-blue-500/20'
+            }`}>
+              <Icon className={`h-5 w-5 ${
+                color === 'violet' ? 'text-violet-400' : color === 'indigo' ? 'text-indigo-400' : 'text-blue-400'
+              }`} />
             </div>
-            
-            <div className="flex-1 p-3 sm:p-4">
-              <div className="flex justify-between items-start">
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 group-hover:text-indigo-600">
-                  {industry.name}
-                </h3>
-                <div className="flex flex-col items-end gap-1">
-                  <span className="text-xs font-semibold bg-gradient-to-r from-indigo-100 to-blue-100 px-2 py-1 rounded-full text-indigo-700">
-                    {industry.metric}
-                  </span>
-                  <span className="text-[10px] text-gray-500">Last 12 months</span>
-                </div>
+            <div className="flex-1">
+              <div className="flex items-center justify-between mb-1">
+                <h3 className="font-bold text-white text-sm">{title}</h3>
+                <span className={`text-xs font-semibold px-2 py-0.5 rounded-full ${
+                  color === 'violet' ? 'text-violet-400 bg-violet-500/15' : color === 'indigo' ? 'text-indigo-400 bg-indigo-500/15' : 'text-blue-400 bg-blue-500/15'
+                }`}>{metric}</span>
               </div>
-              <p className="text-xs sm:text-sm text-gray-700 mt-2 mb-3">{industry.description}</p>
-              <div className="flex flex-wrap gap-2">
-                {industry.tags?.map((tag, idx) => (
-                  <span key={idx} className="text-[10px] px-2 py-0.5 rounded-full bg-gray-100 text-gray-600">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              <p className="text-slate-400 text-sm leading-relaxed">{desc}</p>
             </div>
-            
-            <div className="w-8 sm:w-10 md:w-12 flex items-center justify-center">
-              <ArrowRight className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-gray-400 group-hover:text-indigo-600 transform group-hover:translate-x-1 transition-all" />
-            </div>
-          </a>
+          </div>
         ))}
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Enterprise Solutions Comparison Section */}
-<section className="py-10 md:py-14 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-gray-50 relative overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/10 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/10 via-transparent to-transparent" />
-  </div>
-
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-8">
-
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-          Why ServiceNow Leads Innovation
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-        Compare how ServiceNow transforms enterprise operations compared to traditional solutions
-      </p>
-    </div>
-
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 items-center">
-      {/* Traditional Solutions Card */}
-      <div className="relative bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-2xl p-3 border border-gray-700 backdrop-blur-sm">
-        <div className="absolute -top-3 -right-3 w-6 h-6 bg-gray-700 rounded-full flex items-center justify-center">
-          <Settings className="h-3 w-3 text-gray-400" />
-        </div>
-        
-        <h3 className="text-lg font-bold mb-4 text-gray-300">Traditional Solutions</h3>
-        
-        <ul className="space-y-3 min-h-[160px]">
-          <li className="flex items-start">
-            <div className="w-5 h-5 rounded-full bg-gray-800 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-              <span className="text-gray-400 text-xs">✕</span>
-            </div>
-            <span className="text-gray-400">Siloed systems requiring multiple integrations</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <span className="text-gray-400 text-sm">✕</span>
-            </div>
-            <span className="text-gray-400">Manual workflows and processes</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gray-800 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <span className="text-gray-400 text-sm">✕</span>
-            </div>
-            <span className="text-gray-400">Limited visibility and reporting</span>
-          </li>
-        </ul>
-
-        <div className="mt-4 pt-4 border-t border-gray-700">
-          <div className="text-gray-400 text-xs">Average Implementation Time</div>
-          <div className="text-lg font-bold text-gray-300">12+ months</div>
-        </div>
-      </div>
-
-      {/* ServiceNow Solutions Card */}
-      <div className="relative bg-gradient-to-br from-indigo-600/20 to-blue-600/20 rounded-2xl p-4 border border-indigo-500/30 backdrop-blur-sm h-full">
-        <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center">
-          <Star className="h-3 w-3 text-white" />
-        </div>
-        
-        <h3 className="text-lg font-bold mb-4 text-cyan-300">ServiceNow Platform</h3>
-        
-        <ul className="space-y-3 min-h-[160px]">
-          <li className="flex items-start">
-            <div className="w-5 h-5 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mt-0.5 mr-2 flex-shrink-0">
-              <CheckCircle className="h-2.5 w-2.5 text-white" />
-            </div>
-            <span className="text-blue-100">Unified platform with seamless integration</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <CheckCircle className="h-3 w-3 text-white" />
-            </div>
-            <span className="text-blue-100">AI-powered automation and workflows</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <CheckCircle className="h-3 w-3 text-white" />
-            </div>
-            <span className="text-blue-100">Real-time insights and analytics</span>
-          </li>
-        </ul>
-
-        <div className="mt-3 pt-3 border-t border-indigo-500/30">
-          <div className="text-blue-200 text-xs">Average Implementation Time</div>
-          <div className="text-lg font-bold text-cyan-300">90 days</div>
-        </div>
-      </div>
-
-      {/* Future-Ready Solutions Card */}
-      <div className="relative bg-gradient-to-br from-cyan-600/20 to-teal-600/20 rounded-2xl p-4 border border-cyan-500/30 backdrop-blur-sm h-full">
-        <div className="absolute -top-3 -right-3 w-6 h-6 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full flex items-center justify-center">
-          <Rocket className="h-3 w-3 text-white" />
-        </div>
-        
-        <h3 className="text-lg font-bold mb-4 text-cyan-300">Future-Ready Benefits</h3>
-        
-        <ul className="space-y-3 min-h-[160px]">
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <Bot className="h-3 w-3 text-white" />
-            </div>
-            <span className="text-blue-100">Advanced AI and ML capabilities</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <Zap className="h-3 w-3 text-white" />
-            </div>
-            <span className="text-blue-100">Continuous innovation and updates</span>
-          </li>
-          <li className="flex items-start">
-            <div className="w-6 h-6 rounded-full bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center mt-1 mr-3 flex-shrink-0">
-              <Shield className="h-3 w-3 text-white" />
-            </div>
-            <span className="text-blue-100">Enterprise-grade security</span>
-          </li>
-        </ul>
-
-        <div className="mt-3 pt-3 border-t border-cyan-500/30">
-          <div className="text-blue-200 text-xs">Innovation Cycle</div>
-          <div className="text-lg font-bold text-cyan-300">Continuous</div>
-        </div>
-      </div>
-    </div>
-
-    {/* Key Metrics Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div className="bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-xl p-6 border border-indigo-500/20 backdrop-blur-sm">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-indigo-500 to-blue-500 flex items-center justify-center">
-            <TrendingUp className="h-6 w-6 text-white" />
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-cyan-300">180%</div>
-            <div className="text-blue-200">ROI</div>
-          </div>
-        </div>
-        <p className="text-blue-100 text-sm">Average return on investment within first year</p>
-      </div>
-
-      <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-xl p-6 border border-blue-500/20 backdrop-blur-sm">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
-            <Bot className="h-6 w-6 text-white" />
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-cyan-300">85%</div>
-            <div className="text-blue-200">Automation</div>
-          </div>
-        </div>
-        <p className="text-blue-100 text-sm">Tasks automated through AI and ML</p>
-      </div>
-
-      <div className="bg-gradient-to-br from-cyan-500/10 to-teal-500/10 rounded-xl p-6 border border-cyan-500/20 backdrop-blur-sm">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center">
-            <Users className="h-6 w-6 text-white" />
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-cyan-300">99%</div>
-            <div className="text-blue-200">Satisfaction</div>
-          </div>
-        </div>
-        <p className="text-blue-100 text-sm">Customer satisfaction rate</p>
-      </div>
-
-      <div className="bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-xl p-6 border border-teal-500/20 backdrop-blur-sm">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-teal-500 to-emerald-500 flex items-center justify-center">
-            <Shield className="h-6 w-6 text-white" />
-          </div>
-          <div>
-            <div className="text-2xl font-bold text-cyan-300">24/7</div>
-            <div className="text-blue-200">Support</div>
-          </div>
-        </div>
-        <p className="text-blue-100 text-sm">Enterprise-grade support and security</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-{/* Client Testimonials - RESPONSIVE FIX: Better image handling and touch targets */}
-<section className="py-10 md:py-14 bg-gradient-to-br from-gray-50 to-blue-50/50 text-gray-900 relative overflow-hidden">
-  <div className="absolute inset-0">
-    <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-indigo-500/5 via-transparent to-transparent" />
-    <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-500/5 via-transparent to-transparent" />
-  </div>
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-    <div className="text-center mb-12">
-      <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
-          Client Success Stories
-        </span>
-      </h2>
-      <p className="text-base sm:text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-        Discover how we&apos;ve helped organizations achieve remarkable transformations with ServiceNow
-      </p>
-    </div>
-
-    <div className="max-w-4xl mx-auto px-4 sm:px-6">
-      <div className="relative bg-gradient-to-br from-white to-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 border border-gray-200 shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden">
-        <Quote className="absolute top-2 sm:top-4 md:top-6 left-2 sm:left-4 md:left-6 h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 text-indigo-500 opacity-50" />
-        
-        <div className="text-center mb-6 sm:mb-8">
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 leading-relaxed mb-6 sm:mb-8 italic px-2 sm:px-0">
-            &ldquo;{testimonials[currentTestimonial].content}&rdquo;
-          </p>
-          
-          <div className="flex items-center justify-center space-x-3 sm:space-x-4">
-            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-indigo-600 to-blue-600 flex items-center justify-center text-white font-bold text-sm sm:text-base overflow-hidden shadow-lg">
-              {testimonials[currentTestimonial].image.startsWith('http') ? (
-                <Image 
-                  src={testimonials[currentTestimonial].image}
-                  alt={testimonials[currentTestimonial].name}
-                  width={64}
-                  height={64}
-                  className="w-full h-full object-cover rounded-full"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = 'none';
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.innerHTML = testimonials[currentTestimonial].name.split(' ').map(n => n[0]).join('');
-                    }
-                  }}
-                />
-              ) : (
-                testimonials[currentTestimonial].name.split(' ').map(n => n[0]).join('')
-              )}
-            </div>
-            <div className="text-left">
-              <h4 className="text-sm sm:text-base md:text-lg font-bold text-gray-800">{testimonials[currentTestimonial].name}</h4>
-              <p className="text-blue-600 font-semibold text-xs sm:text-sm md:text-base">{testimonials[currentTestimonial].title}</p>
-              <p className="text-xs sm:text-sm text-gray-600">{testimonials[currentTestimonial].company}</p>
-            </div>
-          </div>
-
-          <div className="flex justify-center space-x-1 mt-4 sm:mt-6">
-            {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-              <Star key={i} className="h-4 w-4 sm:h-5 sm:w-5 text-blue-500 fill-current" />
+        <div className="p-5 rounded-2xl border border-white/8" style={{background: 'rgba(255,255,255,0.03)'}}>
+          <div className="grid grid-cols-3 divide-x divide-white/10">
+            {[
+              { value: '500+', label: 'AI Agents live' },
+              { value: '4.2s', label: 'Avg resolution' },
+              { value: '92%', label: 'Auto-resolved' },
+            ].map(({ value, label }) => (
+              <div key={label} className="text-center px-4">
+                <div className="text-xl font-bold text-white">{value}</div>
+                <div className="text-xs text-slate-500 mt-0.5">{label}</div>
+              </div>
             ))}
           </div>
         </div>
       </div>
-
-      {/* Testimonial Navigation - RESPONSIVE FIX: Larger touch targets */}
-      <div className="flex justify-center space-x-2 sm:space-x-3 mt-6 sm:mt-8">
-        {testimonials.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentTestimonial(index)}
-            className={`h-3 w-3 sm:h-4 sm:w-4 rounded-full transition-all duration-300 touch-manipulation transform hover:scale-110 ${
-              currentTestimonial === index 
-                ? 'bg-gradient-to-r from-indigo-600 to-blue-600 w-6 sm:w-8 shadow-lg' 
-                : 'bg-gray-300 hover:bg-gray-400'
-            }`}
-            aria-label={`Go to testimonial ${index + 1}`}
-          />
-        ))}
-      </div>
     </div>
   </div>
 </section>
 
-{/* Enhanced Call-to-Action Section */}
-<section className="py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900">
-  <h2 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-    <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">
-      What&apos;s Holding Back{" "}
-    </span>
-    <span className="text-gray-50">Your Growth Today?</span>
-  </h2>
-  {/* Animated background elements */}
-  <div className="absolute inset-0">
-    <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,_rgba(99,102,241,0.15)_0%,_transparent_50%)]" />
-    <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,_rgba(59,130,246,0.15)_0%,_transparent_50%)]" />
-    <div className="absolute inset-0 bg-grid-pattern opacity-5" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-  </div>
+{/* CRM Excellence */}
+<section className="py-20 bg-white border-t border-gray-100">
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+    <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-      
-    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      
-      {/* Left content */}
-      <div className="text-center lg:text-left">
-
-        
-
-        <p className="text-lg md:text-xl text-blue-100 mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-Tell us your top priority, and we’ll show how ServiceNow can accelerate results in just weeks. Choose your focus area:          </p>
-
-        <div className="grid sm:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0">
-          <button className="group flex items-start space-x-3 p-4 rounded-xl bg-gradient-to-r from-indigo-500/10 to-blue-500/10 border border-indigo-500/20 backdrop-blur-sm hover:from-indigo-500/20 hover:to-blue-500/20 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-indigo-500 to-blue-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-              <Timer className="h-5 w-5 text-white" />
+      {/* Left — CRM metrics visual */}
+      <div className="relative order-2 lg:order-1">
+        <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-xl" style={{background: '#f8faff'}}>
+          {/* Header */}
+          <div className="flex items-center justify-between px-5 py-3.5 bg-white border-b border-gray-100">
+            <div className="flex items-center gap-2">
+              <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+              <span className="text-sm font-semibold text-gray-800">ServiceNow CRM</span>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-50 mb-1">Faster Response Times</h3>
-              <p className="text-sm text-blue-200">&ldquo;Delivering answers in record time&rdquo;</p>
-            </div>
-          </button>
+            <span className="text-xs text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded-full">Live Pipeline</span>
+          </div>
 
-          <button className="group flex items-start space-x-3 p-4 rounded-xl bg-gradient-to-r from-blue-500/10 to-cyan-500/10 border border-blue-500/20 backdrop-blur-sm hover:from-blue-500/20 hover:to-cyan-500/20 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-              <DollarSign className="h-5 w-5 text-white" />
+          {/* Funnel metrics */}
+          <div className="p-5">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-4 font-medium">Conversion funnel</div>
+            {[
+              { stage: 'Leads captured', count: '2,847', pct: 100, color: 'bg-blue-500' },
+              { stage: 'Qualified', count: '1,920', pct: 67, color: 'bg-indigo-500' },
+              { stage: 'Proposal sent', count: '984', pct: 35, color: 'bg-violet-500' },
+              { stage: 'Closed won', count: '612', pct: 22, color: 'bg-purple-500' },
+            ].map(({ stage, count, pct, color }) => (
+              <div key={stage} className="mb-3">
+                <div className="flex justify-between text-xs mb-1.5">
+                  <span className="text-gray-600">{stage}</span>
+                  <span className="text-gray-900 font-semibold">{count}</span>
+                </div>
+                <div className="h-2 rounded-full bg-gray-100">
+                  <div className={`h-full rounded-full ${color} transition-all duration-700`} style={{width: `${pct}%`}} />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* KPI row */}
+          <div className="grid grid-cols-3 divide-x divide-gray-100 border-t border-gray-100">
+            {[
+              { value: '+47%', label: 'Lead conversion', color: 'text-blue-600' },
+              { value: '3.1×', label: 'Sales velocity', color: 'text-indigo-600' },
+              { value: '91%', label: 'CSAT score', color: 'text-violet-600' },
+            ].map(({ value, label, color }) => (
+              <div key={label} className="text-center py-4 px-2">
+                <div className={`text-lg font-bold ${color}`}>{value}</div>
+                <div className="text-[10px] text-gray-400 mt-0.5">{label}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* Recent activity */}
+          <div className="px-5 py-4 border-t border-gray-100 bg-white">
+            <div className="text-xs text-gray-400 uppercase tracking-widest mb-3 font-medium">Recent activity</div>
+            <div className="space-y-2">
+              {[
+                { event: 'CRM-44901 auto-scored + routed to Sales', time: '2m ago', dot: 'bg-blue-500' },
+                { event: 'Case CAS-1042 resolved via self-service', time: '5m ago', dot: 'bg-green-500' },
+                { event: 'Renewal alert: Contract CNT-0882 in 14 days', time: '12m ago', dot: 'bg-amber-500' },
+              ].map(({ event, time, dot }) => (
+                <div key={event} className="flex items-center gap-2.5 text-xs">
+                  <span className={`w-1.5 h-1.5 rounded-full shrink-0 ${dot}`} />
+                  <span className="text-gray-600 flex-1 truncate">{event}</span>
+                  <span className="text-gray-400 shrink-0">{time}</span>
+                </div>
+              ))}
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-50 mb-1">Optimized Operational Costs</h3>
-              <p className="text-sm text-blue-200">&ldquo;Streamlined operations for maximum efficiency&rdquo;</p>
-            </div>
-          </button>
+          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0">
-          <button className="group flex items-start space-x-3 p-4 rounded-xl bg-gradient-to-r from-cyan-500/10 to-teal-500/10 border border-cyan-500/20 backdrop-blur-sm hover:from-cyan-500/20 hover:to-teal-500/20 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-              <Users className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-50 mb-1">Enhanced Team Collaboration</h3>
-              <p className="text-sm text-blue-200">&ldquo;Teams working smarter, together&rdquo;</p>
-            </div>
-          </button>
-
-          <button className="group flex items-start space-x-3 p-4 rounded-xl bg-gradient-to-r from-violet-500/10 to-purple-500/10 border border-violet-500/20 backdrop-blur-sm hover:from-violet-500/20 hover:to-purple-500/20 transition-all duration-300 text-left">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-r from-violet-500 to-purple-500 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-              <Bot className="h-5 w-5 text-white" />
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gray-50 mb-1">AI-Powered Workflows</h3>
-              <p className="text-sm text-blue-200">&ldquo;Smarter workflows driving better results&rdquo;</p>
-            </div>
-          </button>
-
-          <div className="sm:col-span-2">
-            <Link  href="/get-started"
-              className="inline-flex items-center w-full justify-center px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
-                    style={{
-                      background: "linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)",
-                      boxShadow: "0 8px 25px rgba(59, 130, 246, 0.3)"
-                    }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12 group-hover:animate-shimmer" />
-              <span className="relative flex items-center justify-center">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                Let&apos;s Solve Your Challenge Together
-              </span>
-            </Link>
-          </div>
+        {/* Floating accent */}
+        <div className="absolute -top-3 -right-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap">
+          📊 Real-time CRM visibility
         </div>
       </div>
 
-      {/* Right content - Stats & Guarantees */}
-      <div className="hidden lg:block">
-        <div className="relative">
-          {/* Main image/chart container */}
-          <div className="relative bg-gradient-to-br from-indigo-500/10 to-blue-500/10 rounded-2xl p-8 backdrop-blur-sm border border-indigo-500/20">
-            <div className="w-full rounded-xl overflow-hidden">
-              <div className="grid grid-cols-2 gap-4 h-full">
-                {/* Solution outcomes */}
-                <div className="space-y-3">
-                  {['Response Time', 'Cost Reduction', 'Team Productivity', 'Customer Satisfaction'].map((metric, index) => (
-                    <div key={index} className={`group p-3 rounded-xl relative overflow-hidden border border-indigo-500/20 backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl ${index === 0 ? 'bg-gradient-to-r from-violet-500/10 via-indigo-500/10 to-blue-500/10 hover:from-violet-500/20 hover:via-indigo-500/20 hover:to-blue-500/20' : index === 1 ? 'bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-teal-500/10 hover:from-blue-500/20 hover:via-cyan-500/20 hover:to-teal-500/20' : index === 2 ? 'bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:via-teal-500/20 hover:to-cyan-500/20' : 'bg-gradient-to-r from-indigo-500/10 via-blue-500/10 to-cyan-500/10 hover:from-indigo-500/20 hover:via-blue-500/20 hover:to-cyan-500/20'}`}>
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.05)_0%,transparent_100%)]" />
-                      <div className="flex items-center justify-between mb-1">
-                        <div className={`text-xl sm:text-2xl font-bold text-transparent bg-clip-text ${
-                          index === 0 
-                            ? 'bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400'
-                            : index === 1
-                            ? 'bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400'
-                            : index === 2
-                            ? 'bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400'
-                            : 'bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400'
-                        } group-hover:scale-105 transition-transform duration-300`}>
-                          <span className="animate-gradient-xy">{['4hr → 10min', '-65%', '+89%', '97%'][index]}</span>
-                        </div>
-                      </div>
-                      <div className={`text-sm font-medium ${
-                        index === 0
-                          ? 'text-fuchsia-200'
-                          : index === 1
-                          ? 'text-teal-200'
-                          : index === 2
-                          ? 'text-indigo-200'
-                          : 'text-orange-200'
-                      }`}>{metric}</div>
-                      <div className={`text-xs mt-1 opacity-75 group-hover:opacity-100 transition-opacity duration-300 ${
-                        index === 0
-                          ? 'text-fuchsia-200/90'
-                          : index === 1
-                          ? 'text-teal-200/90'
-                          : index === 2
-                          ? 'text-indigo-200/90'
-                          : 'text-orange-200/90'
-                      }`}>
-                        {['Average ticket resolution', 'Operational expenses', 'Daily tasks completed', 'Client feedback score'][index]}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Implementation timeline */}
-                <div className="relative h-full">
-                  <div className="space-y-3">
-{['AI-Powered Case Resolution', 'Agentic AI Workflow Automation', 'CRM Lead Conversion Boost'].map((metric, index) => (
-<div
-  key={index}
-  className={`group p-3 rounded-xl relative overflow-hidden border border-indigo-500/20 backdrop-blur-sm transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl ${
-    index === 0
-      ? 'bg-gradient-to-r from-violet-500/10 via-indigo-500/10 to-blue-500/10 hover:from-violet-500/20 hover:via-indigo-500/20 hover:to-blue-500/20'
-      : index === 1
-      ? 'bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-cyan-500/10 hover:from-emerald-500/20 hover:via-teal-500/20 hover:to-cyan-500/20'
-      : 'bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-violet-500/10 hover:from-blue-500/20 hover:via-indigo-500/20 hover:to-violet-500/20'
-  }`}
->
-  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.05)_0%,transparent_100%)]" />
-  <div className="flex items-center justify-between mb-1">
-    <div
-      className={`text-xl sm:text-2xl font-bold text-transparent bg-clip-text ${
-        index === 0
-          ? 'bg-gradient-to-r from-violet-400 via-fuchsia-400 to-pink-400'
-          : index === 1
-          ? 'bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400'
-          : 'bg-gradient-to-r from-blue-400 via-indigo-400 to-violet-400'
-      } group-hover:scale-105 transition-transform duration-300`}
-    >
-      <span className="animate-gradient-xy">
-        {['↑ 68%', '↑ 75%', '↑ 40%'][index]}
-      </span>
-    </div>
-  </div>
-  <div
-    className={`text-sm font-medium ${
-      index === 0
-        ? 'text-fuchsia-200'
-        : index === 1
-        ? 'text-teal-200'
-        : 'text-indigo-200'
-    }`}
-  >
-    {metric}
-  </div>
-  <div
-    className={`text-xs mt-1 opacity-75 group-hover:opacity-100 transition-opacity duration-300 ${
-      index === 0
-        ? 'text-fuchsia-200/90'
-        : index === 1
-        ? 'text-teal-200/90'
-        : 'text-indigo-200/90'
-    }`}
-  >
-    {[
-      'Cases resolved instantly via AI-driven recommendations',
-      'Processes automated by autonomous agentic AI',
-      'Improved deal closures with AI-assisted insights'
-    ][index]}
-  </div>
-</div>
-))}
-</div>
-
+      {/* Right — copy */}
+      <div className="order-1 lg:order-2 space-y-6">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-block w-8 h-px bg-blue-600" />
+            <span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">CRM Excellence</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+            CRM that converts.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Relationships that last.</span>
+          </h2>
+        </div>
+        <p className="text-gray-500 text-lg leading-relaxed">
+          We build ServiceNow CRM workflows that close deals faster, resolve cases autonomously, and keep customers for life — with real-time pipeline visibility across every touchpoint.
+        </p>
+        <div className="space-y-3">
+          {[
+            { icon: TrendingUp, title: 'Sales Force Automation', desc: 'Lead scoring, opportunity routing, and AI-assisted proposals — all in ServiceNow.' },
+            { icon: Users, title: 'Customer Service Management', desc: 'Omnichannel case management with proactive SLA tracking and self-service deflection.' },
+            { icon: Activity, title: 'Field Service + Renewals', desc: 'Dispatch automation, contract renewals, and predictive churn prevention built-in.' },
+          ].map(({ icon: Icon, title, desc }) => (
+            <div key={title} className="flex gap-4 p-4 rounded-xl border border-gray-100 hover:border-blue-200 hover:bg-blue-50/30 transition-all">
+              <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center shrink-0">
+                <Icon className="h-4 w-4 text-blue-600" />
+              </div>
+              <div>
+                <div className="font-semibold text-gray-900 text-sm mb-0.5">{title}</div>
+                <div className="text-xs text-gray-500 leading-relaxed">{desc}</div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
+        <a href="/services/crm-customer-experience"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
+          style={{background: 'linear-gradient(135deg, #2563eb, #4f46e5)', boxShadow: '0 8px 24px rgba(37,99,235,0.3)'}}
+        >
+          Explore CRM Services <ArrowRight className="h-4 w-4" />
+        </a>
       </div>
+
     </div>
   </div>
-</div>
 </section>
 
-<style jsx>{`
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-  }
-  
-  @keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
-  }
-  
-  .animate-float {
-    animation: float 3s ease-in-out infinite;
-  }
-  
-  .touch-manipulation {
-    touch-action: manipulation;
-  }
-  
-  @keyframes gradient-xy {
-      0%, 100% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-    }
+{/* Industries */}
+<section className="py-20 relative overflow-hidden" style={{background: '#07071a'}}>
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+    <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between mb-12 gap-4">
+      <div>
+        <div className="flex items-center gap-3 mb-4">
+          <span className="inline-block w-8 h-px bg-indigo-400" />
+          <span className="text-indigo-400 text-sm font-semibold tracking-widest uppercase">Industries</span>
+        </div>
+        <h2 className="text-3xl sm:text-4xl font-bold text-white">Built for your industry.</h2>
+      </div>
+      <a href="/industries" className="text-sm text-indigo-400 font-semibold hover:text-indigo-300 shrink-0">View all industries →</a>
+    </div>
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+      {industries.map(({ icon: Icon, name, link }) => (
+        <a key={name} href={link}
+          className="group flex flex-col items-center gap-3 p-5 rounded-2xl border border-white/8 hover:border-indigo-500/50 transition-all duration-200 hover:-translate-y-0.5"
+          style={{background: 'rgba(255,255,255,0.04)'}}
+        >
+          <div className="w-12 h-12 rounded-xl bg-indigo-500/15 group-hover:bg-indigo-500/25 flex items-center justify-center transition-colors">
+            <Icon className="h-6 w-6 text-indigo-400" />
+          </div>
+          <span className="text-sm font-semibold text-slate-300 group-hover:text-white text-center transition-colors">{name}</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
 
-    .animate-gradient-xy {
-      animation: gradient-xy 15s ease infinite;
-      background-size: 200% auto;
-    }
+{/* Social proof */}
+<section className="py-20 bg-white border-t border-gray-100">
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+    <div className="mb-12 text-center">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Client results. Not just promises.</h2>
+      <p className="text-gray-500 max-w-xl mx-auto">Every number below is from a real engagement.</p>
+    </div>
+    <div className="grid lg:grid-cols-3 gap-6 mb-10">
+      {[
+        { industry: 'Manufacturing', metric: '73% faster incident resolution', context: 'Unified ITSM across 47 legacy systems in 12 weeks.', quote: 'ifBash transformed our chaotic IT landscape. Their methodology saved us months of time.', author: 'David M., CTO' },
+        { industry: 'Healthcare', metric: '95% uptime across 23 facilities', context: '100% HIPAA compliance achieved from day one.', quote: 'Zero downtime during our critical 23-location migration. ifBash made it look effortless.', author: 'Sarah C., VP Operations' },
+        { industry: 'Financial Services', metric: '100% SOX audit compliance', context: 'Enterprise security controls + automation deployed in 14 weeks.', quote: "Security was our biggest concern. ifBash&apos;s expertise gave us full confidence throughout.", author: 'Michael T., IT Director' },
+      ].map(({ industry, metric, context, quote, author }) => (
+        <div key={industry} className="border border-gray-200 rounded-2xl p-6 hover:shadow-md transition-shadow">
+          <div className="inline-block text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full px-3 py-1 mb-4">{industry}</div>
+          <div className="text-xl font-bold text-gray-900 mb-2">{metric}</div>
+          <p className="text-sm text-gray-500 mb-5">{context}</p>
+          <blockquote className="text-sm text-gray-700 italic border-l-2 border-indigo-200 pl-4 mb-3">&ldquo;{quote}&rdquo;</blockquote>
+          <div className="text-xs text-gray-400 font-medium">{author}</div>
+        </div>
+      ))}
+    </div>
+    <div className="text-center">
+      <a href="/company/case-studies-client-success" className="inline-flex items-center gap-2 text-indigo-600 font-semibold hover:underline text-sm">
+        Read all client stories <ArrowRight className="h-4 w-4" />
+      </a>
+    </div>
+  </div>
+</section>
 
-    @media (prefers-reduced-motion: reduce) {
-      * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }      /* Custom scrollbar styles for WebKit browsers */
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 6px;
-  }
-  
-  .scrollbar-thumb-purple-600::-webkit-scrollbar-thumb {
-    background-color: #9333ea;
-    border-radius: 3px;
-  }
-  
-  .scrollbar-track-gray-200::-webkit-scrollbar-track {
-    background-color: #f3f4f6;
-    border-radius: 3px;
-  }
-`}</style>
+{/* CTA */}
+<section className="py-24 relative overflow-hidden" style={{background: '#07071a'}}>
+  <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
+  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-15 rounded-full pointer-events-none" style={{background: 'radial-gradient(ellipse, #4f46e5, transparent 70%)'}} />
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
+    <div className="inline-flex items-center gap-2 bg-indigo-500/10 border border-indigo-500/25 rounded-full px-4 py-2 text-indigo-300 text-sm mb-8">
+      <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+      Accepting new clients &middot; 48-hr scoping call
+    </div>
+    <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">Ready to go live?</h2>
+    <p className="text-slate-400 text-xl max-w-2xl mx-auto mb-10">
+      Tell us about your ServiceNow goals. We&apos;ll scope your implementation in 48 hours and show you exactly how we&apos;d approach it.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/get-started"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5"
+        style={{background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 8px 32px rgba(79,70,229,0.4)'}}
+      >
+        Start Your Project <ArrowRight className="h-5 w-5" />
+      </a>
+      <a href="/services/servicenow-implementation"
+        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-300 border border-slate-700 hover:border-indigo-500 hover:text-white transition-all text-base"
+      >
+        Learn about our process
+      </a>
+    </div>
+  </div>
+</section>
+
 </div>
 </>
 );

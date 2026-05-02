@@ -7,8 +7,42 @@ import { Footer } from '@/components/footer';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'ifBash - ServiceNow Consulting & Implementation Services',
-  description: 'Leading consulting firm specializing in ServiceNow implementations, digital transformation, and enterprise solutions.',
+  metadataBase: new URL('https://ifbash.com'),
+  title: {
+    default: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
+    template: '%s | ifBash',
+  },
+  description: 'ifBash is a ServiceNow and agentic AI consulting partner delivering implementations, AI automation, CRM, and digital transformation for enterprises worldwide. 1,500+ successful projects.',
+  keywords: [
+    'ServiceNow consulting', 'ServiceNow implementation', 'ServiceNow partner',
+    'agentic AI', 'ServiceNow AI', 'ServiceNow AI consulting', 'AI automation',
+    'ServiceNow Now Assist', 'generative AI ServiceNow', 'ServiceNow CRM',
+    'digital transformation', 'ITSM implementation', 'ServiceNow managed services',
+  ],
+  authors: [{ name: 'ifBash', url: 'https://ifbash.com' }],
+  creator: 'ifBash',
+  openGraph: {
+    type: 'website',
+    siteName: 'ifBash',
+    locale: 'en_US',
+    url: 'https://ifbash.com',
+    title: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
+    description: 'ifBash is a ServiceNow and agentic AI consulting partner delivering implementations, AI automation, CRM, and digital transformation for enterprises worldwide.',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@ifbashx',
+    creator: '@ifbashx',
+    title: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
+    description: 'ServiceNow and agentic AI consulting. 1,500+ implementations. AI automation, CRM, and digital transformation for enterprises worldwide.',
+    images: ['/images/logo.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-snippet': -1, 'max-image-preview': 'large' },
+  },
 };
 
 export default function RootLayout({
