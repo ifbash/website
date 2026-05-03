@@ -29,59 +29,59 @@ const caseStudies = [
   {
     client: "AutoTech Industries",
     industry: "Manufacturing",
-    challenge: "Manual quality control causing 34% production delays and $8.7M annual losses",
-    solution: "Agentic AI quality control with computer vision and predictive maintenance",
-    results: ["89% reduction in defect rates", "156% production efficiency gain", "$12.4M annual savings", "Zero unplanned downtime"],
+    challenge: "Manual quality inspection across 3 production lines flagging defects only after assembly — 34% of defective units reaching packaging before detection, costing $8.7M annually in rework and returns",
+    solution: "Computer vision quality agents deployed at 12 inspection points with automated rejection triggers. Predictive maintenance agents monitor 847 equipment sensors and raise work orders before failure.",
+    results: ["Defect detection: post-assembly → real-time at source", "$8.7M rework cost reduced to $1.1M in year one", "Unplanned downtime: 23 incidents → 2 in 12 months", "First ROI milestone hit: week 9 of deployment"],
     timeline: "14 weeks",
-    testimonial: "ifBash's agentic AI transformed our manufacturing floor. Our agents now predict issues before they happen and automatically optimise production."
+    testimonial: "The quality agents catch defects in milliseconds that our inspectors would miss entirely. We haven't had an unplanned line stoppage in 11 months."
   },
   {
     client: "HealthCare+ Network",
     industry: "Healthcare",
-    challenge: "Patient data analysis taking 47 hours per case, causing treatment delays and compliance risks",
-    solution: "Generative AI patient data analysis with automated report generation and compliance checking",
-    results: ["94% faster data processing", "73% better diagnosis accuracy", "100% compliance adherence", "267% ROI in year one"],
+    challenge: "Clinical documentation agents spending 47 hours per complex case on data extraction, cross-referencing, and report drafting — creating 3-day treatment delays and adding 6 FTE worth of administrative burden",
+    solution: "Generative AI agents extract and structure data from 14 connected systems, cross-reference against clinical guidelines, and produce draft reports for clinician review in under 8 minutes.",
+    results: ["Case documentation: 47 hours → 8 minutes per case", "Administrative burden reduced by 5.8 FTE equivalent", "Treatment delay eliminated: same-day report availability", "100% compliance with documentation standards maintained"],
     timeline: "18 weeks",
-    testimonial: "The generative AI agents analyse patient data in minutes instead of days. Our clinicians now focus on care, not paperwork."
+    testimonial: "Our clinicians review a finished draft instead of building one from scratch. Eight minutes versus two days. That time goes directly back to patient care."
   },
   {
     client: "FinanceFlow Corp",
     industry: "Financial Services",
-    challenge: "Fraud detection missing 23% of sophisticated attacks, costing $15.6M annually",
-    solution: "Multi-agent AI system with real-time fraud detection and automated response protocols",
-    results: ["97% fraud detection accuracy", "83% fewer false positives", "$18.9M in prevented losses", "2.3 s average response time"],
+    challenge: "Rule-based fraud detection missing 23% of sophisticated attacks — $15.6M in annual losses from false negatives, while generating 1,200 false positives per week that required manual review by a 14-person team",
+    solution: "Multi-agent fraud detection system: a pattern recognition agent, a behavioural analysis agent, and a network graph agent collaborate in real time. Suspicious transactions escalate to human review only when agent confidence falls below threshold.",
+    results: ["False negative rate: 23% → 1.8% (97% detection accuracy)", "False positives: 1,200/week → 204/week (83% reduction)", "Manual review team: 14 FTE → 3 FTE reassigned to strategy", "Fraud losses in year one: $15.6M → under $800K"],
     timeline: "16 weeks",
-    testimonial: "Our AI agents work 24/7 to protect customers. The sophistication is remarkable — they learn and adapt constantly."
+    testimonial: "The three agents work together the way a fraud investigation team would — but in under two seconds. We stopped $14.8M in fraud in the first year alone."
   }
 ];
 
 const clientStories = [
   {
     name: "Dr. Elena Vasquez",
-    title: "Chief Innovation Officer",
-    story: "ifBash's agentic AI didn't just automate our processes — it revolutionised how we think about manufacturing intelligence. Our agents are like expert technicians working 24/7.",
-    metric: "156% increase in production efficiency with zero unplanned downtime",
+    title: "Chief Innovation Officer, AutoTech Industries",
+    story: "We'd tried RPA before and hit the same wall — it breaks the moment something changes. ifBash's agents don't just follow rules, they reason. When a new defect pattern emerged last quarter that our old system would have missed entirely, the agent identified it in the first shift and updated its own detection criteria.",
+    metric: "$8.7M rework cost → $1.1M. Zero unplanned downtime for 11 months.",
     rating: 5
   },
   {
     name: "Dr. James Wilson",
-    title: "Medical Director",
-    story: "The generative AI agents analyse complex patient data in minutes that used to take days. This isn't just automation — it's augmented intelligence that makes our clinicians superhuman.",
-    metric: "94% faster patient data processing with 73% better accuracy",
+    title: "Medical Director, HealthCare+ Network",
+    story: "I was sceptical. AI in clinical documentation sounds like a liability risk. What changed my mind was watching the agent cross-reference a patient's medication history against drug interaction guidelines in real time — something a tired resident at 2am might miss. It's not replacing clinical judgement. It's protecting it.",
+    metric: "47-hour documentation process → 8 minutes. 5.8 FTE of admin burden eliminated.",
     rating: 5
   },
   {
     name: "Maria Santos",
-    title: "Head of Risk Management",
-    story: "The multi-agent fraud detection system is incredible. These agents collaborate, learn from each other, and catch sophisticated attacks our old systems missed completely.",
-    metric: "$18.9M in prevented fraud losses in the first year",
+    title: "Head of Risk Management, FinanceFlow Corp",
+    story: "The previous system was binary — flag or don't flag. The multi-agent system gives us a confidence score and a reasoning trace. When it escalates something, we know exactly why. Our analysts went from drowning in 1,200 alerts a week to reviewing 200, all of which were genuinely worth their attention.",
+    metric: "$14.8M fraud prevented in year one. Manual review workload cut by 83%.",
     rating: 5
   },
   {
     name: "David Park",
-    title: "VP of Operations",
-    story: "Our agentic AI handles customer service, inventory, and demand forecasting simultaneously. It's like having an army of intelligent assistants that never sleep.",
-    metric: "238% improvement in customer satisfaction scores",
+    title: "VP of Operations, RetailLogistics Group",
+    story: "Inventory optimisation, demand forecasting, and carrier selection all ran separately with different teams. The agents now handle all three in a coordinated loop — when demand shifts, inventory targets update, and carrier allocations adjust automatically. We haven't had a stockout at a top-20 SKU in 8 months.",
+    metric: "Stockouts at top-20 SKUs: eliminated. Inventory carrying cost down 31%.",
     rating: 5
   }
 ];
@@ -113,38 +113,38 @@ const aiServices = [
   {
     icon: BrainCircuit,
     title: "Agentic AI Development",
-    description: "Build autonomous agents that reason, learn, and act independently to solve complex business problems",
-    benefits: ["Autonomous decision-making", "Continuous learning", "Multi-agent coordination"]
+    description: "We build agents that don't just execute — they reason. Each agent has a defined goal, a set of tools it can call, and a decision loop that handles exceptions, escalates when uncertain, and learns from resolved cases. Not RPA with an LLM bolted on.",
+    benefits: ["Goal-directed reasoning, not rule-following", "Escalation thresholds you define and control", "Decision audit trail for every action taken"]
   },
   {
     icon: Sparkles,
     title: "Generative AI Solutions",
-    description: "Deploy generative AI to create content, code, insights, and solutions that accelerate business processes",
-    benefits: ["Content generation", "Code automation", "Insight synthesis"]
+    description: "Generative AI deployed where it reduces measurable manual effort: draft generation, data synthesis, incident summarisation, and knowledge article creation. Every output is human-reviewable before it reaches production.",
+    benefits: ["Draft generation with source citation", "Incident and case summarisation", "Knowledge base auto-population from resolved cases"]
   },
   {
     icon: Workflow,
     title: "Intelligent Automation",
-    description: "Orchestrate complex workflows with AI agents that adapt, optimise, and scale automatically",
-    benefits: ["Adaptive workflows", "Smart optimisation", "Auto-scaling"]
+    description: "We instrument your existing ServiceNow workflows with AI decision points — replacing manual triage, routing, and approval steps with agents that handle routine cases and escalate exceptions. You define what 'routine' means; the agent enforces it.",
+    benefits: ["AI triage replacing manual queue management", "Exception-based human escalation only", "Workflow performance dashboards from day one"]
   },
   {
     icon: Brain,
     title: "AI Agent Orchestration",
-    description: "Coordinate multiple AI agents to work seamlessly across departments and enterprise systems",
-    benefits: ["Multi-agent coordination", "Cross-system integration", "Seamless collaboration"]
+    description: "When one agent isn't enough, we build orchestration layers that coordinate multiple specialised agents — passing context, resolving conflicts, and maintaining a single audit trail across all agent actions. Each agent has a defined scope; the orchestrator handles handoffs.",
+    benefits: ["Specialist agents with defined capability boundaries", "Cross-agent context passing and state management", "Single audit log across all agent activity"]
   },
   {
     icon: Zap,
     title: "Real-time Intelligence",
-    description: "Deploy AI that processes and responds to data in real-time for immediate business impact",
-    benefits: ["Real-time processing", "Instant responses", "Immediate insights"]
+    description: "Agents that process events as they happen — fraud signals, equipment anomalies, compliance triggers, inventory movements — and take defined actions within milliseconds. Latency is measured, SLA-bound, and monitored in production.",
+    benefits: ["Sub-second event processing on defined triggers", "Action SLAs contractually defined pre-deployment", "Real-time monitoring dashboard for all live agents"]
   },
   {
     icon: CircuitBoard,
     title: "AI Platform Integration",
-    description: "Seamlessly integrate AI capabilities with ServiceNow and your existing enterprise stack",
-    benefits: ["Platform integration", "Enterprise connectivity", "Unified experience"]
+    description: "AI agents only deliver value when they can read from and write to your actual systems. We integrate agents with ServiceNow's native data layer plus external systems — ERP, CRM, IoT platforms, databases — using authenticated, audited API calls.",
+    benefits: ["Integration with 300+ enterprise system connectors", "Authenticated API calls with full logging", "Data governance and access controls per agent"]
   }
 ];
 
@@ -158,35 +158,35 @@ const aiStats = [
 const faqs = [
   {
     question: "What is the difference between agentic AI and generative AI in ServiceNow?",
-    answer: "Agentic AI refers to autonomous agents that reason, make decisions, and take actions independently. Generative AI creates content, code, or insights. We combine both — agentic agents use generative AI capabilities to create solutions while operating autonomously within your ServiceNow platform."
+    answer: "Generative AI produces content — drafts, summaries, code suggestions. Agentic AI takes actions — it reads data, makes decisions, calls APIs, and updates records autonomously. We combine both: our agents use generative AI to reason about what to do, then use agentic capabilities to actually do it. The distinction matters because agentic systems require governance, audit trails, and escalation logic that pure generative tools don't need."
   },
   {
     question: "How quickly can AI agents be deployed in our ServiceNow environment?",
-    answer: "Simple AI agents can be deployed in 2–4 weeks, while complex multi-agent systems typically take 12–16 weeks. Our methodology includes rapid prototyping, so you'll see working agents within the first few weeks of engagement."
+    answer: "A focused single-purpose agent — incident triage, approval routing, compliance monitoring — typically takes 6–10 weeks from scoping to production. Complex multi-agent systems with cross-system integrations run 12–16 weeks. In every engagement we deliver a working agent in a sandbox environment by week 4, so you validate the behaviour before we harden it for production."
   },
   {
     question: "What types of business processes can agentic AI automate?",
-    answer: "Agentic AI excels at decision-heavy processes like incident resolution, fraud detection, quality control, customer service, compliance monitoring, and predictive maintenance — any multi-step workflow that traditionally required human judgement."
+    answer: "The highest-value processes are those with high volume, clear decision criteria, and a measurable cost of human handling: IT incident triage and first-line resolution, fraud and anomaly detection, compliance monitoring, procurement approval routing, HR case classification, and demand forecasting. We start with a process audit to identify where agent ROI is highest before we write a line of code."
   },
   {
     question: "How do you ensure AI agents make safe and compliant decisions?",
-    answer: "We implement comprehensive governance frameworks including decision boundaries, approval workflows, audit trails, and continuous monitoring. All agents operate within defined parameters and escalate to humans when needed."
+    answer: "Every agent we deploy has defined capability boundaries — what data it can read, what actions it can take, and what triggers an escalation to human review. We implement approval workflows for high-risk actions, full decision audit trails for every agent action, and confidence thresholds below which the agent must escalate. Governance is designed in week one, not bolted on after go-live."
   },
   {
     question: "Can AI agents integrate with our existing enterprise systems beyond ServiceNow?",
-    answer: "Yes. Our agents integrate with ERP, CRM, HR systems, databases, and custom APIs via ServiceNow's Integration Hub and custom connectors — seamless data flow across your entire technology stack."
+    answer: "Yes — and integration quality is often what determines agent value. We connect agents to ERP systems (SAP, Oracle), IoT and OT platforms (SCADA, sensor streams), CRM (Salesforce), HR platforms (Workday), and custom databases via ServiceNow's Integration Hub plus direct API connectors. Every integration is authenticated, rate-limited, and logged."
   },
   {
     question: "How do you measure the ROI of agentic AI implementations?",
-    answer: "We track process efficiency gains, cost reduction, error reduction, response time improvements, and employee productivity. Most clients achieve positive ROI within 12 weeks of deployment."
+    answer: "Before deployment, we agree specific metrics: cases handled per day, resolution time, error rate, FTE hours saved, false positive rate. We instrument ServiceNow to measure each one from day one of go-live. Most clients reach positive ROI within 10–14 weeks of production deployment. We track these in a shared dashboard so you see the numbers in real time — not in a monthly report."
   },
   {
     question: "What training and support is provided for AI agent management?",
-    answer: "Comprehensive training on agent management, monitoring, and optimisation — including admin certification, end-user workshops, monitoring dashboards, and ongoing support for performance tuning."
+    answer: "We train your team on three levels: administrators who configure agent parameters and thresholds, supervisors who review escalations and feedback loops, and platform owners who manage the agent governance framework. We also provide a 90-day hypercare period post-launch where our team actively monitors agent performance and tunes behaviour before handing full ownership to your team."
   },
   {
     question: "How does generative AI enhance traditional ServiceNow workflows?",
-    answer: "Generative AI adds content creation, code generation, insight synthesis, and natural language processing — enabling automated reports, intelligent responses, code assistance, and dynamic content within ServiceNow workflows."
+    answer: "The highest-impact use cases are automated incident summarisation (agents read ticket history and generate a structured handoff note), knowledge article creation from resolved cases (agents draft articles that admins review and publish), and intelligent approval routing (agents analyse request context and route to the appropriate approver based on policy, not just category). All outputs are human-reviewable before they affect downstream systems."
   }
 ];
 
@@ -259,72 +259,86 @@ export default function SmartAutomationAgenticAI() {
         {/* ── HERO ── */}
         <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
           <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%, rgba(124,58,237,0.25) 0%, transparent 65%)' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 90% 60% at 50% -5%, rgba(124,58,237,0.28) 0%, transparent 60%)' }} />
 
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
-            {/* Eyebrow */}
-            <div className="flex items-center gap-3 mb-8">
+          {/* Centered headline block */}
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-20 pb-0 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <span className="inline-block w-8 h-px bg-violet-500" />
               <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">Agentic AI &amp; Automation</span>
+              <span className="inline-block w-8 h-px bg-violet-500" />
+            </div>
+            <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/25 rounded-full px-4 py-2 text-violet-300 text-sm mb-8">
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              500+ AI Agents live in production — right now
+            </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] tracking-tight mb-6">
+              Agents that{' '}
+              <span style={{ background: 'linear-gradient(90deg,#c4b5fd,#a78bfa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                think, decide, act.
+              </span>
+            </h1>
+            <p className="text-lg sm:text-xl text-slate-400 leading-relaxed mb-8 max-w-2xl mx-auto">
+              Deploy agentic and generative AI on ServiceNow in{' '}
+              <span className="text-violet-300 font-semibold">12–16 weeks</span>.
+              Autonomous agents that handle complex reasoning and action — so your teams stay focused on strategy.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center mb-14">
+              <a href="/get-started"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
+                style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', boxShadow: '0 8px 24px rgba(124,58,237,0.35)' }}
+              >
+                Deploy Your AI Agents <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="/company/case-studies-client-success"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-violet-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm sm:text-base"
+              >
+                See AI in Action
+              </a>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-12 items-start mb-10 sm:mb-12">
-              {/* Left — headline + CTAs */}
-              <div>
-                <div className="inline-flex items-center gap-2 bg-violet-500/10 border border-violet-500/25 rounded-full px-4 py-2 text-violet-300 text-sm mb-6">
-                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  500+ AI Agents running in production now
-                </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-                  AI that thinks.{' '}
-                  <span style={{ background: 'linear-gradient(90deg,#a78bfa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                    Acts autonomously.
-                  </span>
-                </h1>
-                <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-lg">
-                  Deploy agentic AI and generative AI on ServiceNow in{' '}
-                  <span className="text-violet-300 font-semibold">12–16 weeks</span>.
-                  Autonomous agents that reason, decide, and act — so your teams focus on what matters.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <a href="/get-started"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
-                    style={{ background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', boxShadow: '0 8px 24px rgba(124,58,237,0.35)' }}
-                  >
-                    Deploy Your AI Agents <ArrowRight className="h-4 w-4" />
-                  </a>
-                  <a href="/company/case-studies-client-success"
-                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-violet-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm sm:text-base"
-                  >
-                    See AI in Action
-                  </a>
-                </div>
+            {/* Full-width terminal */}
+            <div className="bg-[#080815] border border-white/10 rounded-2xl overflow-hidden text-left" style={{ boxShadow: '0 0 100px rgba(124,58,237,0.18), 0 40px 80px rgba(0,0,0,0.6)' }}>
+              <div className="flex items-center gap-2 px-5 py-3 border-b border-white/8 bg-white/[0.015]">
+                <div className="w-3 h-3 rounded-full bg-red-500/70" />
+                <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
+                <div className="w-3 h-3 rounded-full bg-green-500/70" />
+                <span className="ml-3 text-gray-500 text-xs font-mono">ifbash — agent-orchestrator — live</span>
+                <span className="ml-auto flex items-center gap-1.5 text-xs font-mono text-green-400">
+                  <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />4 agents active · 0 failures
+                </span>
               </div>
-
-              {/* Right — terminal */}
-              <div className="bg-[#0d0d1f] border border-white/10 rounded-2xl overflow-hidden" style={{ boxShadow: '0 0 60px rgba(124,58,237,0.12)' }}>
-                <div className="flex items-center gap-2 px-5 py-3 border-b border-white/8 bg-white/[0.02]">
-                  <div className="w-3 h-3 rounded-full bg-red-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                  <div className="w-3 h-3 rounded-full bg-green-500/70" />
-                  <span className="ml-2 text-gray-500 text-xs font-mono">ifbash — agent-orchestrator — live</span>
-                </div>
-                <div className="px-5 py-5 space-y-3 font-mono text-xs sm:text-sm">
+              <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/5">
+                <div className="px-6 py-6 space-y-3 font-mono text-xs sm:text-sm">
                   {logLines.map((line, i) => (
                     <p key={i} className={line.color}>{line.text}</p>
                   ))}
-                  <p className="text-gray-600 animate-pulse">█</p>
+                  <p className="text-slate-600 animate-pulse">█</p>
                 </div>
-                <div className="px-5 py-3 border-t border-white/8 flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs text-slate-500 font-mono">All agents nominal · Last sync 0.4 s ago</span>
+                <div className="px-6 py-6 grid grid-cols-2 gap-3">
+                  {[
+                    { label: 'Tickets auto-resolved', value: '14,302', color: 'text-green-400', note: 'today' },
+                    { label: 'Fraud signals caught', value: '847', color: 'text-violet-400', note: 'this week' },
+                    { label: 'Compliance cycles', value: '3,219', color: 'text-blue-400', note: 'running' },
+                    { label: 'Human escalations', value: '12', color: 'text-yellow-400', note: 'needed' },
+                  ].map((m, i) => (
+                    <div key={i} className="rounded-xl p-4 border border-white/6" style={{ background: 'rgba(124,58,237,0.06)' }}>
+                      <div className={`text-xl font-bold font-mono ${m.color}`}>{m.value}</div>
+                      <div className="text-[10px] text-slate-500 mt-1 leading-tight">{m.label}</div>
+                      <div className={`text-[10px] ${m.color} opacity-50`}>{m.note}</div>
+                    </div>
+                  ))}
                 </div>
+              </div>
+              <div className="px-5 py-3 border-t border-white/8 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                <span className="text-xs text-slate-500 font-mono">All agents nominal · Last sync 0.4 s ago · monitoring 500+ production agents</span>
               </div>
             </div>
           </div>
 
           {/* Stats bar */}
-          <div className="border-t border-white/8">
+          <div className="mt-12 border-t border-white/8">
             <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/8">
                 {aiStats.map((stat, i) => (
@@ -349,12 +363,36 @@ export default function SmartAutomationAgenticAI() {
                 <span className="text-violet-400 text-sm font-semibold tracking-widest uppercase">What We Build</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight max-w-2xl">
-                Six AI disciplines.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">One unified platform.</span>
+                Every AI discipline.{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-indigo-400">One unified intelligence.</span>
               </h2>
             </div>
+
+            {/* Orchestration Hub — featured card */}
+            <div className="rounded-2xl p-7 border border-violet-500/25 mb-6 relative overflow-hidden" style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.14), rgba(79,70,229,0.07))' }}>
+              <div className="absolute top-0 right-0 w-72 h-72 opacity-10 pointer-events-none" style={{ background: 'radial-gradient(circle, #7c3aed, transparent 70%)' }} />
+              <div className="grid md:grid-cols-2 gap-8 items-center relative z-10">
+                <div>
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-10 h-10 rounded-xl bg-violet-500/25 flex items-center justify-center shrink-0">
+                      <Network className="h-5 w-5 text-violet-400" />
+                    </div>
+                    <span className="text-xs font-bold text-violet-400 uppercase tracking-widest">Core Platform Capability</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-2">AI Agent Orchestration</h3>
+                  <p className="text-slate-400 text-sm leading-relaxed">The central nervous system of your AI operation. Multiple specialised agents — each reasoning independently — coordinated in real time across your enterprise to handle complex, multi-step workflows without human intervention.</p>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                  {['Multi-agent coordination', 'Cross-system integration', 'Real-time reasoning', 'Autonomous decisions', 'Audit & governance', 'Adaptive learning'].map((cap, i) => (
+                    <div key={i} className="rounded-lg px-3 py-2 text-xs text-violet-300 text-center border border-violet-500/20" style={{ background: 'rgba(124,58,237,0.08)' }}>{cap}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* 5 supporting capabilities */}
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
-              {aiServices.map((service, index) => (
+              {aiServices.filter(s => s.title !== 'AI Agent Orchestration').map((service, index) => (
                 <div key={index} className="group rounded-2xl p-6 border border-white/8 hover:border-violet-500/40 transition-all duration-200 hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)' }}>
                   <div className="w-11 h-11 rounded-xl bg-violet-500/15 group-hover:bg-violet-500/25 flex items-center justify-center mb-4 transition-colors shrink-0">
                     <service.icon className="h-5 w-5 text-violet-400" />
@@ -373,23 +411,28 @@ export default function SmartAutomationAgenticAI() {
               ))}
             </div>
 
-            {/* Capability stats */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-12 border-t border-white/8">
-              {[
-                { icon: Bot, stat: '500+ AI Agents', title: 'Deployed in Production', desc: 'Autonomous agents working across industries solving complex business challenges' },
-                { icon: Zap, stat: '234% Improvement', title: 'Process Efficiency', desc: 'Average efficiency gain through intelligent automation across client deployments' },
-                { icon: Target, stat: '97.3% Accuracy', title: 'AI Model Accuracy', desc: 'Average accuracy across deployed generative AI and agentic AI solutions' },
-                { icon: TrendingUp, stat: '12 Weeks', title: 'Avg ROI Timeline', desc: 'Average time to achieve positive ROI from AI automation implementations' },
-              ].map((item, index) => (
-                <div key={index} className="group rounded-2xl p-6 border border-white/8 hover:border-violet-500/30 transition-all" style={{ background: 'rgba(255,255,255,0.03)' }}>
-                  <div className="w-10 h-10 rounded-xl bg-violet-500/15 group-hover:bg-violet-500/25 flex items-center justify-center mb-4 transition-colors">
-                    <item.icon className="h-5 w-5 text-violet-400" />
-                  </div>
-                  <div className="text-2xl font-bold text-violet-400 mb-1">{item.stat}</div>
-                  <h3 className="font-semibold text-white text-sm mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{item.desc}</p>
+            {/* Live agent activity strip */}
+            <div className="rounded-2xl border border-white/8 overflow-hidden mb-0" style={{ background: 'rgba(255,255,255,0.03)' }}>
+              <div className="px-6 py-4 border-b border-white/8 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  <span className="text-sm font-semibold text-white">Agents running right now across client environments</span>
                 </div>
-              ))}
+                <span className="text-xs text-slate-500 font-mono">live</span>
+              </div>
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/8">
+                {[
+                  { label: 'Tickets auto-resolved today', value: '14,302', color: 'text-green-400' },
+                  { label: 'Fraud signals flagged', value: '847', color: 'text-violet-400' },
+                  { label: 'Compliance checks run', value: '3,219', color: 'text-blue-400' },
+                  { label: 'Human escalations needed', value: '12', color: 'text-yellow-400' },
+                ].map((item, i) => (
+                  <div key={i} className="px-6 py-5 text-center">
+                    <div className={`text-2xl font-bold font-mono ${item.color} mb-1`}>{item.value}</div>
+                    <div className="text-xs text-slate-500 leading-tight">{item.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>

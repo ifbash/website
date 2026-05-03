@@ -245,14 +245,12 @@ export function Header() {
           <div className="flex items-center gap-0 flex-wrap justify-center">
             {[
               "AI-First ServiceNow Enabler",
-              "1,500+ Implementations",
-              "73-Day Average Go-Live",
-              "180% Average ROI",
-              "50+ Certified Experts",
+              "100's of Implementations",
+              "100+ Certified Experts"
             ].map((item, i) => (
               <React.Fragment key={item}>
                 <span className="text-xs text-slate-400 font-medium px-3 whitespace-nowrap">{item}</span>
-                {i < 4 && <span className="text-slate-700 text-xs select-none">✦</span>}
+                {i < 2 && <span className="text-slate-700 text-xs select-none">✦</span>}
               </React.Fragment>
             ))}
           </div>

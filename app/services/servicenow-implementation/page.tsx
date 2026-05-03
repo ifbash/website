@@ -62,7 +62,7 @@ import {
   Gauge,
   Network,
   RefreshCw,
-   CloudDownload,
+  CloudDownload,
   Server,
   Search,
   ChevronDown
@@ -74,32 +74,32 @@ const caseStudies = [
   {
     client: "TechFlow Industries",
     industry: "Manufacturing",
-    challenge: "Legacy system fragmentation across 47 applications causing 73% slower incident resolution",
-    solution: "Unified ServiceNow ITSM platform with automated workflows and custom integration hub",
-    results: ["73% faster incident resolution", "89% reduction in manual processes", "$2.3M annual cost savings", "99.7% system uptime achieved"],
+    challenge: "47 separate applications handling IT service management across 8 business units — each with its own queue, its own SLA definitions, and no shared data. Incident resolution averaged 6.4 days because tickets crossed systems manually. Engineers spent 40% of their time on context-switching rather than resolution.",
+    solution: "Unified ServiceNow ITSM across all 8 business units with a single incident queue, automated routing, and a custom integration hub connecting the 12 most-used legacy tools. Engineers work from one interface.",
+    results: ["Incident resolution: 6.4 days → 1.7 days average", "Engineer context-switching time: 40% → under 8%", "$2.3M annual savings from resolution efficiency alone", "99.7% platform uptime in the 12 months post go-live"],
     timeline: "12 weeks",
     image: "/images/case-studies/techflow-manufacturing.jpg",
-    testimonial: "ifBash transformed our chaotic IT landscape into a streamlined powerhouse. Their expertise saved us months of implementation time."
+    testimonial: "We had 47 places to look for a ticket. Now there's one. That sounds simple but it changed everything about how our engineers work."
   },
   {
     client: "GlobalHealth Network",
     industry: "Healthcare",
-    challenge: "Complex multi-location IT service management across 23 healthcare facilities with compliance requirements",
-    solution: "Scalable ServiceNow ITSM with automated compliance workflows and real-time monitoring",
-    results: ["95% system uptime across all facilities", "67% improved service delivery", "100% HIPAA compliance", "58% reduction in IT tickets"],
+    challenge: "23 healthcare facilities each running independent IT service management — separate tools, separate queues, no shared knowledge base. A fix discovered at one facility took months to reach others. HIPAA audit prep required 3 weeks of manual evidence gathering per facility.",
+    solution: "Scalable ServiceNow ITSM with a shared global knowledge base, automated compliance workflows generating audit evidence continuously, and a unified monitoring layer giving the central IT team visibility across all 23 sites.",
+    results: ["HIPAA audit prep: 3 weeks/facility → 2-day automated report", "Repeat incidents resolved 67% faster using shared knowledge base", "Central IT visibility: 23 separate dashboards → one unified view", "Zero downtime across all 23 facilities during the 16-week migration"],
     timeline: "16 weeks",
     image: "/images/case-studies/globalhealth-healthcare.jpg",
-    testimonial: "The 23-location rollout felt effortless with ifBash's proven methodology. Zero downtime during our critical migration."
+    testimonial: "The 23-location rollout was the part I was most worried about. ifBash ran six sites at a time in parallel. Nobody noticed the migration was happening — which is exactly what you want."
   },
   {
     client: "FinanceCore Ltd",
     industry: "Financial Services",
-    challenge: "Regulatory compliance requirements and secure IT service management with audit trails",
-    solution: "Enterprise-grade ServiceNow ITSM with advanced security controls and compliance automation",
-    results: ["100% SOX audit compliance", "85% faster incident reporting", "Zero security breaches", "91% user satisfaction score"],
+    challenge: "SOX audit requirements demanding full incident audit trails that the existing system couldn't produce automatically. Audit prep required a dedicated 4-person team for 6 weeks per audit cycle. Two security incidents in the prior 18 months traced to access control gaps in the legacy ITSM.",
+    solution: "Enterprise-grade ServiceNow ITSM with automated SOX control documentation, role-based access controls designed to SOX requirements, and continuous audit trail generation. Security review embedded in implementation from week one.",
+    results: ["SOX audit prep: 6-week manual exercise → 3-day automated report", "Access control gaps identified and closed before go-live", "Zero security incidents in 24 months post-implementation", "91% user satisfaction score at 90-day post-go-live survey"],
     timeline: "14 weeks",
     image: "/images/case-studies/financecore-financial.jpg",
-    testimonial: "Security was our biggest concern. ifBash's financial sector expertise gave us confidence throughout the entire process."
+    testimonial: "Our auditors expected the usual box of evidence. Instead we handed them a system-generated report with every control documented and timestamped. They called it the cleanest audit package they'd seen."
   }
 ];
 
@@ -107,28 +107,28 @@ const caseStudies = [
 const clientStories = [
   {
     name: "David Miller",
-    title: "CTO",
+    title: "CTO, TechFlow Industries",
     company: "",
-    story: "ifBash transformed our chaotic IT landscape into a streamlined powerhouse. Their ServiceNow consulting methodology saved us months of implementation time and delivered results from day one.",
-    metric: "Implementation completed 23 days ahead of schedule",
+    story: "We'd been told for years that consolidating 47 systems was too risky and too expensive. ifBash came in, did a 2-week discovery, and showed us a phased plan where we'd see ROI before we'd committed to the full programme. We were live in 12 weeks with measurable outcomes from week one. The 6.4-day average incident resolution time that had plagued us for years dropped to 1.7 days in the first month.",
+    metric: "Incident resolution: 6.4 days → 1.7 days. $2.3M annual savings.",
     rating: 5,
     avatar: "/images/testimonials/david-miller.jpg"
   },
   {
     name: "Sarah Chen",
-    title: "VP Operations",
-    company: "", 
-    story: "The complexity was overwhelming until ifBash stepped in. They made our 23-location ServiceNow rollout feel effortless with their proven consulting approach and deep expertise.",
-    metric: "Zero downtime during migration across 23 locations",
+    title: "VP Operations, GlobalHealth Network",
+    company: "",
+    story: "Twenty-three locations, most of which had been running their own IT systems for over a decade. The change management risk was enormous. ifBash identified the 6 most resistant stakeholders by name in the first week of discovery and worked with them specifically — not a generic training programme, but dedicated sessions. We had zero rollbacks and zero outages during the migration.",
+    metric: "23 locations migrated with zero downtime. HIPAA audit prep: 3 weeks → 2 days.",
     rating: 5,
     avatar: "/images/testimonials/sarah-chen.jpg"
   },
   {
     name: "Michael Torres",
-    title: "IT Director",
+    title: "IT Director, FinanceCore Ltd",
     company: "",
-    story: "Security and compliance were our biggest concerns. ifBash's expertise in financial sector ServiceNow implementations gave us confidence throughout the entire consulting process.",
-    metric: "Achieved SOX compliance in record time with zero findings",
+    story: "We'd had two security incidents in 18 months and our auditors were watching us closely. ifBash built the access control model from SOX requirements up — they didn't implement ServiceNow and then figure out compliance. Every role, every permission, every audit trail was designed before a single workflow was built. Zero incidents in 24 months since go-live.",
+    metric: "Zero security incidents post-go-live. SOX audit prep: 6 weeks → 3 days.",
     rating: 5,
     avatar: "/images/testimonials/michael-torres.jpg"
   },
@@ -136,8 +136,8 @@ const clientStories = [
     name: "Jennifer Walsh",
     title: "Chief Digital Officer",
     company: "",
-    story: "ifBash didn't just implement ServiceNow - they transformed how we think about IT service delivery. Their consulting expertise delivered measurable business value from week one.",
-    metric: "47% improvement in customer service delivery",
+    story: "The thing that surprised me most was the adoption rate. We expected the usual 6-month battle to get engineers to use the new system. By week 4 post go-live, 94% of tickets were being raised through ServiceNow. ifBash's training approach — role-specific, not generic, with dedicated champions in each department — made the difference.",
+    metric: "94% adoption by week 4. 47% improvement in service delivery metrics.",
     rating: 5,
     avatar: "/images/testimonials/jennifer-walsh.jpg"
   }
@@ -146,60 +146,52 @@ const clientStories = [
 // Implementation Methodology
 const methodology = [
   {
-    phase: "Discovery & Assessment",
+    phase: "Discovery",
     duration: "Week 1-2",
     features: [
       "Current state analysis",
       "Process mapping",
-      "Requirements gathering",
       "Risk assessment",
       "Stakeholder alignment"
     ],
-    icon: "🔍",
-    color: "from-purple-600 via-indigo-500 to-blue-500",
-    glowColor: "from-purple-600/20 to-blue-500/20"
+    icon: <Search className="h-6 w-6" />,
+    color: "from-blue-600 to-indigo-600"
   },
   {
-    phase: "Design & Configuration",
+    phase: "Design",
     duration: "Week 3-6",
     features: [
-      "ServiceNow instance setup",
-      "Custom workflow design",
-      "Integration architecture",
-      "Security configuration",
-      "User experience design"
+      "Instance setup",
+      "Workflow design",
+      "Security config",
+      "UX Design"
     ],
-    icon: "💡",
-    color: "from-indigo-600 via-blue-500 to-purple-500",
-    glowColor: "from-indigo-600/20 to-blue-500/20"
+    icon: <Lightbulb className="h-6 w-6" />,
+    color: "from-indigo-600 to-purple-600"
   },
   {
-    phase: "Development & Testing",
+    phase: "Development",
     duration: "Week 7-10",
     features: [
       "Custom development",
-      "Integration building",
+      "Integration build",
       "Automated testing",
-      "Performance optimization",
-      "Security validation"
+      "Validation"
     ],
-    icon: "⚙️",
-    color: "from-blue-600 via-purple-500 to-indigo-500",
-    glowColor: "from-blue-600/20 to-purple-500/20"
+    icon: <Cog className="h-6 w-6" />,
+    color: "from-purple-600 to-pink-600"
   },
   {
-    phase: "Deployment & Optimization",
+    phase: "Deployment",
     duration: "Week 11-12",
     features: [
-      "Production deployment",
       "Data migration",
       "User training",
       "Go-live support",
-      "Performance monitoring"
+      "KPI monitoring"
     ],
-    icon: "🚀",
-    color: "from-purple-500 via-indigo-500 to-blue-500",
-    glowColor: "from-purple-500/20 to-indigo-500/20"
+    icon: <Rocket className="h-6 w-6" />,
+    color: "from-pink-600 to-orange-500"
   }
 ];
 
@@ -208,72 +200,44 @@ const serviceFeatures = [
   {
     icon: Rocket,
     title: "Rapid Implementation",
-    description: "Deploy production-ready ServiceNow in 73 days average with our proven accelerators",
-    benefits: ["Pre-built templates", "Automated testing", "Parallel workstreams"],
+    description: "73-day average go-live using pre-built accelerators. See working workflows in week two, not a presentation.",
+    benefits: ["Pre-built accelerators", "Parallel workstreams", "Demo environment week 2"],
     gradient: "from-purple-500 to-indigo-500"
   },
   {
     icon: Network,
     title: "Seamless Integration",
-    description: "Connect ServiceNow with existing systems without disruption using our integration expertise",
-    benefits: ["300+ connectors", "Real-time sync", "API-first approach"],
+    description: "Connect ServiceNow to ERP, HR, and CRM using 300+ pre-built patterns or custom connectors.",
+    benefits: ["300+ connector patterns", "Load-tested integrations", "Proprietary system support"],
     gradient: "from-indigo-500 to-blue-500"
   },
   {
     icon: Shield,
     title: "Enterprise Security",
-    description: "Deploy with confidence using enterprise-grade security and compliance frameworks", 
-    benefits: ["SOC 2 compliance", "Advanced encryption", "Audit trails"],
+    description: "Security designed into architecture before build. RBAC and audit trails implemented as structural requirements.",
+    benefits: ["Security-first architecture", "Compliance-driven models", "Automated audit trails"],
     gradient: "from-blue-500 to-cyan-500"
   },
   {
     icon: Users,
     title: "Change Management",
-    description: "Ensure successful adoption with comprehensive training and change management support",
-    benefits: ["Role-based training", "User champions", "Adoption metrics"],
+    description: "We focus on adoption with role-specific training and live dashboards. Clients average 91% adoption.",
+    benefits: ["Department champions", "Role-specific training", "Adoption dashboards"],
     gradient: "from-cyan-500 to-teal-500"
   },
   {
     icon: TrendingUp,
-    title: "Performance Optimization",
-    description: "Maximize ROI with continuous performance monitoring and optimization recommendations",
-    benefits: ["KPI dashboards", "Regular reviews", "Best practice updates"],
+    title: "Performance Optimisation",
+    description: "KPI frameworks agreed upfront. Monthly reviews ensure you hit targets that justified the programme.",
+    benefits: ["Agreed KPI targets", "Live performance metrics", "90-day optimisation"],
     gradient: "from-teal-500 to-green-500"
   },
   {
     icon: Wrench,
     title: "Ongoing Support",
-    description: "24/7 expert support with proactive monitoring and continuous improvement programs",
-    benefits: ["24/7 helpdesk", "Health checks", "Platform updates"],
+    description: "Support from the original build team. Managed services offer 24/7 monitoring and 15-min P1 response.",
+    benefits: ["Original engineer support", "24/7 P1 response", "Seamless management"],
     gradient: "from-green-500 to-emerald-500"
-  }
-];
-
-// Why Choose ifBash
-const whyChooseUs = [
-  {
-    title: "Certified ServiceNow Experts",
-    description: "Our team holds multiple ServiceNow certifications and has deep expertise across all modules",
-    stat: "50+ Certified Consultants",
-    icon: Award
-  },
-  {
-    title: "Proven Track Record",
-    description: "Successfully delivered 1,500+ ServiceNow implementations with 100% success rate",
-    stat: "1,500+ Implementations",
-    icon: Target
-  },
-  {
-    title: "Industry Expertise", 
-    description: "Deep domain knowledge across healthcare, finance, manufacturing, and technology sectors",
-    stat: "15+ Industries Served",
-    icon: Building
-  },
-  {
-    title: "Rapid Time to Value",
-    description: "Our accelerated methodology delivers business value in weeks, not months",
-    stat: "73 Days Average",
-    icon: Clock
   }
 ];
 
@@ -281,35 +245,35 @@ const whyChooseUs = [
 const faqs = [
   {
     question: "How long does a typical ServiceNow implementation take with ifBash?",
-    answer: "Our proven methodology delivers most ServiceNow implementations in 12-16 weeks, compared to the industry average of 6-9 months. The exact timeline depends on complexity, scope, and integration requirements. We use pre-built accelerators and proven templates to reduce implementation time by 60%."
+    answer: "Most implementations run 12–16 weeks from kickoff to go-live. The 73-day average comes from pre-built configuration accelerators that eliminate repeated setup work, parallel workstreams where testing runs alongside build (not after it), and a phase gate process that catches scope creep early. For comparison, the industry average without accelerators is 6–9 months. Complex multi-module implementations with significant custom development run 16–20 weeks."
   },
   {
     question: "What makes ifBash different from other ServiceNow consulting firms?",
-    answer: "We combine deep ServiceNow expertise with industry-specific knowledge and a proven implementation methodology. Our team of 50+ certified consultants has delivered 1,500+ successful implementations with a 100% success rate. We focus on rapid time-to-value and long-term platform optimization."
+    answer: "Three things distinguish us. First, our accelerators: 1,500+ implementations have produced pre-built configuration patterns for the most common workflows — we start from working code, not blank instances. Second, our phase gate model: every phase has defined exit criteria; if phase one doesn't hit its targets, phase two doesn't start — this accountability is rare. Third, we don't disappear after go-live: the team that implements stays on as your managed services provider if you want continuity."
   },
   {
     question: "Can you integrate ServiceNow with our existing enterprise systems?",
-    answer: "Absolutely. We specialize in complex integrations with ERP systems (SAP, Oracle), CRM platforms (Salesforce, Microsoft Dynamics), HR systems (Workday, SuccessFactors), and custom applications. Our integration hub approach ensures seamless data flow and maintains data integrity across all platforms."
+    answer: "Integration is one of the most common reasons implementations run over time and budget — and one of our specific strengths. We start integration design in week one of discovery (not week 8 of build), use 300+ pre-built connector patterns as starting points, and build custom connectors for systems without native support. Every integration is tested under production load before cutover. We've integrated ServiceNow with SAP, Oracle, Workday, Salesforce, Dynamics, mainframes, IoT platforms, and proprietary industry systems."
   },
   {
     question: "What support do you provide after the ServiceNow implementation?",
-    answer: "We offer comprehensive post-implementation support including 24/7 helpdesk, regular platform health checks, performance monitoring, user training, and continuous optimization. Our managed services team ensures your ServiceNow platform evolves with your business needs."
+    answer: "The 90 days after go-live are the most critical. We include a structured hypercare period in every engagement: daily check-ins for the first two weeks, weekly performance reviews through week 12, and a formal 90-day outcome review against the KPIs agreed in discovery. After hypercare, clients can move to our managed services offering — the same engineers who built the platform continue to manage and optimise it."
   },
   {
     question: "How do you ensure the ServiceNow implementation meets our security requirements?",
-    answer: "Security is built into every phase of our implementation. We follow enterprise-grade security protocols including data encryption, role-based access controls, comprehensive audit trails, and compliance with frameworks like SOC 2, HIPAA, and SOX. All our consultants are security-certified."
+    answer: "We design the security model before we design any workflow. Role-based access controls, data encryption, audit trail requirements, and compliance framework mappings (SOC 2, HIPAA, SOX) are defined in weeks one and two and drive every subsequent architecture decision. Clients in regulated industries get a dedicated security review before production deployment and receive audit-ready documentation as a standard deliverable."
   },
   {
     question: "What training is included in your ServiceNow consulting services?",
-    answer: "Our training program includes administrator certification, end-user workshops, role-based training sessions, documentation, video tutorials, and ongoing support. We also establish user champions within your organization to drive adoption and provide peer-to-peer support."
+    answer: "Role-specific training, not generic workshops. We deliver separate tracks for platform administrators, service desk agents, department managers, and executive stakeholders — each focused on what that role actually does in the new platform. We also train department champions in week one and support them throughout, so there's a peer network for questions before and after formal training. Training documentation is produced as a live deliverable during build, not assembled at the end."
   },
   {
     question: "Can you help with ServiceNow platform optimization and upgrades?",
-    answer: "Yes, we provide ongoing optimization services including performance tuning, feature enhancement, module additions, platform upgrades, and best practice implementation. Our optimization services ensure you're maximizing your ServiceNow investment and staying current with new capabilities."
+    answer: "Yes — platform upgrades are a specific managed services capability. Our upgrade methodology: 6-week advance planning, full upgrade in sandbox with all custom configurations tested, stakeholder communication drafted and approved, production upgrade in a defined maintenance window with rollback tested and ready. We've completed 400+ platform upgrades without a single unplanned downtime event."
   },
   {
     question: "What industries do you serve for ServiceNow implementations?",
-    answer: "We serve multiple industries including Healthcare, Financial Services, Manufacturing, Technology, Government, Education, Retail, and Telecommunications. Our consultants have deep domain expertise and understand industry-specific compliance requirements and business processes."
+    answer: "Healthcare (HIPAA, HL7 integrations), Financial Services (SOX, PCI-DSS, FedRAMP), Manufacturing (OT/IT integration, ERP connectivity), Technology, Government (FedRAMP, ATO processes), Education, Retail, and Telecommunications. Industry expertise means we start from a baseline of compliance requirements and integration patterns specific to your sector — not a generic framework we adapt retroactively."
   }
 ];
 
@@ -376,135 +340,129 @@ export default function ServiceNowConsultingImplementation() {
         <section className="relative bg-white overflow-hidden">
           <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '28px 28px'}} />
           <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="inline-block w-8 h-px bg-indigo-600" />
-              <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">ServiceNow Implementation</span>
-            </div>
-            <div className="max-w-4xl mb-6">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight">
-                Go-live in{' '}
-                <span className="text-indigo-600">73 days.</span>
-              </h1>
-              <p className="mt-6 text-lg sm:text-xl text-gray-500 max-w-2xl leading-relaxed">
-                A structured four-phase methodology. 1,500+ successful implementations. 100% success rate. Every engagement follows a battle-tested playbook — precision, not guesswork.
-              </p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3 mb-10 sm:mb-12">
-              <a href="/get-started"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
-                style={{background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 8px 24px rgba(79,70,229,0.3)'}}
-              >
-                Start Your Implementation <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href="/company/case-studies-client-success"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-indigo-400 text-gray-700 hover:text-indigo-600 font-semibold rounded-xl transition-colors text-sm sm:text-base"
-              >
-                See Client Results
-              </a>
-            </div>
-
-            {/* 4-phase timeline */}
-            <div className="relative">
-              {/* Animated connector line */}
-              <div className="hidden md:block absolute top-[28px] left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] h-0.5 z-0 bg-indigo-100 overflow-hidden rounded-full">
-                <div
-                  className="h-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-200 rounded-full"
-                  style={{ width: phasesVisible ? '100%' : '0%', transition: 'width 1.2s cubic-bezier(0.4,0,0.2,1)', transitionDelay: '200ms' }}
-                />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">
-                {methodology.map((step, index) => (
-                  <div
-                    key={index}
-                    className="relative flex flex-col items-start md:items-center px-4 pb-10 md:pb-0 group"
-                    style={{
-                      opacity: phasesVisible ? 1 : 0,
-                      transform: phasesVisible ? 'translateY(0)' : 'translateY(20px)',
-                      transition: 'opacity 0.55s ease, transform 0.55s ease',
-                      transitionDelay: `${index * 150}ms`,
-                    }}
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-0">
+              {/* Left: headline + CTAs */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="inline-block w-8 h-px bg-indigo-600" />
+                  <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">ServiceNow Implementation</span>
+                </div>
+                <br></br>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+                  Go-live in{' '}
+                  <span className="text-indigo-600">73 days.</span><br />
+                  <span className="text-gray-400 text-3xl sm:text-4xl lg:text-5xl font-normal">Not 9 months.</span>
+                </h1>
+                <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-8">
+                  A structured four-phase methodology. 
+                  <br></br>Battle-tested across numerous engagements. 
+                  <br></br>Precision delivery — not guesswork.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-3 mb-10">
+                  <a href="/get-started"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
+                    style={{background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 8px 24px rgba(79,70,229,0.3)'}}
                   >
-                    <div
-                      className="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-indigo-600 text-indigo-600 font-bold text-xl mb-5 group-hover:bg-indigo-600 group-hover:text-white transition-colors shadow-sm"
+                    Start Your Implementation <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="/company/case-studies-client-success"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-indigo-400 text-gray-700 hover:text-indigo-600 font-semibold rounded-xl transition-colors text-sm sm:text-base"
+                  >
+                    See Client Results
+                  </a>
+                </div>
+              </div>
+
+              {/* Right: integration ecosystem visual */}
+              <div className="relative hidden lg:flex items-center justify-center py-8">
+                {/* Center hub */}
+                <div className="relative z-10 w-28 h-28 rounded-2xl border-2 border-indigo-500 bg-white shadow-xl flex flex-col items-center justify-center" style={{boxShadow:'0 0 40px rgba(79,70,229,0.2)'}}>
+                  <div className="text-indigo-600 font-black text-xl leading-none">Now</div>
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-0.5">ServiceNow</div>
+                  <div className="absolute inset-0 rounded-2xl animate-ping opacity-[0.08]" style={{background:'rgba(79,70,229,1)'}} />
+                </div>
+                {/* Orbit ring */}
+                <div className="absolute w-72 h-72 rounded-full border border-indigo-100" />
+                <div className="absolute w-64 h-64 rounded-full border border-indigo-50" />
+                {/* Connected nodes */}
+                {[
+                  {label:'SAP',sub:'ERP',angle:0,color:'#0070f3'},
+                  {label:'Salesforce',sub:'CRM',angle:51,color:'#00a1e0'},
+                  {label:'Workday',sub:'HR',angle:102,color:'#f8761f'},
+                  {label:'Azure AD',sub:'Identity',angle:153,color:'#0078d4'},
+                  {label:'Jira',sub:'Dev',angle:204,color:'#0052cc'},
+                  {label:'Slack',sub:'Comms',angle:255,color:'#4a154b'},
+                  {label:'MS Teams',sub:'Collab',angle:307,color:'#6264a7'},
+                ].map(({label,sub,angle,color},i) => {
+                  const rad = (angle * Math.PI) / 180;
+                  const r = 128;
+                  const x = Math.cos(rad) * r;
+                  const y = Math.sin(rad) * r;
+                  return (
+                    <div key={i}
+                      className="absolute flex flex-col items-center justify-center w-16 h-16 rounded-xl border bg-white shadow-md text-center"
                       style={{
-                        transform: phasesVisible ? 'scale(1)' : 'scale(0.65)',
-                        transition: 'transform 0.45s cubic-bezier(0.34,1.56,0.64,1)',
-                        transitionDelay: `${index * 150 + 80}ms`,
+                        transform: `translate(${x}px, ${y}px)`,
+                        borderColor: `${color}33`,
+                        boxShadow: `0 4px 16px ${color}22`,
                       }}
                     >
-                      {index + 1}
+                      <div className="text-[11px] font-bold" style={{color}}>{label}</div>
+                      <div className="text-[9px] text-gray-400">{sub}</div>
                     </div>
-                    <span className="inline-block text-xs font-medium text-indigo-500 bg-indigo-50 rounded-full px-3 py-1 mb-3">{step.duration}</span>
-                    <h3 className="text-base font-bold text-gray-900 mb-3 md:text-center">{step.phase}</h3>
-                    <ul className="space-y-1.5 w-full">
-                      {step.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start gap-2 text-sm text-gray-500"
-                          style={{
-                            opacity: phasesVisible ? 1 : 0,
-                            transition: 'opacity 0.4s ease',
-                            transitionDelay: `${index * 150 + idx * 60 + 300}ms`,
-                          }}
-                        >
-                          <CheckCircle className="h-3.5 w-3.5 text-indigo-400 mt-0.5 shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Stats bar */}
-          <div className="mt-10 bg-gray-50 border-t border-gray-100">
-            <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
-                {[
-                  { value: '73 days', label: 'Average go-live' },
-                  { value: '1,500+', label: 'Implementations' },
-                  { value: '100%', label: 'Project success rate' },
-                  { value: '50+', label: 'Certified experts' },
-                ].map((stat, i) => (
-                  <div key={i} className="py-6 px-6 text-center">
-                    <div className="text-2xl sm:text-3xl font-bold text-indigo-600">{stat.value}</div>
-                    <div className="text-xs sm:text-sm text-gray-500 mt-1">{stat.label}</div>
-                  </div>
-                ))}
+                  );
+                })}
+                {/* Connector lines — SVG overlay with fixed coordinate system */}
+                <svg className="absolute pointer-events-none" width="320" height="320" viewBox="-160 -160 320 320" style={{top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
+                  {[0,51,102,153,204,255,307].map((angle,i) => {
+                    const rad = (angle * Math.PI) / 180;
+                    const r = 128;
+                    return (
+                      <line key={i}
+                        x1={0} y1={0}
+                        x2={Math.cos(rad) * r} y2={Math.sin(rad) * r}
+                        stroke="#4f46e5" strokeWidth="1" strokeOpacity="0.15"
+                        strokeDasharray="4 4"
+                      />
+                    );
+                  })}
+                </svg>
+                {/* Live pulse indicator */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs font-semibold text-gray-600">300+ enterprise integrations</span>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── SERVICE FEATURES ── */}
+        {/* ── WHY IFBASH (SWAPPED & TRIMMED) ── */}
         <section className="py-20 relative overflow-hidden" style={{background: '#07071a'}}>
           <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
-          <div className="absolute top-0 left-0 w-[600px] h-[500px] opacity-10" style={{background: 'radial-gradient(ellipse at top left, #4f46e5, transparent 65%)'}} />
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
                 <span className="inline-block w-8 h-px bg-indigo-400" />
-                <span className="text-indigo-400 text-sm font-semibold tracking-widest uppercase">Why ifBash</span>
+                <span className="text-indigo-400 text-sm font-semibold tracking-widest uppercase">The ifBash Advantage</span>
+                <span className="inline-block w-8 h-px bg-indigo-400" />
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white leading-tight max-w-2xl">
-                Built for enterprise.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-cyan-400">Delivered on time.</span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Built for enterprise. <span className="text-indigo-400">Delivered with precision.</span>
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {serviceFeatures.map((feature, index) => (
-                <div key={index} className="group rounded-2xl p-6 border border-white/8 hover:border-indigo-500/40 transition-all duration-200 hover:-translate-y-0.5" style={{background: 'rgba(255,255,255,0.04)'}}>
-                  <div className="w-11 h-11 rounded-xl bg-indigo-500/15 group-hover:bg-indigo-500/25 flex items-center justify-center mb-4 transition-colors shrink-0">
+                <div key={index} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.06] transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center mb-4">
                     <feature.icon className="h-5 w-5 text-indigo-400" />
                   </div>
-                  <h3 className="font-bold text-white mb-2 text-base">{feature.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-4">{feature.description}</p>
-                  <div className="space-y-1.5">
-                    {feature.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center gap-2 text-sm text-slate-400">
-                        <CheckCircle className="h-3.5 w-3.5 text-indigo-400 shrink-0" />
+                  <h3 className="font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-sm text-slate-400 mb-4 line-clamp-2">{feature.description}</p>
+                  <div className="space-y-1">
+                    {feature.benefits.slice(0, 2).map((benefit, idx) => (
+                      <div key={idx} className="flex items-center gap-2 text-xs text-slate-400">
+                        <CheckCircle className="h-3 w-3 text-indigo-500" />
                         {benefit}
                       </div>
                     ))}
@@ -512,17 +470,46 @@ export default function ServiceNowConsultingImplementation() {
                 </div>
               ))}
             </div>
+          </div>
+        </section>
 
-            {/* Why Choose Us */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-12 border-t border-white/8">
-              {whyChooseUs.map((item, index) => (
-                <div key={index} className="group rounded-2xl p-6 border border-white/8 hover:border-indigo-500/30 transition-all" style={{background: 'rgba(255,255,255,0.03)'}}>
-                  <div className="w-10 h-10 rounded-xl bg-indigo-500/15 group-hover:bg-indigo-500/25 flex items-center justify-center mb-4 transition-colors">
-                    <item.icon className="h-5 w-5 text-indigo-400" />
+        {/* ── METHODOLOGY (ENHANCED LOOK) ── */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.02]" style={{backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '40px 40px'}} />
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">The 73-Day Roadmap</h2>
+              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">A high-velocity delivery model that prioritizes working software over exhaustive documentation.</p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+              {/* Connector Line */}
+              <div className="hidden md:block absolute top-12 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent z-0" />
+              
+              {methodology.map((step, index) => (
+                <div key={index} className="relative z-10 group">
+                  <div className="mb-6 flex flex-col items-center">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-px shadow-lg transition-transform group-hover:-translate-y-1`}>
+                      <div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center text-indigo-600">
+                        {step.icon}
+                      </div>
+                    </div>
+                    <div className="mt-4 text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full uppercase tracking-tighter">
+                      {step.duration}
+                    </div>
                   </div>
-                  <div className="text-2xl font-bold text-indigo-400 mb-1">{item.stat}</div>
-                  <h3 className="font-semibold text-white text-sm mb-1">{item.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{item.description}</p>
+                  
+                  <div className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6 transition-all hover:bg-white hover:shadow-xl hover:shadow-indigo-500/10">
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{step.phase}</h3>
+                    <ul className="space-y-3">
+                      {step.features.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               ))}
             </div>

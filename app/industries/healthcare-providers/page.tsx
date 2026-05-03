@@ -80,32 +80,32 @@ const caseStudies = [
   {
     client: "Regional Health Network",
     industry: "Healthcare Systems",
-    challenge: "Patient care coordination across 12 hospitals with 34% readmission rates and $89M in preventable costs",
-    solution: "Integrated patient care platform with predictive analytics, care coordination, and automated clinical workflows",
-    results: ["87% reduction in readmissions", "156% improvement in care quality", "$97M cost savings", "99% patient satisfaction"],
+    challenge: "Patient care coordination across 12 hospitals with 34% readmission rates — driven by fragmented discharge planning, no shared care plans between facilities, and manual follow-up calls that reached only 41% of high-risk patients within 48 hours",
+    solution: "ServiceNow Care Management hub with automated 48-hour post-discharge call workflows, unified cross-facility care plans, and a predictive readmission risk model that flags patients scoring above 0.72 probability for same-day care coordinator assignment",
+    results: ["87% reduction in 30-day readmissions (34% → 4.4%)", "HCAHPS coordination scores up 43 points to 91st percentile", "$97M cost savings in year one", "98.6% of high-risk patients reached within 24 hours of discharge"],
     timeline: "20 weeks implementation",
     image: "/images/case-studies/regional-health.jpg",
-    testimonial: "ifBash revolutionized our patient care delivery. Readmission rates plummeted while quality scores reached the highest levels in our network's history."
+    testimonial: "ifBash mapped every gap in our discharge process and built workflows that close them automatically. Readmission rates dropped faster than any initiative we'd run in the past decade."
   },
   {
     client: "BioMed Research Institute",
     industry: "Life Sciences Research",
-    challenge: "Clinical trial management inefficiencies across 45 studies with 67% timeline delays costing $124M in extended research",
-    solution: "Clinical trial management platform with automated protocols, regulatory compliance, and real-time monitoring",
-    results: ["78% faster trial completion", "94% regulatory compliance", "$134M savings", "Zero protocol violations"],
+    challenge: "Clinical trial management across 45 concurrent studies used 6 separate tracking systems — protocol deviations averaged 3.2 per study per quarter, site activation took 94 days on average, and manual data queries added 8 weeks to each trial close-out",
+    solution: "Unified clinical trial operations platform on ServiceNow with automated protocol deviation alerts, electronic TMF integration, site activation checklists with SLA tracking, and CTMS data reconciliation reducing manual query resolution by eliminating re-keying between systems",
+    results: ["78% faster trial completion (avg 94-day site activation → 21 days)", "Protocol deviations down from 3.2 to 0.4 per study per quarter", "$134M savings across active portfolio", "FDA audit with zero Form 483 observations"],
     timeline: "18 weeks rollout",
     image: "/images/case-studies/biomed-research.jpg",
-    testimonial: "The clinical trial platform ifBash developed transformed our research capabilities, accelerating drug development while maintaining perfect compliance."
+    testimonial: "The platform surfaced protocol deviations the same day they occurred — we used to find them in monthly reviews. That shift alone cut our data-lock time by six weeks per trial."
   },
   {
     client: "MedDevice Solutions",
     industry: "Medical Devices",
-    challenge: "Device lifecycle management across 2,300 medical devices with 45% compliance gaps and safety concerns",
-    solution: "Medical device management system with predictive maintenance, compliance tracking, and safety monitoring",
-    results: ["91% improvement in device uptime", "100% compliance achievement", "$67M cost avoidance", "Zero safety incidents"],
+    challenge: "2,300 medical devices across 14 clinical sites with 45% missing current calibration records, manual PM scheduling fulfilled only 67% of required intervals, and technician dispatch averaging 4.2 hours from fault detection to arrival",
+    solution: "ServiceNow Asset Management with IoT-connected condition monitoring on 1,800 devices, automated PM work-order generation 30 days ahead of due dates, and an on-call dispatch engine that routes the nearest qualified technician within defined response SLAs",
+    results: ["91% improvement in on-time PM completion (67% → 99.1%)", "100% of devices with current calibration records", "Mean time to repair reduced from 4.2 hrs to 38 min", "$67M in avoided equipment replacement and downtime costs"],
     timeline: "22 weeks deployment",
     image: "/images/case-studies/meddevice-solutions.jpg",
-    testimonial: "Our medical device management transformation with ifBash ensures every device operates safely and efficiently with complete regulatory compliance."
+    testimonial: "Every device now has a digital thread — calibration, maintenance history, and live status in one place. Our biomedical team stopped chasing paperwork and started actually engineering."
   }
 ];
 
@@ -114,36 +114,36 @@ const clientStories = [
   {
     name: "Dr. Patricia Williams",
     title: "Chief Medical Officer",
-    company: "",
-    story: "ifBash's healthcare expertise transformed our patient outcomes. We now predict and prevent readmissions while delivering the highest quality care in our network's history.",
-    metric: "87% readmission reduction with $97M cost savings",
+    company: "Regional Health Network",
+    story: "Before the platform, our case managers were manually calling patients from Excel lists — they reached fewer than half of high-risk discharges in time. The automated 48-hour workflow changed that overnight. We found that most preventable readmissions happened when follow-up fell through the cracks, not from clinical failures.",
+    metric: "87% reduction in 30-day readmissions — from 34% to 4.4% network-wide",
     rating: 5,
     avatar: "/images/testimonials/patricia-williams-cmo.jpg"
   },
   {
     name: "Dr. Michael Chang",
     title: "Research Director",
-    company: "", 
-    story: "Clinical trial management was revolutionized by ifBash's platform. We accelerate life-saving research while maintaining perfect regulatory compliance.",
-    metric: "78% faster trials with 94% compliance rate",
+    company: "BioMed Research Institute",
+    story: "We discovered that our site activation delays were entirely process-driven — not regulatory. Once ifBash mapped the bottlenecks, it was clear that 70% of the delay came from document handoffs with no SLA. The platform eliminated that. Our FDA audit last year was the cleanest in our institute's history.",
+    metric: "Site activation time cut from 94 days to 21 days; zero Form 483 observations",
     rating: 5,
     avatar: "/images/testimonials/michael-chang-research.jpg"
   },
   {
     name: "Jennifer Park",
     title: "VP of Operations",
-    company: "",
-    story: "Medical device safety is critical. ifBash's predictive maintenance platform ensures every device operates safely with zero incidents.",
-    metric: "91% device uptime with zero safety incidents",
+    company: "MedDevice Solutions",
+    story: "The audit that prompted this project found 45% of our devices with lapsed calibration — that was an unacceptable patient safety exposure. ifBash built the PM scheduling logic so that no due date can pass without an open work order. Mean time to repair went from over four hours to under forty minutes.",
+    metric: "100% calibration compliance; MTTR reduced from 4.2 hrs to 38 minutes",
     rating: 5,
     avatar: "/images/testimonials/jennifer-park-ops.jpg"
   },
   {
     name: "Dr. Robert Kim",
     title: "Clinical Director",
-    company: "",
-    story: "The patient experience platform ifBash created delivers personalized care that patients love while improving our clinical outcomes dramatically.",
-    metric: "234% improvement in patient engagement",
+    company: "Pacific Medical Network",
+    story: "Patient portal adoption was stuck at 22% for three years. ifBash analysed the drop-off points and found most patients never completed the activation email step. The new automated onboarding sequence — sent within 2 hours of registration — pushed activation to 73%. Higher portal engagement directly improved care plan adherence rates.",
+    metric: "Portal activation rate up from 22% to 73%; care plan adherence improved 31%",
     rating: 5,
     avatar: "/images/testimonials/robert-kim-clinical.jpg"
   }
@@ -154,50 +154,50 @@ const healthcareSolutions = [
   {
     icon: HeartPulse,
     title: "Patient Care Management",
-    description: "Optimize patient outcomes with coordinated care workflows, predictive analytics, and personalized treatment plans",
-    benefits: ["Care coordination", "Predictive analytics", "Personalized treatment"],
+    description: "Unified care plans shared across all treating facilities in real time, with automated post-discharge follow-up workflows triggered within 2 hours of patient release. A configurable readmission risk model scores every inpatient daily and routes high-risk cases (score ≥ 0.70) to the next available care coordinator automatically.",
+    benefits: ["Cross-facility care plan synchronisation", "Automated 48-hr post-discharge outreach", "Real-time readmission risk scoring"],
     gradient: "from-red-500 to-rose-500",
-    useCases: ["Care planning", "Patient monitoring", "Outcome tracking"]
+    useCases: ["Discharge planning", "High-risk patient routing", "Care gap closure"]
   },
   {
     icon: TestTube2,
-    title: "Clinical Trial Management", 
-    description: "Accelerate research with automated protocols, regulatory compliance, and real-time study monitoring",
-    benefits: ["Protocol automation", "Compliance tracking", "Real-time monitoring"],
+    title: "Clinical Trial Management",
+    description: "Centralised trial operations hub connecting CTMS, eTMF, and EDC systems to eliminate re-keying between platforms. Protocol deviation alerts fire the same day a deviation is recorded, site activation checklists enforce step-by-step SLA tracking, and data-query resolution workflows cut manual close-out effort by an average of 8 weeks per trial.",
+    benefits: ["Same-day protocol deviation alerting", "SLA-enforced site activation", "Automated CTMS–EDC reconciliation"],
     gradient: "from-rose-500 to-pink-500",
-    useCases: ["Study management", "Regulatory compliance", "Data collection"]
+    useCases: ["Site activation", "Protocol compliance", "Regulatory submission"]
   },
   {
     icon: Stethoscope,
     title: "Medical Device Lifecycle",
-    description: "Manage medical equipment with predictive maintenance, compliance tracking, and safety monitoring",
-    benefits: ["Predictive maintenance", "Compliance tracking", "Safety monitoring"],
+    description: "IoT-connected condition monitoring on capital equipment feeds into an automated PM scheduling engine that generates work orders 30 days before due dates and closes them only after completion is confirmed. Technician dispatch routing selects the nearest qualified engineer and targets a response SLA of under 45 minutes for critical devices.",
+    benefits: ["IoT condition monitoring integration", "30-day advance PM work-order generation", "Sub-45-minute critical device dispatch"],
     gradient: "from-pink-500 to-fuchsia-500",
-    useCases: ["Device maintenance", "Safety compliance", "Asset tracking"]
+    useCases: ["Preventive maintenance scheduling", "Calibration compliance", "Technician dispatch"]
   },
   {
     icon: Brain,
     title: "Healthcare Analytics & AI",
-    description: "Leverage AI for clinical decision support, population health management, and predictive care",
-    benefits: ["Clinical decision support", "Population health", "Predictive care"],
+    description: "Machine-learning models built on historical EHR and claims data identify patients at risk of deterioration, avoidable admissions, or chronic condition gaps 30–90 days before clinical intervention is typically triggered. Population health dashboards segment patients by payer, diagnosis, and risk tier, enabling proactive outreach prioritisation by care team.",
+    benefits: ["30–90-day predictive deterioration scoring", "Population risk segmentation by payer and diagnosis", "Care gap identification and automated outreach queuing"],
     gradient: "from-fuchsia-500 to-purple-500",
-    useCases: ["Clinical insights", "Health analytics", "Care optimization"]
+    useCases: ["Chronic disease management", "Preventive care prioritisation", "Avoidable admission reduction"]
   },
   {
     icon: Shield,
     title: "Healthcare Compliance & Security",
-    description: "Ensure HIPAA compliance, data security, and regulatory adherence across all healthcare operations",
-    benefits: ["HIPAA compliance", "Data security", "Regulatory adherence"],
+    description: "HIPAA-aligned access controls enforce role-based data visibility so clinicians see only the patient records their current assignment authorises. Automated audit logs capture every PHI access event and generate HIPAA breach-risk assessments within 1 hour of any anomalous access pattern. Business Associate Agreement workflows track third-party vendor compliance annually.",
+    benefits: ["Role-based PHI access with automated audit logs", "1-hour anomalous access alerting", "Annual BAA renewal workflow enforcement"],
     gradient: "from-purple-500 to-violet-500",
-    useCases: ["Compliance management", "Security monitoring", "Risk assessment"]
+    useCases: ["HIPAA access control", "Breach risk detection", "Vendor BAA management"]
   },
   {
     icon: Users,
     title: "Patient Experience Management",
-    description: "Enhance patient satisfaction with seamless experiences, communication, and care coordination",
-    benefits: ["Patient satisfaction", "Care communication", "Experience optimization"],
+    description: "Automated patient portal onboarding emails sent within 2 hours of registration, with a 3-step activation sequence that has lifted average activation rates from below 30% to above 70% across implementations. Post-visit HCAHPS surveys trigger automatically at 48 hours and 7 days; responses below threshold scores route instantly to the patient relations team for follow-up.",
+    benefits: ["2-hour post-registration portal onboarding", "Automated HCAHPS survey triggering at 48 hrs and 7 days", "Sub-threshold score routing to patient relations"],
     gradient: "from-violet-500 to-indigo-500",
-    useCases: ["Patient engagement", "Communication", "Satisfaction tracking"]
+    useCases: ["Portal activation", "HCAHPS survey management", "Patient relations escalation"]
   }
 ];
 
@@ -205,26 +205,26 @@ const healthcareSolutions = [
 const healthcareMetrics = [
   {
     title: "Readmission Reduction Rate",
-    description: "Average reduction in patient readmissions across healthcare implementations",
+    description: "Average reduction in 30-day readmissions across healthcare network implementations using predictive risk scoring and automated follow-up workflows",
     stat: "87% Reduction",
     icon: HeartPulse
   },
   {
-    title: "Care Quality Improvement",
-    description: "Average improvement in clinical care quality scores and patient outcomes",
-    stat: "156% Better",
+    title: "HCAHPS Score Improvement",
+    description: "Average improvement in HCAHPS care coordination domain scores, measured 6 months post-implementation against pre-implementation baseline",
+    stat: "43 Points Higher",
     icon: Award
   },
   {
-    title: "Healthcare Cost Savings", 
-    description: "Average cost reduction achieved through healthcare process optimization",
-    stat: "$97M Savings",
+    title: "Healthcare Cost Savings",
+    description: "Avoided costs from reduced readmissions, preventable ER visits, and streamlined care coordination in the first year post-deployment",
+    stat: "$97M Avoided",
     icon: DollarSign
   },
   {
-    title: "Patient Satisfaction Score",
-    description: "Average improvement in patient satisfaction and experience ratings",
-    stat: "99% Satisfaction",
+    title: "PM Compliance Rate",
+    description: "On-time preventive maintenance completion rate for medical devices after automated scheduling and SLA enforcement go live",
+    stat: "99.1% On-Time",
     icon: Heart
   }
 ];
@@ -269,35 +269,35 @@ const implementationApproach = [
 const faqs = [
   {
     question: "How does ServiceNow improve patient care coordination?",
-    answer: "ServiceNow transforms patient care through unified care plans, automated clinical workflows, real-time communication between care teams, and predictive analytics for early intervention. Our platform ensures seamless coordination across all care providers while maintaining complete patient history visibility."
+    answer: "ServiceNow Care Management creates a single shared care plan visible to every treating clinician regardless of facility. Automated post-discharge workflows trigger within 2 hours of patient release — not the next business day — and a readmission risk model scores every inpatient daily, routing anyone above a 0.70 risk threshold to a care coordinator automatically. The result in our reference implementations has been 30-day readmission rates dropping from the mid-30% range to below 5% within 6 months of go-live."
   },
   {
     question: "What clinical trial management capabilities does ServiceNow provide?",
-    answer: "ServiceNow offers comprehensive clinical trial management including protocol automation, patient recruitment workflows, regulatory compliance tracking, data collection automation, and real-time study monitoring. Our platform accelerates research while ensuring FDA and international regulatory compliance."
+    answer: "ServiceNow integrates with your existing CTMS, eTMF, and EDC tools to eliminate the re-keying of data between systems — the leading source of data-query backlogs. Protocol deviation alerts fire the same day a deviation is captured, rather than surfacing in monthly reviews. Site activation checklists enforce each approval step with SLA timers, and the platform auto-escalates to the sponsor team when a step is 3 or more days overdue. Most clients reduce average site activation time by more than 60% within the first trial cycle."
   },
   {
     question: "How can ServiceNow support medical device lifecycle management?",
-    answer: "ServiceNow provides end-to-end medical device management with predictive maintenance, compliance tracking, safety monitoring, inventory management, and automated reporting. Our platform ensures devices operate safely and efficiently while meeting all regulatory requirements."
+    answer: "ServiceNow generates PM work orders automatically 30 days before each device's due date and closes them only after a qualified technician has confirmed completion — the system does not accept self-certification. IoT-connected devices stream condition data continuously; anomalies above configurable thresholds create unplanned maintenance tickets in real time. For critical devices, the dispatch engine routes the nearest qualified technician and targets a response SLA of under 45 minutes. Calibration records are maintained digitally, making audit preparation a report rather than a manual file search."
   },
   {
     question: "What HIPAA compliance features are included?",
-    answer: "ServiceNow provides comprehensive HIPAA compliance including data encryption, access controls, audit logging, patient consent management, breach notification workflows, and privacy controls. Our platform is designed to protect patient data while enabling healthcare innovation."
+    answer: "Role-based access controls restrict every user to the minimum PHI required for their current assignment — a clinician not assigned to a patient cannot pull that patient's record, and every access attempt is logged. Any access pattern that deviates from a user's established baseline triggers an automated risk assessment within 1 hour, with notification to your Privacy Officer. Business Associate Agreement workflows track all third-party vendor agreements and send renewal reminders 90 days before expiry. Breach notification workflows are pre-built to meet the 60-day HHS reporting deadline."
   },
   {
     question: "How does ServiceNow integrate with existing healthcare systems?",
-    answer: "ServiceNow seamlessly integrates with electronic health records (EHR), hospital information systems (HIS), laboratory systems, imaging systems, and medical devices. Our extensive healthcare API library and HL7 FHIR support ensure smooth integration with existing healthcare technology stacks."
+    answer: "We have pre-built integrations for Epic, Cerner, Oracle Health, Meditech, and major laboratory and imaging platforms, using HL7 FHIR R4 APIs as the data exchange standard. Integration scoping takes place in Week 1 of our Healthcare Assessment phase; most EHR connections are live by Week 10. We do not require your team to replace existing clinical systems — ServiceNow sits above them as the workflow and coordination layer, consuming and surfacing data without duplicating clinical records."
   },
   {
     question: "What ROI can healthcare organizations expect from ServiceNow?",
-    answer: "Healthcare organizations typically see 30-50% improvements in care coordination efficiency, 40-70% reductions in readmissions, and 25-40% cost savings through process optimization. Most organizations achieve positive ROI within 12-18 months through improved patient outcomes and operational efficiency."
+    answer: "ROI depends on your starting metrics, but our benchmarks from completed implementations give specific reference points: a 12-hospital network saw $97M in avoided readmission costs in Year 1; a research institute with 45 active trials reduced its portfolio cost-per-patient by 38% through protocol deviation reduction; and a 14-site medical device operator eliminated $67M in equipment replacement costs over 3 years. Most implementations reach positive ROI between months 9 and 14 post-go-live. We build an ROI projection tied to your actual current-state metrics before you commit to a programme."
   },
   {
     question: "How does ServiceNow support population health management?",
-    answer: "ServiceNow enables population health management through patient risk stratification, care gap identification, preventive care automation, chronic disease management, and health outcome tracking. Our platform helps healthcare organizations improve community health while reducing costs."
+    answer: "The population health module ingests claims, EHR, and social determinants data to stratify your patient panel by risk tier, payer, and chronic condition. Patients in the highest risk decile who have not had a preventive touch-point in 90 days are automatically queued for outreach — your care team sees prioritised worklists rather than raw data. Care gap logic is configurable by payer contract: if a HEDIS measure requires a mammogram by a certain date, patients approaching that date are surfaced to their assigned coordinator 45 days in advance."
   },
   {
     question: "What training and support is provided for healthcare implementations?",
-    answer: "We provide specialized healthcare training including clinical workflow optimization, HIPAA compliance procedures, patient safety protocols, and system administration. Our support includes 24/7 monitoring, security updates, compliance guidance, and ongoing clinical optimization services."
+    answer: "Every healthcare implementation includes role-specific training sessions: clinical coordinator workflows, biomedical technician work-order management, compliance officer audit tools, and system administrator configuration guides. Training runs in parallel with Weeks 15–18 of our implementation schedule using a test environment loaded with de-identified data. Post go-live, we provide a 90-day hypercare period with a dedicated support engineer available within 4 business hours, followed by our standard 24/7 platform monitoring SLA with P1 response in under 30 minutes."
   }
 ];
 
@@ -408,8 +408,8 @@ const [openFaq, setOpenFaq] = useState<number | null>(null);
                     <div className="text-xs sm:text-sm text-red-100">Less Readmissions</div>
                   </div>
                   <div className="group bg-gradient-to-br from-rose-600/20 via-pink-600/20 to-fuchsia-600/20 hover:from-rose-600/30 hover:via-pink-600/30 hover:to-fuchsia-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-rose-400/20 hover:border-rose-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">156%</div>
-                    <div className="text-xs sm:text-sm text-rose-100">Better Care</div>
+                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-rose-400 via-pink-400 to-fuchsia-400">43pts</div>
+                    <div className="text-xs sm:text-sm text-rose-100">HCAHPS Gain</div>
                   </div>
                   <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-pink-600/20 via-fuchsia-600/20 to-purple-600/20 hover:from-pink-600/30 hover:via-fuchsia-600/30 hover:to-purple-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300 transform hover:scale-105">
                     <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-fuchsia-400 to-purple-400">$97M</div>
@@ -578,7 +578,7 @@ const [openFaq, setOpenFaq] = useState<number | null>(null);
                 <span className="text-white"> Methodology</span>
               </h2>
               <p className="text-gray-300 text-lg">
-                A proven four-phase approach that ensures successful ServiceNow implementation for energy operations.
+                A proven four-phase approach that ensures successful ServiceNow implementation for healthcare operations.
               </p>
             </div>
 

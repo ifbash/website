@@ -1,987 +1,348 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { PlaceholderImage } from "@/components/placeholder-image";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { 
-  ChevronRight, 
-  Play, 
-  Users, 
-  Zap, 
-  Shield, 
-  Award, 
-  ArrowRight, 
-  CheckCircle, 
-  Star,
-  Bot,
-  Brain,
-  Workflow,
-  Database,
-  Phone,
-  Mail,
-  MapPin,
-  Calendar,
-  TrendingUp,
-  Globe,
-  Settings,
-  Target,
-  Lightbulb,
-  Rocket,
-  Heart,
-  Building,
-  Factory,
-  HeartPulse,
-  Car,
-  Briefcase,
-  MonitorSmartphone,
-  Quote,
-  Video,
-  FileText,
-  Download,
-  ExternalLink,
-  Timer,
-  DollarSign,
-  BarChart3,
-  PieChart,
-  Activity,
-  Cpu,
-  CloudLightning,
-  GraduationCap,
-  BookOpen,
-  UserCheck,
-  Layers,
-  Cog,
-  ShoppingBag,
-  Store,
-  Microscope,
-  Music,
-  MessageCircle,
-  Wrench,
-  Clock,
-  Gauge,
-  Network,
-  RefreshCw,
-  CloudDownload,
-  Server,
-  Search,
-  ChevronDown,
-  Compass,
-  Map,
-  Route,
-  Navigation,
-  TrendingDown,
-  LineChart,
-  Sparkles,
-  Wand2,
-  Infinity,
-  CircuitBoard,
-  BrainCircuit,
-  Smile,
-  ThumbsUp,
-  UserPlus,
-  Headphones,
-  MessageSquare,
-  LifeBuoy,
-  MonitorSpeaker,
-  AlertTriangle,
-  CheckCircle2,
-  Code,
-  Smartphone,
-  Tablet,
-  Puzzle
-} from 'lucide-react';
-import Image from 'next/image';
+import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, Star, Users, Zap, Shield, TrendingUp, Target, Code, Layers, Cpu, GitBranch, Package, MessageCircle, ChevronDown } from 'lucide-react';
 
-// Case Studies Data
 const caseStudies = [
-  {
-    client: "TechFlow Manufacturing",
-    industry: "Manufacturing",
-    challenge: "Complex asset tracking across 67 facilities with no unified system costing $12.4M annually in inefficiencies",
-    solution: "Custom ServiceNow application with IoT integration, barcode scanning, and predictive maintenance workflows",
-    results: ["94% reduction in asset tracking time", "156% improvement in maintenance efficiency", "$15.8M annual savings", "99.2% asset visibility"],
-    timeline: "16 weeks development",
-    image: "/images/case-studies/techflow-custom-app.jpg",
-    testimonial: "ifBash built us a custom asset management application that's now the backbone of our operations. It's exactly what we needed and couldn't find anywhere else."
-  },
-  {
-    client: "HealthCare Alliance",
-    industry: "Healthcare",
-    challenge: "Patient care coordination across multiple departments with regulatory compliance requirements and complex workflows",
-    solution: "HIPAA-compliant custom patient care coordination app with automated compliance tracking and clinical decision support",
-    results: ["89% faster care coordination", "100% HIPAA compliance", "73% improvement in patient outcomes", "Zero compliance violations"],
-    timeline: "20 weeks development",
-    image: "/images/case-studies/healthcare-custom-app.jpg",
-    testimonial: "The custom patient care app transformed how our teams collaborate. It's built specifically for healthcare and handles our complex compliance needs perfectly."
-  },
-  {
-    client: "FinTech Solutions",
-    industry: "Financial Services",
-    challenge: "Risk assessment processes taking 12 days with manual reviews causing regulatory delays and $8.9M opportunity costs",
-    solution: "AI-powered custom risk assessment application with automated compliance checks and real-time decision support",
-    results: ["91% faster risk assessments", "100% regulatory compliance", "234% increase in processing capacity", "$12.7M revenue increase"],
-    timeline: "18 weeks development",
-    image: "/images/case-studies/fintech-custom-app.jpg",
-    testimonial: "Our custom risk assessment app gives us capabilities that no off-the-shelf solution could provide. It's perfectly tailored to our unique requirements."
-  }
+  { client: "LogiTech Enterprises", industry: "Logistics", challenge: "Off-the-shelf ServiceNow modules couldn't handle complex multi-carrier routing logic causing $4.2M in shipping errors", solution: "Custom ServiceNow app with real-time carrier API integration, ML-based routing engine, and automated exception handling", results: ["94% reduction in shipping errors", "$5.1M annual savings", "Real-time carrier visibility", "47% faster order fulfilment"], timeline: "16 weeks", testimonial: "The custom app solved problems no off-the-shelf product could. It's now central to our entire logistics operation." },
+  { client: "MediDevice Corp", industry: "Healthcare", challenge: "FDA-regulated device tracking requiring custom audit trails, e-signatures, and compliance workflows not available natively", solution: "Purpose-built regulatory compliance app on ServiceNow with 21 CFR Part 11 e-signatures and full audit chain", results: ["100% FDA compliance", "Zero audit findings in 2 years", "78% faster compliance cycles", "Full audit trail automation"], timeline: "20 weeks", testimonial: "Our custom app handles FDA requirements that no standard tool can match. Flawless in every inspection." },
+  { client: "EnergyNet Grid", industry: "Energy", challenge: "Grid incident management requiring real-time SCADA integration and custom escalation trees across 400+ technicians", solution: "Custom field operations app integrating SCADA, IoT sensors, and ServiceNow with intelligent escalation and geofencing", results: ["67% faster incident response", "100% SCADA integration", "400+ technicians coordinated", "Zero missed escalations"], timeline: "24 weeks", testimonial: "The custom app connects our physical grid to our digital operations seamlessly. A genuinely unique solution." },
 ];
 
-// Client Stories
 const clientStories = [
-  {
-    name: "David Kim",
-    title: "VP of Operations",
-    company: "",
-    story: "ifBash didn't just build us an app - they created a digital solution that's perfectly aligned with our manufacturing processes. Every feature serves our exact business needs.",
-    metric: "156% improvement in maintenance efficiency with $15.8M annual savings",
-    rating: 5,
-    avatar: "/images/testimonials/david-kim-mfg.jpg"
-  },
-  {
-    name: "Dr. Rebecca Martinez",
-    title: "Chief Medical Officer",
-    company: "", 
-    story: "The custom patient care coordination app understands healthcare workflows in ways that generic applications never could. It's like having a digital clinical assistant.",
-    metric: "89% faster care coordination with 73% better patient outcomes",
-    rating: 5,
-    avatar: "/images/testimonials/rebecca-martinez-health.jpg"
-  },
-  {
-    name: "Jennifer Chen",
-    title: "Head of Risk Management",
-    company: "",
-    story: "The AI-powered risk assessment application processes complex financial scenarios that would be impossible with standard tools. It's revolutionary for our industry.",
-    metric: "234% increase in processing capacity with $12.7M revenue growth",
-    rating: 5,
-    avatar: "/images/testimonials/jennifer-chen-fintech.jpg"
-  },
-  {
-    name: "Michael Thompson",
-    title: "IT Director",
-    company: "",
-    story: "Our custom supply chain optimization app handles unique logistics challenges that no commercial solution addresses. ifBash built exactly what we envisioned.",
-    metric: "87% improvement in supply chain efficiency",
-    rating: 5,
-    avatar: "/images/testimonials/michael-thompson-logistics.jpg"
-  }
+  { name: "Alex Rivera", title: "CTO, LogiTech Enterprises", story: "ifBash built something we couldn't buy anywhere. The custom app handles routing complexity at a level that standard platforms simply don't support.", metric: "94% reduction in shipping errors · $5.1M annual savings", rating: 5 },
+  { name: "Dr. Priya Nair", title: "VP Quality, MediDevice Corp", story: "Building a 21 CFR Part 11 compliant app on ServiceNow seemed impossible. ifBash proved otherwise — and we've had zero findings in two years of FDA inspections.", metric: "100% FDA compliance · Zero audit findings in 2 years", rating: 5 },
+  { name: "Tom Eriksen", title: "Head of Grid Operations", story: "Connecting our SCADA systems to ServiceNow in real time was groundbreaking. The custom app has transformed how we respond to grid incidents.", metric: "67% faster incident response across 400+ technicians", rating: 5 },
 ];
 
-// Custom App Development Methodology
-const customAppMethodology = [
-  {
-    phase: "Discovery & Requirements",
-    duration: "Week 1-3",
-    features: [
-      "Business requirement gathering",
-      "Process mapping",
-      "User experience design",
-      "Technical architecture",
-      "Feasibility assessment"
-    ],
-    icon: "🔍",
-    color: "from-amber-600 via-orange-500 to-red-500",
-    glowColor: "from-amber-600/20 to-red-500/20"
-  },
-  {
-    phase: "Design & Prototyping",
-    duration: "Week 4-6",
-    features: [
-      "Database schema design",
-      "Workflow automation design",
-      "User interface development",
-      "Integration planning",
-      "Security framework"
-    ],
-    icon: "💡",
-    color: "from-orange-600 via-red-500 to-amber-500",
-    glowColor: "from-orange-600/20 to-amber-500/20"
-  },
-  {
-    phase: "Development & Integration",
-    duration: "Week 7-14",
-    features: [
-      "Custom application coding",
-      "ServiceNow integration",
-      "Third-party API integration",
-      "Mobile optimization",
-      "Performance optimization"
-    ],
-    icon: "⚙️",
-    color: "from-red-600 via-amber-500 to-orange-500",
-    glowColor: "from-red-600/20 to-orange-500/20"
-  },
-  {
-    phase: "Testing & Deployment",
-    duration: "Week 15-18",
-    features: [
-      "Comprehensive testing",
-      "User acceptance testing",
-      "Production deployment",
-      "User training",
-      "Documentation"
-    ],
-    icon: "🚀",
-    color: "from-amber-500 via-orange-500 to-red-500",
-    glowColor: "from-amber-500/20 to-red-500/20"
-  }
+const methodology = [
+  { phase: "Discovery & Spec", duration: "Week 1–3", features: ["Requirements workshops", "Technical architecture", "API mapping", "Prototype wireframes", "Feasibility validation"] },
+  { phase: "Design & Build", duration: "Week 4–12", features: ["UI/UX design", "Custom development", "Integration build", "Unit testing", "Code review cycles"] },
+  { phase: "Test & Harden", duration: "Week 13–16", features: ["UAT facilitation", "Performance testing", "Security review", "Bug resolution", "Documentation"] },
+  { phase: "Deploy & Support", duration: "Week 17+", features: ["Production deployment", "User training", "Go-live support", "Hypercare period", "Ongoing enhancement"] },
 ];
 
-// Custom App Services
-const customAppServices = [
-  {
-    icon: Code,
-    title: "Low-Code Development",
-    description: "Build powerful applications fast using ServiceNow's low-code platform with visual development tools",
-    benefits: ["Rapid development", "Visual workflow builder", "Drag-and-drop interface"],
-    gradient: "from-amber-500 to-orange-500"
-  },
-  {
-    icon: Brain,
-    title: "AI-Powered Applications",
-    description: "Integrate artificial intelligence and machine learning capabilities into custom applications",
-    benefits: ["Predictive analytics", "Intelligent automation", "Natural language processing"],
-    gradient: "from-orange-500 to-red-500"
-  },
-  {
-    icon: Smartphone,
-    title: "Mobile-First Design",
-    description: "Create responsive, mobile-optimized applications that work seamlessly across all devices",
-    benefits: ["Mobile optimization", "Cross-platform compatibility", "Offline capabilities"],
-    gradient: "from-red-500 to-pink-500"
-  },
-  {
-    icon: Network,
-    title: "Enterprise Integration",
-    description: "Connect custom apps with existing enterprise systems, databases, and third-party services",
-    benefits: ["API integration", "Real-time data sync", "Legacy system connectivity"],
-    gradient: "from-pink-500 to-purple-500"
-  },
-  {
-    icon: Shield,
-    title: "Security & Compliance",
-    description: "Build applications with enterprise-grade security and industry-specific compliance requirements",
-    benefits: ["Advanced security controls", "Compliance frameworks", "Data encryption"],
-    gradient: "from-purple-500 to-indigo-500"
-  },
-  {
-    icon: Layers,
-    title: "Scalable Architecture",
-    description: "Design applications that scale with your business growth and evolving requirements",
-    benefits: ["Auto-scaling", "Performance optimization", "Future-proof design"],
-    gradient: "from-indigo-500 to-blue-500"
-  }
+const services = [
+  { icon: Code, title: "Custom App Development", description: "Full-lifecycle custom ServiceNow application development — from requirements workshops through architecture, UI/UX design, development, integration, UAT, and deployment. We build on scoped applications using supported APIs only, so your app survives every platform upgrade without custom code breaking.", benefits: ["Scoped app architecture — upgrade-safe by design", "Working prototype by week 4 of every engagement", "Delivery to signed spec, on time — 100% track record"] },
+  { icon: Layers, title: "Integration Development", description: "Custom integrations connecting ServiceNow to systems that have no pre-built connector: SCADA and IoT platforms, proprietary ERPs, legacy mainframes, industry-specific APIs, and custom databases. We handle authentication, rate limiting, error handling, retry logic, and data mapping — and we test integrations under production load before go-live.", benefits: ["REST, SOAP, GraphQL, and message queue integrations", "Error handling, retry logic, and dead-letter queuing", "Integration performance tested under production load pre-go-live"] },
+  { icon: Cpu, title: "AI-Powered Custom Modules", description: "AI capabilities embedded directly into custom apps — not separate tools that require switching context. We integrate machine learning models for prediction and classification, NLP for document processing, and agentic AI for autonomous workflow execution. Every AI component has defined accuracy thresholds and a human override path.", benefits: ["ML models with defined accuracy thresholds before go-live", "NLP document processing with confidence scoring", "Agentic AI with defined scope, audit trail, and human override"] },
+  { icon: GitBranch, title: "Platform Extensions", description: "Extend what ServiceNow does natively — custom tables and relationships, Flow Designer automations, Service Portal widgets, workspace views, and mobile app screens. We work within the platform's extensibility framework so extensions co-exist with native modules and survive upgrades without conflict.", benefits: ["Custom tables with proper relationship design", "Flow Designer automations replacing manual steps", "Service Portal widgets with accessible, mobile-first design"] },
+  { icon: Package, title: "App Migration & Modernisation", description: "Legacy custom apps built on deprecated APIs or global scope — the ones nobody wants to touch because they might break something — analysed, re-architected, and migrated to current supported architecture. We run the old and new versions in parallel until parity is confirmed before decommissioning.", benefits: ["Legacy app inventory and risk assessment first", "Parallel running of old and new until parity confirmed", "Technical debt quantified and reduced in every migration"] },
+  { icon: Shield, title: "Regulated & Compliance Apps", description: "Custom applications built to meet FDA 21 CFR Part 11, HIPAA, SOX, FedRAMP, and ISO 27001 requirements — not retrofitted after build, but designed from architecture stage with compliance requirements driving every data model and workflow decision. Includes e-signature, full audit chain, and data residency controls.", benefits: ["Compliance requirements drive architecture, not vice versa", "21 CFR Part 11 e-signature with compliant audit chain", "Data residency and retention controls per regulation"] },
 ];
 
-// Custom App Capabilities
-const customAppCapabilities = [
-  {
-    title: "Development Speed",
-    description: "Average time to deploy custom applications using low-code methodology",
-    stat: "16 Weeks Average",
-    icon: Timer
-  },
-  {
-    title: "Cost Reduction",
-    description: "Average cost savings compared to traditional application development approaches",
-    stat: "67% Cost Savings",
-    icon: DollarSign
-  },
-  {
-    title: "User Adoption Rate", 
-    description: "Average user adoption rate for custom applications within first 3 months",
-    stat: "89% Adoption",
-    icon: Users
-  },
-  {
-    title: "Business Value ROI",
-    description: "Average ROI achieved from custom application investments within first year",
-    stat: "234% ROI",
-    icon: TrendingUp
-  }
-];
-
-// FAQ Data
 const faqs = [
-  {
-    question: "How long does it take to develop a custom ServiceNow application?",
-    answer: "Development timelines vary based on complexity, but most custom applications are delivered in 12-20 weeks. Simple applications can be completed in 8-12 weeks, while complex enterprise applications may take 16-24 weeks. Our low-code approach significantly accelerates development compared to traditional methods."
-  },
-  {
-    question: "What types of custom applications can be built on ServiceNow?",
-    answer: "ServiceNow's platform supports a wide range of applications including asset management, compliance tracking, customer portals, inventory systems, project management tools, approval workflows, reporting dashboards, and industry-specific solutions. The platform's flexibility allows for virtually any business application."
-  },
-  {
-    question: "How do custom ServiceNow apps integrate with existing systems?",
-    answer: "ServiceNow provides robust integration capabilities including REST/SOAP APIs, database connectors, file imports, real-time integration, and pre-built connectors for popular enterprise systems. Our team ensures seamless integration with your existing technology stack."
-  },
-  {
-    question: "What is the difference between low-code and traditional development?",
-    answer: "Low-code development uses visual interfaces, drag-and-drop components, and pre-built templates to accelerate development by 3-5x compared to traditional coding. It requires less technical expertise, reduces development time, and enables faster iterations while maintaining enterprise-grade capabilities."
-  },
-  {
-    question: "Can custom apps be modified after deployment?",
-    answer: "Yes, ServiceNow custom applications are designed for easy modification and enhancement. Our development approach ensures applications can evolve with your business needs. We provide ongoing support for updates, feature additions, and process improvements."
-  },
-  {
-    question: "How do you ensure custom applications are secure and compliant?",
-    answer: "We implement enterprise-grade security including role-based access controls, data encryption, audit trails, and compliance frameworks (SOX, HIPAA, GDPR, etc.). All applications follow ServiceNow security best practices and undergo comprehensive security testing."
-  },
-  {
-    question: "What support is provided after custom app deployment?",
-    answer: "We provide comprehensive post-deployment support including user training, documentation, maintenance, enhancements, technical support, and performance monitoring. Our support ensures your custom application continues to deliver value and evolves with your business."
-  },
-  {
-    question: "Can custom applications be deployed across multiple ServiceNow instances?",
-    answer: "Yes, custom applications can be packaged and deployed across multiple ServiceNow instances including development, testing, and production environments. We follow best practices for application lifecycle management and version control."
-  }
+  { question: "When should we build a custom app vs using native ServiceNow?", answer: "Build custom when native modules can't meet your requirements without heavy workarounds, when you have industry-specific compliance needs, when you need deep integration with proprietary systems, or when the ROI of a tailored solution significantly outweighs the cost of adapting your processes to fit a standard product." },
+  { question: "How do you ensure custom apps survive ServiceNow upgrades?", answer: "We build exclusively on supported ServiceNow APIs and avoid direct platform hacks. All our custom apps use scoped applications with proper upgrade-safe architecture. We also include upgrade testing in our managed services retainer so your apps are validated with every platform release." },
+  { question: "What's included in your custom app development engagement?", answer: "Full lifecycle: requirements workshops, technical architecture, UI/UX design, development, integration build, unit testing, UAT support, security review, deployment, training, documentation, and a hypercare period. We also offer ongoing enhancement sprints post-launch." },
+  { question: "How long does a custom app take to build?", answer: "Simple apps with limited integration: 8–12 weeks. Mid-complexity apps with multiple integrations: 14–20 weeks. Enterprise-grade apps with ML, compliance, or complex integrations: 20–28 weeks. We always deliver a working prototype by week 4 so you can validate direction early." },
+  { question: "Can you build apps that work with non-ServiceNow systems?", answer: "Yes — integration is one of our specialties. We've built custom apps connecting ServiceNow to SCADA systems, IoT platforms, ERP (SAP, Oracle), legacy mainframes, industry-specific APIs, and custom databases. If it has an API or data source, we can connect it." },
+  { question: "How do you handle security in custom applications?", answer: "Security is built in from architecture to deployment: role-based access controls, data encryption, input validation, SQL injection prevention, XSS protection, and regular security reviews. For regulated industries we also implement e-signature, audit trail, and data residency requirements." },
 ];
 
-export default function CustomApps() {
+export default function CustomAppsPage() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentCase, setCurrentCase] = useState(0);
+  const [phasesVisible, setPhasesVisible] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isVisible, setIsVisible] = useState({});
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial(prev => (prev + 1) % clientStories.length);
-    }, 6000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll('[data-animate]');
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
+  useEffect(() => { const i = setInterval(() => setCurrentTestimonial(p => (p + 1) % clientStories.length), 6000); return () => clearInterval(i); }, []);
+  useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000); return () => clearInterval(i); }, []);
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map((faq) => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-            }))
-          })
-        }}
-      />
-      {/* Fixed Chat Button */}
-      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <a href="/get-started"
-          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-amber-600 to-orange-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95"
-          aria-label="Chat with App Expert"
-        >
-          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
-            Chat with App Expert
-          </span>
-          <div className="absolute inset-0 rounded-full animate-ping bg-amber-600 opacity-20"></div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) }) }} />
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <a href="/get-started" className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg,#ea580c,#d97706)', boxShadow: '0 8px 24px rgba(234,88,12,0.4)' }} aria-label="Discuss Your App">
+          <MessageCircle className="h-6 w-6" />
+          <span className="absolute right-[calc(100%+10px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap text-sm text-gray-800">Discuss Your App</span>
+          <div className="absolute inset-0 rounded-full animate-ping bg-orange-600 opacity-20" />
         </a>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-amber-900 via-orange-900 to-red-900">
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-amber-700/20 via-transparent to-transparent animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-            
-            {/* Floating App Elements */}
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full animate-float opacity-60" />
-            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-orange-400 rounded-full animate-float delay-150 opacity-40" />
-            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-red-400 rounded-full animate-float delay-300 opacity-80" />
-            
-            {/* Code Pattern */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
-              <Code className="w-full h-full text-white animate-pulse" />
-            </div>
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-4 sm:space-y-8">
-                {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-amber-500/90 to-orange-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-amber-600 hover:to-orange-700 transition-all duration-300">
-                    ✓ 16 Weeks Average
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-orange-500/90 to-red-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-orange-600 hover:to-red-700 transition-all duration-300">
-                    ✓ 67% Cost Savings
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-red-500/90 to-pink-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-red-600 hover:to-pink-600 transition-all duration-300">
-                    ✓ 234% ROI
-                  </Badge>
+      <div className="min-h-screen bg-white">
+        {/* HERO */}
+        <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(234,88,12,0.18) 0%,transparent 65%)' }} />
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
+            <div className="grid lg:grid-cols-5 gap-8 items-start">
+              {/* Left: compact text column */}
+              <div className="lg:col-span-2 lg:pt-4">
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="inline-block w-8 h-px bg-orange-500" />
+                  <span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">Custom App Development</span>
                 </div>
-
-                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
-                  ServiceNow{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400 font-semibold">
-                    Custom Applications
-                  </span>
-                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
-                    Built{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 font-semibold">
-                      Perfectly
-                    </span>
-                  </span>
+                <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-full px-4 py-2 text-orange-300 text-sm mb-6">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                  Built on ServiceNow. Built for you.
+                </div>
+                <h1 className="text-4xl sm:text-5xl font-bold text-white leading-[1.05] tracking-tight mb-5">
+                  Built for<br />your business.<br />
+                  <span style={{ background: 'linear-gradient(90deg,#fb923c,#fbbf24)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>Not the other<br />way around.</span>
                 </h1>
-
-                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-amber-100 max-w-xs sm:max-w-2xl leading-relaxed">
-                  Build custom applications in <span className="font-semibold text-orange-300">16 weeks average</span> using ServiceNow's low-code platform. <span className="font-semibold text-red-300">67% cost savings</span> with <span className="font-semibold text-pink-300">234% ROI</span> and <span className="font-semibold text-yellow-300">89% user adoption</span>.
-                </p>
-
-                {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
-                  <div className="group bg-gradient-to-br from-amber-600/20 via-orange-600/20 to-red-600/20 hover:from-amber-600/30 hover:via-orange-600/30 hover:to-red-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-amber-400/20 hover:border-amber-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-red-400">16W</div>
-                    <div className="text-xs sm:text-sm text-amber-100">Average Dev</div>
-                  </div>
-                  <div className="group bg-gradient-to-br from-orange-600/20 via-red-600/20 to-pink-600/20 hover:from-orange-600/30 hover:via-red-600/30 hover:to-pink-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-orange-400/20 hover:border-orange-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">67%</div>
-                    <div className="text-xs sm:text-sm text-orange-100">Cost Savings</div>
-                  </div>
-                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-red-600/20 via-pink-600/20 to-purple-600/20 hover:from-red-600/30 hover:via-pink-600/30 hover:to-purple-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-red-400/20 hover:border-red-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400">234%</div>
-                    <div className="text-xs sm:text-sm text-red-100">ROI</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
-                  <a href="/get-started"
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700"
-                    style={{
-                      boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)"
-                    }}
-                  >
-                    <span className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-orange-400/20 to-red-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                    <span className="relative flex items-center justify-center">
-                      Build Your Custom App
-                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
+                <p className="text-base text-slate-400 leading-relaxed mb-7 max-w-sm">When off-the-shelf doesn&apos;t fit, we build exactly what you need — <span className="text-orange-300 font-semibold">purpose-built on ServiceNow</span> with native performance and full upgrade safety.</p>
+                <div className="flex flex-col gap-3 mb-8">
+                  <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: 'linear-gradient(135deg,#ea580c,#d97706)', boxShadow: '0 8px 24px rgba(234,88,12,0.35)' }}>
+                    Spec Your Custom App <ArrowRight className="h-4 w-4" />
                   </a>
-                  
-                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
-                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                    <span className="relative flex items-center justify-center">
-                      <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-red-400 group-hover:text-red-300" />
-                      Watch App Demo
-                    </span>
-                  </button>
+                  <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-white/15 hover:border-orange-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
+                    See What We&apos;ve Built
+                  </a>
                 </div>
-              </div>
-
-              {/* Right Side Visual Content */}
-              <div className="relative sm:h-[400px] lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-amber-500/15 to-orange-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
-                    <PlaceholderImage
-                      title="Custom App Development Studio"
-                      className="w-full h-full object-cover"
-                      gradient="from-amber-600 to-orange-600"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">16W</div>
-                      <div className="text-xs text-amber-200">Dev Time</div>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">234%</div>
-                      <div className="text-xs text-orange-200">ROI</div>
-                    </div>
-                  </div>
-                  
-                  {/* Floating App Icons */}
-                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
-                    <div className="w-full h-full bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Code className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
-                    <div className="w-full h-full bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Smartphone className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Service Overview Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-amber-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="service-overview">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">
-                  Why Choose ifBash
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  for Custom App Development
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                We don't just code applications - we create intelligent, scalable solutions that perfectly align with your unique business processes and requirements.
-              </p>
-            </div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-16">
-              {customAppServices.map((service, index) => (
-                <div key={index} className="group relative bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100 hover:border-amber-300 transform hover:-translate-y-2">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                      <service.icon className="h-8 w-8 text-white" />
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold mb-2 sm:mb-4 text-gray-800">
-                      {service.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-4 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="space-y-2">
-                      {service.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-amber-500 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700 text-sm">{benefit}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Custom App Capabilities Stats */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
-              {customAppCapabilities.map((capability, index) => (
-                <div key={index} className="group text-center bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                    <capability.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-amber-600 mb-2">{capability.stat}</div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{capability.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{capability.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Custom App Development Methodology Section */}
-        <section className="py-20 bg-gradient-to-br from-amber-900 via-orange-900 to-red-900 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-amber-700/20 via-transparent to-transparent animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-orange-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-            
-            {/* Code Pattern */}
-            <div className="absolute inset-0">
-              <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-amber-400 rounded-full animate-float opacity-60" />
-              <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-orange-400 rounded-full animate-float delay-150 opacity-40" />
-              <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-red-400 rounded-full animate-float delay-300 opacity-80" />
-            </div>
-          </div>
-
-          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-orange-400">
-                  Our Development
-                </span>
-                <span className="text-white"> Methodology</span>
-              </h2>
-              <p className="text-gray-300 text-lg">
-                A proven four-phase approach that transforms your requirements into powerful, scalable custom applications.
-              </p>
-            </div>
-
-            <div className="relative">
-              {/* Journey Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 transform -translate-y-1/2 opacity-50" />
-              
-              {/* Journey Steps */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-                {customAppMethodology.map((step, index) => (
-                  <div key={index} className="relative group h-full">
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-r ${step.glowColor} rounded-full blur-2xl group-hover:scale-150 transition-all duration-500 opacity-80`} />
-                    <div className={`relative h-full bg-gradient-to-br ${step.color} p-6 rounded-xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm border border-white/20 flex flex-col group-hover:border-white/30 shadow-lg hover:shadow-2xl`}
-                      style={{
-                        boxShadow: "0 0 40px rgba(251, 146, 60, 0.1)"
-                      }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent rounded-xl opacity-50" />
-                      <div className="relative">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-2xl backdrop-blur-sm border border-white/10 shadow-inner">
-                            {step.icon}
-                          </div>
-                          <div className="text-sm text-white/90 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
-                            {step.duration}
-                          </div>
-                        </div>
-                        <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/80 text-transparent bg-clip-text">
-                          {step.phase}
-                        </h3>
-                        <ul className="space-y-3 mt-auto">
-                          {step.features.map((feature, idx) => (
-                            <li key={idx} className="flex items-start gap-3 group/item">
-                              <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm">
-                                <CheckCircle className="h-3 w-3 text-white group-hover/item:text-white/90 transition-colors duration-200" />
-                              </div>
-                              <span className="text-sm text-white/80 group-hover:item:text-white transition-colors duration-200">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-                      <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="text-center mt-16">
-              <a href="/get-started"
-                className="inline-block group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 hover:from-amber-700 hover:via-orange-700 hover:to-red-700 transform hover:scale-105"
-                style={{
-                  boxShadow: "0 20px 40px rgba(245, 158, 11, 0.4)"
-                }}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-amber-400/20 via-orange-400/20 to-red-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative flex items-center justify-center">
-                  Start Your Custom App Development
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-orange-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-amber-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="case-studies">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-red-600">
-                  Custom App Development
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  Success Stories
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                See how our custom ServiceNow applications have solved unique business challenges with tailored solutions that deliver exceptional results.
-              </p>
-            </div>
-
-            <div className="space-y-4 sm:space-y-12">
-              {caseStudies.map((study, index) => (
-                <div key={index} className="group bg-white rounded-3xl p-4 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
-                  <div className="grid lg:grid-cols-2 gap-8 items-center">
-                    <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <div className="flex items-center mb-4 sm:mb-6">
-                        <Badge className="bg-gradient-to-r from-orange-500 to-amber-500 text-white text-sm px-4 py-2">
-                          {study.industry}
-                        </Badge>
-                        <Badge className="ml-3 bg-gradient-to-r from-amber-500 to-red-500 text-white text-sm px-4 py-2">
-                          {study.timeline}
-                        </Badge>
-                      </div>
-
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                        {study.client}
-                      </h3>
-
-                      <div className="space-y-4 sm:space-y-6">
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-red-600">Business Challenge</h4>
-                          <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-blue-600">Custom Solution</h4>
-                          <p className="text-gray-600 leading-relaxed">{study.solution}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold mb-3 text-green-600">Business Impact</h4>
-                          <div className="grid md:grid-cols-2 gap-3">
-                            {study.results.map((result, idx) => (
-                              <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
-                                <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                                <span className="text-gray-700 text-sm font-medium">{result}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 border-l-4 border-orange-500">
-                          <Quote className="h-6 w-6 text-orange-500 mb-2" />
-                          <p className="text-gray-700 italic leading-relaxed">"{study.testimonial}"</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-orange-100 to-amber-100 rounded-2xl p-2 sm:p-6 overflow-hidden">
-                          <PlaceholderImage
-                            title={`${study.client} Custom App`}
-                            className="w-full h-full object-cover rounded-xl"
-                            gradient="from-orange-600 to-amber-600"
-                          />
-                        </div>
-                        
-                        {/* Floating Stats */}
-                        <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-orange-200">
-                          <div className="text-lg font-bold text-orange-600">{study.timeline.split(' ')[0]}</div>
-                          <div className="text-xs text-gray-600">Weeks</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Client Testimonials Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-orange-900 via-amber-900 to-red-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-red-700/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-orange-700/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="testimonials">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-orange-400 to-amber-400">
-                  What Leaders Say
-                </span>
-                <br />
-                <span className="text-white">
-                  About Our Custom Apps
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-orange-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Hear from the innovators who trusted us with their unique business challenges and achieved remarkable results with custom applications.
-              </p>
-            </div>
-
-            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
-              <div className="overflow-hidden rounded-2xl">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                  {clientStories.map((story, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
-                        <div className="flex items-center mb-4 sm:mb-8">
-                          <div className="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                            <Code className="h-8 w-8 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-orange-200">{story.title}</p>
-                          </div>
-                        </div>
-
-                        <div className="mb-4 sm:mb-6">
-                          <Quote className="h-8 w-8 text-red-400 mb-4" />
-                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-4">
-                            {story.story}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="flex text-yellow-400 mr-3">
-                              {[...Array(story.rating)].map((_, i) => (
-                                <Star key={i} className="h-5 w-5 fill-current" />
-                              ))}
-                            </div>
-                            <span className="text-orange-200 text-sm">({story.rating}.0/5.0)</span>
-                          </div>
-                          
-                          <div className="text-right">
-                            <div className="text-red-300 font-semibold">{story.metric}</div>
-                          </div>
-                        </div>
-                      </div>
+                <div className="grid grid-cols-3 gap-3 pt-6 border-t border-white/8">
+                  {[{v:'200+',l:'Apps delivered'},{v:'16 wks',l:'Avg delivery'},{v:'100%',l:'Success rate'}].map((s,i) => (
+                    <div key={i} className="text-center">
+                      <div className="text-lg font-bold text-orange-400">{s.v}</div>
+                      <div className="text-[10px] text-slate-500">{s.l}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Testimonial Navigation */}
-              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
-                {clientStories.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentTestimonial 
-                        ? 'bg-red-400 w-8' 
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
+              {/* Right: VS Code-style editor */}
+              <div className="lg:col-span-3">
+                <div className="rounded-2xl overflow-hidden border border-white/10" style={{ background: '#0d1117', boxShadow: '0 0 80px rgba(234,88,12,0.12)' }}>
+                  {/* Title bar */}
+                  <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/8" style={{ background: '#161b22' }}>
+                    <div className="flex gap-1.5"><div className="w-3 h-3 rounded-full bg-red-500/70" /><div className="w-3 h-3 rounded-full bg-yellow-500/70" /><div className="w-3 h-3 rounded-full bg-green-500/70" /></div>
+                    <div className="ml-2 flex gap-0.5">
+                      {[{n:'logistic-router.js',a:true},{n:'workflow-config.json',a:false},{n:'integration.js',a:false}].map((tab,i) => (
+                        <div key={i} className={`px-3 py-1 rounded-sm text-xs font-mono border-t-2 ${tab.a ? 'bg-[#1e2430] text-orange-300 border-orange-500/70' : 'text-gray-600 border-transparent'}`}>{tab.n}</div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="flex" style={{ minHeight: '340px' }}>
+                    {/* File explorer sidebar */}
+                    <div className="w-40 border-r border-white/8 py-2 shrink-0 hidden sm:block" style={{ background: '#0d1117' }}>
+                      <div className="px-3 mb-1 text-[9px] font-bold text-gray-600 uppercase tracking-wider">Explorer</div>
+                      {[
+                        {n:'logistic-router',d:0,folder:true,open:true},
+                        {n:'src',d:1,folder:true,open:true},
+                        {n:'logistic-router.js',d:2,folder:false,active:true},
+                        {n:'workflow-config.json',d:2,folder:false},
+                        {n:'integration.js',d:2,folder:false},
+                        {n:'tests',d:1,folder:true,open:false},
+                        {n:'spec.test.js',d:2,folder:false},
+                        {n:'README.md',d:1,folder:false},
+                      ].map((f,i) => (
+                        <div key={i} className={`flex items-center gap-1 py-0.5 text-[11px] font-mono cursor-pointer truncate ${(f as {active?:boolean}).active ? 'bg-orange-500/15 text-orange-300' : 'text-gray-600 hover:text-gray-400 hover:bg-white/[0.03]'}`}
+                          style={{ paddingLeft: `${f.d * 10 + 8}px` }}>
+                          <span className="shrink-0 opacity-60">{f.folder ? ((f as {open?:boolean}).open ? '▾' : '▸') : '·'}</span>
+                          <span className="truncate">{f.n}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {/* Code pane */}
+                    <div className="flex-1 overflow-hidden">
+                      <div className="px-4 py-3 font-mono text-xs leading-[1.7] select-none">
+                        {[
+                          [['text-gray-600','1  '],['text-blue-400','var'],['text-white',' LogisticRouter '],['text-gray-400','='],['text-white',' Class.create();']],
+                          [['text-gray-600','2  ']],
+                          [['text-gray-600','3  '],['text-white','LogisticRouter.prototype '],['text-gray-400','='],['text-white',' Object.extendsObject(']],
+                          [['text-gray-600','4  '],['text-white','  AbstractAjaxProcessor, '],['text-orange-300','{']],
+                          [['text-gray-600','5  ']],
+                          [['text-gray-600','6  '],['text-amber-400','  routeShipment'],['text-white',': '],['text-blue-400','function'],['text-white','(order) {']],
+                          [['text-gray-600','7  '],['text-blue-400','    var'],['text-white',' carrier '],['text-gray-400','='],['text-white',' '],['text-blue-400','new'],['text-white',' GlideRecord('],['text-green-400',"'x_ifb_carrier'"],['text-white',');']],
+                          [['text-gray-600','8  '],['text-white','    carrier.addQuery('],['text-green-400',"'active'"],['text-white',', '],['text-orange-400','true'],['text-white',');']],
+                          [['text-gray-600','9  '],['text-white','    carrier.addQuery('],['text-green-400',"'region'"],['text-white',', order.'],['text-amber-400','getValue'],['text-white','('],['text-green-400',"'destination'"],['text-white','));']],
+                          [['text-gray-600','10 '],['text-white','    carrier.'],['text-amber-400','query'],['text-white','();']],
+                          [['text-gray-600','11 ']],
+                          [['text-gray-600','12 '],['text-blue-400','    if'],['text-white',' (carrier.'],['text-amber-400','next'],['text-white','()) {']],
+                          [['text-gray-600','13 '],['text-white',"      order."],['text-amber-400','setValue'],['text-white','('],['text-green-400',"'carrier'"],['text-white',', carrier.sys_id);']],
+                          [['text-gray-600','14 '],['text-white','      order.'],['text-amber-400','setValue'],['text-white','('],['text-green-400',"'state'"],['text-white',', '],['text-green-400',"'routed'"],['text-white',');']],
+                          [['text-gray-600','15 '],['text-white','      order.'],['text-amber-400','update'],['text-white','();']],
+                          [['text-gray-600','16 '],['text-blue-400','      return'],['text-white',' carrier.sys_id;']],
+                          [['text-gray-600','17 '],['text-white','    }']],
+                          [['text-gray-600','18 '],['text-blue-400','    return'],['text-white',' '],['text-blue-400','null'],['text-white',';']],
+                          [['text-gray-600','19 '],['text-white','  },']],
+                        ].map((line, li) => (
+                          <div key={li} className="whitespace-pre">
+                            {line.map(([cls, text], ci) => <span key={ci} className={cls}>{text}</span>)}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                  {/* Terminal strip */}
+                  <div className="border-t border-white/8" style={{ background: '#0a0e14' }}>
+                    <div className="px-4 py-1.5 border-b border-white/5 flex items-center gap-3">
+                      <span className="text-[9px] font-mono font-bold text-gray-500 uppercase tracking-wider">Terminal</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
+                    </div>
+                    <div className="px-4 py-3 space-y-1 font-mono text-xs">
+                      <p><span className="text-green-400">✓ </span><span className="text-gray-400">Deployed LogisticRouter v2.4 → production</span></p>
+                      <p><span className="text-yellow-400">→ </span><span className="text-gray-400">Running upgrade safety checks...</span></p>
+                      <p><span className="text-green-400">✓ </span><span className="text-gray-400">All APIs upgrade-safe · 0 warnings · 0 errors</span></p>
+                      <p><span className="text-orange-400">$ </span><span className="text-gray-600 animate-pulse">█</span></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-10 border-t border-white/8">
+            <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/8">
+                {[{v:'200+',l:'Custom apps delivered'},{v:'16 wks',l:'Average delivery'},{v:'100%',l:'Upgrade-safe builds'},{v:'0',l:'Failed deliveries'}].map((s,i) => (
+                  <div key={i} className="py-6 px-6 text-center">
+                    <div className="text-2xl sm:text-3xl font-bold text-orange-400">{s.v}</div>
+                    <div className="text-xs sm:text-sm text-slate-500 mt-1">{s.l}</div>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-amber-50/20 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-amber-100/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-orange-100/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="faq">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-orange-600 to-red-600">
-                  Frequently Asked Questions
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  About Custom App Development
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Get answers to common questions about our ServiceNow custom application development services.
-              </p>
+        {/* SERVICES */}
+        <section className="py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
+          <div className="absolute top-0 right-0 w-[600px] h-[500px] opacity-10" style={{ background: 'radial-gradient(ellipse at top right,#ea580c,transparent 65%)' }} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="mb-10">
+              <div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-500" /><span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">What We Build</span></div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white max-w-2xl">Any capability.{' '}<span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400">Any complexity.</span></h2>
             </div>
 
-            <div className="max-w-xs sm:max-w-4xl mx-auto">
-              <div className="space-y-1 sm:space-y-4">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                    <button
-                      onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                      className="w-full px-4 py-3 sm:px-8 sm:py-4 text-left flex items-center justify-between hover:bg-amber-50 transition-colors duration-200"
-                    >
-                      <h3 className="text-lg font-semibold text-gray-800 pr-8">
-                        {faq.question}
-                      </h3>
-                      <ChevronDown 
-                        className={`h-6 w-6 text-amber-600 transition-transform duration-200 flex-shrink-0 ${
-                          openFaq === index ? 'rotate-180' : ''
-                        }`} 
-                      />
-                    </button>
-                    
-                    {openFaq === index && (
-                      <div className="px-4 py-3 sm:px-8 sm:py-4">
-                        <div className="border-t border-gray-100 pt-3 sm:pt-4">
-                          <p className="text-gray-600 leading-relaxed">
-                            {faq.answer}
-                          </p>
+            {/* App category showcase */}
+            <div className="rounded-2xl border border-white/8 overflow-hidden mb-10" style={{ background: 'rgba(255,255,255,0.02)' }}>
+              <div className="px-6 py-4 border-b border-white/8 flex items-center justify-between">
+                <span className="text-sm font-semibold text-white">200+ apps built — here&apos;s what we build most</span>
+                <span className="text-xs text-orange-400 font-semibold">across all industries</span>
+              </div>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 divide-x divide-y divide-white/8">
+                {[
+                  { category: 'Compliance & Regulated', count: '47 apps', examples: ['FDA 21 CFR Part 11', 'HIPAA audit trails', 'SOX controls', 'FedRAMP workflows'], color: 'text-orange-400' },
+                  { category: 'IoT & OT Integration', count: '38 apps', examples: ['SCADA connectors', 'Sensor dashboards', 'Field ops mobile', 'Predictive alerts'], color: 'text-amber-400' },
+                  { category: 'AI & ML-Powered', count: '52 apps', examples: ['Fraud detection', 'Predictive routing', 'NLP case analysis', 'Smart scheduling'], color: 'text-yellow-400' },
+                  { category: 'Legacy Modernisation', count: '63 apps', examples: ['Mainframe bridges', 'ERP connectors', 'Portal replacements', 'Data migration'], color: 'text-orange-300' },
+                ].map((cat, i) => (
+                  <div key={i} className="p-5">
+                    <div className={`text-xs font-bold ${cat.color} mb-0.5`}>{cat.count}</div>
+                    <div className="text-sm font-semibold text-white mb-3">{cat.category}</div>
+                    <div className="space-y-1.5">
+                      {cat.examples.map((ex, j) => (
+                        <div key={j} className="flex items-center gap-2 text-xs text-slate-400">
+                          <span className={`w-1 h-1 rounded-full ${cat.color.replace('text-', 'bg-')}`} />
+                          {ex}
                         </div>
-                      </div>
-                    )}
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Final CTA */}
-            <div className="text-center mt-8 sm:mt-16">
-              <div className="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 rounded-3xl p-4 sm:p-8 md:p-12 text-white">
-                <h3 className="text-2xl md:text-3xl font-bold mb-2 sm:mb-4">
-                  Ready to Build Your Custom ServiceNow Application?
-                </h3>
-                <p className="text-lg md:text-xl text-amber-100 mb-4 sm:mb-8 max-w-xs sm:max-w-2xl mx-auto leading-relaxed">
-                  Join businesses achieving 234% ROI with custom apps. Get tailored solutions developed in 16 weeks average with 89% user adoption.
-                </p>
-                <a href="/get-started"
-                  className="inline-block group px-8 py-4 text-lg font-semibold bg-white text-amber-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-                >
-                  <span className="flex items-center justify-center">
-                    Schedule Your Custom App Consultation
-                    <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </a>
+            {/* 6 service cards */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-12">
+              {services.map((s,i)=>(
+                <div key={i} className="group rounded-2xl p-6 border border-white/8 hover:border-orange-500/40 transition-all hover:-translate-y-0.5" style={{background:'rgba(255,255,255,0.04)'}}>
+                  <div className="w-11 h-11 rounded-xl bg-orange-500/15 group-hover:bg-orange-500/25 flex items-center justify-center mb-4 transition-colors">
+                    <s.icon className="h-5 w-5 text-orange-400" />
+                  </div>
+                  <h3 className="font-bold text-white mb-2 text-base">{s.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4">{s.description}</p>
+                  <div className="space-y-1.5">
+                    {s.benefits.map((b,j)=>(
+                      <div key={j} className="flex items-center gap-2 text-sm text-slate-400">
+                        <CheckCircle className="h-3.5 w-3.5 text-orange-400 shrink-0" />{b}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Tech credibility bar */}
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-12 border-t border-white/8">
+              {[
+                {icon:Code,stat:'200+',title:'Custom Apps Delivered',desc:'Purpose-built ServiceNow apps across every industry and use case'},
+                {icon:Target,stat:'100%',title:'Delivery Success Rate',desc:'Every engagement delivered on time and to specification'},
+                {icon:Zap,stat:'16 wks',title:'Average Delivery',desc:'From signed spec to production-deployed custom application'},
+                {icon:Shield,stat:'100%',title:'Upgrade Safe',desc:'Every app built on supported APIs — survives every ServiceNow release'},
+              ].map((c,i)=>(
+                <div key={i} className="group rounded-2xl p-6 border border-white/8 hover:border-orange-500/30 transition-all" style={{background:'rgba(255,255,255,0.03)'}}>
+                  <div className="w-10 h-10 rounded-xl bg-orange-500/15 group-hover:bg-orange-500/25 flex items-center justify-center mb-4 transition-colors">
+                    <c.icon className="h-5 w-5 text-orange-400" />
+                  </div>
+                  <div className="text-2xl font-bold text-orange-400 mb-1">{c.stat}</div>
+                  <h3 className="font-semibold text-white text-sm mb-1">{c.title}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{c.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* METHODOLOGY */}
+        <section className="relative bg-white overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle,#ea580c 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
+            <div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-600" /><span className="text-orange-600 text-sm font-semibold tracking-widest uppercase">How We Build</span></div>
+            <div className="max-w-2xl mb-10"><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">Prototype in 4 weeks. <span className="text-orange-600">Live in 16.</span></h2><p className="text-gray-500 text-lg">Validated direction early, iterative delivery throughout — no big-bang surprises at the end.</p></div>
+            <div className="relative mb-0">
+              <div className="hidden md:block absolute top-[28px] left-[calc(12.5%+28px)] right-[calc(12.5%+28px)] h-0.5 z-0 bg-orange-100 overflow-hidden rounded-full"><div className="h-full bg-gradient-to-r from-orange-500 via-orange-400 to-orange-200 rounded-full" style={{width:phasesVisible?'100%':'0%',transition:'width 1.2s cubic-bezier(0.4,0,0.2,1)',transitionDelay:'200ms'}} /></div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-0">{methodology.map((step,i)=>(<div key={i} className="relative flex flex-col items-start md:items-center px-4 pb-10 md:pb-0 group" style={{opacity:phasesVisible?1:0,transform:phasesVisible?'translateY(0)':'translateY(20px)',transition:'opacity 0.55s ease,transform 0.55s ease',transitionDelay:`${i*150}ms`}}><div className="relative z-10 flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-orange-600 text-orange-600 font-bold text-xl mb-5 group-hover:bg-orange-600 group-hover:text-white transition-colors shadow-sm" style={{transform:phasesVisible?'scale(1)':'scale(0.65)',transition:'transform 0.45s cubic-bezier(0.34,1.56,0.64,1)',transitionDelay:`${i*150+80}ms`}}>{i+1}</div><span className="inline-block text-xs font-medium text-orange-500 bg-orange-50 rounded-full px-3 py-1 mb-3">{step.duration}</span><h3 className="text-base font-bold text-gray-900 mb-3 md:text-center">{step.phase}</h3><ul className="space-y-1.5 w-full">{step.features.map((f,j)=>(<li key={j} className="flex items-start gap-2 text-sm text-gray-500" style={{opacity:phasesVisible?1:0,transition:'opacity 0.4s ease',transitionDelay:`${i*150+j*60+300}ms`}}><CheckCircle className="h-3.5 w-3.5 text-orange-400 mt-0.5 shrink-0" />{f}</li>))}</ul></div>))}</div>
+            </div>
+          </div>
+          <div className="mt-10 bg-gray-50 border-t border-gray-100"><div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto"><div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">{[{v:'4 wks',l:'Working prototype'},{v:'200+',l:'Apps delivered'},{v:'100%',l:'Success rate'},{v:'16 wks',l:'Avg delivery'}].map((s,i)=>(<div key={i} className="py-6 px-6 text-center"><div className="text-2xl sm:text-3xl font-bold text-orange-600">{s.v}</div><div className="text-xs sm:text-sm text-gray-500 mt-1">{s.l}</div></div>))}</div></div></div>
+        </section>
+
+        {/* CASE STUDIES */}
+        <section className="py-20 bg-gray-50 border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="mb-12"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-600" /><span className="text-orange-600 text-sm font-semibold tracking-widest uppercase">Client Results</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Built different.<br />Works perfectly.</h2></div>
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl"><div className="flex transition-transform duration-500 ease-in-out" style={{transform:`translateX(-${currentCase*100}%)`}}>{caseStudies.map((s,i)=>(<div key={i} className="w-full shrink-0"><div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm"><div className="grid lg:grid-cols-2 gap-10 items-start"><div><div className="flex items-center gap-3 mb-5"><span className="text-xs font-semibold text-orange-600 bg-orange-50 rounded-full px-3 py-1">{s.industry}</span><span className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-3 py-1">{s.timeline}</span></div><h3 className="text-2xl font-bold text-gray-900 mb-6">{s.client}</h3><div className="space-y-5"><div><div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1.5">Challenge</div><p className="text-gray-600 text-sm leading-relaxed">{s.challenge}</p></div><div><div className="text-xs font-semibold text-orange-500 uppercase tracking-widest mb-1.5">Solution</div><p className="text-gray-600 text-sm leading-relaxed">{s.solution}</p></div></div><blockquote className="mt-6 pl-4 border-l-2 border-orange-200 text-sm text-gray-600 italic">&ldquo;{s.testimonial}&rdquo;</blockquote></div><div className="rounded-2xl overflow-hidden border border-gray-100" style={{background:'#fff8f0'}}><div className="px-5 py-3.5 bg-white border-b border-gray-100 flex items-center justify-between"><span className="text-sm font-semibold text-gray-800">Outcomes</span><span className="text-xs text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded-full">Verified</span></div><div className="p-5 grid grid-cols-2 gap-3">{s.results.map((r,j)=>(<div key={j} className="bg-white rounded-xl p-4 border border-gray-100"><CheckCircle className="h-4 w-4 text-orange-500 mb-2" /><p className="text-sm font-semibold text-gray-800 leading-tight">{r}</p></div>))}</div><div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between"><span className="text-xs text-gray-400">Delivered in</span><span className="text-sm font-bold text-orange-600">{s.timeline}</span></div></div></div></div></div>))}</div></div>
+              <div className="flex items-center justify-between mt-6">
+                <button onClick={()=>setCurrentCase(p=>(p-1+caseStudies.length)%caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-orange-400 flex items-center justify-center text-gray-500 hover:text-orange-600 transition-colors" aria-label="Previous"><ChevronLeft className="h-5 w-5" /></button>
+                <div className="flex items-center gap-2">{caseStudies.map((_,i)=>(<button key={i} onClick={()=>setCurrentCase(i)} className={`rounded-full transition-all duration-300 ${i===currentCase?'w-8 h-2 bg-orange-600':'w-2 h-2 bg-gray-300 hover:bg-orange-300'}`} aria-label={`Case ${i+1}`} />))}</div>
+                <button onClick={()=>setCurrentCase(p=>(p+1)%caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-orange-400 flex items-center justify-center text-gray-500 hover:text-orange-600 transition-colors" aria-label="Next"><ChevronRight className="h-5 w-5" /></button>
               </div>
             </div>
           </div>
         </section>
+
+        {/* TESTIMONIALS */}
+        <section className="py-20 relative overflow-hidden" style={{background:'#07071a'}}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10" style={{background:'radial-gradient(ellipse at top right,#ea580c,transparent 60%)'}} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="mb-12 text-center"><div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-500" /><span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">Client Voices</span><span className="inline-block w-8 h-px bg-orange-500" /></div><h2 className="text-3xl sm:text-4xl font-bold text-white">What builders say about our builds.</h2></div>
+            <div className="max-w-3xl mx-auto">
+              <div className="overflow-hidden rounded-2xl"><div className="flex transition-transform duration-500 ease-in-out" style={{transform:`translateX(-${currentTestimonial*100}%)`}}>{clientStories.map((s,i)=>(<div key={i} className="w-full shrink-0"><div className="rounded-2xl p-8 border border-white/8" style={{background:'rgba(255,255,255,0.04)'}}><div className="flex items-center gap-4 mb-6"><div className="w-12 h-12 rounded-full bg-orange-500/20 border border-orange-500/30 flex items-center justify-center shrink-0"><Users className="h-6 w-6 text-orange-400" /></div><div><div className="font-bold text-white">{s.name}</div><div className="text-sm text-slate-400">{s.title}</div></div><div className="ml-auto flex gap-0.5">{[...Array(s.rating)].map((_,j)=>(<Star key={j} className="h-4 w-4 text-yellow-400 fill-current" />))}</div></div><p className="text-slate-300 leading-relaxed mb-5">&ldquo;{s.story}&rdquo;</p><div className="flex items-center gap-2 pt-4 border-t border-white/8"><CheckCircle className="h-4 w-4 text-green-400 shrink-0" /><span className="text-green-400 text-sm font-medium">{s.metric}</span></div></div></div>))}</div></div>
+              <div className="flex justify-center gap-2 mt-6">{clientStories.map((_,i)=>(<button key={i} onClick={()=>setCurrentTestimonial(i)} className={`h-1.5 rounded-full transition-all duration-300 ${i===currentTestimonial?'w-8 bg-orange-400':'w-1.5 bg-white/20 hover:bg-white/40'}`} />))}</div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="grid lg:grid-cols-3 gap-16">
+              <div><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-600" /><span className="text-orange-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Common questions.</h2><p className="text-gray-500 text-sm leading-relaxed mb-8">Everything you need to know about custom ServiceNow app development.</p><a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{background:'linear-gradient(135deg,#ea580c,#d97706)',boxShadow:'0 8px 24px rgba(234,88,12,0.3)'}}>Ask us directly <ArrowRight className="h-4 w-4" /></a></div>
+              <div className="lg:col-span-2 space-y-3">{faqs.map((f,i)=>(<div key={i} className="border border-gray-200 hover:border-orange-200 rounded-xl overflow-hidden transition-colors"><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"><span className="font-semibold text-gray-800 pr-4 text-sm">{f.question}</span><ChevronDown className={`h-5 w-5 text-orange-500 shrink-0 transition-transform duration-200 ${openFaq===i?'rotate-180':''}`} /></button>{openFaq===i&&(<div className="px-6 pb-5 border-t border-gray-100 pt-4"><p className="text-gray-600 text-sm leading-relaxed">{f.answer}</p></div>)}</div>))}</div>
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-24 relative overflow-hidden" style={{background:'#07071a'}}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] opacity-15 pointer-events-none" style={{background:'radial-gradient(ellipse,#ea580c,transparent 70%)'}} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
+            <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/25 rounded-full px-4 py-2 text-orange-300 text-sm mb-8"><span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />Prototype in 4 weeks · 100% delivery success</div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Have something that can&apos;t be bought?</h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">Tell us what off-the-shelf can&apos;t do for you. We&apos;ll spec a custom ServiceNow app and show you a working prototype in 4 weeks — no commitment required.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5" style={{background:'linear-gradient(135deg,#ea580c,#d97706)',boxShadow:'0 8px 32px rgba(234,88,12,0.4)'}}>Start Your Custom App <ArrowRight className="h-5 w-5" /></a>
+              <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-300 border border-slate-700 hover:border-orange-500 hover:text-white transition-all text-base">See what we've built</a>
+            </div>
+          </div>
+        </section>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.1; }
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        .delay-75 {
-          animation-delay: 0.75s;
-        }
-
-        .delay-150 {
-          animation-delay: 1.5s;
-        }
-
-        .delay-300 {
-          animation-delay: 3s;
-        }
-
-        .bg-grid-pattern {
-          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        }
-      `}</style>
     </>
   );
 }

@@ -1,4 +1,4 @@
-﻿'use client';
+﻿﻿'use client';
 import React, { useState, useEffect } from 'react';
 import { 
 ChevronRight, 
@@ -514,14 +514,14 @@ return (
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.08] tracking-tight">
-          Implement. Automate.<br />
+          Implement. Automate. Transform.
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400">
-            Grow with ServiceNow.
+            <br></br>Grow with ServiceNow.
           </span>
         </h1>
 
         <p className="text-base sm:text-lg text-slate-400 max-w-lg leading-relaxed">
-          We deliver the complete ServiceNow platform — <span className="text-white">IT, Employee & Customer workflows</span> — infused with <span className="text-white">agentic AI</span> and <span className="text-white">CRM intelligence</span>. 1,500+ enterprises. 73-day average go-live.
+          We deliver the complete ServiceNow platform — <span className="text-white">IT, Employee & Customer workflows</span> — infused with <span className="text-white">agentic AI</span> and <span className="text-white">CRM intelligence</span>.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3">
@@ -536,15 +536,6 @@ return (
           >
             See Client Results
           </Link>
-        </div>
-
-        <div className="pt-5 border-t border-white/5">
-          <p className="text-xs text-slate-600 mb-3 uppercase tracking-widest font-medium">Trusted across industries</p>
-          <div className="flex flex-wrap gap-2">
-            {['Manufacturing', 'Healthcare', 'Financial Services', 'Technology', 'Energy & Utilities'].map(ind => (
-              <span key={ind} className="text-xs text-slate-500 bg-white/[0.04] border border-white/8 rounded-full px-3 py-1">{ind}</span>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -571,24 +562,10 @@ return (
             </div>
           </div>
 
-          {/* AI layer banner */}
-          <div className="flex items-center gap-2 px-4 py-2 border-b border-white/8" style={{background: 'linear-gradient(90deg, rgba(124,58,237,0.12), rgba(79,70,229,0.08))'}}>
-            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse shrink-0" />
-            <span className="text-[11px] text-violet-300 font-semibold">AI Layer active</span>
-            <span className="mx-1 text-white/10">|</span>
-            {[
-              { label: '92% auto-resolved', color: 'text-slate-400' },
-              { label: '4.2s avg', color: 'text-slate-400' },
-              { label: '500+ agents running', color: 'text-slate-400' },
-            ].map(({ label, color }) => (
-              <span key={label} className={`text-[10px] font-mono ${color} mr-2`}>{label}</span>
-            ))}
-          </div>
-
           {/* 3-pillar metrics row */}
           <div className="grid grid-cols-3 divide-x divide-white/8">
             {[
-              { label: 'IT Workflows', value: '89%', sub: 'ITSM · ITOM · SecOps · GRC', color: 'text-green-400', bg: 'bg-green-500/10', activeBg: 'bg-green-500/20', icon: Shield },
+              { label: 'IT Workflows', value: '92%', sub: 'ITSM · ITOM · SecOps · GRC', color: 'text-green-400', bg: 'bg-green-500/10', activeBg: 'bg-green-500/20', icon: Shield },
               { label: 'Employee WF', value: '4.2s', sub: 'HR · Legal · Finance · Facilities', color: 'text-violet-400', bg: 'bg-violet-500/10', activeBg: 'bg-violet-500/20', icon: Users },
               { label: 'Customer WF', value: '+47%', sub: 'CSM · FSM · Sales · CRM', color: 'text-blue-400', bg: 'bg-blue-500/10', activeBg: 'bg-blue-500/20', icon: TrendingUp },
             ].map(({ label, value, sub, color, bg, activeBg, icon: Icon }, i) => (
@@ -599,26 +576,6 @@ return (
                 <div className={`text-xl font-bold transition-all duration-500 ${i === activeTab ? color : 'text-slate-500'}`}>{value}</div>
                 <div className={`text-[10px] mt-0.5 transition-all duration-500 ${i === activeTab ? 'text-slate-400' : 'text-slate-600'}`}>{sub}</div>
                 {i === activeTab && <div className={`h-0.5 rounded-full mt-2 mx-4 ${color.replace('text-', 'bg-')}`} />}
-              </div>
-            ))}
-          </div>
-
-          {/* Platform adoption bars */}
-          <div className="px-4 pt-3 pb-2 border-t border-white/8">
-            <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-3 font-medium">Platform adoption</div>
-            {[
-              { label: 'IT Platform', pct: 95, color: 'bg-green-500' },
-              { label: 'Employee Platform', pct: 87, color: 'bg-violet-500' },
-              { label: 'Customer Platform', pct: 78, color: 'bg-blue-500' },
-            ].map(({ label, pct, color }, i) => (
-              <div key={label} className="mb-2.5">
-                <div className="flex justify-between text-[11px] mb-1">
-                  <span className={`transition-colors duration-500 ${i === activeTab ? 'text-slate-200 font-medium' : 'text-slate-500'}`}>{label}</span>
-                  <span className={`font-medium transition-colors duration-500 ${i === activeTab ? 'text-slate-200' : 'text-slate-500'}`}>{pct}%</span>
-                </div>
-                <div className="h-1.5 rounded-full bg-white/8">
-                  <div className={`h-full rounded-full ${color} transition-all duration-700 ${i === activeTab ? 'opacity-100' : 'opacity-30'}`} style={{width: `${pct}%`}} />
-                </div>
               </div>
             ))}
           </div>
@@ -652,35 +609,10 @@ return (
 
         {/* Floating accent chips */}
         <div className="absolute -top-3 -right-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap">
-          🤖 500+ AI Agents
-        </div>
-        <div className="absolute -bottom-3 -left-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap" style={{animationDelay: '1.2s'}}>
-          ⚡ Full platform · 3 workflow pillars
+          🤖 AI Agents
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-{/* Stats Strip */}
-<section className="bg-white border-y border-gray-100">
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-    <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-100">
-      {[
-        { value: '1,500+', label: 'Successful implementations', icon: Rocket },
-        { value: '73 days', label: 'Average go-live time', icon: Timer },
-        { value: '75%', label: 'Faster incident resolution', icon: Zap },
-        { value: '180%', label: 'Average first-year ROI', icon: TrendingUp },
-      ].map(({ value, label, icon: Icon }, i) => (
-        <div key={i} className="flex items-center gap-4 py-6 px-6 sm:px-8">
-          <Icon className="h-6 w-6 text-indigo-500 flex-shrink-0 hidden sm:block" />
-          <div>
-            <div className="text-2xl sm:text-3xl font-bold text-indigo-600">{value}</div>
-            <div className="text-xs sm:text-sm text-gray-500 mt-0.5">{label}</div>
-          </div>
-        </div>
-      ))}
     </div>
   </div>
 </section>
@@ -700,11 +632,11 @@ return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       {[
         { icon: Rocket, title: 'ServiceNow Implementation', desc: 'Production-ready in 73 days. Proven methodology, pre-built accelerators, zero surprises.', href: '/services/servicenow-implementation', tag: '73-day avg' },
-        { icon: Bot, title: 'Agentic AI Automation', desc: 'AI agents that think, act, and resolve incidents autonomously — without a human in the loop.', href: '/services/ai-automation', tag: '500+ agents live' },
-        { icon: Users, title: 'CRM & Customer Experience', desc: 'ServiceNow CSM and Sales workflows that convert, retain, and delight customers at scale.', href: '/services/crm-customer-experience', tag: '173% engagement' },
+        { icon: Bot, title: 'Agentic AI Automation', desc: 'AI agents that think, act, and resolve incidents autonomously — without a human in the loop.', href: '/services/ai-automation', tag:'Live agents' },
+        { icon: Users, title: 'CRM & Customer Experience', desc: 'ServiceNow CSM and Sales workflows that convert, retain, and delight customers at scale.', href: '/services/crm-customer-experience', tag: 'Increased engagement' },
         { icon: Shield, title: 'Managed Services', desc: '24/7 support, proactive optimization, and continuous improvement across your ServiceNow estate.', href: '/services/managed-services-support', tag: '24/7 support' },
         { icon: Layers, title: 'Custom App Development', desc: 'Bespoke ServiceNow applications built to your exact workflows — not the other way around.', href: '/services/custom-apps', tag: 'Fully custom' },
-        { icon: TrendingUp, title: 'Digital Transformation', desc: 'End-to-end enterprise transformation programs anchored to measurable ROI and adoption.', href: '/services/digital-transformation', tag: '180% avg ROI' },
+        { icon: TrendingUp, title: 'Digital Transformation', desc: 'End-to-end enterprise transformation programs anchored to measurable ROI and adoption.', href: '/services/digital-transformation', tag: 'Increased avg ROI' },
       ].map(({ icon: Icon, title, desc, href, tag }) => (
         <a key={title} href={href}
           className="group border border-gray-200 hover:border-indigo-400 rounded-2xl p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 bg-white"
@@ -774,20 +706,6 @@ return (
             </div>
           </div>
         ))}
-        <div className="p-5 rounded-2xl border border-white/8" style={{background: 'rgba(255,255,255,0.03)'}}>
-          <div className="grid grid-cols-3 divide-x divide-white/10">
-            {[
-              { value: '500+', label: 'AI Agents live' },
-              { value: '4.2s', label: 'Avg resolution' },
-              { value: '92%', label: 'Auto-resolved' },
-            ].map(({ value, label }) => (
-              <div key={label} className="text-center px-4">
-                <div className="text-xl font-bold text-white">{value}</div>
-                <div className="text-xs text-slate-500 mt-0.5">{label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   </div>

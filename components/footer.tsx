@@ -12,10 +12,6 @@ import {
   Youtube,
   Facebook,
   ChevronUp,
-  Rocket,
-  Users,
-  Zap,
-  TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -66,31 +62,17 @@ export function Footer() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top — logo + newsletter */}
-        <div className="grid lg:grid-cols-2 gap-12 py-16 border-b border-white/8">
+        <div className="grid lg:grid-cols-2 gap-12 py-10 border-b border-white/8 items-start">
           <div>
             <Link href="/">
-              <Image src="/images/logo.png" alt="ifBash" width={160} height={36} className="object-contain mb-6" style={{ filter: 'brightness(0) invert(1)' }} />
+              <Image src="/images/logo.png" alt="ifBash" width={160} height={36} className="object-contain mb-4" style={{ filter: 'brightness(0) invert(1)' }} />
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
-              Your AI partner for ServiceNow. We deliver IT, Employee & Customer workflows infused with agentic AI — 1,500+ enterprises, 73-day average go-live.
+            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-2">
+              Your AI partner for ServiceNow. We deliver IT, Employee & Customer workflows infused with agentic AI.
             </p>
-            <div className="flex flex-wrap gap-4">
-              {[
-                { icon: Rocket, value: "1,500+", label: "Implementations" },
-                { icon: Zap, value: "73 days", label: "Avg go-live" },
-                { icon: TrendingUp, value: "180%", label: "Avg ROI" },
-                { icon: Users, value: "50+", label: "Certified experts" },
-              ].map(({ icon: Icon, value, label }) => (
-                <div key={label} className="flex items-center gap-2">
-                  <Icon className="h-4 w-4 text-indigo-400 shrink-0" />
-                  <span className="text-white font-semibold text-sm">{value}</span>
-                  <span className="text-slate-500 text-xs">{label}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
-          <div className="lg:pt-10">
+          <div>
             <h3 className="text-white font-semibold mb-2">Stay ahead on ServiceNow</h3>
             <p className="text-slate-400 text-sm mb-4">Best practices, AI trends, and implementation insights — monthly.</p>
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm">
@@ -142,17 +124,24 @@ export function Footer() {
                 <Phone className="h-4 w-4 text-indigo-400 shrink-0" />
                 <span className="text-slate-400 text-sm">24/7 support available</span>
               </div>
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2.5 mb-6">
                 <MapPin className="h-4 w-4 text-indigo-400 shrink-0" />
                 <span className="text-slate-400 text-sm">Serving clients worldwide</span>
               </div>
-              <Link
-                href="/get-started"
-                className="inline-flex items-center gap-2 mt-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
-                style={{ background: "linear-gradient(135deg,#4f46e5,#7c3aed)", boxShadow: "0 4px 16px rgba(79,70,229,0.3)" }}
-              >
-                Start a project <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+              
+              {/* Value Add before the button */}
+              <div className="pt-4 border-t border-white/10 mt-6">
+                <p className="text-slate-400 text-xs mb-3 leading-relaxed">
+                  Ready to elevate your workplace? Let's build a custom employee portal tailored to your team's needs.
+                </p>
+                <Link
+                  href="/get-started"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
+                  style={{ background: "linear-gradient(135deg,#4f46e5,#7c3aed)", boxShadow: "0 4px 16px rgba(79,70,229,0.3)" }}
+                >
+                  Start a project <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

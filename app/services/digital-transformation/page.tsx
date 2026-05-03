@@ -1,987 +1,299 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { PlaceholderImage } from "@/components/placeholder-image";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { 
-ChevronRight, 
-Play, 
-Users, 
-Zap, 
-Shield, 
-Award, 
-ArrowRight, 
-CheckCircle, 
-Star,
-Bot,
-Brain,
-Workflow,
-Database,
-Phone,
-Mail,
-MapPin,
-Calendar,
-TrendingUp,
-Globe,
-Settings,
-Target,
-Lightbulb,
-Rocket,
-Heart,
-Building,
-Factory,
-HeartPulse,
-Car,
-Briefcase,
-MonitorSmartphone,
-Quote,
-Video,
-FileText,
-Download,
-ExternalLink,
-Timer,
-DollarSign,
-BarChart3,
-PieChart,
-Activity,
-Cpu,
-CloudLightning,
-GraduationCap,
-BookOpen,
-UserCheck,
-Layers,
-Cog,
-ShoppingBag,
-Store,
-Microscope,
-Music,
-MessageCircle,
-Wrench,
-Clock,
-Gauge,
-Network,
-RefreshCw,
- CloudDownload,
-  Server,
-Search,
-ChevronDown,
-Compass,
-Map,
-Route,
-Navigation,
-TrendingDown,
-LineChart
-} from 'lucide-react';
-import Image from 'next/image';
+import { ChevronLeft, ChevronRight, ArrowRight, CheckCircle, Star, Users, Zap, Shield, TrendingUp, Target, Globe, Workflow, Layers, BarChart3, MessageCircle, ChevronDown } from 'lucide-react';
 
-// Case Studies Data
 const caseStudies = [
-{
-  client: "InnovateCorp",
-  industry: "Technology",
-  challenge: "Disconnected digital initiatives costing $4.2M annually with no clear ROI measurement",
-  solution: "Comprehensive digital strategy roadmap with ServiceNow-centered transformation approach",
-  results: ["67% reduction in operational costs", "238% increase in process efficiency", "$8.4M in realized savings", "92% stakeholder satisfaction"],
-  timeline: "8 weeks strategy + 16 weeks execution",
-  image: "/images/case-studies/innovatecorp-technology.jpg",
-  testimonial: "ifBash didn't just give us a strategy - they gave us a transformation blueprint that actually works in the real world."
-},
-{
-  client: "MedTech Solutions",
-  industry: "Healthcare Technology",
-  challenge: "Legacy systems hindering innovation with 47% slower time-to-market for new services",
-  solution: "Digital-first strategy with ServiceNow platform modernization and innovation framework",
-  results: ["47% faster product development", "83% improvement in compliance tracking", "$3.8M annual cost avoidance", "Zero compliance violations"],
-  timeline: "10 weeks strategy + 20 weeks implementation",
-  image: "/images/case-studies/medtech-healthcare.jpg",
-  testimonial: "Their strategic vision transformed how we think about digital innovation. We're now leading our market instead of following."
-},
-{
-  client: "GlobalManufacturing Ltd",
-  industry: "Manufacturing",
-  challenge: "Siloed operations across 34 facilities with no unified digital strategy or governance",
-  solution: "Enterprise-wide digital strategy with ServiceNow-powered operations transformation",
-  results: ["89% improvement in cross-facility coordination", "156% increase in operational visibility", "$12.7M in supply chain savings", "98% on-time delivery"],
-  timeline: "12 weeks strategy + 24 weeks rollout",
-  image: "/images/case-studies/globalmanufacturing.jpg",
-  testimonial: "ifBash's strategic approach unified our global operations in ways we never thought possible. True transformation experts."
-}
+  { client: "GlobalManufacturing Co", industry: "Manufacturing", challenge: "12 plants running separate ERP instances with no shared data layer. Incident resolution averaged 4.2 days; field engineers had no real-time access to back-office inventory or work orders.", solution: "Unified ServiceNow operating layer across all 12 sites. Single data model, automated incident-to-resolution workflows, and real-time field ops portal replacing 4 legacy tools.", results: ["4.2 days → 6 hrs avg incident resolution", "Manual processes cut from 847 to 94", "$24M annual operational savings", "First ROI milestone: week 8"], timeline: "20 weeks", testimonial: "ifBash didn't just modernise our tech — they transformed how our entire business operates." },
+  { client: "FinancePlus Group", industry: "Financial Services", challenge: "Finance, risk, and compliance ran entirely separate workflows. Approval cycles averaged 45 days; audit prep required 3 weeks of manual data extraction every quarter.", solution: "Unified cross-department workflow orchestration on ServiceNow, with automated compliance routing, a live audit data layer, and self-service portals replacing email-based approvals.", results: ["45-day approval cycles → 2 days", "Quarterly audit prep: 3 weeks → 4 hours", "$31M in process cost eliminated", "Zero regulatory findings post-launch"], timeline: "24 weeks", testimonial: "Our digital transformation delivered ROI within 8 weeks. The methodology was flawless." },
+  { client: "PublicHealth Authority", industry: "Public Sector", challenge: "67 offices running paper-based citizen case management. Average resolution: 22 days. Staff processing 340 forms daily by hand. No single view of citizen history across departments.", solution: "Digital citizen experience platform on ServiceNow with self-service intake, intelligent case routing, and a unified citizen record accessible across all 67 offices.", results: ["22-day resolution → 2.1 minutes", "340 manual forms/day → fully automated", "94% citizen satisfaction (from 31%)", "67 offices on one platform, 28 weeks"], timeline: "28 weeks", testimonial: "Citizens now access services 24/7. The transformation exceeded every expectation." }
 ];
 
-// Client Stories
 const clientStories = [
-{
-  name: "Alexandra Rodriguez",
-  title: "Chief Digital Officer",
-  company: "",
-  story: "ifBash transformed our scattered digital initiatives into a cohesive, value-driven strategy. Their advisory expertise delivered measurable results from month one.",
-  metric: "238% increase in process efficiency within 6 months",
-  rating: 5,
-  avatar: "/images/testimonials/alexandra-rodriguez.jpg"
-},
-{
-  name: "Dr. Marcus Chen",
-  title: "VP of Innovation",
-  company: "", 
-  story: "The strategic roadmap ifBash created revolutionized our product development. We're now innovating 47% faster with complete compliance confidence.",
-  metric: "47% faster time-to-market for new healthcare solutions",
-  rating: 5,
-  avatar: "/images/testimonials/marcus-chen.jpg"
-},
-{
-  name: "Robert Kim",
-  title: "COO",
-  company: "",
-  story: "Their digital strategy unified our 34 facilities into one seamless operation. The transformation has been nothing short of remarkable.",
-  metric: "$12.7M in supply chain optimization savings",
-  rating: 5,
-  avatar: "/images/testimonials/robert-kim.jpg"
-},
-{
-  name: "Sarah Mitchell",
-  title: "Head of Digital Transformation",
-  company: "",
-  story: "ifBash's advisory approach gave us the confidence to make bold digital moves. Every recommendation was backed by solid business value.",
-  metric: "ROI achieved 34% ahead of projected timeline",
-  rating: 5,
-  avatar: "/images/testimonials/sarah-mitchell.jpg"
-}
+  { name: "Sarah Thompson", title: "Chief Digital Officer", story: "We'd tried two previous transformation programmes that stalled at implementation. ifBash was different — they spent 4 weeks understanding us before writing a line of architecture. Week 8 we had our first live system. Week 20 all 12 plants were on the same platform.", metric: "4.2-day incident resolution → 6 hours. First ROI in week 8.", rating: 5 },
+  { name: "James Okonkwo", title: "Head of Digital, FinancePlus Group", story: "Every vendor promises fast delivery. ifBash was the first to show me a phase gate — if phase one doesn't hit its targets, phase two doesn't start. That accountability is what made us trust them with a $31M programme.", metric: "45-day approval cycles cut to 2 days. Audit prep: 3 weeks to 4 hours.", rating: 5 },
+  { name: "Dr. Maria Reyes", title: "Director of Digital Services", story: "Our staff were drowning in 340 manual forms a day across 67 offices. I expected the usual 18-month project. Instead we had the first four offices live in 10 weeks and the rest by week 28. The change management support kept resistance low across every location.", metric: "22-day citizen resolution → 2.1 minutes. Satisfaction: 31% → 94%.", rating: 5 },
 ];
 
-// Advisory Methodology
-const advisoryMethodology = [
-{
-  phase: "Discovery & Analysis",
-  duration: "Week 1-2",
-  activities: ["Digital maturity assessment", "Stakeholder interviews", "Current state mapping", "Gap analysis", "Competitive benchmarking"],
-  deliverables: ["Digital readiness report", "Stakeholder alignment document", "Current state architecture", "Competitive analysis"],
-  icon: Search,
-  color: "from-emerald-500 to-teal-500"
-},
-{
-  phase: "Strategy Development",
-  duration: "Week 3-5",
-  activities: ["Digital vision crafting", "Strategic roadmap creation", "ROI modeling", "Risk assessment", "Governance framework design"],
-  deliverables: ["Digital strategy document", "Implementation roadmap", "Business case", "Governance model"],
-  icon: Lightbulb,
-  color: "from-teal-500 to-cyan-500"
-},
-{
-  phase: "Roadmap Planning",
-  duration: "Week 6-7",
-  activities: ["Priority setting", "Resource planning", "Timeline optimization", "Success metrics definition", "Change management planning"],
-  deliverables: ["Detailed project plans", "Resource allocation matrix", "Success measurement framework", "Change strategy"],
-  icon: Map,
-  color: "from-cyan-500 to-blue-500"
-},
-{
-  phase: "Implementation Support",
-  duration: "Week 8+",
-  activities: ["Executive coaching", "Progress monitoring", "Strategic adjustments", "Value realization tracking", "Continuous optimization"],
-  deliverables: ["Implementation guidance", "Progress reports", "Optimization recommendations", "Value measurement"],
-  icon: Target,
-  color: "from-blue-500 to-indigo-500"
-}
+const methodology = [
+  { phase: "Discovery & Roadmap", duration: "Week 1–4", features: ["As-is assessment", "Maturity scoring", "Business case creation"] },
+  { phase: "Architecture & Design", duration: "Week 5–10", features: ["Target architecture", "Data strategy", "Governance framework"] },
+  { phase: "Build & Integrate", duration: "Week 11–20", features: ["Platform build", "AI/automation layer", "Iterative testing"] },
+  { phase: "Scale & Optimise", duration: "Week 21+", features: ["Full rollout", "Training & adoption", "KPI tracking"] },
 ];
 
-// Service Features
-const advisoryServices = [
-{
-  icon: Compass,
-  title: "Digital Vision & Strategy",
-  description: "Craft compelling digital visions that align with business objectives and drive transformation",
-  benefits: ["Strategic alignment", "Vision articulation", "Stakeholder buy-in"],
-  gradient: "from-emerald-500 to-teal-500"
-},
-{
-  icon: Route,
-  title: "Transformation Roadmaps",
-  description: "Build practical, executable roadmaps that deliver value incrementally and sustainably",
-  benefits: ["Phased approach", "Risk mitigation", "Value realization"],
-  gradient: "from-teal-500 to-cyan-500"
-},
-{
-  icon: TrendingUp,
-  title: "ROI & Value Modeling",
-  description: "Quantify transformation impact with comprehensive business case development and tracking",
-  benefits: ["Business justification", "Investment tracking", "Value measurement"],
-  gradient: "from-cyan-500 to-blue-500"
-},
-{
-  icon: Shield,
-  title: "Risk & Governance",
-  description: "Establish robust governance frameworks that ensure successful transformation execution",
-  benefits: ["Risk management", "Compliance assurance", "Quality control"],
-  gradient: "from-blue-500 to-indigo-500"
-},
-{
-  icon: Users,
-  title: "Change Leadership",
-  description: "Guide organizational change with proven methodologies and executive coaching",
-  benefits: ["Leadership alignment", "Culture transformation", "Adoption acceleration"],
-  gradient: "from-indigo-500 to-purple-500"
-},
-{
-  icon: LineChart,
-  title: "Performance Optimization",
-  description: "Continuously optimize digital initiatives for maximum business impact and efficiency",
-  benefits: ["Performance tracking", "Continuous improvement", "Value maximization"],
-  gradient: "from-purple-500 to-pink-500"
-}
+const services = [
+  { icon: Globe, title: "Digital Strategy", description: "Mapping systems and data flows to secure ROI targets by week four.", benefits: ["Maturity scoring", "ROI modelling"] },
+  { icon: Layers, title: "Modernisation", description: "Seamless legacy migration with zero unplanned downtime for users.", benefits: ["Legacy decommission", "Cutover playbooks"] },
+  { icon: Workflow, title: "Process Engineering", description: "Eliminating handoffs through activity mining and automated workflows.", benefits: ["Cycle time analysis", "Handoff reduction"] },
+  { icon: Zap, title: "AI Automation", description: "Deploying AI for triage, forecasting, and autonomous routing.", benefits: ["Auto-classification", "Demand forecasting"] },
+  { icon: BarChart3, title: "Data Platform", description: "Consolidating fragmented data into a single, live ServiceNow data layer.", benefits: ["Single source of truth", "Live dashboards"] },
+  { icon: Shield, title: "Change Management", description: "Driving adoption through champion networks and role-specific training.", benefits: ["Champion networks", "Post-launch support"] },
 ];
 
-// Strategic Capabilities
-const strategicCapabilities = [
-{
-  title: "Digital Maturity Assessment",
-  description: "Comprehensive evaluation of your organization's digital readiness and transformation potential",
-  stat: "200+ Assessments Completed",
-  icon: Gauge
-},
-{
-  title: "Business Case Development",
-  description: "Quantified business cases that secure executive buy-in and funding for digital initiatives",
-  stat: "96% Approval Rate",
-  icon: BarChart3
-},
-{
-  title: "Transformation Planning", 
-  description: "End-to-end transformation planning with risk mitigation and value realization focus",
-  stat: "18 Month Average ROI",
-  icon: Navigation
-},
-{
-  title: "Executive Advisory",
-  description: "C-level advisory services that drive strategic decision-making and transformation leadership",
-  stat: "150+ Executives Coached",
-  icon: Award
-}
-];
-
-// FAQ Data
 const faqs = [
-{
-  question: "What is included in ifBash's digital strategy advisory services?",
-  answer: "Our digital strategy advisory includes comprehensive digital maturity assessment, vision and strategy development, transformation roadmap creation, ROI modeling, governance framework design, and ongoing implementation support. We work closely with your leadership team to ensure strategic alignment and successful execution."
-},
-{
-  question: "How long does it take to develop a comprehensive digital strategy?",
-  answer: "A complete digital strategy typically takes 8-12 weeks to develop, depending on organizational complexity and scope. This includes discovery, stakeholder alignment, strategy formulation, roadmap creation, and executive presentation. We then provide ongoing advisory support during implementation."
-},
-{
-  question: "How do you ensure our digital strategy aligns with business objectives?",
-  answer: "We start with extensive stakeholder interviews and business objective mapping. Our methodology ensures every digital initiative directly supports business goals with measurable outcomes. We create clear value propositions and ROI models that demonstrate business impact."
-},
-{
-  question: "What makes ifBash's advisory approach different from traditional consulting?",
-  answer: "We combine strategic thinking with deep ServiceNow platform expertise, enabling us to create strategies that are both visionary and executable. Our advisors have hands-on implementation experience, ensuring recommendations are practical and achievable."
-},
-{
-  question: "Do you provide ongoing support after the strategy is developed?",
-  answer: "Yes, we offer comprehensive implementation support including executive coaching, progress monitoring, strategic adjustments, and value realization tracking. Our advisory relationship continues until your transformation objectives are achieved."
-},
-{
-  question: "How do you measure the success of digital transformation strategies?",
-  answer: "We establish clear KPIs and success metrics during strategy development, including operational efficiency gains, cost savings, revenue impact, and user satisfaction. We provide regular progress reports and adjust strategies based on performance data."
-},
-{
-  question: "Can you help with change management during digital transformation?",
-  answer: "Absolutely. Change management is integral to our advisory services. We provide change leadership coaching, communication strategies, training programs, and adoption acceleration techniques to ensure successful transformation."
-},
-{
-  question: "What industries do you serve for digital strategy advisory?",
-  answer: "We serve multiple industries including Healthcare, Financial Services, Manufacturing, Technology, Government, Education, and Retail. Our advisors have deep industry expertise and understand sector-specific challenges and opportunities."
-}
+  { question: "How long does a digital transformation typically take?", answer: "For most enterprise programmes: 20–28 weeks from discovery to full go-live. That's not a marketing number — it's based on 40+ completed transformation engagements. The phased structure means you see your first live system and real ROI by week 8, not at the end." },
+  { question: "Where do you start when the organisation has multiple legacy systems?", answer: "Week one of discovery, we run a full system inventory and activity mining exercise. By week four we have a prioritised roadmap ranked by ROI impact and implementation risk. We always start with the highest-pain area." },
+  { question: "How do you handle change resistance across the organisation?", answer: "We don't treat change management as a training event at the end. Champions are identified by department in week one. We run role-specific training and track adoption rates in a live dashboard from day one." },
+  { question: "What ROI can we realistically expect?", answer: "Our clients average 67% operational efficiency improvement and $20M+ annual savings per programme. In discovery, we build a detailed business case with specific KPI targets." },
+  { question: "Can you transform one department at a time?", answer: "Yes — and for most organisations it's the right approach. We call it proof-by-phase: start with the highest-impact area, deliver measurable results, then use that proof to get buy-in for the next phase." },
+  { question: "How does ServiceNow fit into a broader digital transformation?", answer: "ServiceNow becomes the system of action — the layer that orchestrates work across every other system you own (SAP, Oracle, Workday). It routes work, automates decisions, and surfaces exceptions." },
 ];
 
-export default function DigitalStrategyAdvisory() {
-const [currentTestimonial, setCurrentTestimonial] = useState(0);
-const [openFaq, setOpenFaq] = useState<number | null>(null);
-const [isVisible, setIsVisible] = useState({});
+export default function DigitalTransformationPage() {
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [currentCase, setCurrentCase] = useState(0);
+  const [phasesVisible, setPhasesVisible] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentTestimonial(prev => (prev + 1) % clientStories.length);
-  }, 6000);
-  return () => clearInterval(interval);
-}, []);
+  useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
+  useEffect(() => { const i = setInterval(() => setCurrentTestimonial(p => (p + 1) % clientStories.length), 6000); return () => clearInterval(i); }, []);
+  useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000); return () => clearInterval(i); }, []);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.question, "acceptedAnswer": { "@type": "Answer", "text": f.answer } })) }) }} />
+      
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <a href="/get-started" className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: 'linear-gradient(135deg,#2563eb,#4f46e5)', boxShadow: '0 8px 24px rgba(37,99,235,0.4)' }} aria-label="Free Consultation">
+          <MessageCircle className="h-6 w-6" />
+          <span className="absolute right-[calc(100%+10px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap text-sm text-gray-800">Free Consultation</span>
+          <div className="absolute inset-0 rounded-full animate-ping bg-blue-600 opacity-20" />
+        </a>
+      </div>
 
-  const elements = document.querySelectorAll('[data-animate]');
-  elements.forEach(el => observer.observe(el));
+      <div className="min-h-screen bg-white">
+        {/* HERO */}
+        <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 0%,rgba(37,99,235,0.12) 0%,transparent 60%)' }} />
 
-  return () => observer.disconnect();
-}, []);
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-20 pb-0">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="inline-block w-8 h-px bg-blue-500" />
+              <span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">Digital Transformation</span>
+            </div>
 
-return (
-  <>
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          "mainEntity": faqs.map((faq) => ({
-            "@type": "Question",
-            "name": faq.question,
-            "acceptedAnswer": { "@type": "Answer", "text": faq.answer }
-          }))
-        })
-      }}
-    />
-    {/* Fixed Chat Button */}
-    <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-      <a href="/get-started"
-        className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95"
-        aria-label="Chat with Strategy Expert"
-      >
-        <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-        <span className="absolute right-[calc(100%+4px)] px-1 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-[10px] sm:text-sm text-gray-800 min-w-[70px] sm:min-w-[120px] text-center">
-          Chat with Expert
-        </span>
-        <div className="absolute inset-0 rounded-full animate-ping bg-emerald-600 opacity-20"></div>
-      </a>
-    </div>
-
-    <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-emerald-700/20 via-transparent to-transparent animate-pulse-slow" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-          
-          {/* Floating Strategy Elements */}
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float opacity-60" />
-          <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-teal-400 rounded-full animate-float delay-150 opacity-40" />
-          <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-cyan-400 rounded-full animate-float delay-300 opacity-80" />
-        </div>
-
-        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-4 xs:gap-2 sm:gap-8 lg:gap-12 items-center">
-            <div className="text-white space-y-4 xs:space-y-2 sm:space-y-8">
-              {/* Trust Badges */}
-              <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 xs:mb-1 sm:mb-8 flex-wrap px-1 sm:px-0">
-                <Badge className="bg-gradient-to-r from-emerald-500/90 to-teal-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-emerald-600 hover:to-teal-700 transition-all duration-300">
-                  ✓ Strategy Experts
-                </Badge>
-                <Badge className="bg-gradient-to-r from-teal-500/90 to-cyan-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-teal-600 hover:to-cyan-700 transition-all duration-300">
-                  ✓ 96% Approval Rate
-                </Badge>
-                <Badge className="bg-gradient-to-r from-cyan-500/90 to-blue-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-cyan-600 hover:to-blue-600 transition-all duration-300">
-                  ✓ 18-Month ROI
-                </Badge>
-              </div>
-
-              <h1 className="text-lg xs:text-base sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-1 sm:px-0">
-                Digital{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 font-semibold">
-                  Strategy & Advisory
-                </span>
-                <span className="block text-sm xs:text-xs sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
-                  That Drives{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400 font-semibold">
-                    Real Transformation
-                  </span>
+            <div className="max-w-3xl mb-5">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] tracking-tight">
+                Stop managing
+                <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}> silos.</span>
+                <br></br>
+                Start running your
+                <br></br>
+                <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  business.
                 </span>
               </h1>
-
-              <p className="text-xs xs:text-[11px] sm:text-base md:text-lg lg:text-xl text-emerald-100 max-w-xs xs:max-w-[90vw] sm:max-w-2xl leading-relaxed">
-                Develop winning digital strategies in <span className="font-semibold text-cyan-300">8-12 weeks</span> with executive advisory that delivers measurable business outcomes. <span className="font-semibold text-teal-300">200+ successful transformations</span> across industries.
-              </p>
-
-              {/* Key Benefits */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 xs:gap-0.5 sm:gap-4 mt-2 xs:mt-1 sm:mt-8 px-1 sm:px-0">
-                <div className="group bg-gradient-to-br from-emerald-600/20 via-teal-600/20 to-cyan-600/20 hover:from-emerald-600/30 hover:via-teal-600/30 hover:to-cyan-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-emerald-400/20 hover:border-emerald-400/40 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">8-12</div>
-                  <div className="text-xs sm:text-sm text-emerald-100">Weeks Strategy</div>
-                </div>
-                <div className="group bg-gradient-to-br from-teal-600/20 via-cyan-600/20 to-blue-600/20 hover:from-teal-600/30 hover:via-cyan-600/30 hover:to-blue-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-teal-400/20 hover:border-teal-400/40 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-400">96%</div>
-                  <div className="text-xs sm:text-sm text-teal-100">Approval Rate</div>
-                </div>
-                <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-cyan-600/20 via-blue-600/20 to-indigo-600/20 hover:from-cyan-600/30 hover:via-blue-600/30 hover:to-indigo-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-cyan-400/20 hover:border-cyan-400/40 transition-all duration-300 transform hover:scale-105">
-                  <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-400">18M</div>
-                  <div className="text-xs sm:text-sm text-cyan-100">Avg ROI Timeline</div>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row gap-2 xs:gap-1 sm:gap-4 px-2 sm:px-0">
-                <a href="/get-started"
-                  className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-700 hover:via-teal-700 hover:to-cyan-700"
-                  style={{
-                    boxShadow: "0 20px 40px rgba(16, 185, 129, 0.4)"
-                  }}
-                >
-                  <span className="absolute inset-0 bg-gradient-to-r from-emerald-400/20 via-teal-400/20 to-cyan-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                  <span className="relative flex items-center justify-center">
-                    Start Your Strategy Journey
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </a>
-                
-                <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
-                  <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                  <span className="relative flex items-center justify-center">
-                    <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-cyan-400 group-hover:text-cyan-300" />
-                    Watch Strategy Demo
-                  </span>
-                </button>
-              </div>
             </div>
-
-            {/* Right Side Visual Content */}
-            <div className="relative sm:h-[400px] lg:h-[600px]">
-              <div className="relative z-20 bg-gradient-to-br from-emerald-500/15 to-teal-500/15 rounded-3xl p-2 xs:p-1 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 xs:mb-1 sm:mb-6">
-                  <PlaceholderImage
-                    title="Digital Strategy Roadmap Dashboard"
-                    className="w-full h-full object-cover"
-                    gradient="from-emerald-600 to-teal-600"
-                  />
-                </div>
-                <div className="grid grid-cols-2 gap-1 xs:gap-0.5 sm:gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                    <div className="text-2xl font-bold text-white mb-1">8-12</div>
-                    <div className="text-xs text-emerald-200">Weeks</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                    <div className="text-2xl font-bold text-white mb-1">96%</div>
-                    <div className="text-xs text-teal-200">Success</div>
-                  </div>
-                </div>
-                
-                {/* Floating Strategy Icons */}
-                <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
-                  <div className="w-full h-full bg-gradient-to-r from-emerald-600 to-teal-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Compass className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                  </div>
-                </div>
-                <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
-                  <div className="w-full h-full bg-gradient-to-r from-teal-600 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Target className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Service Overview Section */}
-      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/30 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-emerald-100/30 via-transparent to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-teal-100/30 via-transparent to-transparent" />
-        </div>
-
-        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="service-overview">
-            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
-                Why Choose ifBash
-              </span>
-              <br />
-              <span className="text-gray-800">
-                for Digital Strategy Advisory
-              </span>
-            </h2>
-            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
-              We don&apos;t just create strategies - we craft transformation roadmaps that drive measurable business outcomes and sustainable competitive advantage.
+            <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-2xl">
+              The average enterprise wastes <span className="text-blue-300 font-semibold"> 40% </span>of its capacity on manual handoffs. We unify operations onto a single ServiceNow platform in{' '}
+              <span className="text-blue-300 font-semibold">20–28 weeks</span>.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 mb-12">
+              <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: 'linear-gradient(135deg,#2563eb,#4f46e5)', boxShadow: '0 8px 24px rgba(37,99,235,0.35)' }}>
+                Get a Transformation Roadmap <ArrowRight className="h-4 w-4" />
+              </a>
+              <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
+                See Client Results
+              </a>
+            </div>
+
+            {/* Before / After comparison */}
+            <div className="grid lg:grid-cols-2 gap-3 mb-0">
+              {/* BEFORE */}
+              <div className="rounded-2xl border border-red-500/20 overflow-hidden" style={{ background: 'rgba(239,68,68,0.03)' }}>
+                <div className="px-5 py-3 border-b border-red-500/15 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-red-500" />
+                  <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Before — current state</span>
+                </div>
+                <div className="p-4 space-y-2">
+                  {[
+                    { fn: 'IT helpdesk', state: 'ServiceNow + spreadsheets + email', pain: '4-day resolution' },
+                    { fn: 'HR onboarding', state: '12 handoffs across disconnected tools', pain: '11 days / hire' },
+                    { fn: 'Finance approvals', state: 'PDF forms, no audit trail', pain: '45-day cycle' },
+                    { fn: 'Field operations', state: 'No link to back-office', pain: '0% visibility' },
+                  ].map((row, i) => (
+                    <div key={i} className="flex items-start gap-3 px-3 py-2.5 rounded-xl border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                      <span className="text-red-500 text-xs mt-px shrink-0 font-bold">✕</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-xs font-semibold text-white/80">{row.fn}</div>
+                        <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
+                      </div>
+                      <div className="text-[10px] text-red-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.pain}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* AFTER */}
+              <div className="rounded-2xl border border-blue-500/20 overflow-hidden" style={{ background: 'rgba(37,99,235,0.04)' }}>
+                <div className="px-5 py-3 border-b border-blue-500/15 flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">After — unified on ServiceNow</span>
+                </div>
+                <div className="p-4 space-y-2">
+                  {[
+                    { fn: 'IT helpdesk', state: 'AI triage + automated resolution', gain: '< 4 hr resolution' },
+                    { fn: 'HR onboarding', state: 'Single orchestrated workflow', gain: '1 day / hire' },
+                    { fn: 'Finance approvals', state: 'Automated routing + audit trail', gain: '2-day cycle' },
+                    { fn: 'Field operations', state: 'Real-time back-office sync', gain: '100% visibility' },
+                  ].map((row, i) => (
+                    <div key={i} className="flex items-start gap-3 px-3 py-2.5 rounded-xl border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                      <span className="text-green-400 text-xs mt-px shrink-0 font-bold">✓</span>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-xs font-semibold text-white/80">{row.fn}</div>
+                        <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
+                      </div>
+                      <div className="text-[10px] text-green-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.gain}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 xs:gap-1 sm:gap-8 mb-6 xs:mb-4 sm:mb-16">
-            {advisoryServices.map((service, index) => (
-              <div key={index} className="group relative bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-emerald-100 hover:border-emerald-300 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-teal-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${service.gradient} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                    <service.icon className="h-8 w-8 text-white" />
+        {/* EXPERTISE TRACKS - Updated with Whitish Background */}
+        <section className="py-24 relative overflow-hidden" style={{ background: '#f8fafc' }}>
+          <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle,#cbd5e1 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="mb-16 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
+                <span className="inline-block w-8 h-px bg-blue-600" />
+                <span className="text-blue-600 text-sm font-bold tracking-widest uppercase">Expertise Tracks</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 max-w-2xl leading-tight">Three strategic tracks. <span className="text-blue-600">One programme.</span></h2>
+              <p className="text-slate-500 mt-4 max-w-xl">Transformation without strategy fails. We deliver both — across every phase of your journey with measurable outcomes.</p>
+            </div>
+
+            <div className="grid lg:grid-cols-3 gap-8 mb-16">
+              {[
+                { track: 'Discover & Assess', num: '01', desc: 'Mapping systems and gaps before we build.', services: services.slice(0, 2), accent: 'text-blue-600', pill: 'bg-blue-100/50', border: 'border-slate-200' },
+                { track: 'Design & Transform', num: '02', desc: 'Architecture and AI built to your model.', services: services.slice(2, 4), accent: 'text-indigo-600', pill: 'bg-indigo-100/50', border: 'border-slate-200' },
+                { track: 'Adopt & Sustain', num: '03', desc: 'Data and change strategy to make it stick.', services: services.slice(4, 6), accent: 'text-sky-600', pill: 'bg-sky-100/50', border: 'border-slate-200' },
+              ].map((track, ti) => (
+                <div key={ti} className={`bg-white rounded-3xl border ${track.border} shadow-sm overflow-hidden hover:shadow-md transition-shadow`}>
+                  <div className={`px-6 py-6 border-b ${track.border} bg-slate-50/50`}>
+                    <h3 className="text-lg font-bold text-slate-900 mb-1 text-center">{track.track}</h3>
+                    <p className="text-xs text-slate-500 leading-relaxed text-center">{track.desc}</p>
                   </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    {service.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
-                  <div className="space-y-3">
-                    {service.benefits.map((benefit, idx) => (
-                      <div key={idx} className="flex items-center">
-                        <CheckCircle className="h-5 w-5 text-emerald-500 mr-3 flex-shrink-0" />
-                        <span className="text-gray-700 text-sm">{benefit}</span>
+                  <div className="p-6 space-y-6">
+                    {track.services.map((s, si) => (
+                      <div key={si} className="flex items-start gap-4 group">
+                        <div className={`w-10 h-10 rounded-xl ${track.pill} flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform`}>
+                          <s.icon className={`h-5 w-5 ${track.accent}`} />
+                        </div>
+                        <div>
+                          <h4 className="font-bold text-slate-900 text-sm mb-1">{s.title}</h4>
+                          <p className="text-xs text-slate-500 leading-relaxed mb-3">{s.description}</p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {s.benefits.map((b, bi) => (
+                              <span key={bi} className={`text-[9px] uppercase tracking-wider font-bold ${track.accent} bg-white border ${track.border} rounded px-2 py-0.5`}>{b}</span>
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     ))}
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
+        </section>
 
-          {/* Strategic Capabilities Stats */}
-          <div className="grid xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 xs:gap-1 sm:gap-8">
-            {strategicCapabilities.map((capability, index) => (
-              <div key={index} className="group text-center bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-emerald-200">
-                <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                  <capability.icon className="h-8 w-8 text-white" />
-                </div>
-                <div className="text-2xl font-bold text-emerald-600 mb-2">{capability.stat}</div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{capability.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{capability.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Advisory Methodology Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-900 via-teal-900 to-cyan-900 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" style={{backgroundImage: `url('/images/grid-pattern.svg')`, backgroundSize: '30px 30px'}} />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-emerald-700/20 via-transparent to-transparent animate-pulse-slow" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
+        {/* METHODOLOGY - Dark Section (Site Style) */}
+        <section className="py-24 relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+          <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% -20%, rgba(37,99,235,0.15), transparent 70%)' }} />
           
-          {/* Strategy Pattern Elements */}
-          <div className="absolute inset-0">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-emerald-400 rounded-full animate-float opacity-60" />
-            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-teal-400 rounded-full animate-float delay-150 opacity-40" />
-            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-cyan-400 rounded-full animate-float delay-300 opacity-80" />
-          </div>
-        </div>
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">Our Methodology</div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Four phases. <span className="text-blue-500">Zero guesswork.</span></h2>
+              <p className="text-slate-400">Strategy through scale — every phase delivers measurable outcomes before the next begins.</p>
+            </div>
 
-        <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-400">
-                Our Strategic Journey Map
-              </span>
-            </h2>
-            <p className="text-gray-300 text-lg">
-              A streamlined approach to digital transformation excellence
-            </p>
-          </div>
+            <div className="relative">
+              <div className="hidden md:block absolute top-[28px] left-[10%] right-[10%] h-px bg-white/10">
+                <div className="h-full bg-gradient-to-r from-blue-600 via-blue-400 to-transparent transition-all duration-1000 ease-in-out" style={{ width: phasesVisible ? '100%' : '0%' }} />
+              </div>
 
-          <div className="relative">
-            {/* Journey Line */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 transform -translate-y-1/2 opacity-50" />
-            
-            {/* Journey Steps */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-              {[
-                {
-                  phase: "Discovery & Assessment",
-                  icon: "🔍",
-                  color: "from-emerald-600 via-emerald-500 to-teal-500",
-                  glowColor: "from-emerald-600/20 to-teal-500/20",
-                  duration: "Week 1-2",
-                  features: [
-                    "Current State Analysis",
-                    "Technology Stack Review",
-                    "Business Goals Alignment",
-                    "Opportunity Mapping"
-                  ]
-                },
-                {
-                  phase: "Strategy & Design",
-                  icon: "💡",
-                  color: "from-teal-600 via-cyan-500 to-emerald-500",
-                  glowColor: "from-teal-600/20 to-cyan-500/20",
-                  duration: "Week 3-5",
-                  features: [
-                    "Solution Architecture",
-                    "Technology Selection",
-                    "Risk Assessment",
-                    "Transformation Roadmap"
-                  ]
-                },
-                {
-                  phase: "Implementation",
-                  icon: "⚙️",
-                  color: "from-cyan-600 via-teal-500 to-emerald-500",
-                  glowColor: "from-cyan-600/20 to-teal-500/20",
-                  duration: "Week 6-9",
-                  features: [
-                    "Agile Development",
-                    "Process Optimization",
-                    "Change Management",
-                    "Quality Assurance"
-                  ]
-                },
-                {
-                  phase: "Value Realization",
-                  icon: "🚀",
-                  color: "from-emerald-500 via-teal-500 to-cyan-500",
-                  glowColor: "from-emerald-500/20 to-cyan-500/20",
-                  duration: "Week 10-12",
-                  features: [
-                    "Performance Monitoring",
-                    "KPI Measurement",
-                    "ROI Assessment",
-                    "Success Documentation"
-                  ]
-                }
-              ].map((step, index) => (
-                <div key={index} className="relative group h-full">
-                  <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-r ${step.glowColor} rounded-full blur-2xl group-hover:scale-150 transition-all duration-500 opacity-80`} />
-                  <div className={`relative h-full bg-gradient-to-br ${step.color} p-6 rounded-xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm border border-white/20 flex flex-col group-hover:border-white/30 shadow-lg hover:shadow-2xl`}
-                    style={{
-                      boxShadow: "0 0 40px rgba(16, 185, 129, 0.1)"
-                    }}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent rounded-xl opacity-50" />
-                    <div className="relative">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-2xl backdrop-blur-sm border border-white/10 shadow-inner">
-                          {step.icon}
-                        </div>
-                        <div className="text-sm text-white/90 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
-                          {step.duration}
-                        </div>
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                {methodology.map((step, i) => (
+                  <div key={i} className="relative group transition-all duration-700" style={{ opacity: phasesVisible ? 1 : 0, transform: phasesVisible ? 'translateY(0)' : 'translateY(20px)', transitionDelay: `${i * 150}ms` }}>
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-white/10 flex items-center justify-center text-white font-bold text-xl mb-6 relative z-10 group-hover:border-blue-500 transition-colors shadow-2xl">
+                        {i + 1}
+                        <div className="absolute inset-0 bg-blue-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
-                      <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/80 text-transparent bg-clip-text">
-                        {step.phase}
-                      </h3>
-                      <ul className="space-y-3 mt-auto">
-                        {step.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3 group/item">
-                            <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm">
-                              <CheckCircle className="h-3 w-3 text-white group-hover/item:text-white/90 transition-colors duration-200" />
-                            </div>
-                            <span className="text-sm text-white/80 group-hover:item:text-white transition-colors duration-200">
-                              {feature}
-                            </span>
+                      <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-2 px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20">{step.duration}</span>
+                      <h3 className="text-white font-bold mb-4">{step.phase}</h3>
+                      <ul className="space-y-2">
+                        {step.features.map((f, j) => (
+                          <li key={j} className="flex items-center justify-center gap-2 text-xs text-slate-400">
+                            <CheckCircle className="h-3 w-3 text-blue-500 shrink-0" />
+                            {f}
                           </li>
                         ))}
                       </ul>
                     </div>
                   </div>
-                  <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-                    <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <a href="/get-started"
-              className="inline-flex items-center px-8 py-3 text-lg font-semibold text-white rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 transform hover:scale-105 transition-all duration-300"
-            >
-              Begin Your Journey
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies Section */}
-      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/30 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-teal-100/30 via-transparent to-transparent" />
-          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-emerald-100/30 via-transparent to-transparent" />
-        </div>
-
-        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="case-studies">
-            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-600">
-                Strategic Transformation
-              </span>
-              <br />
-              <span className="text-gray-800">
-                Success Stories
-              </span>
-            </h2>
-            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
-              See how our digital strategy advisory has transformed organizations across industries with measurable business impact.
-            </p>
-          </div>
-
-          <div className="space-y-4 xs:space-y-2 sm:space-y-12">
-            {caseStudies.map((study, index) => (
-              <div key={index} className="group bg-white rounded-3xl p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-teal-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
-                <div className="grid lg:grid-cols-2 gap-8 items-center">
-                  <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                    <div className="flex items-center mb-6">
-                      <Badge className="bg-gradient-to-r from-teal-500 to-emerald-500 text-white text-sm px-4 py-2">
-                        {study.industry}
-                      </Badge>
-                      <Badge className="ml-3 bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-sm px-4 py-2">
-                        {study.timeline}
-                      </Badge>
-                    </div>
-
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">
-                      {study.client}
-                    </h3>
-
-                    <div className="space-y-6">
-                      <div>
-                        <h4 className="text-lg font-semibold mb-3 text-red-600">Strategic Challenge</h4>
-                        <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-lg font-semibold mb-3 text-blue-600">Strategic Solution</h4>
-                        <p className="text-gray-600 leading-relaxed">{study.solution}</p>
-                      </div>
-
-                      <div>
-                        <h4 className="text-lg font-semibold mb-3 text-green-600">Business Impact</h4>
-                        <div className="grid md:grid-cols-2 gap-3">
-                          {study.results.map((result, idx) => (
-                            <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
-                              <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                              <span className="text-gray-700 text-sm font-medium">{result}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      <div className="bg-gradient-to-r from-teal-50 to-emerald-50 rounded-xl p-4 border-l-4 border-teal-500">
-                        <Quote className="h-6 w-6 text-teal-500 mb-2" />
-                        <p className="text-gray-700 italic leading-relaxed">&ldquo;{study.testimonial}&rdquo;</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <div className="relative">
-                      <div className="aspect-square bg-gradient-to-br from-teal-100 to-emerald-100 rounded-2xl p-6 overflow-hidden">
-                        <PlaceholderImage
-                          title={`${study.client} Digital Strategy`}
-                          className="w-full h-full object-cover rounded-xl"
-                          gradient="from-teal-600 to-emerald-600"
-                        />
-                      </div>
-                      
-                      {/* Floating Stats */}
-                      <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-teal-200">
-                        <div className="text-lg font-bold text-teal-600">{study.timeline.split(' ')[0]}</div>
-                        <div className="text-xs text-gray-600">Weeks</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Client Testimonials Section */}
-      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-r from-teal-900 via-emerald-900 to-cyan-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-cyan-700/20 via-transparent to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-teal-700/20 via-transparent to-transparent" />
-        </div>
-
-        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="testimonials">
-            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400">
-                What Leaders Say
-              </span>
-              <br />
-              <span className="text-white">
-                About Our Strategic Advisory
-              </span>
-            </h2>
-            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-emerald-100 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
-              Hear from the executives who trusted us with their digital transformation strategy and achieved remarkable results.
-            </p>
-          </div>
-
-          <div className="relative max-w-xs xs:max-w-[95vw] sm:max-w-4xl mx-auto">
-            <div className="overflow-hidden rounded-2xl">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                {clientStories.map((story, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-8 md:p-12 border border-white/20">
-                      <div className="flex items-center mb-8">
-                        <div className="w-16 h-16 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center mr-6">
-                          <Users className="h-8 w-8 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold">{story.name}</h3>
-                          <p className="text-emerald-200">{story.title}</p>
-                        </div>
-                      </div>
-
-                      <div className="mb-6">
-                        <Quote className="h-8 w-8 text-cyan-400 mb-4" />
-                        <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
-                          {story.story}
-                        </p>
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="flex text-yellow-400 mr-3">
-                            {[...Array(story.rating)].map((_, i) => (
-                              <Star key={i} className="h-5 w-5 fill-current" />
-                            ))}
-                          </div>
-                          <span className="text-emerald-200 text-sm">({story.rating}.0/5.0)</span>
-                        </div>
-                        
-                        <div className="text-right">
-                          <div className="text-cyan-300 font-semibold">{story.metric}</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Testimonial Navigation */}
-            <div className="flex justify-center space-x-1 xs:space-x-0.5 sm:space-x-2 mt-4 xs:mt-2 sm:mt-8">
-              {clientStories.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial 
-                      ? 'bg-cyan-400 w-8' 
-                      : 'bg-white/30 hover:bg-white/50'
-                  }`}
-                />
-              ))}
+        {/* CASE STUDIES */}
+        <section className="py-20 bg-gray-50 border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="mb-12"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-600" /><span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">Impact</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Proven Results.</h2></div>
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl"><div className="flex transition-transform duration-500 ease-in-out" style={{transform:`translateX(-${currentCase*100}%)`}}>{caseStudies.map((s,i)=>(<div key={i} className="w-full shrink-0"><div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm"><div className="grid lg:grid-cols-2 gap-10 items-start"><div><div className="flex items-center gap-3 mb-5"><span className="text-xs font-semibold text-blue-600 bg-blue-50 rounded-full px-3 py-1">{s.industry}</span><span className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-3 py-1">{s.timeline}</span></div><h3 className="text-2xl font-bold text-gray-900 mb-6">{s.client}</h3><div className="space-y-5"><div><div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1.5">Challenge</div><p className="text-gray-600 text-sm leading-relaxed">{s.challenge}</p></div><div><div className="text-xs font-semibold text-blue-500 uppercase tracking-widest mb-1.5">Solution</div><p className="text-gray-600 text-sm leading-relaxed">{s.solution}</p></div></div><blockquote className="mt-6 pl-4 border-l-2 border-blue-200 text-sm text-gray-600 italic">&ldquo;{s.testimonial}&rdquo;</blockquote></div><div className="rounded-2xl overflow-hidden border border-gray-100" style={{background:'#f0f6ff'}}><div className="px-5 py-3.5 bg-white border-b border-gray-100 flex items-center justify-between"><span className="text-sm font-semibold text-gray-800">Outcomes</span><span className="text-xs text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded-full">Verified</span></div><div className="p-5 grid grid-cols-2 gap-3">{s.results.map((r,j)=>(<div key={j} className="bg-white rounded-xl p-4 border border-gray-100"><CheckCircle className="h-4 w-4 text-blue-500 mb-2" /><p className="text-sm font-semibold text-gray-800 leading-tight">{r}</p></div>))}</div><div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between"><span className="text-xs text-gray-400">Delivered in</span><span className="text-sm font-bold text-blue-600">{s.timeline}</span></div></div></div></div></div>))}</div></div>
+              <div className="flex items-center justify-between mt-6">
+                <button onClick={()=>setCurrentCase(p=>(p-1+caseStudies.length)%caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-blue-400 flex items-center justify-center text-gray-500 hover:text-blue-600 transition-colors" aria-label="Previous"><ChevronLeft className="h-5 w-5" /></button>
+                <div className="flex items-center gap-2">{caseStudies.map((_,i)=>(<button key={i} onClick={()=>setCurrentCase(i)} className={`rounded-full transition-all duration-300 ${i===currentCase?'w-8 h-2 bg-blue-600':'w-2 h-2 bg-gray-300 hover:bg-blue-300'}`} aria-label={`Case ${i+1}`} />))}</div>
+                <button onClick={()=>setCurrentCase(p=>(p+1)%caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-blue-400 flex items-center justify-center text-gray-500 hover:text-blue-600 transition-colors" aria-label="Next"><ChevronRight className="h-5 w-5" /></button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-6 xs:py-4 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-emerald-50/20 relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-emerald-100/20 via-transparent to-transparent" />
-          <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-teal-100/20 via-transparent to-transparent" />
-        </div>
-
-        <div className="w-full px-2 xs:px-1 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-6 xs:mb-4 sm:mb-16" data-animate id="faq">
-            <h2 className="text-xl xs:text-base sm:text-4xl md:text-5xl font-bold mb-2 xs:mb-1 sm:mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600">
-                Frequently Asked Questions
-              </span>
-              <br />
-              <span className="text-gray-800">
-                About Digital Strategy Advisory
-              </span>
-            </h2>
-            <p className="text-xs xs:text-[11px] sm:text-lg md:text-xl text-gray-700 max-w-xs xs:max-w-[90vw] sm:max-w-3xl mx-auto leading-relaxed">
-              Get answers to common questions about our digital strategy and advisory services.
-            </p>
-          </div>
-
-          <div className="max-w-xs xs:max-w-[95vw] sm:max-w-4xl mx-auto">
-            <div className="space-y-1 xs:space-y-0.5 sm:space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                  <button
-                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                    className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-emerald-50 transition-colors duration-200"
-                  >
-                    <h3 className="text-lg font-semibold text-gray-800 pr-8">
-                      {faq.question}
-                    </h3>
-                    <ChevronDown 
-                      className={`h-6 w-6 text-emerald-600 transition-transform duration-200 flex-shrink-0 ${
-                        openFaq === index ? 'rotate-180' : ''
-                      }`} 
-                    />
-                  </button>
-                  
-                  {openFaq === index && (
-                    <div className="px-8 pb-6">
-                      <div className="border-t border-gray-100 pt-6">
-                        <p className="text-gray-600 leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
+        {/* TESTIMONIALS */}
+        <section className="py-20 relative overflow-hidden" style={{background:'#07071a'}}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="mb-12 text-center"><div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-500" /><span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">Client Voices</span><span className="inline-block w-8 h-px bg-blue-500" /></div><h2 className="text-3xl sm:text-4xl font-bold text-white">What transformation leaders say.</h2></div>
+            <div className="max-w-3xl mx-auto">
+              <div className="overflow-hidden rounded-2xl"><div className="flex transition-transform duration-500 ease-in-out" style={{transform:`translateX(-${currentTestimonial*100}%)`}}>{clientStories.map((s,i)=>(<div key={i} className="w-full shrink-0"><div className="rounded-2xl p-8 border border-white/8" style={{background:'rgba(255,255,255,0.04)'}}><div className="flex items-center gap-4 mb-6"><div className="w-12 h-12 rounded-full bg-blue-500/20 border border-blue-500/30 flex items-center justify-center shrink-0"><Users className="h-6 w-6 text-blue-400" /></div><div><div className="font-bold text-white">{s.name}</div><div className="text-sm text-slate-400">{s.title}</div></div><div className="ml-auto flex gap-0.5">{[...Array(s.rating)].map((_,j)=>(<Star key={j} className="h-4 w-4 text-yellow-400 fill-current" />))}</div></div><p className="text-slate-300 leading-relaxed mb-5">&ldquo;{s.story}&rdquo;</p><div className="flex items-center gap-2 pt-4 border-t border-white/8"><CheckCircle className="h-4 w-4 text-green-400 shrink-0" /><span className="text-green-400 text-sm font-medium">{s.metric}</span></div></div></div>))}</div></div>
+              <div className="flex justify-center gap-2 mt-6">{clientStories.map((_,i)=>(<button key={i} onClick={()=>setCurrentTestimonial(i)} className={`h-1.5 rounded-full transition-all duration-300 ${i===currentTestimonial?'w-8 bg-blue-400':'w-1.5 bg-white/20 hover:bg-white/40'}`} />))}</div>
             </div>
           </div>
+        </section>
 
-          {/* Final CTA */}
-          <div className="text-center mt-6 xs:mt-4 sm:mt-16">
-            <div className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 rounded-3xl p-8 md:p-12 text-white">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                Ready to Transform Your Digital Strategy?
-              </h3>
-              <p className="text-lg md:text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-                Join 200+ successful digital transformations. Get expert advisory that delivers measurable results in 8-12 weeks.
-              </p>
-              <a href="/get-started"
-                className="group inline-block px-8 py-4 text-lg font-semibold bg-white text-emerald-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-              >
-                <span className="flex items-center justify-center">
-                  Schedule Your Strategy Consultation
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </a>
+        {/* FAQ */}
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="grid lg:grid-cols-3 gap-16">
+              <div><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-600" /><span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Common questions.</h2><p className="text-gray-500 text-sm leading-relaxed mb-8">Everything you need to know before starting your digital transformation.</p><a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{background:'linear-gradient(135deg,#2563eb,#4f46e5)',boxShadow:'0 8px 24px rgba(37,99,235,0.3)'}}>Ask us directly <ArrowRight className="h-4 w-4" /></a></div>
+              <div className="lg:col-span-2 space-y-3">{faqs.map((f,i)=>(<div key={i} className="border border-gray-200 hover:border-blue-200 rounded-xl overflow-hidden transition-colors"><button onClick={()=>setOpenFaq(openFaq===i?null:i)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"><span className="font-semibold text-gray-800 pr-4 text-sm">{f.question}</span><ChevronDown className={`h-5 w-5 text-blue-500 shrink-0 transition-transform duration-200 ${openFaq===i?'rotate-180':''}`} /></button>{openFaq===i&&(<div className="px-6 pb-5 border-t border-gray-100 pt-4"><p className="text-gray-600 text-sm leading-relaxed">{f.answer}</p></div>)}</div>))}</div>
             </div>
           </div>
-        </div>
-      </section>
-    </div>
+        </section>
 
-    <style jsx>{`
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-      }
-      
-      @keyframes pulse-slow {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.1; }
-      }
-
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
-      }
-      
-      .animate-pulse-slow {
-        animation: pulse-slow 4s ease-in-out infinite;
-      }
-
-      .delay-75 {
-        animation-delay: 0.75s;
-      }
-
-      .delay-150 {
-        animation-delay: 1.5s;
-      }
-
-      .delay-300 {
-        animation-delay: 3s;
-      }
-
-      .bg-grid-pattern {
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-      }
-    `}</style>
-  </>
-);
+        {/* CTA */}
+        <section className="py-24 relative overflow-hidden" style={{background:'#07071a'}}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
+            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Ready to transform?</h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">Tell us your biggest bottleneck. We&apos;ll deliver a roadmap in 48 hours — scoped, costed, and ready to execute.</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5" style={{background:'linear-gradient(135deg,#2563eb,#4f46e5)',boxShadow:'0 8px 32px rgba(37,99,235,0.4)'}}>Free Strategy Call <ArrowRight className="h-5 w-5" /></a>
+              <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-300 border border-slate-700 hover:border-blue-500 hover:text-white transition-all text-base">View all case studies</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
 }
