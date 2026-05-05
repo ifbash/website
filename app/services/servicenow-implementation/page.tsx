@@ -337,28 +337,32 @@ export default function ServiceNowConsultingImplementation() {
       <div className="min-h-screen bg-white">
 
         {/* ── HERO ── */}
-        <section className="relative bg-white overflow-hidden">
+        <section className="relative bg-white overflow-hidden flex items-center min-h-[calc(100vh-70px)]">
           <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '28px 28px'}} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-0">
+          
+          {/* Increased padding slightly to ensure it fills the viewport without peeking */}
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-4 pb-24">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left: headline + CTAs */}
               <div>
                 <div className="flex items-center gap-3 mb-6">
                   <span className="inline-block w-8 h-px bg-indigo-600" />
                   <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">ServiceNow Implementation</span>
                 </div>
-                <br></br>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-6xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
                   Go-live in{' '}
                   <span className="text-indigo-600">73 days.</span><br />
                   <span className="text-gray-400 text-3xl sm:text-4xl lg:text-5xl font-normal">Not 9 months.</span>
                 </h1>
-                <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-8">
+                <br></br>
+                <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-10">
                   A structured four-phase methodology. 
-                  <br></br>Battle-tested across numerous engagements. 
-                  <br></br>Precision delivery — not guesswork.
+                  <br />Battle-tested across numerous engagements. 
+                  <br />Precision delivery — not guesswork.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-3 mb-10">
+                <br></br>
+                <div className="flex flex-col sm:flex-row gap-3">
                   <a href="/get-started"
                     className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
                     style={{background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 8px 24px rgba(79,70,229,0.3)'}}
@@ -374,17 +378,14 @@ export default function ServiceNowConsultingImplementation() {
               </div>
 
               {/* Right: integration ecosystem visual */}
-              <div className="relative hidden lg:flex items-center justify-center py-8">
-                {/* Center hub */}
-                <div className="relative z-10 w-28 h-28 rounded-2xl border-2 border-indigo-500 bg-white shadow-xl flex flex-col items-center justify-center" style={{boxShadow:'0 0 40px rgba(79,70,229,0.2)'}}>
+              <div className="relative hidden lg:flex items-center justify-center">
+                <div className="relative z-10 w-48 h-48 rounded-2xl border-2 border-indigo-500 bg-white shadow-xl flex flex-col items-center justify-center" style={{boxShadow:'0 0 40px rgba(79,70,229,0.2)'}}>
                   <div className="text-indigo-600 font-black text-xl leading-none">Now</div>
                   <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mt-0.5">ServiceNow</div>
                   <div className="absolute inset-0 rounded-2xl animate-ping opacity-[0.08]" style={{background:'rgba(79,70,229,1)'}} />
                 </div>
-                {/* Orbit ring */}
-                <div className="absolute w-72 h-72 rounded-full border border-indigo-100" />
-                <div className="absolute w-64 h-64 rounded-full border border-indigo-50" />
-                {/* Connected nodes */}
+                <div className="absolute w-[28rem] h-[28rem] rounded-full border border-indigo-100" />
+                <div className="absolute w-[24rem] h-[24rem] rounded-full border border-indigo-50" />
                 {[
                   {label:'SAP',sub:'ERP',angle:0,color:'#0070f3'},
                   {label:'Salesforce',sub:'CRM',angle:51,color:'#00a1e0'},
@@ -395,7 +396,7 @@ export default function ServiceNowConsultingImplementation() {
                   {label:'MS Teams',sub:'Collab',angle:307,color:'#6264a7'},
                 ].map(({label,sub,angle,color},i) => {
                   const rad = (angle * Math.PI) / 180;
-                  const r = 128;
+                  const r = 160;
                   const x = Math.cos(rad) * r;
                   const y = Math.sin(rad) * r;
                   return (
@@ -412,36 +413,17 @@ export default function ServiceNowConsultingImplementation() {
                     </div>
                   );
                 })}
-                {/* Connector lines — SVG overlay with fixed coordinate system */}
-                <svg className="absolute pointer-events-none" width="320" height="320" viewBox="-160 -160 320 320" style={{top:'50%',left:'50%',transform:'translate(-50%,-50%)'}}>
-                  {[0,51,102,153,204,255,307].map((angle,i) => {
-                    const rad = (angle * Math.PI) / 180;
-                    const r = 128;
-                    return (
-                      <line key={i}
-                        x1={0} y1={0}
-                        x2={Math.cos(rad) * r} y2={Math.sin(rad) * r}
-                        stroke="#4f46e5" strokeWidth="1" strokeOpacity="0.15"
-                        strokeDasharray="4 4"
-                      />
-                    );
-                  })}
-                </svg>
-                {/* Live pulse indicator */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm whitespace-nowrap">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-semibold text-gray-600">300+ enterprise integrations</span>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── WHY IFBASH (SWAPPED & TRIMMED) ── */}
-        <section className="py-20 relative overflow-hidden" style={{background: '#07071a'}}>
+        {/* ── WHY IFBASH (ADVANTAGE) ── */}
+        {/* Reset to standard py-24 so it sits cleanly below the hero fold */}
+        <section className="py-24 relative overflow-hidden" style={{background: '#07071a'}}>
           <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-12">
+            <div className="text-center mb-16">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <span className="inline-block w-8 h-px bg-indigo-400" />
                 <span className="text-indigo-400 text-sm font-semibold tracking-widest uppercase">The ifBash Advantage</span>

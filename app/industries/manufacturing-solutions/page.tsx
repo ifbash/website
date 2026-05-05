@@ -1,809 +1,487 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { PlaceholderImage } from "@/components/placeholder-image";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { 
-  BarChart,
+import {
+  Factory,
+  Wrench,
   Package,
-  ChevronRight, 
-  TestTube2,
-  Stethoscope,
-  Play, 
-  Users, 
-  Zap, 
-  Shield, 
-  Award, 
-  ArrowRight, 
-  CheckCircle, 
-  Star, 
-  Bot, 
-  Brain, 
-  Workflow, 
-  Database, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  Calendar, 
-  TrendingUp, 
-  Globe, 
-  Settings, 
-  Target, 
-  Lightbulb, 
-  Rocket, 
-  Heart, 
-  Building, 
-  Factory, 
-  HeartPulse, 
-  Car, 
-  Briefcase, 
-  MonitorSmartphone, 
-  Quote, 
-  Video, 
-  FileText, 
-  Download, 
-  ExternalLink, 
-  Timer, 
-  DollarSign, 
-  BarChart3, 
-  PieChart, 
-  Activity, 
-  Cpu, 
-  CloudLightning, 
-  GraduationCap, 
-  BookOpen, 
-  UserCheck, 
-  Layers, 
-  Cog, 
-  ShoppingBag, 
-  Store, 
-  Microscope, 
-  Music, 
-  MessageCircle, 
-  Wrench, 
-  Clock, 
-  Gauge, 
-  Network, 
-  RefreshCw,        // ✅ Fixed: Replace Sync with RefreshCw
-  CloudDownload,    // ✅ Fixed: Replace CloudArrowDown with CloudDownload
-  Server,           // ✅ Fixed: Replace ServerStack with Server
-  Search, 
-  ChevronDown, 
-  Wind, 
-  Sun, 
-  Battery, 
-  Fuel, 
-  Power, 
-  Plug
+  Shield,
+  BarChart,
+  Network,
+  CheckCircle,
+  ArrowRight,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Users,
+  Quote,
+  Star,
+  MessageCircle,
+  Search,
+  Settings,
+  Rocket,
+  DollarSign,
+  Award,
+  Lightbulb,
+  Cog,
+  TrendingUp,
 } from 'lucide-react';
 
-// Case Studies Data
+// ─── Accent palette ───────────────────────────────────────────────────────────
+const A = '#ea580c'; // accent
+const AG = 'linear-gradient(135deg, #ea580c, #dc2626)';
+const AS = 'rgba(234,88,12,0.30)';
+
+// ─── Data ─────────────────────────────────────────────────────────────────────
+const hubNodes = [
+  { label: 'Factory',   sub: 'Floor',       angle:   0, color: '#ea580c' },
+  { label: 'IoT',       sub: 'Sensors',     angle:  51, color: '#dc2626' },
+  { label: 'ERP / MES', sub: 'Integration', angle: 102, color: '#7c3aed' },
+  { label: 'Quality',   sub: 'SPC / CAPA',  angle: 153, color: '#0284c7' },
+  { label: 'Safety',    sub: 'EHS',         angle: 204, color: '#059669' },
+  { label: 'Supply',    sub: 'Chain',       angle: 255, color: '#d97706' },
+  { label: 'Predictive',sub: 'Maintenance', angle: 307, color: '#db2777' },
+];
+
 const caseStudies = [
   {
-    client: "SteelTech Industries",
-    industry: "Steel Manufacturing",
-    challenge: "Equipment downtime across 12 facilities costing $89M annually with 34% unplanned maintenance issues affecting production schedules",
-    solution: "ServiceNow-powered predictive maintenance platform with IoT integration, automated work orders, and intelligent asset management",
-    results: ["87% reduction in unplanned downtime", "156% improvement in maintenance efficiency", "$97M annual cost savings", "99.2% equipment uptime"],
-    timeline: "20 weeks implementation",
-    image: "/images/case-studies/steeltech-manufacturing.jpg",
-    testimonial: "ifBash transformed our manufacturing operations from reactive to predictive. We now prevent equipment failures before they happen, ensuring continuous production across all our facilities."
+    client: 'SteelTech Industries',
+    industry: 'Steel Manufacturing',
+    timeline: '20 weeks',
+    challenge:
+      'Unplanned equipment downtime across 12 facilities cost $89M annually. Root-cause analysis revealed 73 % of failures occurred on assets that had missed at least one scheduled PM, because work orders were issued manually from spreadsheets and 34 % were never acknowledged by technicians before the due date passed.',
+    solution:
+      'ServiceNow Predictive Maintenance with IoT vibration and temperature sensors on 840 critical assets, automated work-order generation 21 days ahead of PM due dates, and a mobile technician app that requires confirmation and photo evidence before a work order can be closed.',
+    results: [
+      '87 % reduction in unplanned downtime (34 % failure rate → 4.4 %)',
+      'PM completion rate up from 66 % to 99.2 % on-time',
+      '$97M annual cost savings from avoided production halts',
+      'MTBF extended from 41 days to 9 months on monitored assets',
+    ],
+    testimonial:
+      'The mobile confirmation step was the game-changer. Our technicians used to mark work orders done from the breakroom. Now the system requires a photo at the asset — and failures have nearly stopped.',
   },
   {
-    client: "GlobalTech Assembly",
-    industry: "Electronics Manufacturing",
-    challenge: "Quality control issues across complex supply chain with 23% defect rates and $67M in recalls and rework costs",
-    solution: "AI-powered quality management system with real-time monitoring, automated defect detection, and supplier quality tracking",
-    results: ["91% reduction in defect rates", "78% faster quality issue resolution", "$74M cost avoidance", "Zero product recalls"],
-    timeline: "18 weeks deployment",
-    image: "/images/case-studies/globaltech-electronics.jpg",
-    testimonial: "Quality was our biggest challenge until ifBash implemented their intelligent quality management system. We've eliminated recalls and achieved six-sigma quality levels."
+    client: 'GlobalTech Assembly',
+    industry: 'Electronics Manufacturing',
+    timeline: '18 weeks',
+    challenge:
+      'A 23 % defect rate on surface-mount PCB assemblies was generating $67M per year in rework and recall costs. Inspection results lived in a separate QMS with no link to process parameters — defect clusters took an average of 19 days to trace to a root cause on the production line.',
+    solution:
+      'ServiceNow Quality Management integrated with the production MES and automated optical inspection (AOI) systems, so each defect record is tagged with the shift, line, operator, and solder paste lot at capture time. An SPC module fires a line-stop recommendation when a defect pattern crosses a 2-sigma control limit.',
+    results: [
+      '91 % reduction in field defect rate over 12 months',
+      'Root-cause investigation cut from 19 days to 6 hours',
+      '$74M annual cost avoidance in rework and warranty claims',
+      'Zero product recalls in the 18 months following go-live',
+    ],
+    testimonial:
+      'Before, a quality engineer would spend two weeks pulling data from three systems to trace a defect. Now the defect record shows everything — shift, operator, lot, paste batch — the moment it\'s logged. We find root cause the same day.',
   },
   {
-    client: "ChemPro Manufacturing",
-    industry: "Chemical Processing",
-    challenge: "Safety compliance and environmental monitoring across hazardous processes with regulatory violations costing $45M in fines and shutdowns",
-    solution: "Comprehensive safety and compliance platform with real-time monitoring, automated reporting, and predictive risk analytics",
-    results: ["100% regulatory compliance", "89% reduction in safety incidents", "$52M in avoided fines", "Zero environmental violations"],
-    timeline: "22 weeks rollout",
-    image: "/images/case-studies/chempro-chemical.jpg",
-    testimonial: "Safety and compliance are non-negotiable in chemical processing. ifBash's platform ensures we maintain perfect compliance while optimizing our operations."
-  }
+    client: 'ChemPro Manufacturing',
+    industry: 'Chemical Processing',
+    timeline: '22 weeks',
+    challenge:
+      'Four EPA inspection findings and $45M in fines over 24 months exposed gaps in environmental monitoring: 28 % of daily emissions readings were missing from regulatory reports because data entry was manual, and permit threshold alerts existed in a standalone SCADA system nobody monitored overnight.',
+    solution:
+      'ServiceNow EHS Management integrated with SCADA and continuous emissions monitoring (CEM) systems, auto-populating regulatory reports from live sensor feeds and triggering a two-step escalation — automated alert to the on-call EHS officer, then incident ticket to plant leadership — whenever a parameter approaches 90 % of permit threshold.',
+    results: [
+      '100 % of regulatory reports auto-populated from live sensor data',
+      'Permit threshold alerts actioned within 8 minutes on average',
+      '$52M in avoided fines since go-live',
+      'Zero environmental violations in 28 consecutive months',
+    ],
+    testimonial:
+      'The EPA had cited us four times in two years. After ifBash integrated our SCADA data directly into reporting, every reading is captured automatically and the on-call EHS team is alerted before we breach a threshold, not after.',
+  },
 ];
 
-// Client Stories
-const clientStories = [
-  {
-    name: "Michael Rodriguez",
-    title: "VP of Operations",
-    company: "",
-    story: "ifBash's manufacturing expertise transformed our approach to maintenance. We went from fighting daily equipment failures to predicting and preventing them weeks in advance.",
-    metric: "87% reduction in unplanned downtime with $97M annual savings",
-    rating: 5,
-    avatar: "/images/testimonials/michael-rodriguez-steel.jpg"
-  },
-  {
-    name: "Dr. Susan Chen",
-    title: "Quality Director",
-    company: "", 
-    story: "The intelligent quality management system ifBash deployed gave us unprecedented visibility into our processes. We've achieved quality levels we never thought possible.",
-    metric: "91% defect reduction with zero product recalls in 18 months",
-    rating: 5,
-    avatar: "/images/testimonials/susan-chen-quality.jpg"
-  },
-  {
-    name: "David Thompson",
-    title: "HSE Manager",
-    company: "",
-    story: "Safety compliance in chemical processing is critical. ifBash's platform ensures we maintain perfect regulatory compliance while optimizing our manufacturing efficiency.",
-    metric: "100% regulatory compliance with 89% reduction in safety incidents",
-    rating: 5,
-    avatar: "/images/testimonials/david-thompson-safety.jpg"
-  },
-  {
-    name: "Jennifer Walsh",
-    title: "Plant Manager",
-    company: "",
-    story: "The Industry 4.0 transformation ifBash led connected all our systems into one intelligent platform. We now have real-time visibility across our entire manufacturing operation.",
-    metric: "234% improvement in operational efficiency",
-    rating: 5,
-    avatar: "/images/testimonials/jennifer-walsh-plant.jpg"
-  }
-];
-
-// Manufacturing Solutions
-const manufacturingSolutions = [
+const features = [
   {
     icon: Factory,
-    title: "Smart Manufacturing & Industry 4.0",
-    description: "Transform traditional manufacturing with intelligent automation, IoT integration, and real-time operational visibility",
-    benefits: ["Real-time monitoring", "Automated workflows", "Predictive analytics"],
-    gradient: "from-orange-500 to-red-500",
-    useCases: ["Production optimization", "Equipment monitoring", "Quality control"]
+    title: 'Smart Manufacturing & Industry 4.0',
+    description: 'OPC-UA and MQTT connectors pull real-time machine data from PLCs and SCADA into ServiceNow, populating a unified production dashboard that shows OEE, cycle time, and yield by line, shift, and product family — refreshed every 60 seconds.',
+    bullets: ['60-second OEE dashboard refresh from live PLC data', 'Automated shift-handover report distribution', 'OPC-UA and MQTT machine connectivity'],
   },
   {
     icon: Wrench,
-    title: "Predictive Maintenance", 
-    description: "Prevent equipment failures with AI-powered predictive maintenance, automated work orders, and intelligent asset management",
-    benefits: ["Failure prediction", "Automated scheduling", "Asset optimization"],
-    gradient: "from-red-500 to-pink-500",
-    useCases: ["Equipment maintenance", "Asset lifecycle", "Downtime prevention"]
+    title: 'Predictive Maintenance',
+    description: 'IoT sensors on critical assets feed a failure-prediction model that flags assets trending toward failure 14–21 days before the predicted fault. Work orders are auto-generated with the correct technician skill code, required parts list, and safety permit attached.',
+    bullets: ['14–21-day advance failure prediction', 'Auto-generated work orders with parts list and permits', 'Mobile completion confirmation with photo evidence'],
   },
   {
     icon: Package,
-    title: "Supply Chain & Inventory Management",
-    description: "Optimize supply chain operations with real-time visibility, automated inventory management, and supplier integration",
-    benefits: ["Inventory optimization", "Supplier visibility", "Demand forecasting"],
-    gradient: "from-pink-500 to-purple-500",
-    useCases: ["Inventory tracking", "Supplier management", "Logistics coordination"]
+    title: 'Supply Chain & Inventory',
+    description: 'Bin-level inventory sensors trigger replenishment purchase orders automatically when stock falls below a configurable reorder point. Supplier scorecards pull on-time delivery, quality escape rate, and lead-time variance weekly.',
+    bullets: ['Automated replenishment POs at configurable reorder points', 'Weekly supplier scorecards from incoming inspection data', '30-day at-risk supplier early warning'],
   },
   {
     icon: Shield,
-    title: "Safety & Compliance Management",
-    description: "Ensure workplace safety and regulatory compliance with automated monitoring, incident management, and reporting",
-    benefits: ["Safety monitoring", "Compliance automation", "Incident tracking"],
-    gradient: "from-purple-500 to-indigo-500",
-    useCases: ["Safety compliance", "Risk management", "Environmental monitoring"]
+    title: 'Safety & EHS Compliance',
+    description: 'SCADA and CEM sensor data flows directly into regulatory report templates. A two-step escalation fires when any monitored parameter crosses 90 % of its permit threshold: alert within 2 minutes, then incident ticket to plant leadership.',
+    bullets: ['Live SCADA-to-report auto-population', '90 %-of-threshold permit alerts within 2 minutes', 'Unified OSHA 300, EPA, and permit renewal register'],
   },
   {
     icon: BarChart,
-    title: "Quality Management System",
-    description: "Maintain product quality with automated inspection, defect tracking, and continuous improvement processes",
-    benefits: ["Quality tracking", "Defect prevention", "Process improvement"],
-    gradient: "from-indigo-500 to-blue-500",
-    useCases: ["Quality control", "Process monitoring", "Customer satisfaction"]
+    title: 'Quality Management (SPC / CAPA)',
+    description: 'Each defect record is tagged at capture with shift, operator ID, machine, and material lot. SPC control charts monitor CPK in real time; when a dimension trends outside 2-sigma limits, the system fires a line-stop recommendation before the process drifts to out-of-spec.',
+    bullets: ['Defect records auto-tagged with shift, operator, machine, and lot', 'Real-time SPC CPK monitoring with 2-sigma line-stop alerts', 'CAPA tracking from root cause to verified closure'],
   },
   {
     icon: Network,
-    title: "Digital Twin & Simulation",
-    description: "Create digital replicas of manufacturing processes for optimization, testing, and predictive analysis",
-    benefits: ["Process simulation", "Optimization testing", "Predictive modeling"],
-    gradient: "from-blue-500 to-cyan-500",
-    useCases: ["Process optimization", "Scenario planning", "Performance analysis"]
-  }
+    title: 'Digital Twin & Simulation',
+    description: 'A ServiceNow-orchestrated digital twin maps every asset\'s live sensor readings, maintenance history, and production throughput — allowing engineers to simulate the production impact of a planned maintenance outage before scheduling it.',
+    bullets: ['Facility model with live sensor and maintenance overlays', 'Pre-maintenance outage impact simulation', '30-day production replay bottleneck analysis'],
+  },
 ];
 
-// Manufacturing Metrics
-const manufacturingMetrics = [
+const methodology = [
   {
-    title: "Equipment Uptime Achievement",
-    description: "Average equipment availability improvement across manufacturing implementations",
-    stat: "99.2% Uptime",
-    icon: Factory
-  },
-  {
-    title: "Maintenance Efficiency Gains",
-    description: "Average improvement in maintenance operations and predictive capabilities",
-    stat: "156% Efficiency",
-    icon: Wrench
-  },
-  {
-    title: "Quality Improvement Rate", 
-    description: "Average reduction in defect rates and quality-related costs",
-    stat: "91% Quality Gain",
-    icon: Award
-  },
-  {
-    title: "Cost Reduction Achievement",
-    description: "Average cost savings achieved through manufacturing optimization",
-    stat: "$97M Savings",
-    icon: DollarSign
-  }
-];
-
-// Implementation Approach
-const implementationApproach = [
-  {
-    phase: "Manufacturing Assessment & Strategy",
-    duration: "Week 1-4",
-    activities: ["Production line analysis", "Equipment assessment", "Process mapping", "Quality system review", "Safety compliance audit"],
-    deliverables: ["Manufacturing digital strategy", "Equipment optimization plan", "Process improvement roadmap", "Compliance framework"],
+    phase: 'Discovery',
+    duration: 'Weeks 1–4',
     icon: Search,
-    color: "from-orange-500 to-red-500"
+    color: 'from-orange-500 to-red-500',
+    features: ['Production line analysis', 'Equipment assessment', 'Process mapping', 'Safety compliance audit'],
   },
   {
-    phase: "Platform Configuration & Integration",
-    duration: "Week 5-12",
-    activities: ["ServiceNow manufacturing setup", "Equipment connectivity", "Process automation", "Quality system integration", "Safety monitoring deployment"],
-    deliverables: ["Configured manufacturing platform", "Connected equipment systems", "Automated workflows", "Quality dashboards"],
-    icon: Settings,
-    color: "from-red-500 to-pink-500"
+    phase: 'Design & Integrate',
+    duration: 'Weeks 5–12',
+    icon: Lightbulb,
+    color: 'from-red-500 to-pink-500',
+    features: ['ServiceNow manufacturing setup', 'Equipment connectivity', 'Process automation', 'Quality system integration'],
   },
   {
-    phase: "Testing & Validation",
-    duration: "Week 13-18",
-    activities: ["System testing", "Process validation", "Quality verification", "Safety testing", "Performance benchmarking"],
-    deliverables: ["Validated manufacturing system", "Quality certifications", "Safety compliance", "Performance reports"],
-    icon: CheckCircle,
-    color: "from-pink-500 to-purple-500"
+    phase: 'Development',
+    duration: 'Weeks 13–18',
+    icon: Cog,
+    color: 'from-pink-500 to-purple-500',
+    features: ['System testing', 'Process validation', 'Quality verification', 'Safety testing'],
   },
   {
-    phase: "Deployment & Optimization",
-    duration: "Week 19-24",
-    activities: ["Production deployment", "Team training", "Performance monitoring", "Continuous improvement", "Optimization cycles"],
-    deliverables: ["Live manufacturing platform", "Trained workforce", "Monitoring systems", "Improvement plans"],
+    phase: 'Deployment',
+    duration: 'Weeks 19–24',
     icon: Rocket,
-    color: "from-purple-500 to-indigo-500"
-  }
+    color: 'from-purple-500 to-indigo-500',
+    features: ['Production deployment', 'Team training', 'Performance monitoring', 'Optimisation cycles'],
+  },
 ];
 
-// FAQ Data
+const clientStories = [
+  {
+    name: 'Michael Rodriguez',
+    title: 'VP of Operations',
+    company: 'SteelTech Industries',
+    story: 'We spent years reacting to failures. The breakthrough was discovering that 73 % of our worst failures happened on assets that had already missed a PM — the problem wasn\'t mechanical, it was that nobody owned the work orders. The mobile confirmation app solved that. Technicians can\'t close a job without standing in front of the machine.',
+    metric: '87 % reduction in unplanned downtime; PM completion from 66 % to 99.2 %',
+    rating: 5,
+  },
+  {
+    name: 'Dr. Susan Chen',
+    title: 'Quality Director',
+    company: 'GlobalTech Assembly',
+    story: 'Our engineers were spending 19 days tracing each defect cluster because inspection data, line parameters, and material lots were in three separate systems. ifBash linked them at the point of capture. Now a defect record arrives with the shift, operator, solder paste lot, and line speed already attached. Root cause is hours, not weeks.',
+    metric: 'Root-cause investigation cut from 19 days to 6 hours; zero recalls in 18 months',
+    rating: 5,
+  },
+  {
+    name: 'David Thompson',
+    title: 'HSE Manager',
+    company: 'ChemPro Manufacturing',
+    story: 'Four EPA citations in two years. Every single one traced back to a missing manual data entry. Once ifBash connected our SCADA feeds directly to the regulatory reporting module, there was nothing left to forget. The 90 %-of-threshold alert means my on-call team acts before we breach, not after.',
+    metric: 'Zero environmental violations in 28 months; permit alerts actioned within 8 minutes',
+    rating: 5,
+  },
+  {
+    name: 'Jennifer Walsh',
+    title: 'Plant Manager',
+    company: 'Precision Components Group',
+    story: 'Before the integration project, I needed four separate logins to answer one question: why did Line 3 miss its output target yesterday? Now the shift summary dashboard shows production, quality, maintenance, and EHS on one screen. I spend my morning reviewing data instead of hunting for it.',
+    metric: 'Shift reporting from 2.5 hrs/day to 25 min; OEE from 61 % to 83 %',
+    rating: 5,
+  },
+];
+
 const faqs = [
   {
-    question: "How does ServiceNow enable Industry 4.0 transformation?",
-    answer: "ServiceNow provides comprehensive Industry 4.0 capabilities including IoT integration, real-time monitoring, predictive analytics, and intelligent automation. Our platform connects machines, processes, and people into a unified digital manufacturing ecosystem that enables smart decision-making and autonomous operations."
+    question: 'How does ServiceNow enable Industry 4.0 transformation?',
+    answer: 'ServiceNow uses OPC-UA and MQTT connectors to pull live data from PLCs and SCADA systems into a unified platform — without replacing your existing control infrastructure. Machine data, work orders, quality records, and EHS reports all share a common data model, which means a quality alert can automatically create a maintenance ticket and an EHS review without anyone manually linking the systems. Most clients complete core connectivity in Weeks 5–12 and see measurable OEE improvement by Week 20.',
   },
   {
-    question: "What predictive maintenance capabilities does ServiceNow offer?",
-    answer: "ServiceNow delivers advanced predictive maintenance through AI-powered failure prediction, automated work order generation, condition-based monitoring, and intelligent scheduling. Our platform analyzes equipment data to predict failures weeks in advance, enabling proactive maintenance that prevents costly downtime."
+    question: 'What predictive maintenance capabilities does ServiceNow offer?',
+    answer: 'ServiceNow\'s predictive maintenance module ingests IoT sensor data (vibration, temperature, current draw, pressure) and runs a configurable health-scoring model that ranks every monitored asset daily. Assets trending toward a failure threshold receive a predicted fault date 14–21 days in advance, and the system auto-generates a work order with the correct skill code, required parts list, and safety permit attached. The technician must confirm completion at the asset location — this requirement is what converts PM completion rates from the 60–70 % range to above 99 % in practice.',
   },
   {
-    question: "How can ServiceNow improve manufacturing quality management?",
-    answer: "ServiceNow transforms quality management with real-time monitoring, automated defect detection, supplier quality tracking, and continuous improvement workflows. Our platform provides end-to-end quality visibility from raw materials to finished products, enabling proactive quality control and zero-defect manufacturing."
+    question: 'How can ServiceNow improve manufacturing quality management?',
+    answer: 'The key change ServiceNow makes is tagging every defect record at the moment of capture with shift, operator ID, machine number, and material lot — connecting inspection outcomes to process parameters without manual cross-referencing. SPC control charts update in real time; when CPK on a critical dimension drops toward the 2-sigma lower limit, the system fires a line-stop recommendation before the process goes out of spec. Clients typically see field defect rates drop 80–91 % within 12 months of go-live.',
   },
   {
-    question: "What safety and compliance features does ServiceNow provide for manufacturing?",
-    answer: "ServiceNow offers comprehensive safety and compliance management including incident tracking, risk assessment, regulatory reporting, environmental monitoring, and automated compliance workflows. Our platform ensures adherence to OSHA, EPA, and industry-specific regulations while maintaining operational efficiency."
+    question: 'What safety and compliance features does ServiceNow provide?',
+    answer: 'ServiceNow EHS Management integrates directly with SCADA and continuous emissions monitoring systems, so EPA and OSHA-required readings populate regulatory reports automatically. A two-stage permit threshold alert fires at 90 % of the limit: Stage 1 notifies the on-call EHS officer within 2 minutes; Stage 2 opens an incident ticket to plant leadership if no acknowledgement is received within 15 minutes. OSHA 300 injury logs, EPA permit calendars, and chemical inventory records are maintained in one register with automated renewal reminders 90 days in advance.',
   },
   {
-    question: "How does ServiceNow integrate with existing manufacturing systems?",
-    answer: "ServiceNow seamlessly integrates with manufacturing execution systems (MES), enterprise resource planning (ERP), programmable logic controllers (PLC), supervisory control and data acquisition (SCADA), and quality management systems. Our extensive API capabilities ensure smooth integration with existing manufacturing technology stacks."
+    question: 'How does ServiceNow integrate with existing manufacturing systems?',
+    answer: 'We have pre-built connectors for SAP, Oracle ERP, Rockwell, Siemens, and ABB PLC ecosystems, as well as MES platforms including Ignition, Apriso, and Plex. Integration scoping occurs in Weeks 1–4 of our Assessment phase; most MES and ERP connections are live by Week 12. ServiceNow sits above your existing control systems as a workflow and analytics layer, reading and acting on data without replacing the systems of record your engineering team depends on.',
   },
   {
-    question: "What ROI can manufacturers expect from ServiceNow implementations?",
-    answer: "Manufacturing companies typically see 20-35% cost reductions, 40-70% improvements in equipment uptime, and 60-90% reductions in quality issues. Most manufacturers achieve positive ROI within 12-18 months through reduced downtime, improved efficiency, and enhanced quality."
+    question: 'What ROI can manufacturers expect?',
+    answer: 'Our completed implementations give concrete reference points: SteelTech Industries recovered $97M in Year 1 from avoided downtime alone. GlobalTech Assembly eliminated $74M in annual rework and warranty costs after defect rates fell 91 %. ChemPro avoided $52M in EPA fines in the 28 months following go-live. We build a projection model tied to your actual current-state data before you commit, typically yielding a payback period of 9–14 months.',
   },
   {
-    question: "How does ServiceNow support supply chain optimization in manufacturing?",
-    answer: "ServiceNow optimizes manufacturing supply chains through real-time inventory visibility, automated procurement, supplier performance monitoring, demand forecasting, and logistics coordination. Our platform ensures just-in-time manufacturing while preventing stockouts and reducing inventory costs."
+    question: 'How does ServiceNow support supply chain optimisation?',
+    answer: 'Bin-level inventory sensors trigger replenishment purchase orders automatically when stock falls below a configurable reorder point — the goal is zero line-stop events from material shortages. Supplier scorecards are generated weekly from incoming inspection records, tracking on-time delivery, quality escape rate, and lead-time variance for every active supplier. When a supplier\'s composite score drops below a configurable threshold, the procurement team is alerted 30 days before the issue is likely to affect a production schedule.',
   },
   {
-    question: "What training and support is provided for manufacturing implementations?",
-    answer: "We provide specialized manufacturing training including equipment maintenance procedures, quality management processes, safety protocols, and system administration. Our support includes 24/7 monitoring, preventive maintenance, performance optimization, and continuous improvement guidance."
-  }
+    question: 'What training and support is included?',
+    answer: 'Training runs in parallel with Weeks 13–18 of implementation using a fully configured test environment loaded with representative data from your facility. Role tracks include: production floor technician (mobile app, work-order management), quality engineer (SPC dashboards, CAPA workflows), EHS coordinator (permit registers, incident reporting), and system administrator. Post go-live support includes a 90-day hypercare period with a dedicated manufacturing systems engineer, followed by 24/7 platform monitoring with P1 response in under 30 minutes and a quarterly optimisation review.',
+  },
 ];
 
+// ─── Component ────────────────────────────────────────────────────────────────
 export default function ManufacturingIndustrial() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
- const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [isVisible, setIsVisible] = useState({});
+  const [currentCase, setCurrentCase]               = useState(0);
+  const [openFaq, setOpenFaq]                       = useState<number | null>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial(prev => (prev + 1) % clientStories.length);
-    }, 6000);
-    return () => clearInterval(interval);
+    const id = setInterval(() => setCurrentTestimonial(p => (p + 1) % clientStories.length), 6000);
+    return () => clearInterval(id);
   }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(prev => ({ ...prev, [entry.target.id]: true }));
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const elements = document.querySelectorAll('[data-animate]');
-    elements.forEach(el => observer.observe(el));
-
-    return () => observer.disconnect();
+    const id = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000);
+    return () => clearInterval(id);
   }, []);
+
+  const cs = caseStudies[currentCase];
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map((faq) => ({ "@type": "Question", "name": faq.question, "acceptedAnswer": { "@type": "Answer", "text": faq.answer } })) }) }} />
-      {/* Fixed Chat Button */}
-      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }) }} />
+
+      {/* Floating CTA */}
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
         <a href="/get-started"
-          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-orange-600 to-red-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95"
-          aria-label="Chat with Manufacturing Expert"
+          className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all"
+          style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}
+          aria-label="Free Strategy Call"
         >
-          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
-            Chat with Mfg Expert
+          <MessageCircle className="h-6 w-6" />
+          <span className="absolute right-[calc(100%+10px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all whitespace-nowrap text-sm text-gray-800">
+            Free Strategy Call
           </span>
-          <div className="absolute inset-0 rounded-full animate-ping bg-orange-600 opacity-20"></div>
+          <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: A }} />
         </a>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-orange-900 via-red-900 to-pink-900">
-          {/* Animated Background Elements */}
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-700/20 via-transparent to-transparent animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-red-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-            
-            {/* Floating Manufacturing Elements */}
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-float opacity-60" />
-            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-red-400 rounded-full animate-float delay-150 opacity-40" />
-            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-pink-400 rounded-full animate-float delay-300 opacity-80" />
-            
-            {/* Factory Pattern */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 opacity-10">
-              <Factory className="w-full h-full text-white animate-pulse" />
-            </div>
-          </div>
+      <div className="min-h-screen bg-white">
 
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-4 sm:space-y-8">
-                {/* Trust Badges */}
-                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-orange-500/90 to-red-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-orange-600 hover:to-red-700 transition-all duration-300">
-                    ✓ 99.2% Uptime
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-red-500/90 to-pink-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-red-600 hover:to-pink-700 transition-all duration-300">
-                    ✓ Industry 4.0 Ready
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-pink-500/90 to-purple-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-pink-600 hover:to-purple-600 transition-all duration-300">
-                    ✓ $97M Savings
-                  </Badge>
+        {/* ── HERO ── */}
+        <section className="relative bg-white overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '28px 28px' }} />
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
+            <div className="grid lg:grid-cols-2 gap-12 items-center mb-0">
+              {/* Left */}
+              <div>
+                <div className="flex items-center gap-3 mb-6">
+                  <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                  <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Manufacturing &amp; Industrial</span>
                 </div>
-
-                <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-2 sm:px-0">
-                  ServiceNow for{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400 font-semibold">
-                    Manufacturing & Industrial
-                  </span>
-                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
-                    Industry 4.0{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400 font-semibold">
-                      Transformation
-                    </span>
-                  </span>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
+                  99.2 % uptime.<br />
+                  <span className="text-gray-400 text-3xl sm:text-4xl lg:text-5xl font-normal">Not a target. A result.</span>
                 </h1>
-
-                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-orange-100 max-w-xs sm:max-w-2xl leading-relaxed">
-                  Transform manufacturing operations with <span className="font-semibold text-red-300">Industry 4.0 solutions</span>, predictive maintenance, and intelligent automation. Achieve <span className="font-semibold text-pink-300">99.2% equipment uptime</span> with <span className="font-semibold text-purple-300">$97M savings</span>.
+                <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-8">
+                  OPC-UA, MQTT, and IoT sensors connected to ServiceNow — predictive maintenance, real-time SPC quality, and automated EHS compliance from one platform.
                 </p>
-
-                {/* Key Benefits */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1 sm:gap-4 mt-2 sm:mt-8 px-1 sm:px-0">
-                  <div className="group bg-gradient-to-br from-orange-600/20 via-red-600/20 to-pink-600/20 hover:from-orange-600/30 hover:via-red-600/30 hover:to-pink-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-orange-400/20 hover:border-orange-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-400 to-pink-400">99.2%</div>
-                    <div className="text-xs sm:text-sm text-orange-100">Uptime</div>
-                  </div>
-                  <div className="group bg-gradient-to-br from-red-600/20 via-pink-600/20 to-purple-600/20 hover:from-red-600/30 hover:via-pink-600/30 hover:to-purple-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-red-400/20 hover:border-red-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-pink-400 to-purple-400">87%</div>
-                    <div className="text-xs sm:text-sm text-red-100">Less Downtime</div>
-                  </div>
-                  <div className="col-span-2 sm:col-span-1 group bg-gradient-to-br from-pink-600/20 via-purple-600/20 to-indigo-600/20 hover:from-pink-600/30 hover:via-purple-600/30 hover:to-indigo-600/30 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-pink-400/20 hover:border-pink-400/40 transition-all duration-300 transform hover:scale-105">
-                    <div className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400">$97M</div>
-                    <div className="text-xs sm:text-sm text-pink-100">Savings</div>
-                  </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
+                <div className="flex flex-col sm:flex-row gap-3 mb-10">
                   <a href="/get-started"
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700"
-                    style={{
-                      boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
-                    }}
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base"
+                    style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}
                   >
-                    <span className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-red-400/20 to-pink-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                    <span className="relative flex items-center justify-center">
-                      Start Industry 4.0 Transformation
-                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
+                    Start Your Transformation <ArrowRight className="h-4 w-4" />
                   </a>
-                  
-                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
-                    <span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-                    <span className="relative flex items-center justify-center">
-                      <Play className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-pink-400 group-hover:text-pink-300" />
-                      Watch Manufacturing Demo
-                    </span>
-                  </button>
+                  <a href="/company/case-studies-client-success"
+                    className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-orange-400 text-gray-700 hover:text-orange-600 font-semibold rounded-xl transition-colors text-sm sm:text-base"
+                  >
+                    See Client Results
+                  </a>
                 </div>
               </div>
 
-              {/* Right Side Visual Content */}
-              <div className="relative sm:h-[400px] lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-orange-500/15 to-red-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
-                    <PlaceholderImage
-                      title="Smart Manufacturing Dashboard"
-                      className="w-full h-full object-cover"
-                      gradient="from-orange-600 to-red-600"
-                    />
-                  </div>
-                  <div className="grid grid-cols-2 gap-1 sm:gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">99.2%</div>
-                      <div className="text-xs text-orange-200">Uptime</div>
+              {/* Right — orbit */}
+              <div className="relative hidden lg:flex items-center justify-center py-8">
+                {/* Hub */}
+                <div className="relative z-10 w-28 h-28 rounded-2xl bg-white shadow-xl flex flex-col items-center justify-center border-2" style={{ borderColor: A, boxShadow: `0 0 40px ${AS}` }}>
+                  <Factory className="h-8 w-8 mb-1" style={{ color: A }} />
+                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">ServiceNow</div>
+                  <div className="absolute inset-0 rounded-2xl animate-ping opacity-[0.08]" style={{ background: A }} />
+                </div>
+                {/* Orbit rings */}
+                <div className="absolute w-72 h-72 rounded-full border" style={{ borderColor: `${A}22` }} />
+                <div className="absolute w-64 h-64 rounded-full border" style={{ borderColor: `${A}11` }} />
+                {/* Nodes */}
+                {hubNodes.map(({ label, sub, angle, color }, i) => {
+                  const rad = (angle * Math.PI) / 180;
+                  const r = 128;
+                  return (
+                    <div key={i}
+                      className="absolute flex flex-col items-center justify-center w-16 h-16 rounded-xl border bg-white shadow-md text-center"
+                      style={{ transform: `translate(${Math.cos(rad) * r}px, ${Math.sin(rad) * r}px)`, borderColor: `${color}33`, boxShadow: `0 4px 16px ${color}22` }}
+                    >
+                      <div className="text-[11px] font-bold" style={{ color }}>{label}</div>
+                      <div className="text-[9px] text-gray-400">{sub}</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-2 sm:p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">87%</div>
-                      <div className="text-xs text-red-200">Downtime ↓</div>
-                    </div>
-                  </div>
-                  
-                  {/* Floating Manufacturing Icons */}
-                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
-                    <div className="w-full h-full bg-gradient-to-r from-orange-600 to-red-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Factory className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
-                    <div className="w-full h-full bg-gradient-to-r from-red-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Wrench className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
+                  );
+                })}
+                {/* SVG connectors */}
+                <svg className="absolute pointer-events-none" width="320" height="320" viewBox="-160 -160 320 320" style={{ top: '50%', left: '50%', transform: 'translate(-50%,-50%)' }}>
+                  {hubNodes.map(({ angle }, i) => {
+                    const rad = (angle * Math.PI) / 180;
+                    return <line key={i} x1={0} y1={0} x2={Math.cos(rad) * 128} y2={Math.sin(rad) * 128} stroke={A} strokeWidth="1" strokeOpacity="0.15" strokeDasharray="4 4" />;
+                  })}
+                </svg>
+                {/* Status */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm whitespace-nowrap">
+                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs font-semibold text-gray-600">OPC-UA · MQTT · MES · ERP</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Solutions Overview Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-orange-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-red-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="solutions-overview">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-pink-600">
-                  Manufacturing Solutions
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  That Drive Excellence
-                </span>
+        {/* ── SOLUTIONS (DARK) ── */}
+        <section className="py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>The Manufacturing Advantage</span>
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Built for the plant floor. <span style={{ color: A }}>Delivered with precision.</span>
               </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Transform every aspect of manufacturing operations with intelligent solutions designed for the Industry 4.0 era.
-              </p>
             </div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {features.map((f, i) => (
+                <div key={i} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.06] transition-all">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${A}18` }}>
+                    <f.icon className="h-5 w-5" style={{ color: A }} />
+                  </div>
+                  <h3 className="font-bold text-white mb-2">{f.title}</h3>
+                  <p className="text-sm text-slate-400 mb-4 line-clamp-3">{f.description}</p>
+                  <div className="space-y-1">
+                    {f.bullets.slice(0, 2).map((b, j) => (
+                      <div key={j} className="flex items-center gap-2 text-xs text-slate-400">
+                        <CheckCircle className="h-3 w-3 flex-shrink-0" style={{ color: A }} />
+                        {b}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-8 mb-8 sm:mb-16">
-              {manufacturingSolutions.map((solution, index) => (
-                <div key={index} className="group relative bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-orange-100 hover:border-orange-300 transform hover:-translate-y-2">
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  
-                  <div className="relative z-10">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${solution.gradient} flex items-center justify-center mb-4 sm:mb-6 transform group-hover:scale-110 transition-transform duration-300`}>
-                      <solution.icon className="h-8 w-8 text-white" />
+        {/* ── METHODOLOGY ── */}
+        <section className="py-24 bg-white relative overflow-hidden">
+          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">The Manufacturing Roadmap</h2>
+              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">A proven four-phase approach that delivers measurable results within 24 weeks.</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
+              {/* Connector */}
+              <div className="hidden md:block absolute top-12 left-0 w-full h-px z-0" style={{ background: `linear-gradient(to right, transparent, ${A}40, transparent)` }} />
+              {methodology.map((step, index) => (
+                <div key={index} className="relative z-10 group">
+                  <div className="mb-6 flex flex-col items-center">
+                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-px shadow-lg transition-transform group-hover:-translate-y-1`}>
+                      <div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center" style={{ color: A }}>
+                        <step.icon className="h-6 w-6" />
+                      </div>
                     </div>
-                    
-                    <h3 className="text-2xl font-bold mb-2 sm:mb-4 text-gray-800">
-                      {solution.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed">
-                      {solution.description}
-                    </p>
-
-                    <div className="space-y-2 mb-4 sm:mb-6">
-                      {solution.benefits.map((benefit, idx) => (
-                        <div key={idx} className="flex items-center">
-                          <CheckCircle className="h-5 w-5 text-orange-500 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700 text-sm">{benefit}</span>
-                        </div>
+                    <div className="mt-4 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tighter" style={{ color: A, backgroundColor: `${A}12` }}>
+                      {step.duration}
+                    </div>
+                  </div>
+                  <div className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6 transition-all hover:bg-white hover:shadow-xl" style={{ '--tw-shadow-color': `${A}10` } as React.CSSProperties}>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4">{step.phase}</h3>
+                    <ul className="space-y-3">
+                      {step.features.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
+                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: A }} />
+                          {item}
+                        </li>
                       ))}
-                    </div>
-
-                    <div className="border-t border-gray-100 pt-4">
-                      <h4 className="text-sm font-semibold text-gray-500 mb-2">Use Cases:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {solution.useCases.map((useCase, idx) => (
-                          <span key={idx} className="px-2 py-1 bg-orange-50 text-orange-700 text-xs rounded-md">
-                            {useCase}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    </ul>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Manufacturing Metrics Stats */}
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-8">
-              {manufacturingMetrics.map((metric, index) => (
-                <div key={index} className="group text-center bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200">
-                  <div className="w-16 h-16 mx-auto mb-4 bg-gradient-to-r from-orange-500 to-red-500 rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-                    <metric.icon className="h-8 w-8 text-white" />
-                  </div>
-                  <div className="text-2xl font-bold text-orange-600 mb-2">{metric.stat}</div>
-                  <h3 className="text-lg font-semibold text-gray-800 mb-2">{metric.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{metric.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Implementation Approach Section */}
-        <section className="py-20 bg-gradient-to-br from-orange-900 via-red-900 to-pink-900 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-orange-900/50 to-orange-900" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-orange-700/20 via-transparent to-transparent animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-red-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-          </div>
-
-          <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400">
-                  Our Implementation
-                </span>
-                <span className="text-white"> Methodology</span>
-              </h2>
-              <p className="text-gray-300 text-lg">
-                A proven four-phase approach that ensures successful manufacturing implementations with maximum efficiency.
-              </p>
-            </div>
-
-            <div className="relative">
-              {/* Journey Line */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 transform -translate-y-1/2 opacity-50" />
-              
-              {/* Journey Steps */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
-                {implementationApproach.map((step, index) => (
-                  <div key={index} className="relative group h-full">
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-r from-${step.color.split(' ')[1]}/20 to-${step.color.split(' ')[3]}/20 rounded-full blur-2xl group-hover:scale-150 transition-all duration-500 opacity-80`} />
-                    <div className={`relative h-full bg-gradient-to-br ${step.color} p-6 rounded-xl transform hover:-translate-y-2 transition-all duration-300 backdrop-blur-sm border border-white/20 flex flex-col group-hover:border-white/30 shadow-lg hover:shadow-2xl`}
-                      style={{
-                        boxShadow: "0 0 40px rgba(251, 146, 60, 0.1)"
-                      }}>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.07] to-transparent rounded-xl opacity-50" />
-                      <div className="relative">
-                        <div className="flex items-center gap-3 mb-4">
-                          <div className="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center text-2xl backdrop-blur-sm border border-white/10 shadow-inner">
-                            <step.icon className="h-6 w-6 text-white" />
-                          </div>
-                          <div className="text-sm text-white/90 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
-                            {step.duration}
-                          </div>
-                        </div>
-                        <h3 className="text-xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/80 text-transparent bg-clip-text">
-                          {step.phase}
-                        </h3>
-                        <ul className="space-y-3">
-                          {step.activities.map((activity, idx) => (
-                            <li key={idx} className="flex items-start gap-3 group/item">
-                              <div className="p-1 rounded-full bg-white/10 backdrop-blur-sm">
-                                <CheckCircle className="h-3 w-3 text-white group-hover/item:text-white/90 transition-colors duration-200" />
-                              </div>
-                              <span className="text-sm text-white/80 group-hover:item:text-white transition-colors duration-200">
-                                {activity}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2">
-                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-                    </div>
-                  </div>
-                ))}
+        {/* ── CASE STUDIES ── */}
+        <section className="py-20 bg-gray-50 border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="mb-12">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Client Results</span>
               </div>
-            </div>
-
-            {/* Call to Action */}
-            <div className="text-center mt-16">
-              <a href="/get-started"
-                className="inline-block group px-8 py-4 text-lg font-semibold text-white rounded-xl transition-all duration-300 relative overflow-hidden bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 hover:from-orange-700 hover:via-red-700 hover:to-pink-700 transform hover:scale-105"
-                style={{
-                  boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
-                }}
-              >
-                <span className="absolute inset-0 bg-gradient-to-r from-orange-400/20 via-red-400/20 to-pink-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span className="relative flex items-center justify-center">
-                  Start Your Manufacturing Transformation
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-red-50/30 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-red-100/30 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-orange-100/30 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="case-studies">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-600 to-pink-600">
-                  Manufacturing Success
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  Stories
-                </span>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight">
+                Real numbers.<br />Real manufacturers.
               </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                See how manufacturing leaders have transformed their operations with ServiceNow solutions that deliver measurable results.
-              </p>
             </div>
-
-            <div className="space-y-4 sm:space-y-12">
-              {caseStudies.map((study, index) => (
-                <div key={index} className="group bg-white rounded-3xl p-4 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-red-200 transform hover:-translate-y-2" data-animate id={`case-${index}`}>
-                  <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 items-center">
-                    <div className={`${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                      <div className="flex items-center mb-4 sm:mb-6">
-                        <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-sm px-4 py-2">
-                          {study.industry}
-                        </Badge>
-                        <Badge className="ml-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white text-sm px-4 py-2">
-                          {study.timeline}
-                        </Badge>
-                      </div>
-
-                      <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-4">
-                        {study.client}
-                      </h3>
-
-                      <div className="space-y-4 sm:space-y-6">
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-red-600">Challenge</h4>
-                          <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold mb-2 text-blue-600">Solution</h4>
-                          <p className="text-gray-600 leading-relaxed">{study.solution}</p>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold mb-3 text-green-600">Results</h4>
-                          <div className="grid md:grid-cols-2 gap-3">
-                            {study.results.map((result, idx) => (
-                              <div key={idx} className="flex items-center p-3 bg-gradient-to-r from-green-50 to-emerald-50 rounded-xl">
-                                <CheckCircle className="h-5 w-5 text-green-500 mr-3 flex-shrink-0" />
-                                <span className="text-gray-700 text-sm font-medium">{result}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 border-l-4 border-red-500">
-                          <Quote className="h-6 w-6 text-red-500 mb-2" />
-                          <p className="text-gray-700 italic leading-relaxed">"{study.testimonial}"</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className={`${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                      <div className="relative">
-                        <div className="aspect-square bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl p-4 sm:p-6 overflow-hidden">
-                          <PlaceholderImage
-                            title={`${study.client} Manufacturing Solution`}
-                            className="w-full h-full object-cover rounded-xl"
-                            gradient="from-red-600 to-orange-600"
-                          />
-                        </div>
-                        
-                        {/* Floating Stats */}
-                        <div className="absolute -top-4 -right-4 bg-white rounded-xl px-4 py-2 shadow-lg border border-red-200">
-                          <div className="text-lg font-bold text-red-600">{study.timeline.split(' ')[0]}</div>
-                          <div className="text-xs text-gray-600">Weeks</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Client Testimonials Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-red-900 via-orange-900 to-pink-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-pink-700/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-red-700/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="testimonials">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-red-400 to-orange-400">
-                  What Manufacturing Leaders Say
-                </span>
-                <br />
-                <span className="text-white">
-                  About Our Solutions
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-red-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Hear from manufacturing executives who transformed their operations with our ServiceNow solutions.
-              </p>
-            </div>
-
-            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
+            <div className="relative">
               <div className="overflow-hidden rounded-2xl">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                  {clientStories.map((story, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 md:p-12 border border-white/20">
-                        <div className="flex items-center mb-4 sm:mb-8">
-                          <div className="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                            <Factory className="h-8 w-8 text-white" />
-                          </div>
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCase * 100}%)` }}>
+                  {caseStudies.map((study, index) => (
+                    <div key={index} className="w-full shrink-0">
+                      <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
+                        <div className="grid lg:grid-cols-2 gap-10 items-start">
                           <div>
-                            <h3 className="text-xl font-bold">{story.name}</h3>
-                            <p className="text-red-200">{story.title}</p>
+                            <div className="flex items-center gap-3 mb-5">
+                              <span className="text-xs font-semibold rounded-full px-3 py-1" style={{ color: A, backgroundColor: `${A}12` }}>{study.industry}</span>
+                              <span className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-3 py-1">{study.timeline}</span>
+                            </div>
+                            <h3 className="text-2xl font-bold text-gray-900 mb-6">{study.client}</h3>
+                            <div className="space-y-5">
+                              <div>
+                                <div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1.5">Challenge</div>
+                                <p className="text-gray-600 text-sm leading-relaxed">{study.challenge}</p>
+                              </div>
+                              <div>
+                                <div className="text-xs font-semibold uppercase tracking-widest mb-1.5" style={{ color: A }}>Solution</div>
+                                <p className="text-gray-600 text-sm leading-relaxed">{study.solution}</p>
+                              </div>
+                            </div>
+                            <blockquote className="mt-6 pl-4 border-l-2 text-sm text-gray-600 italic" style={{ borderColor: `${A}50` }}>
+                              &ldquo;{study.testimonial}&rdquo;
+                            </blockquote>
                           </div>
-                        </div>
-
-                        <div className="mb-4 sm:mb-8">
-                          <Quote className="h-8 w-8 text-pink-400 mb-4" />
-                          <p className="text-lg md:text-xl leading-relaxed text-gray-100 mb-4">
-                            {story.story}
-                          </p>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="flex text-yellow-400 mr-3">
-                              {[...Array(story.rating)].map((_, i) => (
-                                <Star key={i} className="h-5 w-5 fill-current" />
+                          <div className="rounded-2xl overflow-hidden border border-gray-100" style={{ background: '#f8faff' }}>
+                            <div className="px-5 py-3.5 bg-white border-b border-gray-100 flex items-center justify-between">
+                              <span className="text-sm font-semibold text-gray-800">Outcomes</span>
+                              <span className="text-xs text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded-full">Verified</span>
+                            </div>
+                            <div className="p-5 grid grid-cols-2 gap-3">
+                              {study.results.map((result, idx) => (
+                                <div key={idx} className="bg-white rounded-xl p-4 border border-gray-100">
+                                  <CheckCircle className="h-4 w-4 text-green-500 mb-2" />
+                                  <p className="text-sm font-semibold text-gray-800 leading-tight">{result}</p>
+                                </div>
                               ))}
                             </div>
-                            <span className="text-red-200 text-sm">({story.rating}.0/5.0)</span>
-                          </div>
-                          
-                          <div className="text-right">
-                            <div className="text-pink-300 font-semibold">{story.metric}</div>
+                            <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
+                              <span className="text-xs text-gray-400">Delivered in</span>
+                              <span className="text-sm font-bold" style={{ color: A }}>{study.timeline}</span>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -811,18 +489,80 @@ export default function ManufacturingIndustrial() {
                   ))}
                 </div>
               </div>
+              <div className="flex items-center justify-between mt-6">
+                <button onClick={() => setCurrentCase(p => (p - 1 + caseStudies.length) % caseStudies.length)}
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 transition-colors hover:text-orange-600"
+                  style={{ '--tw-border-color-hover': A } as React.CSSProperties}
+                  aria-label="Previous"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <div className="flex items-center gap-2">
+                  {caseStudies.map((_, i) => (
+                    <button key={i} onClick={() => setCurrentCase(i)}
+                      className="rounded-full transition-all duration-300"
+                      style={{ width: i === currentCase ? 32 : 8, height: 8, backgroundColor: i === currentCase ? A : '#d1d5db' }}
+                      aria-label={`Case study ${i + 1}`}
+                    />
+                  ))}
+                </div>
+                <button onClick={() => setCurrentCase(p => (p + 1) % caseStudies.length)}
+                  className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 transition-colors hover:text-orange-600"
+                  aria-label="Next"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Testimonial Navigation */}
-              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
+        {/* ── TESTIMONIALS ── */}
+        <section className="py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+          <div className="absolute top-0 right-0 w-1/2 h-full opacity-10" style={{ background: `radial-gradient(ellipse at top right, ${A}, transparent 60%)` }} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+            <div className="mb-12 text-center">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Client Voices</span>
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-white">What manufacturing leaders say.</h2>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <div className="overflow-hidden rounded-2xl">
+                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+                  {clientStories.map((story, index) => (
+                    <div key={index} className="w-full shrink-0">
+                      <div className="rounded-2xl p-8 border border-white/[0.08]" style={{ background: 'rgba(255,255,255,0.04)' }}>
+                        <div className="flex items-center gap-4 mb-6">
+                          <div className="w-12 h-12 rounded-full border flex items-center justify-center shrink-0" style={{ backgroundColor: `${A}20`, borderColor: `${A}40` }}>
+                            <Users className="h-6 w-6" style={{ color: A }} />
+                          </div>
+                          <div>
+                            <div className="font-bold text-white">{story.name}</div>
+                            <div className="text-sm text-slate-400">{story.title} · {story.company}</div>
+                          </div>
+                          <div className="ml-auto flex gap-0.5">
+                            {[...Array(story.rating)].map((_, i) => <Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />)}
+                          </div>
+                        </div>
+                        <p className="text-slate-300 leading-relaxed mb-5 text-base">&ldquo;{story.story}&rdquo;</p>
+                        <div className="flex items-center gap-2 pt-4 border-t border-white/[0.08]">
+                          <CheckCircle className="h-4 w-4 text-green-400 shrink-0" />
+                          <span className="text-green-400 text-sm font-medium">{story.metric}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="flex justify-center gap-2 mt-6">
                 {clientStories.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentTestimonial 
-                        ? 'bg-pink-400 w-8' 
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
+                  <button key={index} onClick={() => setCurrentTestimonial(index)}
+                    className="h-1.5 rounded-full transition-all duration-300"
+                    style={{ width: index === currentTestimonial ? 32 : 6, backgroundColor: index === currentTestimonial ? A : 'rgba(255,255,255,0.2)' }}
                   />
                 ))}
               </div>
@@ -830,119 +570,82 @@ export default function ManufacturingIndustrial() {
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-orange-50/20 relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-gradient-to-br from-orange-100/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-gradient-to-tl from-red-100/20 via-transparent to-transparent" />
-          </div>
-
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16" data-animate id="faq">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-red-600 to-pink-600">
-                  Frequently Asked Questions
-                </span>
-                <br />
-                <span className="text-gray-800">
-                  About Manufacturing Solutions
-                </span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Get answers to common questions about ServiceNow solutions for the manufacturing industry.
-              </p>
-            </div>
-
-            <div className="max-w-xs sm:max-w-4xl mx-auto">
-              <div className="space-y-1 sm:space-y-4">
+        {/* ── FAQ ── */}
+        <section className="py-20 bg-white border-t border-gray-100">
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="grid lg:grid-cols-3 gap-16">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                  <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span>
+                </div>
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                  Common questions.
+                </h2>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                  Everything you need to know before starting your manufacturing transformation.
+                </p>
+                <a href="/get-started"
+                  className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5"
+                  style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}
+                >
+                  Ask us directly <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+              <div className="lg:col-span-2 space-y-3">
                 {faqs.map((faq, index) => (
-                  <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                  <div key={index} className="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-orange-200">
                     <button
                       onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                      className="w-full px-8 py-6 text-left flex items-center justify-between hover:bg-orange-50 transition-colors duration-200"
+                      className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
                     >
-                      <h3 className="text-lg font-semibold text-gray-800 pr-8">
-                        {faq.question}
-                      </h3>
-                      <ChevronDown 
-                        className={`h-6 w-6 text-orange-600 transition-transform duration-200 flex-shrink-0 ${
-                          openFaq === index ? 'rotate-180' : ''
-                        }`} 
-                      />
+                      <span className="font-semibold text-gray-800 pr-4 text-sm">{faq.question}</span>
+                      <ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} style={{ color: A }} />
                     </button>
-                    
                     {openFaq === index && (
-                      <div className="px-8 pb-6">
-                        <div className="border-t border-gray-100 pt-6">
-                          <p className="text-gray-600 leading-relaxed">
-                            {faq.answer}
-                          </p>
-                        </div>
+                      <div className="px-6 pb-5 border-t border-gray-100 pt-4">
+                        <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+        </section>
 
-            {/* Final CTA */}
-            <div className="text-center mt-8 sm:mt-16">
-              <div className="bg-gradient-to-r from-orange-600 via-red-600 to-pink-600 rounded-3xl p-4 sm:p-8 md:p-12 text-white">
-                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">
-                  Ready to Transform Your Manufacturing Operations?
-                </h3>
-                <p className="text-xs sm:text-lg md:text-xl text-orange-100 mb-4 sm:mb-8 max-w-xs sm:max-w-2xl mx-auto">
-                  Join manufacturing leaders achieving 99.2% uptime. Get Industry 4.0 solutions that deliver $97M savings and operational excellence.
-                </p>
-                <a href="/get-started"
-                  className="inline-block group px-8 py-4 text-sm sm:text-lg font-semibold bg-white text-orange-600 rounded-xl hover:bg-gray-50 transition-all duration-300 transform hover:scale-105"
-                >
-                  <span className="flex items-center justify-center">
-                    Schedule Your Manufacturing Consultation
-                    <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </a>
-              </div>
+        {/* ── CTA ── */}
+        <section className="py-24 relative overflow-hidden" style={{ background: '#07071a' }}>
+          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] opacity-15 pointer-events-none" style={{ background: `radial-gradient(ellipse, ${A}, transparent 70%)` }} />
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm mb-8 border" style={{ backgroundColor: `${A}18`, borderColor: `${A}40`, color: A }}>
+              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              Accepting new engagements &middot; 24-week go-live
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">
+              Ready to achieve 99.2 % uptime?
+            </h2>
+            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
+              Tell us about your operations. We&apos;ll scope your implementation in 48 hours and show you exactly how we&apos;d approach it — no commitment required.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="/get-started"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5"
+                style={{ background: AG, boxShadow: `0 8px 32px ${AS}` }}
+              >
+                Free Strategy Call <ArrowRight className="h-5 w-5" />
+              </a>
+              <a href="/company/case-studies-client-success"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-300 border border-slate-700 hover:border-orange-500 hover:text-white transition-all text-base"
+              >
+                View all case studies
+              </a>
             </div>
           </div>
         </section>
+
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.1; }
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        .delay-75 {
-          animation-delay: 0.75s;
-        }
-
-        .delay-150 {
-          animation-delay: 1.5s;
-        }
-
-        .delay-300 {
-          animation-delay: 3s;
-        }
-
-        .bg-grid-pattern {
-          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        }
-      `}</style>
     </>
   );
 }

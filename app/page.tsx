@@ -487,18 +487,18 @@ return (
 />
 
 {/* Hero Section */}
-<section className="relative overflow-hidden" style={{background: '#07071a', minHeight: '100vh'}}>
+<section className="relative overflow-hidden" style={{background: '#07071a', minHeight: '90vh'}}>
   {/* Dot grid */}
   <div className="absolute inset-0 opacity-[0.035]" style={{backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px'}} />
   {/* Glows */}
   <div className="absolute top-0 left-0 w-[700px] h-[600px] opacity-[0.12]" style={{background: 'radial-gradient(ellipse at top left, #4f46e5, transparent 65%)'}} />
   <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{background: 'radial-gradient(ellipse at bottom right, #7c3aed, transparent 65%)'}} />
 
-  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10" style={{paddingTop: '4rem', paddingBottom: '72px'}}>
-    <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+  <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10" style={{paddingTop: '5rem', paddingBottom: '2rem'}}>
+    <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 min-h-[77vh]">
 
       {/* LEFT */}
-      <div className="space-y-7">
+      <div className="lg:col-span-7 space-y-7 self-start">
         {/* Three capability pills */}
         <div className="flex flex-wrap gap-2">
           {[
@@ -513,17 +513,17 @@ return (
           ))}
         </div>
 
-        <h1 className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.08] tracking-tight">
-          Implement. Automate. Transform.
+        <h1 className="text-6xl sm:text-6xl lg:text-[3.5rem] xl:text-6xl font-bold text-white leading-[1.08] tracking-tight">
+          Implement. Automate. Transform
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-violet-400 to-cyan-400">
-            <br></br>Grow with ServiceNow.
+            <br></br><br></br>Grow with ServiceNow.
           </span>
         </h1>
 
         <p className="text-base sm:text-lg text-slate-400 max-w-lg leading-relaxed">
           We deliver the complete ServiceNow platform — <span className="text-white">IT, Employee & Customer workflows</span> — infused with <span className="text-white">agentic AI</span> and <span className="text-white">CRM intelligence</span>.
         </p>
-
+          <br></br>
         <div className="flex flex-col sm:flex-row gap-3">
           <Link href="/get-started"
             className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm sm:text-base transition-all hover:-translate-y-0.5 hover:shadow-2xl"
@@ -540,12 +540,12 @@ return (
       </div>
 
       {/* RIGHT — Platform dashboard mockup */}
-      <div className="relative mt-8 lg:mt-0">
+      <div className="lg:col-span-5 relative mt-8 lg:mt-0 flex items-center justify-center">
         {/* Main card */}
-        <div className="rounded-2xl overflow-hidden border border-white/10" style={{background: '#0d0d20', boxShadow: '0 40px 80px rgba(0,0,0,0.7)'}}>
+        <div className="rounded-2xl overflow-hidden border border-white/10 flex flex-col" style={{background: '#0d0d20', boxShadow: '0 40px 80px rgba(0,0,0,0.7)'}}>
 
           {/* Window chrome */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8" style={{background: '#111130'}}>
+          <div className="flex items-center justify-between px-4 py-2.5 border-b border-white/8 shrink-0" style={{background: '#111130'}}>
             <div className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
               <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
@@ -563,10 +563,10 @@ return (
           </div>
 
           {/* 3-pillar metrics row */}
-          <div className="grid grid-cols-3 divide-x divide-white/8">
+          <div className="grid grid-cols-3 divide-x divide-white/8 shrink-0">
             {[
-              { label: 'IT Workflows', value: '92%', sub: 'ITSM · ITOM · SecOps · GRC', color: 'text-green-400', bg: 'bg-green-500/10', activeBg: 'bg-green-500/20', icon: Shield },
-              { label: 'Employee WF', value: '4.2s', sub: 'HR · Legal · Finance · Facilities', color: 'text-violet-400', bg: 'bg-violet-500/10', activeBg: 'bg-violet-500/20', icon: Users },
+              { label: 'IT Workflows', value: '92%', sub: 'ITOM · SecOps · GRC', color: 'text-green-400', bg: 'bg-green-500/10', activeBg: 'bg-green-500/20', icon: Shield },
+              { label: 'Employee WF', value: '4.2s', sub: 'HR · Legal · Finance ', color: 'text-violet-400', bg: 'bg-violet-500/10', activeBg: 'bg-violet-500/20', icon: Users },
               { label: 'Customer WF', value: '+47%', sub: 'CSM · FSM · Sales · CRM', color: 'text-blue-400', bg: 'bg-blue-500/10', activeBg: 'bg-blue-500/20', icon: TrendingUp },
             ].map(({ label, value, sub, color, bg, activeBg, icon: Icon }, i) => (
               <div key={label} className={`p-4 text-center transition-all duration-500 ${i === activeTab ? 'bg-white/[0.04]' : ''}`}>
@@ -581,9 +581,9 @@ return (
           </div>
 
           {/* Live activity feed */}
-          <div className="px-4 py-3 border-t border-white/8">
+          <div className="px-4 py-3 border-t border-white/8 flex-1 overflow-hidden flex flex-col">
             <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-2.5 font-medium">Live activity</div>
-            <div className="space-y-1.5">
+            <div className="space-y-1.5 flex-1">
               {agentLogs.map((log, i) => (
                 <div key={i} className="flex items-center gap-2 transition-all duration-500"
                   style={{opacity: i < shownLogs ? 1 : 0, transform: i < shownLogs ? 'none' : 'translateY(4px)'}}>
@@ -601,15 +601,10 @@ return (
           </div>
 
           {/* Bottom bar */}
-          <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/8 bg-white/[0.015]">
+          <div className="flex items-center justify-between px-4 py-2.5 border-t border-white/8 bg-white/[0.015] shrink-0">
             <span className="text-[11px] text-slate-500 font-mono"><span className="text-white font-bold">247</span> events processed today</span>
             <span className="text-[11px] text-green-400 font-mono animate-pulse">● All systems operational</span>
           </div>
-        </div>
-
-        {/* Floating accent chips */}
-        <div className="absolute -top-3 -right-3 bg-gradient-to-r from-indigo-600 to-violet-600 text-white text-[11px] font-bold px-3 py-1.5 rounded-lg shadow-lg animate-float whitespace-nowrap">
-          🤖 AI Agents
         </div>
       </div>
 
@@ -618,7 +613,7 @@ return (
 </section>
 
 {/* Services */}
-<section id="services" className="py-20 bg-white">
+<section id="services" className="py-12 bg-white">
   <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
     <div className="mb-12">
       <div className="flex items-center gap-3 mb-4">

@@ -81,32 +81,32 @@ const caseStudies = [
   {
     client: "GlobalPharma Corp",
     industry: "Pharmaceutical Manufacturing",
-    challenge: "Drug development lifecycle taking 8.5 years with 67% regulatory delays costing $890M in extended development",
-    solution: "Integrated drug development platform with regulatory automation, clinical data management, and compliance tracking",
-    results: ["34% faster development cycles", "89% reduction in regulatory delays", "$1.2B cost savings", "100% FDA compliance"],
+    challenge: "Drug development lifecycle averaged 8.5 years, with regulatory submission preparation accounting for 18–24 months of that total. 67% of regulatory delays were caused by incomplete or inconsistent documentation — CTD sections assembled manually from 12 source systems with no version control, leading to 3–5 revision cycles per submission before acceptance",
+    solution: "ServiceNow regulatory operations platform with a unified eCTD assembly workspace pulling documents from validated sources with audit-trailed version control, automated completeness checks against FDA and EMA submission checklists before submission, and a regulatory intelligence feed that monitors guideline updates and flags affected active submissions within 48 hours",
+    results: ["34% reduction in average development cycle — 8.5 years to 5.6 years", "Regulatory submission revision cycles reduced from 3–5 per submission to 0.8 average", "$1.2B in development cost savings from faster time-to-approval", "100% FDA and EMA submissions accepted at first review in 24-month period post go-live"],
     timeline: "26 weeks implementation",
     image: "/images/case-studies/globalpharma-corp.jpg",
-    testimonial: "ifBash transformed our drug development process, reducing time-to-market by years while maintaining perfect regulatory compliance."
+    testimonial: "Submission preparation was taking nearly two years because CTD assembly was a manual exercise across 12 systems. ifBash built the automated assembly workspace. Revision cycles dropped from 3–5 per submission to under one. First-review acceptance became the norm."
   },
   {
     client: "BioTech Innovations",
     industry: "Biotechnology Research",
-    challenge: "Research data management across 67 studies with compliance issues and collaboration inefficiencies",
-    solution: "Research data management platform with automated workflows, collaboration tools, and regulatory compliance",
-    results: ["78% improvement in research efficiency", "94% faster data analysis", "$156M productivity gains", "Zero data integrity issues"],
+    challenge: "Research data across 67 active studies lived in a combination of lab notebooks, LIMS, and shared network drives — with no cross-study linkage. Protocol deviations took an average of 11 days to identify because there was no systematic review between weekly team meetings. Cross-site collaboration between 4 global labs required manual file transfers that broke audit trails",
+    solution: "ServiceNow research operations hub integrating LIMS, EDC, and eTMF into a single data model with automated cross-study protocol deviation detection (alerts fire within 24 hours of a deviation entry), a global experiment workflow that routes approvals electronically with full audit trail regardless of which site initiates, and a real-time cross-study analytics dashboard linking biomarker, efficacy, and safety data across all active programmes",
+    results: ["78% improvement in research throughput measured by protocols completed per quarter", "Protocol deviation identification time cut from 11 days to 18 hours", "$156M in productivity gains from eliminated coordination delays", "Cross-site data sharing with full audit trail replacing manual file transfers"],
     timeline: "20 weeks rollout",
     image: "/images/case-studies/biotech-innovations.jpg",
-    testimonial: "The research platform ifBash built revolutionized our data management and collaboration, accelerating breakthrough discoveries."
+    testimonial: "A protocol deviation discovered 11 days after the fact is a serious compliance risk. ifBash built automated daily scans that fire within 24 hours. Our deviation backlog — which investigators used to surface at weekly meetings — went to near zero."
   },
   {
     client: "VaccineProduction Inc",
     industry: "Vaccine Manufacturing",
-    challenge: "Manufacturing quality control with 23% batch failures and $45M in rejected products annually",
-    solution: "Quality management system with real-time monitoring, predictive analytics, and automated compliance reporting",
-    results: ["91% reduction in batch failures", "156% improvement in quality scores", "$52M waste reduction", "Zero regulatory violations"],
+    challenge: "23% batch failure rate in fill-finish operations was traced in root-cause analysis to bioburden exceedances from 4 specific equipment cleaning validation gaps and to operator documentation errors occurring in 31% of executed batch records. $45M in rejected product annually was almost entirely from these two failure modes",
+    solution: "ServiceNow manufacturing quality platform with electronic batch records (eBR) replacing paper SOPs, forcing step completion in sequence with mandatory parameter entry before each stage advances. Real-time bioburden trending for the 4 identified equipment items triggers a cleaning re-validation work order automatically when trend data approaches the action limit — 5 days before the limit is typically breached",
+    results: ["91% reduction in batch failure rate (23% → 2.1%)", "Operator documentation errors eliminated through eBR mandatory entry", "$52M in annual waste costs eliminated", "Zero regulatory violations in 28 months post go-live"],
     timeline: "24 weeks deployment",
     image: "/images/case-studies/vaccine-production.jpg",
-    testimonial: "Quality is everything in vaccine production. ifBash's platform ensures every batch meets the highest standards with zero failures."
+    testimonial: "Paper batch records with optional free-text fields were at the heart of our failure rate. Operators were documenting after the fact from memory. eBR changed that — every step is entered at the moment of execution, in sequence. Batch failures dropped from 23% to just over 2%."
   }
 ];
 
@@ -115,36 +115,36 @@ const clientStories = [
   {
     name: "Dr. Amanda Foster",
     title: "Chief Scientific Officer",
-    company: "",
-    story: "ifBash's pharmaceutical expertise accelerated our drug development beyond our wildest expectations. We now bring life-saving medications to market years faster.",
-    metric: "34% faster development with $1.2B cost savings",
+    company: "GlobalPharma Corp",
+    story: "CTD assembly was eating 18–24 months of our development timeline. The root cause was assembling documents manually from 12 validated source systems with no version control — every submission went through 3 to 5 revision cycles before FDA acceptance. ifBash built an automated assembly workspace that runs completeness checks before submission. First-review acceptance became normal rather than exceptional.",
+    metric: "Regulatory revision cycles from 3–5 to 0.8 average; development cycle shortened 34%",
     rating: 5,
     avatar: "/images/testimonials/amanda-foster-cso.jpg"
   },
   {
     name: "Dr. Steven Liu",
     title: "Research Director",
-    company: "", 
-    story: "Research collaboration was transformed by ifBash's platform. Our teams now work seamlessly across global locations, accelerating breakthrough discoveries.",
-    metric: "78% research efficiency improvement with 94% faster analysis",
+    company: "BioTech Innovations",
+    story: "We had 67 active studies with protocol deviations discovered at weekly team meetings — sometimes 11 days after the event. That's a compliance exposure. ifBash built automated daily scans that fire an alert within 24 hours of a deviation being entered anywhere in the system. Our QA team's weekly backlog review became a confirmation that everything had already been addressed.",
+    metric: "Deviation identification time from 11 days to 18 hours; backlog effectively eliminated",
     rating: 5,
     avatar: "/images/testimonials/steven-liu-research.jpg"
   },
   {
     name: "Maria Rodriguez",
     title: "VP of Quality",
-    company: "",
-    story: "Vaccine quality cannot be compromised. ifBash's quality management platform ensures every batch meets the highest standards with zero failures.",
-    metric: "91% batch failure reduction with $52M waste savings",
+    company: "VaccineProduction Inc",
+    story: "Paper batch records let operators document steps after the fact, from memory, in free-text fields. That was the direct cause of 31% of our batch record errors and a major contributor to our 23% failure rate. eBR forces every entry at the point of execution, in sequence, with mandatory fields. You cannot advance to the next step without completing the current one. Batch failures went from 23% to 2.1%.",
+    metric: "Batch failure rate from 23% to 2.1%; $52M in annual waste eliminated",
     rating: 5,
     avatar: "/images/testimonials/maria-rodriguez-quality.jpg"
   },
   {
     name: "Dr. Robert Johnson",
     title: "Head of Regulatory Affairs",
-    company: "",
-    story: "Regulatory compliance complexity was eliminated by ifBash's automation. We now navigate global regulations effortlessly with perfect compliance scores.",
-    metric: "100% regulatory compliance with 89% faster approvals",
+    company: "Meridian Life Sciences",
+    story: "We received a guideline update from EMA affecting 3 of our active IND programmes and didn't realise it for 6 weeks because nobody was systematically monitoring for changes. ifBash's regulatory intelligence feed checks for guideline updates daily and flags affected submissions within 48 hours. We now act on changes before they become compliance gaps.",
+    metric: "Regulatory guideline impact flagged within 48 hours of publication; 6-week blind spots eliminated",
     rating: 5,
     avatar: "/images/testimonials/robert-johnson-regulatory.jpg"
   }
@@ -155,50 +155,50 @@ const pharmaceuticalSolutions = [
   {
     icon: TestTube2,
     title: "Drug Development Lifecycle",
-    description: "Accelerate drug discovery and development with automated protocols, regulatory compliance, and intelligent project management",
-    benefits: ["Development acceleration", "Regulatory automation", "Project intelligence"],
+    description: "eCTD assembly workspace pulls documents from validated source systems with version-controlled audit trails — eliminating the manual cross-referencing across 12+ systems that makes regulatory submission preparation take 18–24 months. Automated completeness checks run against FDA and EMA submission checklists before submission; a regulatory intelligence feed monitors guideline updates daily and flags affected active submissions within 48 hours of publication.",
+    benefits: ["Automated eCTD assembly from validated sources with audit trails", "Pre-submission completeness checks against FDA and EMA checklists", "48-hour regulatory guideline update flagging for affected submissions"],
     gradient: "from-indigo-500 to-purple-500",
-    useCases: ["Drug discovery", "Clinical trials", "Regulatory submissions"]
+    useCases: ["Regulatory submission preparation", "Guideline change monitoring", "CTD version control"]
   },
   {
     icon: Microscope,
-    title: "Research Data Management", 
-    description: "Manage complex research data with automated workflows, collaboration tools, and comprehensive analytics",
-    benefits: ["Data automation", "Research collaboration", "Analytics insights"],
+    title: "Research Data Management",
+    description: "LIMS, EDC, and eTMF data are unified in a single research operations hub — cross-study analytics link biomarker, efficacy, and safety data across all active programmes without manual data exports. Automated daily protocol deviation scans fire an alert within 24 hours of a deviation entry across any of the connected systems, replacing weekly team-meeting discovery with same-day notification. Global experiment workflows route approvals electronically with full audit trail regardless of which site initiates.",
+    benefits: ["Cross-study analytics linking LIMS, EDC, and eTMF without manual exports", "24-hour automated protocol deviation detection and alerting", "Multi-site electronic experiment approval with full audit trail"],
     gradient: "from-purple-500 to-violet-500",
-    useCases: ["Research workflows", "Data analysis", "Scientific collaboration"]
+    useCases: ["Cross-programme analytics", "Protocol deviation monitoring", "Multi-site workflow coordination"]
   },
   {
     icon: Shield,
     title: "Regulatory Compliance & Quality",
-    description: "Ensure regulatory compliance with automated reporting, quality management, and audit trail capabilities",
-    benefits: ["Compliance automation", "Quality assurance", "Audit trails"],
+    description: "Electronic batch records enforce step-by-step execution — each stage requires mandatory parameter entry at the point of performance before the workflow advances, preventing the after-the-fact free-text documentation that drives batch record errors. CAPA workflows track corrective actions from root-cause documentation through effectiveness verification, with re-audit scheduled automatically. 21 CFR Part 11 and EU Annex 11 audit trails are maintained automatically for all electronic records.",
+    benefits: ["eBR mandatory step entry enforcing real-time documentation", "CAPA tracking to effectiveness verification with scheduled re-audit", "21 CFR Part 11 and EU Annex 11 audit trails on all electronic records"],
     gradient: "from-violet-500 to-fuchsia-500",
-    useCases: ["FDA compliance", "Quality control", "Regulatory reporting"]
+    useCases: ["Electronic batch record execution", "CAPA management", "GMP audit readiness"]
   },
   {
     icon: Beaker,
     title: "Manufacturing Operations",
-    description: "Optimize pharmaceutical manufacturing with quality control, batch management, and supply chain coordination",
-    benefits: ["Quality control", "Batch management", "Supply optimization"],
+    description: "Real-time bioburden and critical process parameter trending for identified at-risk equipment items fires a cleaning re-validation or preventive maintenance work order when the trend approaches the action limit — typically 3–5 days before the limit is breached. Supply planning integrates with forecasted production schedules to identify API and excipient shortfall risks 90 days in advance, with automated procurement triggers when on-hand stock falls below a configurable safety stock level.",
+    benefits: ["Real-time bioburden trending with pre-breach maintenance trigger", "90-day API and excipient shortfall forecasting", "Automated procurement trigger at configurable safety stock level"],
     gradient: "from-fuchsia-500 to-pink-500",
-    useCases: ["Batch production", "Quality testing", "Supply planning"]
+    useCases: ["Fill-finish process monitoring", "Raw material supply assurance", "Equipment cleaning validation tracking"]
   },
   {
     icon: Brain,
     title: "Clinical Trial Management",
-    description: "Streamline clinical trials with patient management, protocol automation, and real-time monitoring",
-    benefits: ["Patient management", "Protocol automation", "Real-time monitoring"],
+    description: "Site activation checklists enforce each approval step with SLA timers and auto-escalate to the sponsor team when a step is 3 or more days overdue — converting 90+ day site activation timelines to under 25 days in practice. Protocol deviation alerts fire the same day a deviation is recorded in the EDC; CTMS and EDC data reconciliation eliminates the manual query resolution that adds 6–8 weeks to every trial close-out.",
+    benefits: ["SLA-enforced site activation with 3-day overdue escalation", "Same-day protocol deviation alerting from EDC", "Automated CTMS–EDC reconciliation eliminating manual close-out queries"],
     gradient: "from-pink-500 to-rose-500",
-    useCases: ["Trial management", "Patient recruitment", "Data collection"]
+    useCases: ["Site activation management", "Protocol compliance monitoring", "Trial close-out acceleration"]
   },
   {
     icon: Network,
     title: "Supply Chain & Distribution",
-    description: "Manage pharmaceutical supply chains with cold chain monitoring, serialization, and distribution tracking",
-    benefits: ["Cold chain monitoring", "Serialization", "Distribution tracking"],
+    description: "Cold chain monitoring integrates temperature sensor data from logistics partners directly into the supply record — excursions above the validated storage range trigger a quarantine hold and deviation investigation automatically, without waiting for a distribution report to be manually reviewed. Serialisation tracking maps every unit pack to its lot, manufacturing site, and regulatory approval by market, enabling same-day recall scope identification if a quality event is detected post-distribution.",
+    benefits: ["Automated cold chain excursion quarantine trigger from sensor data", "Serialisation tracking with same-day recall scope identification", "Temperature deviation investigation workflow auto-launch on excursion"],
     gradient: "from-rose-500 to-red-500",
-    useCases: ["Supply tracking", "Cold storage", "Distribution management"]
+    useCases: ["Cold chain compliance", "Product serialisation", "Recall scope management"]
   }
 ];
 
@@ -270,35 +270,35 @@ const implementationApproach = [
 const faqs = [
   {
     question: "How does ServiceNow accelerate drug development lifecycles?",
-    answer: "ServiceNow accelerates drug development through automated protocol management, intelligent project coordination, regulatory workflow automation, and real-time collaboration tools. Our platform reduces development time by eliminating manual processes and ensuring seamless coordination across all development phases."
+    answer: "The largest time reduction comes from automating regulatory submission preparation. Most organisations assemble CTD sections manually from 12 or more validated source systems — a process that takes 18–24 months and produces 3–5 revision cycles per submission because completeness checks are done manually and inconsistently. ServiceNow's eCTD assembly workspace pulls documents from validated sources with automatic version control, runs completeness and consistency checks against FDA and EMA checklists before submission, and maintains a live audit trail. In our reference implementation at GlobalPharma Corp, revision cycles dropped from 3–5 per submission to 0.8 on average, and all submissions in a 24-month period were accepted at first review."
   },
   {
     question: "What regulatory compliance capabilities does ServiceNow provide for pharmaceuticals?",
-    answer: "ServiceNow offers comprehensive regulatory compliance including FDA validation, international regulatory support, automated documentation, audit trail management, and submission workflow automation. Our platform ensures compliance with global pharmaceutical regulations while streamlining approval processes."
+    answer: "ServiceNow covers three compliance layers: submission-level (eCTD assembly, completeness pre-checks, regulatory intelligence monitoring), record-level (21 CFR Part 11 and EU Annex 11 audit trails on all electronic records, electronic batch record enforcement), and programme-level (regulatory guideline change monitoring with 48-hour impact flagging to affected active submissions). The regulatory intelligence feed checks FDA, EMA, PMDA, and Health Canada guideline publications daily — so when a new guidance document affects an active IND or NDA, the relevant submission team is notified within 48 hours rather than discovering the change weeks later."
   },
   {
     question: "How can ServiceNow improve clinical trial management?",
-    answer: "ServiceNow transforms clinical trials with automated patient recruitment, protocol management, data collection workflows, regulatory reporting, and real-time monitoring. Our platform accelerates trials while ensuring data integrity and regulatory compliance throughout the study lifecycle."
+    answer: "Site activation is typically the largest contributor to trial delays. ServiceNow enforces each activation step through a checklist workflow with SLA timers; when a step is 3 or more days overdue, the system auto-escalates to the sponsor team rather than waiting for the weekly status call. In practice this converts 90+ day site activation timelines to under 25 days. Protocol deviation detection is automated through daily EDC scans — alerts fire within 24 hours of a deviation entry rather than surfacing at weekly investigator meetings 5–11 days later. Trial close-out benefits from automated CTMS–EDC data reconciliation, eliminating the manual query resolution that typically adds 6–8 weeks to data lock."
   },
   {
     question: "What research data management features are available?",
-    answer: "ServiceNow provides comprehensive research data management including automated data collection, laboratory information management, research collaboration tools, data analytics, and intellectual property protection. Our platform enables seamless research coordination across global teams."
+    answer: "ServiceNow integrates LIMS, EDC, and eTMF systems into a unified data model so cross-study analytics link biomarker, efficacy, and safety data without manual data exports. This removes the 'data silo' barrier that prevents research teams from identifying patterns across programmes. Global experiment workflows route approvals electronically with full audit trail regardless of which site initiates, replacing the file-transfer process that breaks audit trails in multi-site research environments. Automated daily deviation scans operate across all connected systems and notify the QA team within 24 hours of any deviation entry — a significant improvement over the 11-day average identification time we found in our baseline assessments."
   },
   {
     question: "How does ServiceNow support pharmaceutical manufacturing quality?",
-    answer: "ServiceNow ensures manufacturing quality through batch management, quality control automation, deviation tracking, CAPA management, and real-time monitoring. Our platform maintains product quality while optimizing manufacturing efficiency and regulatory compliance."
+    answer: "Electronic batch records are the highest-impact change in manufacturing quality. eBR forces each step to be entered at the point of execution, in sequence, with mandatory parameter fields — making it structurally impossible to complete a batch record from memory after the fact. This eliminates the documentation error pattern that drives a significant portion of batch failures. On the equipment side, real-time critical process parameter trending for at-risk items fires a pre-emptive cleaning or maintenance work order when trend data approaches the action limit — typically 3–5 days before the limit is actually breached. CAPA workflows track corrective actions to effectiveness verification with a scheduled re-audit cycle."
   },
   {
     question: "What ROI can pharmaceutical companies expect from ServiceNow?",
-    answer: "Pharmaceutical companies typically see 25-40% reductions in development time, 30-50% improvements in regulatory compliance efficiency, and 20-35% cost savings through process optimization. Most companies achieve positive ROI within 18-24 months through accelerated time-to-market."
+    answer: "GlobalPharma Corp realised $1.2B in development cost savings by cutting their average development cycle from 8.5 years to 5.6 years — nearly 3 years of cost avoided per compound. BioTech Innovations recorded $156M in productivity gains from eliminated coordination delays across 67 active studies. VaccineProduction Inc eliminated $52M in annual waste by cutting batch failure rates from 23% to 2.1%. The pattern is that ROI in pharma comes from a small number of high-value process changes: submission efficiency, batch failure reduction, and research cycle time. We build a projection model against your own current-state metrics before you commit to a programme, with typical payback periods of 18–30 months depending on portfolio size."
   },
   {
     question: "How does ServiceNow integrate with existing pharmaceutical systems?",
-    answer: "ServiceNow seamlessly integrates with laboratory information management systems (LIMS), electronic data capture (EDC) systems, regulatory information management systems, and manufacturing execution systems. Our pharmaceutical-specific APIs ensure smooth integration with existing technology stacks."
+    answer: "We have pre-built integrations for Veeva Vault (CTMS, eTMF, QMS), Oracle Clinical, Medidata Rave and Rave CDMS, LabWare and LabVantage LIMS, SAP EHS, and the major MES platforms used in GMP manufacturing. Integration scoping occurs in Weeks 1–4 of the Pharmaceutical Assessment phase; most LIMS and EDC connections are operational by Week 18. ServiceNow does not replace Veeva or Oracle — it orchestrates across them, creating unified workflows and cross-system analytics that the individual systems cannot provide on their own."
   },
   {
     question: "What training and support is provided for pharmaceutical implementations?",
-    answer: "We provide specialized pharmaceutical training including regulatory compliance procedures, research best practices, quality management protocols, and system administration. Our support includes 24/7 monitoring, regulatory updates, compliance guidance, and ongoing optimization services."
+    answer: "Training runs in a validated GxP test environment during Weeks 19–24 of implementation, using representative de-identified data from your own programmes. Role tracks include: regulatory affairs specialist (submission assembly, guideline monitoring), clinical operations (site activation checklists, deviation management), QA (batch record review, CAPA management), and system administrator (configuration, integrations, user access). All training materials are authored to support IQ/OQ/PQ validation documentation. Post go-live support includes a 90-day hypercare period with a dedicated pharma systems engineer, followed by 24/7 monitoring with P1 response in under 30 minutes and quarterly GxP compliance reviews."
   }
 ];
 

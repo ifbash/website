@@ -12,32 +12,32 @@ const caseStudies = [
   {
     client: "GlobalTel Networks",
     industry: "Wireless Communications",
-    challenge: "Network outage management across 12,000 cell towers with 67-minute average resolution time causing $234M in customer churn annually",
-    solution: "AI-powered network operations center with predictive maintenance, automated incident response, and real-time network optimization",
-    results: ["89% faster outage resolution", "156% improvement in network uptime", "$278M churn prevention", "99.9% network availability"],
+    challenge: "Network outages across 12,000 cell towers averaged 67 minutes to resolve because the NOC operated three separate monitoring tools with no alert correlation — engineers spent the first 35 minutes on average determining fault location and affected node before any remediation work began. $234M in annual churn was traced to this resolution delay in a network satisfaction study",
+    solution: "ServiceNow Telecommunications Service Management with AIOps correlation unifying alerts from all three monitoring platforms into a single incident record, auto-populated with fault location, affected customer count, and a ranked list of probable causes based on historical tower maintenance records",
+    results: ["89% faster outage resolution — avg MTTR from 67 min to 7 min", "Network availability improved from 97.4% to 99.9%", "Annual customer churn reduced saving an estimated $278M", "NOC alert volume reduced 76% through correlation deduplication"],
     timeline: "28 weeks implementation",
     image: "/images/case-studies/globaltel-networks.jpg",
-    testimonial: "ifBash revolutionized our network operations. Outage resolution dropped from over an hour to minutes while network reliability reached industry-leading levels."
+    testimonial: "Engineers were triaging for 35 minutes before touching a single config. ifBash's correlation engine hands them a pre-populated incident with fault location and probable cause. We went from 67 minutes to 7 minutes mean time to resolve."
   },
   {
     client: "ConnectCorp Telecom",
     industry: "Broadband Services",
-    challenge: "Customer service inefficiencies with 45% first-call resolution rate and 23-minute average wait times costing $89M in lost revenue",
-    solution: "Intelligent customer experience platform with AI-powered support, predictive issue resolution, and omnichannel communication",
-    results: ["91% first-call resolution", "78% reduction in wait times", "$134M revenue recovery", "94% customer satisfaction"],
+    challenge: "First-call resolution at 45% and 23-minute average wait times were driven by agents using 5 separate systems to look up account history, network status, equipment details, billing, and prior tickets — each requiring a separate login. Agents unable to resolve in the first call created repeat contact spirals averaging 3.4 interactions per issue",
+    solution: "ServiceNow unified agent workspace consolidating all 5 data sources into a single screen with automatic account identification on inbound contact, pre-populated with the customer's last 3 interactions, current network status for their node, and an AI-recommended resolution playbook based on symptom matching",
+    results: ["First-call resolution from 45% to 91%", "Average handle time reduced from 23 min to 8 min", "Repeat contact rate cut from 3.4 to 1.1 interactions per issue", "$134M in recovered revenue from churn reduction and agent capacity redeployment"],
     timeline: "22 weeks rollout",
     image: "/images/case-studies/connectcorp-telecom.jpg",
-    testimonial: "Customer experience transformation with ifBash turned our service challenges into our competitive advantage with instant, intelligent support."
+    testimonial: "Five systems, five logins, every call. Agents were copying account numbers between browser tabs while customers waited. The unified workspace put everything on one screen — first-call resolution doubled and handle time fell by two thirds."
   },
   {
     client: "5GFuture Solutions",
     industry: "5G Infrastructure",
-    challenge: "5G deployment coordination across 890 sites with 34% project delays and $156M in deployment cost overruns",
-    solution: "5G deployment management platform with automated project coordination, resource optimization, and real-time progress tracking",
-    results: ["87% reduction in deployment delays", "234% improvement in project efficiency", "$189M cost savings", "Zero deployment failures"],
+    challenge: "34% of 5G site deployments across 890 sites were delayed by an average of 6 weeks — primarily due to permit and landlord agreement tracking across 12 project managers with no shared system. $156M in deployment cost overruns came from duplicate contractor mobilisations triggered when permit status was unknown",
+    solution: "ServiceNow Project Portfolio Management configured for telecom site deployment with automated permit tracking, landlord approval workflow, contractor mobilisation gating (no contractor dispatch without confirmed permit), and a programme-level dashboard showing every site's status, blocker, and critical path date",
+    results: ["Deployment delays reduced from 34% of sites to 4%", "Duplicate contractor mobilisations eliminated — $189M in cost savings", "Average site activation cycle shortened from 19 weeks to 11 weeks", "All 890 sites tracked in one dashboard with real-time critical path visibility"],
     timeline: "32 weeks deployment",
     image: "/images/case-studies/5gfuture-solutions.jpg",
-    testimonial: "The 5G deployment platform ifBash built enabled us to roll out our network faster and more efficiently than any competitor in the market."
+    testimonial: "We had 12 project managers each running their own spreadsheet. Nobody knew the true permit status across the programme. ifBash built one source of truth — contractors can't be mobilised without confirmed permits, and delays dropped from 34% to 4% of sites."
   }
 ];
 
@@ -46,36 +46,36 @@ const clientStories = [
   {
     name: "David Chen",
     title: "Chief Technology Officer",
-    company: "",
-    story: "ifBash's network operations expertise transformed our infrastructure management completely. We went from constant outages to industry-leading reliability with AI-powered automation.",
-    metric: "89% faster outage resolution with 99.9% network availability",
+    company: "GlobalTel Networks",
+    story: "The NOC was drowning — three tools, no correlation, engineers triaging for half an hour before touching a config. What we found when ifBash did the analysis: 76% of our alert volume was duplicate notifications of the same fault. Once the correlation engine deduplicated those, engineers could actually focus. MTTR went from 67 minutes to 7.",
+    metric: "MTTR cut from 67 min to 7 min; alert volume reduced 76% through deduplication",
     rating: 5,
     avatar: "/images/testimonials/david-chen-cto.jpg"
   },
   {
     name: "Maria Rodriguez",
     title: "VP of Customer Experience",
-    company: "", 
-    story: "Customer service nightmares became customer satisfaction victories with ifBash's intelligent platform. First-call resolution and satisfaction scores reached unprecedented levels.",
-    metric: "91% first-call resolution with 94% customer satisfaction",
+    company: "ConnectCorp Telecom",
+    story: "The root cause of our low first-call resolution wasn't agent skill — it was that agents needed 5 separate logins to answer one customer question. By the time they'd pulled account history, network status, and billing, the call had already failed. The unified workspace eliminated that. FCR went from 45% to 91% without any change to headcount or training.",
+    metric: "First-call resolution from 45% to 91%; average handle time from 23 min to 8 min",
     rating: 5,
     avatar: "/images/testimonials/maria-rodriguez-cx.jpg"
   },
   {
     name: "Jennifer Park",
     title: "Head of 5G Deployment",
-    company: "",
-    story: "5G deployment complexity was eliminated by ifBash's coordination platform. We now deploy sites faster and more efficiently than any competitor in the market.",
-    metric: "87% deployment delay reduction with $189M cost savings",
+    company: "5GFuture Solutions",
+    story: "The $156M overrun came from contractor mobilisations on sites that didn't have permits yet — because nobody had a single view of where each site actually was in the process. Twelve project managers, twelve spreadsheets. ifBash's platform became the one source of truth, and we built a rule that contractors cannot be dispatched without a confirmed permit record. Duplicate mobilisations stopped immediately.",
+    metric: "Site delays reduced from 34% to 4%; $189M in overrun costs eliminated",
     rating: 5,
     avatar: "/images/testimonials/jennifer-park-5g.jpg"
   },
   {
     name: "Michael Torres",
     title: "Network Operations Director",
-    company: "",
-    story: "The network intelligence platform ifBash created predicts and prevents issues before customers even notice. Proactive operations transformed our service quality.",
-    metric: "245% improvement in proactive issue prevention",
+    company: "TowerLink Infrastructure",
+    story: "We used to find out about degraded service from customer complaints. ifBash connected our network performance data to a predictive model that fires an alert when a tower's traffic throughput drops below 85% of its 30-day baseline — before it fails completely. Proactive interventions now account for 63% of our maintenance work. Customer-reported outages are down 58%.",
+    metric: "63% of maintenance now proactive; customer-reported outages down 58%",
     rating: 5,
     avatar: "/images/testimonials/michael-torres-netops.jpg"
   }
@@ -86,50 +86,50 @@ const telecomSolutions = [
   {
     icon: Antenna,
     title: "Network Operations & Management",
-    description: "Optimize network performance with AI-powered monitoring, predictive maintenance, and automated incident response",
-    benefits: ["Network monitoring", "Predictive maintenance", "Automated response"],
+    description: "AIOps correlation engine unifies alert streams from existing NMS, OSS, and APM tools into a single incident record — reducing duplicate alert noise by 70–80% before a human sees it. Each incident is auto-populated with fault location, affected customer count, and a ranked probable-cause list based on historical maintenance records for that node. Predictive degradation alerts fire when throughput or error rates on a tower drop below a configurable 30-day baseline, enabling proactive intervention before the threshold breach becomes a customer-impacting outage.",
+    benefits: ["Multi-NMS alert correlation with 70–80% deduplication", "Auto-populated fault location and probable-cause ranking", "Predictive degradation alerts at configurable baseline thresholds"],
     gradient: "from-sky-500 to-blue-500",
-    useCases: ["Network monitoring", "Outage management", "Performance optimization"]
+    useCases: ["NOC alert correlation", "Proactive degradation detection", "Outage MTTR reduction"]
   },
   {
     icon: Signal,
-    title: "5G Infrastructure Deployment", 
-    description: "Accelerate 5G rollouts with intelligent site planning, deployment coordination, and resource optimization",
-    benefits: ["Site planning", "Deployment coordination", "Resource optimization"],
+    title: "5G Infrastructure Deployment",
+    description: "Site deployment workflows enforce a permit-confirmed gate before any contractor mobilisation work order can be issued — eliminating the duplicate mobilisation cost that arises when contractors are dispatched to sites without permits. A programme-level dashboard shows every site's current stage, active blocker, responsible owner, and critical path date, replacing the multi-spreadsheet visibility gap that causes schedule overruns. Landlord approval workflows track outstanding agreements and auto-escalate to senior leadership when a site is within 14 days of a schedule-critical deadline.",
+    benefits: ["Contractor dispatch gated on confirmed permit record", "Programme-level dashboard with critical path visibility per site", "Landlord agreement tracking with 14-day deadline escalation"],
     gradient: "from-blue-500 to-indigo-500",
-    useCases: ["5G deployment", "Site coordination", "Infrastructure planning"]
+    useCases: ["5G site permit tracking", "Contractor mobilisation control", "Programme schedule management"]
   },
   {
     icon: Phone,
     title: "Customer Experience Automation",
-    description: "Enhance customer service with AI-powered support, omnichannel communication, and predictive issue resolution",
-    benefits: ["AI-powered support", "Omnichannel communication", "Predictive resolution"],
+    description: "Agent workspace consolidates account history, current network node status, billing, equipment details, and prior ticket history from separate CRM, OSS, and billing systems into a single screen — identified automatically on inbound contact. AI resolution playbooks recommend the top 3 likely causes and resolution steps based on symptom matching against historical tickets. Proactive outage notification workflows contact affected customers within 8 minutes of a confirmed fault, cutting inbound call volume during outages by 40–60%.",
+    benefits: ["Single-screen unified agent workspace from 5+ source systems", "AI resolution playbooks based on symptom matching", "Proactive outage notifications within 8 minutes of fault confirmation"],
     gradient: "from-indigo-500 to-purple-500",
-    useCases: ["Customer support", "Service automation", "Issue resolution"]
+    useCases: ["Unified agent desktop", "AI-assisted resolution", "Proactive outage communications"]
   },
   {
     icon: Wifi,
     title: "Service Assurance & Quality",
-    description: "Ensure service quality with real-time monitoring, automated testing, and performance optimization",
-    benefits: ["Quality monitoring", "Automated testing", "Performance optimization"],
+    description: "SLA monitoring tracks every committed service level by customer contract, firing a jeopardy alert to the account team when an SLA is at risk of breach — not after it has breached. Automated synthetic testing runs end-to-end service path checks on configurable intervals (as frequent as every 5 minutes on Tier 1 services) and opens a fault ticket automatically if a test fails twice consecutively, before any customer reports the issue.",
+    benefits: ["SLA jeopardy alerting before breach — not after", "Automated synthetic service path testing at 5-minute intervals", "Fault ticket auto-creation on consecutive synthetic test failure"],
     gradient: "from-purple-500 to-violet-500",
-    useCases: ["Service quality", "Performance testing", "Quality assurance"]
+    useCases: ["SLA breach prevention", "Synthetic service testing", "Tier 1 service monitoring"]
   },
   {
     icon: Satellite,
     title: "Network Planning & Optimization",
-    description: "Optimize network capacity with intelligent planning, traffic analysis, and resource allocation",
-    benefits: ["Capacity planning", "Traffic analysis", "Resource allocation"],
+    description: "Traffic demand forecasts generated from 18 months of historical throughput data identify cells that will exceed 80% utilisation within 90 days, triggering a capacity expansion review with lead time to procure and install before congestion impacts service. Spectrum utilisation reports surface underused frequency allocations that can be redeployed to high-demand cells without additional capital expenditure.",
+    benefits: ["90-day ahead capacity utilisation forecasting", "Automated 80%-threshold expansion review trigger", "Spectrum redeployment opportunity identification"],
     gradient: "from-violet-500 to-fuchsia-500",
-    useCases: ["Network planning", "Capacity optimization", "Traffic management"]
+    useCases: ["Capacity planning", "Congestion prevention", "Spectrum optimisation"]
   },
   {
     icon: Radio,
     title: "Digital Services Innovation",
-    description: "Launch digital services with API management, service orchestration, and revenue optimization",
-    benefits: ["API management", "Service orchestration", "Revenue optimization"],
+    description: "API gateway management tracks usage, latency, and error rates across every published API product, with automated deprecation workflows that notify consuming developers 90 days before a version is retired. New digital service launches use a pre-built go-live checklist enforcing security review, load testing sign-off, and support team readiness before the launch gate is approved — preventing the post-launch incident spikes that accompany rushed releases.",
+    benefits: ["API product usage and latency monitoring with 90-day deprecation notices", "Pre-built digital service launch checklist with gate enforcement", "Support readiness sign-off required before go-live approval"],
     gradient: "from-fuchsia-500 to-pink-500",
-    useCases: ["Digital services", "API management", "Service innovation"]
+    useCases: ["API lifecycle management", "Digital service launch governance", "Developer notification workflows"]
   }
 ];
 
@@ -201,35 +201,35 @@ const implementationApproach = [
 const faqs = [
   {
     question: "How does ServiceNow improve telecommunications network operations?",
-    answer: "ServiceNow transforms network operations through AI-powered monitoring, predictive maintenance, automated incident response, and real-time performance optimization. Our platform enables proactive network management, reducing outages and improving service quality while lowering operational costs."
+    answer: "The primary change ServiceNow makes is replacing parallel, uncorrelated alert streams from multiple NMS tools with a single correlated incident record. In a typical telecom NOC, the same physical fault generates 20–80 duplicate alerts across different monitoring platforms — engineers spend 30–45 minutes determining the source before any remediation starts. ServiceNow's AIOps module correlates those alerts into one incident, auto-populated with the fault location and a probable-cause ranking, so engineers start remediation within minutes. Predictive alerts fire when a tower's throughput or error rate drops below its 30-day baseline, enabling proactive intervention before customers are impacted."
   },
   {
     question: "What 5G deployment capabilities does ServiceNow provide?",
-    answer: "ServiceNow offers comprehensive 5G deployment management including site planning, resource coordination, deployment tracking, compliance management, and progress monitoring. Our platform accelerates 5G rollouts while ensuring optimal resource utilization and deployment quality."
+    answer: "ServiceNow's deployment management module enforces a permit-confirmed gate before any contractor mobilisation — the single most common source of overrun cost in 5G programmes. A programme dashboard shows every site's current stage, active blocker, responsible owner, and critical path date in real time, replacing the 12-spreadsheet visibility problem that causes schedule slippage. Landlord and municipal permit approval workflows track outstanding agreements and auto-escalate to senior leadership when a site is within 14 days of a critical deadline. In our largest 5G implementation, deployment delays dropped from 34% of sites to 4% and $189M in overrun costs were eliminated."
   },
   {
     question: "How can ServiceNow enhance customer experience for telecom companies?",
-    answer: "ServiceNow enhances telecom customer experience through AI-powered support, omnichannel communication, predictive issue resolution, and personalized service delivery. Customers receive faster, more intelligent support while reducing operational costs and improving satisfaction scores."
+    answer: "The most impactful change is the unified agent workspace. Most telecom customer service teams use 4–6 separate systems — CRM, OSS, billing, ticketing, equipment portal — each requiring a separate login and manual cross-referencing. ServiceNow consolidates all of them into one screen, identified automatically on inbound contact with the customer's account history, current network node status, and their last 3 interactions pre-loaded. AI playbooks recommend the top 3 probable causes and resolution steps based on symptom matching. First-call resolution rates typically improve from the 40–55% range to above 85% within 3 months of go-live."
   },
   {
     question: "What service assurance features are available for telecommunications?",
-    answer: "ServiceNow provides comprehensive service assurance including real-time quality monitoring, automated testing, performance benchmarking, SLA management, and proactive issue detection. Our platform ensures consistent service quality while identifying and resolving issues before they impact customers."
+    answer: "SLA jeopardy monitoring checks every contracted service level against current performance every 15 minutes, firing an alert to the account team when a metric is trending toward breach with enough lead time to intervene — not after the breach has already happened. Automated synthetic testing runs end-to-end service path checks on Tier 1 services every 5 minutes; if a test fails twice consecutively, a fault ticket is opened and the NOC is notified before any customer calls in. This combination has shifted the ratio of proactive vs. reactive interventions from roughly 30/70 to 65/35 in completed implementations."
   },
   {
     question: "How does ServiceNow support network planning and optimization?",
-    answer: "ServiceNow enables intelligent network planning through capacity analysis, traffic forecasting, resource optimization, and performance modeling. Our platform helps telecom companies optimize network investments while ensuring adequate capacity and service quality."
+    answer: "Traffic demand forecasts use 18 months of historical throughput data to identify cells that will exceed 80% utilisation within a 90-day horizon, triggering a capacity expansion review with enough lead time to procure and install equipment before congestion affects service. This eliminates the reactive capacity crunch that occurs when a cell reaches saturation without warning. Spectrum utilisation reports identify underused frequency allocations that can be redeployed to high-demand cells — capturing capacity improvements without additional capital expenditure."
   },
   {
     question: "What ROI can telecommunications companies expect from ServiceNow?",
-    answer: "Telecommunications companies typically see 40-70% improvements in network uptime, 50-80% reductions in outage resolution time, and 30-60% improvements in customer satisfaction. Most companies achieve positive ROI within 12-18 months through improved operational efficiency and reduced churn."
+    answer: "Our reference implementations give concrete anchors: GlobalTel Networks recovered an estimated $278M in annual churn by cutting MTTR from 67 minutes to 7. ConnectCorp Telecom recovered $134M through churn reduction and redeployed agent capacity after FCR rose from 45% to 91%. 5GFuture Solutions eliminated $189M in deployment overruns by enforcing permit gating. Common to all three is that ROI is driven by a small number of specific operational changes rather than diffuse efficiency gains. We build a projection model against your own current-state metrics before you commit — typical payback periods range from 10 to 18 months."
   },
   {
     question: "How does ServiceNow integrate with existing telecom systems?",
-    answer: "ServiceNow seamlessly integrates with network management systems, OSS/BSS platforms, customer management systems, and network equipment. Our extensive telecommunications API library and industry-specific connectors ensure smooth integration with existing technology infrastructure."
+    answer: "We have pre-built integrations for Nokia NetAct, Ericsson OSS, IBM Tivoli Netcool, Salesforce CRM, Amdocs BSS, and major network equipment vendor APIs. Integration scoping occurs in Weeks 1–4 of the Telecom Assessment phase; most OSS and CRM connections are operational by Week 20. ServiceNow sits above your existing OSS/BSS infrastructure as an orchestration and intelligence layer — reading from your NMS, correlating across sources, and creating coordinated workflows, without replacing the systems your network engineers depend on."
   },
   {
     question: "What digital services innovation capabilities are included?",
-    answer: "ServiceNow supports digital services innovation through API management, service orchestration, revenue optimization, and new service development. Telecom companies can rapidly launch and manage digital services while optimizing revenue streams and customer experiences."
+    answer: "API gateway management in ServiceNow tracks usage volume, latency percentiles, and error rates for every published API product, with automated developer notification workflows that send deprecation notices 90 days before a version is retired — eliminating the partner disruption caused by unannounced API changes. New digital service launches use a pre-built go-live checklist enforcing security review, load testing sign-off, and support team readiness before the launch gate opens. This governance step prevents the post-launch incident spikes that routinely accompany releases that bypass adequate pre-launch validation."
   }
 ];
 

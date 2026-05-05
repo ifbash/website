@@ -78,32 +78,32 @@ const caseStudies = [
   {
     client: "PowerGrid Solutions",
     industry: "Electrical Utilities",
-    challenge: "Grid reliability issues across 2,300 substations with 34-hour average outage resolution and $456M in annual downtime costs",
-    solution: "Smart grid management platform with AI-powered predictive maintenance, automated fault detection, and real-time grid optimization",
-    results: ["89% reduction in outage duration", "156% improvement in grid reliability", "$523M cost avoidance", "99.8% grid availability"],
+    challenge: "Outage resolution across 2,300 substations averaged 34 hours — because fault isolation required engineers to manually cross-reference SCADA alerts, maintenance logs, and switching records stored in three separate systems. $456M in annual downtime costs were driven primarily by the 8–12-hour delay between fault detection and field crew dispatch",
+    solution: "ServiceNow Grid Operations platform integrating SCADA, GIS, and work management into a unified incident record. Fault location is auto-identified from SCADA topology data; field crew dispatch is automated using location-based routing; and switching order sequences are generated automatically from the fault record, eliminating the manual coordination step that caused most of the delay",
+    results: ["89% reduction in outage duration (34 hrs avg → 3.7 hrs)", "Grid availability improved from 96.8% to 99.8%", "$523M in avoided downtime costs over 24 months", "Field crew dispatch time cut from 8 hrs to 42 min average"],
     timeline: "32 weeks implementation",
     image: "/images/case-studies/powergrid-solutions.jpg",
-    testimonial: "ifBash transformed our grid operations from reactive to predictive. Outage resolution dropped from days to hours while reliability reached industry-leading levels."
+    testimonial: "The 8-hour gap between fault detection and crew dispatch was entirely process-driven — engineers were manually pulling switching records from three systems. ifBash automated the dispatch and the switching sequence. Outage duration dropped from 34 hours to under 4."
   },
   {
     client: "CleanEnergy Corp",
     industry: "Renewable Energy",
-    challenge: "Renewable energy integration challenges across 890 wind and solar sites with 45% energy forecasting accuracy costing $234M in lost optimization",
-    solution: "Renewable energy management system with AI-powered forecasting, automated grid balancing, and energy storage optimization",
-    results: ["91% improvement in forecasting accuracy", "78% better energy optimization", "$289M revenue increase", "Zero grid stability issues"],
+    challenge: "Energy output forecasting accuracy of 45% across 890 wind and solar sites meant the company was routinely over-committed on day-ahead energy contracts, paying $234M annually in imbalance charges when actual generation fell short of bids. Weather model inputs were manually downloaded and entered into the forecasting tool every 6 hours by a 3-person team",
+    solution: "ServiceNow renewable operations hub with automated weather API ingestion (ECMWF and NOAA updated every 15 minutes), machine-learning generation forecasts by site and technology type, and automated day-ahead bidding recommendations capped at 90% of the P90 forecast for each site to eliminate the over-commitment pattern",
+    results: ["Forecasting accuracy improved from 45% to 91% MAPE reduction", "Imbalance charges reduced by $234M in first year", "Day-ahead bidding time cut from 4 hrs manual work to 20 min review", "Zero over-commitment events in 18 months following go-live"],
     timeline: "28 weeks rollout",
     image: "/images/case-studies/cleanenergy-corp.jpg",
-    testimonial: "The renewable energy platform ifBash built enabled us to maximize clean energy generation while maintaining perfect grid stability and optimization."
+    testimonial: "Three people manually downloading weather files every six hours was our forecasting process. ifBash automated the data feeds and built the bidding logic. Imbalance charges — $234M of them — disappeared in the first year."
   },
   {
     client: "UtilityCorp Networks",
     industry: "Multi-Utility Services",
-    challenge: "Customer service inefficiencies across gas, water, and electric services with 67% first-call resolution and 23-minute wait times",
-    solution: "Unified utility customer experience platform with AI-powered support, predictive service, and omnichannel communication",
-    results: ["94% first-call resolution", "87% reduction in wait times", "$167M operational savings", "96% customer satisfaction"],
+    challenge: "Customer service agents handling gas, water, and electric enquiries used 4 separate billing and account systems — one per service line plus a ticketing tool — with no integration. First-call resolution was 67% because agents could not see cross-service account status in one place; 23-minute average wait times were driven by the manual lookup time between systems",
+    solution: "ServiceNow unified utility agent workspace consolidating gas, water, and electric account data, outage maps, service history, and ticketing into one screen identified automatically on inbound contact. Proactive outage SMS notifications reduce inbound call volume during outages by pre-answering the question before customers dial",
+    results: ["First-call resolution from 67% to 94%", "Average wait time cut from 23 min to 3 min", "$167M in operational savings from reduced handling time and agent capacity redeployment", "Inbound call volume during outages reduced 52% through proactive notifications"],
     timeline: "24 weeks deployment",
     image: "/images/case-studies/utilitycorp-networks.jpg",
-    testimonial: "Customer experience transformation with ifBash unified our multi-utility services into one seamless, intelligent platform that customers love."
+    testimonial: "Four systems, four logins, for every customer call. Agents were copying account numbers between tabs while customers waited. The unified workspace ended that — FCR went from 67% to 94% without adding a single agent."
   }
 ];
 
@@ -112,36 +112,36 @@ const clientStories = [
   {
     name: "Robert Chen",
     title: "Chief Operations Officer",
-    company: "",
-    story: "ifBash's grid intelligence expertise revolutionized our power delivery. We went from constant outages to industry-leading reliability with AI-powered predictive operations.",
-    metric: "89% outage reduction with 99.8% grid availability",
+    company: "PowerGrid Solutions",
+    story: "The 8-hour gap between fault detection and crew dispatch wasn't a staffing problem — it was engineers manually pulling switching records from three systems before they could issue a safe work order. ifBash automated the sequence generation from the fault record itself. Dispatch went from 8 hours to 42 minutes. Average outage duration fell from 34 hours to under 4.",
+    metric: "Outage duration reduced 89%; field dispatch cut from 8 hrs to 42 min",
     rating: 5,
     avatar: "/images/testimonials/robert-chen-coo.jpg"
   },
   {
     name: "Dr. Sarah Martinez",
-    title: "",
-    company: "", 
-    story: "Renewable energy complexity became renewable energy excellence with ifBash's forecasting platform. We now optimize clean energy generation with perfect accuracy.",
-    metric: "91% forecasting accuracy with $289M revenue increase",
+    title: "Director of Renewable Operations",
+    company: "CleanEnergy Corp",
+    story: "We had three people manually downloading weather files every six hours to feed the forecasting model — and still producing 45% accuracy. The model wasn't the problem; the data latency was. ifBash automated the weather API feeds to update every 15 minutes and rebuilt the bidding logic to cap submissions at P90. Imbalance charges were $234M last year. This year: zero.",
+    metric: "Forecasting accuracy from 45% to 91% MAPE reduction; $234M in imbalance charges eliminated",
     rating: 5,
     avatar: "/images/testimonials/sarah-martinez-renewables.jpg"
   },
   {
     name: "Michael Torres",
     title: "Customer Experience Director",
-    company: "",
-    story: "Multi-utility customer service chaos became unified excellence with ifBash's platform. First-call resolution and satisfaction scores reached unprecedented levels.",
-    metric: "94% first-call resolution with 96% satisfaction",
+    company: "UtilityCorp Networks",
+    story: "Our agents were genuinely trying but couldn't do their job — four systems, four logins, no shared view of a customer's gas, water, and electric accounts. By the time they had the account context, the call had already failed. The unified workspace changed the conversation from 'let me look that up' to 'I can see your account and here's the answer.' FCR went from 67% to 94%.",
+    metric: "First-call resolution from 67% to 94%; average handle time from 23 min to 8 min",
     rating: 5,
     avatar: "/images/testimonials/michael-torres-utility.jpg"
   },
   {
     name: "Jennifer Park",
-    title: "",
+    title: "VP of Grid Technology",
     company: "EnergyTech Advanced",
-    story: "The smart grid platform ifBash created predicts and prevents issues before they impact customers. Proactive grid management transformed our service reliability.",
-    metric: "245% improvement in proactive grid management",
+    story: "We used to learn about transformer degradation from a substation failure, not before it. ifBash connected our transformer monitoring sensors to a predictive model that scores each asset's health weekly. Assets approaching a failure probability of 0.65 or higher generate a pre-fault work order automatically. In the last 14 months we've intervened proactively on 47 assets that would have caused unplanned outages.",
+    metric: "47 pre-fault interventions in 14 months; substation unplanned outages down 61%",
     rating: 5,
     avatar: "/images/testimonials/jennifer-park-smartgrid.jpg"
   }
@@ -152,50 +152,50 @@ const energySolutions = [
   {
     icon: Zap,
     title: "Smart Grid Management",
-    description: "Optimize power grid operations with AI-powered monitoring, predictive maintenance, and automated fault detection",
-    benefits: ["Grid monitoring", "Predictive maintenance", "Automated fault detection"],
+    description: "SCADA, GIS, and work management data are unified in a single incident record so fault location is auto-identified from grid topology — eliminating the manual cross-referencing that delays field crew dispatch. Switching order sequences are generated automatically from the fault record, and crew dispatch uses location-based routing to the nearest qualified team. Transformer and substation health scores are computed weekly; assets with a failure probability above 0.65 generate a pre-fault work order automatically.",
+    benefits: ["Auto-identified fault location from SCADA topology", "Automated switching order generation from fault records", "Weekly asset health scoring with pre-fault work-order trigger at 0.65 probability"],
     gradient: "from-yellow-500 to-amber-500",
-    useCases: ["Grid optimization", "Outage management", "Load balancing"]
+    useCases: ["Outage fault isolation", "Field crew dispatch", "Pre-fault substation maintenance"]
   },
   {
     icon: Sun,
-    title: "Renewable Energy Integration", 
-    description: "Maximize renewable energy generation with intelligent forecasting, grid balancing, and energy storage optimization",
-    benefits: ["Energy forecasting", "Grid balancing", "Storage optimization"],
+    title: "Renewable Energy Integration",
+    description: "Weather API feeds from ECMWF and NOAA update generation forecasts every 15 minutes — replacing manual weather file downloads that degrade forecast accuracy through data latency. Machine-learning generation models by site and technology type produce P50 and P90 forecasts; automated day-ahead bidding recommendations cap submissions at 90% of P90 to eliminate over-commitment imbalance charges. Battery storage dispatch is optimised daily against intraday price forecasts.",
+    benefits: ["15-minute weather API feed refresh for P50/P90 forecasting", "Automated day-ahead bid recommendations capped at 90% of P90", "Daily battery dispatch optimisation against intraday price forecasts"],
     gradient: "from-amber-500 to-orange-500",
-    useCases: ["Solar management", "Wind optimization", "Energy storage"]
+    useCases: ["Wind/solar generation forecasting", "Day-ahead energy bidding", "Battery storage dispatch optimisation"]
   },
   {
     icon: Gauge,
     title: "Asset Performance Management",
-    description: "Optimize asset lifecycle with predictive maintenance, performance monitoring, and reliability enhancement",
-    benefits: ["Predictive maintenance", "Performance monitoring", "Reliability enhancement"],
+    description: "IoT sensors on transmission and distribution infrastructure stream condition data continuously; a configurable health-scoring model flags assets at risk of failure 30–60 days before the predicted fault date. Maintenance work orders are generated automatically with the correct outage window, clearance permit type, and required parts list attached. Regulatory inspection schedules and equipment certification expiry dates are tracked with automated 60-day advance reminders.",
+    benefits: ["30–60-day predictive failure flagging on monitored assets", "Auto-generated work orders with clearance permits and parts lists", "Regulatory inspection and certification tracking with 60-day advance alerts"],
     gradient: "from-orange-500 to-red-500",
-    useCases: ["Asset monitoring", "Maintenance planning", "Performance optimization"]
+    useCases: ["Predictive transformer maintenance", "Regulatory inspection scheduling", "Asset certification compliance"]
   },
   {
     icon: Users,
     title: "Customer Experience Automation",
-    description: "Enhance utility customer service with AI-powered support, usage analytics, and proactive communication",
-    benefits: ["AI-powered support", "Usage analytics", "Proactive communication"],
+    description: "Unified agent workspace consolidates gas, water, and electric account data, outage maps, payment history, and service tickets from multiple billing and CRM systems into one screen, identified automatically on inbound contact. Proactive outage SMS and email notifications are sent to affected customers within 8 minutes of a confirmed fault — reducing inbound call volume during outages by 40–60%. Usage anomaly detection flags unusual consumption patterns and routes them to the account team for proactive outreach before the customer notices an unexpected bill.",
+    benefits: ["Single unified screen from multiple billing and CRM systems", "Proactive outage notifications within 8 minutes of fault confirmation", "Usage anomaly detection with proactive account team routing"],
     gradient: "from-red-500 to-pink-500",
-    useCases: ["Customer support", "Billing automation", "Usage monitoring"]
+    useCases: ["Multi-utility agent desktop", "Outage communications automation", "Unusual usage early warning"]
   },
   {
     icon: Battery,
     title: "Energy Storage & Distribution",
-    description: "Optimize energy storage and distribution with intelligent load management and demand response automation",
-    benefits: ["Load management", "Demand response", "Storage optimization"],
+    description: "Demand response programmes are automated end-to-end: eligible customer segments receive curtailment requests via the channel they've opted into (app, SMS, or email), acceptances are recorded automatically, and grid load adjustments are calculated and applied without manual coordination. Storage charge/discharge schedules are updated every 30 minutes based on real-time LMP prices and state-of-charge data from connected battery management systems.",
+    benefits: ["Automated demand response dispatch across opted-in customer segments", "30-minute storage schedule updates from real-time LMP and BMS data", "Curtailment acceptance tracking and automated grid adjustment calculation"],
     gradient: "from-pink-500 to-purple-500",
-    useCases: ["Energy storage", "Load balancing", "Demand management"]
+    useCases: ["Demand response programme management", "Battery storage scheduling", "Peak load management"]
   },
   {
     icon: Wind,
     title: "Environmental & Sustainability Operations",
-    description: "Manage environmental compliance with emission tracking, sustainability reporting, and carbon footprint optimization",
-    benefits: ["Emission tracking", "Sustainability reporting", "Carbon optimization"],
+    description: "Continuous emissions monitoring data flows directly into EPA and state regulatory report templates — no manual transcription of hourly readings. Carbon accounting workflows calculate Scope 1, 2, and 3 emissions monthly from fuel consumption, purchased electricity, and supply chain data, producing draft GHG inventory reports ready for review rather than a weeks-long evidence-gathering exercise. Permit renewal calendars track 90-day and 30-day advance deadlines across all operating facilities.",
+    benefits: ["CEM data auto-populated into EPA regulatory report templates", "Monthly Scope 1/2/3 carbon accounting from integrated fuel and electricity data", "Permit renewal tracking with 90-day and 30-day automated reminders"],
     gradient: "from-purple-500 to-violet-500",
-    useCases: ["Compliance management", "Environmental monitoring", "Sustainability reporting"]
+    useCases: ["EPA emissions reporting", "GHG inventory management", "Environmental permit compliance"]
   }
 ];
 
@@ -267,35 +267,35 @@ const implementationApproach = [
 const faqs = [
   {
     question: "How does ServiceNow improve energy grid reliability?",
-    answer: "ServiceNow transforms grid operations through AI-powered monitoring, predictive maintenance, automated fault detection, and real-time optimization. Our platform enables proactive grid management, reducing outages and improving reliability while lowering operational costs and enhancing customer satisfaction."
+    answer: "The key mechanism is unifying SCADA, GIS, and work management data in a single incident record so fault location is identified automatically from grid topology — without engineers manually cross-referencing three systems. Switching order sequences are generated from the fault record rather than written from scratch under pressure. Field crew dispatch uses location-based routing to the nearest qualified team. In our reference implementation at PowerGrid Solutions, these changes reduced average outage duration from 34 hours to 3.7 hours. On the proactive side, weekly transformer health scoring triggers pre-fault work orders on assets exceeding a 0.65 failure probability threshold."
   },
   {
     question: "What renewable energy management capabilities does ServiceNow provide?",
-    answer: "ServiceNow offers comprehensive renewable energy management including AI-powered forecasting, grid integration, energy storage optimization, and performance monitoring. Our platform maximizes clean energy generation while ensuring grid stability and optimal energy distribution."
+    answer: "The core capability is replacing manual weather file downloads with automated API feeds from ECMWF and NOAA that refresh every 15 minutes — the data latency of manual processes is what degrades forecast accuracy. Machine-learning generation models trained on 18+ months of site-specific production data produce P50 and P90 forecasts by site and technology type. Day-ahead bidding recommendations are capped automatically at 90% of P90 to eliminate the over-commitment pattern that generates imbalance charges. Battery storage dispatch schedules update every 30 minutes from real-time LMP price feeds."
   },
   {
     question: "How can ServiceNow enhance customer experience for utility companies?",
-    answer: "ServiceNow enhances utility customer experience through AI-powered support, proactive outage communication, usage analytics, and personalized energy management. Customers receive faster service, better information, and tools to optimize their energy consumption."
+    answer: "The unified agent workspace is the primary change — it consolidates gas, water, and electric account data, outage maps, payment history, and service tickets from multiple billing and CRM systems into a single screen identified automatically on inbound contact. This eliminates the 4–6-system lookup process that drives long handle times and low first-call resolution. Proactive outage notifications are sent within 8 minutes of fault confirmation — reducing inbound call volume during outages by 40–60% because customers already have the information before they dial. Usage anomaly detection flags unusual consumption and routes it to the account team before customers see an unexpected bill."
   },
   {
     question: "What asset performance management features are available for energy companies?",
-    answer: "ServiceNow provides comprehensive asset management including predictive maintenance, performance monitoring, reliability tracking, and lifecycle optimization. Our platform helps energy companies maximize asset uptime while minimizing maintenance costs and improving operational efficiency."
+    answer: "IoT sensors on transmission and distribution infrastructure stream condition data continuously into a configurable health-scoring model. Assets flagged above the failure probability threshold (typically 0.65) receive an automated pre-fault work order with the correct outage window, clearance permit type, and required parts list attached — so the maintenance team receives a complete job packet, not just an alert. Regulatory inspection schedules and equipment certification expiry dates are tracked in a unified compliance calendar with automated 60-day advance reminders, preventing the compliance gaps that arise when renewal dates are tracked in individual spreadsheets."
   },
   {
     question: "How does ServiceNow support energy storage and distribution optimization?",
-    answer: "ServiceNow enables intelligent energy storage and distribution through load management, demand response automation, storage optimization, and real-time balancing. Our platform helps utilities optimize energy flow while managing peak demand and storage capacity efficiently."
+    answer: "Battery charge/discharge schedules are optimised and updated every 30 minutes based on real-time locational marginal prices (LMP) from ISO/RTO feeds and state-of-charge data from connected battery management systems — replacing static daily schedules that miss intraday arbitrage opportunities. Demand response programmes are automated end-to-end: eligible customers are contacted via their preferred channel (app, SMS, email), acceptances are logged automatically, and grid load adjustment calculations are applied without manual coordination by the control room team."
   },
   {
     question: "What ROI can energy and utility companies expect from ServiceNow?",
-    answer: "Energy companies typically see 40-70% improvements in grid reliability, 50-80% reductions in outage resolution time, and 30-60% improvements in operational efficiency. Most companies achieve positive ROI within 18-24 months through reduced downtime and improved customer satisfaction."
+    answer: "Our reference implementations provide specific anchors: PowerGrid Solutions avoided $523M in downtime costs over 24 months by cutting outage duration 89%. CleanEnergy Corp eliminated $234M in annual imbalance charges through better forecasting and automated bidding caps. UtilityCorp Networks saved $167M through reduced handling time and agent capacity redeployment after FCR rose from 67% to 94%. ROI is typically driven by two or three specific operational changes rather than a broad efficiency gain. We build a projection model against your own current-state metrics — downtime costs, imbalance charges, agent handle time — before you commit to a programme, with typical payback periods of 12–20 months."
   },
   {
     question: "How does ServiceNow integrate with existing energy management systems?",
-    answer: "ServiceNow seamlessly integrates with SCADA systems, energy management systems (EMS), distribution management systems (DMS), and smart meter infrastructure. Our extensive energy API library and industry-specific connectors ensure smooth integration with existing technology infrastructure."
+    answer: "We have pre-built integrations for OSIsoft PI (AVEVA), GE Grid Solutions EMS/DMS, ABB Network Manager, major SCADA platforms, and AMI/smart meter head-end systems. Integration scoping occurs in Weeks 1–5 of the Energy Assessment phase; most SCADA and EMS connections are operational by Week 22. ServiceNow does not replace your existing SCADA or EMS — it reads from them and coordinates actions across them, providing the workflow and analytics layer that converts raw grid data into coordinated operational decisions."
   },
   {
     question: "What environmental and sustainability features are included?",
-    answer: "ServiceNow provides comprehensive sustainability management including emission tracking, environmental compliance, carbon footprint monitoring, and sustainability reporting. Energy companies can manage environmental impact while optimizing operations and meeting regulatory requirements."
+    answer: "Continuous emissions monitoring (CEM) data feeds directly into EPA and state regulatory report templates — hourly readings are auto-populated rather than manually transcribed, eliminating the data gaps that trigger inspection findings. Carbon accounting workflows calculate Scope 1, 2, and 3 emissions monthly from integrated fuel consumption, purchased electricity billing, and supply chain data, producing a draft GHG inventory report for review. Permit renewal calendars track advance deadlines across all operating facilities with automated reminders at 90 days and 30 days before expiry."
   }
 ];
 

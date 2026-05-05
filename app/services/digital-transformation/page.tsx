@@ -67,86 +67,93 @@ export default function DigitalTransformationPage() {
           <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 0%,rgba(37,99,235,0.12) 0%,transparent 60%)' }} />
 
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-20 pb-0">
-            <div className="flex items-center gap-3 mb-8">
-              <span className="inline-block w-8 h-px bg-blue-500" />
-              <span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">Digital Transformation</span>
-            </div>
-
-            <div className="max-w-3xl mb-5">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] tracking-tight">
-                Stop managing
-                <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}> silos.</span>
-                <br></br>
-                Start running your
-                <br></br>
-                <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  business.
-                </span>
-              </h1>
-            </div>
-            <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-2xl">
-              The average enterprise wastes <span className="text-blue-300 font-semibold"> 40% </span>of its capacity on manual handoffs. We unify operations onto a single ServiceNow platform in{' '}
-              <span className="text-blue-300 font-semibold">20–28 weeks</span>.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 mb-12">
-              <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: 'linear-gradient(135deg,#2563eb,#4f46e5)', boxShadow: '0 8px 24px rgba(37,99,235,0.35)' }}>
-                Get a Transformation Roadmap <ArrowRight className="h-4 w-4" />
-              </a>
-              <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
-                See Client Results
-              </a>
-            </div>
-
-            {/* Before / After comparison */}
-            <div className="grid lg:grid-cols-2 gap-3 mb-0">
-              {/* BEFORE */}
-              <div className="rounded-2xl border border-red-500/20 overflow-hidden" style={{ background: 'rgba(239,68,68,0.03)' }}>
-                <div className="px-5 py-3 border-b border-red-500/15 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-red-500" />
-                  <span className="text-xs font-bold text-red-400 uppercase tracking-wider">Before — current state</span>
+          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-20 pb-20 sm:pb-28">
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
+              {/* Left Content - 7 cols */}
+              <div className="lg:col-span-7">
+                <div className="flex items-center gap-3 mb-8">
+                  <span className="inline-block w-8 h-px bg-blue-500" />
+                  <span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">Digital Transformation</span>
                 </div>
-                <div className="p-4 space-y-2">
-                  {[
-                    { fn: 'IT helpdesk', state: 'ServiceNow + spreadsheets + email', pain: '4-day resolution' },
-                    { fn: 'HR onboarding', state: '12 handoffs across disconnected tools', pain: '11 days / hire' },
-                    { fn: 'Finance approvals', state: 'PDF forms, no audit trail', pain: '45-day cycle' },
-                    { fn: 'Field operations', state: 'No link to back-office', pain: '0% visibility' },
-                  ].map((row, i) => (
-                    <div key={i} className="flex items-start gap-3 px-3 py-2.5 rounded-xl border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                      <span className="text-red-500 text-xs mt-px shrink-0 font-bold">✕</span>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-xs font-semibold text-white/80">{row.fn}</div>
-                        <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
-                      </div>
-                      <div className="text-[10px] text-red-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.pain}</div>
-                    </div>
-                  ))}
+                <div className="max-w-3xl mb-5">
+                  <h1 className="text-6xl sm:text-6xl lg:text-6xl font-bold text-white leading-[1.0] tracking-tight">
+                    Stop managing
+                    <br></br>
+                    <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}> silos.</span>
+                    <br></br>
+                    Start running your
+                    <br></br>
+                    <span style={{ background: 'linear-gradient(90deg,#60a5fa,#818cf8)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                      business.
+                    </span>
+                  </h1>
+                </div>
+                <br></br>
+                <p className="text-lg text-slate-400 leading-relaxed mb-8 max-w-2xl">
+                  The average enterprise wastes <span className="text-blue-300 font-semibold"> 40% </span>of its capacity on manual handoffs. We unify operations onto a single ServiceNow platform in{' '}
+                  <span className="text-blue-300 font-semibold">20–28 weeks</span>.
+                </p>
+                <br></br>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: 'linear-gradient(135deg,#2563eb,#4f46e5)', boxShadow: '0 8px 24px rgba(37,99,235,0.35)' }}>
+                    Get a Transformation Roadmap <ArrowRight className="h-4 w-4" />
+                  </a>
+                  <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-blue-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
+                    See Client Results
+                  </a>
                 </div>
               </div>
 
-              {/* AFTER */}
-              <div className="rounded-2xl border border-blue-500/20 overflow-hidden" style={{ background: 'rgba(37,99,235,0.04)' }}>
-                <div className="px-5 py-3 border-b border-blue-500/15 flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">After — unified on ServiceNow</span>
-                </div>
-                <div className="p-4 space-y-2">
-                  {[
-                    { fn: 'IT helpdesk', state: 'AI triage + automated resolution', gain: '< 4 hr resolution' },
-                    { fn: 'HR onboarding', state: 'Single orchestrated workflow', gain: '1 day / hire' },
-                    { fn: 'Finance approvals', state: 'Automated routing + audit trail', gain: '2-day cycle' },
-                    { fn: 'Field operations', state: 'Real-time back-office sync', gain: '100% visibility' },
-                  ].map((row, i) => (
-                    <div key={i} className="flex items-start gap-3 px-3 py-2.5 rounded-xl border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                      <span className="text-green-400 text-xs mt-px shrink-0 font-bold">✓</span>
-                      <div className="min-w-0 flex-1">
-                        <div className="text-xs font-semibold text-white/80">{row.fn}</div>
-                        <div className="text-[11px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
+              {/* Right - Before / After Table - 5 cols */}
+              <div className="lg:col-span-5 grid grid-cols-1 gap-3">
+                {/* BEFORE */}
+                <div className="rounded-2xl border border-red-500/20 overflow-hidden" style={{ background: 'rgba(239,68,68,0.03)' }}>
+                  <div className="px-4 py-2 border-b border-red-500/15 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-red-500" />
+                    <span className="text-[11px] font-bold text-red-400 uppercase tracking-wider">Before — current state</span>
+                  </div>
+                  <div className="p-3 space-y-1.5">
+                    {[
+                      { fn: 'IT helpdesk', state: 'ServiceNow + spreadsheets + email', pain: '4-day resolution' },
+                      { fn: 'HR onboarding', state: '12 handoffs across disconnected tools', pain: '11 days / hire' },
+                      { fn: 'Finance approvals', state: 'PDF forms, no audit trail', pain: '45-day cycle' },
+                      { fn: 'Field operations', state: 'No link to back-office', pain: '0% visibility' },
+                    ].map((row, i) => (
+                      <div key={i} className="flex items-start gap-2 px-2.5 py-2 rounded-lg border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                        <span className="text-red-500 text-xs mt-px shrink-0 font-bold">✕</span>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[11px] font-semibold text-white/80">{row.fn}</div>
+                          <div className="text-[9px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
+                        </div>
+                        <div className="text-[9px] text-red-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.pain}</div>
                       </div>
-                      <div className="text-[10px] text-green-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.gain}</div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+
+                {/* AFTER */}
+                <div className="rounded-2xl border border-blue-500/20 overflow-hidden" style={{ background: 'rgba(37,99,235,0.04)' }}>
+                  <div className="px-4 py-2 border-b border-blue-500/15 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                    <span className="text-[11px] font-bold text-blue-400 uppercase tracking-wider">After — unified on ServiceNow</span>
+                  </div>
+                  <div className="p-3 space-y-1.5">
+                    {[
+                      { fn: 'IT helpdesk', state: 'AI triage + automated resolution', gain: '< 4 hr resolution' },
+                      { fn: 'HR onboarding', state: 'Single orchestrated workflow', gain: '1 day / hire' },
+                      { fn: 'Finance approvals', state: 'Automated routing + audit trail', gain: '2-day cycle' },
+                      { fn: 'Field operations', state: 'Real-time back-office sync', gain: '100% visibility' },
+                    ].map((row, i) => (
+                      <div key={i} className="flex items-start gap-2 px-2.5 py-2 rounded-lg border border-white/[0.04]" style={{ background: 'rgba(255,255,255,0.02)' }}>
+                        <span className="text-green-400 text-xs mt-px shrink-0 font-bold">✓</span>
+                        <div className="min-w-0 flex-1">
+                          <div className="text-[11px] font-semibold text-white/80">{row.fn}</div>
+                          <div className="text-[9px] text-slate-500 mt-0.5 leading-tight">{row.state}</div>
+                        </div>
+                        <div className="text-[9px] text-green-400 font-mono whitespace-nowrap shrink-0 mt-px">{row.gain}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
@@ -154,10 +161,10 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* EXPERTISE TRACKS - Updated with Whitish Background */}
-        <section className="py-24 relative overflow-hidden" style={{ background: '#f8fafc' }}>
+        <section className="py-10 lg:py-14 relative overflow-hidden" style={{ background: '#f8fafc' }}>
           <div className="absolute inset-0 opacity-[0.4]" style={{ backgroundImage: 'radial-gradient(circle,#cbd5e1 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="mb-16 text-center lg:text-left">
+            <div className="mb-12 text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
                 <span className="inline-block w-8 h-px bg-blue-600" />
                 <span className="text-blue-600 text-sm font-bold tracking-widest uppercase">Expertise Tracks</span>
@@ -166,7 +173,7 @@ export default function DigitalTransformationPage() {
               <p className="text-slate-500 mt-4 max-w-xl">Transformation without strategy fails. We deliver both — across every phase of your journey with measurable outcomes.</p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 mb-16">
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
               {[
                 { track: 'Discover & Assess', num: '01', desc: 'Mapping systems and gaps before we build.', services: services.slice(0, 2), accent: 'text-blue-600', pill: 'bg-blue-100/50', border: 'border-slate-200' },
                 { track: 'Design & Transform', num: '02', desc: 'Architecture and AI built to your model.', services: services.slice(2, 4), accent: 'text-indigo-600', pill: 'bg-indigo-100/50', border: 'border-slate-200' },
@@ -202,12 +209,12 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* METHODOLOGY - Dark Section (Site Style) */}
-        <section className="py-24 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <section className="py-10 lg:py-14 relative overflow-hidden" style={{ background: '#07071a' }}>
           <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
           <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% -20%, rgba(37,99,235,0.15), transparent 70%)' }} />
           
           <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-12">
               <div className="inline-block px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest mb-4">Our Methodology</div>
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">Four phases. <span className="text-blue-500">Zero guesswork.</span></h2>
               <p className="text-slate-400">Strategy through scale — every phase delivers measurable outcomes before the next begins.</p>
@@ -245,7 +252,7 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* CASE STUDIES */}
-        <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <section className="py-16 lg:py-20 bg-gray-50 border-t border-gray-100">
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="mb-12"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-600" /><span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">Impact</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Proven Results.</h2></div>
             <div className="relative">
@@ -260,7 +267,7 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-20 relative overflow-hidden" style={{background:'#07071a'}}>
+        <section className="py-16 lg:py-20 relative overflow-hidden" style={{background:'#07071a'}}>
           <div className="absolute inset-0 opacity-[0.03]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="mb-12 text-center"><div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-500" /><span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">Client Voices</span><span className="inline-block w-8 h-px bg-blue-500" /></div><h2 className="text-3xl sm:text-4xl font-bold text-white">What transformation leaders say.</h2></div>
@@ -272,7 +279,7 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* FAQ */}
-        <section className="py-20 bg-white border-t border-gray-100">
+        <section className="py-16 lg:py-20 bg-white border-t border-gray-100">
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
             <div className="grid lg:grid-cols-3 gap-16">
               <div><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-600" /><span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Common questions.</h2><p className="text-gray-500 text-sm leading-relaxed mb-8">Everything you need to know before starting your digital transformation.</p><a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{background:'linear-gradient(135deg,#2563eb,#4f46e5)',boxShadow:'0 8px 24px rgba(37,99,235,0.3)'}}>Ask us directly <ArrowRight className="h-4 w-4" /></a></div>
@@ -282,7 +289,7 @@ export default function DigitalTransformationPage() {
         </section>
 
         {/* CTA */}
-        <section className="py-24 relative overflow-hidden" style={{background:'#07071a'}}>
+        <section className="py-16 lg:py-24 relative overflow-hidden" style={{background:'#07071a'}}>
           <div className="absolute inset-0 opacity-[0.04]" style={{backgroundImage:'radial-gradient(circle,#818cf8 1px,transparent 1px)',backgroundSize:'32px 32px'}} />
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
             <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Ready to transform?</h2>
