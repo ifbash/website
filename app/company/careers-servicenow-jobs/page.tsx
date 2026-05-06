@@ -1,694 +1,322 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Head from "next/head";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { PlaceholderImage } from "@/components/placeholder-image";
-import {
-  Users, ArrowRight, CheckCircle, Star, Heart, Rocket, Target, Brain, Globe, MapPin, Clock, DollarSign,
-  MessageCircle, Search, Filter, Calendar, User, GraduationCap, Coffee, Briefcase, Code, Lightbulb,
-  Award, Shield, Zap, Settings, Database, TrendingUp, Quote, Play, Mail, Phone
-} from "lucide-react";
+import { ArrowRight, Search, MapPin, Clock, GraduationCap, Users, Heart, Globe, DollarSign, Rocket, Brain, Shield, Target, Star, Quote, CheckCircle, MessageCircle, BookOpen, Zap, Mail, Phone, Calendar, Coffee } from 'lucide-react';
+import Link from 'next/link';
+
+const openRoles = [
+  {
+    title: 'Senior ServiceNow Developer',
+    team: 'Engineering',
+    location: 'Remote (India) — we have people in Hyderabad, Bangalore, Pune, and Delhi',
+    type: 'Full-time',
+    experience: '5+ years of ServiceNow development',
+    about: 'You\'ll be building custom applications, configuring modules, and writing integrations for enterprise clients. Most of our work is ITSM, ITOM, and CSM — but we also build on App Engine and Integration Hub regularly. You\'ll work directly with clients (not through layers of project managers) and you\'ll own your code from dev to production.',
+    lookingFor: ['ServiceNow CSA and CAD certified (or equivalent experience)', 'Strong JavaScript — you should be comfortable with Glide APIs and script includes', 'Experience with at least two major modules (ITSM, ITOM, CSM, HRSD, etc.)', 'You\'ve built integrations between ServiceNow and other systems — REST, SOAP, or both'],
+    niceToHave: ['Experience with Service Portal or UI Builder', 'You\'ve worked on at least one project that used ATF for testing', 'You can read and write basic SQL for reporting'],
+    salary: '₹18-28 LPA depending on experience',
+    featured: true,
+  },
+  {
+    title: 'ServiceNow Solution Architect',
+    team: 'Consulting',
+    location: 'Remote (India) with occasional client travel — maybe once a quarter',
+    type: 'Full-time',
+    experience: '7+ years in ServiceNow, with at least 2 years as an architect',
+    about: 'You\'ll design the architecture for client implementations — module selection, data model, integration patterns, security model. You\'ll be the technical decision-maker on projects and mentor senior developers. This is not a "draw boxes and hand off" role — you will build POCs, review code, and occasionally write the tricky parts yourself.',
+    lookingFor: ['Deep expertise in at least three ServiceNow modules — you know them well enough to explain trade-offs to a CTO', 'You\'ve designed solutions that integrated ServiceNow with ERP, CRM, or legacy systems', 'You can write technical architecture documents that developers can actually follow', 'Client-facing experience — you can explain technical decisions to non-technical stakeholders without jargon'],
+    niceToHave: ['Experience with ServiceNow\'s AI/ML capabilities', 'You\'ve led technical teams of 3+ people', 'TOGAF or similar architecture certification'],
+    salary: '₹25-38 LPA depending on experience',
+    featured: true,
+  },
+  {
+    title: 'Business Process Consultant',
+    team: 'Consulting',
+    location: 'Remote (India)',
+    type: 'Full-time',
+    experience: '4+ years in business analysis or process consulting, ideally with ServiceNow exposure',
+    about: 'You\'ll be the bridge between what the client says they want and what they actually need. This means running workshops, mapping processes, writing user stories, and sometimes telling clients "you don\'t need a custom app for that — here\'s a simpler way." You\'ll work alongside architects and developers throughout the implementation.',
+    lookingFor: ['ITIL certification (Foundation at minimum)', 'You\'ve facilitated workshops with 10+ stakeholders and survived', 'Experience with process mapping — you can draw a swimlane diagram that actually makes sense', 'ServiceNow exposure — you don\'t need to code, but you should understand what the platform can and can\'t do'],
+    niceToHave: ['Experience in a specific industry — healthcare, manufacturing, financial services', 'You\'ve been involved in an enterprise software implementation from start to finish'],
+    salary: '₹14-22 LPA depending on experience',
+    featured: false,
+  },
+  {
+    title: 'UX Designer — Enterprise Applications',
+    team: 'Design',
+    location: 'Remote (anywhere in India)',
+    type: 'Full-time',
+    experience: '3+ years in UX design, preferably with enterprise or B2B products',
+    about: 'Most ServiceNow instances look... functional. We think they should look great. You\'ll design employee portals, service catalogs, and mobile experiences for enterprise users. You\'ll work directly with clients to understand their users, prototype solutions, and hand off pixel-perfect specs to developers. This is not a "make the logo bigger" role — you\'ll have real ownership over the experience layer.',
+    lookingFor: ['Strong portfolio showing B2B or enterprise work — consumer-only portfolios won\'t be a fit', 'Figma expertise — our entire design system lives there', 'You\'ve done user research, not just UI design', 'You can explain why a design decision improves usability, not just aesthetics'],
+    niceToHave: ['Experience with Service Portal or UI Builder', 'ServiceNow CSA certification', 'You\'ve designed for accessibility (WCAG compliance)'],
+    salary: '₹12-20 LPA depending on experience',
+    featured: false,
+  },
+  {
+    title: 'Technical Project Manager',
+    team: 'Operations',
+    location: 'Remote (India) — must overlap at least 4 hours with IST business hours',
+    type: 'Full-time',
+    experience: '5+ years managing technical projects, at least 2 in ServiceNow or similar platforms',
+    about: 'You\'ll run 2-3 implementation projects at a time — managing timelines, client communication, team allocation, and the thousand small things that make the difference between "delivered on time" and "three months late." You\'ll work with a technical lead on each project. We don\'t micromanage PMs — we expect you to own your projects and escalate only when you need help.',
+    lookingFor: ['You\'ve managed enterprise software projects end to end — from kickoff to go-live, not just the planning phase', 'ServiceNow knowledge — you don\'t need to code but you need to understand the platform well enough to push back on unrealistic estimates', 'Comfortable with agile — we run two-week sprints', 'You can have a difficult conversation with a client without making them angry'],
+    niceToHave: ['PMP or Scrum Master certification', 'Experience managing distributed teams across time zones'],
+    salary: '₹16-26 LPA depending on experience',
+    featured: false,
+  },
+  {
+    title: 'ServiceNow Sales Engineer',
+    team: 'Sales',
+    location: 'Remote (India) — Bangalore or Hyderabad preferred',
+    type: 'Full-time',
+    experience: '4+ years in technical pre-sales, with ServiceNow experience',
+    about: 'You\'ll run technical discovery calls, build tailored demos, and answer the "can ServiceNow actually do X?" questions that prospects bring. You\'ll work with our sales team and architects to scope projects accurately — we don\'t oversell and we don\'t underdeliver, so your estimates need to be honest. You\'ll also contribute to proposals, RFP responses, and occasionally write technical content for the website.',
+    lookingFor: ['ServiceNow platform knowledge across multiple modules', 'You can build a compelling demo that shows value, not just features', 'Experience scoping enterprise software projects — timeline, team size, cost', 'Strong communication — you can talk to a CIO and a developer in the same meeting and make sense to both'],
+    niceToHave: ['Previous consulting or professional services experience', 'ServiceNow CSA/CIS certifications'],
+    salary: '₹14-24 LPA depending on experience',
+    featured: false,
+  },
+];
+
+const perks = [
+  { icon: Globe, title: 'Work from anywhere', body: 'We\'ve been remote-first since 2016 — long before it was trendy. Most of us work from home. Some work from co-working spaces. A few work from coffee shops. As long as you deliver and show up to client calls, we don\'t care where your desk is.' },
+  { icon: BookOpen, title: 'Learning is not optional — it\'s budgeted', body: 'Every team member gets ₹1.5 lakh per year for learning. Use it for certifications, conferences, courses, books — whatever helps you grow. We also run internal tech talks every Friday where someone on the team teaches something they learned that week.' },
+  { icon: Heart, title: 'Health coverage that actually covers things', body: 'Medical insurance for you and your family. Mental health support through a dedicated platform. Gym or fitness reimbursement. We don\'t do "wellness webinars" — we put money toward things that actually keep you healthy.' },
+  { icon: Clock, title: 'No meeting Wednesdays. Actually.', body: 'Wednesday is a meeting-free day across the company. No stand-ups, no client calls, no internal reviews. It\'s protected time for deep work — coding, designing, writing, thinking. We\'ve done this for three years and it\'s the most popular policy we have.' },
+];
+
+const fromTheTeam = [
+  { quote: 'I joined as a mid-level developer and within 18 months I was leading client engagements. Not because of some fast-track programme — because my architect trusted me with real responsibility and backed me up when I needed help. That kind of mentorship is hard to find.', name: 'Priya', role: 'Lead Developer', tenure: '2.5 years' },
+  { quote: 'What I like most: nobody micromanages. I know what I need to deliver, I have the support to deliver it, and then I\'m trusted to go do the work. Coming from a company where I had to log my hours in 15-minute increments, this is liberating.', name: 'Rahul', role: 'Solution Architect', tenure: '1.5 years' },
+  { quote: 'I was worried about joining a consulting firm because I thought it would mean constant firefighting and client escalation. It\'s not like that here. We plan sprints properly, we push back when scope creeps, and leadership actually backs us up when we tell a client something will take longer than they want.', name: 'Anita', role: 'Senior Consultant', tenure: '3 years' },
+];
+
+const teams = ['All', 'Engineering', 'Consulting', 'Design', 'Operations', 'Sales'];
 
 export default function CareersPage() {
-  const [selectedDepartment, setSelectedDepartment] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [currentTestimonial, setCurrentTestimonial] = useState(0);
+  const [selectedTeam, setSelectedTeam] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [currentQuote, setCurrentQuote] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTestimonial(prev => (prev + 1) % employeeStories.length);
-    }, 6000);
-    return () => clearInterval(interval);
+    const t = setInterval(() => setCurrentQuote(prev => (prev + 1) % fromTheTeam.length), 6000);
+    return () => clearInterval(t);
   }, []);
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IfBash Careers - Join Our ServiceNow Team",
-    "description": "Join ifBash's growing team of ServiceNow experts. Competitive benefits, remote work options, career growth opportunities. Build your future in digital transformation.",
-    "url": "https://ifbash.com/careers",
-    "jobLocation": {
-      "@type": "Place",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Hyderabad",
-        "addressRegion": "Telangana",
-        "addressCountry": "India"
-      }
-    },
-    "hiringOrganization": {
-      "@type": "Organization",
-      "name": "IfBash",
-      "url": "https://ifbash.com"
-    }
-  };
-
-  const jobOpenings = [
-    {
-      id: 1,
-      title: "Senior ServiceNow Developer",
-      department: "Engineering",
-      location: "Remote / Hyderabad",
-      type: "Full-time",
-      experience: "5+ years",
-      description: "Lead ServiceNow development projects and mentor junior developers in enterprise automation solutions.",
-      skills: ["ServiceNow", "JavaScript", "REST APIs", "ITIL", "Agile"],
-      salary: "₹15-25 LPA"
-    },
-    {
-      id: 2,
-      title: "ServiceNow Solution Architect",
-      department: "Consulting",
-      location: "Hybrid / Remote",
-      type: "Full-time", 
-      experience: "7+ years",
-      description: "Design and architect enterprise ServiceNow solutions for Fortune 500 clients across multiple industries.",
-      skills: ["ServiceNow", "Enterprise Architecture", "ITSM", "ITOM", "CSM"],
-      salary: "₹20-35 LPA"
-    },
-    {
-      id: 3,
-      title: "Business Process Consultant",
-      department: "Consulting",
-      location: "Hyderabad / Remote",
-      type: "Full-time",
-      experience: "4+ years",
-      description: "Analyze and optimize business processes to maximize ServiceNow implementation value for clients.",
-      skills: ["Process Optimization", "ITIL", "Change Management", "ServiceNow", "Analytics"],
-      salary: "₹12-20 LPA"
-    },
-    {
-      id: 4,
-      title: "UX/UI Designer - ServiceNow",
-      department: "Design",
-      location: "Remote",
-      type: "Full-time",
-      experience: "3+ years", 
-      description: "Create intuitive user experiences for ServiceNow applications and portals that delight end users.",
-      skills: ["UI/UX Design", "ServiceNow Portal", "Figma", "HTML/CSS", "User Research"],
-      salary: "₹10-18 LPA"
-    },
-    {
-      id: 5,
-      title: "Technical Project Manager",
-      department: "Operations",
-      location: "Hyderabad / Remote",
-      type: "Full-time",
-      experience: "5+ years",
-      description: "Lead complex ServiceNow implementation projects from initiation to successful delivery.",
-      skills: ["Project Management", "ServiceNow", "Agile", "Scrum", "Client Management"],
-      salary: "₹15-25 LPA"
-    },
-    {
-      id: 6,
-      title: "ServiceNow Sales Engineer",
-      department: "Sales",
-      location: "Bangalore / Remote", 
-      type: "Full-time",
-      experience: "4+ years",
-      description: "Drive pre-sales technical activities and demonstrate ServiceNow value to prospective clients.",
-      skills: ["ServiceNow", "Technical Sales", "Solution Design", "Presentations", "CRM"],
-      salary: "₹12-22 LPA"
-    }
-  ];
-
-  const benefits = [
-    {
-      icon: Heart,
-      title: "Health & Wellness",
-      description: "Comprehensive medical coverage and wellness programs for you and your family",
-      items: ["Premium health insurance", "Mental health support", "Fitness membership", "Wellness stipend"],
-      color: "from-red-500 to-pink-500"
-    },
-    {
-      icon: Rocket,
-      title: "Career Growth",
-      description: "Continuous learning opportunities and clear advancement paths",
-      items: ["ServiceNow certifications", "Conference attendance", "Mentorship programs", "Leadership training"],
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
-      icon: Globe,
-      title: "Work-Life Balance",
-      description: "Flexible work arrangements that support your personal life",
-      items: ["Remote work options", "Flexible hours", "Unlimited PTO", "Sabbatical programs"],
-      color: "from-green-500 to-emerald-500"
-    },
-    {
-      icon: DollarSign,
-      title: "Financial Security",
-      description: "Competitive compensation and comprehensive financial benefits",
-      items: ["Competitive salary", "Performance bonuses", "ESOP participation", "Retirement planning"],
-      color: "from-purple-500 to-violet-500"
-    }
-  ];
-
-  const cultureValues = [
-    {
-      icon: Users,
-      title: "Collaborative Excellence",
-      description: "We believe the best solutions come from diverse teams working together toward common goals.",
-      color: "from-blue-500 to-indigo-500"
-    },
-    {
-      icon: Brain,
-      title: "Continuous Learning",
-      description: "We invest in our people's growth because curious minds drive innovation and transformation.",
-      color: "from-indigo-500 to-purple-500"
-    },
-    {
-      icon: Target,
-      title: "Client-Centric Impact",
-      description: "Every project we undertake is focused on delivering measurable value to our clients.",
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      icon: Shield,
-      title: "Integrity & Trust",
-      description: "We build lasting relationships through transparency, honesty, and reliable delivery.",
-      color: "from-pink-500 to-red-500"
-    }
-  ];
-
-  const employeeStories = [
-    {
-      name: "Priya Sharma",
-      title: "Senior ServiceNow Developer",
-      story: "ifBash gave me the opportunity to work on cutting-edge projects while providing continuous learning and growth. The mentorship here is incredible.",
-      experience: "2 years at ifBash",
-      rating: 5,
-      department: "Engineering"
-    },
-    {
-      name: "Rajesh Kumar",
-      title: "Solution Architect",
-      story: "The collaborative culture and challenging projects have accelerated my career beyond my expectations. ifBash truly invests in its people.",
-      experience: "3 years at ifBash",
-      rating: 5,
-      department: "Consulting"
-    },
-    {
-      name: "Anita Patel",
-      title: "UX Designer",
-      story: "Working at ifBash has been transformative. The team's support and the innovative projects have helped me grow both professionally and personally.",
-      experience: "1.5 years at ifBash",
-      rating: 5,
-      department: "Design"
-    }
-  ];
-
-  const departments = ["All", "Engineering", "Consulting", "Design", "Operations", "Sales"];
-
-  const filteredJobs = jobOpenings.filter(job => {
-    const matchesDepartment = selectedDepartment === "All" || job.department === selectedDepartment;
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         job.description.toLowerCase().includes(searchTerm.toLowerCase());
-    return matchesDepartment && matchesSearch;
+  const filtered = openRoles.filter(r => {
+    const mt = selectedTeam === 'All' || r.team === selectedTeam;
+    const ms = r.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      r.about.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      r.lookingFor.some(s => s.toLowerCase().includes(searchTerm.toLowerCase()));
+    return mt && ms;
   });
 
   return (
     <>
-      <Head>
-        <title>Careers at IfBash - Join Our ServiceNow Team | Remote & Hyderabad Jobs</title>
-        <meta name="description" content="Join ifBash's growing team of ServiceNow experts. Competitive benefits, remote work options, career growth opportunities. Build your future in digital transformation with us." />
-        <meta name="keywords" content="ifbash careers, ServiceNow jobs, remote jobs India, Hyderabad tech jobs, digital transformation careers, ServiceNow developer jobs, solution architect jobs" />
-        <meta name="robots" content="index, follow" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta property="og:title" content="Careers at IfBash - Join Our ServiceNow Team" />
-        <meta property="og:description" content="Join our growing team of ServiceNow experts. Competitive benefits, remote work options, and career growth opportunities." />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ifbash.com/careers" />
-        <link rel="canonical" href="https://ifbash.com/careers" />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
-
-      {/* Fixed Chat Button */}
-      <div className="fixed right-2 sm:right-4 bottom-4 sm:bottom-6 z-50">
-        <a 
-          href='/get-started'
-          className="relative group min-w-[44px] min-h-[44px] sm:min-w-[56px] sm:min-h-[56px] rounded-full bg-gradient-to-r from-green-600 to-blue-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95"
-          aria-label="Chat with HR"
-        >
-          <MessageCircle className="h-5 w-5 sm:h-6 sm:w-6" />
-          <span className="absolute right-[calc(100%+8px)] px-2 py-1 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-xs sm:text-sm text-gray-800 min-w-[90px] sm:min-w-[120px] text-center">
-            Chat with HR
-          </span>
-          <div className="absolute inset-0 rounded-full animate-ping bg-green-600 opacity-20"></div>
-        </a>
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <Link href="/get-started" className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full flex items-center justify-center text-gray-50 shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95"
+          style={{ background: 'linear-gradient(135deg, #059669, #0d9488)', boxShadow: '0 8px 32px rgba(5,150,105,0.35)' }} aria-label="Ask about roles">
+          <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
+          <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-gray-50 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800">Ask about open roles</span>
+        </Link>
       </div>
 
-      <div className="min-h-screen bg-gray-50">
-        {/* Hero Section */}
-        <section className="relative min-h-[70vh] sm:min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-green-900 via-blue-900 to-indigo-900">
-          <div className="absolute inset-0 z-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-green-700/20 via-transparent to-transparent animate-pulse-slow" />
-            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-green-400 rounded-full animate-float opacity-60" />
-            <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-blue-400 rounded-full animate-float delay-150 opacity-40" />
-            <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-indigo-400 rounded-full animate-float delay-300 opacity-80" />
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden flex flex-col justify-center" style={{ background: '#040d08', minHeight: '70vh' }}>
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, #34d399 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] opacity-[0.1]" style={{ background: 'radial-gradient(ellipse at top, #059669, transparent 60%)' }} />
+
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24 text-center">
+          <div className="flex flex-wrap justify-center gap-2 mb-8">
+            {['Remote-first since 2016', '50+ people, 6 countries', '₹1.5L annual learning budget'].map((label, i) => {
+              const c = ['bg-emerald-500/15 border-emerald-500/30 text-emerald-300', 'bg-teal-500/15 border-teal-500/30 text-teal-300', 'bg-green-500/15 border-green-500/30 text-green-300'];
+              return <span key={label} className={`inline-flex items-center gap-1.5 border rounded-full px-3 py-1 text-xs font-semibold ${c[i]}`}><span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />{label}</span>;
+            })}
           </div>
 
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="grid lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12 items-center">
-              <div className="text-white space-y-4 sm:space-y-8">
-                <div className="flex items-center justify-start gap-1 sm:gap-4 mb-2 sm:mb-8 flex-wrap px-1 sm:px-0">
-                  <Badge className="bg-gradient-to-r from-green-500/90 to-blue-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-                    ✓ Remote-First Culture
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-blue-500/90 to-indigo-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-                    ✓ Competitive Benefits
-                  </Badge>
-                  <Badge className="bg-gradient-to-r from-indigo-500/90 to-purple-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3">
-                    ✓ Career Growth
-                  </Badge>
-                </div>
-
-                <h1 className="text-lg sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight px-1 sm:px-0">
-                  Join the{' '}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-400 to-indigo-400 font-semibold">
-                    ifBash Team
-                  </span>
-                  <span className="block text-base sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-2 sm:mt-4 font-light">
-                    Build Your{' '}
-                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 font-semibold">
-                      Future
-                    </span>
-                  </span>
-                </h1>
-
-                <p className="text-xs sm:text-base md:text-lg lg:text-xl text-green-100 max-w-xs sm:max-w-2xl leading-relaxed">
-                  Help organizations transform their "what if" questions into intelligent automation solutions. Build your career while making a real impact on the{' '}
-                  <span className="font-semibold text-blue-300">future of work</span>.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 px-2 sm:px-0">
-                  <button 
-                    onClick={() => document.getElementById('open-positions')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600 hover:from-green-700 hover:via-blue-700 hover:to-indigo-700"
-                  >
-                    <span className="relative flex items-center justify-center">
-                      View Open Positions
-                      <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                    </span>
-                  </button>
-                  
-                  <button className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm">
-                    <span className="relative flex items-center justify-center">
-                      <Users className="mr-2 h-4 w-4 sm:h-5 sm:w-5 text-purple-400" />
-                      Meet the Team
-                    </span>
-                  </button>
-                </div>
-              </div>
-
-              <div className="relative sm:h-[400px] lg:h-[600px]">
-                <div className="relative z-20 bg-gradient-to-br from-green-500/15 to-blue-500/15 rounded-3xl p-2 sm:p-8 backdrop-blur-xl border border-gray-300/20 w-full">
-                  <div className="aspect-video w-full rounded-xl overflow-hidden mb-2 sm:mb-6">
-                    <PlaceholderImage
-                      title="ifBash Team Culture and Growth"
-                      className="w-full h-full object-cover"
-                      gradient="from-green-600 to-blue-600"
-                    />
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-2 sm:gap-4">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">50+</div>
-                      <div className="text-xs text-green-200">Team Members</div>
-                    </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                      <div className="text-2xl font-bold text-white mb-1">Remote</div>
-                      <div className="text-xs text-blue-200">First Culture</div>
-                    </div>
-                  </div>
-                  
-                  <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
-                    <div className="w-full h-full bg-gradient-to-r from-green-600 to-blue-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Users className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
-                  <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
-                    <div className="w-full h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg">
-                      <Rocket className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.06] tracking-tight max-w-3xl mx-auto mb-6">
+            Do good work.<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400">Grow with good people.</span>
+          </h1>
+          <p className="text-base sm:text-lg text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed">
+            We build ServiceNow solutions for enterprises around the world. Most of us work from home. We don&apos;t track hours, we track outcomes. And we genuinely like working together — which, if you&apos;ve worked at other consulting firms, you know is not a given.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <button onClick={() => document.getElementById('open-roles')?.scrollIntoView({ behavior: 'smooth' })}
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5"
+              style={{ background: 'linear-gradient(135deg, #059669, #0d9488)', boxShadow: '0 8px 32px rgba(5,150,105,0.35)' }}>
+              View open roles <ArrowRight className="h-4 w-4" />
+            </button>
+            <Link href="/company/about-us" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-slate-300 border border-white/10 hover:border-emerald-500/50 hover:text-white transition-all text-sm">
+              Learn about the company
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Why ifBash Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-green-50/30 relative overflow-hidden">
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 via-blue-600 to-indigo-600">
-                  Why Choose
-                </span>
-                <br />
-                <span className="text-gray-800">ifBash?</span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Join a team where curiosity meets action, where every "if" becomes an opportunity to create transformational solutions.
-              </p>
-            </div>
+      {/* ── WHAT IT'S LIKE ── */}
+      <section className="py-20 bg-white">
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-block w-8 h-px bg-emerald-600" />
+            <span className="text-emerald-600 text-sm font-semibold tracking-widest uppercase">What it&apos;s like here</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-12">The stuff that actually matters when you&apos;re choosing where to work.</h2>
 
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-              {cultureValues.map((value, index) => (
-                <div key={index} className="group text-center bg-white rounded-2xl p-4 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
-                  <div className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 bg-gradient-to-r ${value.color} rounded-2xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                    <value.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">{value.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm sm:text-base">{value.description}</p>
+          <div className="grid sm:grid-cols-2 gap-5">
+            {perks.map(({ icon: Icon, title, body }) => (
+              <div key={title} className="flex gap-5 p-6 rounded-2xl border border-gray-200 hover:border-emerald-200 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center shrink-0">
+                  <Icon className="h-5 w-5 text-emerald-600" />
                 </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-2 text-base">{title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUOTES CAROUSEL ── */}
+      <section className="py-20 relative overflow-hidden" style={{ background: '#040d08' }}>
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, #34d399 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="mb-10 text-center">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="inline-block w-8 h-px bg-emerald-400" />
+              <span className="text-emerald-400 text-sm font-semibold tracking-widest uppercase">From the team</span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white">What people actually say — not the polished version.</h2>
+          </div>
+
+          <div className="relative max-w-2xl mx-auto">
+            <div className="overflow-hidden rounded-2xl">
+              <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentQuote * 100}%)` }}>
+                {fromTheTeam.map((q, i) => (
+                  <div key={i} className="w-full flex-shrink-0">
+                    <div className="rounded-2xl p-8 md:p-12 border border-white/10 text-center" style={{ background: 'rgba(255,255,255,0.03)' }}>
+                      <Quote className="h-8 w-8 text-emerald-500 mx-auto mb-5" />
+                      <p className="text-lg text-slate-300 leading-relaxed mb-6">&ldquo;{q.quote}&rdquo;</p>
+                      <div className="text-white font-semibold">{q.name}</div>
+                      <div className="text-sm text-slate-500">{q.role} &middot; {q.tenure}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="flex justify-center gap-2 mt-6">
+              {fromTheTeam.map((_, i) => (
+                <button key={i} onClick={() => setCurrentQuote(i)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentQuote ? 'bg-emerald-500 w-7' : 'bg-white/20 hover:bg-white/30'}`} />
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Benefits & Perks Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-white relative overflow-hidden">
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">
-                  Benefits & Perks
-                </span>
-                <br />
-                <span className="text-gray-800">We Invest in Our People</span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Comprehensive benefits designed to support your personal and professional growth.
-              </p>
+      {/* ── OPEN ROLES ── */}
+      <section id="open-roles" className="py-20 bg-white">
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="mb-10">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="inline-block w-8 h-px bg-emerald-600" />
+              <span className="text-emerald-600 text-sm font-semibold tracking-widest uppercase">Open Roles</span>
             </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Current openings.</h2>
+          </div>
 
-            <div className="grid md:grid-cols-2 gap-4 sm:gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-200/50 transform hover:-translate-y-2">
-                  <div className="flex items-start space-x-4 sm:space-x-6">
-                    <div className={`w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-r ${benefit.color} rounded-2xl flex items-center justify-center flex-shrink-0 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                      <benefit.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+            <div className="flex-1 relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <input type="text" placeholder="Search by role, skill, or keyword..." value={searchTerm} onChange={e => setSearchTerm(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all" />
+            </div>
+            <div className="flex gap-2 flex-wrap">
+              {teams.map(t => (
+                <button key={t} onClick={() => setSelectedTeam(t)}
+                  className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${selectedTeam === t ? 'bg-emerald-600 text-white shadow-lg' : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'}`}>{t}</button>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-5">
+            {filtered.map(role => (
+              <div key={role.title} className="border border-gray-200 rounded-2xl p-6 lg:p-8 hover:shadow-md hover:border-emerald-200 transition-all">
+                <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 mb-4">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2 flex-wrap">
+                      <h3 className="text-lg font-bold text-gray-900">{role.title}</h3>
+                      {role.featured && <span className="text-xs font-semibold text-emerald-700 bg-emerald-100 rounded-full px-2.5 py-0.5 flex items-center gap-1"><Zap className="h-3 w-3" /> Featured</span>}
                     </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 sm:mb-4 text-gray-800">{benefit.title}</h3>
-                      <p className="text-gray-600 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-lg">{benefit.description}</p>
-                      <ul className="space-y-2 sm:space-y-3">
-                        {benefit.items.map((item, idx) => (
-                          <li key={idx} className="flex items-center">
-                            <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500 mr-2 sm:mr-3 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm sm:text-base">{item}</span>
-                          </li>
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-gray-500">
+                      <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-emerald-400" />{role.team}</span>
+                      <span className="flex items-center gap-1"><MapPin className="h-3.5 w-3.5" /> {role.location}</span>
+                      <span className="flex items-center gap-1"><GraduationCap className="h-3.5 w-3.5" /> {role.experience}</span>
+                      <span className="font-semibold text-emerald-700">{role.salary}</span>
+                    </div>
+                  </div>
+                  <Link href="/get-started" className="shrink-0 inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5"
+                    style={{ background: 'linear-gradient(135deg, #059669, #0d9488)', boxShadow: '0 4px 16px rgba(5,150,105,0.2)' }}>
+                    Apply <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">{role.about}</p>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">What we&apos;re looking for</div>
+                    <ul className="space-y-1.5">
+                      {role.lookingFor.map((item, i) => (
+                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600"><CheckCircle className="h-4 w-4 text-emerald-500 mt-0.5 shrink-0" />{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  {role.niceToHave && (
+                    <div>
+                      <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Nice to have</div>
+                      <ul className="space-y-1.5">
+                        {role.niceToHave.map((item, i) => (
+                          <li key={i} className="flex items-start gap-2 text-sm text-gray-500"><CheckCircle className="h-4 w-4 text-gray-300 mt-0.5 shrink-0" />{item}</li>
                         ))}
                       </ul>
                     </div>
-                  </div>
+                  )}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Open Positions Section */}
-        <section id="open-positions" className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600">
-                  Open Positions
-                </span>
-                <br />
-                <span className="text-gray-800">Find Your Next Opportunity</span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-gray-700 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Join our mission to transform organizations through intelligent automation and ServiceNow excellence.
-              </p>
-            </div>
-
-            {/* Search and Filter */}
-            <div className="mb-8 sm:mb-12 flex flex-col md:flex-row gap-4">
-              <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                <input
-                  type="text"
-                  placeholder="Search positions..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-base sm:text-lg"
-                />
               </div>
-              <div className="flex gap-2 flex-wrap">
-                {departments.map((dept) => (
-                  <button
-                    key={dept}
-                    onClick={() => setSelectedDepartment(dept)}
-                    className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium transition-all duration-300 text-sm sm:text-base ${
-                      selectedDepartment === dept
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
-                        : 'bg-white text-gray-700 hover:bg-gray-50 border border-gray-200'
-                    }`}
-                  >
-                    {dept}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Job Listings */}
-            <div className="space-y-4 sm:space-y-6">
-              {filteredJobs.map((job) => (
-                <div key={job.id} className="group bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-12 hover:shadow-2xl transition-all duration-500 border border-gray-200 hover:border-blue-200 transform hover:-translate-y-2">
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 sm:gap-6">
-                    <div className="flex-1">
-                      <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-2 sm:mb-4">
-                        <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800">{job.title}</h3>
-                        <Badge className="bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border border-blue-200 text-xs sm:text-sm">
-                          {job.department}
-                        </Badge>
-                        <Badge className="bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200 text-xs sm:text-sm">
-                          {job.salary}
-                        </Badge>
-                      </div>
-                      
-                      <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
-                        <span className="flex items-center">
-                          <MapPin className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                          {job.location}
-                        </span>
-                        <span className="flex items-center">
-                          <Clock className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                          {job.type}
-                        </span>
-                        <span className="flex items-center">
-                          <GraduationCap className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-                          {job.experience}
-                        </span>
-                      </div>
-                      
-                      <p className="text-gray-700 mb-4 sm:mb-6 text-sm sm:text-lg leading-relaxed">{job.description}</p>
-                      
-                      <div className="flex flex-wrap gap-2 sm:gap-3">
-                        {job.skills.map((skill, index) => (
-                          <span key={index} className="px-3 sm:px-4 py-1 sm:py-2 bg-gradient-to-r from-blue-50 to-indigo-50 text-blue-800 rounded-xl text-xs sm:text-sm font-medium border border-blue-200">
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex-shrink-0">
-                      <a 
-                        href='/get-started'
-                        className="w-full lg:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-sm sm:text-base"
-                      >
-                        Apply Now
-                        <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {filteredJobs.length === 0 && (
-              <div className="text-center py-16">
-                <div className="text-gray-400 mb-6">
-                  <Briefcase className="h-20 w-20 mx-auto" />
-                </div>
-                <h3 className="text-2xl font-semibold text-gray-600 mb-4">No positions found</h3>
-                <p className="text-gray-500 text-lg">Try adjusting your search criteria or check back later for new opportunities.</p>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Employee Stories Section */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-r from-blue-900 via-indigo-900 to-purple-900 text-white relative overflow-hidden">
-          <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-purple-700/20 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-blue-700/20 via-transparent to-transparent" />
+            ))}
           </div>
 
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-            <div className="text-center mb-8 sm:mb-16">
-              <h2 className="text-xl sm:text-4xl md:text-5xl font-bold mb-2 sm:mb-6">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-indigo-400">
-                  What Our Team Says
-                </span>
-                <br />
-                <span className="text-white">About Working at ifBash</span>
-              </h2>
-              <p className="text-xs sm:text-lg md:text-xl text-blue-100 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                Hear from our team members about their growth journey and experiences at ifBash.
-              </p>
-            </div>
+          {filtered.length === 0 && <div className="text-center py-16"><p className="text-gray-500">No roles match. Try a different filter — or just send us your resume anyway.</p></div>}
 
-            <div className="relative max-w-xs sm:max-w-4xl mx-auto">
-              <div className="overflow-hidden rounded-2xl">
-                <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                  {employeeStories.map((story, index) => (
-                    <div key={index} className="w-full flex-shrink-0">
-                      <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
-                        <div className="flex items-center mb-4 sm:mb-8">
-                          <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center mr-4 sm:mr-6">
-                            <User className="h-8 w-8 text-white" />
-                          </div>
-                          <div>
-                            <h3 className="text-lg sm:text-xl font-bold">{story.name}</h3>
-                            <p className="text-sm sm:text-base text-blue-200">{story.title}</p>
-                            <p className="text-purple-200 text-xs sm:text-sm">{story.experience}</p>
-                          </div>
-                        </div>
-
-                        <div className="mb-6">
-                          <Quote className="h-8 w-8 text-purple-400 mb-4" />
-                          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-100 mb-6">
-                            "{story.story}"
-                          </p>
-                        </div>
-
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center">
-                            <div className="flex text-yellow-400 mr-3">
-                              {[...Array(story.rating)].map((_, i) => (
-                                <Star key={i} className="h-5 w-5 fill-current" />
-                              ))}
-                            </div>
-                            <span className="text-blue-200 text-sm">({story.rating}.0/5.0)</span>
-                          </div>
-                          
-                          <div className="text-right">
-                            <Badge className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 text-purple-200 border border-purple-400/30 text-xs sm:text-sm">
-                              {story.department}
-                            </Badge>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="flex justify-center space-x-1 sm:space-x-2 mt-4 sm:mt-8">
-                {employeeStories.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentTestimonial(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentTestimonial 
-                        ? 'bg-purple-400 w-8' 
-                        : 'bg-white/30 hover:bg-white/50'
-                    }`}
-                  />
-                ))}
-              </div>
-            </div>
+          {/* No match? */}
+          <div className="mt-12 text-center p-8 rounded-2xl bg-gray-50 border border-gray-200">
+            <h3 className="font-bold text-gray-900 mb-2">Don&apos;t see a role that fits?</h3>
+            <p className="text-sm text-gray-500 mb-4">We hire great people, not job descriptions. If you&apos;re good at what you do and ServiceNow is your thing, send us your resume.</p>
+            <Link href="/get-started" className="inline-flex items-center gap-2 text-emerald-600 font-semibold text-sm hover:underline">
+              Get in touch <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Call to Action */}
-        <section className="py-8 sm:py-16 md:py-24 bg-gradient-to-br from-gray-50 to-indigo-50/30 relative overflow-hidden">
-          <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 md:p-16 text-white relative overflow-hidden">
-              <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-              <div className="relative z-10">
-                <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-6">
-                  Ready to Make Your Mark?
-                </h2>
-                <p className="text-sm sm:text-lg md:text-xl text-blue-100 mb-4 sm:mb-10 max-w-xs sm:max-w-3xl mx-auto leading-relaxed">
-                  Don't see the perfect role? We're always looking for exceptional talent to join our growing team. Send us your resume and let's explore opportunities together.
-                </p>
-                
-                <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center mb-6 sm:mb-8">
-                  <a 
-                    href='/get-started'
-                    className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base"
-                  >
-                    Send Us Your Resume
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
-                  </a>
-                  <button className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm text-sm sm:text-base">
-                    <Calendar className="mr-2 h-4 w-4 sm:h-5 sm:w-5 inline" />
-                    Schedule a Chat
-                  </button>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 max-w-xs sm:max-w-md mx-auto">
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                    <Mail className="h-6 w-6 text-blue-200 mx-auto mb-2" />
-                    <p className="text-white text-xs sm:text-sm font-medium">careers@ifbash.com</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                    <Phone className="h-6 w-6 text-indigo-200 mx-auto mb-2" />
-                    <p className="text-white text-xs sm:text-sm font-medium">+91-XXXX-XXXXXX</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+      {/* ── CTA ── */}
+      <section className="py-24 relative overflow-hidden" style={{ background: '#040d08' }}>
+        <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, #34d399 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] opacity-12 rounded-full pointer-events-none" style={{ background: 'radial-gradient(ellipse, #059669, transparent 70%)' }} />
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 text-center">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Ready to build something good?</h2>
+          <p className="text-slate-400 text-xl max-w-2xl mx-auto mb-10">Apply for a role or just say hello. We read every application — and we respond to every one.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5"
+              style={{ background: 'linear-gradient(135deg, #059669, #0d9488)', boxShadow: '0 8px 32px rgba(5,150,105,0.4)' }}>
+              Apply or say hello <ArrowRight className="h-5 w-5" />
+            </Link>
           </div>
-        </section>
-      </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.3; }
-          50% { opacity: 0.1; }
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 4s ease-in-out infinite;
-        }
-
-        .delay-75 {
-          animation-delay: 0.75s;
-        }
-
-        .delay-150 {
-          animation-delay: 1.5s;
-        }
-
-        .delay-300 {
-          animation-delay: 3s;
-        }
-
-        .bg-grid-pattern {
-          background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-          background-size: 50px 50px;
-        }
-      `}</style>
+        </div>
+      </section>
     </>
   );
 }

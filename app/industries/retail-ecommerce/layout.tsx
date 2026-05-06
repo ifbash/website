@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Retail & E-Commerce',
-  description: 'Elevate retail operations with ServiceNow and AI. Omnichannel service management, AI-powered customer experience, order fulfilment automation, and supply chain optimisation for retailers.',
+  title: 'ServiceNow for Retail & E-Commerce | Omnichannel Order Management',
+  description: 'Real-time inventory sync, BOPIS workflows, unified order management, and AI-powered customer service — built on ServiceNow. 60-second inventory updates, 98.5% BOPIS accuracy, 3-day return processing.',
   keywords: [
-    'ServiceNow retail', 'ServiceNow e-commerce', 'retail ServiceNow implementation',
-    'ServiceNow omnichannel', 'retail AI automation', 'ServiceNow order management retail',
-    'e-commerce customer experience ServiceNow', 'retail digital transformation',
+    'ServiceNow retail', 'ServiceNow order management', 'retail ServiceNow implementation',
+    'ServiceNow omnichannel', 'BOPIS ServiceNow', 'ServiceNow inventory management',
+    'ecommerce customer service ServiceNow', 'retail digital transformation ServiceNow',
   ],
   openGraph: {
-    title: 'ServiceNow for Retail & E-Commerce | ifBash',
-    description: 'Elevate retail with ServiceNow AI. Omnichannel service management, AI customer experience, and supply chain automation.',
+    title: 'ServiceNow for Retail & E-Commerce | Omnichannel Order Management | ifBash',
+    description: 'Real-time inventory, BOPIS, unified orders, AI customer service. Built on ServiceNow for retail speed.',
     url: 'https://ifbash.com/industries/retail-ecommerce',
   },
   alternates: { canonical: 'https://ifbash.com/industries/retail-ecommerce' },

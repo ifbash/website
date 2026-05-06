@@ -1,16 +1,16 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'About ifBash | ServiceNow & Agentic AI Consulting Partner',
-  description: 'ifBash is a ServiceNow and agentic AI consulting partner headquartered in Hyderabad, India. 1,500+ implementations, 50+ certified consultants, serving global enterprises since 2016.',
+  title: 'About ifBash | The Story Behind 1,500+ ServiceNow Transformations',
+  description: 'Three ServiceNow architects started ifBash in 2016 to deliver faster, more honest consulting. 9 years later: 1,500+ implementations, 50+ consultants, 25+ countries, zero failed launches.',
   keywords: [
-    'about ifBash', 'ifBash ServiceNow partner', 'ServiceNow consulting firm India',
-    'ServiceNow partner Hyderabad', 'agentic AI consulting company', 'ServiceNow implementation company',
-    'ServiceNow certified consultants', 'ifBash about',
+    'about ifBash', 'ifBash story', 'ServiceNow consulting partner',
+    'ServiceNow partner Hyderabad', 'ServiceNow implementation company India',
+    'ServiceNow Elite Partner', 'agentic AI consulting', 'ifBash team',
   ],
   openGraph: {
-    title: 'About ifBash | ServiceNow & Agentic AI Consulting Partner',
-    description: 'ServiceNow and agentic AI consulting partner. Hyderabad, India. 1,500+ implementations, 50+ certified consultants since 2016.',
+    title: 'About ifBash | 1,500+ ServiceNow Transformations Since 2016',
+    description: 'Founded by three architects who wanted to do consulting differently. 1,500+ go-lives, 98% retention, global team.',
     url: 'https://ifbash.com/company/about-us',
   },
   alternates: { canonical: 'https://ifbash.com/company/about-us' },

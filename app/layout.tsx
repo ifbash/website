@@ -38,6 +38,10 @@ export const metadata: Metadata = {
     description: 'ServiceNow and agentic AI consulting. 1,500+ implementations. AI automation, CRM, and digital transformation for enterprises worldwide.',
     images: ['/images/logo.png'],
   },
+  icons: {
+    icon: '/favicon.png',
+    apple: '/favicon.png',
+  },
   robots: {
     index: true,
     follow: true,

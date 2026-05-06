@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx next *)",
+      "Bash(Select-Object -Last 30)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 40)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 10)",
+      "PowerShell($env:NODE_ENV='production'; npx next build 2>&1 | Out-String -Width 500)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 5)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 20)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 8)",
+      "PowerShell(npx next build 2>&1 | Out-String -Width 600)"
+    ]
+  }
+}

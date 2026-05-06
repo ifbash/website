@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(cd D:\\\\website; Get-Content .graphify_uncached.txt | Select-Object -First 24 | ForEach-Object { $_.Trim\\(\\) } | Where-Object { $_ -ne \"\" })"
+      "Write(D:\\website\\graphify-out\\*)",
+      "PowerShell(cd D:\\\\website; Get-Content .graphify_uncached.txt | Select-Object -First 24 | ForEach-Object { $_.Trim\\(\\) } | Where-Object { $_ -ne \"\" })",
+      "PowerShell(cd D:\\\\website; $py = Get-Content .graphify_python; & $py _graphify_merge.py; & $py _graphify_build.py 2>&1)",
+      "PowerShell(cd D:\\\\website; $py = Get-Content .graphify_python; & $py _graphify_html.py 2>&1; & $py _graphify_finish.py 2>&1)",
+      "PowerShell(cd D:\\\\website; $content = Get-Content graphify-out\\\\GRAPH_REPORT.md -Raw; $sections = $content -split \"##\\\\s+\"; foreach \\($s in $sections\\) { if \\($s -match \"^\\(God Nodes|Surprising|Suggested Questions\\)\"\\) { Write-Host \"##\", $s.Substring\\(0, [Math]::Min\\($s.Length, 1500\\)\\) } })",
+      "Skill(update-config)",
+      "Skill(update-config:*)"
     ],
     "additionalDirectories": [
       "D:\\website\\graphify-out"
