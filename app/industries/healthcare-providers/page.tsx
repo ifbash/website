@@ -228,20 +228,23 @@ export default function HealthcareProviders() {
       {/* ── FAQ ── */}
       <section className="py-20 bg-gray-50">
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-          <div className="text-center mb-10">
-            <div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px" style={{ backgroundColor: A }} /><span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span></div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Frequently asked questions.</h2>
-          </div>
-          <div className="max-w-3xl mx-auto space-y-3">
-            {faqs.map((faq, i) => (
-              <div key={i} className="border border-gray-200 hover:border-rose-200 rounded-xl overflow-hidden transition-colors">
-                <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                  <span className="font-semibold text-gray-800 pr-8 text-sm">{faq.q}</span>
-                  <ChevronDown className={`h-5 w-5 transition-transform shrink-0 ${openFaq === i ? 'rotate-180' : ''}`} style={{ color: A }} />
-                </button>
-                {openFaq === i && <div className="px-6 pb-5 border-t border-gray-100"><p className="text-gray-600 text-sm leading-relaxed pt-4">{faq.a}</p></div>}
-              </div>
-            ))}
+          <div className="grid lg:grid-cols-3 gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px" style={{ backgroundColor: A }} /><span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span></div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2>
+              <a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 24px ${A}4d` }}>Ask us directly <ArrowRight className="h-4 w-4" /></a>
+            </div>
+            <div className="lg:col-span-2 space-y-3">
+              {faqs.map((faq, i) => (
+                <div key={i} className="border border-gray-200 hover:border-rose-200 rounded-xl overflow-hidden transition-colors">
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50">
+                    <span className="font-semibold text-gray-800 pr-4 text-sm">{faq.q}</span>
+                    <ChevronDown className={`h-5 w-5 shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} style={{ color: A }} />
+                  </button>
+                  {openFaq === i && <div className="px-6 pb-5 border-t border-gray-100 pt-4"><p className="text-gray-600 text-sm">{faq.a}</p></div>}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

@@ -10,7 +10,8 @@
       "PowerShell(npx next build 2>&1 | Select-Object -Last 5)",
       "PowerShell(npx next build 2>&1 | Select-Object -Last 20)",
       "PowerShell(npx next build 2>&1 | Select-Object -Last 8)",
-      "PowerShell(npx next build 2>&1 | Out-String -Width 600)"
+      "PowerShell(npx next build 2>&1 | Out-String -Width 600)",
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 4)"
     ]
   }
 }
