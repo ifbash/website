@@ -1,6 +1,6 @@
 'use client';
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, MessageCircle, Code, Layers, Cpu, GitBranch, Package, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, MessageCircle, Code, Layers, Cpu, GitBranch, Package, Shield, Clock } from 'lucide-react';
 
 const A = '#ea580c';
 const AG = 'linear-gradient(135deg, #ea580c, #d97706)';
@@ -39,8 +39,17 @@ export default function CustomAppsPage() {
   const [currentCase, setCurrentCase] = useState(0);
   const [phasesVisible, setPhasesVisible] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
-  useState(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); });
+  useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -51,8 +60,8 @@ export default function CustomAppsPage() {
       </div>
 
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+      <section className="relative overflow-hidden" style={{ background: '#0d0704' }}>
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#fb923c 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 0%,rgba(234,88,12,0.18) 0%,transparent 65%)' }} />
         <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-20 pb-0">
           <div className="grid lg:grid-cols-5 gap-8 items-start">
@@ -103,9 +112,9 @@ export default function CustomAppsPage() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
           <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-500" /><span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">What We Build</span></div><h2 className="text-3xl sm:text-4xl font-bold text-white">Any capability. Any complexity.</h2></div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.map(({ icon: Icon, title, desc, benefits }) => (
-              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-orange-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)' }}>
+          <div data-reveal="services" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${revealed.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            {services.map(({ icon: Icon, title, desc, benefits }, i) => (
+              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-orange-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)', transitionDelay: `${i * 80}ms` }}>
                 <div className="w-10 h-10 rounded-xl bg-orange-500/15 group-hover:bg-orange-500/25 flex items-center justify-center mb-4 transition-colors"><Icon className="h-5 w-5 text-orange-400" /></div>
                 <h3 className="font-bold text-white mb-2">{title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed mb-3">{desc}</p>
@@ -162,8 +171,14 @@ export default function CustomAppsPage() {
         </div>
       </section>
 
+      {/* WHY IFBASH */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto"><div className="max-w-4xl mx-auto"><div className="text-center mb-12"><div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: `${A}14`, borderColor: `${A}40`, color: '#fb923c' }}>Why ifBash</div><h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">We don&apos;t just build apps.<br /><span style={{ color: '#fb923c' }}>We build what works.</span></h2><p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">We start with your requirements and your users, not the platform.</p></div><div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>{[{ icon: Code, stat: '200+ apps delivered', desc: 'Zero failed deliveries. Every app built on supported APIs — upgrade-safe for life.' },{ icon: Shield, stat: '100% upgrade-safe', desc: 'Scoped applications using supported APIs only. Your app survives every platform upgrade.' },{ icon: Clock, stat: 'Prototype in 4 weeks', desc: 'Working prototype delivered by week 4 in every engagement. See it before you commit.' }].map(({ icon: Icon, stat, desc }) => (<div key={stat} className="rounded-2xl border p-6 text-center hover:border-orange-500/30 transition-all" style={{ borderColor: `${A}26`, background: `${A}0A` }}><div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: `${A}26` }}><Icon className="h-5 w-5 text-orange-400" /></div><div className="text-sm font-bold text-white mb-2">{stat}</div><p className="text-xs text-slate-400 leading-relaxed">{desc}</p></div>))}</div></div></div>
+      </section>
+
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
             <div><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-orange-600" /><span className="text-orange-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2><a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG }}>Ask us directly <ArrowRight className="h-4 w-4" /></a></div>

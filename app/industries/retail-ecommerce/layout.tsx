@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Retail & E-Commerce | Omnichannel Order Management',
-  description: 'Real-time inventory sync, BOPIS workflows, unified order management, and AI-powered customer service — built on ServiceNow. 60-second inventory updates, 98.5% BOPIS accuracy, 3-day return processing.',
+  title: 'ServiceNow Retail & E-Commerce — Unify Every Channel in Real Time',
+  description: 'Orders from six places. Inventory four hours stale. Returns taking two weeks. ifBash delivers ServiceNow that unifies every channel — online, in-store, and marketplace — in real time.',
   keywords: [
     'ServiceNow retail', 'ServiceNow order management', 'retail ServiceNow implementation',
     'ServiceNow omnichannel', 'BOPIS ServiceNow', 'ServiceNow inventory management',
-    'ecommerce customer service ServiceNow', 'retail digital transformation ServiceNow',
+    'ecommerce ServiceNow', 'retail digital transformation ServiceNow',
   ],
   openGraph: {
-    title: 'ServiceNow for Retail & E-Commerce | Omnichannel Order Management | ifBash',
-    description: 'Real-time inventory, BOPIS, unified orders, AI customer service. Built on ServiceNow for retail speed.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Retail & E-Commerce — Unify Every Channel | ifBash',
+    description: 'Orders from six places. Inventory four hours stale. ifBash delivers ServiceNow that unifies every channel in real time.',
     url: 'https://ifbash.com/industries/retail-ecommerce',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/retail-ecommerce' },
 };

@@ -11,7 +11,20 @@
       "PowerShell(npx next build 2>&1 | Select-Object -Last 20)",
       "PowerShell(npx next build 2>&1 | Select-Object -Last 8)",
       "PowerShell(npx next build 2>&1 | Out-String -Width 600)",
-      "PowerShell(npx next build 2>&1 | Select-Object -Last 4)"
+      "PowerShell(npx next build 2>&1 | Select-Object -Last 4)",
+      "Bash(Get-Content D:\\\\website\\\\package.json)",
+      "Bash(ConvertFrom-Json)",
+      "Bash(Select-Object -ExpandProperty scripts)",
+      "Bash(npm run *)",
+      "Bash(Select-String -Pattern \"error|Error|✓|healthcare\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(curl *)",
+      "Bash(npx tsc *)",
+      "Bash(Select-Object -First 30)",
+      "PowerShell(npx tsc --noEmit --pretty 2>&1 | Select-Object -First 20)",
+      "PowerShell(npx tsc --noEmit --pretty 2>&1)",
+      "PowerShell(wc *)",
+      "PowerShell(npx tsc --noEmit --pretty 2>&1; \\(Get-Content \"D:\\\\website\\\\app\\\\industries\\\\healthcare-providers\\\\page.tsx\"\\).Count)"
     ]
   }
 }

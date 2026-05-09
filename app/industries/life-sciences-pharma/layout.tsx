@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Life Sciences & Pharma',
-  description: 'Advance pharmaceutical and life sciences operations with ServiceNow and AI. FDA-compliant workflows, clinical trial management, pharmacovigilance automation, and GxP process control.',
+  title: 'ServiceNow Life Sciences & Pharma Consulting — From Lab to Patient, Faster',
+  description: 'Clinical operations stalled by spreadsheets. Quality systems that fail audits. ifBash delivers FDA-compliant ServiceNow that connects trials, quality, and safety on one validated platform.',
   keywords: [
     'ServiceNow life sciences', 'ServiceNow pharma', 'ServiceNow pharmaceutical',
     'FDA compliant ServiceNow', 'ServiceNow clinical trials', 'pharma AI automation',
     'ServiceNow GxP', 'life sciences digital transformation ServiceNow',
   ],
   openGraph: {
-    title: 'ServiceNow for Life Sciences & Pharma | ifBash',
-    description: 'FDA-compliant ServiceNow for pharma. Clinical trial management, pharmacovigilance, and AI-powered GxP workflows.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Life Sciences & Pharma — From Lab to Patient, Faster | ifBash',
+    description: 'Clinical operations stalled by spreadsheets. Quality systems that fail audits. ifBash delivers FDA-compliant ServiceNow that connects trials, quality, and safety on one validated platform.',
     url: 'https://ifbash.com/industries/life-sciences-pharma',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/life-sciences-pharma' },
 };

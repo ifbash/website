@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Automotive & Manufacturing',
-  description: 'Transform automotive operations with ServiceNow. Connected vehicle workflows, supplier lifecycle management, AI-powered production monitoring, and EV transition support for automotive leaders.',
+  title: 'ServiceNow Automotive & Manufacturing — Quality Built In, Not Inspected In',
+  description: 'PPAP rejections. Recall delays. Audit scrambles. ifBash delivers ServiceNow that builds quality into production — not inspected in at the end.',
   keywords: [
     'ServiceNow automotive', 'ServiceNow for automotive industry', 'automotive ServiceNow implementation',
-    'ServiceNow vehicle management', 'automotive AI automation', 'ServiceNow supplier management automotive',
-    'connected vehicle ServiceNow', 'automotive digital transformation',
+    'ServiceNow PPAP', 'automotive AI automation', 'ServiceNow supplier management automotive',
+    'IATF 16949 ServiceNow', 'automotive digital transformation',
   ],
   openGraph: {
-    title: 'ServiceNow for Automotive & Manufacturing | ifBash',
-    description: 'Transform automotive operations with ServiceNow. Connected vehicle workflows, supplier management, and AI-powered production monitoring.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Automotive & Manufacturing — Quality Built In | ifBash',
+    description: 'PPAP rejections. Recall delays. Audit scrambles. ifBash delivers ServiceNow that builds quality into production.',
     url: 'https://ifbash.com/industries/automotive-manufacturing',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/automotive-manufacturing' },
 };

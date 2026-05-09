@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Energy & Utilities',
-  description: 'Modernise energy operations with ServiceNow and AI. Smart grid management, regulatory compliance automation, predictive asset maintenance, and sustainability reporting for energy and utility companies.',
+  title: 'ServiceNow Energy & Utilities — Modernise Your Grid Operations',
+  description: 'Aging infrastructure. Renewable integration. Regulatory pressure. ifBash delivers ServiceNow that unifies grid data, automates outage response, and provides the evidence layer for compliance.',
   keywords: [
     'ServiceNow energy utilities', 'ServiceNow for energy companies', 'energy ServiceNow implementation',
     'ServiceNow smart grid', 'utility AI automation', 'ServiceNow asset management energy',
-    'energy compliance ServiceNow', 'utilities digital transformation',
+    'NERC CIP ServiceNow', 'utilities digital transformation',
   ],
   openGraph: {
-    title: 'ServiceNow for Energy & Utilities | ifBash',
-    description: 'Modernise energy operations with ServiceNow AI. Smart grid management, compliance automation, and predictive asset maintenance.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Energy & Utilities — Modernise Your Grid | ifBash',
+    description: 'Aging infrastructure. Renewable integration. Regulatory pressure. ifBash delivers ServiceNow that unifies grid data and automates outage response.',
     url: 'https://ifbash.com/industries/energy-utilities',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/energy-utilities' },
 };

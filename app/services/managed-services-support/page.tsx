@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, MessageCircle, Shield, TrendingUp, Wrench, HeartPulse, Activity, Zap, Clock } from 'lucide-react';
 
 const A = '#0d9488';
@@ -39,8 +39,17 @@ export default function ManagedServicesPage() {
   const [currentCase, setCurrentCase] = useState(0);
   const [phasesVisible, setPhasesVisible] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
-  useState(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); });
+  useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -51,8 +60,8 @@ export default function ManagedServicesPage() {
       </div>
 
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+      <section className="relative overflow-hidden" style={{ background: '#040a09' }}>
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#2dd4bf 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-18 pb-0 text-center">
           <div className="flex items-center justify-center gap-3 mb-6"><span className="inline-block w-8 h-px bg-teal-500" /><span className="text-teal-400 text-sm font-semibold tracking-widest uppercase">Managed Services & Support</span><span className="inline-block w-8 h-px bg-teal-500" /></div>
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] mb-6">While you sleep.{' '}<span style={{ background: 'linear-gradient(90deg,#2dd4bf,#34d399,#6ee7b7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>We watch.</span></h1>
@@ -96,9 +105,9 @@ export default function ManagedServicesPage() {
         <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
           <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-teal-500" /><span className="text-teal-400 text-sm font-semibold tracking-widest uppercase">What We Manage</span></div><h2 className="text-3xl sm:text-4xl font-bold text-white">Comprehensive coverage. Zero gaps.</h2></div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
-            {services.map(({ icon: Icon, title, desc, benefits }) => (
-              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-teal-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)' }}>
+          <div data-reveal="services" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 transition-all duration-700 ${revealed.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            {services.map(({ icon: Icon, title, desc, benefits }, i) => (
+              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-teal-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)', transitionDelay: `${i * 80}ms` }}>
                 <div className="w-10 h-10 rounded-xl bg-teal-500/15 group-hover:bg-teal-500/25 flex items-center justify-center mb-4 transition-colors"><Icon className="h-5 w-5 text-teal-400" /></div>
                 <h3 className="font-bold text-white mb-2">{title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed mb-3">{desc}</p>
@@ -162,8 +171,14 @@ export default function ManagedServicesPage() {
         </div>
       </section>
 
+      {/* WHY IFBASH */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto"><div className="max-w-4xl mx-auto"><div className="text-center mb-12"><div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: `${A}14`, borderColor: `${A}40`, color: '#2dd4bf' }}>Why ifBash</div><h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">We don&apos;t just monitor.<br /><span style={{ color: '#2dd4bf' }}>We prevent.</span></h2><p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">We start with your platform health and your uptime, not the contract.</p></div><div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>{[{ icon: Activity, stat: '99.97% uptime', desc: 'Across all managed instances. Proactive monitoring catches issues before users notice.' },{ icon: Shield, stat: 'Zero missed SLAs', desc: 'P1: 15-min response. Financial penalty clause in every agreement. Never triggered.' },{ icon: Clock, stat: '2-week onboarding', desc: 'Full platform audit, 200+ health checks deployed, runbooks created. You\'re covered fast.' }].map(({ icon: Icon, stat, desc }) => (<div key={stat} className="rounded-2xl border p-6 text-center hover:border-teal-500/30 transition-all" style={{ borderColor: `${A}26`, background: `${A}0A` }}><div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: `${A}26` }}><Icon className="h-5 w-5 text-teal-400" /></div><div className="text-sm font-bold text-white mb-2">{stat}</div><p className="text-xs text-slate-400 leading-relaxed">{desc}</p></div>))}</div></div></div>
+      </section>
+
       {/* FAQ */}
-      <section className="py-20 bg-white">
+      <section className="py-16 lg:py-20 bg-white">
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
           <div className="grid lg:grid-cols-3 gap-12">
             <div><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-teal-600" /><span className="text-teal-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2><a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG }}>Ask us directly <ArrowRight className="h-4 w-4" /></a></div>

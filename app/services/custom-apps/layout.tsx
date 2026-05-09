@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow Custom App Development',
-  description: 'Build powerful custom applications on the ServiceNow platform. ifBash develops bespoke AI-powered workflows, integrations, and apps using App Engine, Flow Designer, and Now Assist.',
+  title: 'ServiceNow Custom App Development — Built for Your Business, Not the Other Way Around',
+  description: 'When off-the-shelf doesn\'t fit, we build exactly what you need — purpose-built on ServiceNow with native performance and full upgrade safety. 200+ apps delivered, zero failed deliveries.',
   keywords: [
     'ServiceNow custom app development', 'ServiceNow App Engine', 'ServiceNow custom applications',
     'ServiceNow low-code development', 'ServiceNow workflow development',
@@ -10,9 +10,12 @@ export const metadata: Metadata = {
     'ServiceNow AI app development',
   ],
   openGraph: {
-    title: 'ServiceNow Custom App Development | ifBash',
-    description: 'Build bespoke AI-powered apps on ServiceNow. App Engine, Flow Designer, and Now Assist development from certified consultants.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Custom App Development — Built for Your Business | ifBash',
+    description: 'When off-the-shelf doesn\'t fit. Purpose-built apps on ServiceNow with native performance and full upgrade safety. 200+ apps delivered.',
     url: 'https://ifbash.com/services/custom-apps',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/custom-apps' },
 };

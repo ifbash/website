@@ -1,299 +1,313 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import {
-  ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, Users, MessageCircle,
-  Search, Settings, Rocket, Zap, Wind, Battery, Gauge, AlertTriangle,
-  Thermometer, Droplets,
-} from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle, Zap, Thermometer, AlertTriangle, MessageCircle, ChevronDown, ChevronLeft, ChevronRight, Gauge, Clock } from 'lucide-react';
 
 const A = '#d97706';
 const AG = 'linear-gradient(135deg, #d97706, #eab308)';
-const AS = 'rgba(217,119,6,0.30)';
 
-const challenges = [
-  { icon: Zap, title: 'Grid Reliability Under Pressure', stat: '47 hr avg outage', description: 'Average major outage duration across US distribution utilities is 47 hours. Fault isolation alone consumes 8-12 hours as engineers manually cross-reference SCADA alerts, GIS maps, and maintenance logs.' },
-  { icon: Gauge, title: 'Aging Asset Infrastructure', stat: '60% of transformers >25 yrs', description: 'Most utilities lack condition-based monitoring, relying on calendar-based PM schedules that miss 40-60% of incipient failures.' },
-  { icon: AlertTriangle, title: 'Regulatory & Compliance Pressure', stat: 'NERC CIP + EPA + state', description: 'NERC CIP reliability standards, EPA emissions reporting, and state-level renewable portfolio mandates create overlapping compliance obligations.' },
-];
-
-const solutions = [
-  { icon: Zap, title: 'Grid Operations & Reliability', description: 'ServiceNow ITOM unifies SCADA, ADMS, and substation RTU alert streams into a single incident record with auto-identified fault location and location-based field crew dispatch.' },
-  { icon: Thermometer, title: 'Asset Performance & Predictive Maintenance', description: 'IoT sensors stream condition data into health-scoring models; assets exceeding a 0.65 failure probability threshold generate pre-fault work orders automatically.' },
-  { icon: Wind, title: 'Renewable Energy Operations', description: 'Automated weather API feeds update generation forecasts every 15 minutes, with ML-based P50/P90 forecasts and automated day-ahead bidding capped at 90% of P90.' },
-  { icon: Users, title: 'Customer Experience & Engagement', description: 'Unified agent workspace consolidating multi-utility account data, proactive outage SMS within 8 minutes of fault confirmation, and usage anomaly detection.' },
-  { icon: Droplets, title: 'Environmental & Sustainability Compliance', description: 'Continuous emissions monitoring data flows directly into EPA and state regulatory report templates with monthly Scope 1/2/3 carbon accounting.' },
-  { icon: Battery, title: 'Energy Storage & Demand Response', description: 'Automated demand response dispatch across opted-in customer segments and 30-minute storage schedule updates from real-time LMP and BMS data.' },
+const gridShift = [
+  {
+    icon: Zap,
+    label: 'Outage Response',
+    old: 'Average outage across 1,800 substations lasted 47 hours. Fault isolation was manual across three separate systems. Nine hours from detection to dispatch.',
+    new: 'Unified alert feeds from SCADA, ADMS, and substation RTUs into a single incident record. Auto-generated switching sequences and location-based crew routing.',
+    metric: 'Outage duration: 47h → 3h. Dispatch: 9.4h → 38min.',
+  },
+  {
+    icon: Thermometer,
+    label: 'Asset Performance',
+    old: 'Turbine availability in the mid-80s. Two-thirds of faults discovered through unscheduled stops. O&M costs climbing year over year with no ceiling.',
+    new: 'IoT vibration sensors flag pre-fault conditions 14–21 days ahead. ML generation models produce P50/P90 forecasts. Maintenance became scheduled, not reactive.',
+    metric: 'Availability: 84% → 97%. O&M costs down 40%. Forecast accuracy: 51% → 93%.',
+  },
+  {
+    icon: AlertTriangle,
+    label: 'NERC CIP Compliance',
+    old: 'Overlapping NERC CIP, EPA, and state mandates. Evidence collection was manual. Three-week scrambles before every audit. Reports assembled from disconnected systems.',
+    new: 'GRC maps requirements to assets with automated evidence collection. Continuous emissions monitoring flows directly into EPA report templates. Audit readiness is continuous.',
+    metric: 'Zero findings on last review. Audit prep went from weeks to always-ready.',
+  },
 ];
 
 const caseStudies = [
-  { client: 'Heritage Power & Electric', industry: 'Investor-Owned Utility', timeline: '32 weeks',
-    challenge: 'Average outage duration across 1,800 substations was 47 hours driven by manual fault-isolation across three separate systems. Median time from detection to dispatch was 9.4 hours.',
-    solution: 'ServiceNow ITOM unified alert feeds from SCADA, ADMS, and substation RTUs into a single incident record with auto-generated switching sequences and location-based routing.',
-    results: ['Outage: 47 hrs to 3.2 hrs (93% reduction)', 'Dispatch: 9.4 hrs to 38 min average', 'SAIFI: 1.8 to 0.14; SAIDI: 214 min to 19 min', 'PUC performance penalty avoided'] },
-  { client: 'Summit Renewables', industry: 'Renewable Generation', timeline: '28 weeks',
-    challenge: 'Wind turbine availability across 14 sites averaged 84%, driven by reactive maintenance. 67% of faults detected through unscheduled stops. Annual O&M costs reached $47M.',
-    solution: 'ServiceNow ITOM with automated weather API feeds every 15 minutes, ML generation models producing P50/P90 forecasts, and vibration sensors flagging pre-fault conditions 14-21 days ahead.',
-    results: ['Turbine availability: 84% to 97%', 'O&M costs: $47M to $28M (40% reduction)', 'Forecast accuracy: 51% to 93% MAPE', 'Zero imbalance charge events in 12 months'] },
-];
-
-const methodology = [
-  { phase: 'Assessment & Strategy', duration: 'Weeks 1-5', icon: Search, color: 'from-amber-600 to-yellow-600', features: ['Grid infrastructure and SCADA landscape audit', 'Asset condition and PM effectiveness analysis'] },
-  { phase: 'Configuration & Integration', duration: 'Weeks 6-22', icon: Settings, color: 'from-yellow-600 to-orange-600', features: ['ServiceNow ITOM event management setup', 'SCADA, ADMS, and RTU alert feed integration'] },
-  { phase: 'Validation & Testing', duration: 'Weeks 23-28', icon: AlertTriangle, color: 'from-orange-600 to-red-600', features: ['Fault correlation accuracy testing', 'Regulatory report template validation'] },
-  { phase: 'Deployment & Optimisation', duration: 'Weeks 29-34', icon: Rocket, color: 'from-red-600 to-amber-600', features: ['Phased rollout by region or asset class', 'Continuous model tuning and threshold optimisation'] },
+  {
+    label: 'Grid Reliability',
+    context: 'Investor-owned utility · 32 weeks',
+    problem: 'Average outage across 1,800 substations lasted 47 hours. Manual fault isolation across three separate systems. Nine hours from detection to dispatch.',
+    whatWeDid: 'Unified alert feeds from SCADA, ADMS, and substation RTUs into a single incident record with auto-generated switching sequences and location-based crew routing.',
+    shift: 'Outage duration dropped from 47 hours to just over 3. Dispatch fell from 9.4 hours to 38 minutes. SAIFI and SAIDI improved enough to avoid regulatory penalties.',
+    quote: 'ifBash unified three systems into one view. Outage response went from nearly two days to under four hours.',
+    author: 'VP Grid Operations',
+  },
+  {
+    label: 'Renewable Operations',
+    context: 'Wind generation operator · 28 weeks',
+    problem: 'Turbine availability averaged 84% across 14 sites. 67% of faults detected through unscheduled stops. Annual O&M costs climbing without a ceiling.',
+    whatWeDid: 'IoT sensors on critical turbine components. Vibration analysis flagging pre-fault conditions 14–21 days ahead. ML generation models for P50/P90 forecasting.',
+    shift: 'Availability moved from 84% to 97%. O&M costs fell 40%. Forecast accuracy improved from 51% to 93% MAPE. Zero imbalance charge events in 12 months.',
+    quote: 'When turbines stopped failing unexpectedly, our entire P&L changed. ifBash made predictive maintenance real.',
+    author: 'VP Asset Management',
+  },
 ];
 
 const faqs = [
-  { question: 'How does ServiceNow improve grid reliability for electric utilities?', answer: 'Unifying SCADA, ADMS, and substation RTU data into a single incident record with auto-identified fault location and generated switching sequences. Reference implementation reduced outage duration from 47 hours to 3.2 hours.' },
-  { question: 'What renewable energy management capabilities does ServiceNow provide?', answer: 'Automated weather API feeds every 15 minutes, ML generation models for P50/P90 forecasts, day-ahead bidding capped at 90% of P90, and predictive maintenance on turbine gearboxes.' },
-  { question: 'How does ServiceNow help with NERC CIP compliance?', answer: 'ServiceNow GRC maps NERC CIP requirements (CIP-002 through CIP-014) to your assets and processes with automated evidence collection. The compliance calendar tracks audit windows.' },
-  { question: 'What asset performance management features are available?', answer: 'IoT sensors stream condition data into health-scoring models. Assets above 0.65 failure probability receive automated pre-fault work orders with the correct outage window and parts list.' },
-  { question: 'What ROI can energy and utility companies expect?', answer: 'Heritage Power avoided a $24M PUC penalty by cutting SAIDI from 214 to 19 minutes. Summit Renewables reduced O&M costs from $47M to $28M. Typical payback: 12-20 months.' },
+  { q: 'How does ServiceNow improve grid reliability?', a: 'SCADA, ADMS, and substation RTU data unified into a single incident record with auto-identified fault location and generated switching sequences.' },
+  { q: 'What renewable capabilities does it provide?', a: 'Automated weather API integration, ML models for P50/P90 forecasting, day-ahead bidding automation, and predictive maintenance on turbine components.' },
+  { q: 'How does it help with NERC CIP?', a: 'GRC maps NERC CIP requirements to assets with automated evidence collection and an audit-window compliance calendar.' },
+  { q: 'Can it handle demand response and storage?', a: 'Yes. Automated dispatch across customer segments, plus real-time storage schedule updates from market pricing and BMS data.' },
+  { q: 'How long does an energy implementation take?', a: '28–34 weeks. Grid operations go live first, with renewables and demand response following in later phases.' },
 ];
 
 export default function EnergyUtilities() {
+  const [activeCase, setActiveCase] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [currentCase, setCurrentCase] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+
+  useEffect(() => { setVisible(true); }, []);
   useEffect(() => {
-    const id = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000);
-    return () => clearInterval(id);
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(x => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) }) }} />
 
-      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-        <a href="/get-started" className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }} aria-label="Speak with an energy expert">
-          <MessageCircle className="h-6 w-6" />
-        </a>
-      </div>
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden flex items-center bg-white min-h-[calc(100vh-70px)]">
+        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #d97706 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
-      <div className="min-h-screen bg-white">
-
-        {/* HERO */}
-        <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '28px 28px' }} />
-          <div className="absolute top-1/2 right-0 w-[500px] h-[500px] opacity-10 pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-20 sm:pt-28 pb-20 sm:pb-28">
-            <div className="grid lg:grid-cols-5 gap-12 items-start">
-              <div className="lg:col-span-3">
-                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Energy &amp; Utilities</span>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6 mt-4">
-                  Three challenges defining<br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-400 to-orange-400">energy operations today.</span>
-                </h1>
-                <p className="text-lg text-slate-400 max-w-xl leading-relaxed mb-8">
-                  Aging infrastructure, grid reliability pressure, and overlapping regulatory mandates. ServiceNow unifies the data, automates the response, and provides the compliance evidence layer.
-                </p>
-                <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}>
-                  Start Your Energy Transformation <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-              <div className="lg:col-span-2 space-y-4">
-                {challenges.map((ch, i) => (
-                  <div key={i} className="rounded-xl border border-white/[0.08] p-5 transition-all hover:bg-white/[0.05] hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.02)' }}>
-                    <div className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-all duration-200 group-hover:scale-110" style={{ backgroundColor: `${A}20` }}><ch.icon className="h-5 w-5" style={{ color: A }} /></div>
-                      <div><h3 className="text-white font-semibold text-sm mb-1">{ch.title}</h3><div className="text-xs font-bold mb-1" style={{ color: A }}>{ch.stat}</div><p className="text-xs text-slate-400 leading-relaxed">{ch.description}</p></div>
-                    </div>
-                  </div>
-                ))}
-                <div className="rounded-xl border border-white/[0.08] p-4 text-center transition-all hover:bg-white/[0.03]">
-                  <span className="text-sm font-semibold text-slate-300">ServiceNow answers: </span>
-                  <span className="text-sm font-bold" style={{ color: A }}>93% faster outage resolution &middot; 97% turbine availability &middot; automated NERC CIP</span>
-                </div>
-              </div>
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto py-12 sm:py-14">
+          <div className={`max-w-3xl transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.06] tracking-tight mb-6">
+              The grid is changing.
+              <br />
+              <span style={{ color: A }}>Your operations should too.</span>
+            </h1>
+            <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-xl">
+              Aging infrastructure, renewable integration, regulatory pressure — all hitting at once. <span className="text-gray-900 font-semibold">ifBash delivers ServiceNow</span> that unifies grid data, automates outage response, and provides the evidence layer for compliance.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: `0 8px 28px ${A}40` }}>
+                Talk to our energy team <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="#shift" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-amber-500/50 text-gray-600 hover:text-amber-600 font-semibold rounded-xl transition-colors text-sm">
+                See the grid shift
+              </Link>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* SOLUTIONS */}
-        <section id="solutions" className="py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
-          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-          <div className="absolute top-0 left-1/4 w-[300px] h-[300px] opacity-10 pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-12">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Energy Capabilities</span>
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4">
-                Built for the energy transition. <span style={{ color: A }}>Delivered on ServiceNow.</span>
+      {/* ── OLD GRID → NEW GRID ── */}
+      <section id="shift" className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-14">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4" style={{ color: A }}>
+                <span className="w-6 h-px" style={{ backgroundColor: A }} /> Old Grid → New Grid
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                Where the grid was. Where it goes.
               </h2>
             </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {solutions.map((s, i) => (
-                <div key={i} className="group p-6 rounded-2xl border border-white/5 bg-white/[0.03] hover:bg-white/[0.06] transition-all hover:shadow-lg">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${A}18` }}><s.icon className="h-5 w-5" style={{ color: A }} /></div>
-                  <h3 className="font-bold text-white mb-2">{s.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">{s.description}</p>
+
+            <div data-reveal="gridshift" className={`space-y-6 transition-all duration-700 ${revealed.gridshift ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              {gridShift.map((x, i) => (
+                <div key={i} className="grid lg:grid-cols-2 rounded-2xl overflow-hidden border border-gray-200">
+                  <div className="p-6" style={{ background: '#fffbeb' }}>
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 bg-amber-100">
+                        <x.icon className="h-4 w-4 text-amber-600" />
+                      </div>
+                      <span className="text-xs font-bold uppercase tracking-wider text-amber-700">Old — {x.label}</span>
+                    </div>
+                    <p className="text-sm text-gray-600 leading-relaxed">{x.old}</p>
+                  </div>
+                  <div className="p-6 flex flex-col justify-center">
+                    <div className="flex items-center gap-2 mb-3">
+                      <CheckCircle className="h-4 w-4" style={{ color: A }} />
+                      <span className="text-xs font-bold uppercase tracking-wider" style={{ color: A }}>New — {x.label}</span>
+                    </div>
+                    <p className="text-sm text-gray-800 leading-relaxed font-medium">{x.new}</p>
+                    <p className="text-xs mt-3 font-medium" style={{ color: A }}>{x.metric}</p>
+                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* METRICS */}
-        <section className="py-16 bg-white border-t border-b border-gray-100 relative">
-          <div className="absolute inset-x-0 top-0 h-px" style={{ background: `linear-gradient(to right, transparent, ${A}30, transparent)` }} />
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center group"><div className="text-3xl sm:text-4xl font-bold transition-all group-hover:-translate-y-0.5" style={{ color: A }}>93%</div><div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-2">Faster outage resolution</div></div>
-              <div className="text-center group"><div className="text-3xl sm:text-4xl font-bold transition-all group-hover:-translate-y-0.5" style={{ color: A }}>97%</div><div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-2">Turbine availability</div></div>
-              <div className="text-center group"><div className="text-3xl sm:text-4xl font-bold transition-all group-hover:-translate-y-0.5" style={{ color: A }}>$52M</div><div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-2">Fines avoided (24 mo)</div></div>
-              <div className="text-center group"><div className="text-3xl sm:text-4xl font-bold transition-all group-hover:-translate-y-0.5" style={{ color: A }}>12-20</div><div className="text-xs font-semibold text-gray-500 uppercase tracking-widest mt-2">Month typical payback</div></div>
+      {/* ── CASE STUDIES ── */}
+      <section id="impact" className="py-16 lg:py-20" style={{ background: '#fffbeb' }}>
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Proof in the Field</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Real outcomes from the control room.</h2>
+            </div>
+            <div className="hidden sm:flex items-center gap-1">
+              <button onClick={() => setActiveCase(p => (p - 1 + caseStudies.length) % caseStudies.length)} className="w-9 h-9 rounded-full border border-gray-200 hover:border-amber-400 flex items-center justify-center text-slate-400 hover:text-amber-500 transition-colors">
+                <ChevronLeft className="h-4 w-4" />
+              </button>
+              <button onClick={() => setActiveCase(p => (p + 1) % caseStudies.length)} className="w-9 h-9 rounded-full border border-gray-200 hover:border-amber-400 flex items-center justify-center text-slate-400 hover:text-amber-500 transition-colors">
+                <ChevronRight className="h-4 w-4" />
+              </button>
             </div>
           </div>
-        </section>
 
-        {/* CASE STUDIES */}
-        <section className="py-20 bg-gray-50 border-t border-gray-100">
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="mb-12">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Client Results</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-4">Real numbers. Real energy clients.</h2>
-            </div>
-            <div className="overflow-hidden rounded-2xl">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCase * 100}%)` }}>
-                {caseStudies.map((study, index) => (
-                  <div key={index} className="w-full shrink-0">
-                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                      <div className="grid lg:grid-cols-2 gap-10 items-start">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-3 mb-5">
-                            <span className="text-xs font-semibold rounded-full px-3 py-1" style={{ color: A, backgroundColor: `${A}12` }}>{study.industry}</span>
-                            <span className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-3 py-1">{study.timeline}</span>
+          <div className="overflow-hidden rounded-2xl">
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${activeCase * 100}%)` }}>
+              {caseStudies.map((x, i) => (
+                <div key={i} className="w-full shrink-0">
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div className="grid lg:grid-cols-5 gap-8 items-start">
+                      <div className="lg:col-span-3">
+                        <span className="inline-block text-xs font-semibold rounded-full px-3 py-1 mb-4" style={{ color: A, backgroundColor: `${A}08` }}>{x.context}</span>
+                        <h3 className="text-xl font-bold text-gray-900 mb-5">{x.label}</h3>
+                        <div className="space-y-4">
+                          <div className="rounded-xl border border-red-100 bg-red-50/30 p-4">
+                            <div className="text-xs font-bold uppercase tracking-widest text-red-500 mb-1">The Problem</div>
+                            <p className="text-gray-600 text-sm leading-relaxed">{x.problem}</p>
                           </div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-6">{study.client}</h3>
-                          <div className="space-y-5">
-                            <div><div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1.5">Challenge</div><p className="text-gray-600 text-sm leading-relaxed">{study.challenge}</p></div>
-                            <div><div className="text-xs font-semibold uppercase tracking-widest mb-1.5" style={{ color: A }}>Solution</div><p className="text-gray-600 text-sm leading-relaxed">{study.solution}</p></div>
+                          <div className="rounded-xl border p-4" style={{ borderColor: `${A}20`, background: `${A}03` }}>
+                            <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: A }}>What We Did</div>
+                            <p className="text-gray-600 text-sm leading-relaxed">{x.whatWeDid}</p>
                           </div>
                         </div>
-                        <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm" style={{ background: '#f8faff' }}>
-                          <div className="px-5 py-3.5 bg-white border-b border-gray-100 flex items-center justify-between">
-                            <span className="text-sm font-semibold text-gray-800">Outcomes</span>
-                            <span className="text-xs text-green-600 font-semibold bg-green-50 px-2 py-0.5 rounded-full">Verified</span>
-                          </div>
-                          <div className="p-5 grid grid-cols-2 gap-3">
-                            {study.results.map((result, idx) => (
-                              <div key={idx} className="bg-white rounded-xl p-4 border border-gray-100"><CheckCircle className="h-4 w-4 text-green-500 mb-2" /><p className="text-sm font-semibold text-gray-800 leading-tight">{result}</p></div>
-                            ))}
-                          </div>
-                          <div className="px-5 py-3 border-t border-gray-100 flex items-center justify-between">
-                            <span className="text-xs text-gray-400">Delivered in</span>
-                            <span className="text-sm font-bold" style={{ color: A }}>{study.timeline}</span>
-                          </div>
+                        <blockquote className="mt-5 pl-4 border-l-2 text-sm text-gray-600 italic" style={{ borderColor: `${A}40` }}>
+                          &ldquo;{x.quote}&rdquo;
+                          <span className="block text-xs text-gray-400 mt-1 not-italic">— {x.author}</span>
+                        </blockquote>
+                      </div>
+                      <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-gray-100" style={{ background: '#fffbeb' }}>
+                        <div className="px-4 py-3 bg-white border-b border-gray-100">
+                          <span className="text-sm font-semibold text-gray-800">What Shifted</span>
+                        </div>
+                        <div className="p-4">
+                          <p className="text-sm text-gray-800 leading-relaxed font-medium">{x.shift}</p>
                         </div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-between mt-6">
-              <button onClick={() => setCurrentCase(p => (p - 1 + caseStudies.length) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-amber-600 transition-colors" aria-label="Previous"><ChevronLeft className="h-5 w-5" /></button>
-              <div className="flex items-center gap-2">
-                {caseStudies.map((_, i) => (
-                  <button key={i} onClick={() => setCurrentCase(i)} className="rounded-full transition-all duration-300" style={{ width: i === currentCase ? 32 : 8, height: 8, backgroundColor: i === currentCase ? A : '#d1d5db' }} aria-label={`Case study ${i + 1}`} />
-                ))}
-              </div>
-              <button onClick={() => setCurrentCase(p => (p + 1) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-amber-600 transition-colors" aria-label="Next"><ChevronRight className="h-5 w-5" /></button>
-            </div>
-          </div>
-        </section>
-
-        {/* METHODOLOGY */}
-        <section className="py-24 bg-white relative overflow-hidden">
-          <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
-          <div className="absolute top-1/2 right-0 w-[400px] h-[400px] opacity-5 pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-16">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Methodology</span>
-                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-              </div>
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">The Energy Implementation Roadmap</h2>
-              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-                A proven four-phase approach delivering measurable results within 34 weeks.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-              <div className="hidden md:block absolute top-12 left-0 w-full h-px z-0" style={{ background: `linear-gradient(to right, transparent, ${A}40, transparent)` }} />
-              {methodology.map((step, index) => (
-                <div key={index} className="relative z-10 group">
-                  <div className="mb-6 flex flex-col items-center">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-px shadow-lg transition-transform group-hover:-translate-y-1`}>
-                      <div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center" style={{ color: A }}><step.icon className="h-6 w-6" /></div>
-                    </div>
-                    <div className="mt-4 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tighter" style={{ color: A, backgroundColor: `${A}12` }}>{step.duration}</div>
-                  </div>
-                  <div className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6 transition-all duration-300 group-hover:bg-white group-hover:shadow-xl">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{step.phase}</h3>
-                    <ul className="space-y-3">{step.features.map((item, i) => (<li key={i} className="flex items-start gap-2 text-sm text-gray-600"><div className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: A }} />{item}</li>))}</ul>
-                  </div>
                 </div>
               ))}
             </div>
           </div>
-        </section>
 
-        {/* FAQ */}
-        <section className="py-20 bg-white border-t border-gray-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] opacity-[0.03] pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="grid lg:grid-cols-3 gap-16">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
-                  <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span>
-                </div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4 leading-tight">Common questions.</h2>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8">Everything you need to know before starting your energy transformation.</p>
-                <a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}>Ask us directly <ArrowRight className="h-4 w-4" /></a>
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {caseStudies.map((_, i) => (
+              <button key={i} onClick={() => setActiveCase(i)} className={`rounded-full transition-all duration-300 ${i === activeCase ? 'w-8 h-2' : 'w-2 h-2 bg-gray-300 hover:bg-amber-400'}`} style={i === activeCase ? { backgroundColor: A } : {}} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY IFBASH ── */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #fbbf24 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-[0.06] pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
+
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: `${A}08`, borderColor: `${A}25`, color: A }}>
+                Why ifBash
               </div>
-              <div className="lg:col-span-2 space-y-3">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border border-gray-200 rounded-xl overflow-hidden transition-colors hover:border-amber-200">
-                    <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                      <span className="font-semibold text-gray-800 pr-4 text-sm">{faq.question}</span>
-                      <ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} style={{ color: A }} />
-                    </button>
-                    {openFaq === index && (<div className="px-6 pb-5 border-t border-gray-100 pt-4"><p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p></div>)}
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">
+                We don&apos;t configure software.
+                <br />
+                <span style={{ color: A }}>We configure reliability.</span>
+              </h2>
+              <p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">
+                We start with your NOC engineers and field crews, not the platform.
+              </p>
+            </div>
+
+            <div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              {[
+                { icon: Gauge, stat: 'Operators first', desc: 'We sit in your NOC before we configure a single alert rule.' },
+                { icon: Zap, stat: 'Reliability from day 1', desc: 'First correlated alerts and automated dispatches go live in weeks.' },
+                { icon: Clock, stat: 'We stay', desc: '90-day hypercare. We track SAIFI, SAIDI, and MTTR until they stick.' },
+              ].map(({ icon: Icon, stat, desc }) => (
+                <div key={stat} className="rounded-2xl border p-6 text-center hover:border-amber-500/30 transition-all" style={{ borderColor: `${A}15`, background: `${A}04` }}>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: `${A}15` }}>
+                    <Icon className="h-5 w-5" style={{ color: A }} />
                   </div>
-                ))}
+                  <div className="text-sm font-bold text-white mb-2">{stat}</div>
+                  <p className="text-xs text-slate-400 leading-relaxed">{desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span>
               </div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2>
+              <Link href="/get-started" className="inline-flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 6px 20px ${A}40` }}>
+                Ask us directly <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+            <div className="lg:col-span-2 space-y-2">
+              {faqs.map((x, i) => (
+                <div key={i} className="border border-gray-200 hover:border-amber-200 rounded-xl overflow-hidden transition-colors bg-white">
+                  <button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <span className="font-semibold text-gray-800 pr-4 text-sm">{x.q}</span>
+                    <ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} style={{ color: A }} />
+                  </button>
+                  {openFaq === i && (
+                    <div className="px-5 pb-4 border-t border-gray-100 pt-3">
+                      <p className="text-gray-600 text-sm leading-relaxed">{x.a}</p>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA */}
-        <section className="py-24 relative overflow-hidden" style={{ background: '#07071a' }}>
-          <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: `radial-gradient(circle, ${A} 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] opacity-15 pointer-events-none" style={{ background: `radial-gradient(ellipse, ${A}, transparent 70%)` }} />
-          <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm mb-8 border" style={{ backgroundColor: `${A}18`, borderColor: `${A}40`, color: A }}>
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />New engagements open &mdash; 34-week go-live
+      {/* ── CTA ── */}
+      <section className="py-16 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #fbbf24 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-xl mx-auto rounded-3xl border p-8 sm:p-10 text-center" style={{ borderColor: `${A}30`, background: `linear-gradient(135deg, ${A}0C, ${A}04)` }}>
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-5 border" style={{ backgroundColor: `${A}15`, borderColor: `${A}30`, color: A }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />48-hour scoping call
             </div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Ready to improve grid reliability by 90%?</h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">Tell us about your reliability, asset, or compliance challenge. We will scope your implementation in 48 hours &mdash; no commitment required.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 32px ${AS}` }}>
-                Free Strategy Call <ArrowRight className="h-5 w-5" />
-              </a>
-              <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-300 border border-slate-700 hover:border-amber-500 hover:text-white transition-all text-base">
-                View all case studies
-              </a>
-            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-3">Ready to modernise your grid?</h2>
+            <p className="text-slate-400 text-sm max-w-sm mx-auto mb-6">Tell us about your biggest operational bottleneck. We&apos;ll scope the approach in 48 hours.</p>
+            <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 28px ${A}40` }}>
+              Schedule a consultation <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
-        </section>
+        </div>
+      </section>
 
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <Link href="/get-started" className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-105" style={{ background: AG, boxShadow: `0 8px 24px ${A}40` }} aria-label="Free Consultation">
+          <MessageCircle className="h-6 w-6" />
+          <div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: A }} />
+        </Link>
       </div>
     </>
   );

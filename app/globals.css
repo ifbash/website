@@ -192,6 +192,43 @@
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
+
+  /* Animated gradient text */
+  .animate-gradient-text {
+    background-size: 200% 200%;
+    animation: gradientFlow 5s ease infinite;
+  }
+
+  @keyframes gradientFlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Breathing glow pulse for hero background */
+  .animate-glow-breathe {
+    animation: glowBreathe 6s ease-in-out infinite;
+  }
+
+  @keyframes glowBreathe {
+    0%, 100% { opacity: 0.06; transform: scale(1); }
+    50% { opacity: 0.13; transform: scale(1.15); }
+  }
+
+  /* Shimmer for badges — needs gradient bg applied inline */
+  .badge-shimmer {
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite linear;
+  }
+
+  /* Smooth ticker row entrance */
+  .ticker-row-enter {
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  /* Count-up number highlight */
+  .stat-number {
+    font-variant-numeric: tabular-nums;
+  }
 }
 @media (max-width: 640px) {
   .width-sm-fix {

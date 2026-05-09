@@ -44,10 +44,19 @@ export default function DigitalTransformationPage() {
   const [currentCase, setCurrentCase] = useState(0);
   const [phasesVisible, setPhasesVisible] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
   useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
   useEffect(() => { const i = setInterval(() => setCurrentTestimonial(p => (p + 1) % clientStories.length), 6000); return () => clearInterval(i); }, []);
   useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000); return () => clearInterval(i); }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -63,7 +72,7 @@ export default function DigitalTransformationPage() {
 
       <div className="min-h-screen bg-white">
         {/* HERO */}
-        <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
+        <section className="relative overflow-hidden" style={{ background: '#04060d' }}>
           <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
           <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 0%,rgba(37,99,235,0.12) 0%,transparent 60%)' }} />
 
@@ -173,7 +182,7 @@ export default function DigitalTransformationPage() {
               <p className="text-slate-500 mt-4 max-w-xl">Transformation without strategy fails. We deliver both — across every phase of your journey with measurable outcomes.</p>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+            <div data-reveal="tracks" className={`grid lg:grid-cols-3 gap-8 mb-12 transition-all duration-700 ${revealed.tracks ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
               {[
                 { track: 'Discover & Assess', num: '01', desc: 'Mapping systems and gaps before we build.', services: services.slice(0, 2), accent: 'text-blue-600', pill: 'bg-blue-100/50', border: 'border-slate-200' },
                 { track: 'Design & Transform', num: '02', desc: 'Architecture and AI built to your model.', services: services.slice(2, 4), accent: 'text-indigo-600', pill: 'bg-indigo-100/50', border: 'border-slate-200' },
@@ -264,6 +273,11 @@ export default function DigitalTransformationPage() {
               </div>
             </div>
           </div>
+        </section>
+
+        {/* WHY IFBASH */}
+        <section className="py-10 lg:py-14" style={{ background: '#f0f4ff' }}>
+          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto"><div className="max-w-4xl mx-auto"><div className="text-center mb-10"><span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4" style={{ color: '#2563eb' }}><span className="w-6 h-px" style={{ backgroundColor: '#2563eb' }} /> Why ifBash</span><h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-3">We don&apos;t just transform.<br /><span style={{ color: '#2563eb' }}>We deliver outcomes.</span></h2><p className="text-gray-500 text-base max-w-2xl mx-auto">We start with your teams and your business goals, not the platform.</p></div><div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>{[{ stat: '40+ transformations', desc: 'Completed enterprise-wide digital transformation engagements.' },{ stat: 'Week 8 ROI', desc: 'First live system and measurable ROI by week 8 of every engagement.' },{ stat: 'We stay', desc: '90-day hypercare minimum. KPIs tracked live until every number holds.' }].map(({ stat, desc }) => (<div key={stat} className="rounded-2xl border bg-white p-6 text-center hover:shadow-sm transition-shadow" style={{ borderColor: '#bfdbfe' }}><div className="text-sm font-bold text-gray-900 mb-2">{stat}</div><p className="text-xs text-gray-500 leading-relaxed">{desc}</p></div>))}</div></div></div>
         </section>
 
         {/* TESTIMONIALS */}

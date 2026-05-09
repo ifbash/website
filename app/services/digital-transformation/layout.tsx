@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow Digital Transformation Consulting',
-  description: 'End-to-end digital transformation with ServiceNow and AI. ifBash delivers AI-powered workflow modernisation, process automation, and enterprise platform strategy for global organisations.',
+  title: 'ServiceNow Digital Transformation — Stop Managing Silos, Start Running Your Business',
+  description: 'The average enterprise wastes 40% of its capacity on manual handoffs. ifBash unifies operations onto a single ServiceNow platform in 20–28 weeks with measurable ROI from week 8.',
   keywords: [
     'ServiceNow digital transformation', 'digital transformation consulting',
     'ServiceNow process automation', 'AI digital transformation',
@@ -10,9 +10,12 @@ export const metadata: Metadata = {
     'digital strategy ServiceNow', 'ServiceNow modernisation',
   ],
   openGraph: {
-    title: 'ServiceNow Digital Transformation Consulting | ifBash',
-    description: 'End-to-end digital transformation with ServiceNow and AI. Workflow modernisation, process automation, and enterprise platform strategy.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Digital Transformation — Stop Managing Silos | ifBash',
+    description: 'The average enterprise wastes 40% of its capacity on manual handoffs. ifBash unifies operations onto ServiceNow in 20–28 weeks.',
     url: 'https://ifbash.com/services/digital-transformation',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/digital-transformation' },
 };

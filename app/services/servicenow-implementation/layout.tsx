@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow Implementation Services & Consulting',
-  description: 'Expert ServiceNow implementation in 73 days average. 1,500+ successful projects, 50+ certified consultants. ITSM, HR, CSM, AI, and full-platform digital transformation worldwide.',
+  title: 'ServiceNow Implementation — Go-Live in 73 Days, Not 9 Months',
+  description: 'Pre-built accelerators. Parallel workstreams. Phase gates that catch scope creep. 1,500+ implementations — we know what breaks and what doesn\'t. ifBash delivers ServiceNow implementations in 73 days average.',
   keywords: [
     'ServiceNow implementation', 'ServiceNow consulting', 'ServiceNow partner',
     'ServiceNow implementation services', 'ServiceNow ITSM implementation',
@@ -10,9 +10,12 @@ export const metadata: Metadata = {
     'ServiceNow digital transformation', 'ServiceNow certified partner',
   ],
   openGraph: {
-    title: 'ServiceNow Implementation Services & Consulting | ifBash',
-    description: 'Expert ServiceNow implementation in 73 days average. 1,500+ successful projects. Certified consultants for ITSM, HR, CSM, and AI.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Implementation — Go-Live in 73 Days | ifBash',
+    description: 'Pre-built accelerators. Parallel workstreams. Phase gates that catch scope creep. ifBash delivers ServiceNow implementations in 73 days average.',
     url: 'https://ifbash.com/services/servicenow-implementation',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/servicenow-implementation' },
 };

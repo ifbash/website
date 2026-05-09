@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Healthcare Providers',
-  description: 'Modernise healthcare operations with ServiceNow and AI. HIPAA-compliant ITSM, patient experience platforms, AI-powered care coordination, and clinical workflow automation for hospitals and health networks.',
+  title: 'ServiceNow Healthcare Consulting — Connect Your Care Network',
+  description: 'Every handoff between facilities is where care breaks down. ifBash delivers HIPAA-compliant ServiceNow that connects hospitals, clinics, and providers into a single care network — no gaps, no missed handoffs.',
   keywords: [
-    'ServiceNow healthcare', 'ServiceNow for healthcare providers', 'healthcare ServiceNow implementation',
-    'HIPAA compliant ServiceNow', 'ServiceNow patient experience', 'healthcare AI automation',
-    'ServiceNow clinical workflows', 'hospital ServiceNow consulting',
+    'ServiceNow healthcare', 'ServiceNow healthcare consulting', 'healthcare ServiceNow implementation',
+    'HIPAA compliant ServiceNow', 'ServiceNow patient experience', 'hospital ServiceNow partner',
+    'ServiceNow clinical workflows', 'healthcare digital transformation',
   ],
   openGraph: {
-    title: 'ServiceNow for Healthcare Providers | ifBash',
-    description: 'HIPAA-compliant ServiceNow for healthcare. AI-powered care coordination, patient experience, and clinical workflow automation.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Healthcare Consulting — Connect Your Care Network | ifBash',
+    description: 'Every handoff between facilities is where care breaks down. ifBash delivers HIPAA-compliant ServiceNow that connects hospitals, clinics, and providers into a single care network — no gaps, no missed handoffs.',
     url: 'https://ifbash.com/industries/healthcare-providers',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/healthcare-providers' },
 };

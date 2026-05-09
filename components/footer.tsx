@@ -27,7 +27,7 @@ const footerLinks = {
   Industries: [
     { label: "Manufacturing", href: "/industries/manufacturing-solutions" },
     { label: "Healthcare", href: "/industries/healthcare-providers" },
-    { label: "Financial Services", href: "/industries/technology-software-companies" },
+    { label: "Financial Services", href: "/industries/financial-services" },
     { label: "Technology", href: "/industries/technology-software-companies" },
     { label: "Energy & Utilities", href: "/industries/energy-utilities" },
     { label: "Public Sector", href: "/industries/public-sector-government" },
@@ -132,7 +132,7 @@ export function Footer() {
               {/* Value Add before the button */}
               <div className="pt-4 border-t border-white/10 mt-6">
                 <p className="text-slate-400 text-xs mb-3 leading-relaxed">
-                  Ready to elevate your workplace? Let's build a custom employee portal tailored to your team's needs.
+                  Ready to go live on ServiceNow? We scope your implementation in 48 hours — no commitment required.
                 </p>
                 <Link
                   href="/get-started"

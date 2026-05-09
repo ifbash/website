@@ -1,17 +1,20 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow for Consumer Goods & Retail',
-  description: 'Optimise consumer goods operations with ServiceNow and AI. Demand planning, supplier lifecycle management, AI-powered customer experience, and ESG compliance for CPG and retail brands.',
+  title: 'ServiceNow Consumer Goods & Retail — From Supplier to Shelf, Without the Gaps',
+  description: 'Stockouts at your biggest retailers. Deductions unresolved for months. Forecasts that miss by miles. ifBash delivers ServiceNow that connects demand planning, order-to-cash, and trade promotion.',
   keywords: [
     'ServiceNow consumer goods', 'ServiceNow CPG', 'consumer goods ServiceNow implementation',
-    'ServiceNow demand planning', 'CPG AI automation', 'ServiceNow supplier management CPG',
+    'ServiceNow demand planning', 'CPG AI automation', 'ServiceNow trade promotion',
     'consumer goods digital transformation', 'ServiceNow FMCG',
   ],
   openGraph: {
-    title: 'ServiceNow for Consumer Goods & Retail | ifBash',
-    description: 'Optimise CPG operations with ServiceNow AI. Demand planning, supplier management, and AI-powered customer experience.',
+    type: 'website',
+    siteName: 'ifBash',
+    title: 'ServiceNow Consumer Goods — Supplier to Shelf | ifBash',
+    description: 'Stockouts. Unresolved deductions. Missed forecasts. ifBash delivers ServiceNow that connects demand planning, order-to-cash, and trade promotion.',
     url: 'https://ifbash.com/industries/consumer-goods-retail',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/industries/consumer-goods-retail' },
 };

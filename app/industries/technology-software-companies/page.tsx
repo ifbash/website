@@ -1,266 +1,249 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import {
-  Code, GitBranch, CloudLightning, Users, Monitor, Shield,
-  CheckCircle, ArrowRight, ChevronDown, ChevronLeft, ChevronRight,
-  MessageCircle, Search, Rocket, Lightbulb, Cog,
-} from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight, CheckCircle, Code, CloudLightning, Users, Shield, MessageCircle, ChevronDown, ChevronLeft, ChevronRight, Clock } from 'lucide-react';
 
-const A = '#7c3aed';
-const AG = 'linear-gradient(135deg, #7c3aed, #6d28d9)';
-const AS = 'rgba(124,58,237,0.30)';
+const A = '#4f46e5';
+const AG = 'linear-gradient(135deg, #4f46e5, #6366f1)';
+
+const devOps = [
+  {
+    icon: Code,
+    title: 'Deployments That Flow',
+    before: 'Three-day approval cycles. Manual tickets. Email threads. Engineers context-switching so often that shipping became the side quest.',
+    after: 'Risk-scoring auto-approves low-risk changes in under 30 minutes. Engineers merge, build, deploy — not wait for a meeting. Runbooks auto-generated at deployment time.',
+    result: 'Deployment lead time dropped by more than two-thirds. Failed deployments became rare.',
+  },
+  {
+    icon: CloudLightning,
+    title: 'One Correlated View',
+    before: 'Multi-cloud incidents averaged nearly five hours. Three monitoring tools. Uncorrelated alerts. Engineers spent two hours just identifying which system was on fire.',
+    after: 'AIOps consolidates AWS, Azure, and GCP alerts into one queue. Root-cause hypothesis generated before an engineer opens the ticket. Customer comms templated and ready.',
+    result: 'MTTR: 4.7h → 31min. CSAT recovered within two quarters.',
+  },
+  {
+    icon: Users,
+    title: 'Churn That Stops',
+    before: 'Customer onboarding took weeks with fourteen manual handoffs. No SLA enforcement. Health scores were a spreadsheet someone updated quarterly. Churn was a surprise every month.',
+    after: 'SLA-enforced onboarding with automated provisioning. Daily health scores from product usage. Proactive CSM outreach triggered 30 days before renewal risk.',
+    result: 'Onboarding: weeks → days. First-year churn fell sharply.',
+  },
+];
 
 const caseStudies = [
   {
-    client: 'TechFlow Systems', industry: 'Software Development', timeline: '12 weeks',
-    challenge: '45% of production deployments were delayed by 11 days due to manual change approvals and undocumented environment dependencies. No shared release calendar caused routine hotfix collisions across 150 active projects.',
-    solution: 'ServiceNow DevOps with automated CI/CD orchestration, centralised release calendar with conflict detection, and one-click rollback runbooks. Low-risk changes auto-approved via configurable risk scoring; human approvals routed via mobile within 30-minute SLA.',
-    results: ['78% reduction in deployment lead time', '91% reduction in failed deployments requiring rollback', '$41M in revenue acceleration from faster feature delivery', 'Change approval cycle from 3.2 days to 4 hours'],
-    testimonial: 'Once ifBash automated risk scoring and mobile approvals, change approval went from 3.2 days to 4 hours. Our engineers stopped context-switching and started shipping.',
+    label: 'DevOps Transformation',
+    context: 'SaaS company · 12 weeks',
+    problem: 'Change approvals averaged 3.2 days. Nearly half of production deployments were delayed. Engineers context-switched so often that shipping felt like a side quest.',
+    whatWeDid: 'Risk-scoring model that auto-approves low-risk changes in under 30 minutes. High-risk changes route to mobile approval with 30-minute SLA. One-click rollback runbooks.',
+    shift: 'Deployment lead time dropped by more than two-thirds. Change approval: 3.2 days to 4 hours. Revenue accelerated because features reached customers faster.',
+    quote: 'Once ifBash automated risk scoring and mobile approvals, change approval went from 3.2 days to 4 hours. Our engineers stopped context-switching and started shipping.',
+    author: 'VP Engineering',
   },
   {
-    client: 'CloudTech Innovations', industry: 'Cloud Services', timeline: '16 weeks',
-    challenge: 'Multi-cloud incidents across AWS, Azure, and GCP averaged 4.7 hours to resolve. Three separate monitoring tools produced uncorrelated alerts; engineers spent the first 2 hours identifying the source of impact.',
-    solution: 'ServiceNow AIOps consolidating alert streams from all three cloud environments into a single correlated incident queue with automated root-cause hypothesis generation and templated customer communications.',
-    results: ['89% faster incident resolution (4.7 hrs to 31 min MTTR)', 'CSAT recovered from 67% to 89% within 6 months', '$28M annual cloud cost optimisation from right-sizing alerts', 'Customer communications sent within 8 minutes of detection'],
-    testimonial: 'ifBash consolidated everything into one correlated view. Mean time to resolve dropped from nearly 5 hours to 31 minutes.',
+    label: 'Cloud Operations',
+    context: 'Cloud-native platform · 16 weeks',
+    problem: 'Multi-cloud incidents averaged 4.7 hours to resolve. Three separate monitoring tools. Uncorrelated alerts. Engineers spent the first two hours finding the source.',
+    whatWeDid: 'AIOps consolidating alert streams from all three cloud environments into a single correlated queue with automated root-cause hypothesis generation.',
+    shift: 'MTTR dropped from nearly 5 hours to 31 minutes. CSAT recovered within six months. Cloud costs came down from right-sizing alerts and eliminating noise.',
+    quote: 'ifBash consolidated everything into one correlated view. Mean time to resolve dropped from nearly 5 hours to 31 minutes.',
+    author: 'VP Infrastructure',
   },
-  {
-    client: 'DataAnalytics Pro', industry: 'Data & Analytics', timeline: '14 weeks',
-    challenge: 'New customer onboarding took 45 days due to 14 manual handoffs between sales, provisioning, and training with no SLA enforcement. 34% of first-year churn cited slow time-to-value, representing $23M in lost ARR.',
-    solution: 'Automated onboarding orchestration in ServiceNow with SLA timers on each handoff step, automated provisioning API calls, and a customer-facing progress tracker. Health scores from product usage trigger proactive CSM outreach.',
-    results: ['Onboarding cycle from 45 days to 6 days on average', 'First-year churn rate from 34% to 9%', '$31M in recovered annual recurring revenue', 'CSM proactive outreach within 24 hours of engagement drop'],
-    testimonial: 'ifBash turned 45-day onboarding into 6 days by automating the handoffs. Churn in year one dropped from a third of customers to under 10%.',
-  },
-];
-
-const features = [
-  { icon: Code, title: 'DevOps & Development Lifecycle', description: 'Change risk scoring auto-approves low-risk deployments in under 30 minutes. Centralised release calendar prevents hotfix collisions. One-click rollback runbooks auto-generated at deployment time.' },
-  { icon: CloudLightning, title: 'Cloud Operations Management', description: 'AIOps correlation engine ingests alert streams from AWS, Azure, and GCP simultaneously, grouping related alerts into a single incident with root-cause hypothesis generated before the engineer opens the ticket.' },
-  { icon: Users, title: 'Customer Success Automation', description: 'Onboarding workflows enforce SLA timers on every handoff with automated escalation when overdue. Daily customer health scores from usage and support data trigger proactive CSM outreach.' },
-  { icon: Monitor, title: 'IT Service Management', description: 'ML-based incident classification routes tickets to the correct assignment group with 91% accuracy, eliminating the manual triage queue. Problem management opens investigations after 3 linked incidents on the same CI.' },
-  { icon: GitBranch, title: 'Product Lifecycle Management', description: 'Feature requests from support tickets, NPS feedback, and sales-reported gaps are auto-ingested and tagged with customer count and ARR at risk. Weighted scoring produces a ranked backlog updated daily.' },
-  { icon: Shield, title: 'Security & Compliance Operations', description: 'Vulnerability scan results from Tenable, Qualys, or CrowdStrike flow in as prioritised remediation tickets with CVSS-based SLAs. SOC 2, ISO 27001, and FedRAMP evidence collected continuously.' },
-];
-
-const methodology = [
-  { phase: 'Discovery', duration: 'Weeks 1-2', icon: Search, color: 'from-violet-500 to-purple-600', features: ['Development process analysis', 'Service delivery assessment'] },
-  { phase: 'Design & Automate', duration: 'Weeks 3-8', icon: Lightbulb, color: 'from-purple-600 to-pink-600', features: ['ServiceNow tech setup', 'DevOps pipeline automation'] },
-  { phase: 'Development', duration: 'Weeks 9-11', icon: Cog, color: 'from-pink-600 to-rose-500', features: ['Automated testing', 'Security validation'] },
-  { phase: 'Deployment', duration: 'Weeks 12-14', icon: Rocket, color: 'from-rose-500 to-orange-500', features: ['Production deployment', 'Monitoring setup'] },
 ];
 
 const faqs = [
-  { question: 'How does ServiceNow accelerate software development lifecycles?', answer: 'A risk-scoring model auto-approves low-risk changes in under 30 minutes. High-risk changes route to mobile approval with a 30-minute SLA. Clients see change approval cycles drop from 2-4 days to under 4 hours.' },
-  { question: 'What cloud operations capabilities does ServiceNow provide?', answer: 'AIOps ingests alerts from AWS CloudWatch, Azure Monitor, and GCP Operations, grouping related alerts into a single incident with auto-generated root-cause hypothesis. Weekly right-sizing analysis identifies over-provisioned resources.' },
-  { question: 'How can ServiceNow improve customer success for technology companies?', answer: 'ServiceNow enforces SLA timers on every internal handoff in the onboarding workflow. Daily health scores from product usage trigger proactive outreach 30-45 days before customers would submit a cancellation.' },
-  { question: 'What IT service management features are included for tech companies?', answer: 'ML-based incident auto-routing (89-91% accuracy) eliminates the manual triage queue. Problem management opens investigations when 3 incidents share the same CI within 30 days.' },
-  { question: 'What ROI can technology companies expect from ServiceNow?', answer: 'TechFlow recovered $41M in revenue acceleration. CloudTech achieved $28M in annual cloud cost savings. DataAnalytics Pro recovered $31M in ARR by cutting churn. Typical payback: 6-12 months.' },
+  { q: 'How does ServiceNow accelerate software delivery?', a: 'Risk-scoring auto-approves low-risk changes in under 30 minutes. High-risk changes route to mobile approval. Teams see change cycles drop from days to hours.' },
+  { q: 'What cloud platforms does it work with?', a: 'AIOps ingests alerts from AWS CloudWatch, Azure Monitor, and GCP Operations, grouping related alerts into a single incident with root-cause analysis.' },
+  { q: 'Can ServiceNow reduce customer churn?', a: 'Yes. SLA-enforced onboarding with automated provisioning. Daily health scores trigger proactive outreach 30 days before renewal risk.' },
+  { q: 'How long does a tech implementation take?', a: '12–16 weeks. DevOps goes live first, with AIOps and customer success following in later phases.' },
+  { q: 'What compliance frameworks are covered?', a: 'SOC 2, ISO 27001, FedRAMP. Evidence collected continuously — not assembled the week before an audit.' },
 ];
 
 export default function TechnologySoftware() {
-  const [currentCase, setCurrentCase] = useState(0);
+  const [activeCase, setActiveCase] = useState(0);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+
+  useEffect(() => { setVisible(true); }, []);
   useEffect(() => {
-    const id = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 5000);
-    return () => clearInterval(id);
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
   }, []);
 
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(f => ({ '@type': 'Question', name: f.question, acceptedAnswer: { '@type': 'Answer', text: f.answer } })) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(x => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) }) }} />
+
+      {/* ── HERO ── */}
+      <section className="relative overflow-hidden flex items-center" style={{ background: '#06040d', minHeight: 'calc(100vh - 56px)' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 10%, rgba(79,70,229,0.14) 0%, transparent 60%)' }} />
+
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto py-12 sm:py-14">
+          <div className={`max-w-3xl transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.06] tracking-tight mb-6">
+              Your engineers should be
+              <br />
+              <span style={{ color: A }}>shipping</span>, not waiting
+              <br />
+              on approvals.
+            </h1>
+            <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-xl">
+              Three-day change approvals. Incidents that take hours to triage. Customers who churn before anyone notices. <span className="text-white font-semibold">ifBash delivers ServiceNow</span> that automates the entire pipeline — DevOps, AIOps, and customer success on one platform.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: `0 8px 28px ${A}40` }}>
+                Talk to our tech team <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link href="#pipeline" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/10 hover:border-indigo-500/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
+                See the pipeline
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE PIPELINE ── */}
+      <section id="pipeline" className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-14">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest mb-4" style={{ color: A }}>
+                <span className="w-6 h-px" style={{ backgroundColor: A }} /> The Pipeline
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight max-w-xl">
+                Three bottlenecks that disappear.
+              </h2>
+            </div>
+
+            <div data-reveal="pipeline" className={`grid sm:grid-cols-3 gap-5 transition-all duration-700 ${revealed.pipeline ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              {devOps.map((x, i) => (
+                <div key={i} className="group rounded-2xl border border-gray-100 p-6 hover:shadow-md hover:-translate-y-1 transition-all">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ background: AG }}>
+                    <x.icon className="h-5 w-5 text-white" />
+                  </div>
+                  <h3 className="font-bold text-gray-900 mb-3 text-sm">{x.title}</h3>
+                  <div className="space-y-2 text-xs">
+                    <div className="flex items-start gap-1.5">
+                      <span className="text-red-400 shrink-0 font-bold">✕</span>
+                      <p className="text-gray-500 leading-relaxed">{x.before}</p>
+                    </div>
+                    <div className="flex items-start gap-1.5">
+                      <CheckCircle className="h-3.5 w-3.5 mt-0.5 shrink-0" style={{ color: A }} />
+                      <p className="text-gray-700 leading-relaxed font-medium">{x.after}</p>
+                    </div>
+                  </div>
+                  <div className="mt-4 pt-4 border-t border-gray-100">
+                    <p className="text-xs text-gray-400 italic">{x.result}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CASE STUDIES ── */}
+      <section id="impact" className="py-16 lg:py-20" style={{ background: '#eef2ff' }}>
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="inline-block w-8 h-px" style={{ backgroundColor: A }} />
+                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Proof in Production</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Real outcomes from the deploy pipeline.</h2>
+            </div>
+            <div className="hidden sm:flex items-center gap-1">
+              <button onClick={() => setActiveCase(p => (p - 1 + caseStudies.length) % caseStudies.length)} className="w-9 h-9 rounded-full border border-gray-200 hover:border-indigo-400 flex items-center justify-center text-slate-400 hover:text-indigo-500 transition-colors"><ChevronLeft className="h-4 w-4" /></button>
+              <button onClick={() => setActiveCase(p => (p + 1) % caseStudies.length)} className="w-9 h-9 rounded-full border border-gray-200 hover:border-indigo-400 flex items-center justify-center text-slate-400 hover:text-indigo-500 transition-colors"><ChevronRight className="h-4 w-4" /></button>
+            </div>
+          </div>
+
+          <div className="overflow-hidden rounded-2xl">
+            <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${activeCase * 100}%)` }}>
+              {caseStudies.map((x, i) => (
+                <div key={i} className="w-full shrink-0">
+                  <div className="bg-white border border-gray-200 rounded-2xl p-6 lg:p-8 shadow-sm">
+                    <div className="grid lg:grid-cols-5 gap-8 items-start">
+                      <div className="lg:col-span-3">
+                        <span className="inline-block text-xs font-semibold rounded-full px-3 py-1 mb-4" style={{ color: A, backgroundColor: `${A}08` }}>{x.context}</span>
+                        <h3 className="text-xl font-bold text-gray-900 mb-5">{x.label}</h3>
+                        <div className="space-y-4">
+                          <div className="rounded-xl border border-red-100 bg-red-50/30 p-4"><div className="text-xs font-bold uppercase tracking-widest text-red-500 mb-1">The Problem</div><p className="text-gray-600 text-sm leading-relaxed">{x.problem}</p></div>
+                          <div className="rounded-xl border p-4" style={{ borderColor: `${A}20`, background: `${A}03` }}><div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: A }}>What We Did</div><p className="text-gray-600 text-sm leading-relaxed">{x.whatWeDid}</p></div>
+                        </div>
+                        <blockquote className="mt-5 pl-4 border-l-2 text-sm text-gray-600 italic" style={{ borderColor: `${A}40` }}>&ldquo;{x.quote}&rdquo;<span className="block text-xs text-gray-400 mt-1 not-italic">— {x.author}</span></blockquote>
+                      </div>
+                      <div className="lg:col-span-2 rounded-2xl overflow-hidden border border-gray-100" style={{ background: '#eef2ff' }}><div className="px-4 py-3 bg-white border-b border-gray-100"><span className="text-sm font-semibold text-gray-800">What Shifted</span></div><div className="p-4"><p className="text-sm text-gray-800 leading-relaxed font-medium">{x.shift}</p></div></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-5">
+            {caseStudies.map((_, i) => (<button key={i} onClick={() => setActiveCase(i)} className={`rounded-full transition-all duration-300 ${i === activeCase ? 'w-8 h-2' : 'w-2 h-2 bg-gray-300 hover:bg-indigo-400'}`} style={i === activeCase ? { backgroundColor: A } : {}} />))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHY IFBASH ── */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] opacity-[0.06] pointer-events-none" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)` }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: `${A}08`, borderColor: `${A}25`, color: A }}>Why ifBash</div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">We don&apos;t configure software.<br /><span style={{ color: A }}>We configure velocity.</span></h2>
+              <p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">We start with your engineering teams, not the platform.</p>
+            </div>
+            <div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              {[
+                { icon: Code, stat: 'Engineers first', desc: 'We sit in your standups before we configure a single workflow.' },
+                { icon: CloudLightning, stat: 'Velocity from day 1', desc: 'First automated deployments go live in weeks, not months.' },
+                { icon: Clock, stat: 'We stay', desc: '90-day hypercare. We track MTTR and deploy frequency until they stick.' },
+              ].map(({ icon: Icon, stat, desc }) => (
+                <div key={stat} className="rounded-2xl border p-6 text-center hover:border-indigo-500/30 transition-all" style={{ borderColor: `${A}15`, background: `${A}04` }}><div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: `${A}15` }}><Icon className="h-5 w-5" style={{ color: A }} /></div><div className="text-sm font-bold text-white mb-2">{stat}</div><p className="text-xs text-slate-400 leading-relaxed">{desc}</p></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div><div className="flex items-center gap-3 mb-3"><span className="inline-block w-8 h-px" style={{ backgroundColor: A }} /><span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span></div><h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2><Link href="/get-started" className="inline-flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 6px 20px ${A}40` }}>Ask us directly <ArrowRight className="h-4 w-4" /></Link></div>
+            <div className="lg:col-span-2 space-y-2">
+              {faqs.map((x, i) => (
+                <div key={i} className="border border-gray-200 hover:border-indigo-200 rounded-xl overflow-hidden transition-colors bg-white"><button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"><span className="font-semibold text-gray-800 pr-4 text-sm">{x.q}</span><ChevronDown className={`h-4 w-4 shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} style={{ color: A }} /></button>
+                  {openFaq === i && (<div className="px-5 pb-4 border-t border-gray-100 pt-3"><p className="text-gray-600 text-sm leading-relaxed">{x.a}</p></div>)}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-16 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="max-w-xl mx-auto rounded-3xl border p-8 sm:p-10 text-center" style={{ borderColor: `${A}30`, background: `linear-gradient(135deg, ${A}0C, ${A}04)` }}><div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-5 border" style={{ backgroundColor: `${A}15`, borderColor: `${A}30`, color: A }}><span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />48-hour scoping call</div><h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-3">Ready to accelerate your pipeline?</h2><p className="text-slate-400 text-sm max-w-sm mx-auto mb-6">Tell us about your biggest velocity killer. We&apos;ll scope the approach in 48 hours.</p><Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 28px ${A}40` }}>Schedule a consultation <ArrowRight className="h-4 w-4" /></Link></div>
+        </div>
+      </section>
 
       <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-        <a href="/get-started" className="relative group w-14 h-14 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }} aria-label="Free Strategy Call">
-          <MessageCircle className="h-6 w-6" />
-        </a>
-      </div>
-
-      <div className="min-h-screen bg-white">
-
-        {/* HERO */}
-        <section className="relative bg-white overflow-hidden">
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-10 sm:pt-14 pb-0">
-            <div className="grid lg:grid-cols-2 gap-12 items-center mb-0">
-              <div>
-                <span className="text-sm font-semibold tracking-widest uppercase mb-6 inline-block" style={{ color: A }}>Technology &amp; Software Companies</span>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 leading-[1.05] tracking-tight mb-6">
-                  Ship faster.<br /><span className="text-gray-400 text-3xl sm:text-4xl lg:text-5xl font-normal">Retain more customers.</span>
-                </h1>
-                <p className="text-lg text-gray-500 max-w-xl leading-relaxed mb-8">
-                  DevOps automation, cross-cloud AIOps, and customer success workflows on one platform — 78% faster deployments, 89% faster MTTR, 73% less first-year churn.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-3 mb-10">
-                  <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm sm:text-base" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}>
-                    Start Your Transformation <ArrowRight className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-              <div className="relative hidden lg:flex items-center justify-center py-8">
-                <div className="w-28 h-28 rounded-2xl bg-white shadow-xl flex flex-col items-center justify-center border-2" style={{ borderColor: A, boxShadow: `0 0 40px ${AS}` }}>
-                  <Code className="h-8 w-8 mb-1" style={{ color: A }} />
-                  <div className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">ServiceNow</div>
-                </div>
-                <div className="absolute flex items-center gap-2 bottom-4 bg-white border border-gray-200 rounded-full px-4 py-1.5 shadow-sm">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  <span className="text-xs font-semibold text-gray-600">GitHub - Jira - Datadog - AWS - Azure - GCP</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* SOLUTIONS */}
-        <section className="py-20" style={{ background: '#07071a' }}>
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-12">
-              <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>The Technology Advantage</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-white mt-4">Built for engineering orgs. <span style={{ color: A }}>Delivered with precision.</span></h2>
-            </div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {features.map((f, i) => (
-                <div key={i} className="p-6 rounded-2xl border border-white/5 bg-white/[0.03] transition-all">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ backgroundColor: `${A}18` }}>
-                    <f.icon className="h-5 w-5" style={{ color: A }} />
-                  </div>
-                  <h3 className="font-bold text-white mb-2">{f.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed">{f.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* METHODOLOGY */}
-        <section className="py-24 bg-white">
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-4 tracking-tight">The 14-Week Roadmap</h2>
-              <p className="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">A high-velocity delivery model prioritising working software over documentation.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {methodology.map((step, index) => (
-                <div key={index}>
-                  <div className="mb-6 flex flex-col items-center">
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${step.color} p-px shadow-lg`}>
-                      <div className="w-full h-full bg-white rounded-[15px] flex items-center justify-center" style={{ color: A }}>
-                        <step.icon className="h-6 w-6" />
-                      </div>
-                    </div>
-                    <div className="mt-4 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-tighter" style={{ color: A, backgroundColor: `${A}12` }}>{step.duration}</div>
-                  </div>
-                  <div className="bg-gray-50/50 border border-gray-100 rounded-3xl p-6">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{step.phase}</h3>
-                    <ul className="space-y-3">
-                      {step.features.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-600">
-                          <div className="mt-1.5 w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: A }} />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CASE STUDIES */}
-        <section className="py-20 bg-gray-50 border-t border-gray-100">
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="mb-12">
-              <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>Client Results</span>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-4">Real numbers. Real tech companies.</h2>
-            </div>
-            <div className="overflow-hidden rounded-2xl">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentCase * 100}%)` }}>
-                {caseStudies.map((study, index) => (
-                  <div key={index} className="w-full shrink-0">
-                    <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm">
-                      <div className="grid lg:grid-cols-2 gap-10 items-start">
-                        <div>
-                          <div className="flex items-center gap-3 mb-5">
-                            <span className="text-xs font-semibold rounded-full px-3 py-1" style={{ color: A, backgroundColor: `${A}12` }}>{study.industry}</span>
-                            <span className="text-xs font-medium text-gray-500 bg-gray-100 rounded-full px-3 py-1">{study.timeline}</span>
-                          </div>
-                          <h3 className="text-2xl font-bold text-gray-900 mb-6">{study.client}</h3>
-                          <div>
-                            <div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1.5">Challenge</div>
-                            <p className="text-gray-600 text-sm leading-relaxed mb-5">{study.challenge}</p>
-                          </div>
-                          <div>
-                            <div className="text-xs font-semibold uppercase tracking-widest mb-1.5" style={{ color: A }}>Solution</div>
-                            <p className="text-gray-600 text-sm leading-relaxed">{study.solution}</p>
-                          </div>
-                          <blockquote className="mt-6 pl-4 border-l-2 text-sm text-gray-600 italic" style={{ borderColor: `${A}50` }}>&ldquo;{study.testimonial}&rdquo;</blockquote>
-                        </div>
-                        <div className="p-5 grid grid-cols-2 gap-3 bg-gray-50 rounded-2xl">
-                          {study.results.map((result, idx) => (
-                            <div key={idx} className="bg-white rounded-xl p-4 border border-gray-100">
-                              <CheckCircle className="h-4 w-4 text-green-500 mb-2" />
-                              <p className="text-sm font-semibold text-gray-800 leading-tight">{result}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-2 mt-6">
-              <button onClick={() => setCurrentCase(p => (p - 1 + caseStudies.length) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-violet-600 transition-colors" aria-label="Previous"><ChevronLeft className="h-5 w-5" /></button>
-              {caseStudies.map((_, i) => (
-                <button key={i} onClick={() => setCurrentCase(i)} className="rounded-full transition-all duration-300" style={{ width: i === currentCase ? 32 : 8, height: 8, backgroundColor: i === currentCase ? A : '#d1d5db' }} aria-label={`Case ${i + 1}`} />
-              ))}
-              <button onClick={() => setCurrentCase(p => (p + 1) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:text-violet-600 transition-colors" aria-label="Next"><ChevronRight className="h-5 w-5" /></button>
-            </div>
-          </div>
-        </section>
-
-        {/* FAQ */}
-        <section className="py-20 bg-white border-t border-gray-100">
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="grid lg:grid-cols-3 gap-16">
-              <div>
-                <span className="text-sm font-semibold tracking-widest uppercase" style={{ color: A }}>FAQ</span>
-                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mt-4 mb-4 leading-tight">Common questions.</h2>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8">Everything you need to know before starting your technology transformation.</p>
-                <a href="/get-started" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-xl text-sm transition-all" style={{ background: AG, boxShadow: `0 8px 24px ${AS}` }}>
-                  Ask us directly <ArrowRight className="h-4 w-4" />
-                </a>
-              </div>
-              <div className="lg:col-span-2 space-y-3">
-                {faqs.map((faq, index) => (
-                  <div key={index} className="border border-gray-200 rounded-xl overflow-hidden">
-                    <button onClick={() => setOpenFaq(openFaq === index ? null : index)} className="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors">
-                      <span className="font-semibold text-gray-800 pr-4 text-sm">{faq.question}</span>
-                      <ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-200 ${openFaq === index ? 'rotate-180' : ''}`} style={{ color: A }} />
-                    </button>
-                    {openFaq === index && (
-                      <div className="px-6 pb-5 border-t border-gray-100 pt-4">
-                        <p className="text-gray-600 text-sm leading-relaxed">{faq.answer}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <section className="py-24" style={{ background: '#07071a' }}>
-          <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-            <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight mb-6">Ready to ship 78% faster?</h2>
-            <p className="text-slate-400 text-lg max-w-xl mx-auto mb-10 leading-relaxed">Tell us about your environment. We'll scope your implementation in 48 hours — no commitment required.</p>
-            <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white text-base transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 32px ${AS}` }}>
-              Free Strategy Call <ArrowRight className="h-5 w-5" />
-            </a>
-          </div>
-        </section>
-
+        <Link href="/get-started" className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg transition-transform hover:scale-105" style={{ background: AG, boxShadow: `0 8px 24px ${A}40` }} aria-label="Free Consultation"><MessageCircle className="h-6 w-6" /><div className="absolute inset-0 rounded-full animate-ping opacity-20" style={{ backgroundColor: A }} /></Link>
       </div>
     </>
   );

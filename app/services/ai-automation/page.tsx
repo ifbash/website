@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, Star, Users, MessageCircle, Network, Sparkles, Workflow, Brain, Zap, CircuitBoard, BrainCircuit } from 'lucide-react';
+import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, Star, Users, MessageCircle, Network, Sparkles, Workflow, Brain, Zap, CircuitBoard, BrainCircuit, Shield, TrendingUp } from 'lucide-react';
 
 const caseStudies = [
   {
@@ -62,9 +62,18 @@ export default function AIAutomationPage() {
   const [currentCase, setCurrentCase] = useState(0);
   const [phasesVisible, setPhasesVisible] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
   useEffect(() => { const t = setTimeout(() => setPhasesVisible(true), 120); return () => clearTimeout(t); }, []);
   useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 6000); return () => clearInterval(i); }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
   return (
     <>
@@ -79,7 +88,7 @@ export default function AIAutomationPage() {
       </div>
 
       {/* ── HERO: centered with terminal ── */}
-      <section className="relative overflow-hidden" style={{ background: '#07071a' }}>
+      <section className="relative overflow-hidden" style={{ background: '#08040d' }}>
         <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 90% 60% at 50% -5%, rgba(124,58,237,0.28) 0%, transparent 60%)' }} />
 
@@ -168,9 +177,9 @@ export default function AIAutomationPage() {
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {services.filter(s => s.title !== 'Agent Orchestration').map(({ icon: Icon, title, desc, benefits }) => (
-              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-violet-500/40 transition-all duration-200" style={{ background: 'rgba(255,255,255,0.04)' }}>
+          <div data-reveal="services" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${revealed.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            {services.filter(s => s.title !== 'Agent Orchestration').map(({ icon: Icon, title, desc, benefits }, i) => (
+              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-violet-500/40 transition-all duration-200" style={{ background: 'rgba(255,255,255,0.04)', transitionDelay: `${i * 80}ms` }}>
                 <div className="w-11 h-11 rounded-xl bg-violet-500/15 group-hover:bg-violet-500/25 flex items-center justify-center mb-4 transition-colors"><Icon className="h-5 w-5 text-violet-400" /></div>
                 <h3 className="font-bold text-white mb-2 text-base">{title}</h3>
                 <p className="text-sm text-slate-400 leading-relaxed mb-4">{desc}</p>
@@ -261,8 +270,14 @@ export default function AIAutomationPage() {
         </div>
       </section>
 
+      {/* ── WHY IFBASH ── */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto"><div className="max-w-4xl mx-auto"><div className="text-center mb-12"><div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: 'rgba(124,58,237,0.08)', borderColor: 'rgba(124,58,237,0.25)', color: '#a78bfa' }}>Why ifBash</div><h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">We don&apos;t just deploy AI.<br /><span style={{ color: '#a78bfa' }}>We deploy intelligence.</span></h2><p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">We start with your processes and your data, not the platform.</p></div><div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>{[{ icon: BrainCircuit, stat: '500+ agents live', desc: 'AI agents in production across manufacturing, healthcare, and financial services.' },{ icon: Shield, stat: 'Governance built in', desc: 'Defined capability boundaries, confidence thresholds, full audit trails. Designed week one.' },{ icon: TrendingUp, stat: '12-week ROI average', desc: 'Most clients reach positive ROI within 10–14 weeks of go-live. KPIs agreed upfront.' }].map(({ icon: Icon, stat, desc }) => (<div key={stat} className="rounded-2xl border p-6 text-center hover:border-violet-500/30 transition-all" style={{ borderColor: 'rgba(124,58,237,0.15)', background: 'rgba(124,58,237,0.04)' }}><div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: 'rgba(124,58,237,0.15)' }}><Icon className="h-5 w-5 text-violet-400" /></div><div className="text-sm font-bold text-white mb-2">{stat}</div><p className="text-xs text-slate-400 leading-relaxed">{desc}</p></div>))}</div></div></div>
+      </section>
+
       {/* ── FAQ ── */}
-      <section className="py-20 bg-white border-t border-gray-100">
+      <section className="py-16 lg:py-20 bg-white">
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
           <div className="grid lg:grid-cols-3 gap-16">
             <div>
