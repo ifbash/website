@@ -8,7 +8,7 @@ import {
   Mail,
   ArrowRight,
   Linkedin,
-  Twitter,
+  X,
   Youtube,
   Facebook,
   ChevronUp,
@@ -153,7 +153,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             {[
               { href: "https://linkedin.com/company/ifbash", icon: Linkedin, label: "LinkedIn" },
-              { href: "https://twitter.com/ifbashx", icon: Twitter, label: "Twitter" },
+              { href: "https://twitter.com/ifbashx", icon: X, label: "X" },
               { href: "https://youtube.com/@c-ifbash", icon: Youtube, label: "YouTube" },
               { href: "https://facebook.com/ifbash", icon: Facebook, label: "Facebook" },
             ].map(({ href, icon: Icon, label }) => (

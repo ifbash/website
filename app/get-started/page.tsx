@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { PlaceholderImage } from "@/components/placeholder-image";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -420,9 +421,50 @@ export default function SmartAutomationAgenticAI() {
             </div>
           </div>
 
+        </section>
+
+        {/* Engagement Models */}
+        <section className="py-16 bg-white">
+          <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+            <div className="text-center mb-10">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="inline-block w-8 h-px bg-indigo-600" />
+                <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">How We Engage</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Transparent engagements.<br /><span className="text-indigo-600">Measurable outcomes.</span></h2>
+              <p className="text-gray-500 max-w-2xl mx-auto">Every engagement starts with a 48-hour scoping call. We define success metrics before we write a single line of configuration — and we tie our fees to results.</p>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
+              {[
+                { icon: Target, title: 'Fixed-Price Projects', range: '$50K – $500K+', desc: 'Well-defined implementations with clear scope, timeline, and deliverables. 73-day average for core ITSM. Fixed price means zero surprise invoices — the risk is on us.', items: ['Defined scope & timeline', '73-day go-live average', 'Risk on us, not you'] },
+                { icon: Clock, title: 'Managed Services', range: '$5K – $50K / month', desc: 'Ongoing support, optimization, and continuous improvement. 24/7 monitoring, 15-min P1 response, original build team stays on. Includes quarterly business reviews.', items: ['24/7 monitoring & support', '15-min P1 response SLA', 'Quarterly optimization reviews'] },
+                { icon: TrendingUp, title: 'Strategic Advisory', range: '$15K – $80K', desc: 'Platform roadmap, architecture assessment, AI readiness evaluation, or pre-implementation planning. Fast, focused engagements that set you up for success.', items: ['Platform health assessment', 'AI readiness evaluation', 'Roadmap & architecture plan'] },
+              ].map(({ icon: Icon, title, range, desc, items }) => (
+                <div key={title} className="rounded-2xl border border-gray-200 p-6 hover:border-indigo-200 hover:shadow-md transition-all bg-white flex flex-col">
+                  <div className="w-10 h-10 rounded-xl bg-indigo-50 flex items-center justify-center mb-4"><Icon className="h-5 w-5 text-indigo-600" /></div>
+                  <div className="text-xs font-bold text-indigo-600 mb-2">{range}</div>
+                  <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mb-4 flex-1">{desc}</p>
+                  <ul className="space-y-1.5">
+                    {items.map(item => (
+                      <li key={item} className="flex items-start gap-2 text-xs text-gray-600"><CheckCircle className="h-3.5 w-3.5 text-green-500 mt-0.5 shrink-0" />{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <p className="text-sm text-gray-400 mb-6">Projects typically range from 8 to 28 weeks depending on scope and complexity. Most clients see ROI within 6–12 months.</p>
+              <Link href="#get-started" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-sm" style={{ background: 'linear-gradient(135deg, #4f46e5, #7c3aed)', boxShadow: '0 6px 20px rgba(79,70,229,0.35)' }}>Start your 48-hour scoping call <ArrowRight className="h-4 w-4" /></Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Get Started Form */}
+        <section className="bg-gray-50 py-16">
           <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[95%] xl:w-[90%] mx-auto relative z-10">
             {/* Get Started Section - New Form Section */}
-        
+
           <div className="w-full px-2 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
             <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-violet-100/30 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-purple-100/30 via-transparent to-transparent" />

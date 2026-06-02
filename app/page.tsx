@@ -293,13 +293,14 @@ tags: ["Smart Grid", "Asset Management", "Compliance", "Sustainability"]
 }
 ];
 
+// Simulated dashboard data — representative aggregate metrics, not live client systems
 const agentLogs = [
-  { time: "09:41:02", agent: "NOW Assist", action: "INC-0042387 auto-resolved in 3.1s", type: "resolve" },
-  { time: "09:41:18", agent: "HR Workflows", action: "Onboarding HRSD-8821 completed", type: "complete" },
-  { time: "09:41:35", agent: "Predictive AI", action: "P1 risk detected — 3 alerts suppressed", type: "predict" },
-  { time: "09:41:52", agent: "SecOps", action: "Threat SIR-0041 contained + closed", type: "resolve" },
-  { time: "09:42:09", agent: "Field Service", action: "WO-5512 dispatched to nearest tech", type: "route" },
-  { time: "09:42:24", agent: "CRM Agent", action: "Lead CRM-44901 scored + assigned", type: "route" },
+  { time: "Last hour", agent: "NOW Assist", action: "92% of incidents auto-resolved without human touch", type: "resolve" },
+  { time: "Last hour", agent: "HR Workflows", action: "Employee onboarding — 100% paperless, 4 min avg", type: "complete" },
+  { time: "Last hour", agent: "Predictive AI", action: "3 P1 risks prevented — 247 alerts intelligently suppressed", type: "predict" },
+  { time: "Last hour", agent: "SecOps", action: "Zero critical threats — all contained within SLA", type: "resolve" },
+  { time: "Last hour", agent: "Field Service", action: "Nearest-tech dispatch — 40% travel time saved", type: "route" },
+  { time: "Last hour", agent: "CRM Agent", action: "Leads auto-scored — +47% conversion lift", type: "route" },
 ];
 
 const aiCapabilities = [
@@ -338,7 +339,7 @@ function CountUp({ to, suffix = '', prefix = '', decimals = 0, duration = 1600 }
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true, margin: '-60px' });
-  const [val, setVal] = useState(0);
+  const [val, setVal] = useState(-1); // Start at -1 to avoid showing 0% before animation
   useEffect(() => {
     if (!inView) return;
     let raf: number;
@@ -355,65 +356,15 @@ function CountUp({ to, suffix = '', prefix = '', decimals = 0, duration = 1600 }
   }, [inView, to, decimals, duration]);
   return (
     <span ref={ref} className="stat-number">
-      {prefix}{decimals > 0 ? val.toFixed(decimals) : Math.round(val)}{suffix}
-    </span>
+      {val < 0 ? '—' : (prefix + (decimals > 0 ? val.toFixed(decimals) : Math.round(val)) + suffix)}    </span>
   );
 }
-
-type AnimatedStats = {
-clients: number;
-implementations: number;
-satisfaction: number;
-years: number;
-};
 
 export default function Page() {
 const [currentTestimonial, setCurrentTestimonial] = useState(0);
 const [isVisible, setIsVisible] = useState({});
 const [shownLogs, setShownLogs] = useState(1);
 const [activeTab, setActiveTab] = useState(0);
-const [animatedStats, setAnimatedStats] = useState({
-clients: 0,
-implementations: 0,
-satisfaction: 0,
-years: 0
-});
-
-useEffect(() => {
-const targets: AnimatedStats = {
-clients: 500,
-implementations: 1500,
-satisfaction: 99,
-years: 8
-};
-const duration = 2000;
-const steps = 60;
-const stepTime = duration / steps;
-const intervals: { [key in keyof AnimatedStats]?: NodeJS.Timeout } = {};
-
-(Object.keys(targets) as Array<keyof AnimatedStats>).forEach((key) => {
-const target = targets[key];
-const increment = target / steps;
-let current = 0;
-
-intervals[key] = setInterval(() => {
-current += increment;
-if (current >= target) {
-  current = target;
-  if (intervals[key]) {
-    clearInterval(intervals[key]!);
-  }
-}
-setAnimatedStats(prev => ({ ...prev, [key]: Math.floor(current) }));
-}, stepTime);
-});
-
-return () => {
-Object.values(intervals).forEach(interval => {
-if (interval) clearInterval(interval);
-});
-};
-}, []);
 
 useEffect(() => {
 const interval = setInterval(() => {
@@ -642,9 +593,9 @@ return (
             ))}
           </div>
 
-          {/* Live activity feed */}
+          {/* Dashboard demo feed */}
           <div className="px-4 py-3 border-t border-white/8 flex-1 overflow-hidden flex flex-col">
-            <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-2.5 font-medium">Live activity</div>
+            <div className="text-[10px] text-slate-600 uppercase tracking-widest mb-2.5 font-medium">Dashboard demo</div>
             <div className="space-y-1.5 flex-1 overflow-hidden">
               <AnimatePresence initial={false}>
                 {agentLogs.slice(0, shownLogs).map((log) => (
