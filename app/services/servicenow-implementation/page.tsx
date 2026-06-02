@@ -112,20 +112,20 @@ export default function ServiceNowImplementationPage() {
         </div>
       </section>
 
-      {/* FEATURES — dark */}
-      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#0c0c1d' }}>
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      {/* FEATURES — light */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#eef2ff' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #4f46e5 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
           <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-indigo-400" /><span className="text-indigo-400 text-sm font-semibold tracking-widest uppercase">The ifBash Advantage</span></div>
-            <h2 className="text-3xl sm:text-4xl font-bold text-white">Built for enterprise. Delivered with precision.</h2>
+            <div className="flex items-center justify-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-indigo-600" /><span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">The ifBash Advantage</span></div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Built for enterprise. Delivered with precision.</h2>
           </div>
           <div data-reveal="features" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${revealed.features ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             {features.map(({ icon: Icon, title, desc }, i) => (
-              <div key={title} className="group p-6 rounded-2xl border border-white/5 transition-all hover:bg-white/[0.06]" style={{ background: 'rgba(255,255,255,0.03)', transitionDelay: `${i * 80}ms` }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: `${A}18` }}><Icon className="h-5 w-5 text-indigo-400" /></div>
-                <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{desc}</p>
+              <div key={title} className="group p-6 rounded-2xl border border-indigo-200 bg-white transition-all hover:shadow-md" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: `${A}12` }}><Icon className="h-5 w-5 text-indigo-600" /></div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>

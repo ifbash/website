@@ -141,18 +141,18 @@ export default function CRMCustomerExperiencePage() {
         </div>
       </section>
 
-      {/* SERVICES — dark */}
-      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#0c0c1d' }}>
-        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle, #60a5fa 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      {/* SERVICES — light */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#eff6ff' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #2563eb 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-400" /><span className="text-blue-400 text-sm font-semibold tracking-widest uppercase">What We Build</span></div><h2 className="text-3xl sm:text-4xl font-bold text-white">Customer and employee experiences that actually work.</h2></div>
+          <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-blue-600" /><span className="text-blue-600 text-sm font-semibold tracking-widest uppercase">What We Build</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Customer and employee experiences that actually work.</h2></div>
           <div data-reveal="services" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${revealed.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             {services.map(({ icon: Icon, title, desc, benefits }, i) => (
-              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-blue-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)', transitionDelay: `${i * 80}ms` }}>
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ background: `${A}26` }}><Icon className="h-5 w-5 text-blue-400" /></div>
-                <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-3">{desc}</p>
-                <div className="space-y-1">{benefits.map(b => <div key={b} className="flex items-center gap-2 text-xs text-slate-400"><CheckCircle className="h-3 w-3 text-blue-400 shrink-0" />{b}</div>)}</div>
+              <div key={title} className="group rounded-2xl p-6 border border-blue-200 bg-white hover:border-blue-400 transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" style={{ background: `${A}12` }}><Icon className="h-5 w-5 text-blue-600" /></div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">{desc}</p>
+                <div className="space-y-1">{benefits.map(b => <div key={b} className="flex items-center gap-2 text-xs text-gray-500"><CheckCircle className="h-3 w-3 text-blue-600 shrink-0" />{b}</div>)}</div>
               </div>
             ))}
           </div>

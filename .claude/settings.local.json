@@ -24,7 +24,11 @@
       "PowerShell(npx tsc --noEmit --pretty 2>&1 | Select-Object -First 20)",
       "PowerShell(npx tsc --noEmit --pretty 2>&1)",
       "PowerShell(wc *)",
-      "PowerShell(npx tsc --noEmit --pretty 2>&1; \\(Get-Content \"D:\\\\website\\\\app\\\\industries\\\\healthcare-providers\\\\page.tsx\"\\).Count)"
+      "PowerShell(npx tsc --noEmit --pretty 2>&1; \\(Get-Content \"D:\\\\website\\\\app\\\\industries\\\\healthcare-providers\\\\page.tsx\"\\).Count)",
+      "Bash(gh auth *)",
+      "Bash(git push *)",
+      "Bash(dir /s /a-d \"D:\\\\website\\\\src\")",
+      "Bash(node *)"
     ]
   }
 }

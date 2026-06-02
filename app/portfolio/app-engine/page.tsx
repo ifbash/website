@@ -1,948 +1,107 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Head from "next/head";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { PlaceholderImage } from "@/components/placeholder-image";
-import {
-Users,
-ArrowRight,
-CheckCircle,
-Star,
-Heart,
-Rocket,
-Target,
-Brain,
-Globe,
-MapPin,
-Clock,
-DollarSign,
-MessageCircle,
-Search,
-Filter,
-Calendar,
-User,
-GraduationCap,
-Coffee,
-Briefcase,
-Code,
-Lightbulb,
-Award,
-Shield,
-Zap,
-Settings,
-Database,
-TrendingUp,
-Quote,
-Play,
-Mail,
-Phone,
-Building,
-Factory,
-Stethoscope,
-Car,
-Banknote,
-ShoppingCart,
-Radio,
-Fuel,
-BookOpen,
-FileText,
-Download,
-ExternalLink,
-Eye,
-BarChart3,
-Timer,
-Gauge,
-Video,
-Mic,
-Users2,
-Trophy,
-Presentation,
-ChevronRight,
-Share2,
-Bell,
-PlusCircle,
-Tag,
-Newspaper,
-Layers,
-Network,
-Cpu,
-Monitor,
-GitBranch,
-Workflow,
-PieChart,
-LineChart,
-Activity,
-Cloud,
-CloudLightning,
-Compass,
-Package,
-AlertTriangle,
-TrendingDown,
-RefreshCw,
-MousePointer,
-Layout,
-UserCheck,
-Palette,
-BarChart,
-GitCommit,
-Info,
-List,
-Server,
-TabletSmartphone,
-Sparkles,
-Boxes,
-Component,
-Layers3,
-ChevronDown,
-Building2,
-Cog,
-TreePine,
-Map,
-FileBarChart,
-CloudCog,
-CreditCard,
-ShieldCheck,
-Banknote as CostIcon,
-CloudDrizzle,
-Wrench,
-Search as DiscoverIcon,
-AlertTriangle as AlertIcon,
-HardHat,
-Laptop,
-HardDrive,
-Smartphone,
-ChevronUp,
-Bot,
-Radar,
-Route,
-FileX,
-MonitorSpeaker,
-CircuitBoard,
-Gauge as GaugeIcon,
-ChevronRightIcon,
-HelpCircle,
-RepeatIcon,
-GitMerge,
-Shuffle,
-BarChart4,
-Layers2,
-Link,
-Navigation,
-Gamepad2,
-TestTube2,
-Smile,
-Leaf,
-Headphones,
-ThumbsUp,
-MessageSquare,
-Headset,
-Truck,
-ShoppingBag,
-Store,
-Receipt,
-Calculator,
-HandCoins,
-Percent,
-FileCheck,
-Building as BankIcon,
-Scale,
-HeartPulse,
-UserCog,
-FileUser,
-Users as Patients,
-ShoppingCartIcon as CartIcon,
-Package2,
-Antenna,
-Waves,
-Flag,
-Landmark,
-Rss,
-Plug,
-Lock,
-Bug,
-Container,
-Crosshair,
-GraduationCap as CapIcon,
-ExternalLinkIcon,
-Layers as LayersIcon,
-ShieldIcon,
-UserIcon,
-Trees,
-PenTool,
-Home,
-Terminal
-} from "lucide-react";
+import Link from 'next/link';
+import { ArrowRight, CheckCircle, ChevronDown, ChevronLeft, ChevronRight, ClipboardCheck, Clock, Cog, Layers, Lightbulb, MessageCircle, Monitor, Rocket, Search, Shield, TrendingUp } from 'lucide-react';
+
+const A = '#7c3aed';
+const AG = 'linear-gradient(135deg, #7c3aed, #a78bfa)';
+
+const capabilities = [
+  { icon: Lightbulb, title: 'Now Assist for Creator', desc: 'GenAI-powered development — generate flows from natural language, intelligent code suggestions, automated testing.', outcomes: ['Natural language to code', 'Intelligent suggestions', 'Automated testing'] },
+  { icon: Cog, title: 'ServiceNow Studio', desc: 'Unified IDE with visual development and full-stack capabilities. Professional developers and citizen developers, same platform.', outcomes: ['Unified IDE', 'Visual development', 'Full-stack'] },
+  { icon: Layers, title: 'Creator Studio', desc: 'No-code drag-and-drop interface. Citizen developers build apps fast. IT governs with confidence.', outcomes: ['No-code', 'Drag-and-drop', 'Governed'] },
+  { icon: Monitor, title: 'AI Agents', desc: 'Autonomous AI agents that reason, plan, and act independently. 24/7 process execution without human intervention.', outcomes: ['Autonomous agents', '24/7 execution', 'Self-learning'] },
+  { icon: TrendingUp, title: 'Flow Designer', desc: 'Visual process automation across departments. No-code integration with any system.', outcomes: ['Visual automation', 'Cross-dept', 'No-code integration'] }
+];
+
+const methodology = [
+  { phase: 'Ideate', duration: 'Weeks 1–2', icon: Search, items: ['Process discovery & opportunity mapping', 'Prototype design & feasibility', 'Success criteria definition'] },
+  { phase: 'Build', duration: 'Weeks 3–6', icon: Cog, items: ['App development & workflow design', 'Integration setup & data modeling', 'AI agent configuration'] },
+  { phase: 'Validate', duration: 'Weeks 7–8', icon: TrendingUp, items: ['User acceptance testing', 'Performance & security validation', 'Iteration & refinement'] },
+  { phase: 'Launch', duration: 'Weeks 9–10', icon: Rocket, items: ['Deployment & go-live', 'Training & documentation', 'Continuous improvement setup'] }
+];
+
+const caseStudies = [
+  { client: 'Desjardins Group', industry: 'Financial Services', timeline: '8 weeks', challenge: 'Slow custom development with 3-month backlog. Business teams waiting months for simple process automation.', solution: 'ServiceNow App Engine with Creator Studio and Flow Designer for citizen development.', results: ['3x faster development', '10-day developer onboarding', '45 apps deployed', 'Backlog eliminated'], quote: 'We went from months to days for new app delivery. Business teams now build their own solutions safely.', author: 'VP of Digital Transformation' },
+  { client: 'Bayer AG', industry: 'Life Sciences', timeline: '10 weeks', challenge: 'Legal and compliance teams buried in manual tasks. 60+ manual processes consuming thousands of hours.', solution: 'ServiceNow App Engine with Flow Designer and AI Agents for intelligent process automation.', results: ['Legal & compliance freed', '60+ processes automated', '40% efficiency gain', 'Zero compliance gaps'], quote: 'Processes that took days now take minutes. Our legal and compliance teams finally do the work that matters.', author: 'Head of Legal Operations' }
+];
+
+const faqs = [
+  { q: 'What is ServiceNow App Engine?', a: 'A low-code platform to build custom applications on ServiceNow. Create intelligent workflows, portals, and automation without traditional coding — powered by generative AI.' },
+  { q: 'Can non-developers use it?', a: 'Yes. Creator Studio provides drag-and-drop tools for citizen developers. ServiceNow Studio provides a full IDE for professional developers. Both on the same governed platform.' },
+  { q: 'What can I build with it?', a: 'Any business application — from simple approval workflows to complex case management systems with autonomous AI agents operating 24/7.' },
+  { q: 'How fast can we build and deploy?', a: '6–10 weeks for enterprise apps. First prototype in week 2. Most clients deploy their first app within the first month.' },
+  { q: 'How does it integrate with existing systems?', a: 'Native Integration Hub spokes, REST/SOAP APIs, and pre-built connectors for all major enterprise systems. Every app can connect to anything.' }
+];
 
 export default function AppEnginePage() {
-const [currentTestimonial, setCurrentTestimonial] = useState(0);
-const [activeFAQ, setActiveFAQ] = useState<number | null>(null);
+  const [currentCase, setCurrentCase] = useState(0);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
-useEffect(() => {
-  const interval = setInterval(() => {
-    setCurrentTestimonial(prev => (prev + 1) % caseStudies.length);
-  }, 6000);
-  return () => clearInterval(interval);
-}, []);
+  useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 6000); return () => clearInterval(i); }, []);
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      (entries) => { entries.forEach(e => { if (e.isIntersecting) { const id = e.target.getAttribute('data-reveal'); if (id) { setRevealed(prev => ({ ...prev, [id]: true })); obs.unobserve(e.target); } } }); },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('[data-reveal]').forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
 
-const toggleFAQ = (index: number) => {
-  setActiveFAQ(activeFAQ === index ? null : index);
-};
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faqs.map(f => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }) }} />
 
-// SEO JSON-LD with FAQ Schema
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "App Engine - ServiceNow Low-Code Development Platform",
-  "description": "Reimagine every process as a digital workflow. With ServiceNow App Engine, you can build and extend workflow apps to work the way you work.",
-  "applicationCategory": "App Engine"
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is ServiceNow App Engine and how does it help organizations?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "ServiceNow App Engine reimagines every process as a digital workflow. It moves beyond static automation to scale development teams and create intelligent apps that embed powerful AI agents to reason, plan, and act autonomously."
-      }
-    },
-    {
-      "@type": "Question", 
-      "name": "What is Now Assist for Creator and how does it enhance development productivity?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Now Assist for Creator uses generative AI to boost productivity and efficiency during the app development lifecycle with flow generation, intelligent code recommendations, and automated testing capabilities powered by the ServiceNow AI Platform."
-      }
-    }
-  ]
-};
-
-// Core Benefits (From ServiceNow App Engine content)
-const benefits = [
-  {
-    icon: Rocket,
-    title: "Elevate experiences with proactive apps",
-    description: "Empower your teams to build smart, data-driven apps that adapt to real-time needs. Scale systems, automate work, and boost workflow efficiency all on one platform.",
-    color: "from-purple-500 to-pink-500",
-    stats: "Smart, adaptive applications"
-  },
-  {
-    icon: Shield,
-    title: "Scale safely with governance",
-    description: "Set guardrails throughout development based on tested, accurate AI. Create AI agents grounded in your trusted data to reduce manual work for admins.",
-    color: "from-pink-500 to-rose-500",
-    stats: "Secure, governed development"
-  },
-  {
-    icon: Zap,
-    title: "Build smarter and deploy faster",
-    description: "Use AI tools in a unified environment to innovate, create, and deploy apps faster. Manage metadata centrally and rapidly scale automations across developer studios.",
-    color: "from-rose-500 to-red-500",
-    stats: "Accelerated development"
-  },
-  {
-    icon: Brain,
-    title: "AI-powered intelligent automation",
-    description: "Move beyond static automation to create intelligent apps that embed powerful AI agents to reason, plan, and act with autonomous capabilities.",
-    color: "from-red-500 to-orange-500",
-    stats: "Autonomous AI capabilities"
-  }
-];
-
-// Key Features (From ServiceNow App Engine content)
-const keyFeatures = [
-  {
-    icon: Bot,
-    title: "Now Assist for App Engine",
-    description: "Build smarter apps that adapt to real-time needs with data-driven generative AI and AI agents for intelligent application development.",
-    capabilities: [
-      "Data-driven generative AI",
-      "Real-time app adaptation",
-      "AI agent integration",
-      "Intelligent development assistance"
-    ],
-    color: "from-purple-500 to-pink-500"
-  },
-  {
-    icon: Sparkles,
-    title: "Now Assist for Creator",
-    description: "Use the power of generative AI to boost productivity and efficiency during the app development lifecycle with intelligent recommendations.",
-    capabilities: [
-      "Generative AI productivity",
-      "Development lifecycle efficiency",
-      "Intelligent code recommendations",
-      "Automated flow generation"
-    ],
-    color: "from-pink-500 to-rose-500"
-  },
-  {
-    icon: Brain,
-    title: "AI Agents",
-    description: "Take action with autonomous AI agents that work for you, capable of reasoning, planning, and acting independently to automate complex processes.",
-    capabilities: [
-      "Autonomous AI agents",
-      "Complex process automation",
-      "Independent reasoning",
-      "Intelligent action planning"
-    ],
-    color: "from-rose-500 to-red-500"
-  },
-  {
-    icon: Terminal,
-    title: "ServiceNow Studio",
-    description: "Use one unified, intuitive development environment to build, deploy, and manage your apps with comprehensive development tools.",
-    capabilities: [
-      "Unified development environment",
-      "Comprehensive dev tools",
-      "App deployment management",
-      "Intuitive development interface"
-    ],
-    color: "from-red-500 to-orange-500"
-  },
-  {
-    icon: Layout,
-    title: "Creator Studio",
-    description: "Create intelligent workflows in a guided, focused environment using no code with drag-and-drop interface for business process automation.",
-    capabilities: [
-      "No-code workflow creation",
-      "Guided development environment",
-      "Drag-and-drop interface",
-      "Business process automation"
-    ],
-    color: "from-orange-500 to-amber-500"
-  },
-  {
-    icon: Settings,
-    title: "App Engine Management Center",
-    description: "Empower business and IT to collaborate, manage, and govern low-code app development with comprehensive governance and collaboration tools.",
-    capabilities: [
-      "Low-code app governance",
-      "Business-IT collaboration",
-      "Development management",
-      "Comprehensive oversight"
-    ],
-    color: "from-amber-500 to-yellow-500"
-  },
-  {
-    icon: Workflow,
-    title: "Flow Designer",
-    description: "Automate business processes as digital workflows across departments, apps, and systems with comprehensive workflow automation capabilities.",
-    capabilities: [
-      "Cross-department workflows",
-      "Digital process automation",
-      "System integration",
-      "Business process digitization"
-    ],
-    color: "from-yellow-500 to-green-500"
-  },
-  {
-    icon: BarChart3,
-    title: "Process Automation Designer",
-    description: "Build and manage multiple complex workflows with no-code playbooks for comprehensive process automation and workflow management.",
-    capabilities: [
-      "No-code playbooks",
-      "Complex workflow management",
-      "Multiple process automation",
-      "Comprehensive workflow tools"
-    ],
-    color: "from-green-500 to-emerald-500"
-  }
-];
-
-// Role-Based Applications
-const roleBasedApps = [
-  {
-    role: "App Delivery Leader",
-    description: "Innovate fast while governing for scale. Expand development capabilities to the business while giving IT admins peace of mind with comprehensive governance.",
-    applications: [
-      "App Engine Management Center - Enable business and IT collaboration with governance and management",
-      "App Engine Studio - Fuel business growth with low-code visual app development environment",
-      "Delegated Development - Allow developers with any expertise level to build apps for specific needs"
-    ],
-    icon: Award,
-    color: "from-purple-500 to-pink-500"
-  },
-  {
-    role: "Platform Owner", 
-    description: "Build out the automation you need while empowering the business to assist IT, ensuring clear visibility and implementing appropriate guardrails.",
-    applications: [
-      "Flow Designer - Transform business operations and automate processes as digital workflows",
-      "Integration Hub - Enable developers and no-code builders to integrate ServiceNow workflows",
-      "App Engine Management Center - Empower business and IT teams for efficient collaboration"
-    ],
-    icon: Shield,
-    color: "from-pink-500 to-rose-500"
-  },
-  {
-    role: "Developer",
-    description: "Get more done with AI-powered low code. Boost your productivity by automating repetitive tasks so you can focus on solving complex problems.",
-    applications: [
-      "Now Assist for Creator - Increase productivity with generative AI recommendations and code generation",
-      "Process Automation Designer - Automate common processes with no-code playbooks easily",
-      "Studio IDE - Use web-based integrated development environment for application creation and distribution"
-    ],
-    icon: Code,
-    color: "from-rose-500 to-red-500"
-  },
-  {
-    role: "Business Technologist",
-    description: "Use intelligent workflows to automate manual tasks and processes. Get access to templates and reusable components in drag-and-drop manner.",
-    applications: [
-      "App Engine Studio - Automate workflows in easy-to-use, low-code visual app environment",
-      "Prebuilt Templates - Accelerate development with templates for variety of use cases",
-      "Now Assist for Creator - Let AI guide you with flow generation and intelligent recommendations"
-    ],
-    icon: Users,
-    color: "from-red-500 to-orange-500"
-  }
-];
-
-// Package Tiers
-const packageTiers = [
-  {
-    name: "App Engine Starter",
-    description: "For businesses that want to grow and evolve workflows with custom applications using essential low-code development capabilities",
-    features: [
-      "ServiceNow Studio",
-      "Mobile App Builder",
-      "Guided Application Creator",
-      "Delegated Development",
-      "Service Creator",
-      "Form Designer",
-      "Service Portal Designer",
-      "UI Builder",
-      "Automated Testing Framework",
-      "Flow Designer",
-      "Action Designer",
-      "Process Automation Designer",
-      "Now Experience Platform"
-    ],
-    color: "from-purple-500 to-pink-500",
-    price: "Starter Package"
-  },
-  {
-    name: "App Engine Enterprise",
-    description: "For businesses looking to app development as a means to innovate at scale across the enterprise with comprehensive capabilities",
-    features: [
-      "All Starter features",
-      "Creator Studio", 
-      "App Engine Studio",
-      "Table Builder",
-      "Workspace Builder",
-      "App Engine Management Center",
-      "Prebuilt Templates",
-      "Process Mining",
-      "Performance Analytics",
-      "Virtual Agent",
-      "Predictive Intelligence",
-      "Mobile Publishing",
-      "Dynamic Translation",
-      "ServiceNow Voice",
-      "Universal Request Pro"
-    ],
-    color: "from-pink-500 to-rose-500",
-    price: "Enterprise Package"
-  }
-];
-
-// Advanced Development Capabilities
-const advancedCapabilities = [
-  {
-    title: "Process Mining",
-    description: "Improve outcomes by optimizing process flows to streamline work with data-driven insights into process efficiency and bottleneck identification.",
-    icon: TrendingUp,
-    benefit: "Process optimization"
-  },
-  {
-    title: "Predictive Intelligence",
-    description: "Simplify and accelerate everyday work with built-in machine learning for predictive analytics and intelligent automation capabilities.",
-    icon: Brain,
-    benefit: "Predictive automation"
-  },
-  {
-    title: "Performance Analytics",
-    description: "Anticipate and continuously improve with real-time analytics providing comprehensive insights into application and workflow performance.",
-    icon: BarChart3,
-    benefit: "Real-time insights"
-  },
-  {
-    title: "Automated Testing Framework",
-    description: "Complete upgrades and innovate faster. Reduce risk and quickly remediate customization issues by automating slow manual testing processes.",
-    icon: CheckCircle,
-    benefit: "Automated quality assurance"
-  },
-  {
-    title: "Integration Hub",
-    description: "Enable developers, IT generalists, and no-code builders to quickly integrate ServiceNow workflows to any modern system with comprehensive connectivity.",
-    icon: Plug,
-    benefit: "Seamless integration"
-  },
-  {
-    title: "Mobile App Builder",
-    description: "Design applications optimized for mobile devices ensuring solutions are accessible anytime, anywhere with consumer-grade mobile experiences.",
-    icon: Smartphone,
-    benefit: "Mobile-first development"
-  }
-];
-
-// FAQ Data
-const faqData = [
-  {
-    question: "What is ServiceNow App Engine and how does it help organizations?",
-    answer: (
-      <div>
-        <p className="mb-3">
-          ServiceNow App Engine reimagines every process as a digital workflow and transforms application development:
-        </p>
-        <ul className="list-disc ml-6 space-y-1">
-          <li>Moves beyond static automation to scale your development teams with intelligent low-code capabilities</li>
-          <li>Creates intelligent apps that embed powerful AI agents to reason, plan, and act autonomously</li>
-          <li>Enables developers and non-tech professionals to create unique workflows at scale with prebuilt templates</li>
-          <li>Provides a unified environment to innovate, create, and deploy apps faster with AI-powered development tools</li>
-          <li>Facilitates collaboration between business and IT teams with comprehensive governance and management capabilities</li>
-        </ul>
-        <p className="mt-3 text-sm text-purple-600">
-          <strong>Built on ServiceNow AI Platform</strong> with Now Assist for Creator providing generative AI capabilities and autonomous AI agents for intelligent development.
-        </p>
+      <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
+        <Link href="/get-started" className="relative group min-w-[56px] min-h-[56px] rounded-full flex items-center justify-center text-white shadow-lg" style={{ background: AG, boxShadow: `0 8px 24px ${A}66` }} aria-label="Free Strategy Call">
+          <MessageCircle className="h-6 w-6" />
+        </Link>
       </div>
-    )
-  },
-  
-  {
-    question: "What is Now Assist for Creator and how does it enhance development productivity?",
-    answer: (
-      <div>
-        <p className="mb-3">Now Assist for Creator provides comprehensive generative AI capabilities for enhanced development productivity:</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>Flow Generation:</strong> Accelerates workflow development by transforming plain text into low-code automation using simple prompts</li>
-          <li><strong>Intelligent Recommendations:</strong> Provides AI-powered suggestions for conditional logic, relevant actions, and workflow optimization during development</li>
-          <li><strong>Code Generation:</strong> Enables direct progression from comment to code with sophisticated autocomplete capabilities and JavaScript assistance</li>
-          <li><strong>Generative AI Controller:</strong> Embedded within Flow Designer for summarization, sentiment analysis, and content creation with just a few clicks</li>
-          <li><strong>Multi-Context Support:</strong> Available across various development environments including business rules and custom integrations</li>
-          <li><strong>ServiceNow Syntax Support:</strong> Eliminates need to master JavaScript or remember ServiceNow-specific syntax for high-quality code generation</li>
-          <li><strong>Universal Accessibility:</strong> Benefits both seasoned ServiceNow developers and newcomers starting their first function development</li>
-        </ul>
-        <p className="mt-3">
-          This comprehensive AI assistance radically improves productivity and lowers the barrier of entry for intelligent automation and low-code app development.
-        </p>
-      </div>
-    )
-  },
 
-  {
-    question: "What are the key features and capabilities of ServiceNow App Engine?",
-    answer: (
-      <div>
-        <p className="mb-3">ServiceNow App Engine provides comprehensive low-code development capabilities:</p>
-        <div className="space-y-4">
-          <div>
-            <h4 className="font-semibold text-pink-600 mb-2">Core Development Features:</h4>
-            <ul className="list-disc ml-6 text-sm space-y-1">
-              <li><strong>ServiceNow Studio:</strong> Unified, intuitive development environment for building, deploying, and managing apps</li>
-              <li><strong>Creator Studio:</strong> No-code workflow creation in guided environment with drag-and-drop interface</li>
-              <li><strong>App Engine Studio:</strong> Low-code development environment with prebuilt templates for rapid application creation</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold text-rose-600 mb-2">AI-Powered Capabilities:</h4>
-            <ul className="list-disc ml-6 text-sm space-y-1">
-              <li><strong>Now Assist for App Engine:</strong> Data-driven generative AI for smart apps that adapt to real-time needs</li>
-              <li><strong>AI Agents:</strong> Autonomous AI agents that reason, plan, and act independently for complex automation</li>
-              <li><strong>Flow Designer:</strong> Digital workflow automation across departments with comprehensive process capabilities</li>
-              <li><strong>App Engine Management Center:</strong> Business-IT collaboration with governance and low-code app development management</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    )
-  },
-
-  {
-    question: "How do role-based applications work in ServiceNow App Engine?",
-    answer: (
-      <div>
-        <p className="mb-3">
-          ServiceNow App Engine provides role-based applications tailored to different development professionals and their specific responsibilities:
-        </p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>App Delivery Leader:</strong> App Engine Management Center for governance, App Engine Studio for business growth, and Delegated Development for scalable creation</li>
-          <li><strong>Platform Owner:</strong> Flow Designer for business automation, Integration Hub for workflow connectivity, and Management Center for collaborative development</li>
-          <li><strong>Developer:</strong> Now Assist for Creator with AI productivity, Process Automation Designer for no-code playbooks, and Studio IDE for comprehensive development</li>
-          <li><strong>Business Technologist:</strong> App Engine Studio for visual workflows, Prebuilt Templates for accelerated development, and AI guidance for intelligent recommendations</li>
-        </ul>
-        <p className="mt-3">
-          Each role receives tailored applications, development environments, and AI assistance optimized for their specific development responsibilities and skill levels.
-        </p>
-      </div>
-    )
-  },
-
-  {
-    question: "What package tiers are available for ServiceNow App Engine?",
-    answer: (
-      <div>
-        <p className="mb-3">ServiceNow App Engine offers two main package tiers to meet different organizational development needs:</p>
-        <div className="space-y-3">
-          <div>
-            <h4 className="font-semibold">App Engine Starter:</h4>
-            <ul className="list-disc ml-6 text-sm space-y-1">
-              <li>ServiceNow Studio, Mobile App Builder, Guided Application Creator, and Delegated Development</li>
-              <li>Form Designer, Service Portal Designer, UI Builder, and Automated Testing Framework</li>
-              <li>Essential capabilities for businesses growing and evolving workflows with custom applications</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="font-semibold">App Engine Enterprise:</h4>
-            <ul className="list-disc ml-6 text-sm space-y-1">
-              <li>All Starter features plus Creator Studio, App Engine Studio, and App Engine Management Center</li>
-              <li>Process Mining, Performance Analytics, Virtual Agent, Predictive Intelligence, and Mobile Publishing</li>
-              <li>Comprehensive solution for businesses innovating at enterprise scale with advanced development capabilities</li>
-            </ul>
-          </div>
-        </div>
-        <p className="mt-3 text-green-600">
-          <strong>Note:</strong> App Engine Management Center is available exclusively through standalone App Engine product purchase with flexible governance options.
-        </p>
-      </div>
-    )
-  },
-
-  {
-    question: "How much does ServiceNow App Engine implementation cost?",
-    answer: (
-      <div>
-        <p className="mb-3">
-          Implementation costs depend on organization size, development complexity, and automation requirements:
-        </p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>App Engine Starter Implementation:</strong> Starting from $150K - includes basic low-code development, workflow automation, and mobile app building for mid-size organizations</li>
-          <li><strong>App Engine Enterprise Implementation:</strong> $250K-$400K - includes Creator Studio, advanced analytics, and comprehensive app development for large enterprises</li>
-          <li><strong>App Engine Complete Suite:</strong> $500K+ - comprehensive solution with AI agents, process mining, and enterprise-scale development capabilities</li>
-        </ul>
-        <p className="mt-3">
-          ROI typically achieved within 4-8 months through development acceleration (60%), process automation (45%), and operational efficiency (40%). Low-code development can reduce traditional development time by 70%.
-        </p>
-      </div>
-    ),
-    links: [
-      { text: "Get Custom Quote", url: "https://meetings.hubspot.com/ifbash" },
-      { text: "App Engine ROI Calculator", url: "/app-engine-roi-calculator" }
-    ]
-  },
-
-  {
-    question: "What is the typical implementation timeline for ServiceNow App Engine?",
-    answer: (
-      <div>
-        <p className="mb-3">Implementation timeline depends on development program maturity and automation scope:</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>App Engine Starter:</strong> 6-10 weeks for basic low-code development, workflow automation, and mobile app building capabilities</li>
-          <li><strong>App Engine Enterprise:</strong> 10-16 weeks including Creator Studio, advanced analytics, process mining, and comprehensive development tools</li>
-          <li><strong>App Engine Complete Suite:</strong> 16-22 weeks for complete solution with AI agents, enterprise integrations, and advanced automation capabilities</li>
-        </ul>
-        <p className="mt-3">
-          Our methodology: Development Assessment & Use Case Analysis (1-2 weeks) → Core App Engine Platform & Studio Configuration (3-5 weeks) → Advanced Features & AI Integration (2-4 weeks) → Process Automation & Analytics Setup (2-4 weeks) → Go-Live & Developer Training (2-3 weeks).
-        </p>
-      </div>
-    )
-  },
-
-  {
-    question: "How does App Engine integrate with existing development tools and enterprise systems?",
-    answer: (
-      <div>
-        <p className="mb-3">App Engine provides extensive integration capabilities for comprehensive development ecosystems:</p>
-        <ul className="list-disc ml-6 space-y-2">
-          <li><strong>Development Tools:</strong> Integration with Git, Jenkins, and other CI/CD platforms for comprehensive development lifecycle management</li>
-          <li><strong>Enterprise Systems:</strong> Integration Hub enables connection with ERP, CRM, and other business systems for unified workflow automation</li>
-          <li><strong>Cloud Platforms:</strong> Native integration with AWS, Azure, and Google Cloud for hybrid and multi-cloud development scenarios</li>
-          <li><strong>API Management:</strong> Comprehensive REST and SOAP API support for custom integrations and third-party system connectivity</li>
-          <li><strong>Mobile Platforms:</strong> Mobile App Builder with native iOS and Android capabilities for comprehensive mobile development</li>
-          <li><strong>Analytics Platforms:</strong> Integration with BI tools and data warehouses for comprehensive analytics and reporting capabilities</li>
-          <li><strong>Collaboration Tools:</strong> Integration with Microsoft Teams, Slack, and other platforms for developer collaboration and workflow notifications</li>
-        </ul>
-        <p className="mt-3 text-green-600">
-          <strong>Result:</strong> Organizations achieve unified low-code development while maintaining existing development tool investments and enterprise system connectivity.
-        </p>
-      </div>
-    )
-  }
-];
-
-// Case Studies (Based on App Engine success stories)
-const caseStudies = [
-  {
-    title: "Desjardins Accelerates Development with 3x Faster ServiceNow App Creation",
-    client: "Desjardins Group",
-    industry: "Financial Services",
-    challenge: "Financial services cooperative requiring accelerated development capabilities with reduced onboarding time and enhanced developer productivity across digital transformation initiatives",
-    solution: "ServiceNow App Engine with comprehensive low-code development, Now Assist for Creator, and financial services-specific application development optimization",
-    results: [
-      { metric: "3x", description: "Faster development" },
-      { metric: "10 Days", description: "Developer onboarding" },
-      { metric: "Development", description: "Speed accelerated" },
-      { metric: "Financial", description: "Services optimized" }
-    ],
-    testimonial: "ServiceNow development is three times faster than traditional application development...New developers get up to speed in 10 days or less.",
-    executive: "Jean-Pierre Thibert, Shared Services Director",
-    logo: "/images/clients/desjardins-logo.png"
-  },
-  {
-    title: "Ndlovu Care Group Digitizes Clinical Healthcare with Low-Code Applications",
-    client: "Ndlovu Care Group",
-    industry: "Healthcare",
-    challenge: "Healthcare organization requiring digitization of clinical healthcare processes with improved outcomes in remote communities and transformative patient care",
-    solution: "ServiceNow App Engine with healthcare-specific low-code applications, clinical workflow automation, and remote healthcare service delivery optimization",
-    results: [
-      { metric: "Clinical", description: "Healthcare digitized" },
-      { metric: "Remote", description: "Communities served" },
-      { metric: "Patient", description: "Outcomes improved" },
-      { metric: "Healthcare", description: "Lives transformed" }
-    ],
-    testimonial: "ServiceNow App Engine enabled us to digitize clinical healthcare processes, improving outcomes in remote communities and transforming lives through technology.",
-    executive: "Clinical Operations Director",
-    logo: "/images/clients/ndlovu-logo.png"
-  },
-  {
-    title: "Bayer Frees Legal and Compliance Teams from Manual Tasks with App Engine Automation",
-    client: "Bayer AG",
-    industry: "Life Sciences",
-    challenge: "Global life sciences company requiring automation of repetitive manual tasks for legal and compliance teams with enhanced operational efficiency",
-    solution: "ServiceNow App Engine with legal compliance automation, workflow optimization, and life sciences-specific process automation for enhanced team productivity",
-    results: [
-      { metric: "Legal", description: "Tasks automated" },
-      { metric: "Compliance", description: "Teams freed" },
-      { metric: "Manual", description: "Work eliminated" },
-      { metric: "Life Sciences", description: "Operations optimized" }
-    ],
-    testimonial: "ServiceNow App Engine freed our legal and compliance teams from repetitive manual tasks, enabling them to focus on strategic initiatives and value-added activities.",
-    executive: "Head of Digital Operations",
-    logo: "/images/clients/bayer-logo.png"
-  },
-  {
-    title: "NTT Data Unlocks Efficiency with Low-Code Apps Closing Cases 65% Faster",
-    client: "NTT Data Corporation",
-    industry: "Technology Services",
-    challenge: "Global technology services requiring enhanced operational efficiency with faster case resolution and improved service delivery through low-code automation",
-    solution: "ServiceNow App Engine with comprehensive low-code applications, case management automation, and technology services workflow optimization",
-    results: [
-      { metric: "65%", description: "Faster case closure" },
-      { metric: "Low-Code", description: "Apps deployed" },
-      { metric: "Operational", description: "Efficiency unlocked" },
-      { metric: "Technology", description: "Services enhanced" }
-    ],
-    testimonial: "ServiceNow App Engine with low-code applications unlocked operational efficiency, enabling us to close cases 65% faster and enhance our service delivery capabilities.",
-    executive: "VP of Digital Transformation",
-    logo: "/images/clients/ntt-data-logo.png"
-  }
-];
-
-return (
-  <>
-    <Head>
-      <title>App Engine - ServiceNow Low-Code Development Portfolio | ifBash</title>
-      <meta
-        name="description"
-        content="Reimagine every process as a digital workflow. With ServiceNow App Engine, you can build and extend workflow apps to work the way you work."
-      />
-      <meta name="robots" content="index, follow" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
-    </Head>
-
-    {/* Fixed Chat Button */}
-    <div className="fixed right-4 sm:right-6 bottom-6 sm:bottom-8 z-50">
-      <a href="/get-started"
-        className="relative group min-w-[56px] min-h-[56px] sm:min-w-[64px] sm:min-h-[64px] rounded-full bg-gradient-to-r from-purple-600 to-pink-600 flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300 touch-manipulation focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 active:scale-95"
-        aria-label="Discuss App Engine Implementation"
-      >
-        <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />
-        <span className="absolute right-[calc(100%+12px)] px-3 py-2 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 whitespace-nowrap text-sm text-gray-800 min-w-[180px] text-center">
-          Discuss App Engine Implementation
-        </span>
-        <div className="absolute inset-0 rounded-full animate-ping bg-purple-600 opacity-20"></div>
-      </a>
-    </div>
-
-    <div className="min-h-screen bg-gray-50 width-sm-fix overflow-x-hidden max-w-[100vw]">
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-purple-900 via-pink-900 to-rose-900">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-          <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-bl from-purple-700/20 via-transparent to-transparent animate-pulse-slow" />
-          <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-pink-700/20 via-transparent to-transparent animate-pulse-slow delay-75" />
-          
-          {/* Floating Elements */}
-          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-float opacity-60" />
-          <div className="absolute top-3/4 right-1/4 w-3 h-3 bg-pink-400 rounded-full animate-float delay-150 opacity-40" />
-          <div className="absolute bottom-1/4 left-3/4 w-1 h-1 bg-rose-400 rounded-full animate-float delay-300 opacity-80" />
-        </div>
-
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="text-white space-y-8">
-              {/* ServiceNow Official Badge */}
-              <div className="flex items-center justify-start gap-2 sm:gap-4 mb-6 sm:mb-8 flex-wrap px-2 sm:px-0">
-                <Badge className="bg-gradient-to-r from-purple-500/90 to-pink-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-purple-600 hover:to-pink-700 transition-all duration-300">
-                  <Award className="w-3 h-3 mr-1" />
-                  ServiceNow Certified
-                </Badge>
-                <Badge className="bg-gradient-to-r from-pink-500/90 to-rose-600/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-pink-600 hover:to-rose-700 transition-all duration-300">
-                  <Sparkles className="w-3 h-3 mr-1" />
-                  AI-Powered Development
-                </Badge>
-                <Badge className="bg-gradient-to-r from-rose-500/90 to-red-500/90 backdrop-blur-sm text-white border-transparent text-[10px] sm:text-sm whitespace-nowrap py-1 px-2 sm:px-3 hover:from-rose-600 hover:to-red-600 transition-all duration-300">
-                  <Trophy className="w-3 h-3 mr-1" />
-                  Low-Code Platform
-                </Badge>
-              </div>
-
-              <h1 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-light leading-tight">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-rose-400 font-semibold">
-                  App
-                </span>
-                <span className="block text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl mt-3 sm:mt-4 font-light">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-red-400 font-semibold">
-                    Engine
-                  </span>
-                </span>
-              </h1>
-
-              <p className="text-sm sm:text-lg md:text-xl text-green-100 max-w-[280px] sm:max-w-2xl leading-relaxed">
-                <span className="font-semibold text-pink-300">Reimagine every process as a digital workflow.</span>{' '}
-                <span className="font-semibold text-rose-300">Move beyond static automation to scale development teams</span> and create intelligent apps with powerful AI agents.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-4 sm:px-0">
-                <a href="/get-started"
-                  className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 active:scale-95 overflow-hidden bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 hover:from-purple-700 hover:via-pink-700 hover:to-rose-700"
-                  style={{
-                    boxShadow: "0 20px 40px rgba(168, 85, 247, 0.4)"
-                  }}
-                >
-                  <span className="absolute inset-0 bg-gradient-to-r from-purple-400/20 via-pink-400/20 to-rose-400/20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                  <span className="relative flex items-center justify-center">
-                    Get App Engine Implementation
-                    <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                  </span>
-                </a>
-                
-                <button
-onClick={() => {
-  if (typeof document !== 'undefined') {
-    const element = document.getElementById('benefits');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-}}
-className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-semibold text-white rounded-xl transition-all duration-300 relative touch-manipulation focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 active:scale-95 overflow-hidden border-2 border-gray-300/30 hover:border-gray-300/50 backdrop-blur-sm"
->
-<span className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/5 to-white/0 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></span>
-<span className="relative flex items-center justify-center">
-  <Eye className="mr-2 h-4 w-4 sm:h-5 sm:w-5 transform group-hover:scale-110 transition-transform duration-300 text-cyan-400 group-hover:text-cyan-300" />
-  Watch Video
-</span>
-</button>
-
-              </div>
-
-              {/* Low-Code Platform Badge */}
-              <div className="bg-gradient-to-r from-purple-500/15 to-pink-500/15 backdrop-blur-sm rounded-xl p-4 border border-purple-300/20">
-                <div className="flex items-center gap-3">
-                  <Code className="h-8 w-8 text-purple-300" />
-                  <div>
-                    <div className="text-lg font-bold text-white">AI-Powered Low-Code Development Platform</div>
-                    <div className="text-sm text-purple-200">Build intelligent apps with autonomous AI agents</div>
-                  </div>
-                </div>
-              </div>
+      {/* HERO */}
+      <section className="relative bg-white overflow-hidden flex items-center min-h-[calc(100vh-70px)]">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, #7c3aed 1px, transparent 1px)`, backgroundSize: '28px 28px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto py-12 sm:py-14">
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="inline-block w-8 h-px bg-indigo-600" />
+              <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">AI & Automation</span>
             </div>
-
-            {/* Right Side Visual */}
-            <div className="relative lg:h-[600px]">
-              <div className="relative z-20 bg-gradient-to-br from-purple-500/15 to-pink-500/15 rounded-3xl p-6 sm:p-8 backdrop-blur-xl border border-gray-300/20 hover:border-gray-300/30 transition-all duration-500">
-                <div className="aspect-video w-full rounded-xl overflow-hidden mb-6">
-                  <PlaceholderImage
-                    title="ServiceNow App Engine Platform"
-                    className="w-full h-full object-cover"
-                    gradient="from-purple-600 to-pink-600"
-                  />
-                </div>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                    <div className="text-2xl font-bold text-white mb-1">Low-Code</div>
-                    <div className="text-xs text-purple-200">Development</div>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 text-center">
-                    <div className="text-2xl font-bold text-white mb-1">AI</div>
-                    <div className="text-xs text-pink-200">Agents</div>
-                  </div>
-                </div>
-                
-                {/* Floating Icons */}
-                <div className="absolute -top-6 -right-6 sm:-top-10 sm:-right-10 w-20 h-20 sm:w-28 sm:h-28 animate-float">
-                  <div className="w-full h-full bg-gradient-to-r from-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Code className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                  </div>
-                </div>
-                <div className="absolute -bottom-6 -left-6 sm:-bottom-8 sm:-left-10 w-20 h-20 sm:w-28 sm:h-28 animate-float delay-150">
-                  <div className="w-full h-full bg-gradient-to-r from-pink-600 to-rose-600 rounded-xl flex items-center justify-center shadow-lg">
-                    <Bot className="h-10 w-10 sm:h-14 sm:w-14 text-white" />
-                  </div>
-                </div>
-              </div>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.06] tracking-tight mb-6">
+              Build anything.<br /><span class="text-violet-600">Deploy fast.</span>
+            </h1>
+            <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-xl">
+              Reimagine every process as a digital workflow. <span class="text-gray-900 font-semibold">Low-code, high velocity.</span> AI-powered development that scales across your enterprise.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: '0 8px 24px rgba(79,70,229,0.35)' }}>Get a Custom Strategy <ArrowRight className="h-4 w-4" /></Link>
+              <Link href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-indigo-400 text-gray-600 hover:text-indigo-600 font-semibold rounded-xl transition-colors text-sm">See Client Results</Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section id="benefits" className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600">
-                Transform Development
-              </span>
-              <br />
-              <span className="text-gray-800">
-                with AI-Powered Apps
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Use AI to create better experiences, enhance workflows, and scale development teams with intelligent automation and autonomous agents.
-            </p>
+      {/* KEY CAPABILITIES */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#f5f3ff' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, #7c3aed 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
+          <div className="mb-12">
+            <div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-indigo-600" /><span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">Key Capabilities</span></div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Everything you need. Nothing you don&apos;t.</h2>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-purple-200 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${benefit.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                    <benefit.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800 capitalize">
-                    {benefit.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {benefit.description}
-                  </p>
-
-                  <div className="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-4 border border-purple-200">
-                    <div className="text-sm font-semibold text-purple-700 mb-1">Key Value</div>
-                    <div className="text-purple-600">{benefit.stats}</div>
-                  </div>
+          <div data-reveal="capabilities" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 transition-all duration-700 ${revealed.capabilities ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+            {capabilities.map(({ icon: Icon, title, desc, outcomes }, i) => (
+              <div key={title} className="group p-6 rounded-2xl border border-indigo-200 bg-white transition-all hover:shadow-md" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style={{ background: `${A}12` }}><Icon className="h-5 w-5 text-indigo-600" /></div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">{desc}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {outcomes.map((o, j) => (
+                    <span key={j} className="inline-flex items-center gap-1 text-[11px] font-medium rounded-full px-2.5 py-1" style={{ color: A, background: `${A}08`, border: `1px solid ${A}18` }}>
+                      <CheckCircle className="h-3 w-3" /> {o}
+                    </span>
+                  ))}
                 </div>
               </div>
             ))}
@@ -950,535 +109,92 @@ className="group w-full sm:w-auto min-h-[48px] sm:min-h-[56px] px-4 sm:px-8 py-3
         </div>
       </section>
 
-      {/* Key Features Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 via-rose-600 to-red-600">
-                Key App Engine Features
-              </span>
-              <br />
-              <span className="text-gray-800">
-                Complete Development Platform
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Comprehensive low-code development features from AI-powered assistance to autonomous agents with intelligent workflow automation.
-            </p>
+      {/* HOW WE DELIVER */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="text-center mb-12"><h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">How We Deliver</h2><p className="text-gray-500 max-w-xl mx-auto">Proven methodology. Predictable outcomes.</p></div>
+          <div className="grid md:grid-cols-4 gap-6 relative">
+            <div className="hidden md:block absolute top-10 left-0 w-full h-px bg-gradient-to-r from-transparent via-indigo-200 to-transparent z-0" />
+            {methodology.map(({ phase, duration, icon: Icon, items }) => (
+              <div key={phase} className="relative z-10 group text-center">
+                <div className="w-14 h-14 mx-auto mb-3 rounded-2xl bg-white border-2 border-indigo-100 group-hover:border-indigo-300 flex items-center justify-center transition-all shadow-sm group-hover:shadow-md"><Icon className="h-6 w-6 text-indigo-600" /></div>
+                <div className="text-xs font-bold text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full inline-block mb-3">{duration}</div>
+                <h3 className="font-bold text-gray-900 mb-3">{phase}</h3>
+                <ul className="space-y-2 text-left">{items.map(item => <li key={item} className="flex items-start gap-2 text-xs text-gray-600"><div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-indigo-400 shrink-0" />{item}</li>)}</ul>
+              </div>
+            ))}
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
-            {keyFeatures.map((feature, index) => (
-              <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-pink-200 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-500/5 to-rose-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${feature.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                    <feature.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    {feature.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {feature.description}
-                  </p>
-
+      {/* CASE STUDIES */}
+      <section className="py-16 lg:py-20" style={{ background: '#f5f3ff' }}>
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="mb-8"><div className="flex items-center gap-3 mb-3"><span className="inline-block w-8 h-px bg-indigo-600" /><span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">Proof in Practice</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Real outcomes. Real clients.</h2></div>
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl"><div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentCase * 100}%)` }}>{caseStudies.map((cs, i) => (
+              <div key={i} className="w-full shrink-0"><div className="bg-white border border-gray-200 rounded-2xl p-6 lg:p-8">
+                <div className="grid lg:grid-cols-2 gap-8">
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Key Features:</h4>
-                    <ul className="space-y-2">
-                      {feature.capabilities.map((capability, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          {capability}
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="flex items-center gap-3 mb-4"><span className="text-xs font-semibold text-indigo-600 bg-indigo-50 rounded-full px-3 py-1">{cs.industry}</span><span className="text-xs text-gray-500">{cs.timeline}</span></div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-5">{cs.client}</h3>
+                    <div className="space-y-4"><div><div className="text-xs font-semibold text-red-500 uppercase tracking-widest mb-1">Challenge</div><p className="text-sm text-gray-600">{cs.challenge}</p></div><div><div className="text-xs font-semibold text-indigo-500 uppercase tracking-widest mb-1">Solution</div><p className="text-sm text-gray-600">{cs.solution}</p></div></div>
+                    <blockquote className="mt-5 pl-4 border-l-2 border-indigo-200 text-sm text-gray-600 italic">&ldquo;{cs.quote}&rdquo;<span className="block text-xs text-gray-400 mt-1 not-italic">— {cs.author}</span></blockquote>
                   </div>
+                  <div className="rounded-2xl border border-gray-100 overflow-hidden" style={{ background: '#f8faff' }}><div className="px-5 py-3 bg-white border-b border-gray-100 flex items-center justify-between"><span className="text-sm font-semibold text-gray-800">Outcomes</span><span className="text-xs text-green-600 bg-green-50 px-2 py-0.5 rounded-full">Verified</span></div><div className="p-5 grid gap-3">{cs.results.map((r, j) => <div key={j} className="flex items-center gap-3 bg-white rounded-xl p-3 border border-gray-100"><CheckCircle className="h-4 w-4 text-green-500 shrink-0" /><span className="text-sm font-semibold text-gray-800">{r}</span></div>)}</div></div>
                 </div>
-              </div>
-            ))}
+              </div></div>
+            ))}</div></div>
+            <div className="flex items-center justify-between mt-5"><button onClick={() => setCurrentCase(p => (p - 1 + caseStudies.length) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-indigo-400 flex items-center justify-center transition-colors"><ChevronLeft className="h-5 w-5 text-gray-500" /></button><div className="flex gap-2">{caseStudies.map((_, i) => <button key={i} onClick={() => setCurrentCase(i)} className={`rounded-full transition-all ${i === currentCase ? 'w-8 h-2 bg-indigo-600' : 'w-2 h-2 bg-gray-300'}`} />)}</div><button onClick={() => setCurrentCase(p => (p + 1) % caseStudies.length)} className="w-10 h-10 rounded-full border border-gray-200 hover:border-indigo-400 flex items-center justify-center transition-colors"><ChevronRight className="h-5 w-5 text-gray-500" /></button></div>
           </div>
         </div>
       </section>
 
-      {/* Role-Based Applications Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-red-600 to-orange-600">
-                Role-Based Applications
-              </span>
-              <br />
-              <span className="text-gray-800">
-                Development Professional Focus
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Tailored applications for different development roles, from app delivery leadership to business technologists and platform ownership.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-8">
-            {roleBasedApps.map((roleApp, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-rose-200 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-rose-500/5 to-red-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${roleApp.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                    <roleApp.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    {roleApp.role}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {roleApp.description}
-                  </p>
-
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-3">Key Applications:</h4>
-                    <ul className="space-y-2">
-                      {roleApp.applications.map((app, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          {app}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Package Tiers Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-orange-600 to-amber-600">
-                App Engine Package Tiers
-              </span>
-              <br />
-              <span className="text-gray-800">
-                Scalable Development Solutions
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Choose the App Engine package that meets your development needs, from starter low-code capabilities to enterprise-scale AI-powered automation.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-3 sm:gap-8">
-            {packageTiers.map((tier, index) => (
-              <div key={index} className="group bg-gradient-to-br from-gray-50 to-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-red-200 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-orange-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${tier.color} flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl`}>
-                    <Package className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    {tier.name}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {tier.description}
-                  </p>
-
-                  <div className="mb-6">
-                    <h4 className="font-semibold text-gray-800 mb-3">Package Features:</h4>
-                    <ul className="space-y-2 max-h-64 overflow-y-auto">
-                      {tier.features.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-600">
-                          <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-red-50 to-orange-50 rounded-xl p-4 border border-red-200">
-                    <div className="text-sm font-semibold text-red-700 mb-1">Package Type</div>
-                    <div className="text-red-600 text-lg font-bold">{tier.price}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Advanced Capabilities Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600">
-                Advanced Capabilities
-              </span>
-              <br />
-              <span className="text-gray-800">
-                Enterprise Development Features
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Advanced development capabilities including process mining, predictive intelligence, and comprehensive mobile app building.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-8">
-            {advancedCapabilities.map((capability, index) => (
-              <div key={index} className="group bg-white rounded-2xl p-3 sm:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-orange-200 transform hover:-translate-y-2">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center mb-6 transform group-hover:scale-110 transition-transform duration-300 shadow-xl">
-                    <capability.icon className="h-8 w-8 text-white" />
-                  </div>
-                  
-                  <h3 className="text-2xl font-bold mb-4 text-gray-800">
-                    {capability.title}
-                  </h3>
-                  
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {capability.description}
-                  </p>
-
-                  <div className="bg-gradient-to-r from-orange-50 to-amber-50 rounded-xl p-4 border border-orange-200">
-                    <div className="text-sm font-semibold text-orange-700 mb-1">Key Benefit</div>
-                    <div className="text-orange-600 text-lg font-bold">{capability.benefit}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto px-2 sm:px-0">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-yellow-600 to-green-600">
-                Frequently Asked Questions
-              </span>
-              <br />
-              <span className="text-gray-800">
-                About App Engine
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-              Get answers to the most common questions about App Engine implementation, low-code development, and AI-powered automation.
-            </p>
-          </div>
-
+      {/* WHY IFBASH */}
+      <section className="py-16 lg:py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, #a78bfa 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-4">
-              {faqData.map((faq, index) => (
-                <div key={index} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50/50 transition-colors duration-200 focus:outline-none focus:bg-gray-50/50"
-                  >
-                    <h3 className="text-lg font-semibold text-gray-800 pr-4 leading-relaxed">{faq.question}</h3>
-                    <div className={`transform transition-transform duration-300 flex-shrink-0 ${
-                      activeFAQ === index ? 'rotate-180' : 'rotate-0'
-                    }`}>
-                      <ChevronDown className="h-5 w-5 text-gray-500" />
-                    </div>
-                  </button>
-                  
-                  <div 
-                    className={`transition-all duration-300 ease-in-out ${
-                      activeFAQ === index ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'
-                    } overflow-hidden`}
-                  >
-                    <div className="px-6 pb-6">
-                      <div className="w-full h-px bg-gradient-to-r from-amber-500 to-yellow-500 mb-4" />
-                      <div className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                        {faq.links && (
-                          <div className="mt-4 flex flex-wrap gap-2">
-                            {faq.links.map((link, linkIndex) => (
-                              <a
-                                key={linkIndex}
-                                href={link.url}
-                                className="inline-flex items-center text-amber-600 hover:text-amber-800 text-sm font-medium transition-colors"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {link.text}
-                                <ExternalLink className="ml-1 h-3 w-3" />
-                              </a>
-                            ))}
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest mb-8 border" style={{ backgroundColor: `${A}08`, borderColor: `${A}33`, color: '#a78bfa' }}>Why ifBash</div>
+              <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.06] tracking-tight mb-6">We don't just build apps.<br /><span style={{ color: '#a78bfa' }}>We build capabilities.</span></h2>
+              <p className="text-slate-400 text-base lg:text-lg max-w-2xl mx-auto leading-relaxed mb-12">We start with your processes and your people, not the platform.</p>
+            </div>
+            <div data-reveal="whyifbash" className={`grid sm:grid-cols-3 gap-5 max-w-3xl mx-auto transition-all duration-700 ${revealed.whyifbash ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+              {[
+                  { icon: ClipboardCheck, stat: 'Process first', desc: 'We map your workflows before writing a single line of configuration. Every app solves a real problem.' },
+                  { icon: Clock, stat: 'Speed + quality', desc: 'First prototype in week 2. Production deployment in weeks. Not months.' },
+                  { icon: Shield, stat: 'We stay', desc: '90-day hypercare minimum. We iterate until every app delivers measurable value.' }
+              ].map(({ icon: Icon, stat, desc }) => (
+                <div key={stat} className="rounded-2xl border p-6 text-center hover:border-indigo-500/30 transition-all" style={{ borderColor: `${A}26`, background: `${A}0A` }}><div className="w-10 h-10 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: `${A}18` }}><Icon className="h-5 w-5 text-indigo-400" /></div><div className="text-sm font-bold text-white mb-2">{stat}</div><p className="text-xs text-slate-400 leading-relaxed">{desc}</p></div>
               ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-bl from-orange-700/20 via-transparent to-transparent" />
-          <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-tr from-yellow-700/20 via-transparent to-transparent" />
-        </div>
-
-        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-orange-400 to-red-400">
-                ServiceNow Case Studies
-              </span>
-              <br />
-              <span className="text-white">
-                Real App Engine Success Stories
-              </span>
-            </h2>
-            <p className="text-lg md:text-xl text-yellow-100 max-w-3xl mx-auto leading-relaxed">
-              See how organizations transformed their development capabilities with AI-powered App Engine solutions and low-code automation platforms.
-            </p>
-          </div>
-
-          <div className="relative max-w-6xl mx-auto">
-            <div className="overflow-hidden rounded-2xl">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
-                {caseStudies.map((study, index) => (
-                  <div key={index} className="w-full flex-shrink-0">
-                    <div className="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-2xl p-4 sm:p-8 md:p-12 border border-white/20">
-                      <div className="grid lg:grid-cols-2 gap-8">
-                        <div>
-                          <div className="flex items-center mb-6">
-                            <Badge className="bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-200 border border-yellow-400/30 mr-3">
-                              {study.industry}
-                            </Badge>
-                            <Badge className="bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-200 border border-orange-400/30">
-                              Case Study
-                            </Badge>
-                          </div>
-
-                          <h3 className="text-2xl md:text-3xl font-bold mb-4">{study.client}</h3>
-                          
-                          <div className="space-y-4 mb-6">
-                            <div>
-                              <h4 className="text-lg font-semibold text-red-300 mb-2">Challenge</h4>
-                              <p className="text-gray-200 leading-relaxed">{study.challenge}</p>
-                            </div>
-                            
-                            <div>
-                              <h4 className="text-lg font-semibold text-red-300 mb-2">Solution</h4>
-                              <p className="text-gray-200 leading-relaxed">{study.solution}</p>
-                            </div>
-                          </div>
-
-                          <div className="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-xl p-4 border-l-4 border-yellow-400">
-                            <Quote className="h-6 w-6 text-yellow-400 mb-2" />
-                            <p className="text-gray-100 italic leading-relaxed mb-3">"{study.testimonial}"</p>
-                            <p className="text-sm font-semibold text-yellow-300">— {study.executive}</p>
-                          </div>
-                        </div>
-
-                        <div>
-                          <h4 className="text-lg font-semibold text-yellow-300 mb-4">Results Achieved</h4>
-                          <div className="grid grid-cols-2 gap-4">
-                            {study.results.map((result, idx) => (
-                              <div key={idx} className="bg-gradient-to-r from-white/10 to-white/5 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
-                                <div className="text-2xl font-bold text-yellow-400 mb-1">{result.metric}</div>
-                                <div className="text-xs text-gray-300">{result.description}</div>
-                              </div>
-                            ))}
-                          </div>
-
-                          <div className="mt-6 flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div className="flex text-yellow-400 mr-3">
-                                {[...Array(5)].map((_, i) => (
-                                  <Star key={i} className="h-5 w-5 fill-current" />
-                                ))}
-                              </div>
-                              <span className="text-yellow-200 text-sm">(5.0/5.0)</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex justify-center space-x-2 mt-8">
-              {caseStudies.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial 
-                      ? 'bg-yellow-400 w-8' 
-                      : 'bg-white/30 hover:bg-white/50'
-                  }`}
-                />
-              ))}
-            </div>
+      {/* FAQ */}
+      <section className="py-16 lg:py-20 bg-white">
+        <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div><div className="flex items-center gap-3 mb-3"><span className="inline-block w-8 h-px bg-indigo-600" /><span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">FAQ</span></div><h2 className="text-3xl font-bold text-gray-900 mb-3">Common questions.</h2><Link href="/get-started" className="inline-flex items-center gap-2 px-5 py-3 text-white font-semibold rounded-xl text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 6px 20px ${A}4d` }}>Ask us directly <ArrowRight className="h-4 w-4" /></Link></div>
+            <div className="lg:col-span-2 space-y-2">{faqs.map((faq, i) => (<div key={i} className="border border-gray-200 hover:border-indigo-200 rounded-xl overflow-hidden transition-colors"><button onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full px-5 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"><span className="font-semibold text-gray-800 pr-4 text-sm">{faq.q}</span><ChevronDown className={`h-4 w-4 text-indigo-500 shrink-0 transition-transform duration-200 ${openFaq === i ? 'rotate-180' : ''}`} /></button>{openFaq === i && <div className="px-5 pb-4 border-t border-gray-100 pt-3"><p className="text-gray-600 text-sm leading-relaxed">{faq.a}</p></div>}</div>))}</div>
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-4 sm:py-16 md:py-24 w-full">
-        <div className="w-[92%] sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
-          <div className="bg-gradient-to-r from-yellow-600 via-orange-600 to-red-600 rounded-3xl p-8 md:p-16 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-            <div className="relative z-10">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                Ready to Transform App Development?
-              </h2>
-              <p className="text-lg md:text-xl text-yellow-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Connect with our ServiceNow experts to implement comprehensive App Engine with AI-powered low-code development and autonomous agent capabilities.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                <a href="/get-started"
-                  className="px-8 py-4 bg-white text-yellow-600 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg"
-                >
-                  Contact App Engine Experts
-                  <ArrowRight className="ml-2 h-5 w-5 inline" />
-                </a>
-                <button className="px-8 py-4 border-2 border-white/50 text-white rounded-xl font-semibold hover:bg-white/10 transition-all duration-300 backdrop-blur-sm">
-                  <Download className="mr-2 h-5 w-5 inline" />
-                  Read Brief
-                </button>
-              </div>
-
-              {/* Contact Information */}
-              <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <Mail className="h-6 w-6 text-yellow-200 mx-auto mb-2" />
-                  <p className="text-white text-sm font-medium">app-engine-experts@ifbash.com</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <Phone className="h-6 w-6 text-orange-200 mx-auto mb-2" />
-                  <p className="text-white text-sm font-medium">+91-XXXX-XXXXXX</p>
-                </div>
-                <div className="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/20">
-                  <Calendar className="h-6 w-6 text-red-200 mx-auto mb-2" />
-                  <p className="text-white text-sm font-medium">Watch Demo</p>
-                </div>
-              </div>
-            </div>
+      {/* CTA */}
+      <section className="py-16 relative overflow-hidden" style={{ background: '#07071a' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: `radial-gradient(circle, #a78bfa 1px, transparent 1px)`, backgroundSize: '32px 32px' }} />
+        <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto text-center">
+          <div className="max-w-xl mx-auto rounded-3xl border p-8 sm:p-10 text-center" style={{ borderColor: `${A}4d`, background: `linear-gradient(135deg, ${A}14, ${A}07)` }}>
+            <div className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold mb-5 border" style={{ backgroundColor: `${A}18`, borderColor: `${A}4d`, color: '#a78bfa' }}><span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />Accepting new engagements</div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-3">Ready to build your first custom app?</h2>
+            <p className="text-slate-400 text-sm max-w-sm mx-auto mb-6">Tell us about the process you want to digitize. We'll scope your App Engine project in 48 hours.</p>
+            <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 28px ${A}4d` }}>Free Strategy Call <ArrowRight className="h-4 w-4" /></Link>
           </div>
         </div>
       </section>
-    </div>
-
-    <style jsx>{`
-      @keyframes float {
-        0%, 100% { transform: translateY(0px); }
-        50% { transform: translateY(-10px); }
-      }
-      
-      @keyframes pulse-slow {
-        0%, 100% { opacity: 0.3; }
-        50% { opacity: 0.1; }
-      }
-
-      .animate-float {
-        animation: float 3s ease-in-out infinite;
-      }
-      
-      .animate-pulse-slow {
-        animation: pulse-slow 4s ease-in-out infinite;
-      }
-
-      .delay-75 {
-        animation-delay: 0.75s;
-      }
-
-      .delay-150 {
-        animation-delay: 1.5s;
-      }
-
-      .delay-300 {
-        animation-delay: 3s;
-      }
-
-      .bg-grid-pattern {
-        background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-        background-size: 50px 50px;
-      }
-
-      /* Prevent horizontal scroll */
-      :root {
-        overflow-x: hidden;
-        max-width: 100vw;
-      }
-
-      body {
-        overflow-x: hidden;
-        max-width: 100vw;
-      }
-
-      /* Mobile optimizations */
-      @media (max-width: 640px) {
-        .container {
-          padding-left: 0.5rem;
-          padding-right: 0.5rem;
-        }
-        
-        .text-content {
-          font-size: 0.875rem;
-          line-height: 1.4;
-        }
-        
-        .card {
-          padding: 0.75rem;
-        }
-        
-        .grid-gap {
-          gap: 0.5rem;
-        }
-
-        /* Prevent text overflow */
-        h1, h2, h3, p {
-          word-wrap: break-word;
-          overflow-wrap: break-word;
-        }
-
-        /* Adjust card layouts */
-        .card-grid {
-          grid-template-columns: 1fr;
-        }
-
-        /* Reduce padding */
-        .section-padding {
-          padding: 1rem;
-        }
-
-        /* Adjust image sizes */
-        img {
-          max-width: 100%;
-          height: auto;
-        }
-      }
-    `}</style>
-  </>
-);
+    </>
+  );
 }

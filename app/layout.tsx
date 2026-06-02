@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LenisProvider } from '@/components/lenis-provider';
@@ -58,6 +59,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body className={`${inter.className} h-full`}>
+        <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js" data-pid="fBDjy1VonTY1EGcO" data-version="062024" strategy="afterInteractive" />
         <div className="relative min-h-screen flex flex-col">
           <LenisProvider />
           <div className="sticky top-0 z-50">

@@ -114,30 +114,26 @@ export default function HealthcareProviders() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map(x => ({ '@type': 'Question', name: x.q, acceptedAnswer: { '@type': 'Answer', text: x.a } })) }) }} />
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden flex items-center" style={{ background: '#0d0406', minHeight: 'calc(100vh - 56px)' }}>
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #fb7185 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 80% 60% at 20% 10%, rgba(225,29,72,0.14) 0%, transparent 60%)' }} />
-        {/* Subtle decorative orbs */}
-        <div className="absolute top-1/4 right-[15%] w-[300px] h-[300px] rounded-full pointer-events-none opacity-[0.06]" style={{ background: `radial-gradient(circle, ${A}, transparent 70%)`, filter: 'blur(60px)' }} />
-        <div className="absolute bottom-1/4 left-[10%] w-[200px] h-[200px] rounded-full pointer-events-none opacity-[0.04]" style={{ background: `radial-gradient(circle, #fb7185, transparent 70%)`, filter: 'blur(40px)' }} />
+      <section className="relative overflow-hidden flex items-center bg-white" style={{ minHeight: 'calc(100vh - 56px)' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle, #e11d48 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
         <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto py-12 sm:py-14">
           <div className={`max-w-3xl transition-all duration-1000 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.06] tracking-tight mb-6">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.06] tracking-tight mb-6">
               A patient sees five providers.
               <br />
               <span style={{ background: `linear-gradient(90deg, #fb7185, ${A})`, WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
                 None of them share a care plan.
               </span>
             </h1>
-            <p className="text-lg text-slate-400 leading-relaxed mb-10 max-w-xl">
-              Every handoff between facilities is where care breaks down. <span className="text-white font-semibold">ifBash delivers ServiceNow</span> that connects your entire care network — no gaps, no missed handoffs.
+            <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-xl">
+              Every handoff between facilities is where care breaks down. <span className="text-gray-900 font-semibold">ifBash delivers ServiceNow</span> that connects your entire care network — no gaps, no missed handoffs.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: `0 8px 28px ${A}40` }}>
                 Talk to our healthcare team <ArrowRight className="h-4 w-4" />
               </Link>
-              <Link href="#capabilities" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/10 hover:border-rose-500/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors text-sm">
+              <Link href="#capabilities" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-rose-500/50 text-gray-600 hover:text-rose-600 font-semibold rounded-xl transition-colors text-sm">
                 Explore platform capabilities
               </Link>
             </div>

@@ -208,7 +208,7 @@ export function Header() {
 
                   {/* Services */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus-visible:outline-none focus-visible:ring-0">
+                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus:text-gray-700 focus-visible:outline-none focus-visible:ring-0">
                       Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -228,7 +228,7 @@ export function Header() {
 
                   {/* Industries */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus-visible:outline-none focus-visible:ring-0">
+                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus:text-gray-700 focus-visible:outline-none focus-visible:ring-0">
                       Industries
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -255,7 +255,7 @@ export function Header() {
 
                   {/* Portfolio */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus-visible:outline-none focus-visible:ring-0">
+                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus:text-gray-700 focus-visible:outline-none focus-visible:ring-0">
                       Portfolio
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
@@ -298,7 +298,7 @@ export function Header() {
 
                   {/* Company */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus-visible:outline-none focus-visible:ring-0">
+                    <NavigationMenuTrigger className="!bg-transparent border-none shadow-none text-sm font-medium text-gray-700 hover:text-indigo-700 hover:!bg-indigo-50/60 px-3 h-8 rounded-lg transition-colors duration-0 data-[state=open]:text-indigo-700 data-[state=open]:!bg-indigo-50/60 inline-flex items-center focus:!bg-transparent focus:text-gray-700 focus-visible:outline-none focus-visible:ring-0">
                       Company
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>

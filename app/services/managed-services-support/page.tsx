@@ -60,67 +60,67 @@ export default function ManagedServicesPage() {
       </div>
 
       {/* HERO */}
-      <section className="relative overflow-hidden" style={{ background: '#040a09' }}>
-        <div className="absolute inset-0 opacity-[0.04]" style={{ backgroundImage: 'radial-gradient(circle,#2dd4bf 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
+      <section className="relative overflow-hidden bg-white">
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#0d9488 1px,transparent 1px)', backgroundSize: '28px 28px' }} />
         <div className="relative z-10 w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto pt-14 sm:pt-18 pb-0 text-center">
-          <div className="flex items-center justify-center gap-3 mb-6"><span className="inline-block w-8 h-px bg-teal-500" /><span className="text-teal-400 text-sm font-semibold tracking-widest uppercase">Managed Services & Support</span><span className="inline-block w-8 h-px bg-teal-500" /></div>
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.0] mb-6">While you sleep.{' '}<span style={{ background: 'linear-gradient(90deg,#2dd4bf,#34d399,#6ee7b7)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>We watch.</span></h1>
-          <p className="text-lg sm:text-xl text-slate-400 mb-8 max-w-2xl mx-auto">Your ServiceNow platform — monitored, managed, and continuously optimised by <span className="text-teal-300 font-semibold">50+ certified experts</span>. Proactive support that stops incidents before your users notice.</p>
+          <div className="flex items-center justify-center gap-3 mb-6"><span className="inline-block w-8 h-px bg-teal-600" /><span className="text-teal-600 text-sm font-semibold tracking-widest uppercase">Managed Services & Support</span><span className="inline-block w-8 h-px bg-teal-600" /></div>
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.0] mb-6">While you sleep.{' '}<span style={{ background: 'linear-gradient(90deg,#0d9488,#059669,#10b981)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>We watch.</span></h1>
+          <p className="text-lg sm:text-xl text-gray-500 mb-8 max-w-2xl mx-auto">Your ServiceNow platform — monitored, managed, and continuously optimised by <span className="text-teal-600 font-semibold">50+ certified experts</span>. Proactive support that stops incidents before your users notice.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center mb-14">
             <a href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5" style={{ background: AG, boxShadow: `0 8px 24px ${A}4d` }}>Get Managed Services <ArrowRight className="h-4 w-4" /></a>
-            <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 hover:border-teal-400/50 text-slate-300 hover:text-white font-semibold rounded-xl transition-colors">See Uptime Records</a>
+            <a href="/company/case-studies-client-success" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-gray-200 hover:border-teal-400 text-gray-600 hover:text-teal-600 font-semibold rounded-xl transition-colors">See Uptime Records</a>
           </div>
 
           {/* Ops center visual */}
-          <div className="bg-[#060f0e] border border-teal-500/20 rounded-2xl overflow-hidden text-left" style={{ boxShadow: '0 0 80px rgba(13,148,136,0.12)' }}>
-            <div className="flex items-center gap-2 px-5 py-3 border-b border-teal-500/15 bg-teal-500/5"><div className="w-3 h-3 rounded-full bg-red-500/70" /><div className="w-3 h-3 rounded-full bg-yellow-500/70" /><div className="w-3 h-3 rounded-full bg-green-500/70" /><span className="ml-3 text-gray-500 text-xs font-mono">ops-center — live 24/7/365</span><span className="ml-auto text-xs font-mono text-green-400"><span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse inline-block mr-1" />ALL SYSTEMS NOMINAL</span></div>
-            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-white/5">
+          <div className="bg-gray-50 border border-teal-200 rounded-2xl overflow-hidden text-left" style={{ boxShadow: '0 0 60px rgba(13,148,136,0.06)' }}>
+            <div className="flex items-center gap-2 px-5 py-3 border-b border-teal-200 bg-teal-50"><div className="w-3 h-3 rounded-full bg-red-500/70" /><div className="w-3 h-3 rounded-full bg-yellow-500/70" /><div className="w-3 h-3 rounded-full bg-green-500/70" /><span className="ml-3 text-gray-500 text-xs font-mono">ops-center — live 24/7/365</span><span className="ml-auto text-xs font-mono text-green-600"><span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse inline-block mr-1" />ALL SYSTEMS NOMINAL</span></div>
+            <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-gray-200">
               <div className="px-6 py-5 space-y-2 font-mono text-xs">
-                <p className="text-green-400">✓ Platform Health — 99.97% uptime</p>
-                <p className="text-teal-400">✓ P1 Response — 12 min avg</p>
-                <p className="text-blue-400">→ Auto-scaled memory spike resolved</p>
-                <p className="text-yellow-400">⟳ SOC2 audit cycle — clean</p>
-                <p className="text-slate-600 animate-pulse">█</p>
+                <p className="text-green-600">✓ Platform Health — 99.97% uptime</p>
+                <p className="text-teal-600">✓ P1 Response — 12 min avg</p>
+                <p className="text-blue-600">→ Auto-scaled memory spike resolved</p>
+                <p className="text-amber-600">⟳ SOC2 audit cycle — clean</p>
+                <p className="text-gray-400 animate-pulse">█</p>
               </div>
               <div className="px-6 py-5 grid grid-cols-2 gap-3">
-                {[{ l: 'Platform uptime', v: '99.97%', c: 'text-green-400' }, { l: 'P1 avg response', v: '12 min', c: 'text-teal-400' }, { l: 'Incidents prevented', v: '2,847', c: 'text-blue-400' }, { l: 'Client satisfaction', v: '4.9/5', c: 'text-yellow-400' }].map((m, i) => (
-                  <div key={i} className="rounded-xl p-3 border border-white/5" style={{ background: 'rgba(13,148,136,0.06)' }}><div className={`text-xl font-bold font-mono ${m.c}`}>{m.v}</div><div className="text-[10px] text-slate-500 mt-1">{m.l}</div></div>
+                {[{ l: 'Platform uptime', v: '99.97%', c: 'text-green-600' }, { l: 'P1 avg response', v: '12 min', c: 'text-teal-600' }, { l: 'Incidents prevented', v: '2,847', c: 'text-blue-600' }, { l: 'Client satisfaction', v: '4.9/5', c: 'text-amber-600' }].map((m, i) => (
+                  <div key={i} className="rounded-xl p-3 border border-teal-100 bg-teal-50/50"><div className={`text-xl font-bold font-mono ${m.c}`}>{m.v}</div><div className="text-[10px] text-gray-500 mt-1">{m.l}</div></div>
                 ))}
               </div>
             </div>
-            <div className="px-5 py-3 border-t border-white/8 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" /><span className="text-xs text-slate-500 font-mono">847 instances monitored · 0 active incidents · last check 2s ago</span></div>
+            <div className="px-5 py-3 border-t border-gray-200 flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" /><span className="text-xs text-gray-500 font-mono">847 instances monitored · 0 active incidents · last check 2s ago</span></div>
           </div>
         </div>
-        <div className="mt-12 border-t border-white/8">
+        <div className="mt-12 border-t border-gray-200">
           <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
-            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/8">
-              {[{v:'99.97%',l:'Uptime guarantee'},{v:'15 min',l:'P1 response SLA'},{v:'24/7',l:'Expert coverage'},{v:'0',l:'Missed SLAs'}].map((s,i)=>(<div key={i} className="py-6 px-6 text-center"><div className="text-2xl font-bold text-teal-400">{s.v}</div><div className="text-xs text-slate-500 mt-1">{s.l}</div></div>))}
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-gray-200">
+              {[{v:'99.97%',l:'Uptime guarantee'},{v:'15 min',l:'P1 response SLA'},{v:'24/7',l:'Expert coverage'},{v:'0',l:'Missed SLAs'}].map((s,i)=>(<div key={i} className="py-6 px-6 text-center"><div className="text-2xl font-bold text-teal-600">{s.v}</div><div className="text-xs text-gray-500 mt-1">{s.l}</div></div>))}
             </div>
           </div>
         </div>
       </section>
 
       {/* SERVICES + SLA TABLE */}
-      <section className="py-20 relative overflow-hidden" style={{ background: '#07071a' }}>
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#818cf8 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
+      <section className="py-20 relative overflow-hidden" style={{ background: '#f0fdfa' }}>
+        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle,#0d9488 1px,transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="w-full px-4 sm:w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10">
-          <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-teal-500" /><span className="text-teal-400 text-sm font-semibold tracking-widest uppercase">What We Manage</span></div><h2 className="text-3xl sm:text-4xl font-bold text-white">Comprehensive coverage. Zero gaps.</h2></div>
+          <div className="mb-10"><div className="flex items-center gap-3 mb-4"><span className="inline-block w-8 h-px bg-teal-600" /><span className="text-teal-600 text-sm font-semibold tracking-widest uppercase">What We Manage</span></div><h2 className="text-3xl sm:text-4xl font-bold text-gray-900">Comprehensive coverage. Zero gaps.</h2></div>
           <div data-reveal="services" className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10 transition-all duration-700 ${revealed.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
             {services.map(({ icon: Icon, title, desc, benefits }, i) => (
-              <div key={title} className="group rounded-2xl p-6 border border-white/8 hover:border-teal-500/40 transition-all hover:-translate-y-0.5" style={{ background: 'rgba(255,255,255,0.04)', transitionDelay: `${i * 80}ms` }}>
-                <div className="w-10 h-10 rounded-xl bg-teal-500/15 group-hover:bg-teal-500/25 flex items-center justify-center mb-4 transition-colors"><Icon className="h-5 w-5 text-teal-400" /></div>
-                <h3 className="font-bold text-white mb-2">{title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed mb-3">{desc}</p>
-                <div className="space-y-1">{benefits.map(b => <div key={b} className="flex items-center gap-2 text-xs text-slate-400"><CheckCircle className="h-3 w-3 text-teal-400 shrink-0" />{b}</div>)}</div>
+              <div key={title} className="group rounded-2xl p-6 border border-teal-200 bg-white hover:border-teal-400 transition-all hover:-translate-y-0.5 hover:shadow-md" style={{ transitionDelay: `${i * 80}ms` }}>
+                <div className="w-10 h-10 rounded-xl bg-teal-100 group-hover:bg-teal-200 flex items-center justify-center mb-4 transition-colors"><Icon className="h-5 w-5 text-teal-600" /></div>
+                <h3 className="font-bold text-gray-900 mb-2">{title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">{desc}</p>
+                <div className="space-y-1">{benefits.map(b => <div key={b} className="flex items-center gap-2 text-xs text-gray-500"><CheckCircle className="h-3 w-3 text-teal-600 shrink-0" />{b}</div>)}</div>
               </div>
             ))}
           </div>
 
           {/* SLA table */}
-          <div className="rounded-2xl border border-teal-500/20 overflow-hidden">
-            <div className="px-6 py-4 border-b border-teal-500/15 flex items-center gap-3" style={{ background: 'rgba(13,148,136,0.08)' }}><Shield className="h-5 w-5 text-teal-400 shrink-0" /><span className="text-sm font-bold text-white">SLA Commitment — contractually guaranteed</span></div>
-            <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="border-b border-white/8"><th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Priority</th><th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Response</th><th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Resolution</th><th className="px-6 py-3 text-left text-xs font-semibold text-slate-400 uppercase">Our avg</th></tr></thead><tbody>{[{ p: 'P1 — Critical', resp: '15 min', res: '4 hours', avg: '12 min', c: 'text-red-400' },{ p: 'P2 — High', resp: '30 min', res: '8 hours', avg: '22 min', c: 'text-orange-400' },{ p: 'P3 — Medium', resp: '2 hours', res: '24 hours', avg: '1.4 hrs', c: 'text-yellow-400' },{ p: 'P4 — Low', resp: '8 hours', res: '72 hours', avg: '6.2 hrs', c: 'text-teal-400' }].map((row, i) => (<tr key={i} className="border-b border-white/5"><td className={`px-6 py-4 font-semibold ${row.c}`}>{row.p}</td><td className="px-6 py-4 text-white font-mono">{row.resp}</td><td className="px-6 py-4 text-slate-300 font-mono">{row.res}</td><td className="px-6 py-4"><span className="text-teal-400 font-semibold font-mono">{row.avg}</span><span className="text-xs text-slate-500 ml-1">actual</span></td></tr>))}</tbody></table></div>
-            <div className="px-6 py-3 border-t border-white/8 flex items-center gap-2"><CheckCircle className="h-4 w-4 text-teal-400 shrink-0" /><span className="text-xs text-slate-400">Never missed a contracted SLA. Financial penalty clause in every agreement.</span></div>
+          <div className="rounded-2xl border border-teal-200 overflow-hidden">
+            <div className="px-6 py-4 border-b border-teal-200 flex items-center gap-3 bg-teal-50"><Shield className="h-5 w-5 text-teal-600 shrink-0" /><span className="text-sm font-bold text-gray-900">SLA Commitment — contractually guaranteed</span></div>
+            <div className="overflow-x-auto"><table className="w-full text-sm"><thead><tr className="border-b border-gray-200"><th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Priority</th><th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Response</th><th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Resolution</th><th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase">Our avg</th></tr></thead><tbody>{[{ p: 'P1 — Critical', resp: '15 min', res: '4 hours', avg: '12 min', c: 'text-red-500' },{ p: 'P2 — High', resp: '30 min', res: '8 hours', avg: '22 min', c: 'text-orange-500' },{ p: 'P3 — Medium', resp: '2 hours', res: '24 hours', avg: '1.4 hrs', c: 'text-amber-500' },{ p: 'P4 — Low', resp: '8 hours', res: '72 hours', avg: '6.2 hrs', c: 'text-teal-600' }].map((row, i) => (<tr key={i} className="border-b border-gray-100"><td className={`px-6 py-4 font-semibold ${row.c}`}>{row.p}</td><td className="px-6 py-4 text-gray-900 font-mono">{row.resp}</td><td className="px-6 py-4 text-gray-600 font-mono">{row.res}</td><td className="px-6 py-4"><span className="text-teal-600 font-semibold font-mono">{row.avg}</span><span className="text-xs text-gray-500 ml-1">actual</span></td></tr>))}</tbody></table></div>
+            <div className="px-6 py-3 border-t border-gray-200 flex items-center gap-2"><CheckCircle className="h-4 w-4 text-teal-600 shrink-0" /><span className="text-xs text-gray-500">Never missed a contracted SLA. Financial penalty clause in every agreement.</span></div>
           </div>
         </div>
       </section>
