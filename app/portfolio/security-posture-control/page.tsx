@@ -33,8 +33,8 @@ const faqs = [
 
 export default function SecurityPostureControlPage() {
   const [currentCase, setCurrentCase] = useState(0);
-  const [openFaq, setOpenFaq] = useState(null);
-  const [revealed, setRevealed] = useState({});
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [revealed, setRevealed] = useState<Record<string, boolean>>({});
 
   useEffect(() => { const i = setInterval(() => setCurrentCase(p => (p + 1) % caseStudies.length), 6000); return () => clearInterval(i); }, []);
   useEffect(() => {

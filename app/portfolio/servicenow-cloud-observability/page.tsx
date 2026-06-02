@@ -66,10 +66,10 @@ export default function CloudObservabilityPage() {
               <span className="text-indigo-600 text-sm font-semibold tracking-widest uppercase">IT & Digital Operations</span>
             </div>
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.06] tracking-tight mb-6">
-              Break down silos.<br /><span class="text-indigo-600">Resolve faster.</span>
+              Break down silos.<br /><span className="text-indigo-600">Resolve faster.</span>
             </h1>
             <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-xl">
-              Integrate observability into existing workflows. <span class="text-gray-900 font-semibold">80% faster root cause analysis. 60% reduction in MTTR.</span> One view, every signal.
+              Integrate observability into existing workflows. <span className="text-gray-900 font-semibold">80% faster root cause analysis. 60% reduction in MTTR.</span> One view, every signal.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: '0 8px 24px rgba(79,70,229,0.35)' }}>Get a Custom Strategy <ArrowRight className="h-4 w-4" /></Link>

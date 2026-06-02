@@ -72,7 +72,7 @@ export default function CustomerServiceManagementPage() {
               Every customer.<br /><span style={{ color: A }}>Every channel. One platform.</span>
             </h1>
             <p className="text-lg text-gray-500 leading-relaxed mb-10 max-w-xl">
-              AI agents operate 24/7. Journey mapping reveals every friction point. <span class="text-gray-900 font-semibold">95% CSAT. 80% faster response.</span>
+              AI agents operate 24/7. Journey mapping reveals every friction point. <span className="text-gray-900 font-semibold">95% CSAT. 80% faster response.</span>
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <Link href="/get-started" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 text-white font-semibold rounded-xl transition-all hover:-translate-y-0.5 text-sm" style={{ background: AG, boxShadow: '0 8px 24px rgba(79,70,229,0.35)' }}>Get a Custom Strategy <ArrowRight className="h-4 w-4" /></Link>
