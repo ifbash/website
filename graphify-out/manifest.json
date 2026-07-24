@@ -5,8 +5,8 @@
     "semantic_hash": ""
   },
   "app/layout.tsx": {
-    "mtime": 1784914384.9540877,
-    "ast_hash": "03130f5afaaa36c330d0f5748e006a34",
+    "mtime": 1784916854.5371215,
+    "ast_hash": "ddbc75812c1aa1858fe713712acd06b0",
     "semantic_hash": ""
   },
   "app/not-found.tsx": {
@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "app/sitemap.ts": {
-    "mtime": 1784915680.236677,
-    "ast_hash": "3d6985d1be64841e830f0f3d15917a05",
+    "mtime": 1784917149.2837474,
+    "ast_hash": "52ec61d461354b18acd8392176653120",
     "semantic_hash": ""
   },
   "app/agent/layout.tsx": {
@@ -300,8 +300,8 @@
     "semantic_hash": ""
   },
   "components/header.tsx": {
-    "mtime": 1784914556.3890846,
-    "ast_hash": "ac29c44fd51af82b8185a78b427d7cb4",
+    "mtime": 1784917695.2201397,
+    "ast_hash": "393fe97912afbab5936564ab8e2e006b",
     "semantic_hash": ""
   },
   "components/hero-showcase.tsx": {
@@ -480,8 +480,8 @@
     "semantic_hash": ""
   },
   "tailwind.config.ts": {
-    "mtime": 1784914403.5887878,
-    "ast_hash": "8a63545ef52f84ffbbbfae67c8a78d16",
+    "mtime": 1784916833.9456453,
+    "ast_hash": "7587bf92af36d8d3d14bf078bf2afa69",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -557,6 +557,96 @@
   "content/insights/what-an-ai-agent-actually-does-on-a-servicenow-instance.md": {
     "mtime": 1784915709.9967575,
     "ast_hash": "d95379ccfdf1882a9fb189359b5f4bcb",
+    "semantic_hash": ""
+  },
+  "app/ar/company/about-us/page.tsx": {
+    "mtime": 1784916910.8596718,
+    "ast_hash": "475b9dff129b52693d372f43d3e24b87",
+    "semantic_hash": ""
+  },
+  "app/ar/contactus/page.tsx": {
+    "mtime": 1784916910.8623743,
+    "ast_hash": "93c622f2078f81ba28c30a6d64b9880e",
+    "semantic_hash": ""
+  },
+  "app/ar/engage/page.tsx": {
+    "mtime": 1784916910.8586526,
+    "ast_hash": "d34abbf6060c2e00481ffead188fa513",
+    "semantic_hash": ""
+  },
+  "app/ar/get-started/page.tsx": {
+    "mtime": 1784916910.8643806,
+    "ast_hash": "bdf239bd9af9f2b0b0532c01e7ba9d3c",
+    "semantic_hash": ""
+  },
+  "app/ar/layout.tsx": {
+    "mtime": 1784916817.6131372,
+    "ast_hash": "8a152cb272fbbed2d393bb84bfde074d",
+    "semantic_hash": ""
+  },
+  "app/ar/page.tsx": {
+    "mtime": 1784916993.1867008,
+    "ast_hash": "0cf02f62dd2fccc9495d766a2b115341",
+    "semantic_hash": ""
+  },
+  "app/ar/services/ai-agents/page.tsx": {
+    "mtime": 1784916910.8490362,
+    "ast_hash": "8c174eb1cc9adaa24517a4336500330d",
+    "semantic_hash": ""
+  },
+  "app/ar/services/mobile-app-development/page.tsx": {
+    "mtime": 1784916910.8561413,
+    "ast_hash": "2d4759f36af97d8e4b8a6452832c7a00",
+    "semantic_hash": ""
+  },
+  "app/ar/services/page.tsx": {
+    "mtime": 1784916910.830252,
+    "ast_hash": "4a11cfff852f22e8d13dad22d2758787",
+    "semantic_hash": ""
+  },
+  "app/ar/services/servicenow-implementation/page.tsx": {
+    "mtime": 1784916910.848033,
+    "ast_hash": "cf7f2f17ac0315d9f1a5ba53fe06de25",
+    "semantic_hash": ""
+  },
+  "app/ar/services/voice-agents/page.tsx": {
+    "mtime": 1784916910.8510354,
+    "ast_hash": "32a28d9d40edacf2bc997d516619ae77",
+    "semantic_hash": ""
+  },
+  "app/ar/services/website-development/page.tsx": {
+    "mtime": 1784916910.8520434,
+    "ast_hash": "220d639cb038035a90adc549c24fb24e",
+    "semantic_hash": ""
+  },
+  "app/ar/work/page.tsx": {
+    "mtime": 1784916910.8571422,
+    "ast_hash": "351ca7022449140040caa8339ad64862",
+    "semantic_hash": ""
+  },
+  "components/language-toggle.tsx": {
+    "mtime": 1784916764.3611317,
+    "ast_hash": "1710827d050052f6c840faacafc55c91",
+    "semantic_hash": ""
+  },
+  "components/locale-direction.tsx": {
+    "mtime": 1784916840.9923425,
+    "ast_hash": "ceddc2f8c4ac5e39fe4b26389c6682b7",
+    "semantic_hash": ""
+  },
+  "components/site/ar-page.tsx": {
+    "mtime": 1784916993.1629827,
+    "ast_hash": "a9d8c9608b34807e25e7c3d2d8072e30",
+    "semantic_hash": ""
+  },
+  "lib/i18n/ar.ts": {
+    "mtime": 1784916753.70628,
+    "ast_hash": "7324a7b1076792dfa7052b1da0b47d2d",
+    "semantic_hash": ""
+  },
+  "lib/i18n/config.ts": {
+    "mtime": 1784916679.5947888,
+    "ast_hash": "f405cbd02d7e2146431fb54e71c1875b",
     "semantic_hash": ""
   }
 }
