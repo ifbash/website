@@ -2,6 +2,7 @@ import { MetadataRoute } from "next";
 import { portfolioSlugs } from "@/lib/portfolio-data";
 import { industrySlugs } from "@/lib/industry-data";
 import { getAllInsights } from "@/lib/insights";
+import { ROUTE_PAIRS } from "@/lib/i18n/config";
 
 export const dynamic = "force-static";
 
@@ -14,6 +15,24 @@ type Entry = {
   /** Articles carry their own edit date; everything else uses the build time. */
   lastModified?: Date;
 };
+
+/**
+ * hreflang for any URL that exists in both languages.
+ *
+ * Declared here rather than per-page: Google treats sitemap alternates as
+ * equivalent to <link rel="alternate">, and keeping it in one place means the
+ * English and Arabic sides can't end up pointing at each other inconsistently.
+ * Both members of a pair must list the same set, including x-default.
+ */
+function languagesFor(urlPath: string) {
+  const pair = ROUTE_PAIRS.find((p) => p.en === urlPath || p.ar === urlPath);
+  if (!pair) return undefined;
+  return {
+    en: `${BASE_URL}${pair.en}`,
+    ar: `${BASE_URL}${pair.ar}`,
+    "x-default": `${BASE_URL}${pair.en}`,
+  };
+}
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -92,6 +111,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
+  // Arabic pages, generated from the same pairing that drives the header
+  // toggle and the hreflang tags, so the three can never disagree.
+  const arabic: Entry[] = ROUTE_PAIRS.map((p) => ({
+    url: p.ar,
+    priority: p.ar === "/ar" ? 0.9 : 0.7,
+    changeFrequency: "monthly" as const,
+  }));
+
   return [
     ...core,
     ...services,
@@ -100,10 +127,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...portfolio,
     ...company,
     ...legal,
-  ].map(({ url, priority, changeFrequency, lastModified }) => ({
-    url: `${BASE_URL}${url}`,
-    lastModified: lastModified ?? now,
-    changeFrequency,
-    priority,
-  }));
+    ...arabic,
+  ].map(({ url, priority, changeFrequency, lastModified }) => {
+    const languages = languagesFor(url);
+    return {
+      url: `${BASE_URL}${url}`,
+      lastModified: lastModified ?? now,
+      changeFrequency,
+      priority,
+      ...(languages ? { alternates: { languages } } : {}),
+    };
+  });
 }

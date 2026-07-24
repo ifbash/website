@@ -8,6 +8,7 @@ import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LenisProvider } from '@/components/lenis-provider';
 import { ChatWidget } from '@/components/chat-widget';
+import { LocaleDirection } from '@/components/locale-direction';
 
 // Display serif — Libre Baskerville. Wide, high x-height, book-like; more
 // legible at large sizes than a condensed face. Ships 400 + 700 + 400 italic.
@@ -83,6 +84,7 @@ export default function RootLayout({
         <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js" data-pid="fBDjy1VonTY1EGcO" data-version="062024" strategy="afterInteractive" />
         <div className="relative min-h-screen flex flex-col">
           <LenisProvider />
+          <LocaleDirection />
           <div className="sticky top-0 z-50">
             <Header />
           </div>

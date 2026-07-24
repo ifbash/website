@@ -25,8 +25,8 @@
     "semantic_hash": ""
   },
   "app/sitemap.ts": {
-    "mtime": 1784894128.3554707,
-    "ast_hash": "a516220c765f5fbcd5fa19377c1c3de4",
+    "mtime": 1784915680.236677,
+    "ast_hash": "3d6985d1be64841e830f0f3d15917a05",
     "semantic_hash": ""
   },
   "app/agent/layout.tsx": {
@@ -315,8 +315,8 @@
     "semantic_hash": ""
   },
   "components/nav-data.ts": {
-    "mtime": 1784892836.6503189,
-    "ast_hash": "a8e79f8b195e59f101af7a5b2647d3c0",
+    "mtime": 1784915793.420055,
+    "ast_hash": "c958c98ba78302f83a44f9ad6934f694",
     "semantic_hash": ""
   },
   "components/scroll-animation.tsx": {
@@ -470,8 +470,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1784913254.1376352,
-    "ast_hash": "4cd3e13220fdb8c1a670b38eaf81a619",
+    "mtime": 1784916165.5410144,
+    "ast_hash": "d107842625e9db83efedc09790bb25db",
     "semantic_hash": ""
   },
   "postcss.config.js": {
@@ -512,6 +512,51 @@
   "public/images/logo.png": {
     "mtime": 1770639737.3376222,
     "ast_hash": "dc2b44b581a1b7f1991706b11fb2b610",
+    "semantic_hash": ""
+  },
+  "app/insights/[slug]/page.tsx": {
+    "mtime": 1784916213.2607465,
+    "ast_hash": "f46be5b9af6fc4d638b614d1d719ca10",
+    "semantic_hash": ""
+  },
+  "app/insights/page.tsx": {
+    "mtime": 1784915570.2427092,
+    "ast_hash": "f64d91dd96e28c21b7b0ad52c849fc91",
+    "semantic_hash": ""
+  },
+  "app/insights/rss.xml/route.ts": {
+    "mtime": 1784915620.541247,
+    "ast_hash": "64e89713f43d88227616a4fedfcdfa48",
+    "semantic_hash": ""
+  },
+  "app/llms.txt/route.ts": {
+    "mtime": 1784915811.1379175,
+    "ast_hash": "4f72c104c555700a306e4adc3403f0ae",
+    "semantic_hash": ""
+  },
+  "lib/insights.ts": {
+    "mtime": 1784916203.2777255,
+    "ast_hash": "d96d7616aa0c52a2b578d75126511932",
+    "semantic_hash": ""
+  },
+  "scripts/draft-insight.mjs": {
+    "mtime": 1784915766.5227852,
+    "ast_hash": "adc8dab95a0a33cc8d7d107f1c4a5e3d",
+    "semantic_hash": ""
+  },
+  "content/insights/_drafts/README.md": {
+    "mtime": 1784915772.573414,
+    "ast_hash": "bda38a59cf525b04d0aa25be95684244",
+    "semantic_hash": ""
+  },
+  "content/insights/choosing-between-a-servicenow-app-and-a-standalone-product.md": {
+    "mtime": 1784915739.6781049,
+    "ast_hash": "ea37b994d0f4b99183368ec84b533709",
+    "semantic_hash": ""
+  },
+  "content/insights/what-an-ai-agent-actually-does-on-a-servicenow-instance.md": {
+    "mtime": 1784915709.9967575,
+    "ast_hash": "d95379ccfdf1882a9fb189359b5f4bcb",
     "semantic_hash": ""
   }
 }

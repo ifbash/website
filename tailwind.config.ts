@@ -24,6 +24,9 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        // Arabic. Geist and Libre Baskerville carry no Arabic glyphs, so the
+        // /ar subtree uses one family for both display and body.
+        arabic: ['var(--font-arabic)', 'Segoe UI', 'Tahoma', 'sans-serif'],
       },
       colors: {
         // ── ifBash design tokens (mirrors lib/design.ts) ──────────────

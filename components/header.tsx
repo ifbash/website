@@ -10,6 +10,10 @@ import { Menu, ChevronRight, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
+import { LanguageToggle } from "@/components/language-toggle";
+import { usePathname } from "next/navigation";
+import { localeOf } from "@/lib/i18n/config";
+import { ar } from "@/lib/i18n/ar";
 import {
   practices, aiAgentsItems, webMobileItems, workItems, servicenowServices,
   portfolioCategories, industryItems, companyItems, slug, type NavItem,
@@ -80,6 +84,32 @@ export function Header() {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeProductCat, setActiveProductCat] = useState(0);
 
+  // Top-level chrome follows the route's language. The mega-menu contents stay
+  // English for now — the Arabic surface is the 12 core pages, and pointing
+  // Arabic labels at untranslated destinations would be worse than leaving them.
+  const pathname = usePathname() || '/';
+  const isAr = localeOf(pathname) === 'ar';
+  const t = {
+    servicenow: isAr ? ar.nav.servicenow : 'ServiceNow',
+    aiAgents: isAr ? ar.nav.aiAgents : 'AI & Agents',
+    webMobile: isAr ? ar.nav.webMobile : 'Web & Mobile',
+    industries: isAr ? ar.nav.industries : 'Industries',
+    company: isAr ? ar.nav.company : 'Company',
+    startProject: isAr ? ar.nav.startProject : 'Start a project',
+    strip: isAr ? ar.meta.ctaStrip : 'One senior team. Scoped in 48 hours.',
+    home: isAr ? '/ar' : '/',
+    getStarted: isAr ? '/ar/get-started' : '/get-started',
+  };
+
+  // The strip above the header. Arabic points at the translated service pages.
+  const practiceStrip = isAr
+    ? [
+        { label: ar.nav.servicenow, href: '/ar/services' },
+        { label: ar.nav.aiAgents, href: '/ar/services/ai-agents' },
+        { label: ar.nav.webMobile, href: '/ar/services/website-development' },
+      ]
+    : practices.map(({ label, href }) => ({ label, href }));
+
   useEffect(() => {
     const h = () => setIsScrolled(window.scrollY > 30);
     window.addEventListener('scroll', h, { passive: true });
@@ -108,7 +138,7 @@ export function Header() {
         >
           <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex items-center h-9 gap-1">
-              {practices.map(({ label, href }, i) => (
+              {practiceStrip.map(({ label, href }, i) => (
                 <React.Fragment key={href}>
                   {i > 0 && <span className="text-stone-faint text-xs px-1.5">·</span>}
                   <Link
@@ -119,8 +149,8 @@ export function Header() {
                   </Link>
                 </React.Fragment>
               ))}
-              <span className="ml-auto text-xs text-stone-light hidden lg:block">
-                One senior team. Scoped in 48 hours.
+              <span className="ms-auto text-xs text-stone-light hidden lg:block">
+                {t.strip}
               </span>
             </div>
           </div>
@@ -131,7 +161,7 @@ export function Header() {
           <div className="flex items-center justify-between h-16">
 
             {/* Logo */}
-            <Link href="/" className="flex items-center shrink-0 group" aria-label="ifBash — Home">
+            <Link href={t.home} className="flex items-center shrink-0 group" aria-label="ifBash — Home">
               <Image src="/images/logo.png" alt="ifBash" width={160} height={34} className="object-contain transition-opacity group-hover:opacity-90" priority style={{ width: '160px', height: '34px' }} />
             </Link>
 
@@ -142,7 +172,7 @@ export function Header() {
 
                   {/* ServiceNow — services + the product portfolio */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={TRIGGER_CLS}>ServiceNow</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={TRIGGER_CLS}>{t.servicenow}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl overflow-hidden" style={DROP}>
@@ -200,7 +230,7 @@ export function Header() {
 
                   {/* AI & Agents */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={TRIGGER_CLS}>AI &amp; Agents</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={TRIGGER_CLS}>{t.aiAgents}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl p-6" style={DROP}>
@@ -219,7 +249,7 @@ export function Header() {
 
                   {/* Web & Mobile */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={TRIGGER_CLS}>Web &amp; Mobile</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={TRIGGER_CLS}>{t.webMobile}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl p-6" style={DROP}>
@@ -248,7 +278,7 @@ export function Header() {
 
                   {/* Industries */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={TRIGGER_CLS}>Industries</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={TRIGGER_CLS}>{t.industries}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl p-6" style={DROP}>
@@ -269,7 +299,7 @@ export function Header() {
 
                   {/* Company */}
                   <NavigationMenuItem>
-                    <NavigationMenuTrigger className={TRIGGER_CLS}>Company</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className={TRIGGER_CLS}>{t.company}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl p-6" style={DROP}>
@@ -285,11 +315,13 @@ export function Header() {
               </NavigationMenu>
             </nav>
 
-            {/* Right — single CTA */}
+            {/* Right — language flip + single CTA */}
             <div className="flex items-center gap-3 shrink-0">
-              <Link href="/get-started"
+              <LanguageToggle className="hidden md:inline-flex" />
+
+              <Link href={t.getStarted}
                 className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-ink text-paper shadow-[0_4px_20px_rgba(20,18,16,0.15)] hover:bg-navy hover:-translate-y-0.5 transition-all duration-200">
-                Start a project
+                {t.startProject}
               </Link>
 
               <button onClick={() => setIsMobileOpen(true)} className="lg:hidden h-9 w-9 rounded-xl hover:bg-wash flex items-center justify-center transition-colors text-ink-soft" aria-label="Open menu">
@@ -385,11 +417,12 @@ export function Header() {
                 </div>
               </div>
 
-              <div className="mt-4 pt-4 border-t border-hairline-soft">
-                <Link href="/get-started" onClick={closeMobile}
+              <div className="mt-4 pt-4 border-t border-hairline-soft space-y-3">
+                <Link href={t.getStarted} onClick={closeMobile}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-ink text-paper shadow-[0_4px_20px_rgba(20,18,16,0.2)] hover:bg-navy hover:-translate-y-0.5 transition-all">
-                  Start a project <ArrowRight className="h-4 w-4" />
+                  {t.startProject} <ArrowRight className="h-4 w-4" />
                 </Link>
+                <LanguageToggle className="w-full justify-center h-11" />
               </div>
             </nav>
           </div>
