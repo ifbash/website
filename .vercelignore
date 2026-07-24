@@ -1,0 +1,6 @@
+# Upload filter for `vercel` CLI deploys. This file REPLACES .gitignore for
+# uploads, so anything that must ship has to stay off this list.
+node_modules
+.next
+.env*.local
+*.tsbuildinfo

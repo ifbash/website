@@ -1,0 +1,18 @@
+// Barrel for the shared page kit. Import from '@/components/site'.
+export { Container } from './container';
+export { Section } from './section';
+export { Eyebrow } from './eyebrow';
+export { DisplayHeading, Accented } from './display-heading';
+export { PillLink, PillButton } from './pill-button';
+export { FeatureCard, FeatureGrid } from './feature-card';
+export type { Feature } from './feature-card';
+export { FaqSection } from './faq-section';
+export type { Faq } from './faq-section';
+export { PageHero } from './page-hero';
+export type { HeroCta } from './page-hero';
+export { CtaBand } from './cta-band';
+export { ProofBand, DEFAULT_PROOFS } from './proof-band';
+export type { Proof } from './proof-band';
+export { PhaseGrid } from './phase-grid';
+export type { Phase } from './phase-grid';
+export { ServicePage } from './service-page';

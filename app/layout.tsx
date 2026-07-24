@@ -1,25 +1,42 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Libre_Baskerville } from 'next/font/google';
+import { GeistSans } from 'geist/font/sans';
+import { GeistMono } from 'geist/font/mono';
 import Script from 'next/script';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LenisProvider } from '@/components/lenis-provider';
+import { ChatWidget } from '@/components/chat-widget';
 
-const inter = Inter({ subsets: ['latin'] });
+// Display serif — Libre Baskerville. Wide, high x-height, book-like; more
+// legible at large sizes than a condensed face. Ships 400 + 700 + 400 italic.
+const libreBaskerville = Libre_Baskerville({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ifbash.com'),
   title: {
-    default: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
+    default: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
     template: '%s | ifBash',
   },
-  description: 'ifBash is a ServiceNow and agentic AI consulting partner delivering implementations, AI automation, CRM, and digital transformation for enterprises worldwide. 1,500+ successful projects.',
+  description:
+    'ifBash is a technology consultancy across three practices: ServiceNow delivery, AI agents engineered on Claude, and web & mobile product development. Scoped in 48 hours, senior-led.',
   keywords: [
-    'ServiceNow consulting', 'ServiceNow implementation', 'ServiceNow partner',
-    'agentic AI', 'ServiceNow AI', 'ServiceNow AI consulting', 'AI automation',
-    'ServiceNow Now Assist', 'generative AI ServiceNow', 'ServiceNow CRM',
-    'digital transformation', 'ITSM implementation', 'ServiceNow managed services',
+    // ServiceNow practice
+    'ServiceNow consulting', 'ServiceNow implementation', 'ServiceNow managed services',
+    'ITSM implementation', 'ServiceNow CRM', 'ServiceNow Now Assist',
+    // AI & agents practice
+    'AI agents', 'agentic AI', 'voice AI agents', 'AI engineering', 'Claude AI development',
+    'AI consulting', 'RAG knowledge assistant', 'workflow automation',
+    // Web & mobile practice
+    'web development agency', 'Next.js development', 'mobile app development',
+    'iOS app development', 'Android app development', 'AI-native product development',
   ],
   authors: [{ name: 'ifBash', url: 'https://ifbash.com' }],
   creator: 'ifBash',
@@ -28,16 +45,18 @@ export const metadata: Metadata = {
     siteName: 'ifBash',
     locale: 'en_US',
     url: 'https://ifbash.com',
-    title: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
-    description: 'ifBash is a ServiceNow and agentic AI consulting partner delivering implementations, AI automation, CRM, and digital transformation for enterprises worldwide.',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+    title: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
+    description:
+      'A technology consultancy across three practices: ServiceNow delivery, AI agents engineered on Claude, and web & mobile product development.',
+    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow, AI Agents, Web & Mobile' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@ifbashx',
     creator: '@ifbashx',
-    title: 'ifBash | ServiceNow & Agentic AI Consulting Partner',
-    description: 'ServiceNow and agentic AI consulting. 1,500+ implementations. AI automation, CRM, and digital transformation for enterprises worldwide.',
+    title: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
+    description:
+      'ServiceNow delivery, AI agents built on Claude, and web & mobile products. One senior team, scoped in 48 hours.',
     images: ['/images/logo.png'],
   },
   icons: {
@@ -58,7 +77,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="h-full">
-      <body className={`${inter.className} h-full`}>
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} ${libreBaskerville.variable} font-sans h-full`}
+      >
         <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js" data-pid="fBDjy1VonTY1EGcO" data-version="062024" strategy="afterInteractive" />
         <div className="relative min-h-screen flex flex-col">
           <LenisProvider />
@@ -69,6 +90,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ChatWidget />
         </div>
       </body>
     </html>

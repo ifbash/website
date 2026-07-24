@@ -1,0 +1,120 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
+import {
+  Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand,
+} from '@/components/site';
+import { servicenowServices, aiAgentsItems, webMobileItems } from '@/components/nav-data';
+
+export const metadata: Metadata = {
+  title: 'Services — ServiceNow, AI Agents, Web & Mobile',
+  description:
+    'Three practices from one senior team: ServiceNow implementation and managed services, AI agents engineered on Claude, and web & mobile product development.',
+  keywords: [
+    'ServiceNow implementation', 'ServiceNow managed services', 'AI agents',
+    'voice agents', 'AI engineering', 'web development', 'mobile app development',
+  ],
+  alternates: { canonical: 'https://ifbash.com/services' },
+};
+
+const practices = [
+  {
+    label: 'ServiceNow',
+    note: 'Our proven practice',
+    blurb: 'Implement it, extend it, integrate it, and keep it running. Most of our delivery volume sits here.',
+    items: servicenowServices,
+    more: { label: 'All ServiceNow products', href: '/portfolio' },
+  },
+  {
+    label: 'AI & Agents',
+    note: 'Where we are growing',
+    blurb: 'Agents that answer, act, and hand off — engineered on Claude with guardrails, evals, and cost control.',
+    items: aiAgentsItems,
+    more: { label: 'See the agents we run', href: '/work' },
+  },
+  {
+    label: 'Web & Mobile',
+    note: 'Products end to end',
+    blurb: 'Websites, web applications, and mobile apps — designed, built, shipped, and handed over in your name.',
+    items: webMobileItems,
+    more: { label: 'How we engage', href: '/engage' },
+  },
+];
+
+export default function ServicesIndexPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Services"
+        headline="Three practices."
+        accent="One senior team."
+        sub="ServiceNow is where most of our delivery happens today. AI agents and product engineering are where we're growing — and this site is built with both."
+        primary={{ label: 'Scope a project', href: '/get-started' }}
+        secondary={{ label: 'How we engage', href: '/engage' }}
+      />
+
+      {practices.map((p, i) => (
+        <Section key={p.label} tone={i % 2 === 0 ? 'surface' : 'paper'} divide>
+          <div className="grid lg:grid-cols-3 gap-10">
+            <div>
+              <Eyebrow rule className="mb-4">{p.note}</Eyebrow>
+              <DisplayHeading as="h2" size="sm" className="mb-4">
+                {p.label}
+              </DisplayHeading>
+              <p className="text-base text-stone leading-relaxed mb-6">{p.blurb}</p>
+              <Link
+                href={p.more.href}
+                className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-deep transition-colors"
+              >
+                {p.more.label} <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+
+            <div className="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+              {p.items.map(({ title, href, icon: Icon, note }) => (
+                <Link
+                  key={href + title}
+                  href={href}
+                  className="group flex items-start gap-3.5 rounded-2xl border border-hairline bg-paper p-5 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)] hover:-translate-y-0.5"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center shrink-0 transition-colors">
+                    <Icon className="h-5 w-5 text-navy" />
+                  </div>
+                  <span className="min-w-0">
+                    <span className="block text-sm font-semibold text-ink-body group-hover:text-navy transition-colors leading-snug">
+                      {title}
+                    </span>
+                    {note && <span className="block text-[13px] text-stone mt-1 leading-relaxed">{note}</span>}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </Section>
+      ))}
+
+      <Section tone="ink" pad="tight">
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            ['Scoped in 48 hours', 'From the first call to a written plan: approach, sequence, team, and an estimate you can budget against.'],
+            ['Senior-led throughout', 'The people who scope your project are the people who build it. If that would change, we say so up front.'],
+            ['Built to hand over', 'Repositories, accounts, keys, and documentation are yours from day one. Leaving us should be easy.'],
+          ].map(([t, d]) => (
+            <div key={t}>
+              <div className="font-display text-xl mb-2 text-onink">{t}</div>
+              <p className="text-sm leading-relaxed text-onink-muted">{d}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      <CtaBand
+        headline="Not sure which"
+        accent="you need?"
+        sub="Describe the problem rather than the service. We'll come back within 48 hours with a recommendation and the reasoning behind it."
+        primary={{ label: 'Start a project', href: '/get-started' }}
+        secondary={{ label: 'Ask our agent', href: '/agent' }}
+      />
+    </>
+  );
+}

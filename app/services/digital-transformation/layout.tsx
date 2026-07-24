@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'ServiceNow Digital Transformation — Stop Managing Silos, Start Running Your Business',
-  description: 'The average enterprise wastes 40% of its capacity on manual handoffs. ifBash unifies operations onto a single ServiceNow platform in 20–28 weeks with measurable ROI from week 8.',
+  description: 'Transformation measured in workflows, not slide decks. We unify operations onto a single ServiceNow platform, sequenced so each phase earns the next. A written plan within 48 hours.',
   keywords: [
     'ServiceNow digital transformation', 'digital transformation consulting',
     'ServiceNow process automation', 'AI digital transformation',
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     type: 'website',
     siteName: 'ifBash',
     title: 'ServiceNow Digital Transformation — Stop Managing Silos | ifBash',
-    description: 'The average enterprise wastes 40% of its capacity on manual handoffs. ifBash unifies operations onto ServiceNow in 20–28 weeks.',
+    description: 'Transformation measured in workflows, not slide decks. Operations unified onto a single ServiceNow platform.',
     url: 'https://ifbash.com/services/digital-transformation',
     images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },

@@ -1,142 +1,142 @@
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, ArrowRight, Users } from "lucide-react";
+'use client';
+
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { Mail, MapPin, Clock, ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
 
 export default function ContactUsPage() {
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
+  const [values, setValues] = useState({ name: '', email: '', subject: '', message: '', website: '' });
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!values.name || !values.email || !values.message) return;
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/lead', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          serviceInterest: values.subject || 'General enquiry',
+          message: values.message,
+          website: values.website,
+          source: 'contact page',
+        }),
+      });
+      const data = await res.json();
+      setStatus(data.ok ? 'sent' : 'error');
+    } catch {
+      setStatus('error');
+    }
+  }
+
+  const inputCls =
+    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 outline-none transition-colors';
+
   return (
-    <div className="min-h-screen bg-background">
+    <>
+      {/* ── HERO + FORM ── */}
+      <section className="relative overflow-hidden" style={{ background: '#141210' }}>
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 right-0 w-[600px] h-[500px] opacity-[0.1]" style={{ background: 'radial-gradient(ellipse at top right, #1B3A5C, transparent 65%)' }} />
 
-      {/* Hero Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-blue-50 to-indigo-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <div className="flex items-center justify-center space-x-3 mb-6">
-            <Mail className="h-10 w-10 text-primary" />
-            <Badge variant="outline" className="text-primary border-primary/20 text-lg">Contact Us</Badge>
-          </div>
-          <h1 className="text-5xl font-light text-foreground mb-4">
-            Get in Touch With Our ServiceNow Experts
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            We’re here to help you accelerate your digital transformation journey. Reach out for project inquiries, partnership opportunities, or support.
-          </p>
-        </div>
-      </section>
+        <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            {/* Left */}
+            <div className="space-y-8">
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <span className="inline-block w-8 h-px bg-navy-soft" />
+                  <span className="text-navy-soft text-sm font-semibold tracking-widest uppercase">Contact</span>
+                </div>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+                  Talk to a<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft">consultant.</span>
+                </h1>
+                <p className="text-lg text-slate-400 leading-relaxed max-w-md">
+                  Project enquiries, partnership questions, or support — write to us and a senior consultant replies within one business day.
+                </p>
+              </div>
 
-      {/* Contact Details & Form */}
-      <section className="py-16 px-6">
-        <div className="container mx-auto max-w-6xl grid md:grid-cols-2 gap-12 items-center">
-          {/* Contact Details */}
-          <div className="space-y-8">
-            <div className="flex items-center space-x-4">
-              <Phone className="h-7 w-7 text-primary" />
-              <div>
-                <div className="font-semibold text-lg text-foreground">Phone</div>
-                <div className="text-muted-foreground text-md">+1 555 123 4567</div>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <Mail className="h-7 w-7 text-primary" />
-              <div>
-                <div className="font-semibold text-lg text-foreground">Email</div>
-                <div className="text-muted-foreground text-md">contact@servicenoworg.com</div>
-              </div>
-            </div>
-            <div className="flex items-center space-x-4">
-              <MapPin className="h-7 w-7 text-primary" />
-              <div>
-                <div className="font-semibold text-lg text-foreground">Address</div>
-                <div className="text-muted-foreground text-md">
-                  123 Innovation Avenue, Suite 400<br />
-                  New York, NY 10001, USA
+              <div className="space-y-5">
+                <a href="mailto:connect@ifbash.com" className="flex items-center gap-4 group">
+                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
+                    <Mail className="h-5 w-5 text-navy-soft" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white text-sm">Email</div>
+                    <div className="text-slate-400 text-sm group-hover:text-navy-soft transition-colors">connect@ifbash.com</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
+                    <MapPin className="h-5 w-5 text-navy-soft" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white text-sm">Based in</div>
+                    <div className="text-slate-400 text-sm">Hyderabad, India — serving clients globally</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
+                    <Clock className="h-5 w-5 text-navy-soft" />
+                  </div>
+                  <div>
+                    <div className="font-semibold text-white text-sm">Response time</div>
+                    <div className="text-slate-400 text-sm">Within one business day</div>
+                  </div>
                 </div>
               </div>
+
+              <p className="text-sm text-slate-500">
+                Scoping a project?{' '}
+                <Link href="/get-started" className="text-navy-soft hover:text-navy-soft font-semibold">
+                  Use the project form instead →
+                </Link>
+              </p>
             </div>
-            <div className="flex items-center space-x-4">
-              <Users className="h-7 w-7 text-primary" />
-              <div>
-                <div className="font-semibold text-lg text-foreground">Support Team</div>
-                <div className="text-muted-foreground text-md">Available 24/7 for client queries</div>
-              </div>
+
+            {/* Right — form */}
+            <div className="rounded-2xl border border-white/10 p-6 sm:p-8" style={{ background: 'rgba(255,255,255,0.03)', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
+              {status === 'sent' ? (
+                <div className="py-16 text-center">
+                  <div className="w-14 h-14 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-5">
+                    <CheckCircle className="h-7 w-7 text-green-400" />
+                  </div>
+                  <h2 className="text-xl font-bold text-white mb-2">Message sent.</h2>
+                  <p className="text-slate-400 text-sm max-w-xs mx-auto">We&apos;ll reply within one business day.</p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <h2 className="text-lg font-bold text-white mb-4">Send us a message</h2>
+                  <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" value={values.website} onChange={(e) => setValues({ ...values, website: e.target.value })} />
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <input placeholder="Your name *" required className={inputCls} value={values.name} onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                    <input placeholder="Work email *" type="email" required className={inputCls} value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                  </div>
+                  <input placeholder="Subject" className={inputCls} value={values.subject} onChange={(e) => setValues({ ...values, subject: e.target.value })} />
+                  <textarea placeholder="Your message *" required rows={5} className={`${inputCls} resize-none`} value={values.message} onChange={(e) => setValues({ ...values, message: e.target.value })} />
+                  {status === 'error' && (
+                    <p className="text-red-400 text-xs">
+                      Something went wrong — email us at <a href="mailto:connect@ifbash.com" className="underline">connect@ifbash.com</a>.
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
+                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(79,70,229,0.35)' }}
+                  >
+                    {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Send message <ArrowRight className="h-4 w-4" /></>)}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
-          {/* Contact Form */}
-          <form className="bg-white rounded-xl shadow-lg p-10 space-y-6 border border-primary/10">
-            <h2 className="text-2xl font-light text-primary mb-4 text-center">Send Us a Message</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 bg-slate-50"
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="border rounded-md px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary/40 bg-slate-50"
-                required
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              className="border rounded-md px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-primary/40 bg-slate-50"
-              required
-            />
-            <textarea
-              placeholder="Your Message"
-              className="border rounded-md px-4 py-3 w-full h-32 resize-none focus:outline-none focus:ring-2 focus:ring-primary/40 bg-slate-50"
-              required
-            />
-            <Button size="lg" variant="default" className="w-full">
-              Send Message
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
         </div>
       </section>
-
-      {/* Map & Directions */}
-      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-indigo-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl font-light text-foreground mb-6">
-            Visit Our Office
-          </h2>
-          <p className="text-muted-foreground text-lg mb-8">
-            We welcome you to visit our headquarters. Find us at the heart of New York’s innovation district.
-          </p>
-          <div className="rounded-xl overflow-hidden shadow-lg border border-primary/10 mb-8">
-            {/* Placeholder for embedded map */}
-            <iframe
-              title="Office Location"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-74.00597%2C40.71278%2C-74.00597%2C40.71278&amp;layer=mapnik"
-              className="w-full h-64"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-          <Button variant="secondary" size="lg" className="px-8 py-3">
-            Get Directions
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 px-6 bg-gradient-to-r from-indigo-600 to-blue-700">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-4xl font-light text-white mb-6">
-            Let’s Start Your ServiceNow Journey
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Reach out today and discover how our team can help you transform your business with ServiceNow.
-          </p>
-          <Button size="lg" variant="secondary" className="px-8 py-3">
-            Contact Our Team
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

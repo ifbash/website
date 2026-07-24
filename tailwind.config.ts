@@ -19,7 +19,48 @@ const config: Config = {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      // Display serif lives in globals.css as `.font-display` (it also sets
+      // tracking). Body + mono are bound here to the next/font variables.
+      fontFamily: {
+        sans: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+      },
       colors: {
+        // ── ifBash design tokens (mirrors lib/design.ts) ──────────────
+        // Namespaced away from the shadcn keys below, which are bound to
+        // CSS variables and used by components/ui/*.
+        paper: '#FAF8F4',
+        surface: '#FFFFFF',
+        wash: '#F4F1EA',
+        ink: {
+          DEFAULT: '#141210',
+          body: '#2A2721',
+          soft: '#4A463C',
+        },
+        stone: {
+          DEFAULT: '#6B6659',
+          light: '#757064',
+          faint: '#918D81',
+        },
+        navy: {
+          DEFAULT: '#1B3A5C',
+          deep: '#12293F',
+          soft: '#7C9AB8',
+          tint: '#E9EFF5',
+          strong: '#D6E2EE',
+        },
+        hairline: {
+          DEFAULT: '#E7E2D9',
+          soft: '#EDE8DE',
+        },
+        onink: {
+          DEFAULT: '#F3F0E9',
+          muted: '#A39C8B',
+          faint: '#8C8472',
+          line: '#2E2921',
+          fill: '#221E17',
+        },
+
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

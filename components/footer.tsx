@@ -12,69 +12,103 @@ import {
   Youtube,
   Facebook,
   ChevronUp,
+  Mic,
 } from "lucide-react";
 import Image from "next/image";
+import { servicenowServices, industryItems, companyItems } from "@/components/nav-data";
 
+const pick = (items: { title: string; href: string }[], titles: string[]) =>
+  titles
+    .map((t) => items.find((i) => i.title === t))
+    .filter((i): i is { title: string; href: string } => Boolean(i))
+    .map(({ title, href }) => ({ label: title, href }));
+
+// Mirrors the three practices in the header. ServiceNow first as the
+// proven practice; the other two get equal column weight.
 const footerLinks = {
-  Services: [
-    { label: "ServiceNow Implementation", href: "/services/servicenow-implementation" },
-    { label: "Agentic AI & Automation", href: "/services/ai-automation" },
-    { label: "CRM & Customer Experience", href: "/services/crm-customer-experience" },
-    { label: "Managed Services", href: "/services/managed-services-support" },
-    { label: "Custom App Development", href: "/services/custom-apps" },
-    { label: "Digital Transformation", href: "/services/digital-transformation" },
+  ServiceNow: [
+    ...pick(servicenowServices, [
+      "ServiceNow Implementation",
+      "CRM & Customer Experience",
+      "Managed Services",
+      "Custom App Development",
+    ]),
+    { label: "All Services", href: "/services" },
+    { label: "Full Product Portfolio", href: "/portfolio" },
+  ],
+  "AI & Agents": [
+    { label: "AI Agents", href: "/services/ai-agents" },
+    { label: "Voice Agents", href: "/services/voice-agents" },
+    { label: "AI Engineering on Claude", href: "/services/claude-ai-engineering" },
+    { label: "ServiceNow AI Automation", href: "/services/ai-automation" },
+    { label: "Try the live agent", href: "/agent" },
+  ],
+  "Web & Mobile": [
+    { label: "Website Development", href: "/services/website-development" },
+    { label: "Mobile App Development", href: "/services/mobile-app-development" },
+    { label: "Practice overview", href: "/services/web-mobile-development" },
+    { label: "Our work & demos", href: "/work" },
+    { label: "How we engage", href: "/engage" },
   ],
   Industries: [
-    { label: "Manufacturing", href: "/industries/manufacturing-solutions" },
-    { label: "Healthcare", href: "/industries/healthcare-providers" },
-    { label: "Financial Services", href: "/industries/financial-services" },
-    { label: "Technology", href: "/industries/technology-software-companies" },
-    { label: "Energy & Utilities", href: "/industries/energy-utilities" },
-    { label: "Public Sector", href: "/industries/public-sector-government" },
+    ...pick(industryItems, [
+      "Manufacturing",
+      "Healthcare",
+      "Retail",
+      "Technology",
+      "Energy & Utilities",
+      "Public Sector",
+    ]),
+    { label: "All Industries", href: "/industries" },
   ],
-  Company: [
-    { label: "About ifBash", href: "/company/about-us" },
-    { label: "Client Success Stories", href: "/company/case-studies-client-success" },
-    { label: "Careers", href: "/company/careers-servicenow-jobs" },
-    { label: "News & Events", href: "/company/news-events-servicenow" },
-    { label: "Learning Center", href: "/learning-center-servicenow" },
-  ],
+  Company: companyItems.map(({ title, href }) => ({ label: title, href })),
 };
 
 export function Footer() {
   const [email, setEmail] = React.useState("");
-  const [isSubscribed, setIsSubscribed] = React.useState(false);
+  const [newsletterState, setNewsletterState] = React.useState<"idle" | "sending" | "done" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubscribed(true);
-    setEmail("");
-    setTimeout(() => setIsSubscribed(false), 3000);
+    if (!email || newsletterState === "sending") return;
+    setNewsletterState("sending");
+    try {
+      const res = await fetch("/api/lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, serviceInterest: "Newsletter signup", message: "Newsletter subscription request", source: "footer newsletter" }),
+      });
+      const data = await res.json();
+      if (data.ok) {
+        setNewsletterState("done");
+        setEmail("");
+        setTimeout(() => setNewsletterState("idle"), 4000);
+      } else {
+        setNewsletterState("error");
+      }
+    } catch {
+      setNewsletterState("error");
+    }
   };
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: "#020210", borderTop: "3px solid transparent", borderImage: "linear-gradient(90deg, #4f46e5, #7c3aed, #2563eb) 1" }}>
-      {/* Dot grid */}
-      <div className="absolute inset-0 opacity-[0.025]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-      {/* Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] opacity-10 pointer-events-none" style={{ background: 'radial-gradient(ellipse, #4f46e5, transparent 70%)' }} />
-
+    <footer className="relative overflow-hidden" style={{ background: "#141210", borderTop: "3px solid #1B3A5C" }}>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top — logo + newsletter */}
-        <div className="grid lg:grid-cols-2 gap-12 py-10 border-b border-white/8 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 py-10 border-b border-[#2E2921] items-start">
           <div>
             <Link href="/">
               <Image src="/images/logo.png" alt="ifBash" width={160} height={36} className="object-contain mb-4" style={{ filter: 'brightness(0) invert(1)' }} />
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm mb-2">
-              Your AI partner for ServiceNow. We deliver IT, Employee & Customer workflows infused with agentic AI.
+            <p className="text-[#A39C8B] text-sm leading-relaxed max-w-sm mb-2">
+              Three practices, one senior team — ServiceNow delivery, AI agents engineered on Claude, and web &amp; mobile products built end to end.
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-2">Stay ahead on ServiceNow</h3>
-            <p className="text-slate-400 text-sm mb-4">Best practices, AI trends, and implementation insights — monthly.</p>
+            <h3 className="text-white font-semibold mb-2">Stay ahead on AI agents &amp; ServiceNow</h3>
+            <p className="text-[#A39C8B] text-sm mb-4">Agent patterns, AI trends, and implementation insights — monthly.</p>
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm">
               <input
                 type="email"
@@ -82,28 +116,32 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 px-4 py-2.5 rounded-xl text-sm bg-white/8 border border-white/12 text-white placeholder-slate-500 focus:outline-none focus:border-indigo-500/50 transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-full text-sm bg-[#221E17] border border-[#2E2921] text-white placeholder-[#8C8472] focus:outline-none focus:border-[#1B3A5C]/60 transition-colors"
               />
               <button
                 type="submit"
-                className="px-4 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0"
-                style={{ background: isSubscribed ? "linear-gradient(135deg,#10b981,#059669)" : "linear-gradient(135deg,#4f46e5,#7c3aed)", boxShadow: "0 4px 16px rgba(79,70,229,0.3)" }}
+                disabled={newsletterState === "sending"}
+                className="px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0 disabled:opacity-60"
+                style={{ background: newsletterState === "done" ? "#3E7A52" : "#1B3A5C", boxShadow: "0 4px 16px rgba(27,58,92,0.3)" }}
               >
-                {isSubscribed ? "✓ Done" : <ArrowRight className="h-4 w-4" />}
+                {newsletterState === "done" ? "✓ Done" : newsletterState === "sending" ? "…" : <ArrowRight className="h-4 w-4" />}
               </button>
             </form>
+            {newsletterState === "error" && (
+              <p className="text-red-400 text-xs mt-2">Could not subscribe right now — email us at connect@ifbash.com instead.</p>
+            )}
           </div>
         </div>
 
         {/* Middle — links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 py-14 border-b border-white/8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 py-14 border-b border-[#2E2921]">
           {Object.entries(footerLinks).map(([section, links]) => (
             <div key={section}>
               <h4 className="text-white font-semibold text-sm mb-5">{section}</h4>
               <ul className="space-y-3">
                 {links.map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-slate-500 hover:text-slate-200 text-sm transition-colors">
+                    <Link href={href} className="text-[#A39C8B] hover:text-[#E9EFF5] text-sm transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -117,30 +155,37 @@ export function Footer() {
             <h4 className="text-white font-semibold text-sm mb-5">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-indigo-400 shrink-0" />
-                <span className="text-slate-400 text-sm">connect@ifbash.com</span>
+                <Mail className="h-4 w-4 text-[#7C9AB8] shrink-0" />
+                <span className="text-[#A39C8B] text-sm">connect@ifbash.com</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-indigo-400 shrink-0" />
-                <span className="text-slate-400 text-sm">24/7 support available</span>
+                <Phone className="h-4 w-4 text-[#7C9AB8] shrink-0" />
+                <span className="text-[#A39C8B] text-sm">24/7 support available</span>
               </div>
               <div className="flex items-center gap-2.5 mb-6">
-                <MapPin className="h-4 w-4 text-indigo-400 shrink-0" />
-                <span className="text-slate-400 text-sm">Serving clients worldwide</span>
+                <MapPin className="h-4 w-4 text-[#7C9AB8] shrink-0" />
+                <span className="text-[#A39C8B] text-sm">Serving clients worldwide</span>
               </div>
-              
-              {/* Value Add before the button */}
-              <div className="pt-4 border-t border-white/10 mt-6">
-                <p className="text-slate-400 text-xs mb-3 leading-relaxed">
-                  Ready to go live on ServiceNow? We scope your implementation in 48 hours — no commitment required.
+
+              <div className="pt-4 border-t border-[#2E2921] mt-6">
+                <p className="text-[#A39C8B] text-xs mb-3 leading-relaxed">
+                  Ready to move on ServiceNow — or build your first agent? Scoped in 48 hours, no commitment.
                 </p>
-                <Link
-                  href="/get-started"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5"
-                  style={{ background: "linear-gradient(135deg,#4f46e5,#7c3aed)", boxShadow: "0 4px 16px rgba(79,70,229,0.3)" }}
-                >
-                  Start a project <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
+                <div className="flex flex-col gap-2">
+                  <Link
+                    href="/get-started"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 self-start"
+                    style={{ background: "#1B3A5C", boxShadow: "0 4px 16px rgba(27,58,92,0.3)" }}
+                  >
+                    Start a project <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                  <Link
+                    href="/agent"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-[#F3F0E9] border border-[#2E2921] hover:border-[#1B3A5C]/60 hover:text-white transition-all self-start"
+                  >
+                    <Mic className="h-3.5 w-3.5" /> Talk to our agent
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -148,7 +193,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
-          <p className="text-slate-600 text-xs">© 2026 ifBash. All rights reserved.</p>
+          <p className="text-[#8C8472] text-xs">© 2026 ifBash. All rights reserved.</p>
 
           <div className="flex items-center gap-3">
             {[
@@ -158,8 +203,8 @@ export function Footer() {
               { href: "https://facebook.com/ifbash", icon: Facebook, label: "Facebook" },
             ].map(({ href, icon: Icon, label }) => (
               <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                className="w-8 h-8 rounded-lg bg-white/5 hover:bg-indigo-500/20 border border-white/8 hover:border-indigo-500/30 flex items-center justify-center transition-all duration-200">
-                <Icon className="h-3.5 w-3.5 text-slate-400 hover:text-white" />
+                className="w-8 h-8 rounded-lg bg-[#221E17] hover:bg-[#1B3A5C]/20 border border-[#2E2921] hover:border-[#1B3A5C]/40 flex items-center justify-center transition-all duration-200">
+                <Icon className="h-3.5 w-3.5 text-[#A39C8B] hover:text-white" />
               </Link>
             ))}
           </div>
@@ -170,14 +215,14 @@ export function Footer() {
               { label: "Terms", href: "/terms" },
               { label: "Cookies", href: "/cookies" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-slate-600 hover:text-slate-300 text-xs transition-colors">{label}</Link>
+              <Link key={label} href={href} className="text-[#8C8472] hover:text-[#F3F0E9] text-xs transition-colors">{label}</Link>
             ))}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 border border-white/8 flex items-center justify-center transition-all"
+              className="w-7 h-7 rounded-lg bg-[#221E17] hover:bg-[#2E2921] border border-[#2E2921] flex items-center justify-center transition-all"
               aria-label="Scroll to top"
             >
-              <ChevronUp className="h-3.5 w-3.5 text-slate-400" />
+              <ChevronUp className="h-3.5 w-3.5 text-[#A39C8B]" />
             </button>
           </div>
         </div>

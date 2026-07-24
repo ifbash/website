@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# graphify skill output (regenerable caches)
+graphify-out/
+**/graphify-out/
+
+# Guard. public/ holds only this site's own assets. These two paths once
+# collected large third-party web builds (~89MB) that do not belong in this
+# repo; kept ignored so a stray copy or rebuild cannot land them here again.
+public/app/
+public/agent/
