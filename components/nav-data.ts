@@ -6,7 +6,7 @@ import {
   Settings, Users, BarChart3, Shield, Workflow, Building, GraduationCap, HeartPulse,
   MonitorSmartphone, Briefcase, Layers, Target, FileText, CloudLightning, Car, Factory,
   ShoppingBag, Bolt, Landmark, MapPin, Wrench, BookOpen, CalendarCheck, Database, Star,
-  Info, Mic, BrainCircuit, Zap, Bot, Smartphone, Globe, Sparkles, Handshake,
+  Info, Mic, BrainCircuit, Zap, Bot, Smartphone, Globe, Sparkles, Handshake, PenLine,
 } from 'lucide-react';
 
 export interface NavItem {
@@ -161,6 +161,7 @@ export const companyItems: NavItem[] = [
   { title: 'About Us', href: '/company/about-us', icon: Info },
   { title: 'Our Work', href: '/work', icon: Star },
   { title: 'How We Engage', href: '/engage', icon: Handshake },
+  { title: 'Insights', href: '/insights', icon: PenLine },
   { title: 'Careers', href: '/company/careers-servicenow-jobs', icon: Users },
   { title: 'News & Events', href: '/company/news-events-servicenow', icon: CalendarCheck },
   { title: 'Learning Center', href: '/learning-center-servicenow', icon: BookOpen },

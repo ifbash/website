@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { portfolioSlugs } from "@/lib/portfolio-data";
 import { industrySlugs } from "@/lib/industry-data";
+import { getAllInsights } from "@/lib/insights";
 
 export const dynamic = "force-static";
 
@@ -10,6 +11,8 @@ type Entry = {
   url: string;
   priority: number;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  /** Articles carry their own edit date; everything else uses the build time. */
+  lastModified?: Date;
 };
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -74,12 +77,33 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
   }));
 
-  return [...core, ...services, ...industries, ...portfolio, ...company, ...legal].map(
-    ({ url, priority, changeFrequency }) => ({
-      url: `${BASE_URL}${url}`,
-      lastModified: now,
-      changeFrequency,
-      priority,
-    }),
-  );
+  // Articles report their own edit date so crawlers see genuine freshness
+  // rather than every URL appearing to change on each deploy.
+  const posts = getAllInsights();
+  const insights: Entry[] = [
+    ...(posts.length
+      ? [{ url: "/insights", priority: 0.8, changeFrequency: "weekly" as const }]
+      : []),
+    ...posts.map((p) => ({
+      url: `/insights/${p.slug}`,
+      priority: 0.7,
+      changeFrequency: "monthly" as const,
+      lastModified: new Date(`${p.updated || p.date}T00:00:00Z`),
+    })),
+  ];
+
+  return [
+    ...core,
+    ...services,
+    ...insights,
+    ...industries,
+    ...portfolio,
+    ...company,
+    ...legal,
+  ].map(({ url, priority, changeFrequency, lastModified }) => ({
+    url: `${BASE_URL}${url}`,
+    lastModified: lastModified ?? now,
+    changeFrequency,
+    priority,
+  }));
 }
