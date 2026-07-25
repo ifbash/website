@@ -237,7 +237,7 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close chat' : 'Chat with ifBash'}
-        className="relative group w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-sky text-paper shadow-[0_8px_32px_rgba(10,92,99,0.35)] hover:shadow-xl hover:bg-sky-deep transition-all duration-300 active:scale-95"
+        className="relative group w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-sky text-paper shadow-[0_8px_32px_rgba(0,112,124,0.35)] hover:shadow-xl hover:bg-sky-deep transition-all duration-300 active:scale-95"
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />}
         {!open && <span className="absolute inset-0 rounded-full animate-ping bg-sky opacity-20" />}

@@ -23,7 +23,7 @@ import {
 const DROP = {
   background: "rgba(255,255,255,0.99)",
   backdropFilter: "blur(20px)",
-  border: "1px solid #D6E6EA",
+  border: "1px solid #CBE1E9",
   boxShadow: "0 24px 64px rgba(11,20,23,0.10), 0 8px 16px rgba(11,20,23,0.04)",
 };
 
@@ -324,7 +324,7 @@ export function Header() {
               <LanguageToggle className="hidden md:inline-flex" />
 
               <Link href={t.getStarted}
-                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-ink text-paper shadow-[0_4px_20px_rgba(11,20,23,0.15)] hover:bg-sea hover:-translate-y-0.5 transition-all duration-200">
+                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-sea text-white shadow-[0_4px_18px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:shadow-[0_8px_24px_rgba(0,112,124,0.42)] hover:-translate-y-0.5 transition-all duration-200">
                 {t.startProject}
               </Link>
 
@@ -423,7 +423,7 @@ export function Header() {
 
               <div className="mt-4 pt-4 border-t border-hairline-soft space-y-3">
                 <Link href={t.getStarted} onClick={closeMobile}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-ink text-paper shadow-[0_4px_20px_rgba(11,20,23,0.2)] hover:bg-sea hover:-translate-y-0.5 transition-all">
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">
                   {t.startProject} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <LanguageToggle className="w-full justify-center h-11" />

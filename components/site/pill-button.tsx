@@ -17,12 +17,17 @@ const SIZES: Record<Size, string> = {
  * and left the hover state stuck on touch devices.
  */
 const VARIANTS: Record<Variant, string> = {
+  // The primary CTA used to be flat black, which on the tinted base read as a
+  // dead rectangle — the single biggest reason the page felt inert. It now
+  // carries the brand colour and a coloured glow, so the eye lands on the one
+  // thing we want clicked.
   primary:
-    'bg-ink text-paper shadow-[0_8px_24px_rgba(11,20,23,0.18)] hover:bg-sea hover:-translate-y-0.5',
+    'bg-sea text-white shadow-[0_6px_20px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:shadow-[0_10px_28px_rgba(0,112,124,0.42)] hover:-translate-y-0.5',
+  // The AI-layer counterpart — used on agent/voice/Claude surfaces.
   accent:
-    'bg-sea text-paper shadow-[0_8px_24px_rgba(10,92,99,0.22)] hover:bg-sea-deep hover:-translate-y-0.5',
+    'bg-sky text-white shadow-[0_6px_20px_rgba(10,111,176,0.30)] hover:bg-sky-deep hover:shadow-[0_10px_28px_rgba(10,111,176,0.42)] hover:-translate-y-0.5',
   outline:
-    'border border-hairline text-ink hover:border-sea hover:text-sea hover:-translate-y-0.5',
+    'border border-sea/30 text-sea hover:border-sea hover:bg-sea-tint hover:-translate-y-0.5',
   quiet: 'text-slate hover:text-sea',
 };
 

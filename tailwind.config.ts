@@ -36,9 +36,9 @@ const config: Config = {
         // CSS variables and used by components/ui/*.
         // Cool tinted base — the page carries a hint of colour before any
         // accent is used. Cards stay pure white so they lift off it.
-        paper: '#F3F9FB',
+        paper: '#EAF4F8',
         surface: '#FFFFFF',
-        wash: '#E4F0F4',
+        wash: '#D9EAF2',
         ink: {
           DEFAULT: '#0B1417',
           body: '#22333A',
@@ -55,26 +55,26 @@ const config: Config = {
         // shine — glows, fills, dark bands — and NEVER text on a light
         // surface. See the brightness rule in lib/design.ts.
         sea: {
-          DEFAULT: '#0A5C63',
-          deep: '#07454B',
-          mid: '#0E8C96',
-          bright: '#22C7D6',
-          soft: '#7FD2DA',
-          tint: '#DEF3F5',
-          strong: '#C2E7EB',
+          DEFAULT: '#00707C',
+          deep: '#005059',
+          mid: '#00939F',
+          bright: '#1FD3E3',
+          soft: '#79D8E2',
+          tint: '#C8E9EE',
+          strong: '#A6DCE5',
         },
         sky: {
-          DEFAULT: '#0B6BA8',
-          deep: '#08527F',
-          mid: '#1E93D0',
-          bright: '#4FC3F7',
-          soft: '#8ECBEC',
-          tint: '#E2F1FA',
-          strong: '#C6E4F5',
+          DEFAULT: '#0A6FB0',
+          deep: '#075287',
+          mid: '#1090D8',
+          bright: '#3FC6FF',
+          soft: '#86CDF2',
+          tint: '#CCE6F8',
+          strong: '#AFD9F5',
         },
         hairline: {
-          DEFAULT: '#D6E6EA',
-          soft: '#E4EFF2',
+          DEFAULT: '#CBE1E9',
+          soft: '#DCEBF1',
         },
         onink: {
           DEFAULT: '#E8F4F6',

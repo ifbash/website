@@ -19,7 +19,7 @@
  *   SEA_BRIGHT / SKY_BRIGHT   glows, orb, chart fills, underlines, and text ON
  *                             ink bands — NEVER text on a light surface
  *
- * `#22C7D6` is 1.94:1 on paper. It fails at every size, including display. If a
+ * `#1FD3E3` is 1.64:1 on paper. It fails at every size, including display. If a
  * bright value ends up on light copy the page becomes unreadable, so the shine
  * lives in graphics and on dark bands, never in body type on paper.
  *
@@ -48,14 +48,14 @@
 // ── Surfaces ────────────────────────────────────────────────────────
 // The page is tinted rather than white or cream: a hint of cyan so colour is
 // present even before any accent is used. Cards stay pure white so they lift.
-export const PAPER = '#F3F9FB'; // page background — pale cyan wash
+export const PAPER = '#EAF4F8'; // page background — tinted cyan, clearly not white
 export const SURFACE = '#FFFFFF'; // cards, alternating sections
-export const WASH = '#E4F0F4'; // deeper tint — hover fills, inset panels
+export const WASH = '#D9EAF2'; // deeper tint — hover fills, inset panels
 
 // ── Ink ─────────────────────────────────────────────────────────────
-export const INK = '#0B1417'; // 17.5:1 on PAPER — headlines, buttons, dark bands
-export const INK_BODY = '#22333A'; // 12.3:1 — card titles, strong body
-export const INK_SOFT = '#3D5259'; // 7.8:1 — nav links, tertiary headings
+export const INK = '#0B1417'; // 16.7:1 on PAPER — headlines, buttons, dark bands
+export const INK_BODY = '#22333A'; // 11.7:1 — card titles, strong body
+export const INK_SOFT = '#3D5259'; // 7.4:1 — nav links, tertiary headings
 
 // ── Muted text ──────────────────────────────────────────────────────
 // All three sit at their contrast floor. SLATE_FAINT is decorative only
@@ -65,26 +65,26 @@ export const SLATE_LIGHT = '#5C7278'; // 4.8:1 AA — small print, captions
 export const SLATE_FAINT = '#7A9098'; // 3.2:1 — decorative marks only
 
 // ── Sea — the ServiceNow platform (primary) ─────────────────────────
-export const SEA = '#0A5C63'; // 7.3:1 on PAPER (AAA) — text, links, active
-export const SEA_DEEP = '#07454B'; // 10.1:1 — pressed / hover-darken
-export const SEA_MID = '#0E8C96'; // 3.8:1 — large display + UI edges only
-export const SEA_BRIGHT = '#22C7D6'; // 9.1:1 ON INK — the shine. Never on paper.
-export const SEA_SOFT = '#7FD2DA'; // 10.8:1 on INK — accent on dark bands
-export const SEA_TINT = '#DEF3F5'; // icon wells, accent wash
-export const SEA_STRONG = '#C2E7EB'; // icon well hover
+export const SEA = '#00707C'; // 5.2:1 on PAPER (AA) — text, links, active
+export const SEA_DEEP = '#005059'; // 8.2:1 (AAA) — pressed / hover-darken
+export const SEA_MID = '#00939F'; // 3.3:1 — large display + UI edges only
+export const SEA_BRIGHT = '#1FD3E3'; // 10.2:1 ON INK — the shine. 1.6:1 on paper.
+export const SEA_SOFT = '#79D8E2'; // 11.3:1 on INK — accent on dark bands
+export const SEA_TINT = '#C8E9EE'; // icon wells, accent wash
+export const SEA_STRONG = '#A6DCE5'; // icon well hover
 
 // ── Sky — the AI layer (secondary) ──────────────────────────────────
-export const SKY = '#0B6BA8'; // 5.4:1 on PAPER (AA) — text, links on AI pages
-export const SKY_DEEP = '#08527F'; // 7.8:1 (AAA) — pressed / hover-darken
-export const SKY_MID = '#1E93D0'; // 3.2:1 — large display + UI edges only
-export const SKY_BRIGHT = '#4FC3F7'; // 9.3:1 ON INK — the shine. Never on paper.
-export const SKY_SOFT = '#8ECBEC'; // 10.6:1 on INK — accent on dark bands
-export const SKY_TINT = '#E2F1FA'; // icon wells, accent wash
-export const SKY_STRONG = '#C6E4F5'; // icon well hover
+export const SKY = '#0A6FB0'; // 4.8:1 on PAPER (AA) — text, links on AI pages
+export const SKY_DEEP = '#075287'; // 7.3:1 (AAA) — pressed / hover-darken
+export const SKY_MID = '#1090D8'; // 3.1:1 — large display + UI edges only
+export const SKY_BRIGHT = '#3FC6FF'; // 9.5:1 ON INK — the shine. 1.8:1 on paper.
+export const SKY_SOFT = '#86CDF2'; // 10.7:1 on INK — accent on dark bands
+export const SKY_TINT = '#CCE6F8'; // icon wells, accent wash
+export const SKY_STRONG = '#AFD9F5'; // icon well hover
 
 // ── Rules ───────────────────────────────────────────────────────────
-export const HAIRLINE = '#D6E6EA'; // section dividers, card borders
-export const HAIRLINE_SOFT = '#E4EFF2'; // inner dividers, menu rules
+export const HAIRLINE = '#CBE1E9'; // section dividers, card borders
+export const HAIRLINE_SOFT = '#DCEBF1'; // inner dividers, menu rules
 
 // ── On-ink variants (text/rules over INK backgrounds) ───────────────
 export const ON_INK = '#E8F4F6'; // 16.6:1
@@ -98,10 +98,10 @@ export const SHADOW_BUTTON = '0 8px 24px rgba(11,20,23,0.18)';
 export const SHADOW_CARD = '0 8px 30px rgba(11,20,23,0.07)';
 export const SHADOW_MENU =
   '0 24px 64px rgba(11,20,23,0.10), 0 8px 16px rgba(11,20,23,0.04)';
-export const SHADOW_ACCENT = '0 8px 24px rgba(10,92,99,0.22)';
+export const SHADOW_ACCENT = '0 8px 24px rgba(0,112,124,0.22)';
 /** The glow that gives the site its shine — bright cyan, dark surfaces only. */
-export const GLOW_SEA = '0 0 32px rgba(34,199,214,0.35)';
-export const GLOW_SKY = '0 0 32px rgba(79,195,247,0.35)';
+export const GLOW_SEA = '0 0 32px rgba(31,211,227,0.35)';
+export const GLOW_SKY = '0 0 32px rgba(63,198,255,0.35)';
 
 /** Standard page gutter — every section body uses this. */
 export const CONTAINER = 'w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto';

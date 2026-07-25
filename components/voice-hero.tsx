@@ -178,7 +178,7 @@ export function VoiceHero() {
               className={`max-w-[92%] rounded-2xl px-4 py-2.5 text-[13.5px] leading-relaxed ${t.role === 'user' ? 'rounded-br-md text-white' : 'rounded-bl-md'}`}
               style={t.role === 'user'
                 ? { background: '#0B1417' }
-                : { background: '#FFFFFF', color: '#22333A', border: '1px solid #D6E6EA', boxShadow: '0 2px 12px rgba(11,20,23,0.05)' }}
+                : { background: '#FFFFFF', color: '#22333A', border: '1px solid #CBE1E9', boxShadow: '0 2px 12px rgba(11,20,23,0.05)' }}
             >
               {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: SKY }} />}
             </div>
@@ -195,7 +195,7 @@ export function VoiceHero() {
             onClick={() => ask(c)}
             disabled={status !== 'idle'}
             className="text-xs font-medium rounded-full px-3.5 py-1.5 transition-all disabled:opacity-40 hover:-translate-y-0.5"
-            style={{ background: '#FFFFFF', border: '1px solid #D6E6EA', color: '#3D5259' }}
+            style={{ background: '#FFFFFF', border: '1px solid #CBE1E9', color: '#3D5259' }}
           >
             {c}
           </button>
@@ -212,7 +212,7 @@ export function VoiceHero() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="…or type your question"
           className="flex-1 min-w-0 rounded-full px-4 py-2.5 text-[13px] outline-none transition-colors"
-          style={{ background: '#FFFFFF', border: '1px solid #D6E6EA', color: '#0B1417' }}
+          style={{ background: '#FFFFFF', border: '1px solid #CBE1E9', color: '#0B1417' }}
         />
         <button
           type="submit"

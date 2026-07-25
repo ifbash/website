@@ -134,7 +134,7 @@ function AgentChatDemo() {
 
       <div className="flex-1 space-y-2.5">
         <motion.div {...rise(0.4)} className="flex justify-end">
-          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)' }}>
+          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #00707C, #00939F)' }}>
             Hi — can I get a refund on our enterprise plan? We signed up two weeks ago.
           </div>
         </motion.div>
@@ -225,7 +225,7 @@ function MobileDemo() {
         <div className="p-3 pt-7 h-full flex flex-col">
           <motion.div {...rise(0.5)} className="text-[10px] text-onink-muted mb-0.5">Good evening, Aisha</motion.div>
           <motion.div {...rise(0.65)} className="text-[13px] font-bold text-white mb-2.5">Your fleet today</motion.div>
-          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)' }}>
+          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #00707C, #00939F)' }}>
             <div className="text-[8px] text-sea-soft mb-0.5">Deliveries completed</div>
             <div className="text-lg font-bold text-white leading-none">1,284</div>
             <div className="text-[8px] text-sea-soft mt-1">↑ 12% vs yesterday</div>
@@ -289,7 +289,7 @@ function WebDemo() {
             </span>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, duration: 0.5 }}
-            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(10,92,99,0.5), rgba(127,210,218,0.35))' }}>
+            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(0,112,124,0.5), rgba(127,210,218,0.35))' }}>
             <span className="w-2/3 h-3 rounded bg-white/85" />
             <span className="w-1/2 h-2 rounded bg-white/45" />
             <span className="w-16 h-4 rounded-md bg-white/90 mt-1" />

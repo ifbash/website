@@ -36,7 +36,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-paper">
       <div
         className="absolute top-[-200px] right-[-120px] w-[620px] h-[620px] rounded-full pointer-events-none opacity-[0.22]"
-        style={{ background: 'radial-gradient(circle, #C2E7EB, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, #A6DCE5, transparent 65%)' }}
       />
 
       <Container className="relative z-10 py-16 lg:py-24">

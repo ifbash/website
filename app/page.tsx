@@ -98,7 +98,7 @@ export default function Page() {
       <section className="relative overflow-hidden bg-paper">
         <div
           className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full pointer-events-none opacity-[0.28]"
-          style={{ background: 'radial-gradient(circle, #C2E7EB, transparent 65%)' }}
+          style={{ background: 'radial-gradient(circle, #A6DCE5, transparent 65%)' }}
         />
 
         <Container className="relative z-10 py-16 lg:py-24">
@@ -118,7 +118,7 @@ export default function Page() {
                 <br />
                 Then we build the
                 <br />
-                AI layer on top.
+                <span className="text-sea">AI layer on top.</span>
               </motion.h1>
               <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-slate">
                 Implementation and managed services are the practice that pays the bills. The

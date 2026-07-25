@@ -14,13 +14,43 @@ import {
   Mic,
 } from "lucide-react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { servicenowServices, industryItems, companyItems } from "@/components/nav-data";
+import { localeOf } from "@/lib/i18n/config";
+import { ar } from "@/lib/i18n/ar";
 
 const pick = (items: { title: string; href: string }[], titles: string[]) =>
   titles
     .map((t) => items.find((i) => i.title === t))
     .filter((i): i is { title: string; href: string } => Boolean(i))
     .map(({ title, href }) => ({ label: title, href }));
+
+/**
+ * Arabic footer.
+ *
+ * The English footer links to ~30 pages, only 12 of which exist in Arabic.
+ * Rendering it on /ar gave Arabic readers a right-aligned wall of English that
+ * mostly led back to English pages — worse than no footer at all.
+ *
+ * So /ar gets its own reduced set: Arabic labels, and ONLY destinations that
+ * actually have an Arabic page (the same ROUTE_PAIRS list that drives hreflang
+ * and the language toggle). Add a pair there and add the line here.
+ */
+const arFooterLinks: Record<string, { label: string; href: string }[]> = {
+  [ar.nav.services]: [
+    { label: ar.nav.servicenow, href: "/ar/services/servicenow-implementation" },
+    { label: ar.nav.aiAgents, href: "/ar/services/ai-agents" },
+    { label: ar.voiceAgents.title, href: "/ar/services/voice-agents" },
+    { label: ar.websiteDev.title, href: "/ar/services/website-development" },
+    { label: ar.mobileDev.title, href: "/ar/services/mobile-app-development" },
+  ],
+  [ar.footer.company]: [
+    { label: ar.nav.aboutUs, href: "/ar/company/about-us" },
+    { label: ar.nav.ourWork, href: "/ar/work" },
+    { label: ar.nav.howWeEngage, href: "/ar/engage" },
+    { label: ar.nav.contact, href: "/ar/contactus" },
+  ],
+};
 
 // Mirrors the three practices in the header. ServiceNow first as the
 // proven practice; the other two get equal column weight.
@@ -64,6 +94,9 @@ const footerLinks = {
 };
 
 export function Footer() {
+  const pathname = usePathname() || "/";
+  const isAr = localeOf(pathname) === "ar";
+  const links = isAr ? arFooterLinks : footerLinks;
   const [email, setEmail] = React.useState("");
   const [newsletterState, setNewsletterState] = React.useState<"idle" | "sending" | "done" | "error">("idle");
 
@@ -91,7 +124,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: "#0B1417", borderTop: "3px solid #0A5C63" }}>
+    <footer className="relative overflow-hidden" style={{ background: "#0B1417", borderTop: "3px solid #00707C" }}>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top — logo + newsletter */}
@@ -117,13 +150,13 @@ export function Footer() {
               />
             </Link>
             <p className="text-onink-muted text-sm leading-relaxed max-w-sm mb-2">
-              We implement and run ServiceNow, then build the AI layer on top — agents and assistants engineered on Claude, and the web &amp; mobile surfaces they live in.
+              {isAr ? ar.footer.blurb : "We implement and run ServiceNow, then build the AI layer on top — agents and assistants engineered on Claude, and the web & mobile surfaces they live in."}
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-2">Stay ahead on AI agents &amp; ServiceNow</h3>
-            <p className="text-onink-muted text-sm mb-4">Agent patterns, AI trends, and implementation insights — monthly.</p>
+            <h3 className="text-white font-semibold mb-2">{isAr ? ar.footer.newsletterTitle : "Stay ahead on AI agents & ServiceNow"}</h3>
+            <p className="text-onink-muted text-sm mb-4">{isAr ? ar.footer.newsletterSub : "Agent patterns, AI trends, and implementation insights — monthly."}</p>
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm">
               <label htmlFor="footer-newsletter" className="sr-only">Email address for the newsletter</label>
               <input
@@ -139,7 +172,7 @@ export function Footer() {
                 type="submit"
                 disabled={newsletterState === "sending"}
                 className="px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0 disabled:opacity-60"
-                style={{ background: newsletterState === "done" ? "#3E7A52" : "#0A5C63", boxShadow: "0 4px 16px rgba(10,92,99,0.3)" }}
+                style={{ background: newsletterState === "done" ? "#3E7A52" : "#00707C", boxShadow: "0 4px 16px rgba(0,112,124,0.3)" }}
               >
                 {newsletterState === "done" ? "✓ Done" : newsletterState === "sending" ? "…" : <ArrowRight className="h-4 w-4" />}
               </button>
@@ -152,11 +185,11 @@ export function Footer() {
 
         {/* Middle — links */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 py-14 border-b border-onink-line">
-          {Object.entries(footerLinks).map(([section, links]) => (
+          {Object.entries(links).map(([section, items]) => (
             <div key={section}>
               <h4 className="text-white font-semibold text-sm mb-5">{section}</h4>
               <ul className="space-y-3">
-                {links.map(({ label, href }) => (
+                {items.map(({ label, href }) => (
                   <li key={label}>
                     <Link href={href} className="text-onink-muted hover:text-sea-tint text-sm transition-colors">
                       {label}
@@ -169,7 +202,7 @@ export function Footer() {
 
           {/* Contact column */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-5">Contact</h4>
+            <h4 className="text-white font-semibold text-sm mb-5">{isAr ? ar.nav.contact : "Contact"}</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 text-sea-soft shrink-0" />
@@ -177,18 +210,18 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2.5 mb-6">
                 <MapPin className="h-4 w-4 text-sea-soft shrink-0" />
-                <span className="text-onink-muted text-sm">Serving clients worldwide</span>
+                <span className="text-onink-muted text-sm">{isAr ? ar.footer.worldwide : "Serving clients worldwide"}</span>
               </div>
 
               <div className="pt-4 border-t border-onink-line mt-6">
                 <p className="text-onink-muted text-xs mb-3 leading-relaxed">
-                  Ready to move on ServiceNow — or build your first agent? Start with a conversation, no commitment.
+                  {isAr ? ar.footer.ctaBlurb : "Ready to move on ServiceNow — or build your first agent? Start with a conversation, no commitment."}
                 </p>
                 <div className="flex flex-col gap-2">
                   <Link
                     href="/get-started"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 self-start"
-                    style={{ background: "#0A5C63", boxShadow: "0 4px 16px rgba(10,92,99,0.3)" }}
+                    style={{ background: "#00707C", boxShadow: "0 4px 16px rgba(0,112,124,0.3)" }}
                   >
                     Start a project <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
@@ -206,7 +239,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 py-6">
-          <p className="text-onink-faint text-xs">© 2026 ifBash. All rights reserved.</p>
+          <p className="text-onink-faint text-xs">© 2026 ifBash. {isAr ? ar.footer.rights : "All rights reserved."}</p>
 
           <div className="flex items-center gap-3">
             {[
@@ -224,9 +257,11 @@ export function Footer() {
 
           <div className="flex items-center gap-4">
             {[
-              { label: "Privacy", href: "/privacy" },
-              { label: "Terms", href: "/terms" },
-              { label: "Cookies", href: "/cookies" },
+              // Legal pages have no Arabic twin, so the labels translate but the
+              // destinations stay English — better than hiding them entirely.
+              { label: isAr ? ar.footer.privacy : "Privacy", href: "/privacy" },
+              { label: isAr ? ar.footer.terms : "Terms", href: "/terms" },
+              { label: isAr ? ar.footer.cookies : "Cookies", href: "/cookies" },
             ].map(({ label, href }) => (
               <Link key={label} href={href} className="text-onink-faint hover:text-onink text-xs transition-colors">{label}</Link>
             ))}

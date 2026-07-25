@@ -10,7 +10,7 @@
    ────────────────────────────────────────────────────────────────────── */
 @layer base {
   :root {
-    --background: 197 43% 97%;         /* paper    #F3F9FB */
+    --background: 197 43% 97%;         /* paper    #EAF4F8 */
     --foreground: 196 34% 7%;          /* ink      #0B1417 */
     --card: 0 0% 100%;                 /* surface  #FFFFFF */
     --card-foreground: 196 34% 7%;
@@ -18,15 +18,15 @@
     --popover-foreground: 196 34% 7%;
     --primary: 196 34% 7%;             /* ink pills */
     --primary-foreground: 197 43% 97%;
-    --secondary: 194 37% 93%;          /* wash     #E4F0F4 */
+    --secondary: 194 37% 93%;          /* wash     #D9EAF2 */
     --secondary-foreground: 196 34% 7%;
     --muted: 194 37% 93%;
     --muted-foreground: 192 15% 38%;   /* slate    #52696F */
-    --accent: 185 44% 92%;             /* sea tint #DEF3F5 */
-    --accent-foreground: 185 82% 21%;  /* sea      #0A5C63 */
+    --accent: 185 44% 92%;             /* sea tint #C8E9EE */
+    --accent-foreground: 185 82% 21%;  /* sea      #00707C */
     --destructive: 0 72% 45%;
     --destructive-foreground: 197 43% 97%;
-    --border: 192 33% 88%;             /* hairline #D6E6EA */
+    --border: 192 33% 88%;             /* hairline #CBE1E9 */
     --input: 192 33% 88%;
     --ring: 185 82% 21%;               /* sea focus ring */
     --chart-1: 211 55% 23%;
@@ -99,7 +99,7 @@
    preflight removes the UA outline, so without this a keyboard user has no
    idea where they are on the page. */
 :focus-visible {
-  outline: 2px solid #0A5C63;
+  outline: 2px solid #00707C;
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -233,20 +233,20 @@
   /* ── Agent presence orb (components/voice-hero.tsx) ─────────────── */
   .agent-orb {
     border-radius: 9999px;
-    background: radial-gradient(circle at 32% 30%, #8ECBEC 0%, #1E93D0 32%, #0B6BA8 68%, #07364F 100%);
-    box-shadow: 0 0 24px rgba(79, 195, 247, 0.45), 0 0 64px rgba(79, 195, 247, 0.22);
+    background: radial-gradient(circle at 32% 30%, #86CDF2 0%, #1090D8 32%, #0A6FB0 68%, #07364F 100%);
+    box-shadow: 0 0 24px rgba(63,198,255, 0.45), 0 0 64px rgba(63,198,255, 0.22);
     animation: orbIdle 4.5s ease-in-out infinite;
   }
   .agent-orb--listening {
     animation: orbListen 1.1s ease-in-out infinite;
-    box-shadow: 0 0 28px rgba(127, 179, 165, 0.65), 0 0 72px rgba(10,92,99, 0.3);
+    box-shadow: 0 0 28px rgba(127, 179, 165, 0.65), 0 0 72px rgba(0,112,124, 0.3);
   }
   .agent-orb--thinking {
     animation: orbThink 1.4s linear infinite;
   }
   .agent-orb--speaking {
     animation: orbSpeak 0.55s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(127, 179, 165, 0.7), 0 0 80px rgba(10,92,99, 0.35);
+    box-shadow: 0 0 30px rgba(127, 179, 165, 0.7), 0 0 80px rgba(0,112,124, 0.35);
   }
   @keyframes orbIdle {
     0%, 100% { transform: scale(1); filter: brightness(1); }
@@ -282,7 +282,7 @@
     height: 0.9em;
     margin-left: 1px;
     vertical-align: text-bottom;
-    background: #1B3A5C;
+    background: #00707C;
     animation: caretBlink 0.8s step-end infinite;
   }
   @keyframes caretBlink {

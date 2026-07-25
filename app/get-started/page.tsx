@@ -89,9 +89,9 @@ export default function GetStartedPage() {
 
       {/* ── HERO + FORM ── */}
       <section className="relative overflow-hidden" style={{ background: '#0B1417' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7FD2DA 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #0A5C63, transparent 65%)' }} />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #0E8C96, transparent 65%)' }} />
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #79D8E2 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #00707C, transparent 65%)' }} />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #00939F, transparent 65%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -222,7 +222,7 @@ export default function GetStartedPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)', boxShadow: '0 8px 32px rgba(10,92,99,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #00707C, #00939F)', boxShadow: '0 8px 32px rgba(0,112,124,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Request my scoping call <ArrowRight className="h-4 w-4" /></>)}
                   </button>
