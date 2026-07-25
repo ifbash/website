@@ -25,11 +25,11 @@ const nextConfig = {
   async headers() {
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://r2.leadsy.ai https://va.vercel-scripts.com",
+      "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob:",
       "font-src 'self' data:",
-      "connect-src 'self' https://r2.leadsy.ai https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+      "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
       "frame-ancestors 'self'",
       "form-action 'self'",
       "base-uri 'self'",

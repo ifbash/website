@@ -77,7 +77,24 @@ export async function POST(request: Request) {
           message: body.message,
         }),
       });
-      if (!res.ok) throw new Error(`FormSubmit failed: ${res.status}`);
+      // FormSubmit answers HTTP 200 even when it has NOT accepted the
+      // submission — an unactivated address, a missing origin, a rejected
+      // payload all come back 200 with {"success":"false"}. Checking res.ok
+      // alone therefore reported success while the lead went nowhere, which
+      // is the worst possible failure mode on a lead-capture form.
+      if (!res.ok) throw new Error(`FormSubmit HTTP ${res.status}`);
+
+      const payload = (await res.json().catch(() => null)) as
+        | { success?: string | boolean; message?: string }
+        | null;
+      const accepted =
+        payload?.success === true || String(payload?.success).toLowerCase() === 'true';
+
+      if (!accepted) {
+        throw new Error(
+          `FormSubmit rejected the submission: ${payload?.message ?? 'no message'}`,
+        );
+      }
     }
     return NextResponse.json({ ok: true });
   } catch (err) {

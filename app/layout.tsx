@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
-import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
@@ -103,7 +102,18 @@ export default function RootLayout({
       <body
         className={`${plexSans.variable} ${plexMono.variable} font-sans h-full`}
       >
-        <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js" data-pid="fBDjy1VonTY1EGcO" data-version="062024" strategy="afterInteractive" />
+        {/* The leadsy.ai visitor-identification tag was removed 2026-07-25.
+            Verified broken on the LIVE domain, not just locally: it threw
+            `TypeError: Failed to fetch` from r2.leadsy.ai/tag.js on every page
+            load at https://ifbash.com, so it was collecting nothing while
+            being the site's only console error — and the only third party that
+            could set cookies, which made a consent banner necessary for no
+            benefit. Restore only if the vendor confirms the tag works:
+            <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js"
+              data-pid="fBDjy1VonTY1EGcO" data-version="062024"
+              strategy="afterInteractive" />
+            ...re-add `import Script from 'next/script'`, and put r2.leadsy.ai back
+            into script-src/connect-src in next.config.js. */}
         <a href="#main" className="skip-link">Skip to content</a>
         <div className="relative min-h-screen flex flex-col">
           <LenisProvider />
