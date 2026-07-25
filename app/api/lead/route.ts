@@ -118,8 +118,13 @@ export async function GET(request: Request) {
       // and answers normally but does not email anyone, so probing is free.
       body: JSON.stringify({ _honey: 'probe', _subject: 'health probe' }),
     });
-    const p = (await res.json().catch(() => null)) as { success?: unknown; message?: string } | null;
-    formsubmit = String(p?.success).toLowerCase() === 'true' ? 'ready' : `blocked: ${p?.message ?? '?'}`;
+    // Report the raw answer. FormSubmit's failure modes are only
+    // distinguishable from its exact wording, and the same request can be
+    // accepted from one host and refused from another (datacenter egress is
+    // treated differently to a residential IP), so a boolean hides the thing
+    // you actually need to see.
+    const raw = (await res.text()).slice(0, 300);
+    formsubmit = `HTTP ${res.status} ${raw}`;
   } catch (err) {
     formsubmit = `unreachable: ${(err as Error).message}`;
   }
