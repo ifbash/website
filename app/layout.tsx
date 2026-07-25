@@ -4,7 +4,6 @@ import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
-import { LenisProvider } from '@/components/lenis-provider';
 import { ChatWidget } from '@/components/chat-widget';
 import { LocaleDirection } from '@/components/locale-direction';
 
@@ -116,7 +115,6 @@ export default function RootLayout({
             into script-src/connect-src in next.config.js. */}
         <a href="#main" className="skip-link">Skip to content</a>
         <div className="relative min-h-screen flex flex-col">
-          <LenisProvider />
           <LocaleDirection />
           <div className="sticky top-0 z-50">
             <Header />

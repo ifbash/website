@@ -3,9 +3,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // `unoptimized` was required by the old `output: 'export'` setup, which is
-  // gone. Leaving it on disabled Next's image pipeline for no benefit.
-  transpilePackages: ['lenis'],
+  // No `images: { unoptimized: true }` here on purpose — it was required by the
+  // old `output: 'export'` setup, which is gone, and leaving it on disabled
+  // Next's image pipeline for no benefit. Do not re-add it.
 
   // Enterprise buyers — public sector, healthcare, financial services — run
   // security questionnaires against the marketing site. These are the headers
