@@ -4,7 +4,6 @@ import * as React from "react";
 import Link from "next/link";
 import {
   MapPin,
-  Phone,
   Mail,
   ArrowRight,
   Linkedin,
@@ -99,10 +98,26 @@ export function Footer() {
         <div className="grid lg:grid-cols-2 gap-12 py-10 border-b border-[#2E2921] items-start">
           <div>
             <Link href="/">
-              <Image src="/images/logo.png" alt="ifBash" width={160} height={36} className="object-contain mb-4" style={{ filter: 'brightness(0) invert(1)' }} />
+              {/* Sized and styled to match the header exactly. The explicit inline
+                  width/height is what the header does too — without it the box was
+                  160x36 instead of 160x34 and `object-contain` let the mark render
+                  visibly larger down here than up top.
+
+                  White is a deliberate choice for the dark footer. It is done with a
+                  filter because /public has no reversed brand asset; a real white
+                  logo (or an inline SVG using currentColor) would be sharper and is
+                  the better fix whenever that file exists. */}
+              <Image
+                src="/images/logo.png"
+                alt="ifBash"
+                width={160}
+                height={34}
+                className="object-contain mb-4"
+                style={{ width: '160px', height: '34px', filter: 'brightness(0) invert(1)' }}
+              />
             </Link>
             <p className="text-[#A39C8B] text-sm leading-relaxed max-w-sm mb-2">
-              Three practices, one senior team — ServiceNow delivery, AI agents engineered on Claude, and web &amp; mobile products built end to end.
+              We implement and run ServiceNow, then build the AI layer on top — agents and assistants engineered on Claude, and the web &amp; mobile surfaces they live in.
             </p>
           </div>
 
@@ -110,7 +125,9 @@ export function Footer() {
             <h3 className="text-white font-semibold mb-2">Stay ahead on AI agents &amp; ServiceNow</h3>
             <p className="text-[#A39C8B] text-sm mb-4">Agent patterns, AI trends, and implementation insights — monthly.</p>
             <form onSubmit={handleSubmit} className="flex gap-2 max-w-sm">
+              <label htmlFor="footer-newsletter" className="sr-only">Email address for the newsletter</label>
               <input
+                id="footer-newsletter"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -158,10 +175,6 @@ export function Footer() {
                 <Mail className="h-4 w-4 text-[#7C9AB8] shrink-0" />
                 <span className="text-[#A39C8B] text-sm">connect@ifbash.com</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <Phone className="h-4 w-4 text-[#7C9AB8] shrink-0" />
-                <span className="text-[#A39C8B] text-sm">24/7 support available</span>
-              </div>
               <div className="flex items-center gap-2.5 mb-6">
                 <MapPin className="h-4 w-4 text-[#7C9AB8] shrink-0" />
                 <span className="text-[#A39C8B] text-sm">Serving clients worldwide</span>
@@ -169,7 +182,7 @@ export function Footer() {
 
               <div className="pt-4 border-t border-[#2E2921] mt-6">
                 <p className="text-[#A39C8B] text-xs mb-3 leading-relaxed">
-                  Ready to move on ServiceNow — or build your first agent? Scoped in 48 hours, no commitment.
+                  Ready to move on ServiceNow — or build your first agent? Start with a conversation, no commitment.
                 </p>
                 <div className="flex flex-col gap-2">
                   <Link

@@ -9,10 +9,24 @@ export type Proof = { big: string; small: string };
  * The dark commitments band. Everything here must be a commitment ifBash
  * controls — never a client outcome or a metric that can't be shown.
  */
+/**
+ * Each headline states the thing itself, not a label for it. "48 hours" and
+ * "Senior-led" were both shorthand a first-time visitor has to decode — a
+ * number with no object, and a word every consultancy uses.
+ */
 export const DEFAULT_PROOFS: Proof[] = [
-  { big: '48 hours', small: 'From first contact to a scoped plan — approach, timeline, team.' },
-  { big: 'Senior-led', small: 'The people who scope your project are the people who build it.' },
-  { big: 'This site is the demo', small: 'The agent, the voice, the page you’re on — built by us, on Claude and Next.js.' },
+  {
+    big: 'A written plan in two days',
+    small: 'Approach, sequence, who does the work, and an estimate — within two working days of your first message.',
+  },
+  {
+    big: 'No handoffs',
+    small: 'The engineers who scope your project are the engineers who build it. Nobody is swapped out after you sign.',
+  },
+  {
+    big: 'This site is the demo',
+    small: 'The agent, the voice, the page you’re on — built by us, on Claude and Next.js.',
+  },
 ];
 
 export function ProofBand({

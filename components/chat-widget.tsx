@@ -15,7 +15,7 @@ const QUICK_OPTIONS = [
 ];
 
 const FIELD =
-  'w-full bg-white/5 border border-onink-line focus:border-navy-soft rounded-xl px-3.5 py-2.5 text-[13px] text-onink placeholder:text-onink-faint outline-none transition-colors';
+  'w-full bg-white/5 border border-onink-line focus:border-mulberry-soft rounded-xl px-3.5 py-2.5 text-[13px] text-onink placeholder:text-onink-faint outline-none transition-colors';
 
 export function ChatWidget() {
   const pathname = usePathname();
@@ -101,7 +101,7 @@ export function ChatWidget() {
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-onink-line shrink-0 bg-onink-fill">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-navy text-paper font-semibold text-xs">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-mulberry text-paper font-semibold text-xs">
                 iB
               </div>
               <div>
@@ -122,11 +122,11 @@ export function ChatWidget() {
                     <div
                       className={`max-w-[85%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-relaxed ${
                         m.role === 'user'
-                          ? 'bg-navy text-paper rounded-br-md'
+                          ? 'bg-mulberry text-paper rounded-br-md'
                           : 'bg-white/[0.06] text-onink-muted rounded-bl-md'
                       }`}
                     >
-                      {m.content || <Loader2 className="h-4 w-4 text-navy-soft animate-spin" />}
+                      {m.content || <Loader2 className="h-4 w-4 text-mulberry-soft animate-spin" />}
                     </div>
                   </div>
                 ))}
@@ -139,14 +139,14 @@ export function ChatWidget() {
                     key={o.label}
                     onClick={() => (o.question ? ask(o.question) : setMode('lead'))}
                     disabled={busy}
-                    className="text-[11px] font-medium text-navy-soft border border-onink-line hover:border-navy-soft hover:bg-white/[0.06] rounded-full px-3 py-1 transition-all disabled:opacity-50"
+                    className="text-[11px] font-medium text-mulberry-soft border border-onink-line hover:border-mulberry-soft hover:bg-white/[0.06] rounded-full px-3 py-1 transition-all disabled:opacity-50"
                   >
                     {o.label}
                   </button>
                 ))}
                 <a
                   href="/agent"
-                  className="text-[11px] font-medium text-onink-muted border border-onink-line hover:border-navy-soft hover:text-navy-soft rounded-full px-3 py-1 transition-all"
+                  className="text-[11px] font-medium text-onink-muted border border-onink-line hover:border-mulberry-soft hover:text-mulberry-soft rounded-full px-3 py-1 transition-all"
                 >
                   🎙 Prefer to talk? Try the voice agent
                 </a>
@@ -164,13 +164,13 @@ export function ChatWidget() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Type your question…"
-                  className="flex-1 bg-white/5 border border-onink-line focus:border-navy-soft rounded-xl px-3.5 py-2 text-[13px] text-onink placeholder:text-onink-faint outline-none transition-colors"
+                  className="flex-1 bg-white/5 border border-onink-line focus:border-mulberry-soft rounded-xl px-3.5 py-2 text-[13px] text-onink placeholder:text-onink-faint outline-none transition-colors"
                 />
                 <button
                   type="submit"
                   disabled={busy || !input.trim()}
                   aria-label="Send"
-                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-navy text-paper disabled:opacity-40 transition-all hover:bg-navy-soft hover:text-ink hover:scale-105"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center bg-mulberry text-paper disabled:opacity-40 transition-all hover:bg-mulberry-soft hover:text-ink hover:scale-105"
                 >
                   <Send className="h-4 w-4" />
                 </button>
@@ -210,7 +210,7 @@ export function ChatWidget() {
                 <button
                   onClick={submitLead}
                   disabled={busy}
-                  className="w-full rounded-xl py-2.5 text-sm font-semibold bg-navy text-paper transition-all hover:bg-navy-soft hover:text-ink hover:-translate-y-0.5 disabled:opacity-50"
+                  className="w-full rounded-xl py-2.5 text-sm font-semibold bg-mulberry text-paper transition-all hover:bg-mulberry-soft hover:text-ink hover:-translate-y-0.5 disabled:opacity-50"
                 >
                   {busy ? 'Sending…' : 'Send'}
                 </button>
@@ -220,12 +220,12 @@ export function ChatWidget() {
 
           {mode === 'done' && (
             <div className="flex-1 flex flex-col items-center justify-center px-6 text-center">
-              <div className="w-12 h-12 rounded-full bg-navy/25 flex items-center justify-center mb-4">
-                <CheckCircle className="h-6 w-6 text-navy-soft" />
+              <div className="w-12 h-12 rounded-full bg-mulberry/25 flex items-center justify-center mb-4">
+                <CheckCircle className="h-6 w-6 text-mulberry-soft" />
               </div>
               <div className="text-onink font-semibold mb-1.5">Thanks — we&apos;ve got it.</div>
               <p className="text-onink-faint text-[13px]">Someone from the team will reach out within one business day.</p>
-              <button onClick={() => setMode('chat')} className="mt-5 text-[12px] text-navy-soft hover:text-onink font-medium transition-colors">
+              <button onClick={() => setMode('chat')} className="mt-5 text-[12px] text-mulberry-soft hover:text-onink font-medium transition-colors">
                 Back to chat
               </button>
             </div>
@@ -237,10 +237,10 @@ export function ChatWidget() {
       <button
         onClick={() => setOpen(!open)}
         aria-label={open ? 'Close chat' : 'Chat with ifBash'}
-        className="relative group w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-navy text-paper shadow-[0_8px_32px_rgba(27,58,92,0.35)] hover:shadow-xl hover:bg-navy-deep transition-all duration-300 active:scale-95"
+        className="relative group w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center bg-mulberry text-paper shadow-[0_8px_32px_rgba(27,58,92,0.35)] hover:shadow-xl hover:bg-mulberry-deep transition-all duration-300 active:scale-95"
       >
         {open ? <X className="h-6 w-6" /> : <MessageCircle className="h-6 w-6 sm:h-7 sm:w-7" />}
-        {!open && <span className="absolute inset-0 rounded-full animate-ping bg-navy opacity-20" />}
+        {!open && <span className="absolute inset-0 rounded-full animate-ping bg-mulberry opacity-20" />}
       </button>
     </div>
   );

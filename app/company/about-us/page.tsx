@@ -35,7 +35,7 @@ export default function AboutUsPage() {
         eyebrow="About ifBash"
         headline="A consultancy that would rather"
         accent="show you than tell you."
-        sub="Three practices — ServiceNow delivery, AI agents engineered on Claude, and web & mobile products — run by one senior team that does the work it sells."
+        sub="We implement and run ServiceNow, then build the AI layer on top of it — engineered on Claude, by the same team that does the platform work."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'See our work', href: '/work' }}
       />
@@ -115,7 +115,7 @@ export default function AboutUsPage() {
       <CtaBand
         headline="Want to work"
         accent="with us?"
-        sub="Tell us what you're trying to build. A written plan within 48 hours — and an honest answer if we're not the right team."
+        sub="Tell us what you're trying to build. You'll get a written plan back in two working days — and an honest answer if we're not the right team."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'Join us instead', href: '/company/careers-servicenow-jobs' }}
       />

@@ -12,7 +12,10 @@ import type { HeroCta } from './page-hero';
 export function CtaBand({
   headline = "Let's build",
   accent = "what's next.",
-  sub = 'Tell us what you need — ServiceNow, an agent, an app, a site. A concrete plan in 48 hours. No pressure.',
+  // Pages that need the turnaround promise pass their own sub. The default
+  // deliberately does not repeat it — on the homepage this band sits directly
+  // under the ProofBand, which already makes the two-day commitment in full.
+  sub = 'Tell us what you need — ServiceNow, an agent, an app, or a site. If we are not the right team for it, we will say so.',
   primary = { label: 'Start a project', href: '/get-started' },
   secondary,
   tone = 'paper',

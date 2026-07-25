@@ -17,9 +17,11 @@ export function GET() {
 
   const body = `# ifBash
 
-> A technology consultancy running three practices: ServiceNow delivery,
-> AI agents engineered on Claude, and web & mobile product development.
-> One senior team. A written plan within 48 hours of first contact.
+> A technology consultancy that implements and runs ServiceNow, then builds
+> the AI layer on top of it — agents, virtual assistants, and Now Assist work
+> engineered on Anthropic's Claude — plus the web and mobile surfaces those
+> agents live in. ifBash is NOT an official ServiceNow or Anthropic partner.
+> One team, start to finish. A written plan within two working days of first contact.
 
 ## What we do
 

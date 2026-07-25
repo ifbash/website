@@ -113,11 +113,15 @@ export default function ContactUsPage() {
                   <h2 className="text-lg font-bold text-white mb-4">Send us a message</h2>
                   <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" value={values.website} onChange={(e) => setValues({ ...values, website: e.target.value })} />
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <input placeholder="Your name *" required className={inputCls} value={values.name} onChange={(e) => setValues({ ...values, name: e.target.value })} />
-                    <input placeholder="Work email *" type="email" required className={inputCls} value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
+                    <label htmlFor="ct-name" className="sr-only">Your name</label>
+                    <input id="ct-name" placeholder="Your name *" required className={inputCls} value={values.name} onChange={(e) => setValues({ ...values, name: e.target.value })} />
+                    <label htmlFor="ct-email" className="sr-only">Work email</label>
+                    <input id="ct-email" placeholder="Work email *" type="email" required className={inputCls} value={values.email} onChange={(e) => setValues({ ...values, email: e.target.value })} />
                   </div>
-                  <input placeholder="Subject" className={inputCls} value={values.subject} onChange={(e) => setValues({ ...values, subject: e.target.value })} />
-                  <textarea placeholder="Your message *" required rows={5} className={`${inputCls} resize-none`} value={values.message} onChange={(e) => setValues({ ...values, message: e.target.value })} />
+                  <label htmlFor="ct-subject" className="sr-only">Subject</label>
+                  <input id="ct-subject" placeholder="Subject" className={inputCls} value={values.subject} onChange={(e) => setValues({ ...values, subject: e.target.value })} />
+                  <label htmlFor="ct-message" className="sr-only">Your message</label>
+                  <textarea id="ct-message" placeholder="Your message *" required rows={5} className={`${inputCls} resize-none`} value={values.message} onChange={(e) => setValues({ ...values, message: e.target.value })} />
                   {status === 'error' && (
                     <p className="text-red-400 text-xs">
                       Something went wrong — email us at <a href="mailto:connect@ifbash.com" className="underline">connect@ifbash.com</a>.
@@ -127,7 +131,7 @@ export default function ContactUsPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(79,70,229,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Send message <ArrowRight className="h-4 w-4" /></>)}
                   </button>

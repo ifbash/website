@@ -49,17 +49,17 @@ const models = [
 const phases: Phase[] = [
   { phase: 'You get in touch', items: ['A form, an email, or our agent', 'No qualification gauntlet before a human replies'] },
   { phase: 'Scoping call', items: ['Senior people, not a sales layer', 'We say if it is not a fit for us'] },
-  { phase: 'Written plan in 48 hours', items: ['Approach, sequence, team, and estimate', 'Yours to keep either way'] },
+  { phase: 'Written plan in two working days', items: ['Approach, sequence, team, and estimate', 'Yours to keep either way'] },
   { phase: 'Start', items: ['Discovery, build, or retainer', 'Repository and demo access from week one'] },
 ];
 
 const faqs: Faq[] = [
   {
     q: 'Why is there no pricing table on this page?',
-    a: 'Because a number without a scope is a guess, and a guess would be a bad basis for your budget. We publish how we price — fixed fee for discovery, fixed price against written scope for builds, monthly capacity for retainers — and give you the actual number within 48 hours of a scoping call.',
+    a: 'Because a number without a scope is a guess, and a guess would be a bad basis for your budget. We publish how we price — fixed fee for discovery, fixed price against written scope for builds, monthly capacity for retainers — and give you the actual number within two working days of a scoping call.',
   },
   {
-    q: 'What does the 48 hours actually cover?',
+    q: 'What does the written plan actually cover?',
     a: 'From the scoping call to a written plan: our understanding of the problem, a recommended approach, the sequence, who would be on the team, and an estimate. It is a real document, not a brochure.',
   },
   {
@@ -95,7 +95,7 @@ export default function EngagePage() {
         eyebrow="How we engage"
         headline="Three ways in."
         accent="No procurement theatre."
-        sub="A paid discovery sprint, a fixed-scope build, or an ongoing retainer. Whichever it is, you get a written plan within 48 hours of the first call — and you keep it either way."
+        sub="A paid discovery sprint, a fixed-scope build, or an ongoing retainer. Whichever it is, you get a written plan within two working days of the first call — and you keep it either way."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'See our work', href: '/work' }}
       />

@@ -176,7 +176,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       <CtaBand
         headline="Working in"
         accent={`${name.toLowerCase()}?`}
-        sub="Tell us the problem in your own words. A concrete plan within 48 hours — approach, sequence, and team."
+        sub="Tell us the problem in your own words. Back inside two working days: an approach, a sequence, and who would do the work."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'All industries', href: '/industries' }}
       />

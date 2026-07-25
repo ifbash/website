@@ -34,12 +34,12 @@ const services = [
 
 const steps = [
   { icon: Mail, title: 'Tell us where you are', desc: 'Share your goals, your current ServiceNow state (or lack of one), and what success looks like.' },
-  { icon: Clock, title: 'Scoping call within 48 hours', desc: 'A senior consultant — not a salesperson — walks through your situation and asks the hard questions.' },
+  { icon: Clock, title: 'Scoping call within two working days', desc: 'A senior consultant — not a salesperson — walks through your situation and asks the hard questions.' },
   { icon: CheckCircle, title: 'A concrete plan', desc: 'You get a clear approach, timeline, and team shape. Use it with us or without us — it’s yours.' },
 ];
 
 const faqs = [
-  { q: 'What happens after I submit this form?', a: 'A senior consultant reviews your message and replies within one business day to set up a 48-hour scoping call. No automated drip campaigns, no sales pressure.' },
+  { q: 'What happens after I submit this form?', a: 'A senior consultant reviews your message and replies within one business day to set up the scoping call. No automated drip campaigns, no sales pressure.' },
   { q: 'Is the scoping call really free?', a: 'Yes. You leave the call with a concrete view of approach, timeline, and effort — whether or not you work with us.' },
   { q: 'We already have ServiceNow. Can you take over or improve it?', a: 'Absolutely. A large share of our work is rescuing stalled implementations, untangling over-customised instances, and adding AI capabilities to existing platforms.' },
   { q: 'How do you price engagements?', a: 'Each engagement is scoped individually — fixed-price for well-defined implementations, capacity-based for managed services. You’ll always know the number before we start.' },
@@ -106,7 +106,7 @@ export default function GetStartedPage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft animate-gradient-text">implementation.</span>
               </h1>
               <p className="text-lg text-slate-400 leading-relaxed max-w-lg">
-                Tell us about your ServiceNow goals. Within 48 hours, a senior consultant walks you through exactly how we&apos;d approach it — no commitment, no sales pressure, just a clear plan.
+                Tell us about your ServiceNow goals. Within two working days, a consultant walks you through exactly how we&apos;d approach it — no commitment, no sales pressure, just a clear plan.
               </p>
 
               <div className="space-y-5 pt-2">
@@ -157,21 +157,26 @@ export default function GetStartedPage() {
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <input placeholder="Your name *" className={inputCls} {...form.register('name')} />
-                      {err.name && <p className="text-red-400 text-xs mt-1.5">{err.name.message}</p>}
+                      <label htmlFor="gs-name" className="sr-only">Your name</label>
+                      <input id="gs-name" placeholder="Your name *" aria-required="true" aria-invalid={!!err.name} aria-describedby={err.name ? 'gs-name-err' : undefined} className={inputCls} {...form.register('name')} />
+                      {err.name && <p id="gs-name-err" className="text-red-400 text-xs mt-1.5">{err.name.message}</p>}
                     </div>
                     <div>
-                      <input placeholder="Work email *" type="email" className={inputCls} {...form.register('email')} />
-                      {err.email && <p className="text-red-400 text-xs mt-1.5">{err.email.message}</p>}
+                      <label htmlFor="gs-email" className="sr-only">Work email</label>
+                      <input id="gs-email" placeholder="Work email *" type="email" aria-required="true" aria-invalid={!!err.email} aria-describedby={err.email ? 'gs-email-err' : undefined} className={inputCls} {...form.register('email')} />
+                      {err.email && <p id="gs-email-err" className="text-red-400 text-xs mt-1.5">{err.email.message}</p>}
                     </div>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <input placeholder="Company *" className={inputCls} {...form.register('company')} />
-                      {err.company && <p className="text-red-400 text-xs mt-1.5">{err.company.message}</p>}
+                      <label htmlFor="gs-company" className="sr-only">Company</label>
+                      <input id="gs-company" placeholder="Company *" aria-required="true" aria-invalid={!!err.company} aria-describedby={err.company ? 'gs-company-err' : undefined} className={inputCls} {...form.register('company')} />
+                      {err.company && <p id="gs-company-err" className="text-red-400 text-xs mt-1.5">{err.company.message}</p>}
                     </div>
+                    <label htmlFor="gs-size" className="sr-only">Company size</label>
                     <select
+                      id="gs-size"
                       className={`${inputCls} appearance-none ${form.watch('companySize') ? 'text-white' : 'text-slate-600'}`}
                       {...form.register('companySize')}
                     >
@@ -183,7 +188,11 @@ export default function GetStartedPage() {
                   </div>
 
                   <div>
+                    <label htmlFor="gs-service" className="sr-only">What do you need?</label>
                     <select
+                      id="gs-service"
+                      aria-required="true"
+                      aria-invalid={!!err.serviceInterest}
                       className={`${inputCls} appearance-none ${form.watch('serviceInterest') ? 'text-white' : 'text-slate-600'}`}
                       {...form.register('serviceInterest')}
                     >
@@ -213,7 +222,7 @@ export default function GetStartedPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(79,70,229,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Request my scoping call <ArrowRight className="h-4 w-4" /></>)}
                   </button>

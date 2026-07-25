@@ -968,7 +968,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     ],
     faqs: [
       { q: 'What is ServiceNow ITAM and what does it cover?', a: 'ITAM is a single platform to manage hardware, software, cloud, and enterprise assets across their entire lifecycle — from procurement to retirement. AI-powered insights eliminate waste and reduce risk.' },
-      { q: 'How much can we save with ITAM?', a: 'We price a fixed scope after scoping rather than publishing a number that could not survive contact with your requirements. You get the figure in writing within 48 hours of the first call.' },
+      { q: 'How much can we save with ITAM?', a: 'We price a fixed scope after scoping rather than publishing a number that could not survive contact with your requirements. You get the figure in writing within two working days of the first call.' },
       { q: 'What assets does it manage?', a: 'Software licenses, hardware devices, SaaS subscriptions, cloud resources, and enterprise equipment — all in one unified data model with complete lifecycle tracking.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What systems does it integrate with?', a: 'Azure AD, BigFix, Jamf Pro, Coupa, plus any ERP or procurement system. Service Graph Connectors keep third-party data consistent.' },
@@ -1897,7 +1897,7 @@ export const portfolioEntries: PortfolioEntry[] = [
     faqs: [
       { q: 'What is SPO?', a: 'Sourcing and Procurement Operations — a single engagement layer across systems that orchestrates teams and processes with AI to eliminate manual procurement work.' },
       { q: 'What is ShoppingHub?', a: 'A user-friendly portal where employees buy goods and services. Vendor catalog integration, order tracking, and off-catalog requests — all self-service.' },
-      { q: 'How much does the Virtual Agent handle?', a: 'We price a fixed scope after scoping rather than publishing a number that could not survive contact with your requirements. You get the figure in writing within 48 hours of the first call.' },
+      { q: 'How much does the Virtual Agent handle?', a: 'We price a fixed scope after scoping rather than publishing a number that could not survive contact with your requirements. You get the figure in writing within two working days of the first call.' },
       { q: 'What ERP systems integrate?', a: 'SAP, Oracle, Microsoft Dynamics, plus supplier catalogs, CLM tools, and financial systems via Integration Hub.' },
     ],
   },
@@ -2508,4 +2508,19 @@ export function relatedPortfolio(entrySlug: string, limit = 3) {
     .map((i) => ({ title: i.title, href: `/portfolio/${slug(i.title)}`, icon: i.icon }));
 }
 
-export const portfolioSlugs = portfolioEntries.map((e) => e.slug);
+/**
+ * The live set is whatever `portfolioCategories` lists — prune or restore a
+ * capability there, not here. Bodies for retired products stay in this file on
+ * purpose: "most sought after" shifts year to year, and bringing one back
+ * should be a one-line nav change plus dropping its 301, not a content rewrite.
+ * Retired slugs are 301'd in next.config.js, so nothing dangles.
+ */
+const featuredSlugs = new Set(
+  portfolioCategories.flatMap((c) => c.items.map((i) => slug(i.title))),
+);
+
+export const featuredPortfolioEntries = portfolioEntries.filter((e) =>
+  featuredSlugs.has(e.slug),
+);
+
+export const portfolioSlugs = featuredPortfolioEntries.map((e) => e.slug);

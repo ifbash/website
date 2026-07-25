@@ -7,11 +7,13 @@ import {
   FaqSection, CtaBand, FeatureGrid, PillLink,
 } from '@/components/site';
 import {
-  portfolioEntries, portfolioMeta, getPortfolioEntry, relatedPortfolio,
+  featuredPortfolioEntries, portfolioMeta, getPortfolioEntry, relatedPortfolio,
 } from '@/lib/portfolio-data';
 
+// Only the featured capabilities get routes. Retired products keep their body
+// in portfolio-data.ts but are 301'd in next.config.js — see the note there.
 export function generateStaticParams() {
-  return portfolioEntries.map((e) => ({ slug: e.slug }));
+  return featuredPortfolioEntries.map((e) => ({ slug: e.slug }));
 }
 
 export const dynamicParams = false;
@@ -190,7 +192,7 @@ export default async function PortfolioProductPage(
       <CtaBand
         headline="Want this"
         accent="on your instance?"
-        sub="Tell us where you are today — greenfield, mid-implementation, or inheriting someone else's build. A concrete plan within 48 hours."
+        sub="Tell us where you are today — greenfield, mid-implementation, or inheriting someone else's build. You'll have a written plan inside two working days."
         primary={{ label: 'Scope this project', href: '/get-started' }}
         secondary={{ label: 'All products', href: '/portfolio' }}
       />

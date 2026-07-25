@@ -9,7 +9,7 @@ import { servicenowServices, aiAgentsItems, webMobileItems } from '@/components/
 export const metadata: Metadata = {
   title: 'Services — ServiceNow, AI Agents, Web & Mobile',
   description:
-    'Three practices from one senior team: ServiceNow implementation and managed services, AI agents engineered on Claude, and web & mobile product development.',
+    'ServiceNow implementation and managed services, AI agents engineered on Claude, and web & mobile product development.',
   keywords: [
     'ServiceNow implementation', 'ServiceNow managed services', 'AI agents',
     'voice agents', 'AI engineering', 'web development', 'mobile app development',
@@ -20,22 +20,22 @@ export const metadata: Metadata = {
 const practices = [
   {
     label: 'ServiceNow',
-    note: 'Our proven practice',
+    note: 'The practice',
     blurb: 'Implement it, extend it, integrate it, and keep it running. Most of our delivery volume sits here.',
     items: servicenowServices,
     more: { label: 'All ServiceNow products', href: '/portfolio' },
   },
   {
     label: 'AI & Agents',
-    note: 'Where we are growing',
-    blurb: 'Agents that answer, act, and hand off — engineered on Claude with guardrails, evals, and cost control.',
+    note: 'The layer on top',
+    blurb: 'Agents that answer, act, and hand off — engineered on Claude, wired into the platform we already run for you, with guardrails, evals, and cost control.',
     items: aiAgentsItems,
     more: { label: 'See the agents we run', href: '/work' },
   },
   {
     label: 'Web & Mobile',
-    note: 'Products end to end',
-    blurb: 'Websites, web applications, and mobile apps — designed, built, shipped, and handed over in your name.',
+    note: 'The surfaces they live in',
+    blurb: 'Websites, web applications, and mobile apps — the surfaces your customers and staff actually touch, shipped and handed over in your name.',
     items: webMobileItems,
     more: { label: 'How we engage', href: '/engage' },
   },
@@ -46,9 +46,9 @@ export default function ServicesIndexPage() {
     <>
       <PageHero
         eyebrow="Services"
-        headline="Three practices."
-        accent="One senior team."
-        sub="ServiceNow is where most of our delivery happens today. AI agents and product engineering are where we're growing — and this site is built with both."
+        headline="ServiceNow,"
+        accent="and the AI layer on top."
+        sub="Implementation and managed services are the practice that pays the bills. The AI layer we build on top is what makes the platform worth more the year after go-live — and this site is built with both."
         primary={{ label: 'Scope a project', href: '/get-started' }}
         secondary={{ label: 'How we engage', href: '/engage' }}
       />
@@ -96,8 +96,8 @@ export default function ServicesIndexPage() {
       <Section tone="ink" pad="tight">
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            ['Scoped in 48 hours', 'From the first call to a written plan: approach, sequence, team, and an estimate you can budget against.'],
-            ['Senior-led throughout', 'The people who scope your project are the people who build it. If that would change, we say so up front.'],
+            ['A written plan in two days', 'From the first call to a document you can act on: approach, sequence, team, and an estimate you can budget against.'],
+            ['The same people throughout', 'The engineers who scope your project are the engineers who build it. If that would change, we say so up front.'],
             ['Built to hand over', 'Repositories, accounts, keys, and documentation are yours from day one. Leaving us should be easy.'],
           ].map(([t, d]) => (
             <div key={t}>
@@ -111,7 +111,7 @@ export default function ServicesIndexPage() {
       <CtaBand
         headline="Not sure which"
         accent="you need?"
-        sub="Describe the problem rather than the service. We'll come back within 48 hours with a recommendation and the reasoning behind it."
+        sub="Describe the problem rather than the service. We'll point you at the right one — or tell you plainly that it isn't us."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'Ask our agent', href: '/agent' }}
       />

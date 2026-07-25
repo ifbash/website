@@ -4,6 +4,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { WorkflowCompare } from '@/components/workflow-compare';
 
 const offerings: Feature[] = [
   {
@@ -102,6 +103,22 @@ export default function AiAgentsPage() {
         <FeatureGrid features={offerings} />
       </Section>
 
+      {/* WHAT CHANGES — shape, not a fabricated time saving. */}
+      <Section tone="paper" divide>
+        <div className="mb-10 max-w-2xl">
+          <Eyebrow rule className="mb-4">What actually changes</Eyebrow>
+          <DisplayHeading as="h2" size="md" className="mb-4">
+            The win is the <Accented accent="mulberry">reassignment that never happens.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-stone leading-relaxed">
+            Most tickets are not slow because someone worked slowly. They are slow because they sat
+            in the wrong queue for a day first. Classification on arrival is unglamorous and it is
+            where the time goes.
+          </p>
+        </div>
+        <WorkflowCompare />
+      </Section>
+
       {/* HOW WE WORK */}
       <Section tone="ink">
         <div className="mb-12 max-w-2xl">
@@ -125,7 +142,7 @@ export default function AiAgentsPage() {
               We can&apos;t show you another client&apos;s agent — those are behind their logins.
               So we put ours in public. The agent in the corner of this page, the voice agent on
               the homepage, and the one that will call you back from{' '}
-              <Link href="/agent" className="text-navy font-medium underline underline-offset-4 hover:text-navy-deep">
+              <Link href="/agent" className="text-mulberry font-medium underline underline-offset-4 hover:text-mulberry-deep">
                 our agent page
               </Link>{' '}
               are all built by us on the same stack we&apos;d use for you.
@@ -140,7 +157,7 @@ export default function AiAgentsPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
               What we&apos;ll want to know
             </div>
             <ul className="space-y-4">
@@ -150,7 +167,7 @@ export default function AiAgentsPage() {
                 ['What must never happen?', 'That defines the guardrails before anything else.'],
                 ['How will we know it works?', 'We turn that answer into the eval suite.'],
               ].map(([q, a]) => (
-                <li key={q} className="border-l-2 border-navy-strong pl-4">
+                <li key={q} className="border-l-2 border-mulberry-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{q}</div>
                   <div className="text-sm text-stone leading-relaxed">{a}</div>
                 </li>
@@ -165,7 +182,7 @@ export default function AiAgentsPage() {
       <CtaBand
         headline="Have a use case"
         accent="in mind?"
-        sub="Tell us what you want an agent to do. We'll come back within 48 hours with an approach, a prototype plan, and the unit economics."
+        sub="Tell us what you want an agent to do. Within two working days you'll have an approach, a prototype plan, and the per-conversation cost worked out."
         primary={{ label: 'Scope my agent', href: '/get-started' }}
         secondary={{ label: 'Or just ask our agent', href: '/agent' }}
       />

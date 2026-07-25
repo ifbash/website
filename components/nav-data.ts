@@ -71,73 +71,52 @@ export interface PortfolioCategory {
   items: { title: string; icon: LucideIcon }[];
 }
 
+// The ServiceNow products customers actually buy, and where the AI layer we
+// build on top changes the product. Cut from 38 to 13 on 2026-07-25: the long
+// tail was ServiceNow's full catalogue rather than work ifBash does, the pages
+// were template-generated, and they cannibalised each other's long-tail terms.
+//
+// THIS LIST IS THE SINGLE SOURCE OF TRUTH for which capability pages exist.
+// lib/portfolio-data.ts keeps the page body for every product ever featured, so
+// restoring one is: add the title back here, and drop its 301 from
+// next.config.js. Retiring one is the reverse — always pair it with a 301.
 export const portfolioCategories: PortfolioCategory[] = [
   {
-    label: 'IT & Digital Operations',
+    label: 'IT Service & Operations',
     items: [
       { title: 'IT Service Management', icon: Settings },
       { title: 'IT Operations Management', icon: BarChart3 },
       { title: 'IT Asset Management', icon: Database },
-      { title: 'Enterprise Architecture', icon: Building },
-      { title: 'Service Operations Workspace', icon: MonitorSmartphone },
       { title: 'Strategic Portfolio Management', icon: Target },
-      { title: 'Digital End-User Experience', icon: MonitorSmartphone },
-      { title: 'Cloud Governance Suite', icon: CloudLightning },
-      { title: 'ServiceNow Cloud Observability', icon: CloudLightning },
-      { title: 'Operational Technology Management', icon: Wrench },
     ],
   },
   {
-    label: 'AI & Automation',
-    items: [
-      { title: 'Integration Hub', icon: Layers },
-      { title: 'App Engine', icon: Layers },
-    ],
-  },
-  {
-    label: 'CRM & Customer',
+    label: 'Customer & Field',
     items: [
       { title: 'Customer Service Management', icon: HeartPulse },
       { title: 'Field Service Management', icon: MapPin },
-      { title: 'Sales and Order Management', icon: BarChart3 },
-      { title: 'Sales and Order Management for Technology Providers', icon: BarChart3 },
-      { title: 'Sales and Order Management for Telecommunications', icon: BarChart3 },
-      { title: 'Configure, Price, Quote', icon: Briefcase },
-      { title: 'Technology Provider Service Management', icon: MonitorSmartphone },
-      { title: 'Telecommunications Service Management', icon: MonitorSmartphone },
-      { title: 'Financial Services Operations', icon: Briefcase },
-      { title: 'Healthcare and Life Sciences Service Management', icon: HeartPulse },
-      { title: 'Public Sector Digital Services', icon: Landmark },
     ],
   },
   {
-    label: 'Risk & Security',
+    label: 'Security & Risk',
     items: [
       { title: 'Security Operations', icon: Shield },
       { title: 'Security Incident Response', icon: Shield },
       { title: 'Vulnerability Response', icon: Shield },
-      { title: 'Threat Intelligence Security Center', icon: Shield },
       { title: 'Integrated Risk Management', icon: Shield },
-      { title: 'Third-Party Risk Management', icon: Shield },
-      { title: 'Security Posture Control', icon: Shield },
-      { title: 'Privacy Management', icon: FileText },
     ],
   },
   {
-    label: 'HR & Workforce',
+    label: 'Employee Experience',
     items: [
       { title: 'HR Service Delivery', icon: Users },
-      { title: 'Talent Development', icon: GraduationCap },
-      { title: 'Legal Service Delivery', icon: FileText },
-      { title: 'Workplace Service Delivery', icon: Building },
     ],
   },
   {
-    label: 'Finance & Supply Chain',
+    label: 'Platform & Integration',
     items: [
-      { title: 'Accounts Payable Operations', icon: BarChart3 },
-      { title: 'Sourcing and Procurement Operations', icon: Briefcase },
-      { title: 'Supplier Lifecycle Operations', icon: Layers },
+      { title: 'App Engine', icon: Layers },
+      { title: 'Integration Hub', icon: Layers },
     ],
   },
 ];

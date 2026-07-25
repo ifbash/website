@@ -3,6 +3,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { AgentCostCalculator } from '@/components/agent-cost-calculator';
 
 const offerings: Feature[] = [
   {
@@ -132,7 +133,7 @@ export default function ClaudeAiEngineeringPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
               What we hand over
             </div>
             <ul className="space-y-4">
@@ -142,7 +143,7 @@ export default function ClaudeAiEngineeringPage() {
                 ['Prompt and tool source', 'In your repository, versioned, with the reasoning documented.'],
                 ['A runbook', 'What to do when quality drops, written for whoever is on call.'],
               ].map(([t, d]) => (
-                <li key={t} className="border-l-2 border-navy-strong pl-4">
+                <li key={t} className="border-l-2 border-mulberry-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{t}</div>
                   <div className="text-sm text-stone leading-relaxed">{d}</div>
                 </li>
@@ -152,12 +153,29 @@ export default function ClaudeAiEngineeringPage() {
         </div>
       </Section>
 
+      {/* COST — the claim above says we engineer for cost, so show the working
+          rather than asserting it. */}
+      <Section tone="surface" divide>
+        <div className="mb-10 max-w-2xl">
+          <Eyebrow rule className="mb-4">Run the numbers yourself</Eyebrow>
+          <DisplayHeading as="h2" size="md" className="mb-4">
+            What an agent <Accented accent="mulberry">actually costs to run.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-stone leading-relaxed">
+            Most AI proposals quote a build price and go quiet about the running cost. Move the
+            sliders to your own volume. The assumptions are written underneath, because a number
+            you cannot interrogate is not worth much.
+          </p>
+        </div>
+        <AgentCostCalculator />
+      </Section>
+
       <FaqSection faqs={faqs} heading="Questions we hear a lot." />
 
       <CtaBand
         headline="Have a use case"
         accent="in mind?"
-        sub="Tell us what you want AI to do. We'll scope a prototype in 48 hours — and show you the unit economics before you commit to anything."
+        sub="Tell us what you want AI to do. We'll scope a prototype inside two working days — and show you what it costs to run before you commit to anything."
         primary={{ label: 'Scope my AI project', href: '/get-started' }}
         secondary={{ label: 'See our work', href: '/work' }}
       />

@@ -99,7 +99,7 @@ export default function InsightsIndex() {
       <CtaBand
         headline="Have a problem"
         accent="worth writing about?"
-        sub="Tell us what you're trying to build. A written plan within 48 hours — and an honest answer if we're not the right team."
+        sub="Tell us what you're trying to build — and we'll tell you honestly if we're not the right team for it."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'How we engage', href: '/engage' }}
       />

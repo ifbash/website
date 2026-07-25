@@ -289,7 +289,7 @@ function WebDemo() {
             </span>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, duration: 0.5 }}
-            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(79,70,229,0.5), rgba(124,58,237,0.35))' }}>
+            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(27,58,92,0.5), rgba(124,154,184,0.35))' }}>
             <span className="w-2/3 h-3 rounded bg-white/85" />
             <span className="w-1/2 h-2 rounded bg-white/45" />
             <span className="w-16 h-4 rounded-md bg-white/90 mt-1" />

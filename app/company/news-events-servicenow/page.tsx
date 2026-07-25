@@ -84,7 +84,7 @@ export default function NewsEventsPage() {
       <CtaBand
         headline="Want us at"
         accent="your event?"
-        sub="Or just want to talk about a project? Either way, tell us what you have in mind — we reply within 48 hours."
+        sub="Or just want to talk about a project? Either way, tell us what you have in mind — every message gets answered by a person."
         primary={{ label: 'Get in touch', href: '/contactus' }}
         secondary={{ label: 'Ask our agent', href: '/agent' }}
       />

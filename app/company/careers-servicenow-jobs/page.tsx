@@ -3,20 +3,42 @@
 import { useState } from 'react';
 import { ArrowRight, ChevronDown, Globe, BookOpen, Heart, Clock, MapPin, Briefcase } from 'lucide-react';
 import {
-  Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand, PillLink,
+  Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand, PillLink, PillAnchor,
 } from '@/components/site';
+
+// Applications go straight to a mailbox, not through the contact form — a CV
+// belongs as an attachment, and the candidate keeps a copy in their sent items.
+// THIS MAILBOX MUST EXIST. If careers@ is not provisioned yet, point it at
+// connect@ifbash.com rather than losing applications to a bounce.
+const CAREERS_EMAIL = 'careers@ifbash.com';
+
+/** mailto: for a specific role, with the subject and prompts pre-filled. */
+function applyHref(roleTitle: string) {
+  const subject = `Application — ${roleTitle}`;
+  const body = [
+    `Hi ifBash team,`,
+    ``,
+    `I'd like to apply for the ${roleTitle} role.`,
+    ``,
+    `Please attach your CV before sending, and add a line or two on:`,
+    `• Where you are now and your notice period`,
+    `• One thing you have built that you are proud of`,
+    ``,
+    `Thanks,`,
+  ].join('\n');
+  return `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 const openRoles = [
   {
     title: 'Senior ServiceNow Developer',
     team: 'Engineering',
-    location: 'Remote (India) — we have people in Hyderabad, Bangalore, Pune, and Delhi',
+    location: 'Remote (India)',
     type: 'Full-time',
     experience: '5+ years of ServiceNow development',
     about: 'You\'ll be building custom applications, configuring modules, and writing integrations for enterprise clients. Most of our work is ITSM, ITOM, and CSM — but we also build on App Engine and Integration Hub regularly. You\'ll work directly with clients (not through layers of project managers) and you\'ll own your code from dev to production.',
     lookingFor: ['ServiceNow CSA and CAD certified (or equivalent experience)', 'Strong JavaScript — you should be comfortable with Glide APIs and script includes', 'Experience with at least two major modules (ITSM, ITOM, CSM, HRSD, etc.)', 'You\'ve built integrations between ServiceNow and other systems — REST, SOAP, or both'],
     niceToHave: ['Experience with Service Portal or UI Builder', 'You\'ve worked on at least one project that used ATF for testing', 'You can read and write basic SQL for reporting'],
-    salary: '₹18-28 LPA depending on experience',
   },
   {
     title: 'ServiceNow Solution Architect',
@@ -27,7 +49,6 @@ const openRoles = [
     about: 'You\'ll design the architecture for client implementations — module selection, data model, integration patterns, security model. You\'ll be the technical decision-maker on projects and mentor senior developers. This is not a "draw boxes and hand off" role — you will build POCs, review code, and occasionally write the tricky parts yourself.',
     lookingFor: ['Deep expertise in at least three ServiceNow modules — you know them well enough to explain trade-offs to a CTO', 'You\'ve designed solutions that integrated ServiceNow with ERP, CRM, or legacy systems', 'You can write technical architecture documents that developers can actually follow', 'Client-facing experience — you can explain technical decisions to non-technical stakeholders without jargon'],
     niceToHave: ['Experience with ServiceNow\'s AI/ML capabilities', 'You\'ve led technical teams of 3+ people', 'TOGAF or similar architecture certification'],
-    salary: '₹25-38 LPA depending on experience',
   },
   {
     title: 'Business Process Consultant',
@@ -38,7 +59,6 @@ const openRoles = [
     about: 'You\'ll be the bridge between what the client says they want and what they actually need. This means running workshops, mapping processes, writing user stories, and sometimes telling clients "you don\'t need a custom app for that — here\'s a simpler way." You\'ll work alongside architects and developers throughout the implementation.',
     lookingFor: ['ITIL certification (Foundation at minimum)', 'You\'ve facilitated workshops with 10+ stakeholders and survived', 'Experience with process mapping — you can draw a swimlane diagram that actually makes sense', 'ServiceNow exposure — you don\'t need to code, but you should understand what the platform can and can\'t do'],
     niceToHave: ['Experience in a specific industry — healthcare, manufacturing, financial services', 'You\'ve been involved in an enterprise software implementation from start to finish'],
-    salary: '₹14-22 LPA depending on experience',
   },
   {
     title: 'UX Designer — Enterprise Applications',
@@ -49,7 +69,6 @@ const openRoles = [
     about: 'Most ServiceNow instances look... functional. We think they should look great. You\'ll design employee portals, service catalogs, and mobile experiences for enterprise users. You\'ll work directly with clients to understand their users, prototype solutions, and hand off pixel-perfect specs to developers. This is not a "make the logo bigger" role — you\'ll have real ownership over the experience layer.',
     lookingFor: ['Strong portfolio showing B2B or enterprise work — consumer-only portfolios won\'t be a fit', 'Figma expertise — our entire design system lives there', 'You\'ve done user research, not just UI design', 'You can explain why a design decision improves usability, not just aesthetics'],
     niceToHave: ['Experience with Service Portal or UI Builder', 'ServiceNow CSA certification', 'You\'ve designed for accessibility (WCAG compliance)'],
-    salary: '₹12-20 LPA depending on experience',
   },
   {
     title: 'Technical Project Manager',
@@ -60,7 +79,6 @@ const openRoles = [
     about: 'You\'ll run 2-3 implementation projects at a time — managing timelines, client communication, team allocation, and the thousand small things that make the difference between "delivered on time" and "three months late." You\'ll work with a technical lead on each project. We don\'t micromanage PMs — we expect you to own your projects and escalate only when you need help.',
     lookingFor: ['You\'ve managed enterprise software projects end to end — from kickoff to go-live, not just the planning phase', 'ServiceNow knowledge — you don\'t need to code but you need to understand the platform well enough to push back on unrealistic estimates', 'Comfortable with agile — we run two-week sprints', 'You can have a difficult conversation with a client without making them angry'],
     niceToHave: ['PMP or Scrum Master certification', 'Experience managing distributed teams across time zones'],
-    salary: '₹16-26 LPA depending on experience',
   },
   {
     title: 'ServiceNow Sales Engineer',
@@ -71,15 +89,21 @@ const openRoles = [
     about: 'You\'ll run technical discovery calls, build tailored demos, and answer the "can ServiceNow actually do X?" questions that prospects bring. You\'ll work with our sales team and architects to scope projects accurately — we don\'t oversell and we don\'t underdeliver, so your estimates need to be honest. You\'ll also contribute to proposals, RFP responses, and occasionally write technical content for the website.',
     lookingFor: ['ServiceNow platform knowledge across multiple modules', 'You can build a compelling demo that shows value, not just features', 'Experience scoping enterprise software projects — timeline, team size, cost', 'Strong communication — you can talk to a CIO and a developer in the same meeting and make sense to both'],
     niceToHave: ['Previous consulting or professional services experience', 'ServiceNow CSA/CIS certifications'],
-    salary: '₹14-24 LPA depending on experience',
   },
 ];
 
+// Same rule as the rest of the site: state only what ifBash controls and will
+// hold itself to. Removed 2026-07-25 as unverifiable — a "₹1.5 lakh per year"
+// learning budget, family medical + mental-health + fitness cover, Friday tech
+// talks, "remote-first from the start", and "the most popular policy we have"
+// (which implies survey data). Restore any of them the moment they are real:
+// they are good policies and worth advertising, but a candidate resigns a job
+// on the strength of this page.
 const perks = [
-  { icon: Globe, title: 'Work from anywhere', body: 'We have been remote-first from the start. Most of us work from home, some from co-working spaces. As long as you deliver and show up to client calls, we do not care where your desk is.' },
-  { icon: BookOpen, title: 'Learning is budgeted, not encouraged', body: 'Every team member gets ₹1.5 lakh per year for learning — certifications, conferences, courses, books. We also run internal tech talks every Friday where someone teaches what they learned that week.' },
-  { icon: Heart, title: 'Health coverage that covers things', body: 'Medical insurance for you and your family, mental health support through a dedicated platform, and fitness reimbursement. We do not do wellness webinars.' },
-  { icon: Clock, title: 'No-meeting Wednesdays', body: 'Wednesday is meeting-free across the company. No stand-ups, no client calls, no internal reviews — protected time for deep work. It is the most popular policy we have.' },
+  { icon: Globe, title: 'Remote, and actually remote', body: 'Work from wherever you work best. What we ask is that you deliver and that you show up to client calls — not that you sit in a particular chair.' },
+  { icon: BookOpen, title: 'Certifications are paid for', body: 'ServiceNow and cloud certifications are on us, because the work needs them. Ask what the current learning budget is on your first call and you will get the actual number, not a range.' },
+  { icon: Clock, title: 'Protected time for deep work', body: 'Consulting fills with meetings unless someone defends against it. We keep a standing meeting-free block every week — no stand-ups, no client calls, no internal reviews.' },
+  { icon: Heart, title: 'We say what we cannot offer', body: 'We are a small firm, so some things a large SI gives you we do not. You will hear that list on the first call rather than discovering it in month two.' },
 ];
 
 const teams = ['All', 'Engineering', 'Consulting', 'Design', 'Operations', 'Sales'];
@@ -96,7 +120,7 @@ export default function CareersPage() {
         eyebrow="Careers"
         headline="Senior work,"
         accent="without the layers."
-        sub="You talk to clients directly, own what you build, and are trusted to say when something will take longer than they want. Remote-first across India."
+        sub="You talk to clients directly, own what you build, and are trusted to say when something will take longer than they want. We hire remotely across India."
         primary={{ label: 'See open roles', href: '#roles' }}
         secondary={{ label: 'What we do', href: '/services' }}
       />
@@ -127,10 +151,11 @@ export default function CareersPage() {
         <div className="mb-10 max-w-2xl">
           <Eyebrow rule className="mb-4">Open roles</Eyebrow>
           <DisplayHeading as="h2" size="md" className="mb-4">
-            {openRoles.length} positions open.
+            The roles we hire for.
           </DisplayHeading>
           <p className="text-base text-stone">
-            Salary ranges are published up front because making you ask is a waste of everyone&apos;s time.
+            We are not always actively recruiting for every role below, but these are the shapes we hire.
+            Salary is discussed on the first call, before you invest time in a process.
           </p>
         </div>
 
@@ -169,7 +194,7 @@ export default function CareersPage() {
                     <span className="inline-flex items-center gap-1.5">
                       <MapPin className="h-3.5 w-3.5 text-navy" /> {role.type}
                     </span>
-                    <span className="font-medium text-navy">{role.salary}</span>
+                    <span className="font-medium text-navy">{role.experience}</span>
                   </span>
                 </span>
                 <ChevronDown
@@ -216,10 +241,14 @@ export default function CareersPage() {
                     </div>
                   </div>
 
-                  <div className="mt-6">
-                    <PillLink href="/contactus" variant="primary" size="md">
+                  <div className="mt-6 flex flex-wrap items-center gap-4">
+                    <PillAnchor href={applyHref(role.title)} variant="primary" size="md">
                       Apply for this role <ArrowRight className="h-4 w-4" />
-                    </PillLink>
+                    </PillAnchor>
+                    <span className="text-[13px] text-stone-light">
+                      Opens your email app — attach your CV and send to{' '}
+                      <span className="text-ink-body">{CAREERS_EMAIL}</span>
+                    </span>
                   </div>
                 </div>
               )}
@@ -246,8 +275,8 @@ export default function CareersPage() {
       <CtaBand
         headline="Nothing here"
         accent="quite right?"
-        sub="Tell us what you're good at anyway. We hire when we meet someone worth hiring, not only when a role is posted."
-        primary={{ label: 'Get in touch', href: '/contactus' }}
+        sub={`Send us your CV anyway, at ${CAREERS_EMAIL}. We hire when we meet someone worth hiring, not only when a role is posted.`}
+        primary={{ label: 'Email us your CV', href: `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent('Speculative application')}` }}
         secondary={{ label: 'See what we build', href: '/work' }}
       />
     </>

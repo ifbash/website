@@ -12,7 +12,7 @@ export const GUIDED_ANSWERS: { match: RegExp; answer: string }[] = [
   {
     match: /scope|project|start|engag|timeline|how long|price|cost|quote/i,
     answer:
-      'Every engagement starts with a free 48-hour scoping call: you tell us where you are and what you need, and we come back with a concrete plan — approach, timeline, and team shape. No commitment. Leave your details and we\'ll set it up.',
+      'Every engagement starts with a free scoping call: you tell us where you are and what you need, and we come back with a concrete plan — approach, timeline, and team shape. No commitment. Leave your details and we\'ll set it up.',
   },
   {
     match: /servicenow|itsm|itom|csm|hrsd|now assist|incident/i,

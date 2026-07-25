@@ -124,7 +124,7 @@ export function ServicePage({
       <CtaBand
         headline="Ready to"
         accent="scope it?"
-        sub="Tell us where you are today. A concrete plan within 48 hours — approach, sequence, team, and estimate."
+        sub="Tell us where you are today. You get back a written approach, a sequence, the names doing the work, and an estimate — inside two working days."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'All services', href: '/services' }}
       />

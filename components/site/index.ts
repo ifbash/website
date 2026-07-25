@@ -3,7 +3,7 @@ export { Container } from './container';
 export { Section } from './section';
 export { Eyebrow } from './eyebrow';
 export { DisplayHeading, Accented } from './display-heading';
-export { PillLink, PillButton } from './pill-button';
+export { PillLink, PillButton, PillAnchor } from './pill-button';
 export { FeatureCard, FeatureGrid } from './feature-card';
 export type { Feature } from './feature-card';
 export { FaqSection } from './faq-section';

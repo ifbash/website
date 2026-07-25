@@ -132,7 +132,7 @@ export default function VoiceAgentsPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
               Good fit / poor fit
             </div>
             <div className="space-y-4">
@@ -141,7 +141,7 @@ export default function VoiceAgentsPage() {
                 ['Poor fit', 'Complex document review, anything the caller must read and sign, highly regulated advice.'],
                 ['Depends', 'Support triage — excellent if your top intents are narrow, frustrating if every call is bespoke.'],
               ].map(([label, body]) => (
-                <div key={label} className="border-l-2 border-navy-strong pl-4">
+                <div key={label} className="border-l-2 border-mulberry-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{label}</div>
                   <div className="text-sm text-stone leading-relaxed">{body}</div>
                 </div>
@@ -156,7 +156,7 @@ export default function VoiceAgentsPage() {
       <CtaBand
         headline="Want to hear it"
         accent="on your own line?"
-        sub="Tell us the call you want handled. We'll scope it within 48 hours — and you'll have heard a working agent before you decide anything."
+        sub="Tell us the call you want handled. We'll scope it inside two working days — and you'll have heard a working agent before you decide anything."
         primary={{ label: 'Scope a voice agent', href: '/get-started' }}
         secondary={{ label: 'Get a call from ours', href: '/agent' }}
       />

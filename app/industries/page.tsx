@@ -84,7 +84,7 @@ export default function IndustriesIndexPage() {
       <CtaBand
         headline="Tell us about"
         accent="your sector."
-        sub="Describe the process that keeps breaking. We'll come back within 48 hours with an approach and the reasoning behind it."
+        sub="Describe the process that keeps breaking. We'll tell you how we would fix it — and why that way rather than another — inside two working days."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'Ask our agent', href: '/agent' }}
       />

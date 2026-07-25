@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: ['class'],
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -22,10 +21,13 @@ const config: Config = {
       // Display serif lives in globals.css as `.font-display` (it also sets
       // tracking). Body + mono are bound here to the next/font variables.
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
-        // Arabic. Geist and Libre Baskerville carry no Arabic glyphs, so the
-        // /ar subtree uses one family for both display and body.
+        // One superfamily — see the note in app/layout.tsx. Display is the
+        // same face at a heavier weight (.font-display in globals.css), not a
+        // separate family.
+        sans: ['var(--font-plex-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-plex-mono)', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+        // Arabic. The Latin faces carry no Arabic glyphs, so the /ar subtree
+        // uses IBM Plex Sans Arabic — the same superfamily.
         arabic: ['var(--font-arabic)', 'Segoe UI', 'Tahoma', 'sans-serif'],
       },
       colors: {
@@ -44,6 +46,16 @@ const config: Config = {
           DEFAULT: '#6B6659',
           light: '#757064',
           faint: '#918D81',
+        },
+        // The AI-layer accent. Navy marks the ServiceNow platform, mulberry
+        // marks what we build on top of it — the colour system states the
+        // positioning rather than decorating it. See lib/design.ts.
+        mulberry: {
+          DEFAULT: '#7D2E55',
+          deep: '#5E2140',
+          soft: '#C98BA8',
+          tint: '#F7EAF1',
+          strong: '#EFD8E4',
         },
         navy: {
           DEFAULT: '#1B3A5C',

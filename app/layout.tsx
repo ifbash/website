@@ -1,36 +1,58 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Libre_Baskerville } from 'next/font/google';
-import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
+import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { LenisProvider } from '@/components/lenis-provider';
 import { ChatWidget } from '@/components/chat-widget';
 import { LocaleDirection } from '@/components/locale-direction';
 
-// Display serif — Libre Baskerville. Wide, high x-height, book-like; more
-// legible at large sizes than a condensed face. Ships 400 + 700 + 400 italic.
-const libreBaskerville = Libre_Baskerville({
+/**
+ * One superfamily across the whole site: IBM Plex.
+ *
+ * /ar already loads IBM Plex Sans Arabic (app/ar/layout.tsx), so the Latin and
+ * Arabic surfaces now share a type system instead of running three unrelated
+ * families. Plex was drawn for enterprise software, which is the posture we
+ * want — precise and systems-minded rather than editorial.
+ *
+ * Replaced Libre Baskerville (a *body* face pressed into display work, which
+ * forced the display scale down ~18%) and Geist (Vercel's default; reads as a
+ * framework default rather than a choice).
+ *
+ * --font-display is deliberately kept as the variable name so the 16 files
+ * using `.font-display` need no change — only the family behind it moved.
+ */
+const plexSans = IBM_Plex_Sans({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-display',
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-plex-sans',
+  display: 'swap',
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-plex-mono',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ifbash.com'),
   title: {
-    default: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
+    default: 'ifBash | ServiceNow Delivery, and the AI Layer On Top',
     template: '%s | ifBash',
   },
   description:
-    'ifBash is a technology consultancy across three practices: ServiceNow delivery, AI agents engineered on Claude, and web & mobile product development. Scoped in 48 hours, senior-led.',
+    'ifBash implements and runs ServiceNow — then builds the AI layer on top of it: agents, virtual assistants, and Now Assist work engineered on Claude. We build the web and mobile surfaces those agents live in. A written plan back within two working days.',
   keywords: [
-    // ServiceNow practice
-    'ServiceNow consulting', 'ServiceNow implementation', 'ServiceNow managed services',
+    // ServiceNow practice. 'ServiceNow partner' is here as a SEARCH TERM we
+    // want to be found for — buyers type it. It is NOT a claim: the FAQ on
+    // /services/servicenow-implementation answers it with a plain "no", which
+    // is what actually earns the ranking. Never put it in visible copy.
+    'ServiceNow partner', 'ServiceNow specialists', 'ServiceNow consulting',
+    'ServiceNow implementation', 'ServiceNow managed services',
     'ITSM implementation', 'ServiceNow CRM', 'ServiceNow Now Assist',
     // AI & agents practice
     'AI agents', 'agentic AI', 'voice AI agents', 'AI engineering', 'Claude AI development',
@@ -46,7 +68,7 @@ export const metadata: Metadata = {
     siteName: 'ifBash',
     locale: 'en_US',
     url: 'https://ifbash.com',
-    title: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
+    title: 'ifBash | ServiceNow Delivery, and the AI Layer On Top',
     description:
       'A technology consultancy across three practices: ServiceNow delivery, AI agents engineered on Claude, and web & mobile product development.',
     images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow, AI Agents, Web & Mobile' }],
@@ -55,9 +77,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     site: '@ifbashx',
     creator: '@ifbashx',
-    title: 'ifBash | ServiceNow · AI Agents · Web & Mobile',
+    title: 'ifBash | ServiceNow Delivery, and the AI Layer On Top',
     description:
-      'ServiceNow delivery, AI agents built on Claude, and web & mobile products. One senior team, scoped in 48 hours.',
+      'We implement and run ServiceNow, then build the AI layer on top — agents and assistants engineered on Claude. One team, start to finish.',
     images: ['/images/logo.png'],
   },
   icons: {
@@ -79,21 +101,23 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <body
-        className={`${GeistSans.variable} ${GeistMono.variable} ${libreBaskerville.variable} font-sans h-full`}
+        className={`${plexSans.variable} ${plexMono.variable} font-sans h-full`}
       >
         <Script id="vtag-ai-js" src="https://r2.leadsy.ai/tag.js" data-pid="fBDjy1VonTY1EGcO" data-version="062024" strategy="afterInteractive" />
+        <a href="#main" className="skip-link">Skip to content</a>
         <div className="relative min-h-screen flex flex-col">
           <LenisProvider />
           <LocaleDirection />
           <div className="sticky top-0 z-50">
             <Header />
           </div>
-          <main className="flex-1">
+          <main id="main" tabIndex={-1} className="flex-1">
             {children}
           </main>
           <Footer />
           <ChatWidget />
         </div>
+        <Analytics />
       </body>
     </html>
   );

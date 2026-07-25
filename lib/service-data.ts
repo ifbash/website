@@ -228,7 +228,7 @@ export const serviceEntries: ServiceEntry[] = [
   {
     slug: 'servicenow-implementation',
     metaTitle: 'ServiceNow Implementation — Go-Live in Weeks, Not Quarters',
-    metaDescription: 'Pre-built accelerators, parallel workstreams, and phase gates that catch scope creep. Senior-led ServiceNow implementations, scoped in writing within 48 hours of the first call.',
+    metaDescription: 'Pre-built accelerators, parallel workstreams, and phase gates that catch scope creep. ServiceNow implementations scoped in writing within two working days of the first call.',
     offerings: [
       { icon: Workflow, title: 'Rapid Implementation', desc: 'Pre-built accelerators and parallel workstreams, with working configuration demoed early rather than revealed at the end.', points: [] },
       { icon: Layers, title: 'Seamless Integration', desc: 'Custom connectors for proprietary systems.', points: [] },
@@ -260,6 +260,7 @@ export const serviceEntries: ServiceEntry[] = [
         ] },
     ],
     faqs: [
+      { q: 'Are you a ServiceNow partner?', a: 'No. We are not in ServiceNow’s official partner programme, and we will not imply otherwise. What we are is ServiceNow specialists — certified engineers who implement, extend, integrate, and run the platform every day, and who then build the AI layer on top of it. If your procurement process requires a badged partner, tell us on the first call and we will say so plainly instead of wasting your time.' },
       { q: 'How long does a typical implementation take?', a: 'The compressed timeline comes from pre-built accelerators and parallel workstreams — testing runs alongside build, not after it.' },
       { q: 'Can you integrate with our existing systems?', a: 'We will answer this specifically for your environment during scoping — a general answer here would risk misleading you.' },
       { q: 'What support do you provide after go-live?', a: 'Structured hypercare: daily check-ins for two weeks, weekly reviews through week 12, formal 90-day outcome review. The same engineers who built your platform can continue managing it.' },

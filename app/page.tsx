@@ -108,20 +108,22 @@ export default function Page() {
             <div>
               <motion.h1
                 {...fadeUp(0)}
-                className="font-display leading-[1.12] mb-7 text-ink"
-                // Libre Baskerville sets ~18% wider than the previous condensed
-                // face, so the display scale comes down to keep each line intact.
-                style={{ fontSize: 'clamp(2rem, 4.4vw, 3.25rem)' }}
+                className="font-display leading-[1.06] mb-7 text-ink"
+                // Matches the `xl` step in components/site/display-heading.tsx.
+                // The old value was shrunk to accommodate a too-wide display
+                // serif; the grotesk sets narrower, so the scale came back up.
+                style={{ fontSize: 'clamp(2.5rem, 5.6vw, 4.25rem)', letterSpacing: '-0.030em' }}
               >
-                Enterprise platforms.
+                We build ServiceNow.
                 <br />
-                Agents that work.
+                Then we build the
                 <br />
-                Products that ship.
+                AI layer on top.
               </motion.h1>
               <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-stone">
-                Three practices, one senior team. Don&apos;t read about what we build — ask.
-                Our agent is listening, right there.
+                Implementation and managed services are the practice that pays the bills. The
+                agents we put on top are the reason clients stay. Don&apos;t read about it — ask
+                the agent on this page; we built it.
               </motion.p>
               <motion.div {...fadeUp(0.24)} className="flex flex-wrap items-center gap-5">
                 <PillLink href="/get-started" variant="primary" size="lg">
@@ -170,7 +172,7 @@ export default function Page() {
         <ScrollAnimation className="mb-12 max-w-2xl">
           <Eyebrow className="mb-4">What we do</Eyebrow>
           <DisplayHeading as="h2" size="md" className="mb-4">
-            Three practices. <Accented>One senior team.</Accented>
+            One platform practice. <Accented>An AI layer on top of it.</Accented>
           </DisplayHeading>
           <p className="text-base text-stone">
             ServiceNow is where most of our delivery happens today. AI agents and product

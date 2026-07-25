@@ -3,6 +3,7 @@ import { ArrowRight, Mic, MessageCircle, PhoneCall, Layout, Settings, PlayCircle
 import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand, PillLink,
 } from '@/components/site';
+import { TriageDemo } from '@/components/triage-demo';
 
 type Kind = 'live' | 'demo' | 'practice';
 
@@ -97,6 +98,24 @@ export default function WorkPage() {
         </div>
       </Section>
 
+      {/* THE LIVE DEMO — the strongest thing on the site: it runs on the
+          visitor's own ticket text, so there is nothing to take on trust. */}
+      <Section tone="surface" divide>
+        <div className="mb-10 max-w-2xl">
+          <Eyebrow rule className="mb-4">Try it on your own ticket</Eyebrow>
+          <DisplayHeading as="h2" size="md" className="mb-4">
+            Paste something messy. <Accented accent="mulberry">Watch it get triaged.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-stone leading-relaxed">
+            This is the ServiceNow work and the AI layer in one place: an agent reads an inbound
+            ticket, judges impact and urgency, routes it to a queue, and drafts the first response.
+            Priority is computed from the impact &times; urgency matrix in code, the way the platform
+            does it &mdash; the model is not allowed to guess it.
+          </p>
+        </div>
+        <TriageDemo />
+      </Section>
+
       {/* THE WORK */}
       <Section tone="paper">
         <div className="mb-12 max-w-2xl">
@@ -178,7 +197,7 @@ export default function WorkPage() {
       <CtaBand
         headline="Want yours"
         accent="in this list?"
-        sub="Tell us what you're building. A concrete plan within 48 hours — approach, timeline, and team."
+        sub="Tell us what you're building. You'll get an approach, a timeline, and the names who would do the work — in writing, inside two working days."
         primary={{ label: 'Start a project', href: '/get-started' }}
         secondary={{ label: 'How we engage', href: '/engage' }}
       />

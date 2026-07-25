@@ -4,6 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Mic, Send, Volume2, VolumeX, Loader2 } from 'lucide-react';
 import { streamChat, type ChatMessage } from '@/lib/chat-client';
+// The voice agent is the AI layer, so it carries the mulberry accent rather
+// than navy. Imported from the token source — the hex was hard-coded here in
+// three places, against the rule documented in lib/design.ts.
+import { MULBERRY } from '@/lib/design';
 
 type Status = 'idle' | 'listening' | 'thinking' | 'speaking';
 
@@ -164,7 +168,7 @@ export function VoiceHero() {
           {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
         </button>
       </div>
-      {micError && <p className="mt-1 text-xs" style={{ color: '#1B3A5C' }}>{micError}</p>}
+      {micError && <p className="mt-1 text-xs" style={{ color: MULBERRY }}>{micError}</p>}
 
       {/* Transcript — last exchange only, minimal */}
       <div ref={scrollRef} className={`w-full mt-5 space-y-2.5 overflow-y-auto transition-all ${lastTurns.length ? 'max-h-56' : 'max-h-0'}`}>
@@ -176,7 +180,7 @@ export function VoiceHero() {
                 ? { background: '#141210' }
                 : { background: '#FFFFFF', color: '#2A2721', border: '1px solid #E7E2D9', boxShadow: '0 2px 12px rgba(20,18,16,0.05)' }}
             >
-              {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: '#1B3A5C' }} />}
+              {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: MULBERRY }} />}
             </div>
           </div>
         ))}
@@ -221,7 +225,7 @@ export function VoiceHero() {
         </button>
       </form>
 
-      <Link href="/agent" className="mt-4 text-xs font-medium transition-colors hover:underline" style={{ color: '#1B3A5C' }}>
+      <Link href="/agent" className="mt-4 text-xs font-medium transition-colors hover:underline" style={{ color: MULBERRY }}>
         Prefer a phone call? The agent can call you →
       </Link>
     </div>

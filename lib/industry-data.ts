@@ -121,7 +121,7 @@ export const industryEntries: IndustryEntry[] = [
   {
     slug: 'manufacturing-solutions',
     metaTitle: 'ServiceNow Manufacturing — Eliminate Unplanned Downtime',
-    metaDescription: 'ServiceNow and AI delivery for manufacturing solutions — implementation, integration, agents, and ongoing support from one senior team.',
+    metaDescription: 'ServiceNow and AI delivery for manufacturing solutions — implementation, integration, agents, and ongoing support from one team.',
     keywords: [],
     aiAngle: 'Agents fit where the answer already exists but nobody can find it fast — retrieving the right maintenance procedure for a specific asset, or drafting a supplier corrective action request from the non-conformance record.',
     capabilities: [

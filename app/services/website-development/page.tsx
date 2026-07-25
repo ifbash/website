@@ -156,7 +156,7 @@ export default function WebsiteDevelopmentPage() {
       <CtaBand
         headline="Have something"
         accent="to build?"
-        sub="Share the idea — we'll come back within 48 hours with an approach, a timeline, and a number."
+        sub="Share the idea. You'll get back a sitemap, a build approach, a timeline, and a number — inside two working days."
         primary={{ label: 'Scope my build', href: '/get-started' }}
         secondary={{ label: 'Mobile apps too', href: '/services/mobile-app-development' }}
       />

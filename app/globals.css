@@ -73,12 +73,89 @@
   }
 }
 
-/* ── Display serif ───────────────────────────────────────────────────── */
+/* ── Display type ─────────────────────────────────────────────────────
+   Display is the body face at a heavier weight, not a separate family, so
+   hierarchy comes from weight as well as size. The class name is kept so the
+   16 files using `.font-display` needed no change when the family moved.
+
+   Tracking is NOT set here. It belongs per size in
+   components/site/display-heading.tsx — display type needs progressively
+   tighter tracking as it scales, and the single -0.015em that used to live
+   here was wrong at both ends of a 2.6x range.
+
+   `text-wrap: balance` is the real fix for the orphaned last word. The
+   previous system solved that by shrinking the whole type scale to suit a
+   too-wide face. */
 @layer utilities {
   .font-display {
-    font-family: var(--font-display), Georgia, 'Times New Roman', serif;
-    font-weight: 400;
-    letter-spacing: -0.015em;
+    font-family: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    text-wrap: balance;
+  }
+}
+
+/* ── Keyboard access ──────────────────────────────────────────────────
+   A visible focus ring for everything, not just the pill buttons. Tailwind's
+   preflight removes the UA outline, so without this a keyboard user has no
+   idea where they are on the page. */
+:focus-visible {
+  outline: 2px solid #1B3A5C;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* The skip link sits off-screen until focused, then pins to the top-left.
+   Without it, tabbing into any of the 77 pages means traversing the whole
+   five-item mega-menu before reaching content — WCAG 2.4.1. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #141210;
+  color: #F3F0E9;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ── Scroll reveal ────────────────────────────────────────────────────
+   Every section fades and lifts as it enters the viewport, with NO JavaScript
+   — CSS scroll-driven animation instead. That matters at this scale: the site
+   is 76 statically-rendered pages, and doing this with an IntersectionObserver
+   component would have made <Section> a client component and pushed most of
+   the tree into the bundle.
+
+   Two guards, both load-bearing:
+   - @supports means browsers without scroll timelines never apply the hidden
+     start state, so content is simply visible rather than stuck at opacity 0.
+   - prefers-reduced-motion disables it outright.
+
+   Anything that must be visible immediately (a hero above the fold) should not
+   carry .reveal — entry animations on first paint read as jank, not polish. */
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 20%;
+    }
   }
 }
 
@@ -157,19 +234,19 @@
   .agent-orb {
     border-radius: 9999px;
     background: radial-gradient(circle at 32% 30%, #7C9AB8 0%, #3D6A94 35%, #1B3A5C 72%, #0C1F33 100%);
-    box-shadow: 0 0 24px rgba(20, 88, 76, 0.45), 0 0 64px rgba(20, 88, 76, 0.22);
+    box-shadow: 0 0 24px rgba(27, 58, 92, 0.45), 0 0 64px rgba(27, 58, 92, 0.22);
     animation: orbIdle 4.5s ease-in-out infinite;
   }
   .agent-orb--listening {
     animation: orbListen 1.1s ease-in-out infinite;
-    box-shadow: 0 0 28px rgba(127, 179, 165, 0.65), 0 0 72px rgba(20, 88, 76, 0.3);
+    box-shadow: 0 0 28px rgba(127, 179, 165, 0.65), 0 0 72px rgba(27, 58, 92, 0.3);
   }
   .agent-orb--thinking {
     animation: orbThink 1.4s linear infinite;
   }
   .agent-orb--speaking {
     animation: orbSpeak 0.55s ease-in-out infinite;
-    box-shadow: 0 0 30px rgba(127, 179, 165, 0.7), 0 0 80px rgba(20, 88, 76, 0.35);
+    box-shadow: 0 0 30px rgba(127, 179, 165, 0.7), 0 0 80px rgba(27, 58, 92, 0.35);
   }
   @keyframes orbIdle {
     0%, 100% { transform: scale(1); filter: brightness(1); }

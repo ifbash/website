@@ -157,7 +157,7 @@ export default function MobileAppDevelopmentPage() {
       <CtaBand
         headline="Got an app"
         accent="in mind?"
-        sub="Tell us the one job it has to do. We'll come back within 48 hours with an approach, a timeline, and an honest view on whether it should be an app at all."
+        sub="Tell us the one job it has to do. Two working days later you'll have an approach, a timeline, and an honest view on whether it should be an app at all."
         primary={{ label: 'Scope my app', href: '/get-started' }}
         secondary={{ label: 'How we engage', href: '/engage' }}
       />

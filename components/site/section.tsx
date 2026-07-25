@@ -22,12 +22,18 @@ const PADS: Record<Pad, string> = {
 /**
  * A full-bleed page section with the standard container inside.
  * Pass `bare` to skip the container when a section needs custom layout.
+ *
+ * Content reveals on scroll via the `.reveal` class (pure CSS — see
+ * globals.css). This component stays a SERVER component; doing the reveal with
+ * an observer hook would have pulled every page that uses a Section into the
+ * client bundle. Pass `still` for anything above the fold.
  */
 export function Section({
   tone = 'paper',
   pad = 'default',
   divide = false,
   bare = false,
+  still = false,
   width,
   id,
   className,
@@ -39,6 +45,8 @@ export function Section({
   /** Hairline rule along the top edge — used between same-tone sections. */
   divide?: boolean;
   bare?: boolean;
+  /** Opt out of the scroll reveal — for content visible on first paint. */
+  still?: boolean;
   width?: React.ComponentProps<typeof Container>['width'];
   id?: string;
   className?: string;
@@ -56,7 +64,13 @@ export function Section({
         className,
       )}
     >
-      {bare ? children : <Container width={width} className={innerClassName}>{children}</Container>}
+      {bare ? (
+        children
+      ) : (
+        <Container width={width} className={cn(!still && 'reveal', innerClassName)}>
+          {children}
+        </Container>
+      )}
     </section>
   );
 }

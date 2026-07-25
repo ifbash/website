@@ -79,7 +79,7 @@ export default function WebMobilePracticePage() {
         eyebrow="Web & Mobile"
         headline="Digital products,"
         accent="built end to end."
-        sub="Design, frontend, backend, and the AI inside — from one senior team. Two tracks, one way of working, and the same handover promise at the end of both."
+        sub="Design, frontend, backend, and the AI inside — from one team. Two tracks, one way of working, and the same handover promise at the end of both."
         primary={{ label: 'Scope your build', href: '/get-started' }}
         secondary={{ label: 'See our work', href: '/work' }}
       />
@@ -148,7 +148,7 @@ export default function WebMobilePracticePage() {
       <CtaBand
         headline="Have something"
         accent="to build?"
-        sub="Share the idea — we'll come back within 48 hours with an approach, a timeline, and a number."
+        sub="Share the idea — two working days later you'll have an approach, a timeline, and a number."
         primary={{ label: 'Scope my build', href: '/get-started' }}
         secondary={{ label: 'How we engage', href: '/engage' }}
       />

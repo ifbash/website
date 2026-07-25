@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'ServiceNow Digital Transformation — Stop Managing Silos, Start Running Your Business',
-  description: 'Transformation measured in workflows, not slide decks. We unify operations onto a single ServiceNow platform, sequenced so each phase earns the next. A written plan within 48 hours.',
+  description: 'Transformation measured in workflows, not slide decks. We unify operations onto a single ServiceNow platform, sequenced so each phase earns the next. A written plan within two working days.',
   keywords: [
     'ServiceNow digital transformation', 'digital transformation consulting',
     'ServiceNow process automation', 'AI digital transformation',

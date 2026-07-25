@@ -82,7 +82,7 @@ export default function PortfolioIndexPage() {
       <CtaBand
         headline="Which one"
         accent="do you actually need?"
-        sub="Tell us the problem rather than the product. We'll come back within 48 hours with a recommendation and the reasoning behind it."
+        sub="Tell us the problem rather than the product. You'll get a recommendation, and the reasoning behind it, within two working days."
         primary={{ label: 'Scope a project', href: '/get-started' }}
         secondary={{ label: 'Ask our agent', href: '/agent' }}
       />

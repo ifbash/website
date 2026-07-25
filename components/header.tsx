@@ -96,7 +96,11 @@ export function Header() {
     industries: isAr ? ar.nav.industries : 'Industries',
     company: isAr ? ar.nav.company : 'Company',
     startProject: isAr ? ar.nav.startProject : 'Start a project',
-    strip: isAr ? ar.meta.ctaStrip : 'One senior team. Scoped in 48 hours.',
+    // Permanent chrome carries no promises or numbers. The 48-hour commitment
+    // and the no-handoffs point live at the moment of decision (the page CTA,
+    // /engage, /get-started) — repeating them in furniture on all 100 pages
+    // made both invisible and made the site read as machine-written.
+    strip: isAr ? ar.meta.ctaStrip : 'ServiceNow, and the AI layer on top.',
     home: isAr ? '/ar' : '/',
     getStarted: isAr ? '/ar/get-started' : '/get-started',
   };

@@ -87,7 +87,7 @@ export default function LearningCenterPage() {
       <CtaBand
         headline="Have a question"
         accent="right now?"
-        sub="Ask the agent, or tell us what you're working on and we'll come back within 48 hours."
+        sub="Ask the agent anything on this page, or tell us what you're working on and a person will pick it up."
         primary={{ label: 'Ask the agent', href: '/agent' }}
         secondary={{ label: 'Talk to a person', href: '/contactus' }}
       />

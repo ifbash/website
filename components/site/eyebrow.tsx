@@ -25,7 +25,9 @@ export function Eyebrow({
     return (
       <p
         className={cn(
-          'text-[13px] font-semibold tracking-[0.18em] uppercase',
+          // Mono for the technical register — and it puts the retained
+          // monospace face to work instead of reserving it for code blocks.
+          'font-mono text-[12px] font-medium tracking-[0.16em] uppercase',
           color,
           centered && 'text-center',
           className,
@@ -39,7 +41,7 @@ export function Eyebrow({
   return (
     <div className={cn('flex items-center gap-3', centered && 'justify-center', className)}>
       <span className={cn('inline-block w-8 h-px', dash)} />
-      <span className={cn('text-[13px] font-semibold tracking-[0.18em] uppercase', color)}>
+      <span className={cn('font-mono text-[12px] font-medium tracking-[0.16em] uppercase', color)}>
         {children}
       </span>
       {centered && <span className={cn('inline-block w-8 h-px', dash)} />}

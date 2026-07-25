@@ -60,10 +60,39 @@ export function PillLink({
   ...props
 }: BaseProps & { href: string } & Omit<React.ComponentProps<typeof Link>, 'href' | 'className' | 'children'>) {
   const { variant, size, onInk, className, children, ...rest } = props;
+  const classes = classesFor({ variant, size, onInk, className, children });
+
+  // mailto:, tel: and off-site URLs must not go through the router. Callers
+  // pass them freely (CtaBand takes a bare href), so delegate here rather than
+  // making every call site remember which primitive to reach for.
+  if (/^(mailto:|tel:|https?:)/i.test(href)) {
+    return (
+      <a href={href} className={classes}>
+        {children}
+      </a>
+    );
+  }
+
   return (
-    <Link href={href} className={classesFor({ variant, size, onInk, className, children })} {...rest}>
+    <Link href={href} className={classes} {...rest}>
       {children}
     </Link>
+  );
+}
+
+/**
+ * Same pill, plain <a>. For destinations the router must not intercept —
+ * mailto:, tel:, and off-site links.
+ */
+export function PillAnchor({
+  href,
+  ...props
+}: BaseProps & { href: string } & Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href' | 'className' | 'children'>) {
+  const { variant, size, onInk, className, children, ...rest } = props;
+  return (
+    <a href={href} className={classesFor({ variant, size, onInk, className, children })} {...rest}>
+      {children}
+    </a>
   );
 }
 

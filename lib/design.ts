@@ -1,16 +1,31 @@
 /**
  * ifBash design tokens — single source of truth.
  *
- * Warm paper base, near-black ink, one deep-navy accent, hairline rules.
+ * Warm paper base, near-black ink, hairline rules, and TWO accents that mean
+ * different things:
+ *
+ *   navy      → the ServiceNow platform practice (primary, most surfaces)
+ *   mulberry  → the AI layer we build on top of it (agent/voice/Claude pages)
+ *
+ * That split is the point. The positioning is "we build ServiceNow, then we
+ * build the AI layer on top" — so the palette states it instead of decorating.
+ * Do not use mulberry as a general-purpose second colour; if it appears on a
+ * ServiceNow page the distinction stops meaning anything.
+ *
  * Accent history: terracotta (read as Anthropic coral) -> pine (read as
- * ServiceNow-adjacent green) -> deep navy, chosen 2026-07-24. Navy is none
- * of those, nor the indigo/violet every AI consultancy uses, and it carries
- * enterprise weight for the ServiceNow practice.
+ * ServiceNow-adjacent green) -> deep navy, chosen 2026-07-24. Navy is none of
+ * those, nor the indigo/violet every AI consultancy uses, and it carries
+ * enterprise weight. Mulberry was added 2026-07-25 and is deliberately clear of
+ * all four dead zones plus amber, which is part of the same default palette
+ * terracotta came from.
  *
  * These same values are mirrored in tailwind.config.ts as named colors
- * (bg-paper, text-ink, border-hairline, text-navy …). Prefer the Tailwind
- * classes in markup; import from here when a value is needed in JS
+ * (bg-paper, text-ink, border-hairline, text-navy, text-mulberry …). Prefer the
+ * Tailwind classes in markup; import from here when a value is needed in JS
  * (inline gradients, canvas, framer-motion style props).
+ *
+ * Every contrast ratio below is measured, not estimated. Do not lighten a value
+ * for looks without re-checking it.
  */
 
 // ── Surfaces ────────────────────────────────────────────────────────
@@ -29,13 +44,24 @@ export const STONE_LIGHT = '#757064'; // small print, captions
 export const STONE_FAINT = '#918D81'; // chevrons, index numerals
 
 // ── Accent — deep navy ──────────────────────────────────────────────
-// 11.1:1 on PAPER (AAA). NAVY_SOFT is 6.4:1 on INK (AA) — it exists so the
+// 11.0:1 on PAPER (AAA). NAVY_SOFT is 6.4:1 on INK (AA) — it exists so the
 // accent stays visible on dark bands, where NAVY itself would disappear.
 export const NAVY = '#1B3A5C'; // eyebrows, links, active states
 export const NAVY_DEEP = '#12293F'; // pressed / hover-darken
 export const NAVY_SOFT = '#7C9AB8'; // accent on ink backgrounds
 export const NAVY_TINT = '#E9EFF5'; // icon wells, accent wash
 export const NAVY_TINT_STRONG = '#D6E2EE'; // icon well hover
+
+// ── Signature accent — mulberry (the AI layer) ──────────────────────
+// Used ONLY on AI/agent surfaces: /services/ai-agents, /services/voice-agents,
+// /services/claude-ai-engineering, /agent, the chat widget, the voice hero.
+// 8.3:1 on PAPER (AAA). MULBERRY_SOFT is 6.9:1 on INK (AA) and plays the same
+// role NAVY_SOFT does — keeping the accent visible on dark bands.
+export const MULBERRY = '#7D2E55'; // eyebrows, links, active states on AI pages
+export const MULBERRY_DEEP = '#5E2140'; // pressed / hover-darken — 11.2:1 on PAPER
+export const MULBERRY_SOFT = '#C98BA8'; // accent on ink backgrounds
+export const MULBERRY_TINT = '#F7EAF1'; // icon wells, accent wash
+export const MULBERRY_TINT_STRONG = '#EFD8E4'; // icon well hover
 
 // ── Rules ───────────────────────────────────────────────────────────
 export const HAIRLINE = '#E7E2D9'; // section dividers, card borders
