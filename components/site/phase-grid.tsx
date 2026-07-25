@@ -31,12 +31,12 @@ export function PhaseGrid({
             onInk ? 'border-onink-line bg-[rgba(255,255,255,0.03)]' : 'border-hairline bg-surface',
           )}
         >
-          <div className={cn('text-xs font-semibold mb-3', onInk ? 'text-navy-soft' : 'text-navy')}>
+          <div className={cn('text-xs font-semibold mb-3', onInk ? 'text-sea-soft' : 'text-sea')}>
             0{i + 1}
           </div>
           <h3 className={cn('font-semibold mb-1', onInk ? 'text-onink' : 'text-ink-body')}>{phase}</h3>
           {duration && (
-            <div className={cn('text-xs mb-3', onInk ? 'text-onink-faint' : 'text-stone-light')}>
+            <div className={cn('text-xs mb-3', onInk ? 'text-onink-faint' : 'text-slate-light')}>
               {duration}
             </div>
           )}
@@ -44,7 +44,7 @@ export function PhaseGrid({
             {items.map((item) => (
               <li
                 key={item}
-                className={cn('text-sm leading-relaxed', onInk ? 'text-onink-muted' : 'text-stone')}
+                className={cn('text-sm leading-relaxed', onInk ? 'text-onink-muted' : 'text-slate')}
               >
                 {item}
               </li>

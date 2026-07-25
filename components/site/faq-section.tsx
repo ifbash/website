@@ -58,7 +58,7 @@ export function FaqSection({
           </DisplayHeading>
           <Link
             href={askHref}
-            className="inline-flex items-center gap-2 font-semibold text-sm text-navy hover:text-navy-deep hover:underline underline-offset-4 transition-colors"
+            className="inline-flex items-center gap-2 font-semibold text-sm text-sea hover:text-sea-deep hover:underline underline-offset-4 transition-colors"
           >
             {askLabel} <ArrowRight className="h-4 w-4" />
           </Link>
@@ -74,11 +74,11 @@ export function FaqSection({
               >
                 <span className="font-semibold text-ink-body text-sm">{q}</span>
                 <ChevronDown
-                  className={`h-4 w-4 text-stone-faint shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`}
+                  className={`h-4 w-4 text-slate-faint shrink-0 transition-transform ${open === i ? 'rotate-180' : ''}`}
                 />
               </button>
               {open === i && (
-                <p className="px-5 pb-4 text-sm text-stone leading-relaxed">{a}</p>
+                <p className="px-5 pb-4 text-sm text-slate leading-relaxed">{a}</p>
               )}
             </div>
           ))}

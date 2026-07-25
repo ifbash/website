@@ -34,7 +34,7 @@ export function LanguageToggle({ className }: { className?: string }) {
       className={cn(
         'inline-flex items-center gap-1.5 rounded-full border border-hairline bg-surface',
         'px-3 h-8 text-[13px] font-medium text-ink-soft',
-        'hover:border-navy-strong hover:text-navy hover:bg-navy-tint transition-colors',
+        'hover:border-sea-strong hover:text-sea hover:bg-sea-tint transition-colors',
         className,
       )}
     >

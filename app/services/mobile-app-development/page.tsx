@@ -117,12 +117,12 @@ export default function MobileAppDevelopmentPage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               Most products don&apos;t need an app.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               An app costs more than a web build and keeps costing — two store reviews, OS
               upgrades every year, and users who must choose to install it. That is worth paying
               when you need push, offline, or hardware access.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               If your use case is really a responsive web app, we will say so in the scoping call
               rather than after the invoice.
             </p>
@@ -132,7 +132,7 @@ export default function MobileAppDevelopmentPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
               When an app is genuinely worth it
             </div>
             <div className="space-y-4">
@@ -142,9 +142,9 @@ export default function MobileAppDevelopmentPage() {
                 ['You need to reach out', 'Push notifications that arrive whether or not the app is open.'],
                 ['It is used daily', 'An icon on the home screen beats a bookmark for habitual use.'],
               ].map(([t, d]) => (
-                <div key={t} className="border-l-2 border-navy-strong pl-4">
+                <div key={t} className="border-l-2 border-sea-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{t}</div>
-                  <div className="text-sm text-stone leading-relaxed">{d}</div>
+                  <div className="text-sm text-slate leading-relaxed">{d}</div>
                 </div>
               ))}
             </div>

@@ -73,10 +73,10 @@ export function Accented({
   const color =
     accent === 'mulberry'
       ? onInk
-        ? 'text-mulberry-soft'
-        : 'text-mulberry'
+        ? 'text-sky-soft'
+        : 'text-sky'
       : onInk
-        ? 'text-navy-soft'
-        : 'text-navy';
+        ? 'text-sea-soft'
+        : 'text-sea';
   return <span className={color}>{children}</span>;
 }

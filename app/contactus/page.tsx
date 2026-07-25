@@ -33,14 +33,14 @@ export default function ContactUsPage() {
   }
 
   const inputCls =
-    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
+    'w-full bg-white/5 border border-white/10 focus:border-sea/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
 
   return (
     <>
       {/* ── HERO + FORM ── */}
-      <section className="relative overflow-hidden" style={{ background: '#141210' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7C9AB8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-        <div className="absolute top-0 right-0 w-[600px] h-[500px] opacity-[0.1]" style={{ background: 'radial-gradient(ellipse at top right, #1B3A5C, transparent 65%)' }} />
+      <section className="relative overflow-hidden" style={{ background: '#0B1417' }}>
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7FD2DA 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 right-0 w-[600px] h-[500px] opacity-[0.1]" style={{ background: 'radial-gradient(ellipse at top right, #0A5C63, transparent 65%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -48,12 +48,12 @@ export default function ContactUsPage() {
             <div className="space-y-8">
               <div>
                 <div className="flex items-center gap-3 mb-5">
-                  <span className="inline-block w-8 h-px bg-navy-soft" />
-                  <span className="text-navy-soft text-sm font-semibold tracking-widest uppercase">Contact</span>
+                  <span className="inline-block w-8 h-px bg-sea-soft" />
+                  <span className="text-sea-soft text-sm font-semibold tracking-widest uppercase">Contact</span>
                 </div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-onink leading-[1.1] tracking-tight mb-6">
                   Talk to a<br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft">consultant.</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sea-soft to-sea-soft">consultant.</span>
                 </h1>
                 <p className="text-lg text-onink-muted leading-relaxed max-w-md">
                   Project enquiries, partnership questions, or support — write to us and a senior consultant replies within one business day.
@@ -62,17 +62,17 @@ export default function ContactUsPage() {
 
               <div className="space-y-5">
                 <a href="mailto:connect@ifbash.com" className="flex items-center gap-4 group">
-                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-navy-soft" />
+                  <div className="w-11 h-11 rounded-xl bg-sea/15 border border-sea/30 flex items-center justify-center shrink-0">
+                    <Mail className="h-5 w-5 text-sea-soft" />
                   </div>
                   <div>
                     <div className="font-semibold text-onink text-sm">Email</div>
-                    <div className="text-onink-muted text-sm group-hover:text-navy-soft transition-colors">connect@ifbash.com</div>
+                    <div className="text-onink-muted text-sm group-hover:text-sea-soft transition-colors">connect@ifbash.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
-                    <MapPin className="h-5 w-5 text-navy-soft" />
+                  <div className="w-11 h-11 rounded-xl bg-sea/15 border border-sea/30 flex items-center justify-center shrink-0">
+                    <MapPin className="h-5 w-5 text-sea-soft" />
                   </div>
                   <div>
                     <div className="font-semibold text-onink text-sm">Based in</div>
@@ -80,8 +80,8 @@ export default function ContactUsPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
-                  <div className="w-11 h-11 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
-                    <Clock className="h-5 w-5 text-navy-soft" />
+                  <div className="w-11 h-11 rounded-xl bg-sea/15 border border-sea/30 flex items-center justify-center shrink-0">
+                    <Clock className="h-5 w-5 text-sea-soft" />
                   </div>
                   <div>
                     <div className="font-semibold text-onink text-sm">Response time</div>
@@ -92,7 +92,7 @@ export default function ContactUsPage() {
 
               <p className="text-sm text-onink-muted">
                 Scoping a project?{' '}
-                <Link href="/get-started" className="text-navy-soft hover:text-navy-soft font-semibold">
+                <Link href="/get-started" className="text-sea-soft hover:text-sea-soft font-semibold">
                   Use the project form instead →
                 </Link>
               </p>
@@ -131,7 +131,7 @@ export default function ContactUsPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)', boxShadow: '0 8px 32px rgba(10,92,99,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Send message <ArrowRight className="h-4 w-4" /></>)}
                   </button>

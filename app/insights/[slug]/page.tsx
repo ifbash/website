@@ -52,11 +52,11 @@ const PROSE = [
   '[&>p]:text-[16.5px] [&>p]:leading-[1.75] [&>p]:text-ink-body [&>p]:mb-6',
   '[&>h2]:font-display [&>h2]:text-[27px] [&>h2]:leading-snug [&>h2]:text-ink [&>h2]:mt-12 [&>h2]:mb-4',
   '[&>h3]:font-display [&>h3]:text-[21px] [&>h3]:leading-snug [&>h3]:text-ink [&>h3]:mt-9 [&>h3]:mb-3',
-  '[&>ul]:mb-6 [&>ul]:space-y-2 [&>ul]:pl-5 [&>ul]:list-disc [&>ul]:marker:text-navy-soft',
-  '[&>ol]:mb-6 [&>ol]:space-y-2 [&>ol]:pl-5 [&>ol]:list-decimal [&>ol]:marker:text-stone-light',
+  '[&>ul]:mb-6 [&>ul]:space-y-2 [&>ul]:pl-5 [&>ul]:list-disc [&>ul]:marker:text-sea-soft',
+  '[&>ol]:mb-6 [&>ol]:space-y-2 [&>ol]:pl-5 [&>ol]:list-decimal [&>ol]:marker:text-slate-light',
   '[&_li]:text-[16.5px] [&_li]:leading-[1.7] [&_li]:text-ink-body',
-  '[&>blockquote]:border-l-2 [&>blockquote]:border-navy-soft [&>blockquote]:pl-5 [&>blockquote]:italic [&>blockquote]:text-stone [&>blockquote]:my-7',
-  '[&_a]:text-navy [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-navy-deep',
+  '[&>blockquote]:border-l-2 [&>blockquote]:border-sea-soft [&>blockquote]:pl-5 [&>blockquote]:italic [&>blockquote]:text-slate [&>blockquote]:my-7',
+  '[&_a]:text-sea [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-sea-deep',
   '[&_code]:font-mono [&_code]:text-[13.5px] [&_code]:bg-wash [&_code]:border [&_code]:border-hairline [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5',
   '[&>pre]:bg-ink [&>pre]:text-onink [&>pre]:rounded-xl [&>pre]:p-5 [&>pre]:overflow-x-auto [&>pre]:mb-6 [&>pre]:text-[13.5px]',
   '[&>pre_code]:bg-transparent [&>pre_code]:border-0 [&>pre_code]:p-0 [&>pre_code]:text-onink',
@@ -123,7 +123,7 @@ export default async function InsightPage({
         <Container>
           <Link
             href="/insights"
-            className="inline-flex items-center gap-2 text-[13.5px] text-stone hover:text-navy transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-[13.5px] text-slate hover:text-sea transition-colors mb-8"
           >
             <ArrowLeft className="h-3.5 w-3.5" /> All insights
           </Link>
@@ -134,7 +134,7 @@ export default async function InsightPage({
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-[11px] font-medium tracking-wide uppercase text-navy bg-navy-tint rounded-full px-2.5 py-1"
+                    className="text-[11px] font-medium tracking-wide uppercase text-sea bg-sea-tint rounded-full px-2.5 py-1"
                   >
                     {tag}
                   </span>
@@ -145,9 +145,9 @@ export default async function InsightPage({
                 {post.title}
               </h1>
 
-              <p className="text-[17px] leading-relaxed text-stone mb-6">{post.description}</p>
+              <p className="text-[17px] leading-relaxed text-slate mb-6">{post.description}</p>
 
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-stone-light border-t border-hairline pt-5">
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[13.5px] text-slate-light border-t border-hairline pt-5">
                 <span className="text-ink-body font-medium">{post.author}</span>
                 <span aria-hidden>·</span>
                 <time dateTime={post.date}>{formatDate(post.date)}</time>
@@ -163,17 +163,17 @@ export default async function InsightPage({
 
           {others.length > 0 && (
             <div className="max-w-2xl mt-16 pt-8 border-t border-hairline">
-              <p className="text-[11px] font-semibold tracking-widest uppercase text-stone-light mb-5">
+              <p className="text-[11px] font-semibold tracking-widest uppercase text-slate-light mb-5">
                 Keep reading
               </p>
               <ul className="space-y-4">
                 {others.map((p) => (
                   <li key={p.slug}>
                     <Link href={`/insights/${p.slug}`} className="group block">
-                      <span className="font-display text-lg text-ink group-hover:text-navy transition-colors">
+                      <span className="font-display text-lg text-ink group-hover:text-sea transition-colors">
                         {p.title}
                       </span>
-                      <span className="block text-[14px] text-stone mt-1">{p.description}</span>
+                      <span className="block text-[14px] text-slate mt-1">{p.description}</span>
                     </Link>
                   </li>
                 ))}

@@ -61,10 +61,10 @@ export default function ServicesIndexPage() {
               <DisplayHeading as="h2" size="sm" className="mb-4">
                 {p.label}
               </DisplayHeading>
-              <p className="text-base text-stone leading-relaxed mb-6">{p.blurb}</p>
+              <p className="text-base text-slate leading-relaxed mb-6">{p.blurb}</p>
               <Link
                 href={p.more.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-navy-deep transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
               >
                 {p.more.label} <ArrowRight className="h-4 w-4" />
               </Link>
@@ -75,16 +75,16 @@ export default function ServicesIndexPage() {
                 <Link
                   key={href + title}
                   href={href}
-                  className="group flex items-start gap-3.5 rounded-2xl border border-hairline bg-paper p-5 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)] hover:-translate-y-0.5"
+                  className="group flex items-start gap-3.5 rounded-2xl border border-hairline bg-paper p-5 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)] hover:-translate-y-0.5"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center shrink-0 transition-colors">
-                    <Icon className="h-5 w-5 text-navy" />
+                  <div className="w-10 h-10 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">
+                    <Icon className="h-5 w-5 text-sea" />
                   </div>
                   <span className="min-w-0">
-                    <span className="block text-sm font-semibold text-ink-body group-hover:text-navy transition-colors leading-snug">
+                    <span className="block text-sm font-semibold text-ink-body group-hover:text-sea transition-colors leading-snug">
                       {title}
                     </span>
-                    {note && <span className="block text-[13px] text-stone mt-1 leading-relaxed">{note}</span>}
+                    {note && <span className="block text-[13px] text-slate mt-1 leading-relaxed">{note}</span>}
                   </span>
                 </Link>
               ))}

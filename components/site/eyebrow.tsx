@@ -18,8 +18,8 @@ export function Eyebrow({
   className?: string;
   children: React.ReactNode;
 }) {
-  const color = onInk ? 'text-navy-soft' : 'text-navy';
-  const dash = onInk ? 'bg-navy-soft' : 'bg-navy';
+  const color = onInk ? 'text-sea-soft' : 'text-sea';
+  const dash = onInk ? 'bg-sea-soft' : 'bg-sea';
 
   if (!rule) {
     return (

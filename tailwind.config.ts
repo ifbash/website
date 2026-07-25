@@ -34,46 +34,54 @@ const config: Config = {
         // ── ifBash design tokens (mirrors lib/design.ts) ──────────────
         // Namespaced away from the shadcn keys below, which are bound to
         // CSS variables and used by components/ui/*.
-        paper: '#FAF8F4',
+        // Cool tinted base — the page carries a hint of colour before any
+        // accent is used. Cards stay pure white so they lift off it.
+        paper: '#F3F9FB',
         surface: '#FFFFFF',
-        wash: '#F4F1EA',
+        wash: '#E4F0F4',
         ink: {
-          DEFAULT: '#141210',
-          body: '#2A2721',
-          soft: '#4A463C',
+          DEFAULT: '#0B1417',
+          body: '#22333A',
+          soft: '#3D5259',
         },
-        stone: {
-          DEFAULT: '#6B6659',
-          light: '#757064',
-          faint: '#918D81',
+        // Cool greys. `faint` is decorative only — below AA for copy.
+        slate: {
+          DEFAULT: '#52696F',
+          light: '#5C7278',
+          faint: '#7A9098',
         },
-        // The AI-layer accent. Navy marks the ServiceNow platform, mulberry
-        // marks what we build on top of it — the colour system states the
-        // positioning rather than decorating it. See lib/design.ts.
-        mulberry: {
-          DEFAULT: '#7D2E55',
-          deep: '#5E2140',
-          soft: '#C98BA8',
-          tint: '#F7EAF1',
-          strong: '#EFD8E4',
+        // sea = the ServiceNow platform. sky = the AI layer on top.
+        // `bright` on either is ~9:1 on ink and ~1.9:1 on paper: it is the
+        // shine — glows, fills, dark bands — and NEVER text on a light
+        // surface. See the brightness rule in lib/design.ts.
+        sea: {
+          DEFAULT: '#0A5C63',
+          deep: '#07454B',
+          mid: '#0E8C96',
+          bright: '#22C7D6',
+          soft: '#7FD2DA',
+          tint: '#DEF3F5',
+          strong: '#C2E7EB',
         },
-        navy: {
-          DEFAULT: '#1B3A5C',
-          deep: '#12293F',
-          soft: '#7C9AB8',
-          tint: '#E9EFF5',
-          strong: '#D6E2EE',
+        sky: {
+          DEFAULT: '#0B6BA8',
+          deep: '#08527F',
+          mid: '#1E93D0',
+          bright: '#4FC3F7',
+          soft: '#8ECBEC',
+          tint: '#E2F1FA',
+          strong: '#C6E4F5',
         },
         hairline: {
-          DEFAULT: '#E7E2D9',
-          soft: '#EDE8DE',
+          DEFAULT: '#D6E6EA',
+          soft: '#E4EFF2',
         },
         onink: {
-          DEFAULT: '#F3F0E9',
-          muted: '#A39C8B',
-          faint: '#8C8472',
-          line: '#2E2921',
-          fill: '#221E17',
+          DEFAULT: '#E8F4F6',
+          muted: '#9FB6BC',
+          faint: '#7E969D',
+          line: '#1E2C31',
+          fill: '#15242A',
         },
 
         background: 'hsl(var(--background))',

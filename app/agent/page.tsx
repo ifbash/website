@@ -160,7 +160,7 @@ export default function AgentPage() {
   }
 
   const inputCls =
-    'w-full bg-white/5 border border-white/10 focus:border-mulberry/60 rounded-xl px-4 py-3 text-sm text-white placeholder:text-onink-faint outline-none transition-colors';
+    'w-full bg-white/5 border border-white/10 focus:border-sky/60 rounded-xl px-4 py-3 text-sm text-white placeholder:text-onink-faint outline-none transition-colors';
 
   const stateLabel: Record<CallState, string> = {
     idle: 'Tap to start — mic access required',
@@ -173,19 +173,19 @@ export default function AgentPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: '#141210' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #C98BA8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top, #7D2E55, transparent 60%)' }} />
+      <section className="relative overflow-hidden" style={{ background: '#0B1417' }}>
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #8ECBEC 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top, #0B6BA8, transparent 60%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-16 lg:py-20">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 bg-mulberry/10 border border-mulberry/25 rounded-full px-4 py-2 text-mulberry-soft text-sm mb-6">
+            <div className="inline-flex items-center gap-2 bg-sky/10 border border-sky/25 rounded-full px-4 py-2 text-sky-soft text-sm mb-6">
               <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               ifBash Agent · Live demo
             </div>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-5">
               Talk to our AI agent —{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-mulberry-soft to-mulberry-soft animate-gradient-text">right now.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-soft to-sky-soft animate-gradient-text">right now.</span>
             </h1>
             <p className="text-lg text-onink-muted max-w-2xl mx-auto">
               This is the kind of agent we build for clients — running live on our own site. Speak through your browser, or leave your number and we&apos;ll call you.
@@ -195,7 +195,7 @@ export default function AgentPage() {
           <div className="grid lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* ── Browser call card ── */}
             <div className="rounded-2xl border border-white/10 p-6 sm:p-8 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
-              <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry-soft mb-2">Browser call</div>
+              <div className="text-[11px] font-semibold tracking-widest uppercase text-sky-soft mb-2">Browser call</div>
               <h2 className="text-xl font-bold text-white mb-2">Talk now in your browser</h2>
               <p className="text-sm text-onink-muted mb-6">Click, allow mic access, and speak. No phone needed. Works best in Chrome or Edge on desktop.</p>
 
@@ -206,7 +206,7 @@ export default function AgentPage() {
                 )}
                 {turns.map((t, i) => (
                   <div key={i} className="text-[13px] leading-relaxed">
-                    <span className={t.role === 'user' ? 'text-mulberry-soft font-semibold' : 'text-mulberry-soft font-semibold'}>
+                    <span className={t.role === 'user' ? 'text-sky-soft font-semibold' : 'text-sky-soft font-semibold'}>
                       {t.role === 'user' ? 'You' : 'Agent'}:
                     </span>{' '}
                     <span className="text-onink">{t.content}</span>
@@ -223,9 +223,9 @@ export default function AgentPage() {
                   className="relative inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5"
                   style={{
                     background: callState === 'idle' || callState === 'unsupported'
-                      ? 'linear-gradient(135deg, #7D2E55, #A34A74)'
+                      ? 'linear-gradient(135deg, #0B6BA8, #1E93D0)'
                       : 'linear-gradient(135deg, #dc2626, #b91c1c)',
-                    boxShadow: '0 8px 32px rgba(27,58,92,0.35)',
+                    boxShadow: '0 8px 32px rgba(10,92,99,0.35)',
                   }}
                 >
                   {callState === 'idle' || callState === 'unsupported' ? (
@@ -236,8 +236,8 @@ export default function AgentPage() {
                 </button>
                 <div className="flex items-center gap-2 text-[12px] text-onink-muted">
                   {callState === 'listening' && <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />}
-                  {callState === 'thinking' && <Loader2 className="h-3.5 w-3.5 animate-spin text-mulberry-soft" />}
-                  {callState === 'speaking' && <Volume2 className="h-3.5 w-3.5 text-mulberry-soft animate-pulse" />}
+                  {callState === 'thinking' && <Loader2 className="h-3.5 w-3.5 animate-spin text-sky-soft" />}
+                  {callState === 'speaking' && <Volume2 className="h-3.5 w-3.5 text-sky-soft animate-pulse" />}
                   {stateLabel[callState]}
                 </div>
               </div>
@@ -245,7 +245,7 @@ export default function AgentPage() {
 
             {/* ── Phone call card ── */}
             <div className="rounded-2xl border border-white/10 p-6 sm:p-8 flex flex-col" style={{ background: 'rgba(255,255,255,0.03)', boxShadow: '0 40px 80px rgba(0,0,0,0.4)' }}>
-              <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry-soft mb-2">We call you</div>
+              <div className="text-[11px] font-semibold tracking-widest uppercase text-sky-soft mb-2">We call you</div>
               <h2 className="text-xl font-bold text-white mb-2">Get a call on your phone</h2>
               <p className="text-sm text-onink-muted mb-6">Prefer a real call, or mic access is blocked? Leave your number.</p>
 
@@ -281,7 +281,7 @@ export default function AgentPage() {
                       type="submit"
                       disabled={phoneStatus === 'sending'}
                       className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                      style={{ background: 'linear-gradient(135deg, #A34A74, #7D2E55)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
+                      style={{ background: 'linear-gradient(135deg, #1E93D0, #0B6BA8)', boxShadow: '0 8px 32px rgba(10,92,99,0.35)' }}
                     >
                       {phoneStatus === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Connecting…</>) : (<><Phone className="h-4 w-4" /> Call me</>)}
                     </button>
@@ -299,8 +299,8 @@ export default function AgentPage() {
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto">
           <div className="mb-12">
             <div className="flex items-center gap-3 mb-4">
-              <span className="inline-block w-8 h-px bg-mulberry" />
-              <span className="text-mulberry text-sm font-semibold tracking-widest uppercase">In production</span>
+              <span className="inline-block w-8 h-px bg-sky" />
+              <span className="text-sky text-sm font-semibold tracking-widest uppercase">In production</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-ink leading-tight max-w-2xl">
               We build agents like this<br />for your business too.
@@ -308,12 +308,12 @@ export default function AgentPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {capabilities.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="border border-hairline rounded-2xl p-6 hover:border-mulberry-soft hover:shadow-[0_8px_30px_rgba(27,58,92,0.08)] transition-all duration-300">
-                <div className="w-11 h-11 rounded-xl bg-mulberry-tint flex items-center justify-center mb-4">
-                  <Icon className="h-5 w-5 text-mulberry" />
+              <div key={title} className="border border-hairline rounded-2xl p-6 hover:border-sky-soft hover:shadow-[0_8px_30px_rgba(10,92,99,0.08)] transition-all duration-300">
+                <div className="w-11 h-11 rounded-xl bg-sky-tint flex items-center justify-center mb-4">
+                  <Icon className="h-5 w-5 text-sky" />
                 </div>
                 <h3 className="font-bold text-ink mb-2 text-base">{title}</h3>
-                <p className="text-sm text-stone-light leading-relaxed">{desc}</p>
+                <p className="text-sm text-slate-light leading-relaxed">{desc}</p>
               </div>
             ))}
           </div>
@@ -321,7 +321,7 @@ export default function AgentPage() {
             <Link
               href="/get-started"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg, #7D2E55, #A34A74)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
+              style={{ background: 'linear-gradient(135deg, #0B6BA8, #1E93D0)', boxShadow: '0 8px 32px rgba(10,92,99,0.35)' }}
             >
               Build one for your business <ArrowRight className="h-4 w-4" />
             </Link>

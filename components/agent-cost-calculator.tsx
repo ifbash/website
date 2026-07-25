@@ -19,7 +19,7 @@ import {
  * - Values and labels wear ink tokens; only the bar carries the colour.
  */
 
-const RAMP = ['bg-mulberry-strong', 'bg-mulberry-soft', 'bg-mulberry'];
+const RAMP = ['bg-sky-strong', 'bg-sky-soft', 'bg-sky'];
 
 function Slider({
   label, value, min, max, step, onChange, format,
@@ -35,7 +35,7 @@ function Slider({
   return (
     <label className="block">
       <span className="flex items-baseline justify-between mb-2">
-        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light">
+        <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light">
           {label}
         </span>
         <span className="font-mono text-sm text-ink-body">{format(value)}</span>
@@ -47,7 +47,7 @@ function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full accent-mulberry cursor-pointer"
+        className="w-full accent-sky cursor-pointer"
       />
     </label>
   );
@@ -79,7 +79,7 @@ export function AgentCostCalculator() {
     <div className="grid lg:grid-cols-5 gap-5">
       {/* ── Controls ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 rounded-2xl border border-hairline bg-surface p-6 space-y-6">
-        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-mulberry">
+        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky">
           Your numbers
         </div>
 
@@ -107,19 +107,19 @@ export function AgentCostCalculator() {
             type="checkbox"
             checked={caching}
             onChange={(e) => setCaching(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-mulberry cursor-pointer"
+            className="mt-0.5 h-4 w-4 accent-sky cursor-pointer"
           />
           <span>
             <span className="block text-sm text-ink-body">Prompt caching</span>
-            <span className="block text-[12px] text-stone-light leading-relaxed">
+            <span className="block text-[12px] text-slate-light leading-relaxed">
               Re-reads the fixed system prompt at a tenth of the input rate.
             </span>
           </span>
         </label>
 
         {active.cost.cachingInert && (
-          <p className="flex items-start gap-2 rounded-xl bg-wash border border-hairline p-3 text-[12px] leading-relaxed text-stone">
-            <Info className="h-3.5 w-3.5 text-mulberry shrink-0 mt-0.5" />
+          <p className="flex items-start gap-2 rounded-xl bg-wash border border-hairline p-3 text-[12px] leading-relaxed text-slate">
+            <Info className="h-3.5 w-3.5 text-sky shrink-0 mt-0.5" />
             <span>
               Caching is on but does nothing on {active.model.name}: its minimum cacheable prefix
               is {active.model.cacheMinimum.toLocaleString('en-US')} tokens and this system prompt
@@ -133,19 +133,19 @@ export function AgentCostCalculator() {
       {/* ── Result ────────────────────────────────────────────────── */}
       <div className="lg:col-span-3 rounded-2xl border border-hairline bg-surface p-6">
         {/* Hero number */}
-        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light mb-1.5">
+        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light mb-1.5">
           {active.model.name} · estimated monthly
         </div>
         <div className="font-display text-[clamp(2.25rem,5vw,3.25rem)] leading-none text-ink mb-2 tabular-nums">
           {formatUsd(active.cost.perMonth)}
         </div>
-        <p className="text-sm text-stone mb-7">
+        <p className="text-sm text-slate mb-7">
           {formatUsd(active.cost.perConversation)} per conversation ·{' '}
           {formatUsd(active.cost.perYear)} a year
         </p>
 
         {/* Ordered magnitude — one hue, light to dark, direct-labelled */}
-        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light mb-3">
+        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light mb-3">
           Same workload, each model
         </div>
         <div className="space-y-2.5 mb-6">
@@ -160,7 +160,7 @@ export function AgentCostCalculator() {
                 aria-pressed={isActive}
               >
                 <span className="flex items-baseline justify-between mb-1.5">
-                  <span className={`text-sm ${isActive ? 'text-ink font-medium' : 'text-stone'}`}>
+                  <span className={`text-sm ${isActive ? 'text-ink font-medium' : 'text-slate'}`}>
                     {r.model.name}
                   </span>
                   <span className="font-mono text-sm text-ink-body tabular-nums">
@@ -180,7 +180,7 @@ export function AgentCostCalculator() {
           })}
         </div>
 
-        <p className="text-[13px] text-stone leading-relaxed border-t border-hairline-soft pt-4">
+        <p className="text-[13px] text-slate leading-relaxed border-t border-hairline-soft pt-4">
           <span className="text-ink-body">{active.model.note}</span> Picking the model is most of
           the cost decision — and most agents do not need the expensive one.
         </p>
@@ -188,10 +188,10 @@ export function AgentCostCalculator() {
 
       {/* ── Assumptions, stated ───────────────────────────────────── */}
       <div className="lg:col-span-5 rounded-2xl border border-hairline bg-paper p-5">
-        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light mb-2">
+        <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light mb-2">
           What this assumes
         </div>
-        <p className="text-[13px] text-stone leading-relaxed">
+        <p className="text-[13px] text-slate leading-relaxed">
           A {DEFAULT_ASSUMPTIONS.systemTokens}-token system prompt, ~{DEFAULT_ASSUMPTIONS.userTokens}{' '}
           tokens per user message and ~{DEFAULT_ASSUMPTIONS.replyTokens} per reply, with the full
           conversation resent each turn — so turn six pays for turns one through five, which is the

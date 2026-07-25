@@ -4,10 +4,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { Mic, Send, Volume2, VolumeX, Loader2 } from 'lucide-react';
 import { streamChat, type ChatMessage } from '@/lib/chat-client';
-// The voice agent is the AI layer, so it carries the mulberry accent rather
-// than navy. Imported from the token source — the hex was hard-coded here in
+// The voice agent is the AI layer, so it carries the sky accent rather
+// than sea. Imported from the token source — the hex was hard-coded here in
 // three places, against the rule documented in lib/design.ts.
-import { MULBERRY } from '@/lib/design';
+import { SKY } from '@/lib/design';
 
 type Status = 'idle' | 'listening' | 'thinking' | 'speaking';
 
@@ -158,17 +158,17 @@ export function VoiceHero() {
       </button>
 
       <div className="mt-4 flex items-center gap-2">
-        <p className="text-sm font-medium" style={{ color: '#6B6659' }}>{statusLabel[status]}</p>
+        <p className="text-sm font-medium" style={{ color: '#52696F' }}>{statusLabel[status]}</p>
         <button
           onClick={() => { setMuted(!muted); if (!muted) window.speechSynthesis?.cancel(); }}
           aria-label={muted ? 'Unmute voice' : 'Mute voice'}
           className="p-1 rounded-md transition-colors hover:bg-black/5"
-          style={{ color: '#757064' }}
+          style={{ color: '#5C7278' }}
         >
           {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
         </button>
       </div>
-      {micError && <p className="mt-1 text-xs" style={{ color: MULBERRY }}>{micError}</p>}
+      {micError && <p className="mt-1 text-xs" style={{ color: SKY }}>{micError}</p>}
 
       {/* Transcript — last exchange only, minimal */}
       <div ref={scrollRef} className={`w-full mt-5 space-y-2.5 overflow-y-auto transition-all ${lastTurns.length ? 'max-h-56' : 'max-h-0'}`}>
@@ -177,14 +177,14 @@ export function VoiceHero() {
             <div
               className={`max-w-[92%] rounded-2xl px-4 py-2.5 text-[13.5px] leading-relaxed ${t.role === 'user' ? 'rounded-br-md text-white' : 'rounded-bl-md'}`}
               style={t.role === 'user'
-                ? { background: '#141210' }
-                : { background: '#FFFFFF', color: '#2A2721', border: '1px solid #E7E2D9', boxShadow: '0 2px 12px rgba(20,18,16,0.05)' }}
+                ? { background: '#0B1417' }
+                : { background: '#FFFFFF', color: '#22333A', border: '1px solid #D6E6EA', boxShadow: '0 2px 12px rgba(11,20,23,0.05)' }}
             >
-              {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: MULBERRY }} />}
+              {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: SKY }} />}
             </div>
           </div>
         ))}
-        {interim && <p className="text-[13px] italic text-right" style={{ color: '#757064' }}>{interim}…</p>}
+        {interim && <p className="text-[13px] italic text-right" style={{ color: '#5C7278' }}>{interim}…</p>}
       </div>
 
       {/* Chips */}
@@ -195,7 +195,7 @@ export function VoiceHero() {
             onClick={() => ask(c)}
             disabled={status !== 'idle'}
             className="text-xs font-medium rounded-full px-3.5 py-1.5 transition-all disabled:opacity-40 hover:-translate-y-0.5"
-            style={{ background: '#FFFFFF', border: '1px solid #E7E2D9', color: '#4A463C' }}
+            style={{ background: '#FFFFFF', border: '1px solid #D6E6EA', color: '#3D5259' }}
           >
             {c}
           </button>
@@ -212,20 +212,20 @@ export function VoiceHero() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="…or type your question"
           className="flex-1 min-w-0 rounded-full px-4 py-2.5 text-[13px] outline-none transition-colors"
-          style={{ background: '#FFFFFF', border: '1px solid #E7E2D9', color: '#141210' }}
+          style={{ background: '#FFFFFF', border: '1px solid #D6E6EA', color: '#0B1417' }}
         />
         <button
           type="submit"
           disabled={status !== 'idle' || !input.trim()}
           aria-label="Send"
           className="w-10 h-10 rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-30 transition-all hover:scale-105"
-          style={{ background: '#141210' }}
+          style={{ background: '#0B1417' }}
         >
           <Send className="h-4 w-4" />
         </button>
       </form>
 
-      <Link href="/agent" className="mt-4 text-xs font-medium transition-colors hover:underline" style={{ color: MULBERRY }}>
+      <Link href="/agent" className="mt-4 text-xs font-medium transition-colors hover:underline" style={{ color: SKY }}>
         Prefer a phone call? The agent can call you →
       </Link>
     </div>

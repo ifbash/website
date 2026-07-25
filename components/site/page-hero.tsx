@@ -36,7 +36,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-paper">
       <div
         className="absolute top-[-200px] right-[-120px] w-[620px] h-[620px] rounded-full pointer-events-none opacity-[0.22]"
-        style={{ background: 'radial-gradient(circle, #D6E2EE, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, #C2E7EB, transparent 65%)' }}
       />
 
       <Container className="relative z-10 py-16 lg:py-24">
@@ -46,7 +46,7 @@ export function PageHero({
               {tags.map((t) => (
                 <span
                   key={t}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-navy-strong bg-navy-tint px-3 py-1 text-xs font-semibold text-navy"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-sea-strong bg-sea-tint px-3 py-1 text-xs font-semibold text-sea"
                 >
                   <span className="w-1.5 h-1.5 rounded-full bg-current opacity-70" />
                   {t}
@@ -67,7 +67,7 @@ export function PageHero({
             )}
           </DisplayHeading>
 
-          {sub && <p className="text-lg leading-relaxed text-stone max-w-xl mb-9">{sub}</p>}
+          {sub && <p className="text-lg leading-relaxed text-slate max-w-xl mb-9">{sub}</p>}
 
           {(primary || secondary) && (
             <div className="flex flex-wrap items-center gap-4">

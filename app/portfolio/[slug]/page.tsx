@@ -72,11 +72,11 @@ export default async function PortfolioProductPage(
       />
 
       <nav aria-label="Breadcrumb" className="bg-paper border-b border-hairline-soft">
-        <div className="w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto flex items-center gap-1.5 py-3 text-[13px] text-stone">
-          <Link href="/" className="hover:text-navy transition-colors">Home</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-stone-faint" />
-          <Link href="/portfolio" className="hover:text-navy transition-colors">Products</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-stone-faint" />
+        <div className="w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto flex items-center gap-1.5 py-3 text-[13px] text-slate">
+          <Link href="/" className="hover:text-sea transition-colors">Home</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
+          <Link href="/portfolio" className="hover:text-sea transition-colors">Products</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
           <span className="text-ink-body font-medium">{meta.title}</span>
         </div>
       </nav>
@@ -128,12 +128,12 @@ export default async function PortfolioProductPage(
             <DisplayHeading as="h2" size="sm" className="mb-5">
               Built to be handed over.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               The engineers who configure your instance are the ones who scoped it. Everything is
               documented as it is built, so your team can run it without us — and so can any other
               partner you choose later.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               If you would rather we kept running it, that is a managed-services retainer with a
               notice period, not a dependency.
             </p>
@@ -143,7 +143,7 @@ export default async function PortfolioProductPage(
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
               What you get at handover
             </div>
             <ul className="space-y-4">
@@ -153,9 +153,9 @@ export default async function PortfolioProductPage(
                 ['Update-set and repo history', 'A traceable record rather than an undocumented instance.'],
                 ['A named escalation path', 'The same engineers, not a ticket queue.'],
               ].map(([t, d]) => (
-                <li key={t} className="border-l-2 border-navy-strong pl-4">
+                <li key={t} className="border-l-2 border-sea-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{t}</div>
-                  <div className="text-sm text-stone leading-relaxed">{d}</div>
+                  <div className="text-sm text-slate leading-relaxed">{d}</div>
                 </li>
               ))}
             </ul>
@@ -176,13 +176,13 @@ export default async function PortfolioProductPage(
               <Link
                 key={href}
                 href={href}
-                className="group flex items-center gap-3 rounded-2xl border border-hairline bg-surface p-4 transition-all hover:border-navy-soft hover:-translate-y-0.5"
+                className="group flex items-center gap-3 rounded-2xl border border-hairline bg-surface p-4 transition-all hover:border-sea-soft hover:-translate-y-0.5"
               >
-                <div className="w-9 h-9 rounded-lg bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center shrink-0 transition-colors">
-                  <Icon className="h-4 w-4 text-navy" />
+                <div className="w-9 h-9 rounded-lg bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">
+                  <Icon className="h-4 w-4 text-sea" />
                 </div>
-                <span className="text-sm font-medium text-ink-body group-hover:text-navy leading-tight">{title}</span>
-                <ArrowRight className="h-4 w-4 text-stone-faint group-hover:text-navy ml-auto shrink-0 transition-colors" />
+                <span className="text-sm font-medium text-ink-body group-hover:text-sea leading-tight">{title}</span>
+                <ArrowRight className="h-4 w-4 text-slate-faint group-hover:text-sea ml-auto shrink-0 transition-colors" />
               </Link>
             ))}
           </div>

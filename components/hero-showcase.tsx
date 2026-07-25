@@ -105,7 +105,7 @@ function ServiceNowDemo() {
             ) : (
               <Flip at={2.8}
                 from="Open" fromCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300"
-                to="→ Routed to human + context" toCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-navy/15 text-navy-soft whitespace-nowrap" />
+                to="→ Routed to human + context" toCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-sea/15 text-sea-soft whitespace-nowrap" />
             )}
           </motion.div>
         ))}
@@ -134,7 +134,7 @@ function AgentChatDemo() {
 
       <div className="flex-1 space-y-2.5">
         <motion.div {...rise(0.4)} className="flex justify-end">
-          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)' }}>
+          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)' }}>
             Hi — can I get a refund on our enterprise plan? We signed up two weeks ago.
           </div>
         </motion.div>
@@ -158,7 +158,7 @@ function AgentChatDemo() {
 
       <motion.div {...rise(4.6)} className="mt-3 pt-3 border-t border-onink-line flex items-center justify-between">
         <span className="text-[10px] text-onink-faint">Answers with sources — never guesses.</span>
-        <Link href="/agent" className="text-[10px] font-semibold text-navy-soft hover:text-navy-soft">Talk to our live agent →</Link>
+        <Link href="/agent" className="text-[10px] font-semibold text-sea-soft hover:text-sea-soft">Talk to our live agent →</Link>
       </motion.div>
     </div>
   );
@@ -177,7 +177,7 @@ function VoiceDemo() {
     <div className="h-full flex flex-col p-4">
       <motion.div {...rise(0.1)} className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 rounded-md bg-navy/25 flex items-center justify-center"><Phone className="h-3.5 w-3.5 text-navy-soft" /></div>
+          <div className="w-6 h-6 rounded-md bg-sea/25 flex items-center justify-center"><Phone className="h-3.5 w-3.5 text-sea-soft" /></div>
           <span className="text-[12px] font-semibold text-white">Outbound call</span>
           <span className="text-[10px] text-onink-faint">· +91 ••••• ••210</span>
         </div>
@@ -189,7 +189,7 @@ function VoiceDemo() {
       {/* Waveform */}
       <motion.div {...rise(0.3)} className="flex items-center justify-center gap-[3px] h-10 mb-3">
         {Array.from({ length: 32 }).map((_, i) => (
-          <span key={i} className="wave-bar w-[3px] rounded-full bg-gradient-to-t from-navy to-navy-soft"
+          <span key={i} className="wave-bar w-[3px] rounded-full bg-gradient-to-t from-sea to-sea-soft"
             style={{ animationDelay: `${(i % 8) * 0.11}s`, height: `${8 + ((i * 7) % 22)}px` }} />
         ))}
       </motion.div>
@@ -197,7 +197,7 @@ function VoiceDemo() {
       <div className="flex-1 space-y-2">
         {CALL_LINES.map(({ who, at, text }) => (
           <motion.div key={text} {...rise(at)} className="flex gap-2 items-start">
-            <span className={`text-[9px] font-bold uppercase tracking-wide shrink-0 mt-0.5 ${who === 'Agent' ? 'text-navy-soft' : 'text-cyan-300'}`}>{who}</span>
+            <span className={`text-[9px] font-bold uppercase tracking-wide shrink-0 mt-0.5 ${who === 'Agent' ? 'text-sea-soft' : 'text-cyan-300'}`}>{who}</span>
             <span className="text-[11px] text-onink-muted leading-relaxed">{text}</span>
           </motion.div>
         ))}
@@ -220,25 +220,25 @@ function MobileDemo() {
     <div className="h-full flex items-center justify-center gap-6 p-4">
       {/* Phone frame */}
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative w-[168px] h-[330px] rounded-[2rem] border-[5px] border-white/15 overflow-hidden shrink-0" style={{ background: '#141210' }}>
+        className="relative w-[168px] h-[330px] rounded-[2rem] border-[5px] border-white/15 overflow-hidden shrink-0" style={{ background: '#0B1417' }}>
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-black/80 z-10" />
         <div className="p-3 pt-7 h-full flex flex-col">
           <motion.div {...rise(0.5)} className="text-[10px] text-onink-muted mb-0.5">Good evening, Aisha</motion.div>
           <motion.div {...rise(0.65)} className="text-[13px] font-bold text-white mb-2.5">Your fleet today</motion.div>
-          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)' }}>
-            <div className="text-[8px] text-navy-soft mb-0.5">Deliveries completed</div>
+          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)' }}>
+            <div className="text-[8px] text-sea-soft mb-0.5">Deliveries completed</div>
             <div className="text-lg font-bold text-white leading-none">1,284</div>
-            <div className="text-[8px] text-navy-soft mt-1">↑ 12% vs yesterday</div>
+            <div className="text-[8px] text-sea-soft mt-1">↑ 12% vs yesterday</div>
           </motion.div>
           <div className="flex items-end gap-1.5 h-12 mb-2.5 px-1">
             {[38, 62, 45, 80, 58, 92, 70].map((h, i) => (
-              <motion.span key={i} className="flex-1 rounded-sm bg-navy-soft/60"
+              <motion.span key={i} className="flex-1 rounded-sm bg-sea-soft/60"
                 initial={{ height: 0 }} animate={{ height: `${h}%` }} transition={{ delay: 1.3 + i * 0.1, duration: 0.4, ease: 'easeOut' }} />
             ))}
           </div>
           {[
             { label: 'Route 12 — on time', dot: 'bg-green-400', at: 2.3 },
-            { label: 'Route 4 — AI rerouted traffic', dot: 'bg-navy-soft', at: 2.55 },
+            { label: 'Route 4 — AI rerouted traffic', dot: 'bg-sea-soft', at: 2.55 },
           ].map(({ label, dot, at }) => (
             <motion.div key={label} {...rise(at)} className="flex items-center gap-1.5 rounded-lg px-2 py-1.5 mb-1" style={{ background: 'rgba(255,255,255,0.05)' }}>
               <span className={`w-1.5 h-1.5 rounded-full ${dot}`} />
@@ -269,7 +269,7 @@ function MobileDemo() {
 function WebDemo() {
   return (
     <div className="h-full flex flex-col p-4">
-      <motion.div {...rise(0.1)} className="rounded-xl border border-white/10 overflow-hidden flex-1 flex flex-col" style={{ background: '#141210' }}>
+      <motion.div {...rise(0.1)} className="rounded-xl border border-white/10 overflow-hidden flex-1 flex flex-col" style={{ background: '#0B1417' }}>
         {/* Browser chrome */}
         <div className="flex items-center gap-2 px-3 py-2 border-b border-onink-line" style={{ background: 'rgba(255,255,255,0.04)' }}>
           <div className="flex gap-1.5">
@@ -285,11 +285,11 @@ function WebDemo() {
             <span className="w-14 h-2.5 rounded bg-white/20" />
             <span className="flex gap-2">
               <span className="w-8 h-2 rounded bg-white/10" /><span className="w-8 h-2 rounded bg-white/10" />
-              <span className="w-12 h-2.5 rounded bg-navy-soft/70" />
+              <span className="w-12 h-2.5 rounded bg-sea-soft/70" />
             </span>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, duration: 0.5 }}
-            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(27,58,92,0.5), rgba(124,154,184,0.35))' }}>
+            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(10,92,99,0.5), rgba(127,210,218,0.35))' }}>
             <span className="w-2/3 h-3 rounded bg-white/85" />
             <span className="w-1/2 h-2 rounded bg-white/45" />
             <span className="w-16 h-4 rounded-md bg-white/90 mt-1" />
@@ -297,7 +297,7 @@ function WebDemo() {
           <div className="grid grid-cols-3 gap-2 flex-1">
             {[1.7, 1.9, 2.1].map((at, i) => (
               <motion.div key={i} {...rise(at)} className="rounded-lg border border-onink-line p-2 flex flex-col gap-1.5" style={{ background: 'rgba(255,255,255,0.04)' }}>
-                <span className="w-6 h-6 rounded-md bg-navy-soft/30" />
+                <span className="w-6 h-6 rounded-md bg-sea-soft/30" />
                 <span className="w-full h-1.5 rounded bg-white/20" />
                 <span className="w-2/3 h-1.5 rounded bg-white/10" />
               </motion.div>
@@ -361,7 +361,7 @@ export function HeroShowcase() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* Tab strip */}
-      <div className="flex items-stretch border-b border-white/10 shrink-0" style={{ background: '#221E17' }}>
+      <div className="flex items-stretch border-b border-white/10 shrink-0" style={{ background: '#15242A' }}>
         {TABS.map(({ key, label, icon: Icon }) => (
           <button
             key={key}
@@ -370,13 +370,13 @@ export function HeroShowcase() {
               active === key ? 'text-white' : 'text-onink-faint hover:text-onink-muted'
             }`}
           >
-            <Icon className={`h-3.5 w-3.5 ${active === key ? 'text-navy-soft' : ''}`} />
+            <Icon className={`h-3.5 w-3.5 ${active === key ? 'text-sea-soft' : ''}`} />
             <span className="hidden sm:inline">{label}</span>
             {active === key && (
               <span className="absolute bottom-0 left-0 right-0 h-[2px] overflow-hidden">
                 <span
                   key={`${key}-${round}-${paused ? 'p' : 'r'}`}
-                  className="block h-full bg-gradient-to-r from-navy to-navy-soft"
+                  className="block h-full bg-gradient-to-r from-sea to-sea-soft"
                   style={{ animation: paused ? 'none' : `tabProgress ${CYCLE_MS}ms linear forwards`, width: paused ? '100%' : undefined }}
                 />
               </span>
@@ -401,7 +401,7 @@ export function HeroShowcase() {
       {/* Footer */}
       <div className="flex items-center justify-between px-4 py-2.5 border-t border-onink-line shrink-0" style={{ background: 'rgba(255,255,255,0.015)' }}>
         <span className="text-[10px] text-onink-faint font-mono">Demos — the experiences we build for clients</span>
-        <Link href="/agent" className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-navy-soft hover:text-navy-soft transition-colors">
+        <Link href="/agent" className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-sea-soft hover:text-sea-soft transition-colors">
           <Mic className="h-3 w-3" /> Talk to our real agent
         </Link>
       </div>

@@ -117,11 +117,11 @@ export default function WebsiteDevelopmentPage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               You are looking at the portfolio.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               This site is our own work: the design system, the fluid type scale, the structured
               data on every page, the agent in the corner, and the voice agent on the homepage.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               Open the developer tools. Run a Lighthouse audit. That is a more honest reference
               than a screenshot of someone else&apos;s project.
             </p>
@@ -131,7 +131,7 @@ export default function WebsiteDevelopmentPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
               What ships with every build
             </div>
             <ul className="space-y-4">
@@ -141,9 +141,9 @@ export default function WebsiteDevelopmentPage() {
                 ['Structured data and sitemaps', 'Machine-readable from launch, not retrofitted.'],
                 ['Documentation and handover', 'Written for whoever maintains it next, including you.'],
               ].map(([t, d]) => (
-                <li key={t} className="border-l-2 border-navy-strong pl-4">
+                <li key={t} className="border-l-2 border-sea-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{t}</div>
-                  <div className="text-sm text-stone leading-relaxed">{d}</div>
+                  <div className="text-sm text-slate leading-relaxed">{d}</div>
                 </li>
               ))}
             </ul>

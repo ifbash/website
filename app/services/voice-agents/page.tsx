@@ -117,11 +117,11 @@ export default function VoiceAgentsPage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               Speed of response beats depth of answer.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               Voice is worth building where a delay costs you the outcome — an inbound caller
               who will not wait in a queue, or a web lead whose interest decays by the hour.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               It is a poor fit for anything requiring careful reading, long forms, or a paper
               trail the caller needs to review. We will tell you when chat or email is the
               better answer.
@@ -132,7 +132,7 @@ export default function VoiceAgentsPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sky mb-5">
               Good fit / poor fit
             </div>
             <div className="space-y-4">
@@ -141,9 +141,9 @@ export default function VoiceAgentsPage() {
                 ['Poor fit', 'Complex document review, anything the caller must read and sign, highly regulated advice.'],
                 ['Depends', 'Support triage — excellent if your top intents are narrow, frustrating if every call is bespoke.'],
               ].map(([label, body]) => (
-                <div key={label} className="border-l-2 border-mulberry-strong pl-4">
+                <div key={label} className="border-l-2 border-sky-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{label}</div>
-                  <div className="text-sm text-stone leading-relaxed">{body}</div>
+                  <div className="text-sm text-slate leading-relaxed">{body}</div>
                 </div>
               ))}
             </div>

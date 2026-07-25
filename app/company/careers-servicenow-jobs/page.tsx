@@ -136,11 +136,11 @@ export default function CareersPage() {
         <div className="grid sm:grid-cols-2 gap-5">
           {perks.map(({ icon: Icon, title, body }) => (
             <div key={title} className="flex flex-col rounded-2xl border border-hairline bg-paper p-7">
-              <div className="w-11 h-11 rounded-xl bg-navy-tint flex items-center justify-center mb-5">
-                <Icon className="h-5 w-5 text-navy" />
+              <div className="w-11 h-11 rounded-xl bg-sea-tint flex items-center justify-center mb-5">
+                <Icon className="h-5 w-5 text-sea" />
               </div>
               <h3 className="font-display text-xl text-ink mb-2.5">{title}</h3>
-              <p className="text-[15px] leading-relaxed text-stone">{body}</p>
+              <p className="text-[15px] leading-relaxed text-slate">{body}</p>
             </div>
           ))}
         </div>
@@ -153,7 +153,7 @@ export default function CareersPage() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             The roles we hire for.
           </DisplayHeading>
-          <p className="text-base text-stone">
+          <p className="text-base text-slate">
             We are not always actively recruiting for every role below, but these are the shapes we hire.
             Salary is discussed on the first call, before you invest time in a process.
           </p>
@@ -169,7 +169,7 @@ export default function CareersPage() {
               className={`rounded-full px-4 py-2 text-sm font-medium transition-all ${
                 team === t
                   ? 'bg-ink text-paper'
-                  : 'border border-hairline bg-surface text-ink-body hover:border-navy-soft hover:text-navy'
+                  : 'border border-hairline bg-surface text-ink-body hover:border-sea-soft hover:text-sea'
               }`}
             >
               {t}
@@ -187,53 +187,53 @@ export default function CareersPage() {
               >
                 <span className="min-w-0">
                   <span className="block font-display text-xl text-ink mb-2">{role.title}</span>
-                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-stone">
+                  <span className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[13px] text-slate">
                     <span className="inline-flex items-center gap-1.5">
-                      <Briefcase className="h-3.5 w-3.5 text-navy" /> {role.team}
+                      <Briefcase className="h-3.5 w-3.5 text-sea" /> {role.team}
                     </span>
                     <span className="inline-flex items-center gap-1.5">
-                      <MapPin className="h-3.5 w-3.5 text-navy" /> {role.type}
+                      <MapPin className="h-3.5 w-3.5 text-sea" /> {role.type}
                     </span>
-                    <span className="font-medium text-navy">{role.experience}</span>
+                    <span className="font-medium text-sea">{role.experience}</span>
                   </span>
                 </span>
                 <ChevronDown
-                  className={`h-5 w-5 text-stone-faint shrink-0 mt-1 transition-transform ${open === i ? 'rotate-180' : ''}`}
+                  className={`h-5 w-5 text-slate-faint shrink-0 mt-1 transition-transform ${open === i ? 'rotate-180' : ''}`}
                 />
               </button>
 
               {open === i && (
                 <div className="px-6 pb-6 border-t border-hairline-soft pt-5">
-                  <p className="text-sm text-stone leading-relaxed mb-2">
+                  <p className="text-sm text-slate leading-relaxed mb-2">
                     <span className="font-semibold text-ink-body">Location:</span> {role.location}
                   </p>
-                  <p className="text-sm text-stone leading-relaxed mb-5">
+                  <p className="text-sm text-slate leading-relaxed mb-5">
                     <span className="font-semibold text-ink-body">Experience:</span> {role.experience}
                   </p>
-                  <p className="text-[15px] text-stone leading-relaxed mb-6">{role.about}</p>
+                  <p className="text-[15px] text-slate leading-relaxed mb-6">{role.about}</p>
 
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-3">
+                      <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-3">
                         What we&apos;re looking for
                       </div>
                       <ul className="space-y-2">
                         {role.lookingFor.map((l) => (
-                          <li key={l} className="flex items-start gap-2 text-sm text-stone leading-relaxed">
-                            <span className="mt-[7px] h-1 w-1 rounded-full bg-navy shrink-0" />
+                          <li key={l} className="flex items-start gap-2 text-sm text-slate leading-relaxed">
+                            <span className="mt-[7px] h-1 w-1 rounded-full bg-sea shrink-0" />
                             {l}
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div>
-                      <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-3">
+                      <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-3">
                         Nice to have
                       </div>
                       <ul className="space-y-2">
                         {role.niceToHave.map((l) => (
-                          <li key={l} className="flex items-start gap-2 text-sm text-stone leading-relaxed">
-                            <span className="mt-[7px] h-1 w-1 rounded-full bg-stone-faint shrink-0" />
+                          <li key={l} className="flex items-start gap-2 text-sm text-slate leading-relaxed">
+                            <span className="mt-[7px] h-1 w-1 rounded-full bg-slate-faint shrink-0" />
                             {l}
                           </li>
                         ))}
@@ -245,7 +245,7 @@ export default function CareersPage() {
                     <PillAnchor href={applyHref(role.title)} variant="primary" size="md">
                       Apply for this role <ArrowRight className="h-4 w-4" />
                     </PillAnchor>
-                    <span className="text-[13px] text-stone-light">
+                    <span className="text-[13px] text-slate-light">
                       Opens your email app — attach your CV and send to{' '}
                       <span className="text-ink-body">{CAREERS_EMAIL}</span>
                     </span>

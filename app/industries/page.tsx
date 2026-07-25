@@ -50,14 +50,14 @@ export default function IndustriesIndexPage() {
             <Link
               key={href}
               href={href}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-6 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)] hover:-translate-y-0.5"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-6 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)] hover:-translate-y-0.5"
             >
-              <div className="w-11 h-11 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center mb-4 transition-colors">
-                <Icon className="h-5 w-5 text-navy" />
+              <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-4 transition-colors">
+                <Icon className="h-5 w-5 text-sea" />
               </div>
               <h2 className="font-display text-xl text-ink mb-2.5">{title}</h2>
-              <p className="text-sm text-stone leading-relaxed flex-1">{desc}</p>
-              <span className="mt-4 flex items-center gap-1.5 text-navy text-sm font-semibold">
+              <p className="text-sm text-slate leading-relaxed flex-1">{desc}</p>
+              <span className="mt-4 flex items-center gap-1.5 text-sea text-sm font-semibold">
                 Explore
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
               </span>

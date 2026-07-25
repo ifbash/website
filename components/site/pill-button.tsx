@@ -18,22 +18,22 @@ const SIZES: Record<Size, string> = {
  */
 const VARIANTS: Record<Variant, string> = {
   primary:
-    'bg-ink text-paper shadow-[0_8px_24px_rgba(20,18,16,0.18)] hover:bg-navy hover:-translate-y-0.5',
+    'bg-ink text-paper shadow-[0_8px_24px_rgba(11,20,23,0.18)] hover:bg-sea hover:-translate-y-0.5',
   accent:
-    'bg-navy text-paper shadow-[0_8px_24px_rgba(27,58,92,0.22)] hover:bg-navy-deep hover:-translate-y-0.5',
+    'bg-sea text-paper shadow-[0_8px_24px_rgba(10,92,99,0.22)] hover:bg-sea-deep hover:-translate-y-0.5',
   outline:
-    'border border-hairline text-ink hover:border-navy hover:text-navy hover:-translate-y-0.5',
-  quiet: 'text-stone hover:text-navy',
+    'border border-hairline text-ink hover:border-sea hover:text-sea hover:-translate-y-0.5',
+  quiet: 'text-slate hover:text-sea',
 };
 
 const ON_INK_VARIANTS: Record<Variant, string> = {
   primary:
-    'bg-paper text-ink shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:bg-navy-soft hover:-translate-y-0.5',
+    'bg-paper text-ink shadow-[0_8px_24px_rgba(0,0,0,0.25)] hover:bg-sea-soft hover:-translate-y-0.5',
   accent:
-    'bg-navy text-paper shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:bg-navy-soft hover:text-ink hover:-translate-y-0.5',
+    'bg-sea text-paper shadow-[0_8px_24px_rgba(0,0,0,0.3)] hover:bg-sea-soft hover:text-ink hover:-translate-y-0.5',
   outline:
-    'border border-onink-line text-onink hover:border-navy-soft hover:text-navy-soft hover:-translate-y-0.5',
-  quiet: 'text-onink-muted hover:text-navy-soft',
+    'border border-onink-line text-onink hover:border-sea-soft hover:text-sea-soft hover:-translate-y-0.5',
+  quiet: 'text-onink-muted hover:text-sea-soft',
 };
 
 type BaseProps = {
@@ -47,7 +47,7 @@ type BaseProps = {
 function classesFor({ variant = 'primary', size = 'lg', onInk, className }: BaseProps) {
   return cn(
     'inline-flex items-center justify-center rounded-full font-semibold whitespace-nowrap',
-    'transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy focus-visible:ring-offset-2',
+    'transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea focus-visible:ring-offset-2',
     SIZES[size],
     variant === 'quiet' ? 'px-0 py-0' : '',
     (onInk ? ON_INK_VARIANTS : VARIANTS)[variant],

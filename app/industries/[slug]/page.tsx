@@ -69,11 +69,11 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       />
 
       <nav aria-label="Breadcrumb" className="bg-paper border-b border-hairline-soft">
-        <div className="w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto flex items-center gap-1.5 py-3 text-[13px] text-stone">
-          <Link href="/" className="hover:text-navy transition-colors">Home</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-stone-faint" />
-          <Link href="/industries" className="hover:text-navy transition-colors">Industries</Link>
-          <ChevronRight className="h-3.5 w-3.5 text-stone-faint" />
+        <div className="w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto flex items-center gap-1.5 py-3 text-[13px] text-slate">
+          <Link href="/" className="hover:text-sea transition-colors">Home</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
+          <Link href="/industries" className="hover:text-sea transition-colors">Industries</Link>
+          <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
           <span className="text-ink-body font-medium">{name}</span>
         </div>
       </nav>
@@ -113,7 +113,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             </p>
           </div>
           <div className="rounded-2xl border border-onink-line bg-[rgba(255,255,255,0.03)] p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy-soft mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea-soft mb-5">
               Three practices, one team
             </div>
             <div className="space-y-4">
@@ -122,8 +122,8 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 ['AI & Agents', 'Chat and voice agents on top of that platform, or standalone.', '/services/ai-agents'],
                 ['Web & Mobile', 'Customer and field-facing products around the workflows.', '/services/web-mobile-development'],
               ].map(([t, d, href]) => (
-                <Link key={t} href={href} className="group block border-l-2 border-navy-soft pl-4">
-                  <div className="text-sm font-semibold text-onink mb-1 group-hover:text-navy-soft transition-colors">
+                <Link key={t} href={href} className="group block border-l-2 border-sea-soft pl-4">
+                  <div className="text-sm font-semibold text-onink mb-1 group-hover:text-sea-soft transition-colors">
                     {t} <ArrowRight className="inline h-3.5 w-3.5 opacity-50 group-hover:translate-x-0.5 transition-transform" />
                   </div>
                   <div className="text-sm text-onink-muted leading-relaxed">{d}</div>
@@ -140,12 +140,12 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <DisplayHeading as="h2" size="sm" className="mb-5">
           We won&apos;t name clients we can&apos;t name.
         </DisplayHeading>
-        <p className="text-base text-stone leading-relaxed mb-4">
+        <p className="text-base text-slate leading-relaxed mb-4">
           Sector pages usually carry logos and percentages. Ours don&apos;t, because most of that
           work sits under agreements that do not permit it — and inventing a number to fill the
           space is worse than leaving it empty.
         </p>
-        <p className="text-base text-stone leading-relaxed mb-7">
+        <p className="text-base text-slate leading-relaxed mb-7">
           If you want a reference in {name.toLowerCase()}, ask. Where a client has agreed, we will
           introduce you directly under NDA.
         </p>
@@ -164,10 +164,10 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             <Link
               key={href}
               href={href}
-              className="group flex items-center gap-2.5 rounded-xl border border-hairline bg-surface p-3.5 transition-all hover:border-navy-soft hover:-translate-y-0.5"
+              className="group flex items-center gap-2.5 rounded-xl border border-hairline bg-surface p-3.5 transition-all hover:border-sea-soft hover:-translate-y-0.5"
             >
-              <Icon className="h-4 w-4 text-navy shrink-0" />
-              <span className="text-sm font-medium text-ink-body group-hover:text-navy leading-tight">{title}</span>
+              <Icon className="h-4 w-4 text-sea shrink-0" />
+              <span className="text-sm font-medium text-ink-body group-hover:text-sea leading-tight">{title}</span>
             </Link>
           ))}
         </div>

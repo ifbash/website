@@ -118,12 +118,12 @@ export default function ClaudeAiEngineeringPage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               A demo is easy. Keeping it good is the job.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               Almost anyone can produce an impressive first demo now. The difficulty arrives later:
               the prompt that quietly regresses, the retrieval that degrades as the corpus grows,
               the bill that triples when usage does.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               That is why we treat evals, cost budgets, and monitoring as part of the build rather
               than a later phase that never gets funded.
             </p>
@@ -133,7 +133,7 @@ export default function ClaudeAiEngineeringPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sky mb-5">
               What we hand over
             </div>
             <ul className="space-y-4">
@@ -143,9 +143,9 @@ export default function ClaudeAiEngineeringPage() {
                 ['Prompt and tool source', 'In your repository, versioned, with the reasoning documented.'],
                 ['A runbook', 'What to do when quality drops, written for whoever is on call.'],
               ].map(([t, d]) => (
-                <li key={t} className="border-l-2 border-mulberry-strong pl-4">
+                <li key={t} className="border-l-2 border-sky-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{t}</div>
-                  <div className="text-sm text-stone leading-relaxed">{d}</div>
+                  <div className="text-sm text-slate leading-relaxed">{d}</div>
                 </li>
               ))}
             </ul>
@@ -161,7 +161,7 @@ export default function ClaudeAiEngineeringPage() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             What an agent <Accented accent="mulberry">actually costs to run.</Accented>
           </DisplayHeading>
-          <p className="text-base text-stone leading-relaxed">
+          <p className="text-base text-slate leading-relaxed">
             Most AI proposals quote a build price and go quiet about the running cost. Move the
             sliders to your own volume. The assumptions are written underneath, because a number
             you cannot interrogate is not worth much.

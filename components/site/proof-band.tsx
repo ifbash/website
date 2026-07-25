@@ -55,7 +55,7 @@ export function ProofBand({
           {link && (
             <Link
               href={link.href}
-              className="inline-flex items-center gap-2 text-sm font-semibold text-navy-soft hover:underline underline-offset-4 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-sea-soft hover:underline underline-offset-4 transition-colors"
             >
               {link.label} <ArrowRight className="h-4 w-4" />
             </Link>

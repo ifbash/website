@@ -36,9 +36,9 @@ export default function InsightsIndex() {
         <Container>
           {posts.length === 0 ? (
             <div className="border border-hairline rounded-2xl bg-surface p-10 text-center">
-              <p className="text-stone text-[15px]">
+              <p className="text-slate text-[15px]">
                 First pieces are being written. Check back shortly — or{' '}
-                <Link href="/engage" className="text-navy font-medium hover:text-navy-deep">
+                <Link href="/engage" className="text-sea font-medium hover:text-sea-deep">
                   tell us what you would like us to cover
                 </Link>
                 .
@@ -56,17 +56,17 @@ export default function InsightsIndex() {
                       <div className="md:w-40 shrink-0 mb-3 md:mb-0">
                         <time
                           dateTime={post.date}
-                          className="text-[13px] text-stone-light tabular-nums"
+                          className="text-[13px] text-slate-light tabular-nums"
                         >
                           {formatDate(post.date)}
                         </time>
                       </div>
 
                       <div className="min-w-0 flex-1">
-                        <h2 className="font-display text-2xl md:text-[28px] leading-snug text-ink group-hover:text-navy transition-colors mb-2">
+                        <h2 className="font-display text-2xl md:text-[28px] leading-snug text-ink group-hover:text-sea transition-colors mb-2">
                           {post.title}
                         </h2>
-                        <p className="text-[15px] leading-relaxed text-stone max-w-2xl mb-4">
+                        <p className="text-[15px] leading-relaxed text-slate max-w-2xl mb-4">
                           {post.description}
                         </p>
 
@@ -74,15 +74,15 @@ export default function InsightsIndex() {
                           {post.tags.map((tag) => (
                             <span
                               key={tag}
-                              className="text-[11px] font-medium tracking-wide uppercase text-navy bg-navy-tint rounded-full px-2.5 py-1"
+                              className="text-[11px] font-medium tracking-wide uppercase text-sea bg-sea-tint rounded-full px-2.5 py-1"
                             >
                               {tag}
                             </span>
                           ))}
-                          <span className="text-[13px] text-stone-light">
+                          <span className="text-[13px] text-slate-light">
                             {post.readingMinutes} min read
                           </span>
-                          <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-navy opacity-0 group-hover:opacity-100 transition-opacity">
+                          <span className="inline-flex items-center gap-1.5 text-[13px] font-medium text-sea opacity-0 group-hover:opacity-100 transition-opacity">
                             Read <ArrowRight className="h-3.5 w-3.5" />
                           </span>
                         </div>

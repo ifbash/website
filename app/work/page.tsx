@@ -8,9 +8,9 @@ import { TriageDemo } from '@/components/triage-demo';
 type Kind = 'live' | 'demo' | 'practice';
 
 const KIND_LABEL: Record<Kind, { text: string; cls: string }> = {
-  live: { text: 'Live — try it', cls: 'bg-navy text-paper' },
-  demo: { text: 'Simulated demo', cls: 'bg-wash text-stone border border-hairline' },
-  practice: { text: 'Delivery practice', cls: 'bg-navy-tint text-navy border border-navy-strong' },
+  live: { text: 'Live — try it', cls: 'bg-sea text-paper' },
+  demo: { text: 'Simulated demo', cls: 'bg-wash text-slate border border-hairline' },
+  practice: { text: 'Delivery practice', cls: 'bg-sea-tint text-sea border border-sea-strong' },
 };
 
 const items = [
@@ -106,7 +106,7 @@ export default function WorkPage() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             Paste something messy. <Accented accent="mulberry">Watch it get triaged.</Accented>
           </DisplayHeading>
-          <p className="text-base text-stone leading-relaxed">
+          <p className="text-base text-slate leading-relaxed">
             This is the ServiceNow work and the AI layer in one place: an agent reads an inbound
             ticket, judges impact and urgency, routes it to a queue, and drafts the first response.
             Priority is computed from the impact &times; urgency matrix in code, the way the platform
@@ -129,11 +129,11 @@ export default function WorkPage() {
           {items.map(({ kind, icon: Icon, title, what, built, href, cta }) => (
             <div
               key={title}
-              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)]"
+              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]"
             >
               <div className="flex items-start justify-between gap-4 mb-4">
-                <div className="w-11 h-11 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center shrink-0 transition-colors">
-                  <Icon className="h-5 w-5 text-navy" />
+                <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">
+                  <Icon className="h-5 w-5 text-sea" />
                 </div>
                 <span className={`text-[10px] font-semibold tracking-wide uppercase px-2.5 py-1 rounded-full ${KIND_LABEL[kind].cls}`}>
                   {KIND_LABEL[kind].text}
@@ -141,12 +141,12 @@ export default function WorkPage() {
               </div>
 
               <h3 className="font-display text-xl text-ink mb-2.5">{title}</h3>
-              <p className="text-[15px] leading-relaxed text-stone mb-5">{what}</p>
+              <p className="text-[15px] leading-relaxed text-slate mb-5">{what}</p>
 
               <ul className="space-y-2 mb-6">
                 {built.map((b) => (
-                  <li key={b} className="flex items-start gap-2 text-[13px] text-stone">
-                    <span className="mt-[7px] h-1 w-1 rounded-full bg-navy shrink-0" />
+                  <li key={b} className="flex items-start gap-2 text-[13px] text-slate">
+                    <span className="mt-[7px] h-1 w-1 rounded-full bg-sea shrink-0" />
                     {b}
                   </li>
                 ))}
@@ -154,7 +154,7 @@ export default function WorkPage() {
 
               <Link
                 href={href}
-                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-deep transition-colors"
+                className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
               >
                 {cta}
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -170,7 +170,7 @@ export default function WorkPage() {
         <DisplayHeading as="h2" size="sm" className="mb-6">
           Why there are no case studies here.
         </DisplayHeading>
-        <div className="space-y-4 text-base text-stone leading-relaxed">
+        <div className="space-y-4 text-base text-slate leading-relaxed">
           <p>
             Most consultancy websites carry a wall of client logos and percentages. A lot of those
             numbers cannot be traced to anything, and a lot of those logos belong to companies that

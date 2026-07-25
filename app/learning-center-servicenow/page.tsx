@@ -53,13 +53,13 @@ export default function LearningCenterPage() {
           {available.map(({ icon: Icon, title, desc, href, cta }) => (
             <div
               key={title}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)]"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]"
             >
-              <div className="w-11 h-11 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center mb-5 transition-colors">
-                <Icon className="h-5 w-5 text-navy" />
+              <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-5 transition-colors">
+                <Icon className="h-5 w-5 text-sea" />
               </div>
               <h2 className="font-display text-xl text-ink mb-2.5">{title}</h2>
-              <p className="text-[15px] leading-relaxed text-stone mb-6 flex-1">{desc}</p>
+              <p className="text-[15px] leading-relaxed text-slate mb-6 flex-1">{desc}</p>
               <PillLink href={href} variant="outline" size="sm" className="self-start">
                 {cta} <ArrowRight className="h-3.5 w-3.5" />
               </PillLink>

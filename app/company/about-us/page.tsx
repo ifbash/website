@@ -46,7 +46,7 @@ export default function AboutUsPage() {
         <DisplayHeading as="h2" size="sm" className="mb-6">
           ServiceNow paid for the first years. AI is what we&apos;re building next.
         </DisplayHeading>
-        <div className="space-y-4 text-base text-stone leading-relaxed">
+        <div className="space-y-4 text-base text-slate leading-relaxed">
           <p>
             We started as ServiceNow engineers, and that practice still carries most of our
             delivery volume. It taught us the thing that matters more than any platform: work
@@ -83,7 +83,7 @@ export default function AboutUsPage() {
         <DisplayHeading as="h2" size="sm" className="mb-6">
           We removed the proof we couldn&apos;t prove.
         </DisplayHeading>
-        <div className="space-y-4 text-base text-stone leading-relaxed">
+        <div className="space-y-4 text-base text-slate leading-relaxed">
           <p>
             This site used to carry client logos, executive testimonials, and a wall of
             percentages. Most of it could not be traced to anything verifiable, so we took it

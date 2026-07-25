@@ -110,7 +110,7 @@ export default function AiAgentsPage() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             The win is the <Accented accent="mulberry">reassignment that never happens.</Accented>
           </DisplayHeading>
-          <p className="text-base text-stone leading-relaxed">
+          <p className="text-base text-slate leading-relaxed">
             Most tickets are not slow because someone worked slowly. They are slow because they sat
             in the wrong queue for a day first. Classification on arrival is unglamorous and it is
             where the time goes.
@@ -138,16 +138,16 @@ export default function AiAgentsPage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               This site is the demo.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               We can&apos;t show you another client&apos;s agent — those are behind their logins.
               So we put ours in public. The agent in the corner of this page, the voice agent on
               the homepage, and the one that will call you back from{' '}
-              <Link href="/agent" className="text-mulberry font-medium underline underline-offset-4 hover:text-mulberry-deep">
+              <Link href="/agent" className="text-sky font-medium underline underline-offset-4 hover:text-sky-deep">
                 our agent page
               </Link>{' '}
               are all built by us on the same stack we&apos;d use for you.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               Ask it something hard. That is a more useful reference than a case study you
               can&apos;t verify.
             </p>
@@ -157,7 +157,7 @@ export default function AiAgentsPage() {
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-mulberry mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sky mb-5">
               What we&apos;ll want to know
             </div>
             <ul className="space-y-4">
@@ -167,9 +167,9 @@ export default function AiAgentsPage() {
                 ['What must never happen?', 'That defines the guardrails before anything else.'],
                 ['How will we know it works?', 'We turn that answer into the eval suite.'],
               ].map(([q, a]) => (
-                <li key={q} className="border-l-2 border-mulberry-strong pl-4">
+                <li key={q} className="border-l-2 border-sky-strong pl-4">
                   <div className="text-sm font-semibold text-ink-body mb-1">{q}</div>
-                  <div className="text-sm text-stone leading-relaxed">{a}</div>
+                  <div className="text-sm text-slate leading-relaxed">{a}</div>
                 </li>
               ))}
             </ul>

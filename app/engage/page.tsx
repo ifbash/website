@@ -113,29 +113,29 @@ export default function EngagePage() {
           {models.map(({ icon: Icon, name, when, desc, includes, price }) => (
             <div
               key={name}
-              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)]"
+              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]"
             >
-              <div className="w-11 h-11 rounded-xl bg-navy-tint flex items-center justify-center mb-5">
-                <Icon className="h-5 w-5 text-navy" />
+              <div className="w-11 h-11 rounded-xl bg-sea-tint flex items-center justify-center mb-5">
+                <Icon className="h-5 w-5 text-sea" />
               </div>
               <h3 className="font-display text-2xl text-ink mb-2">{name}</h3>
-              <p className="text-[13px] font-semibold text-navy mb-4">{when}</p>
-              <p className="text-[15px] leading-relaxed text-stone mb-6">{desc}</p>
+              <p className="text-[13px] font-semibold text-sea mb-4">{when}</p>
+              <p className="text-[15px] leading-relaxed text-slate mb-6">{desc}</p>
 
               <ul className="space-y-2.5 mb-6">
                 {includes.map((i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-sm text-stone">
-                    <Check className="h-4 w-4 text-navy shrink-0 mt-0.5" />
+                  <li key={i} className="flex items-start gap-2.5 text-sm text-slate">
+                    <Check className="h-4 w-4 text-sea shrink-0 mt-0.5" />
                     <span className="leading-relaxed">{i}</span>
                   </li>
                 ))}
               </ul>
 
               <div className="mt-auto pt-5 border-t border-hairline">
-                <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-2">
+                <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-2">
                   How it&apos;s priced
                 </div>
-                <p className="text-[13px] leading-relaxed text-stone">{price}</p>
+                <p className="text-[13px] leading-relaxed text-slate">{price}</p>
               </div>
             </div>
           ))}
@@ -161,18 +161,18 @@ export default function EngagePage() {
             <DisplayHeading as="h2" size="sm" className="mb-5">
               You should be able to fire us cleanly.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               A vendor who is hard to leave is a vendor with no pressure to stay good. So we build
               the exit into the engagement: your accounts, your repositories, your keys, and
               documentation written for whoever comes next.
             </p>
-            <p className="text-base text-stone leading-relaxed">
+            <p className="text-base text-slate leading-relaxed">
               If you decide to move on, the handover is a scheduled session — not a negotiation.
             </p>
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
               Yours from day one
             </div>
             <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3">
@@ -186,8 +186,8 @@ export default function EngagePage() {
                 'Runbooks & handover notes',
                 'Analytics & monitoring',
               ].map((item) => (
-                <div key={item} className="flex items-start gap-2.5 text-sm text-stone">
-                  <Check className="h-4 w-4 text-navy shrink-0 mt-0.5" />
+                <div key={item} className="flex items-start gap-2.5 text-sm text-slate">
+                  <Check className="h-4 w-4 text-sea shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{item}</span>
                 </div>
               ))}

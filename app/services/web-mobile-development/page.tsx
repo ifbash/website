@@ -98,22 +98,22 @@ export default function WebMobilePracticePage() {
             <Link
               key={name}
               href={href}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-8 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)] hover:-translate-y-0.5"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-8 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)] hover:-translate-y-0.5"
             >
-              <div className="w-12 h-12 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center mb-5 transition-colors">
-                <Icon className="h-6 w-6 text-navy" />
+              <div className="w-12 h-12 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-5 transition-colors">
+                <Icon className="h-6 w-6 text-sea" />
               </div>
               <h2 className="font-display text-2xl text-ink mb-3">{name}</h2>
-              <p className="text-[15px] leading-relaxed text-stone mb-6">{desc}</p>
+              <p className="text-[15px] leading-relaxed text-slate mb-6">{desc}</p>
               <ul className="space-y-2 mb-6">
                 {points.map((p) => (
-                  <li key={p} className="flex items-start gap-2 text-sm text-stone">
-                    <span className="mt-[7px] h-1 w-1 rounded-full bg-navy shrink-0" />
+                  <li key={p} className="flex items-start gap-2 text-sm text-slate">
+                    <span className="mt-[7px] h-1 w-1 rounded-full bg-sea shrink-0" />
                     {p}
                   </li>
                 ))}
               </ul>
-              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-navy">
+              <span className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea">
                 Explore {name}
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </span>

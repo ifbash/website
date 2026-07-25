@@ -91,7 +91,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: "#141210", borderTop: "3px solid #1B3A5C" }}>
+    <footer className="relative overflow-hidden" style={{ background: "#0B1417", borderTop: "3px solid #0A5C63" }}>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top — logo + newsletter */}
@@ -133,13 +133,13 @@ export function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                className="flex-1 px-4 py-2.5 rounded-full text-sm bg-onink-fill border border-onink-line text-white placeholder-onink-faint focus:outline-none focus:border-navy/60 transition-colors"
+                className="flex-1 px-4 py-2.5 rounded-full text-sm bg-onink-fill border border-onink-line text-white placeholder-onink-faint focus:outline-none focus:border-sea/60 transition-colors"
               />
               <button
                 type="submit"
                 disabled={newsletterState === "sending"}
                 className="px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0 disabled:opacity-60"
-                style={{ background: newsletterState === "done" ? "#3E7A52" : "#1B3A5C", boxShadow: "0 4px 16px rgba(27,58,92,0.3)" }}
+                style={{ background: newsletterState === "done" ? "#3E7A52" : "#0A5C63", boxShadow: "0 4px 16px rgba(10,92,99,0.3)" }}
               >
                 {newsletterState === "done" ? "✓ Done" : newsletterState === "sending" ? "…" : <ArrowRight className="h-4 w-4" />}
               </button>
@@ -158,7 +158,7 @@ export function Footer() {
               <ul className="space-y-3">
                 {links.map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-onink-muted hover:text-navy-tint text-sm transition-colors">
+                    <Link href={href} className="text-onink-muted hover:text-sea-tint text-sm transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -172,11 +172,11 @@ export function Footer() {
             <h4 className="text-white font-semibold text-sm mb-5">Contact</h4>
             <div className="space-y-3">
               <div className="flex items-center gap-2.5">
-                <Mail className="h-4 w-4 text-navy-soft shrink-0" />
+                <Mail className="h-4 w-4 text-sea-soft shrink-0" />
                 <span className="text-onink-muted text-sm">connect@ifbash.com</span>
               </div>
               <div className="flex items-center gap-2.5 mb-6">
-                <MapPin className="h-4 w-4 text-navy-soft shrink-0" />
+                <MapPin className="h-4 w-4 text-sea-soft shrink-0" />
                 <span className="text-onink-muted text-sm">Serving clients worldwide</span>
               </div>
 
@@ -188,13 +188,13 @@ export function Footer() {
                   <Link
                     href="/get-started"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 self-start"
-                    style={{ background: "#1B3A5C", boxShadow: "0 4px 16px rgba(27,58,92,0.3)" }}
+                    style={{ background: "#0A5C63", boxShadow: "0 4px 16px rgba(10,92,99,0.3)" }}
                   >
                     Start a project <ArrowRight className="h-3.5 w-3.5" />
                   </Link>
                   <Link
                     href="/agent"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-onink border border-onink-line hover:border-navy/60 hover:text-white transition-all self-start"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-onink border border-onink-line hover:border-sea/60 hover:text-white transition-all self-start"
                   >
                     <Mic className="h-3.5 w-3.5" /> Talk to our agent
                   </Link>
@@ -216,7 +216,7 @@ export function Footer() {
               { href: "https://facebook.com/ifbash", icon: Facebook, label: "Facebook" },
             ].map(({ href, icon: Icon, label }) => (
               <Link key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
-                className="w-8 h-8 rounded-lg bg-onink-fill hover:bg-navy/20 border border-onink-line hover:border-navy/40 flex items-center justify-center transition-all duration-200">
+                className="w-8 h-8 rounded-lg bg-onink-fill hover:bg-sea/20 border border-onink-line hover:border-sea/40 flex items-center justify-center transition-all duration-200">
                 <Icon className="h-3.5 w-3.5 text-onink-muted hover:text-white" />
               </Link>
             ))}

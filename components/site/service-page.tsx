@@ -75,11 +75,11 @@ export function ServicePage({
             <DisplayHeading as="h2" size="sm" className="mb-5">
               The people who scope it are the people who build it.
             </DisplayHeading>
-            <p className="text-base text-stone leading-relaxed mb-4">
+            <p className="text-base text-slate leading-relaxed mb-4">
               We don&apos;t scope with seniors and staff with juniors. If the team would change
               between the proposal and the work, we tell you who and why during scoping.
             </p>
-            <p className="text-base text-stone leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-7">
               Everything is documented as it is built, so your team can run it afterwards — and so
               can any other partner you choose later.
             </p>
@@ -89,7 +89,7 @@ export function ServicePage({
           </div>
 
           <div className="rounded-2xl border border-hairline bg-surface p-7">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-navy mb-5">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
               Pairs well with
             </div>
             <div className="space-y-3">
@@ -103,15 +103,15 @@ export function ServicePage({
                   <Link
                     key={href}
                     href={href}
-                    className="group flex items-start gap-3 rounded-xl border border-hairline p-3.5 transition-all hover:border-navy-soft hover:bg-wash"
+                    className="group flex items-start gap-3 rounded-xl border border-hairline p-3.5 transition-all hover:border-sea-soft hover:bg-wash"
                   >
                     <span className="min-w-0">
-                      <span className="block text-sm font-semibold text-ink-body group-hover:text-navy transition-colors">
+                      <span className="block text-sm font-semibold text-ink-body group-hover:text-sea transition-colors">
                         {t}
                       </span>
-                      <span className="block text-[13px] text-stone mt-0.5 leading-relaxed">{d}</span>
+                      <span className="block text-[13px] text-slate mt-0.5 leading-relaxed">{d}</span>
                     </span>
-                    <ArrowRight className="h-4 w-4 text-stone-faint group-hover:text-navy ml-auto shrink-0 mt-0.5 transition-colors" />
+                    <ArrowRight className="h-4 w-4 text-slate-faint group-hover:text-sea ml-auto shrink-0 mt-0.5 transition-colors" />
                   </Link>
                 ))}
             </div>

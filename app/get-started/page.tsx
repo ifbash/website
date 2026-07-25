@@ -80,7 +80,7 @@ export default function GetStartedPage() {
   }
 
   const inputCls =
-    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
+    'w-full bg-white/5 border border-white/10 focus:border-sea/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
   const err = form.formState.errors;
 
   return (
@@ -88,22 +88,22 @@ export default function GetStartedPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* ── HERO + FORM ── */}
-      <section className="relative overflow-hidden" style={{ background: '#141210' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7C9AB8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #1B3A5C, transparent 65%)' }} />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #3D6A94, transparent 65%)' }} />
+      <section className="relative overflow-hidden" style={{ background: '#0B1417' }}>
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7FD2DA 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #0A5C63, transparent 65%)' }} />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #0E8C96, transparent 65%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
             {/* Left — pitch */}
             <div className="space-y-8 self-start">
-              <div className="inline-flex items-center gap-2 bg-navy/10 border border-navy/25 rounded-full px-4 py-2 text-navy-soft text-sm">
+              <div className="inline-flex items-center gap-2 bg-sea/10 border border-sea/25 rounded-full px-4 py-2 text-sea-soft text-sm">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 Accepting new clients
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-onink leading-[1.1] tracking-tight">
                 Let&apos;s scope your{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft animate-gradient-text">implementation.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sea-soft to-sea-soft animate-gradient-text">implementation.</span>
               </h1>
               <p className="text-lg text-onink-muted leading-relaxed max-w-lg">
                 Tell us about your ServiceNow goals. Within two working days, a consultant walks you through exactly how we&apos;d approach it — no commitment, no sales pressure, just a clear plan.
@@ -113,10 +113,10 @@ export default function GetStartedPage() {
                 {steps.map(({ icon: Icon, title, desc }, i) => (
                   <div key={title} className="flex gap-4">
                     <div className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-xl bg-navy/15 border border-navy/30 flex items-center justify-center shrink-0">
-                        <Icon className="h-4 w-4 text-navy-soft" />
+                      <div className="w-10 h-10 rounded-xl bg-sea/15 border border-sea/30 flex items-center justify-center shrink-0">
+                        <Icon className="h-4 w-4 text-sea-soft" />
                       </div>
-                      {i < steps.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-navy/30 to-transparent mt-2" />}
+                      {i < steps.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-sea/30 to-transparent mt-2" />}
                     </div>
                     <div className="pb-2">
                       <div className="font-semibold text-onink text-sm mb-1">{title}</div>
@@ -127,9 +127,9 @@ export default function GetStartedPage() {
               </div>
 
               <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-xs text-onink-muted">
-                <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-navy-soft" /> Your details stay private</span>
-                <span className="flex items-center gap-1.5"><Users className="h-3.5 w-3.5 text-navy-soft" /> Senior consultants only</span>
-                <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-navy-soft" /> Reply within 1 business day</span>
+                <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-sea-soft" /> Your details stay private</span>
+                <span className="flex items-center gap-1.5"><Users className="h-3.5 w-3.5 text-sea-soft" /> Senior consultants only</span>
+                <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-sea-soft" /> Reply within 1 business day</span>
               </div>
             </div>
 
@@ -144,7 +144,7 @@ export default function GetStartedPage() {
                   <p className="text-onink-muted text-sm max-w-xs mx-auto mb-8">
                     A senior consultant will reach out within one business day to set up your scoping call.
                   </p>
-                  <Link href="/" className="text-navy-soft hover:text-navy-soft text-sm font-semibold">
+                  <Link href="/" className="text-sea-soft hover:text-sea-soft text-sm font-semibold">
                     Back to home →
                   </Link>
                 </div>
@@ -180,9 +180,9 @@ export default function GetStartedPage() {
                       className={`${inputCls} appearance-none ${form.watch('companySize') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('companySize')}
                     >
-                      <option value="" className="bg-[#141210]">Company size</option>
+                      <option value="" className="bg-[#0B1417]">Company size</option>
                       {['1–200', '200–1,000', '1,000–5,000', '5,000+'].map((s) => (
-                        <option key={s} value={s} className="bg-[#141210]">{s} employees</option>
+                        <option key={s} value={s} className="bg-[#0B1417]">{s} employees</option>
                       ))}
                     </select>
                   </div>
@@ -196,9 +196,9 @@ export default function GetStartedPage() {
                       className={`${inputCls} appearance-none ${form.watch('serviceInterest') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('serviceInterest')}
                     >
-                      <option value="" className="bg-[#141210]">What do you need? *</option>
+                      <option value="" className="bg-[#0B1417]">What do you need? *</option>
                       {services.map((s) => (
-                        <option key={s} value={s} className="bg-[#141210]">{s}</option>
+                        <option key={s} value={s} className="bg-[#0B1417]">{s}</option>
                       ))}
                     </select>
                     {err.serviceInterest && <p className="text-red-400 text-xs mt-1.5">{err.serviceInterest.message}</p>}
@@ -222,7 +222,7 @@ export default function GetStartedPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #0A5C63, #0E8C96)', boxShadow: '0 8px 32px rgba(10,92,99,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Request my scoping call <ArrowRight className="h-4 w-4" /></>)}
                   </button>
@@ -240,12 +240,12 @@ export default function GetStartedPage() {
           <div className="grid lg:grid-cols-3 gap-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <span className="inline-block w-8 h-px bg-navy" />
-                <span className="text-navy text-sm font-semibold tracking-widest uppercase">FAQ</span>
+                <span className="inline-block w-8 h-px bg-sea" />
+                <span className="text-sea text-sm font-semibold tracking-widest uppercase">FAQ</span>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-ink leading-tight mb-4">Before you hit send.</h2>
-              <p className="text-stone-light text-sm leading-relaxed mb-6">Prefer email? Write to us directly and a consultant will reply.</p>
-              <a href="mailto:connect@ifbash.com" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:underline">
+              <p className="text-slate-light text-sm leading-relaxed mb-6">Prefer email? Write to us directly and a consultant will reply.</p>
+              <a href="mailto:connect@ifbash.com" className="inline-flex items-center gap-2 text-sea font-semibold text-sm hover:underline">
                 connect@ifbash.com <ArrowRight className="h-4 w-4" />
               </a>
             </div>
@@ -257,9 +257,9 @@ export default function GetStartedPage() {
                     className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-wash transition-colors"
                   >
                     <span className="font-semibold text-ink text-sm">{q}</span>
-                    <ChevronDown className={`h-4 w-4 text-stone-faint shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`h-4 w-4 text-slate-faint shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
-                  {openFaq === i && <p className="px-5 pb-4 text-sm text-stone-light leading-relaxed">{a}</p>}
+                  {openFaq === i && <p className="px-5 pb-4 text-sm text-slate-light leading-relaxed">{a}</p>}
                 </div>
               ))}
             </div>

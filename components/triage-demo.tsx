@@ -19,17 +19,17 @@ import { PillButton } from '@/components/site';
  */
 
 const PRIORITY_STYLE: Record<string, string> = {
-  P1: 'bg-mulberry text-paper',
-  P2: 'bg-mulberry-tint text-mulberry-deep border border-mulberry-strong',
-  P3: 'bg-navy-tint text-navy-deep border border-navy-strong',
-  P4: 'bg-wash text-stone border border-hairline',
-  P5: 'bg-wash text-stone-light border border-hairline',
+  P1: 'bg-sky text-paper',
+  P2: 'bg-sky-tint text-sky-deep border border-sky-strong',
+  P3: 'bg-sea-tint text-sea-deep border border-sea-strong',
+  P4: 'bg-wash text-slate border border-hairline',
+  P5: 'bg-wash text-slate-light border border-hairline',
 };
 
 function Field({ label, value }: { label: string; value: React.ReactNode }) {
   return (
     <div className="border-l-2 border-hairline pl-3.5 py-0.5">
-      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light mb-1">
+      <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light mb-1">
         {label}
       </div>
       <div className="text-sm text-ink-body leading-snug">{value}</div>
@@ -80,7 +80,7 @@ export function TriageDemo() {
     <div className="grid lg:grid-cols-2 gap-5">
       {/* ── Input ─────────────────────────────────────────────────── */}
       <div className="flex flex-col rounded-2xl border border-hairline bg-surface p-6">
-        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-mulberry mb-4">
+        <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky mb-4">
           Inbound ticket
         </div>
 
@@ -90,11 +90,11 @@ export function TriageDemo() {
           rows={7}
           maxLength={1200}
           placeholder="Paste a real support ticket — messy, angry, vague, whatever you actually get. The agent reads it the way an analyst would."
-          className="w-full flex-1 min-h-[9rem] resize-none rounded-xl border border-hairline bg-paper p-4 text-sm leading-relaxed text-ink-body placeholder:text-stone-faint focus:border-mulberry-soft focus:outline-none focus:ring-2 focus:ring-mulberry-tint transition-colors"
+          className="w-full flex-1 min-h-[9rem] resize-none rounded-xl border border-hairline bg-paper p-4 text-sm leading-relaxed text-ink-body placeholder:text-slate-faint focus:border-sky-soft focus:outline-none focus:ring-2 focus:ring-sky-tint transition-colors"
         />
 
         <div className="mt-4 flex flex-wrap items-center gap-2">
-          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light me-1">
+          <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light me-1">
             Or try
           </span>
           {SAMPLE_TICKETS.map((s) => (
@@ -102,7 +102,7 @@ export function TriageDemo() {
               key={s.label}
               onClick={() => { setTicket(s.body); run(s.body); }}
               disabled={state === 'working'}
-              className="rounded-full border border-hairline bg-paper px-3 py-1.5 text-[12px] font-medium text-ink-soft transition-all hover:border-mulberry-soft hover:text-mulberry disabled:opacity-50"
+              className="rounded-full border border-hairline bg-paper px-3 py-1.5 text-[12px] font-medium text-ink-soft transition-all hover:border-sky-soft hover:text-sky disabled:opacity-50"
             >
               {s.label}
             </button>
@@ -115,7 +115,7 @@ export function TriageDemo() {
             disabled={ticket.trim().length < 15 || state === 'working'}
             variant="accent"
             size="md"
-            className="!bg-mulberry hover:!bg-mulberry-deep"
+            className="!bg-sky hover:!bg-sky-deep"
           >
             {state === 'working' ? (
               <>Triaging<Loader2 className="h-4 w-4 animate-spin" /></>
@@ -123,22 +123,22 @@ export function TriageDemo() {
               <>Triage it<ArrowRight className="h-4 w-4" /></>
             )}
           </PillButton>
-          <span className="text-[12px] text-stone-light">{ticket.length}/1200</span>
+          <span className="text-[12px] text-slate-light">{ticket.length}/1200</span>
         </div>
       </div>
 
       {/* ── Output ────────────────────────────────────────────────── */}
       <div className="rounded-2xl border border-hairline bg-surface p-6 min-h-[22rem] flex flex-col">
         <div className="flex items-center justify-between gap-3 mb-4">
-          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-mulberry">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky">
             Agent output
           </div>
           {state === 'done' && (
             <span
               className={`font-mono text-[10px] uppercase tracking-[0.12em] px-2 py-1 rounded-full ${
                 simulated
-                  ? 'bg-wash text-stone border border-hairline'
-                  : 'bg-mulberry-tint text-mulberry-deep'
+                  ? 'bg-wash text-slate border border-hairline'
+                  : 'bg-sky-tint text-sky-deep'
               }`}
             >
               {simulated ? 'Simulated' : 'Live · Claude'}
@@ -147,15 +147,15 @@ export function TriageDemo() {
         </div>
 
         {state === 'idle' && (
-          <p className="text-sm text-stone-light leading-relaxed my-auto">
+          <p className="text-sm text-slate-light leading-relaxed my-auto">
             Nothing here yet. Paste a ticket or pick a sample — this runs on your text, in your
             browser, right now. It is the same engineering we would put on your instance.
           </p>
         )}
 
         {state === 'error' && (
-          <div className="my-auto flex items-start gap-2.5 text-sm text-stone">
-            <AlertTriangle className="h-4 w-4 text-mulberry shrink-0 mt-0.5" />
+          <div className="my-auto flex items-start gap-2.5 text-sm text-slate">
+            <AlertTriangle className="h-4 w-4 text-sky shrink-0 mt-0.5" />
             {error}
           </div>
         )}
@@ -173,7 +173,7 @@ export function TriageDemo() {
                       ? { duration: 0 }
                       : { duration: 1.4, repeat: Infinity, delay: i * 0.35 }
                   }
-                  className="font-mono text-[12px] text-stone"
+                  className="font-mono text-[12px] text-slate"
                 >
                   {step}…
                 </motion.div>
@@ -216,23 +216,23 @@ export function TriageDemo() {
               </div>
 
               <div className="rounded-xl bg-paper border border-hairline-soft p-4">
-                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-stone-light mb-2">
+                <div className="font-mono text-[10px] uppercase tracking-[0.14em] text-slate-light mb-2">
                   Drafted first response
                 </div>
-                <p className="text-sm text-stone leading-relaxed">{result.draftReply}</p>
+                <p className="text-sm text-slate leading-relaxed">{result.draftReply}</p>
               </div>
 
-              <div className="flex items-start gap-2 text-[12px] text-stone-light leading-relaxed">
-                <CheckCircle2 className="h-3.5 w-3.5 text-mulberry shrink-0 mt-0.5" />
+              <div className="flex items-start gap-2 text-[12px] text-slate-light leading-relaxed">
+                <CheckCircle2 className="h-3.5 w-3.5 text-sky shrink-0 mt-0.5" />
                 <span>
-                  <span className="text-stone">Why: </span>{result.reasoning}
+                  <span className="text-slate">Why: </span>{result.reasoning}
                   {' '}Priority is computed from the impact × urgency matrix, the same way the
                   platform does it — the model does not pick it.
                 </span>
               </div>
 
               {simulated && (
-                <p className="text-[12px] text-stone-light leading-relaxed border-t border-hairline-soft pt-3">
+                <p className="text-[12px] text-slate-light leading-relaxed border-t border-hairline-soft pt-3">
                   This ran on a keyword fallback because the live model is not configured on this
                   deployment. We label simulations rather than passing them off as live.
                 </p>

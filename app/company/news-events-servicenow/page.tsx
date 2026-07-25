@@ -50,11 +50,11 @@ export default function NewsEventsPage() {
               key={title}
               className="flex flex-col rounded-2xl border border-hairline bg-paper p-7"
             >
-              <div className="w-11 h-11 rounded-xl bg-navy-tint flex items-center justify-center mb-5">
-                <Icon className="h-5 w-5 text-navy" />
+              <div className="w-11 h-11 rounded-xl bg-sea-tint flex items-center justify-center mb-5">
+                <Icon className="h-5 w-5 text-sea" />
               </div>
               <h2 className="font-display text-xl text-ink mb-2.5">{title}</h2>
-              <p className="text-[15px] leading-relaxed text-stone">{desc}</p>
+              <p className="text-[15px] leading-relaxed text-slate">{desc}</p>
             </div>
           ))}
         </div>

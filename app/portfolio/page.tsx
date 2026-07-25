@@ -39,7 +39,7 @@ export default function PortfolioIndexPage() {
         >
           <div className="mb-8">
             <Eyebrow rule className="mb-3">{cat.label}</Eyebrow>
-            <p className="text-sm text-stone">
+            <p className="text-sm text-slate">
               {cat.items.length} product{cat.items.length === 1 ? '' : 's'}
             </p>
           </div>
@@ -49,15 +49,15 @@ export default function PortfolioIndexPage() {
               <Link
                 key={title}
                 href={`/portfolio/${slug(title)}`}
-                className="group flex items-center gap-3.5 rounded-2xl border border-hairline bg-paper p-5 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)] hover:-translate-y-0.5"
+                className="group flex items-center gap-3.5 rounded-2xl border border-hairline bg-paper p-5 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)] hover:-translate-y-0.5"
               >
-                <div className="w-10 h-10 rounded-xl bg-navy-tint group-hover:bg-navy-strong flex items-center justify-center shrink-0 transition-colors">
-                  <Icon className="h-5 w-5 text-navy" />
+                <div className="w-10 h-10 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">
+                  <Icon className="h-5 w-5 text-sea" />
                 </div>
-                <span className="text-sm font-medium text-ink-body group-hover:text-navy leading-snug">
+                <span className="text-sm font-medium text-ink-body group-hover:text-sea leading-snug">
                   {title}
                 </span>
-                <ArrowRight className="h-4 w-4 text-stone-faint group-hover:text-navy ml-auto shrink-0 transition-all group-hover:translate-x-0.5" />
+                <ArrowRight className="h-4 w-4 text-slate-faint group-hover:text-sea ml-auto shrink-0 transition-all group-hover:translate-x-0.5" />
               </Link>
             ))}
           </div>

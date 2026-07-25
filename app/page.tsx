@@ -98,7 +98,7 @@ export default function Page() {
       <section className="relative overflow-hidden bg-paper">
         <div
           className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full pointer-events-none opacity-[0.28]"
-          style={{ background: 'radial-gradient(circle, #D6E2EE, transparent 65%)' }}
+          style={{ background: 'radial-gradient(circle, #C2E7EB, transparent 65%)' }}
         />
 
         <Container className="relative z-10 py-16 lg:py-24">
@@ -120,7 +120,7 @@ export default function Page() {
                 <br />
                 AI layer on top.
               </motion.h1>
-              <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-stone">
+              <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-slate">
                 Implementation and managed services are the practice that pays the bills. The
                 agents we put on top are the reason clients stay. Don&apos;t read about it — ask
                 the agent on this page; we built it.
@@ -131,7 +131,7 @@ export default function Page() {
                 </PillLink>
                 <a
                   href="#work"
-                  className="inline-flex items-center gap-2 text-[15px] font-semibold text-stone hover:text-navy transition-colors"
+                  className="inline-flex items-center gap-2 text-[15px] font-semibold text-slate hover:text-sea transition-colors"
                 >
                   Watch the work <ArrowDown className="h-4 w-4" />
                 </a>
@@ -157,7 +157,7 @@ export default function Page() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             See it. Don&apos;t read it.
           </DisplayHeading>
-          <p className="text-base max-w-lg mx-auto text-stone">
+          <p className="text-base max-w-lg mx-auto text-slate">
             A service desk that resolves itself. Agents that talk. Apps and websites that ship.
             Five demos, thirty seconds.
           </p>
@@ -174,7 +174,7 @@ export default function Page() {
           <DisplayHeading as="h2" size="md" className="mb-4">
             One platform practice. <Accented>An AI layer on top of it.</Accented>
           </DisplayHeading>
-          <p className="text-base text-stone">
+          <p className="text-base text-slate">
             ServiceNow is where most of our delivery happens today. AI agents and product
             engineering are where we&apos;re growing — and this site is built with both.
           </p>
@@ -183,23 +183,23 @@ export default function Page() {
         <div className="grid md:grid-cols-3 gap-5">
           {pillars.map(({ label, note, desc, links, href }) => (
             <ScrollAnimation key={label} className="h-full">
-              <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-navy-soft hover:shadow-[0_8px_30px_rgba(20,18,16,0.06)]">
+              <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]">
                 <div className="flex items-baseline justify-between gap-3 mb-3">
                   <h3 className="font-display text-2xl text-ink">{label}</h3>
-                  <span className="text-[11px] font-semibold tracking-wide uppercase text-navy text-right">
+                  <span className="text-[11px] font-semibold tracking-wide uppercase text-sea text-right">
                     {note}
                   </span>
                 </div>
-                <p className="text-[15px] leading-relaxed text-stone mb-6">{desc}</p>
+                <p className="text-[15px] leading-relaxed text-slate mb-6">{desc}</p>
 
                 <ul className="space-y-2.5 mb-6">
                   {links.map(({ label: l, href: h }) => (
                     <li key={h}>
                       <Link
                         href={h}
-                        className="group/link inline-flex items-center gap-2 text-sm font-medium text-ink-body hover:text-navy transition-colors"
+                        className="group/link inline-flex items-center gap-2 text-sm font-medium text-ink-body hover:text-sea transition-colors"
                       >
-                        <span className="h-1 w-1 rounded-full bg-navy shrink-0" />
+                        <span className="h-1 w-1 rounded-full bg-sea shrink-0" />
                         <span className="underline-offset-4 group-hover/link:underline">{l}</span>
                       </Link>
                     </li>
@@ -208,7 +208,7 @@ export default function Page() {
 
                 <Link
                   href={href}
-                  className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-navy hover:text-navy-deep transition-colors"
+                  className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
                 >
                   Explore {label}
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

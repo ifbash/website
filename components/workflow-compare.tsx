@@ -38,10 +38,10 @@ function Track({
     return () => clearInterval(id);
   }, [stops.length, reduce]);
 
-  const dot = tone === 'navy' ? 'bg-navy' : 'bg-mulberry';
-  const ring = tone === 'navy' ? 'border-navy-strong' : 'border-mulberry-strong';
-  const fill = tone === 'navy' ? 'bg-navy-tint' : 'bg-mulberry-tint';
-  const text = tone === 'navy' ? 'text-navy' : 'text-mulberry';
+  const dot = tone === 'navy' ? 'bg-sea' : 'bg-sky';
+  const ring = tone === 'navy' ? 'border-sea-strong' : 'border-sky-strong';
+  const fill = tone === 'navy' ? 'bg-sea-tint' : 'bg-sky-tint';
+  const text = tone === 'navy' ? 'text-sea' : 'text-sky';
 
   return (
     <ol className="space-y-0">
@@ -68,7 +68,7 @@ function Track({
               </motion.span>
               <motion.span
                 animate={{ opacity: reached ? 1 : 0.4 }}
-                className={`text-sm ${reached ? 'text-ink-body' : 'text-stone-faint'} ${
+                className={`text-sm ${reached ? 'text-ink-body' : 'text-slate-faint'} ${
                   isBounce ? 'italic' : ''
                 }`}
               >
@@ -97,26 +97,26 @@ export function WorkflowCompare() {
     <div>
       <div className="grid sm:grid-cols-2 gap-5">
         <div className="rounded-2xl border border-hairline bg-surface p-6">
-          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-navy mb-1">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sea mb-1">
             Triaged by hand
           </div>
-          <p className="text-[13px] text-stone-light mb-5">Two reassignments before it lands.</p>
+          <p className="text-[13px] text-slate-light mb-5">Two reassignments before it lands.</p>
           <Track stops={MANUAL} tone="navy" bounces={[2]} />
         </div>
 
-        <div className="rounded-2xl border border-mulberry-strong bg-surface p-6">
-          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-mulberry mb-1">
+        <div className="rounded-2xl border border-sky-strong bg-surface p-6">
+          <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky mb-1">
             Triaged by an agent
           </div>
-          <p className="text-[13px] text-stone-light mb-5">Classified on arrival. No reassignment.</p>
+          <p className="text-[13px] text-slate-light mb-5">Classified on arrival. No reassignment.</p>
           <Track stops={AGENT} tone="mulberry" bounces={[]} />
         </div>
       </div>
 
-      <p className="mt-5 flex items-start gap-2 text-[13px] leading-relaxed text-stone-light">
-        <ArrowRight className="h-3.5 w-3.5 shrink-0 mt-1 text-stone-faint" />
+      <p className="mt-5 flex items-start gap-2 text-[13px] leading-relaxed text-slate-light">
+        <ArrowRight className="h-3.5 w-3.5 shrink-0 mt-1 text-slate-faint" />
         <span>
-          Illustrative, not measured. What an agent removes is the <em className="not-italic text-stone">reassignment</em>{' '}
+          Illustrative, not measured. What an agent removes is the <em className="not-italic text-slate">reassignment</em>{' '}
           — the ticket that sat in the wrong queue because nobody read it properly on arrival. We
           will not publish a time saving until it is your instance and your numbers.
         </span>

@@ -20,7 +20,7 @@ export default function ArabicHome() {
       <Section tone="paper" className="pt-16 md:pt-24 pb-16">
         <Container>
           <div className="max-w-3xl">
-            <p className="text-[11px] font-semibold tracking-[0.15em] text-navy mb-6">
+            <p className="text-[11px] font-semibold tracking-[0.15em] text-sea mb-6">
               {ar.meta.tagline}
             </p>
 
@@ -29,15 +29,15 @@ export default function ArabicHome() {
               <br />
               {ar.home.headline2}
               <br />
-              <span className="text-navy">{ar.home.headline3}</span>
+              <span className="text-sea">{ar.home.headline3}</span>
             </h1>
 
-            <p className="text-[17px] leading-[1.9] text-stone mb-9 max-w-2xl">{ar.home.sub}</p>
+            <p className="text-[17px] leading-[1.9] text-slate mb-9 max-w-2xl">{ar.home.sub}</p>
 
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/ar/get-started"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-ink text-paper hover:bg-navy transition-colors"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-ink text-paper hover:bg-sea transition-colors"
               >
                 {ar.common.startProject}
                 <ArrowLeft className="h-4 w-4" />
@@ -62,10 +62,10 @@ export default function ArabicHome() {
                 className="rounded-2xl border border-hairline bg-paper p-7 flex flex-col"
               >
                 <h2 className="font-arabic text-xl font-semibold text-ink mb-3">{p.title}</h2>
-                <p className="text-[15px] leading-[1.85] text-stone flex-1 mb-6">{p.desc}</p>
+                <p className="text-[15px] leading-[1.85] text-slate flex-1 mb-6">{p.desc}</p>
                 <Link
                   href={practiceHrefs[i]}
-                  className="inline-flex items-center gap-2 text-[14px] font-medium text-navy hover:text-navy-deep transition-colors"
+                  className="inline-flex items-center gap-2 text-[14px] font-medium text-sea hover:text-sea-deep transition-colors"
                 >
                   {p.cta}
                   <ArrowLeft className="h-3.5 w-3.5" />
@@ -92,7 +92,7 @@ export default function ArabicHome() {
             <p className="text-[14px] text-onink-muted">{ar.meta.ctaStrip}</p>
             <Link
               href="/ar/contactus"
-              className="inline-flex items-center gap-2 text-[14px] font-medium text-navy-soft hover:text-onink transition-colors"
+              className="inline-flex items-center gap-2 text-[14px] font-medium text-sea-soft hover:text-onink transition-colors"
             >
               {ar.common.talkToAgent}
               <ArrowLeft className="h-3.5 w-3.5" />
@@ -106,12 +106,12 @@ export default function ArabicHome() {
         <Container>
           <div className="max-w-2xl">
             <h2 className="font-arabic text-[clamp(1.6rem,3.4vw,2.4rem)] font-semibold leading-[1.5] text-ink mb-5">
-              {ar.home.ctaHeadline} <span className="text-navy">{ar.home.ctaAccent}</span>
+              {ar.home.ctaHeadline} <span className="text-sea">{ar.home.ctaAccent}</span>
             </h2>
-            <p className="text-[16px] leading-[1.9] text-stone mb-8">{ar.common.ctaSub}</p>
+            <p className="text-[16px] leading-[1.9] text-slate mb-8">{ar.common.ctaSub}</p>
             <Link
               href="/ar/get-started"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-ink text-paper hover:bg-navy transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold bg-ink text-paper hover:bg-sea transition-colors"
             >
               {ar.common.startProject}
               <ArrowLeft className="h-4 w-4" />

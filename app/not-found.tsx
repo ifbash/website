@@ -10,7 +10,7 @@ export default function NotFound() {
         <DisplayHeading as="h1" size="lg" className="mb-6">
           That page <Accented>isn&apos;t here.</Accented>
         </DisplayHeading>
-        <p className="text-lg text-stone mb-10">
+        <p className="text-lg text-slate mb-10">
           It may have moved during our recent rebuild. These are the places people usually want.
         </p>
 
@@ -26,7 +26,7 @@ export default function NotFound() {
             <Link
               key={href}
               href={href}
-              className="rounded-full border border-hairline bg-surface px-5 py-2.5 text-sm font-medium text-ink-body transition-all hover:border-navy-soft hover:text-navy hover:-translate-y-0.5"
+              className="rounded-full border border-hairline bg-surface px-5 py-2.5 text-sm font-medium text-ink-body transition-all hover:border-sea-soft hover:text-sea hover:-translate-y-0.5"
             >
               {label}
             </Link>
