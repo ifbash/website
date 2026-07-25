@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 
 const LEAD_EMAIL = process.env.LEAD_EMAIL || 'connect@ifbash.com';
+const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || 'https://ifbash.com';
 
 interface LeadPayload {
   name?: string;
@@ -62,9 +63,19 @@ export async function POST(request: Request) {
       if (!res.ok) throw new Error(`Resend failed: ${res.status}`);
     } else {
       // Fallback: FormSubmit (requires one-time activation email sent to LEAD_EMAIL)
+      // Origin/Referer are REQUIRED. This fetch runs on the server, which sends
+      // neither by default, and FormSubmit then rejects the request with the
+      // misleading "Make sure you open this page through a web server" — it
+      // never even reaches the activation check. Sending them explicitly is
+      // what lets a server-side integration work at all.
       const res = await fetch(`https://formsubmit.co/ajax/${LEAD_EMAIL}`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+          Origin: SITE_ORIGIN,
+          Referer: `${SITE_ORIGIN}/get-started`,
+        },
         body: JSON.stringify({
           _subject: `New lead: ${body.name || email} — ${body.serviceInterest || 'General'}`,
           name: body.name,
