@@ -105,7 +105,7 @@ function ServiceNowDemo() {
             ) : (
               <Flip at={2.8}
                 from="Open" fromCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300"
-                to="→ Routed to human + context" toCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-300 whitespace-nowrap" />
+                to="→ Routed to human + context" toCls="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-navy/15 text-navy-soft whitespace-nowrap" />
             )}
           </motion.div>
         ))}

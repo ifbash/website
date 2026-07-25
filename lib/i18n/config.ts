@@ -21,6 +21,23 @@ export const LOCALE_META: Record<Locale, { label: string; native: string; dir: '
 export const SITE = 'https://ifbash.com';
 
 /**
+ * Has a native Arabic speaker signed off on lib/i18n/ar.ts?
+ *
+ * Everything in that file is MACHINE TRANSLATED. Google treats unreviewed
+ * machine translation as spam, and Gulf enterprise buyers — the exact audience
+ * /ar exists to reach — notice immediately. Shipping it indexed does more harm
+ * than shipping nothing, so until this is true the Arabic surface is:
+ *   - noindex (app/ar/layout.tsx)
+ *   - excluded from the sitemap (app/sitemap.ts)
+ *   - not advertised via hreflang (alternatesFor / alternatesForAr below)
+ *
+ * The pages stay live and linked, so anyone sent the URL still gets Arabic.
+ * FLIP THIS TO true THE DAY A NATIVE SPEAKER SIGNS OFF — that one change
+ * restores indexing, the sitemap entries, and hreflang together.
+ */
+export const AR_REVIEWED = false;
+
+/**
  * Every page that exists in both languages, English path first.
  * Adding a translated page means adding one line here — the toggle, the
  * hreflang alternates and the Arabic sitemap entries all read from this.
@@ -64,6 +81,9 @@ export function counterpart(pathname: string): { href: string; exact: boolean } 
 export function alternatesFor(enPath: string) {
   const pair = ROUTE_PAIRS.find((p) => p.en === enPath);
   if (!pair) return undefined;
+  // Pointing hreflang at a noindexed page contradicts itself; English just
+  // declares itself canonical until the Arabic side is reviewed.
+  if (!AR_REVIEWED) return { canonical: enPath };
   return {
     canonical: enPath,
     languages: {
@@ -78,6 +98,7 @@ export function alternatesFor(enPath: string) {
 export function alternatesForAr(arPath: string) {
   const pair = ROUTE_PAIRS.find((p) => p.ar === arPath);
   if (!pair) return { canonical: arPath };
+  if (!AR_REVIEWED) return { canonical: arPath };
   return {
     canonical: arPath,
     languages: {

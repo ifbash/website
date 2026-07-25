@@ -33,13 +33,13 @@ export default function ContactUsPage() {
   }
 
   const inputCls =
-    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 outline-none transition-colors';
+    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
 
   return (
     <>
       {/* ── HERO + FORM ── */}
       <section className="relative overflow-hidden" style={{ background: '#141210' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7C9AB8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="absolute top-0 right-0 w-[600px] h-[500px] opacity-[0.1]" style={{ background: 'radial-gradient(ellipse at top right, #1B3A5C, transparent 65%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
@@ -51,11 +51,11 @@ export default function ContactUsPage() {
                   <span className="inline-block w-8 h-px bg-navy-soft" />
                   <span className="text-navy-soft text-sm font-semibold tracking-widest uppercase">Contact</span>
                 </div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-onink leading-[1.1] tracking-tight mb-6">
                   Talk to a<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft">consultant.</span>
                 </h1>
-                <p className="text-lg text-slate-400 leading-relaxed max-w-md">
+                <p className="text-lg text-onink-muted leading-relaxed max-w-md">
                   Project enquiries, partnership questions, or support — write to us and a senior consultant replies within one business day.
                 </p>
               </div>
@@ -66,8 +66,8 @@ export default function ContactUsPage() {
                     <Mail className="h-5 w-5 text-navy-soft" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white text-sm">Email</div>
-                    <div className="text-slate-400 text-sm group-hover:text-navy-soft transition-colors">connect@ifbash.com</div>
+                    <div className="font-semibold text-onink text-sm">Email</div>
+                    <div className="text-onink-muted text-sm group-hover:text-navy-soft transition-colors">connect@ifbash.com</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
@@ -75,8 +75,8 @@ export default function ContactUsPage() {
                     <MapPin className="h-5 w-5 text-navy-soft" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white text-sm">Based in</div>
-                    <div className="text-slate-400 text-sm">Hyderabad, India — serving clients globally</div>
+                    <div className="font-semibold text-onink text-sm">Based in</div>
+                    <div className="text-onink-muted text-sm">Hyderabad, India — serving clients globally</div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -84,13 +84,13 @@ export default function ContactUsPage() {
                     <Clock className="h-5 w-5 text-navy-soft" />
                   </div>
                   <div>
-                    <div className="font-semibold text-white text-sm">Response time</div>
-                    <div className="text-slate-400 text-sm">Within one business day</div>
+                    <div className="font-semibold text-onink text-sm">Response time</div>
+                    <div className="text-onink-muted text-sm">Within one business day</div>
                   </div>
                 </div>
               </div>
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-onink-muted">
                 Scoping a project?{' '}
                 <Link href="/get-started" className="text-navy-soft hover:text-navy-soft font-semibold">
                   Use the project form instead →
@@ -105,12 +105,12 @@ export default function ContactUsPage() {
                   <div className="w-14 h-14 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-5">
                     <CheckCircle className="h-7 w-7 text-green-400" />
                   </div>
-                  <h2 className="text-xl font-bold text-white mb-2">Message sent.</h2>
-                  <p className="text-slate-400 text-sm max-w-xs mx-auto">We&apos;ll reply within one business day.</p>
+                  <h2 className="text-xl font-bold text-onink mb-2">Message sent.</h2>
+                  <p className="text-onink-muted text-sm max-w-xs mx-auto">We&apos;ll reply within one business day.</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <h2 className="text-lg font-bold text-white mb-4">Send us a message</h2>
+                  <h2 className="text-lg font-bold text-onink mb-4">Send us a message</h2>
                   <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" value={values.website} onChange={(e) => setValues({ ...values, website: e.target.value })} />
                   <div className="grid sm:grid-cols-2 gap-4">
                     <label htmlFor="ct-name" className="sr-only">Your name</label>
@@ -130,7 +130,7 @@ export default function ContactUsPage() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
                     style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Send message <ArrowRight className="h-4 w-4" /></>)}

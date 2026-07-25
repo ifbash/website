@@ -48,6 +48,7 @@ export const STONE_FAINT = '#918D81'; // chevrons, index numerals
 // accent stays visible on dark bands, where NAVY itself would disappear.
 export const NAVY = '#1B3A5C'; // eyebrows, links, active states
 export const NAVY_DEEP = '#12293F'; // pressed / hover-darken
+export const NAVY_MID = '#3D6A94'; // gradient partner for NAVY; 4.9:1 on PAPER
 export const NAVY_SOFT = '#7C9AB8'; // accent on ink backgrounds
 export const NAVY_TINT = '#E9EFF5'; // icon wells, accent wash
 export const NAVY_TINT_STRONG = '#D6E2EE'; // icon well hover

@@ -80,7 +80,7 @@ export default function GetStartedPage() {
   }
 
   const inputCls =
-    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-white placeholder:text-slate-600 outline-none transition-colors';
+    'w-full bg-white/5 border border-white/10 focus:border-navy/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
   const err = form.formState.errors;
 
   return (
@@ -89,7 +89,7 @@ export default function GetStartedPage() {
 
       {/* ── HERO + FORM ── */}
       <section className="relative overflow-hidden" style={{ background: '#141210' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #818cf8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #7C9AB8 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #1B3A5C, transparent 65%)' }} />
         <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #3D6A94, transparent 65%)' }} />
 
@@ -101,11 +101,11 @@ export default function GetStartedPage() {
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 Accepting new clients
               </div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-onink leading-[1.1] tracking-tight">
                 Let&apos;s scope your{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-navy-soft to-navy-soft animate-gradient-text">implementation.</span>
               </h1>
-              <p className="text-lg text-slate-400 leading-relaxed max-w-lg">
+              <p className="text-lg text-onink-muted leading-relaxed max-w-lg">
                 Tell us about your ServiceNow goals. Within two working days, a consultant walks you through exactly how we&apos;d approach it — no commitment, no sales pressure, just a clear plan.
               </p>
 
@@ -119,14 +119,14 @@ export default function GetStartedPage() {
                       {i < steps.length - 1 && <div className="w-px flex-1 bg-gradient-to-b from-navy/30 to-transparent mt-2" />}
                     </div>
                     <div className="pb-2">
-                      <div className="font-semibold text-white text-sm mb-1">{title}</div>
-                      <p className="text-sm text-slate-500 leading-relaxed">{desc}</p>
+                      <div className="font-semibold text-onink text-sm mb-1">{title}</div>
+                      <p className="text-sm text-onink-muted leading-relaxed">{desc}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-xs text-slate-500">
+              <div className="flex flex-wrap gap-x-6 gap-y-2 pt-2 text-xs text-onink-muted">
                 <span className="flex items-center gap-1.5"><Shield className="h-3.5 w-3.5 text-navy-soft" /> Your details stay private</span>
                 <span className="flex items-center gap-1.5"><Users className="h-3.5 w-3.5 text-navy-soft" /> Senior consultants only</span>
                 <span className="flex items-center gap-1.5"><Zap className="h-3.5 w-3.5 text-navy-soft" /> Reply within 1 business day</span>
@@ -140,8 +140,8 @@ export default function GetStartedPage() {
                   <div className="w-14 h-14 rounded-full bg-green-500/15 flex items-center justify-center mx-auto mb-5">
                     <CheckCircle className="h-7 w-7 text-green-400" />
                   </div>
-                  <h2 className="text-xl font-bold text-white mb-2">Thanks — we&apos;ve got it.</h2>
-                  <p className="text-slate-400 text-sm max-w-xs mx-auto mb-8">
+                  <h2 className="text-xl font-bold text-onink mb-2">Thanks — we&apos;ve got it.</h2>
+                  <p className="text-onink-muted text-sm max-w-xs mx-auto mb-8">
                     A senior consultant will reach out within one business day to set up your scoping call.
                   </p>
                   <Link href="/" className="text-navy-soft hover:text-navy-soft text-sm font-semibold">
@@ -150,8 +150,8 @@ export default function GetStartedPage() {
                 </div>
               ) : (
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4" noValidate>
-                  <h2 className="text-lg font-bold text-white mb-1">Start the conversation</h2>
-                  <p className="text-xs text-slate-500 mb-4">Three fields required. The rest helps us prepare.</p>
+                  <h2 className="text-lg font-bold text-onink mb-1">Start the conversation</h2>
+                  <p className="text-xs text-onink-muted mb-4">Three fields required. The rest helps us prepare.</p>
 
                   <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" {...form.register('website')} />
 
@@ -177,12 +177,12 @@ export default function GetStartedPage() {
                     <label htmlFor="gs-size" className="sr-only">Company size</label>
                     <select
                       id="gs-size"
-                      className={`${inputCls} appearance-none ${form.watch('companySize') ? 'text-white' : 'text-slate-600'}`}
+                      className={`${inputCls} appearance-none ${form.watch('companySize') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('companySize')}
                     >
-                      <option value="" className="bg-[#0d0d20]">Company size</option>
+                      <option value="" className="bg-[#141210]">Company size</option>
                       {['1–200', '200–1,000', '1,000–5,000', '5,000+'].map((s) => (
-                        <option key={s} value={s} className="bg-[#0d0d20]">{s} employees</option>
+                        <option key={s} value={s} className="bg-[#141210]">{s} employees</option>
                       ))}
                     </select>
                   </div>
@@ -193,12 +193,12 @@ export default function GetStartedPage() {
                       id="gs-service"
                       aria-required="true"
                       aria-invalid={!!err.serviceInterest}
-                      className={`${inputCls} appearance-none ${form.watch('serviceInterest') ? 'text-white' : 'text-slate-600'}`}
+                      className={`${inputCls} appearance-none ${form.watch('serviceInterest') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('serviceInterest')}
                     >
-                      <option value="" className="bg-[#0d0d20]">What do you need? *</option>
+                      <option value="" className="bg-[#141210]">What do you need? *</option>
                       {services.map((s) => (
-                        <option key={s} value={s} className="bg-[#0d0d20]">{s}</option>
+                        <option key={s} value={s} className="bg-[#141210]">{s}</option>
                       ))}
                     </select>
                     {err.serviceInterest && <p className="text-red-400 text-xs mt-1.5">{err.serviceInterest.message}</p>}
@@ -221,12 +221,12 @@ export default function GetStartedPage() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
+                    className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
                     style={{ background: 'linear-gradient(135deg, #1B3A5C, #3D6A94)', boxShadow: '0 8px 32px rgba(27,58,92,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Request my scoping call <ArrowRight className="h-4 w-4" /></>)}
                   </button>
-                  <p className="text-[11px] text-slate-600 text-center">No newsletters. No spam. We only use this to reply to you.</p>
+                  <p className="text-[11px] text-onink-faint text-center">No newsletters. No spam. We only use this to reply to you.</p>
                 </form>
               )}
             </div>
@@ -243,23 +243,23 @@ export default function GetStartedPage() {
                 <span className="inline-block w-8 h-px bg-navy" />
                 <span className="text-navy text-sm font-semibold tracking-widest uppercase">FAQ</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 leading-tight mb-4">Before you hit send.</h2>
-              <p className="text-gray-500 text-sm leading-relaxed mb-6">Prefer email? Write to us directly and a consultant will reply.</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-ink leading-tight mb-4">Before you hit send.</h2>
+              <p className="text-stone-light text-sm leading-relaxed mb-6">Prefer email? Write to us directly and a consultant will reply.</p>
               <a href="mailto:connect@ifbash.com" className="inline-flex items-center gap-2 text-navy font-semibold text-sm hover:underline">
                 connect@ifbash.com <ArrowRight className="h-4 w-4" />
               </a>
             </div>
             <div className="lg:col-span-2 space-y-3">
               {faqs.map(({ q, a }, i) => (
-                <div key={q} className="border border-gray-200 rounded-2xl overflow-hidden">
+                <div key={q} className="border border-hairline rounded-2xl overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-gray-50 transition-colors"
+                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-wash transition-colors"
                   >
-                    <span className="font-semibold text-gray-900 text-sm">{q}</span>
-                    <ChevronDown className={`h-4 w-4 text-gray-400 shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                    <span className="font-semibold text-ink text-sm">{q}</span>
+                    <ChevronDown className={`h-4 w-4 text-stone-faint shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
                   </button>
-                  {openFaq === i && <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed">{a}</p>}
+                  {openFaq === i && <p className="px-5 pb-4 text-sm text-stone-light leading-relaxed">{a}</p>}
                 </div>
               ))}
             </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Sans_Arabic } from 'next/font/google';
 import { ar } from '@/lib/i18n/ar';
-import { SITE } from '@/lib/i18n/config';
+import { SITE, AR_REVIEWED } from '@/lib/i18n/config';
 
 /**
  * Arabic section.
@@ -31,6 +31,10 @@ export const metadata: Metadata = {
     template: `%s | ${ar.meta.siteName}`,
   },
   description: ar.home.description,
+  // Unreviewed machine translation is treated as spam by search engines and
+  // reads badly to the Gulf buyers this locale targets. Stays crawlable and
+  // linkable, just not indexed, until AR_REVIEWED flips. See lib/i18n/config.ts.
+  robots: AR_REVIEWED ? undefined : { index: false, follow: true },
   openGraph: {
     locale: 'ar_AE',
     alternateLocale: ['ar_SA', 'ar_QA', 'ar_KW', 'en_US'],

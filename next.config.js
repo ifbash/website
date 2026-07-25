@@ -9,14 +9,39 @@ const nextConfig = {
 
   // Enterprise buyers — public sector, healthcare, financial services — run
   // security questionnaires against the marketing site. These are the headers
-  // a scanner looks for. No CSP yet: the site loads a third-party tag and
-  // inline JSON-LD, so a policy needs to be authored and tested rather than
-  // guessed, or it will silently break things.
+  // a scanner looks for.
+  //
+  // On the CSP: `script-src` still allows 'unsafe-inline' because Next injects
+  // inline hydration scripts, and locking that down properly needs nonces
+  // generated in middleware — which would make every page dynamic. So this
+  // policy deliberately does NOT claim to stop script injection. What it does
+  // do is real and worth having on its own:
+  //   object-src 'none'    kills <object>/<embed> injection outright
+  //   base-uri 'self'      stops a <base> tag hijacking every relative URL
+  //   frame-ancestors      clickjacking protection (and outranks X-Frame-Options)
+  //   form-action 'self'   a script cannot repoint the lead form off-site
+  //   connect/img/font     an injected script cannot phone home anywhere new
+  // Adding nonce middleware is the next step whenever it is worth the tradeoff.
   async headers() {
+    const csp = [
+      "default-src 'self'",
+      "script-src 'self' 'unsafe-inline' https://r2.leadsy.ai https://va.vercel-scripts.com",
+      "style-src 'self' 'unsafe-inline'",
+      "img-src 'self' data: blob:",
+      "font-src 'self' data:",
+      "connect-src 'self' https://r2.leadsy.ai https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+      "frame-ancestors 'self'",
+      "form-action 'self'",
+      "base-uri 'self'",
+      "object-src 'none'",
+      'upgrade-insecure-requests',
+    ].join('; ');
+
     return [
       {
         source: '/:path*',
         headers: [
+          { key: 'Content-Security-Policy', value: csp },
           { key: 'Strict-Transport-Security', value: 'max-age=63072000; includeSubDomains; preload' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'SAMEORIGIN' },

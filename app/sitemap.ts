@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { portfolioSlugs } from "@/lib/portfolio-data";
 import { industrySlugs } from "@/lib/industry-data";
 import { getAllInsights } from "@/lib/insights";
-import { ROUTE_PAIRS } from "@/lib/i18n/config";
+import { ROUTE_PAIRS, AR_REVIEWED } from "@/lib/i18n/config";
 
 export const dynamic = "force-static";
 
@@ -25,6 +25,9 @@ type Entry = {
  * Both members of a pair must list the same set, including x-default.
  */
 function languagesFor(urlPath: string) {
+  // While Arabic is unreviewed it is noindexed, so advertising it here would
+  // contradict the page's own robots directive. See lib/i18n/config.ts.
+  if (!AR_REVIEWED) return undefined;
   const pair = ROUTE_PAIRS.find((p) => p.en === urlPath || p.ar === urlPath);
   if (!pair) return undefined;
   return {
@@ -113,11 +116,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Arabic pages, generated from the same pairing that drives the header
   // toggle and the hreflang tags, so the three can never disagree.
-  const arabic: Entry[] = ROUTE_PAIRS.map((p) => ({
-    url: p.ar,
-    priority: p.ar === "/ar" ? 0.9 : 0.7,
-    changeFrequency: "monthly" as const,
-  }));
+  // Omitted entirely while unreviewed — submitting noindexed URLs in a sitemap
+  // is a contradiction search engines flag. Restored by flipping AR_REVIEWED.
+  const arabic: Entry[] = AR_REVIEWED
+    ? ROUTE_PAIRS.map((p) => ({
+        url: p.ar,
+        priority: p.ar === "/ar" ? 0.9 : 0.7,
+        changeFrequency: "monthly" as const,
+      }))
+    : [];
 
   return [
     ...core,
