@@ -78,6 +78,26 @@ const MobileLink = ({ href, title, icon: Icon, onClick }: NavItem & { onClick: (
   </Link>
 );
 
+/**
+ * Arabic navigation.
+ *
+ * The English header is five mega-menus over ~40 destinations, only 12 of
+ * which exist in Arabic. Translating the labels alone would have been worse
+ * than leaving it: an Arabic reader would tap an Arabic word and land on an
+ * English page. So /ar gets flat direct links instead of mega-menus, covering
+ * exactly the pages that are actually translated.
+ *
+ * Same rule as the footer: this list mirrors ROUTE_PAIRS in lib/i18n/config.ts.
+ * Translate a new page -> add the pair there, then add the line here.
+ */
+const arNav: { label: string; href: string }[] = [
+  { label: ar.nav.services, href: '/ar/services' },
+  { label: ar.nav.ourWork, href: '/ar/work' },
+  { label: ar.nav.howWeEngage, href: '/ar/engage' },
+  { label: ar.nav.aboutUs, href: '/ar/company/about-us' },
+  { label: ar.nav.contact, href: '/ar/contactus' },
+];
+
 // ─── Component ──────────────────────────────────────────────────────
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -171,6 +191,20 @@ export function Header() {
 
             {/* Desktop nav */}
             <nav className="hidden lg:flex items-center flex-1 justify-center">
+              {isAr ? (
+                <ul className="flex items-center gap-1">
+                  {arNav.map(({ label, href }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        className="inline-flex items-center rounded-lg px-3 h-8 text-sm font-medium text-ink-soft hover:text-sea hover:bg-wash transition-colors"
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
               <NavigationMenu className="flex items-center">
                 <NavigationMenuList className="flex items-center gap-2">
 
@@ -317,6 +351,7 @@ export function Header() {
 
                 </NavigationMenuList>
               </NavigationMenu>
+              )}
             </nav>
 
             {/* Right — language flip + single CTA */}
@@ -350,6 +385,22 @@ export function Header() {
             </div>
 
             <nav className="p-4">
+              {isAr ? (
+                <div className="space-y-0.5">
+                  {arNav.map(({ label, href }) => (
+                    <Link
+                      key={href}
+                      href={href}
+                      onClick={closeMobile}
+                      className="flex items-center justify-between px-3 py-3 rounded-xl hover:bg-wash transition-colors"
+                    >
+                      <span className="text-sm font-medium text-ink-body">{label}</span>
+                      <ChevronRight className="h-4 w-4 text-slate-faint rtl:rotate-180" />
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+              <>
               {/* ServiceNow */}
               <div className="mb-6">
                 <ColumnLabel>ServiceNow</ColumnLabel>
@@ -420,7 +471,10 @@ export function Header() {
                   {companyItems.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
                 </div>
               </div>
+              </>
+              )}
 
+              {/* Shared foot — the CTA and language flip appear in both locales */}
               <div className="mt-4 pt-4 border-t border-hairline-soft space-y-3">
                 <Link href={t.getStarted} onClick={closeMobile}
                   className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">

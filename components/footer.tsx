@@ -50,6 +50,12 @@ const arFooterLinks: Record<string, { label: string; href: string }[]> = {
     { label: ar.nav.howWeEngage, href: "/ar/engage" },
     { label: ar.nav.contact, href: "/ar/contactus" },
   ],
+  // Labels translate; the pages themselves are English-only.
+  [ar.footer.legal]: [
+    { label: ar.footer.privacy, href: "/privacy" },
+    { label: ar.footer.terms, href: "/terms" },
+    { label: ar.footer.cookies, href: "/cookies" },
+  ],
 };
 
 // Mirrors the three practices in the header. ServiceNow first as the
@@ -91,6 +97,14 @@ const footerLinks = {
     { label: "All Industries", href: "/industries" },
   ],
   Company: companyItems.map(({ title, href }) => ({ label: title, href })),
+  // Legal gets a real column. These also sit in the bottom bar, but that row
+  // is small, faint and below a very long footer — findable only if you
+  // already know it is there, which for a legal link is the same as missing.
+  Legal: [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms", href: "/terms" },
+    { label: "Cookies", href: "/cookies" },
+  ],
 };
 
 export function Footer() {
@@ -184,7 +198,7 @@ export function Footer() {
         </div>
 
         {/* Middle — links */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-8 gap-y-10 py-14 border-b border-onink-line">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-x-8 gap-y-10 py-14 border-b border-onink-line">
           {Object.entries(links).map(([section, items]) => (
             <div key={section}>
               <h4 className="text-white font-semibold text-sm mb-5">{section}</h4>
@@ -263,7 +277,7 @@ export function Footer() {
               { label: isAr ? ar.footer.terms : "Terms", href: "/terms" },
               { label: isAr ? ar.footer.cookies : "Cookies", href: "/cookies" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-onink-faint hover:text-onink text-xs transition-colors">{label}</Link>
+              <Link key={label} href={href} className="text-onink-muted hover:text-onink text-[13px] transition-colors">{label}</Link>
             ))}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
