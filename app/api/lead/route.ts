@@ -18,6 +18,16 @@ import { NextResponse } from 'next/server';
  * Delivery is a CASCADE, not either/or: Resend first when configured, then
  * FormSubmit. A misconfigured Resend key used to mean the lead was lost even
  * though FormSubmit was working fine.
+ *
+ * ⚠ FORMSUBMIT DOES NOT WORK FROM VERCEL — and cannot be made to.
+ *   It sits behind Cloudflare, which serves datacenter egress a bot challenge:
+ *     HTTP 403  <title>Just a moment...</title>
+ *   The identical request succeeds from a residential IP, which is why this
+ *   looks like a code bug when tested locally and is not one. Solving the
+ *   challenge is neither possible nor appropriate here.
+ *   => RESEND_API_KEY is the only working delivery path in production.
+ *   The FormSubmit branch is kept only because it still works on hosts whose
+ *   egress Cloudflare does not challenge.
  */
 
 const LEAD_EMAIL = process.env.LEAD_EMAIL || 'connect@ifbash.com';
@@ -83,7 +93,19 @@ async function sendViaFormSubmit(origin: string, subject: string, fields: Record
     body: JSON.stringify({ _subject: subject, ...fields }),
   });
 
-  if (!res.ok) throw new Error(`FormSubmit HTTP ${res.status}`);
+  if (!res.ok) {
+    const body = (await res.text()).slice(0, 120);
+    // Name the Cloudflare challenge explicitly — otherwise the log just shows
+    // a 403 and the next person re-debugs headers for an hour.
+    if (/just a moment|cf-browser-verification|challenge-platform/i.test(body)) {
+      throw new Error(
+        'FormSubmit is behind Cloudflare and challenged this datacenter IP ' +
+          '(HTTP 403 "Just a moment..."). It cannot be used server-side from ' +
+          'Vercel. Set RESEND_API_KEY.',
+      );
+    }
+    throw new Error(`FormSubmit HTTP ${res.status}: ${body}`);
+  }
 
   const payload = (await res.json().catch(() => null)) as
     | { success?: string | boolean; message?: string }
