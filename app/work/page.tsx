@@ -129,7 +129,7 @@ export default function WorkPage() {
           {items.map(({ kind, icon: Icon, title, what, built, href, cta }) => (
             <div
               key={title}
-              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]"
+              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">

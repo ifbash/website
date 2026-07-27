@@ -4,6 +4,7 @@ import { Container } from './container';
 import { Eyebrow } from './eyebrow';
 import { DisplayHeading, Accented } from './display-heading';
 import { PillLink } from './pill-button';
+import { CircleMark } from '@/components/hand-drawn';
 
 export type HeroCta = { label: string; href: string };
 
@@ -36,7 +37,7 @@ export function PageHero({
     <section className="relative overflow-hidden bg-paper">
       <div
         className="absolute top-[-200px] right-[-120px] w-[620px] h-[620px] rounded-full pointer-events-none opacity-[0.22]"
-        style={{ background: 'radial-gradient(circle, #A6DCE5, transparent 65%)' }}
+        style={{ background: 'radial-gradient(circle, #C7D2FE, transparent 65%)' }}
       />
 
       <Container className="relative z-10 py-16 lg:py-24">
@@ -62,7 +63,12 @@ export function PageHero({
             {accent && (
               <>
                 <br />
-                <Accented>{accent}</Accented>
+                <span className="relative inline-block">
+                  <Accented>{accent}</Accented>
+                  {/* Highlighter circle — the crafted marker, in amber so it
+                      reads as a hand annotation, not a UI element. */}
+                  <CircleMark className="pointer-events-none absolute -inset-x-4 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+2rem)] text-marker/80" />
+                </span>
               </>
             )}
           </DisplayHeading>

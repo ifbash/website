@@ -70,13 +70,20 @@ export function Accented({
   accent?: 'navy' | 'mulberry';
   children: React.ReactNode;
 }) {
-  const color =
+  // On light surfaces the accent is a gradient — indigo melting into azure —
+  // which carries the "platform + AI layer" story in a single phrase and is
+  // far richer than one flat hue. On ink bands the soft solids stay (a
+  // gradient text fill over a dark photo-free band adds nothing).
+  if (onInk) {
+    return <span className={accent === 'mulberry' ? 'text-sky-soft' : 'text-sea-soft'}>{children}</span>;
+  }
+  const gradient =
     accent === 'mulberry'
-      ? onInk
-        ? 'text-sky-soft'
-        : 'text-sky'
-      : onInk
-        ? 'text-sea-soft'
-        : 'text-sea';
-  return <span className={color}>{children}</span>;
+      ? 'from-sky to-sky-mid'
+      : 'from-sea to-sky';
+  return (
+    <span className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
+      {children}
+    </span>
+  );
 }

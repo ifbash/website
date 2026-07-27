@@ -23,6 +23,15 @@ const nextConfig = {
   //   connect/img/font     an injected script cannot phone home anywhere new
   // Adding nonce middleware is the next step whenever it is worth the tradeoff.
   async headers() {
+    // Dev mode gets NO security headers. The strict production CSP below breaks
+    // `next dev`: webpack's dev runtime needs eval ('unsafe-eval'), HMR needs a
+    // ws:// connection, and `upgrade-insecure-requests` can force http://localhost
+    // subresources onto https://, which fails outright — blank page, dead menus.
+    // CSP protects real users in production; on localhost it only breaks tooling.
+    if (process.env.NODE_ENV !== 'production') {
+      return [];
+    }
+
     const csp = [
       "default-src 'self'",
       "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",

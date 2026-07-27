@@ -12,21 +12,10 @@ type Entry = {
   url: string;
   priority: number;
   changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
-  /** Articles carry their own edit date; everything else uses the build time. */
   lastModified?: Date;
 };
 
-/**
- * hreflang for any URL that exists in both languages.
- *
- * Declared here rather than per-page: Google treats sitemap alternates as
- * equivalent to <link rel="alternate">, and keeping it in one place means the
- * English and Arabic sides can't end up pointing at each other inconsistently.
- * Both members of a pair must list the same set, including x-default.
- */
 function languagesFor(urlPath: string) {
-  // While Arabic is unreviewed it is noindexed, so advertising it here would
-  // contradict the page's own robots directive. See lib/i18n/config.ts.
   if (!AR_REVIEWED) return undefined;
   const pair = ROUTE_PAIRS.find((p) => p.en === urlPath || p.ar === urlPath);
   if (!pair) return undefined;
@@ -50,23 +39,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/work", priority: 0.9, changeFrequency: "monthly" },
     { url: "/engage", priority: 0.8, changeFrequency: "monthly" },
     { url: "/agent", priority: 0.9, changeFrequency: "monthly" },
+    { url: "/trust", priority: 0.8, changeFrequency: "monthly" },
   ];
 
-  // The three practices sit at equal priority — the site no longer treats
-  // ServiceNow as the only thing worth ranking for.
   const services: Entry[] = [
-    // ServiceNow
     { url: "/services/servicenow-implementation", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/ai-automation", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/crm-customer-experience", priority: 0.8, changeFrequency: "monthly" },
     { url: "/services/managed-services-support", priority: 0.8, changeFrequency: "monthly" },
     { url: "/services/custom-apps", priority: 0.8, changeFrequency: "monthly" },
     { url: "/services/digital-transformation", priority: 0.8, changeFrequency: "monthly" },
-    // AI & Agents
     { url: "/services/ai-agents", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/voice-agents", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/claude-ai-engineering", priority: 0.9, changeFrequency: "monthly" },
-    // Web & Mobile
     { url: "/services/website-development", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/mobile-app-development", priority: 0.9, changeFrequency: "monthly" },
     { url: "/services/web-mobile-development", priority: 0.8, changeFrequency: "monthly" },
@@ -85,8 +70,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: "/cookies", priority: 0.3, changeFrequency: "yearly" },
   ];
 
-  // Generated from the data files so the sitemap can never drift from the
-  // routes that actually exist.
   const industries: Entry[] = industrySlugs.map((s) => ({
     url: `/industries/${s}`,
     priority: 0.7,
@@ -99,8 +82,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
   }));
 
-  // Articles report their own edit date so crawlers see genuine freshness
-  // rather than every URL appearing to change on each deploy.
   const posts = getAllInsights();
   const insights: Entry[] = [
     ...(posts.length
@@ -114,10 +95,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   ];
 
-  // Arabic pages, generated from the same pairing that drives the header
-  // toggle and the hreflang tags, so the three can never disagree.
-  // Omitted entirely while unreviewed — submitting noindexed URLs in a sitemap
-  // is a contradiction search engines flag. Restored by flipping AR_REVIEWED.
   const arabic: Entry[] = AR_REVIEWED
     ? ROUTE_PAIRS.map((p) => ({
         url: p.ar,

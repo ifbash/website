@@ -28,7 +28,7 @@ export default function Error({
         <div className="flex flex-wrap justify-center items-center gap-5">
           <button
             onClick={() => reset()}
-            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-ink text-paper shadow-[0_8px_24px_rgba(11,20,23,0.18)] transition-all duration-200 hover:bg-sea hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full px-7 py-3.5 text-[15px] font-semibold bg-ink text-paper shadow-[0_8px_24px_rgba(14,17,32,0.18)] transition-all duration-200 hover:bg-sea hover:-translate-y-0.5"
           >
             Try again
           </button>

@@ -28,6 +28,11 @@ yarn-error.log*
 .env
 .env*.local
 
+# Local npm config. The .npmrc in this working copy pins script-shell to a
+# Windows cmd.exe path to work around a missing ComSpec on this machine.
+# Committing it would break `npm run build` on Linux CI and on Vercel.
+.npmrc
+
 # vercel
 .vercel
 
@@ -44,3 +49,9 @@ graphify-out/
 # repo; kept ignored so a stray copy or rebuild cannot land them here again.
 public/app/
 public/agent/
+
+# Internal working documents — this repo (ifbash/website) is PUBLIC.
+# Self-critique and rejected design exploration don't belong in a public
+# history. The finished brand/ kit and shipped site changes still commit.
+/ifbash-website-review.md
+/brand-proposal/

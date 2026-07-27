@@ -3,6 +3,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, PhaseGrid, FaqSection,
   CtaBand, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, HowToSchema } from '@/components/seo-schemas';
 
 const models = [
   {
@@ -91,6 +92,17 @@ const faqs: Faq[] = [
 export default function EngagePage() {
   return (
     <>
+      <BreadcrumbSchema items={[{ label: 'How We Engage', href: '/engage' }]} />
+      <HowToSchema
+        name="How to start a project with ifBash"
+        description="Four steps from first contact to a working engagement: get in touch, scoping call, written plan, and start."
+        steps={[
+          { name: 'Get in touch', text: 'Reach out via form, email, or our AI agent. No qualification gauntlet before a human replies.' },
+          { name: 'Scoping call', text: 'Senior consultants (not salespeople) walk through your situation and ask the hard questions.' },
+          { name: 'Written plan', text: 'You receive a concrete approach, sequence, team, and estimate — in writing, within two working days.' },
+          { name: 'Start', text: 'Discovery sprint, fixed-scope build, or retainer — with repository and demo access from week one.' },
+        ]}
+      />
       <PageHero
         eyebrow="How we engage"
         headline="Three ways in."
@@ -113,7 +125,7 @@ export default function EngagePage() {
           {models.map(({ icon: Icon, name, when, desc, includes, price }) => (
             <div
               key={name}
-              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]"
+              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
             >
               <div className="w-11 h-11 rounded-xl bg-sea-tint flex items-center justify-center mb-5">
                 <Icon className="h-5 w-5 text-sea" />

@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/navigation-menu";
 import { Menu, ChevronRight, X, ArrowRight } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import Image from "next/image";
 import { LanguageToggle } from "@/components/language-toggle";
 import { usePathname } from "next/navigation";
@@ -23,8 +22,8 @@ import {
 const DROP = {
   background: "rgba(255,255,255,0.99)",
   backdropFilter: "blur(20px)",
-  border: "1px solid #CBE1E9",
-  boxShadow: "0 24px 64px rgba(11,20,23,0.10), 0 8px 16px rgba(11,20,23,0.04)",
+  border: "1px solid #D8DBEC",
+  boxShadow: "0 24px 64px rgba(14,17,32,0.10), 0 8px 16px rgba(14,17,32,0.04)",
 };
 
 const TRIGGER_CLS =
@@ -67,7 +66,7 @@ const MenuFooter = ({ note, links }: { note: string; links: { label: string; hre
   </div>
 );
 
-// ─── Mobile nav link ────────────────────────────────────────────────
+// ─── Mobile nav link (kept for reuse) ───────────────────────────────
 const MobileLink = ({ href, title, icon: Icon, onClick }: NavItem & { onClick: () => void }) => (
   <Link href={href} onClick={onClick} className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-wash transition-all group">
     <div className="w-8 h-8 rounded-lg bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">
@@ -80,15 +79,6 @@ const MobileLink = ({ href, title, icon: Icon, onClick }: NavItem & { onClick: (
 
 /**
  * Arabic navigation.
- *
- * The English header is five mega-menus over ~40 destinations, only 12 of
- * which exist in Arabic. Translating the labels alone would have been worse
- * than leaving it: an Arabic reader would tap an Arabic word and land on an
- * English page. So /ar gets flat direct links instead of mega-menus, covering
- * exactly the pages that are actually translated.
- *
- * Same rule as the footer: this list mirrors ROUTE_PAIRS in lib/i18n/config.ts.
- * Translate a new page -> add the pair there, then add the line here.
  */
 const arNav: { label: string; href: string }[] = [
   { label: ar.nav.services, href: '/ar/services' },
@@ -98,15 +88,30 @@ const arNav: { label: string; href: string }[] = [
   { label: ar.nav.contact, href: '/ar/contactus' },
 ];
 
+// ─── Simplified mobile nav destinations ─────────────────────────────
+const mobileTopLinks = [
+  { label: 'Services', href: '/services', note: 'ServiceNow, AI & Agents, Web & Mobile' },
+  { label: 'Our Work', href: '/work', note: 'Live demos & what we\'ve built' },
+  { label: 'How We Engage', href: '/engage', note: 'Discovery, builds, retainers' },
+  { label: 'About Us', href: '/company/about-us', note: 'Who we are & how we work' },
+  { label: 'Trust & Security', href: '/trust', note: 'Compliance, data handling, subprocessors' },
+];
+
+const mobileExploreLinks = [
+  { label: 'Portfolio', href: '/portfolio' },
+  { label: 'Industries', href: '/industries' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'Careers', href: '/company/careers-servicenow-jobs' },
+  { label: 'Contact', href: '/contactus' },
+  { label: 'Privacy', href: '/privacy' },
+];
+
 // ─── Component ──────────────────────────────────────────────────────
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [activeProductCat, setActiveProductCat] = useState(0);
 
-  // Top-level chrome follows the route's language. The mega-menu contents stay
-  // English for now — the Arabic surface is the 12 core pages, and pointing
-  // Arabic labels at untranslated destinations would be worse than leaving them.
   const pathname = usePathname() || '/';
   const isAr = localeOf(pathname) === 'ar';
   const t = {
@@ -116,16 +121,11 @@ export function Header() {
     industries: isAr ? ar.nav.industries : 'Industries',
     company: isAr ? ar.nav.company : 'Company',
     startProject: isAr ? ar.nav.startProject : 'Start a project',
-    // Permanent chrome carries no promises or numbers. The 48-hour commitment
-    // and the no-handoffs point live at the moment of decision (the page CTA,
-    // /engage, /get-started) — repeating them in furniture on all 100 pages
-    // made both invisible and made the site read as machine-written.
     strip: isAr ? ar.meta.ctaStrip : 'ServiceNow, and the AI layer on top.',
     home: isAr ? '/ar' : '/',
     getStarted: isAr ? '/ar/get-started' : '/get-started',
   };
 
-  // The strip above the header. Arabic points at the translated service pages.
   const practiceStrip = isAr
     ? [
         { label: ar.nav.servicenow, href: '/ar/services' },
@@ -148,12 +148,12 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-300",
           isScrolled
-            ? "bg-paper/95 backdrop-blur-md shadow-[0_4px_24px_rgba(11,20,23,0.05)] border-b border-hairline"
+            ? "bg-paper/95 backdrop-blur-md shadow-[0_4px_24px_rgba(14,17,32,0.05)] border-b border-hairline"
             : "bg-paper border-b border-hairline/60",
         )}
         role="banner"
       >
-        {/* ── Practice strip — the whole offer, before any menu is opened ── */}
+        {/* ── Practice strip ── */}
         <div
           className={cn(
             "hidden sm:block overflow-hidden border-b border-hairline-soft transition-all duration-300",
@@ -186,7 +186,7 @@ export function Header() {
 
             {/* Logo */}
             <Link href={t.home} className="flex items-center shrink-0 group" aria-label="ifBash — Home">
-              <Image src="/images/logo.png" alt="ifBash" width={160} height={34} className="object-contain transition-opacity group-hover:opacity-90" priority style={{ width: '160px', height: '34px' }} />
+              <Image src="/images/logo.png" alt="ifBash" width={160} height={34} className="object-contain transition-opacity group-hover:opacity-90 drop-shadow-[0_1px_10px_rgba(79,70,229,0.28)]" priority style={{ width: '160px', height: '34px' }} />
             </Link>
 
             {/* Desktop nav */}
@@ -208,14 +208,13 @@ export function Header() {
               <NavigationMenu className="flex items-center">
                 <NavigationMenuList className="flex items-center gap-2">
 
-                  {/* ServiceNow — services + the product portfolio */}
+                  {/* ServiceNow */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger className={TRIGGER_CLS}>{t.servicenow}</NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="fixed left-0 right-0 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div className="w-full rounded-2xl overflow-hidden" style={DROP}>
                           <div className="flex" style={{ minHeight: '400px' }}>
-                            {/* Services rail */}
                             <div className="w-64 border-r border-hairline-soft p-4 shrink-0 flex flex-col bg-paper/60">
                               <ColumnLabel>Services</ColumnLabel>
                               <div className="space-y-0.5">
@@ -225,8 +224,6 @@ export function Header() {
                                 All services →
                               </Link>
                             </div>
-
-                            {/* Products */}
                             <div className="flex-1 flex min-w-0">
                               <div className="w-52 border-r border-hairline-soft p-3 space-y-0.5 shrink-0 flex flex-col">
                                 <div className="px-3 pt-1 mb-3">
@@ -359,7 +356,7 @@ export function Header() {
               <LanguageToggle className="hidden md:inline-flex" />
 
               <Link href={t.getStarted}
-                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-sea text-white shadow-[0_4px_18px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:shadow-[0_8px_24px_rgba(0,112,124,0.42)] hover:-translate-y-0.5 transition-all duration-200">
+                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-sea text-white shadow-[0_4px_18px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:shadow-[0_8px_24px_rgba(67,56,202,0.42)] hover:-translate-y-0.5 transition-all duration-200">
                 {t.startProject}
               </Link>
 
@@ -371,7 +368,7 @@ export function Header() {
         </div>
       </header>
 
-      {/* ── Mobile menu overlay ── */}
+      {/* ── Mobile menu overlay (SIMPLIFIED) ── */}
       {isMobileOpen && (
         <div className="fixed inset-0 z-[100] lg:hidden">
           <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" onClick={closeMobile} />
@@ -400,84 +397,66 @@ export function Header() {
                   ))}
                 </div>
               ) : (
-              <>
-              {/* ServiceNow */}
-              <div className="mb-6">
-                <ColumnLabel>ServiceNow</ColumnLabel>
-                <div className="space-y-0.5">
-                  {servicenowServices.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
-                </div>
-              </div>
-
-              {/* AI & Agents */}
-              <div className="mb-6">
-                <ColumnLabel>AI &amp; Agents</ColumnLabel>
-                <div className="space-y-0.5">
-                  {aiAgentsItems.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
-                </div>
-              </div>
-
-              {/* Web & Mobile */}
-              <div className="mb-6">
-                <ColumnLabel>Web &amp; Mobile</ColumnLabel>
-                <div className="space-y-0.5">
-                  {webMobileItems.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
-                  {workItems.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
-                </div>
-              </div>
-
-              {/* Products */}
-              <div className="mb-6">
-                <ColumnLabel>ServiceNow Products</ColumnLabel>
-                <Accordion type="single" collapsible className="w-full">
-                  {portfolioCategories.map((cat, ci) => (
-                    <AccordionItem key={cat.label} value={`p-${ci}`} className="border-hairline-soft">
-                      <AccordionTrigger className="text-sm font-medium text-slate hover:text-sea py-2.5 px-2 hover:no-underline">
-                        {cat.label}
-                      </AccordionTrigger>
-                      <AccordionContent>
-                        <div className="space-y-0.5 pl-2 pb-1">
-                          {cat.items.map(item => (
-                            <Link key={item.title} href={`/portfolio/${slug(item.title)}`} onClick={closeMobile}
-                              className="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-wash transition-colors">
-                              <item.icon className="h-3.5 w-3.5 text-sea shrink-0" />
-                              <span className="text-sm text-slate">{item.title}</span>
-                            </Link>
-                          ))}
+                <>
+                  {/* Top destinations */}
+                  <div className="space-y-1 mb-6">
+                    {mobileTopLinks.map(({ label, href, note }) => (
+                      <Link
+                        key={href}
+                        href={href}
+                        onClick={closeMobile}
+                        className="flex items-center justify-between px-3 py-3.5 rounded-xl hover:bg-wash transition-colors group"
+                      >
+                        <div className="min-w-0">
+                          <span className="block text-sm font-semibold text-ink-body group-hover:text-sea transition-colors">{label}</span>
+                          <span className="block text-[11px] text-slate-light mt-0.5">{note}</span>
                         </div>
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
+                        <ChevronRight className="h-4 w-4 text-slate-faint group-hover:text-sea shrink-0" />
+                      </Link>
+                    ))}
+                  </div>
 
-              {/* Industries */}
-              <div className="mb-6">
-                <ColumnLabel>Industries</ColumnLabel>
-                <div className="grid grid-cols-2 gap-0.5">
-                  {industryItems.map(item => (
-                    <Link key={item.title} href={item.href} onClick={closeMobile} className="flex items-center gap-2 px-3 py-2.5 rounded-xl hover:bg-wash transition-all">
-                      <item.icon className="h-4 w-4 text-sea shrink-0" />
-                      <span className="text-sm text-slate">{item.title}</span>
+                  {/* Quick actions */}
+                  <div className="grid grid-cols-2 gap-2 mb-6">
+                    <Link
+                      href="/agent"
+                      onClick={closeMobile}
+                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl border border-hairline bg-surface text-sm font-semibold text-ink-body hover:border-sea-soft hover:text-sea transition-all"
+                    >
+                      Talk to our agent
                     </Link>
-                  ))}
-                </div>
-              </div>
+                    <Link
+                      href="/get-started"
+                      onClick={closeMobile}
+                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sea text-white text-sm font-semibold shadow-[0_4px_16px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all"
+                    >
+                      Start a project <ArrowRight className="h-3.5 w-3.5" />
+                    </Link>
+                  </div>
 
-              {/* Company */}
-              <div className="mb-6">
-                <ColumnLabel>Company</ColumnLabel>
-                <div className="space-y-0.5">
-                  {companyItems.map(item => <MobileLink key={item.title} {...item} onClick={closeMobile} />)}
-                </div>
-              </div>
-              </>
+                  {/* Explore links */}
+                  <div className="border-t border-hairline-soft pt-4">
+                    <div className="text-[11px] font-semibold uppercase tracking-widest text-slate-light mb-2 px-1">Explore</div>
+                    <div className="grid grid-cols-2 gap-1">
+                      {mobileExploreLinks.map(({ label, href }) => (
+                        <Link
+                          key={href}
+                          href={href}
+                          onClick={closeMobile}
+                          className="px-3 py-2 rounded-lg text-sm text-slate hover:text-sea hover:bg-wash transition-colors"
+                        >
+                          {label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </>
               )}
 
-              {/* Shared foot — the CTA and language flip appear in both locales */}
-              <div className="mt-4 pt-4 border-t border-hairline-soft space-y-3">
+              {/* Footer */}
+              <div className="mt-6 pt-4 border-t border-hairline-soft space-y-3">
                 <Link href={t.getStarted} onClick={closeMobile}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(0,112,124,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">
                   {t.startProject} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <LanguageToggle className="w-full justify-center h-11" />

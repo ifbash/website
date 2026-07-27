@@ -2,13 +2,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scroll-animation';
-import { ArrowRight, ArrowDown } from 'lucide-react';
+import { ArrowRight, ArrowDown, Settings, Bot, Globe } from 'lucide-react';
 import Link from 'next/link';
 import { HeroShowcase } from '@/components/hero-showcase';
 import { VoiceHero } from '@/components/voice-hero';
+import { HeroBackground } from '@/components/hero-background';
+import { ProcessSteps } from '@/components/process-steps';
+import { Scribble, CircleMark, SquiggleArrow, MarginNote } from '@/components/hand-drawn';
 import {
-  Section, Container, Eyebrow, DisplayHeading, Accented, PillLink, ProofBand, CtaBand,
+  Section, Container, DisplayHeading, Accented, PillLink, ProofBand, CtaBand,
 } from '@/components/site';
+
+const pillarIcons: Record<string, React.ElementType> = {
+  ServiceNow: Settings,
+  'AI & Agents': Bot,
+  'Web & Mobile': Globe,
+};
 
 // The three practices, ServiceNow first as the proven one. Each pillar
 // links only to pages that exist — no aspirational nav.
@@ -96,10 +105,7 @@ export default function Page() {
 
       {/* ── 1 · HERO — the agent speaks ── */}
       <section className="relative overflow-hidden bg-paper">
-        <div
-          className="absolute top-[-200px] right-[-100px] w-[600px] h-[600px] rounded-full pointer-events-none opacity-[0.28]"
-          style={{ background: 'radial-gradient(circle, #A6DCE5, transparent 65%)' }}
-        />
+        <HeroBackground />
 
         <Container className="relative z-10 py-16 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-14 lg:gap-10 items-center min-h-[64vh]">
@@ -109,16 +115,16 @@ export default function Page() {
               <motion.h1
                 {...fadeUp(0)}
                 className="font-display leading-[1.06] mb-7 text-ink"
-                // Matches the `xl` step in components/site/display-heading.tsx.
-                // The old value was shrunk to accommodate a too-wide display
-                // serif; the grotesk sets narrower, so the scale came back up.
                 style={{ fontSize: 'clamp(2.5rem, 5.6vw, 4.25rem)', letterSpacing: '-0.030em' }}
               >
                 We build ServiceNow.
                 <br />
                 Then we build the
                 <br />
-                <span className="text-sea">AI layer on top.</span>
+                <span className="relative inline-block text-sea">
+                  AI layer on top.
+                  <CircleMark className="pointer-events-none absolute -inset-x-4 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+2rem)] text-marker/80" />
+                </span>
               </motion.h1>
               <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-slate">
                 Implementation and managed services are the practice that pays the bills. The
@@ -153,9 +159,12 @@ export default function Page() {
       {/* ── 2 · THE WORK — demo reel ── */}
       <Section id="work" tone="surface" divide innerClassName="max-w-5xl">
         <ScrollAnimation className="text-center mb-12">
-          <Eyebrow centered className="mb-4">The work</Eyebrow>
           <DisplayHeading as="h2" size="md" className="mb-4">
-            See it. Don&apos;t read it.
+            <span className="relative inline-block">
+              See it.
+              <Scribble className="pointer-events-none absolute -bottom-3 left-0 h-4 w-full text-marker/80" />
+            </span>{' '}
+            Don&apos;t read it.
           </DisplayHeading>
           <p className="text-base max-w-lg mx-auto text-slate">
             A service desk that resolves itself. Agents that talk. Apps and websites that ship.
@@ -170,7 +179,6 @@ export default function Page() {
       {/* ── 3 · THE THREE PRACTICES ── */}
       <Section tone="paper">
         <ScrollAnimation className="mb-12 max-w-2xl">
-          <Eyebrow className="mb-4">What we do</Eyebrow>
           <DisplayHeading as="h2" size="md" className="mb-4">
             One platform practice. <Accented>An AI layer on top of it.</Accented>
           </DisplayHeading>
@@ -178,45 +186,103 @@ export default function Page() {
             ServiceNow is where most of our delivery happens today. AI agents and product
             engineering are where we&apos;re growing — and this site is built with both.
           </p>
+          <div className="mt-5 flex items-center gap-3">
+            <SquiggleArrow className="h-8 w-14 text-slate-faint" />
+            <MarginNote className="text-sm text-slate">three practices, one team</MarginNote>
+          </div>
         </ScrollAnimation>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {pillars.map(({ label, note, desc, links, href }) => (
-            <ScrollAnimation key={label} className="h-full">
-              <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)]">
-                <div className="flex items-baseline justify-between gap-3 mb-3">
-                  <h3 className="font-display text-2xl text-ink">{label}</h3>
-                  <span className="text-[11px] font-semibold tracking-wide uppercase text-sea text-right">
-                    {note}
-                  </span>
+          {pillars.map(({ label, note, desc, links, href }) => {
+            const Icon = pillarIcons[label];
+            return (
+              <ScrollAnimation key={label} className="h-full">
+                <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="w-10 h-10 rounded-xl bg-sea-tint flex items-center justify-center shrink-0 group-hover:bg-sea-strong transition-colors">
+                      {Icon && <Icon className="h-5 w-5 text-sea" />}
+                    </div>
+                    <span className="text-[11px] font-semibold tracking-wide uppercase text-sea text-right">
+                      {note}
+                    </span>
+                  </div>
+                  <h3 className="font-display text-2xl text-ink mb-3">{label}</h3>
+                  <p className="text-[15px] leading-relaxed text-slate mb-6">{desc}</p>
+
+                  <ul className="space-y-2.5 mb-6">
+                    {links.map(({ label: l, href: h }) => (
+                      <li key={h}>
+                        <Link
+                          href={h}
+                          className="group/link inline-flex items-center gap-2 text-sm font-medium text-ink-body hover:text-sea transition-colors"
+                        >
+                          <span className="h-1 w-1 rounded-full bg-sea shrink-0" />
+                          <span className="underline-offset-4 group-hover/link:underline">{l}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <Link
+                    href={href}
+                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
+                  >
+                    Explore {label}
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
                 </div>
-                <p className="text-[15px] leading-relaxed text-slate mb-6">{desc}</p>
-
-                <ul className="space-y-2.5 mb-6">
-                  {links.map(({ label: l, href: h }) => (
-                    <li key={h}>
-                      <Link
-                        href={h}
-                        className="group/link inline-flex items-center gap-2 text-sm font-medium text-ink-body hover:text-sea transition-colors"
-                      >
-                        <span className="h-1 w-1 rounded-full bg-sea shrink-0" />
-                        <span className="underline-offset-4 group-hover/link:underline">{l}</span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  href={href}
-                  className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
-                >
-                  Explore {label}
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </ScrollAnimation>
-          ))}
+              </ScrollAnimation>
+            );
+          })}
         </div>
+      </Section>
+
+      {/* ── 3b · HOW WE WORK ── */}
+      <Section tone="wash" divide>
+        <ScrollAnimation className="mb-12 max-w-2xl">
+          <DisplayHeading as="h2" size="md" className="mb-4">
+            From first message to{' '}
+            <Accented>
+              production in{' '}
+              <span className="relative inline-block whitespace-nowrap">
+                four steps.
+                <CircleMark className="pointer-events-none absolute -inset-x-3 -inset-y-1 h-[calc(100%+0.5rem)] w-[calc(100%+1.5rem)] text-marker/80" />
+              </span>
+            </Accented>
+          </DisplayHeading>
+          <p className="text-base text-slate">
+            No procurement maze. No bait-and-switch. Just a clear plan, transparent builds, and a team that ships.
+          </p>
+        </ScrollAnimation>
+        <ScrollAnimation>
+          <ProcessSteps />
+        </ScrollAnimation>
+      </Section>
+
+      {/* ── 3c · THE STATEMENT — one editorial moment, no card grid ── */}
+      <Section tone="paper" pad="loose">
+        <ScrollAnimation className="max-w-4xl mx-auto text-center">
+          <h2
+            className="font-display text-ink leading-[1.12]"
+            style={{ fontSize: 'clamp(2.3rem, 5.8vw, 4.4rem)', letterSpacing: '-0.028em' }}
+          >
+            Yes —{' '}
+            <span className="relative inline-block whitespace-nowrap">
+              AI helped
+              <CircleMark className="pointer-events-none absolute -inset-x-4 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+2rem)] text-marker/80" />
+            </span>{' '}
+            build this site.
+          </h2>
+          <p className="mt-7 text-lg leading-relaxed text-slate max-w-2xl mx-auto">
+            That&apos;s the point. We build with the same tools we put in your hands —
+            the craft is in the judgment, the guardrails, and the engineers who stay
+            past go-live.
+          </p>
+          <div className="mt-9 flex items-center justify-center gap-3">
+            <SquiggleArrow className="h-10 w-16 -scale-y-100 text-slate-faint" />
+            <MarginNote className="text-sm text-slate">the page you&apos;re on included</MarginNote>
+          </div>
+        </ScrollAnimation>
       </Section>
 
       {/* ── 4 · PROOF — dark band ── */}

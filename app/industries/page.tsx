@@ -50,7 +50,7 @@ export default function IndustriesIndexPage() {
             <Link
               key={href}
               href={href}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-6 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(11,20,23,0.06)] hover:-translate-y-0.5"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-6 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)] hover:-translate-y-0.5"
             >
               <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-4 transition-colors">
                 <Icon className="h-5 w-5 text-sea" />

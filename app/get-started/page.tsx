@@ -6,8 +6,9 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import {
-  ArrowRight, CheckCircle, ChevronDown, Clock, Shield, Users, Zap, Loader2, Mail,
+  ArrowRight, CheckCircle, ChevronDown, Clock, Shield, Users, Zap, Loader2, Mail, CalendarDays,
 } from 'lucide-react';
+import { CalendarBooking } from '@/components/calendar-booking';
 
 const formSchema = z.object({
   name: z.string().min(2, 'Please enter your name'),
@@ -17,6 +18,8 @@ const formSchema = z.object({
   serviceInterest: z.string().min(1, 'Pick the area closest to your need'),
   message: z.string().optional(),
   website: z.string().optional(), // honeypot
+  preferredCallDate: z.string().optional(),
+  preferredCallTime: z.string().optional(),
 });
 type FormValues = z.infer<typeof formSchema>;
 
@@ -35,15 +38,15 @@ const services = [
 const steps = [
   { icon: Mail, title: 'Tell us where you are', desc: 'Share your goals, your current ServiceNow state (or lack of one), and what success looks like.' },
   { icon: Clock, title: 'Scoping call within two working days', desc: 'A senior consultant — not a salesperson — walks through your situation and asks the hard questions.' },
-  { icon: CheckCircle, title: 'A concrete plan', desc: 'You get a clear approach, timeline, and team shape. Use it with us or without us — it’s yours.' },
+  { icon: CheckCircle, title: 'A concrete plan', desc: 'You get a clear approach, timeline, and team shape. Use it with us or without us — it\'s yours.' },
 ];
 
 const faqs = [
   { q: 'What happens after I submit this form?', a: 'A senior consultant reviews your message and replies within one business day to set up the scoping call. No automated drip campaigns, no sales pressure.' },
   { q: 'Is the scoping call really free?', a: 'Yes. You leave the call with a concrete view of approach, timeline, and effort — whether or not you work with us.' },
   { q: 'We already have ServiceNow. Can you take over or improve it?', a: 'Absolutely. A large share of our work is rescuing stalled implementations, untangling over-customised instances, and adding AI capabilities to existing platforms.' },
-  { q: 'How do you price engagements?', a: 'Each engagement is scoped individually — fixed-price for well-defined implementations, capacity-based for managed services. You’ll always know the number before we start.' },
-  { q: 'Can you work with our in-house team?', a: 'Yes — we prefer it. We build alongside your people and hand over documentation, tests, and knowledge so you’re not dependent on us forever.' },
+  { q: 'How do you price engagements?', a: 'Each engagement is scoped individually — fixed-price for well-defined implementations, capacity-based for managed services. You\'ll always know the number before we start.' },
+  { q: 'Can you work with our in-house team?', a: 'Yes — we prefer it. We build alongside your people and hand over documentation, tests, and knowledge so you\'re not dependent on us forever.' },
 ];
 
 const faqJsonLd = {
@@ -59,9 +62,16 @@ const faqJsonLd = {
 export default function GetStartedPage() {
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle');
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [bookedSlot, setBookedSlot] = useState<{ date: string; time: string } | null>(null);
+
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: '', email: '', company: '', companySize: '', serviceInterest: '', message: '', website: '' },
+    defaultValues: {
+      name: '', email: '', company: '', companySize: '',
+      serviceInterest: '', message: '', website: '',
+      preferredCallDate: '', preferredCallTime: '',
+    },
   });
 
   async function onSubmit(values: FormValues) {
@@ -79,6 +89,13 @@ export default function GetStartedPage() {
     }
   }
 
+  function handleSlotSelect(slot: { date: string; time: string }) {
+    setBookedSlot(slot);
+    form.setValue('preferredCallDate', slot.date);
+    form.setValue('preferredCallTime', slot.time);
+    setShowCalendar(false);
+  }
+
   const inputCls =
     'w-full bg-white/5 border border-white/10 focus:border-sea/60 rounded-xl px-4 py-3 text-sm text-onink placeholder:text-onink-faint outline-none transition-colors';
   const err = form.formState.errors;
@@ -87,11 +104,18 @@ export default function GetStartedPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
+      {showCalendar && (
+        <CalendarBooking
+          onSelect={handleSlotSelect}
+          onClose={() => setShowCalendar(false)}
+        />
+      )}
+
       {/* ── HERO + FORM ── */}
-      <section className="relative overflow-hidden" style={{ background: '#0B1417' }}>
-        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #79D8E2 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
-        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #00707C, transparent 65%)' }} />
-        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #00939F, transparent 65%)' }} />
+      <section className="relative overflow-hidden" style={{ background: '#0E1120' }}>
+        <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #A5B4FC 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+        <div className="absolute top-0 left-0 w-[700px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top left, #4338CA, transparent 65%)' }} />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[400px] opacity-[0.08]" style={{ background: 'radial-gradient(ellipse at bottom right, #4F46E5, transparent 65%)' }} />
 
         <div className="w-[95%] md:w-[90%] lg:w-[85%] xl:w-[80%] mx-auto relative z-10 py-20 lg:py-24">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
@@ -108,6 +132,17 @@ export default function GetStartedPage() {
               <p className="text-lg text-onink-muted leading-relaxed max-w-lg">
                 Tell us about your ServiceNow goals. Within two working days, a consultant walks you through exactly how we&apos;d approach it — no commitment, no sales pressure, just a clear plan.
               </p>
+
+              {/* Quick book CTA */}
+              <button
+                onClick={() => setShowCalendar(true)}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-sea/30 text-sea-soft text-sm font-semibold hover:bg-sea/10 transition-all hover:-translate-y-0.5"
+              >
+                <CalendarDays className="h-4 w-4" />
+                {bookedSlot
+                  ? `Booked: ${bookedSlot.date} at ${bookedSlot.time}`
+                  : 'Or book a call directly — skip the form'}
+              </button>
 
               <div className="space-y-5 pt-2">
                 {steps.map(({ icon: Icon, title, desc }, i) => (
@@ -143,6 +178,9 @@ export default function GetStartedPage() {
                   <h2 className="text-xl font-bold text-onink mb-2">Thanks — we&apos;ve got it.</h2>
                   <p className="text-onink-muted text-sm max-w-xs mx-auto mb-8">
                     A senior consultant will reach out within one business day to set up your scoping call.
+                    {bookedSlot && (
+                      <span className="block mt-2 text-sea-soft">Preferred: {bookedSlot.date} at {bookedSlot.time}</span>
+                    )}
                   </p>
                   <Link href="/" className="text-sea-soft hover:text-sea-soft text-sm font-semibold">
                     Back to home →
@@ -154,6 +192,8 @@ export default function GetStartedPage() {
                   <p className="text-xs text-onink-muted mb-4">Three fields required. The rest helps us prepare.</p>
 
                   <input type="text" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" {...form.register('website')} />
+                  <input type="hidden" {...form.register('preferredCallDate')} />
+                  <input type="hidden" {...form.register('preferredCallTime')} />
 
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -180,9 +220,9 @@ export default function GetStartedPage() {
                       className={`${inputCls} appearance-none ${form.watch('companySize') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('companySize')}
                     >
-                      <option value="" className="bg-[#0B1417]">Company size</option>
+                      <option value="" className="bg-[#0E1120]">Company size</option>
                       {['1–200', '200–1,000', '1,000–5,000', '5,000+'].map((s) => (
-                        <option key={s} value={s} className="bg-[#0B1417]">{s} employees</option>
+                        <option key={s} value={s} className="bg-[#0E1120]">{s} employees</option>
                       ))}
                     </select>
                   </div>
@@ -196,9 +236,9 @@ export default function GetStartedPage() {
                       className={`${inputCls} appearance-none ${form.watch('serviceInterest') ? 'text-onink' : 'text-onink-faint'}`}
                       {...form.register('serviceInterest')}
                     >
-                      <option value="" className="bg-[#0B1417]">What do you need? *</option>
+                      <option value="" className="bg-[#0E1120]">What do you need? *</option>
                       {services.map((s) => (
-                        <option key={s} value={s} className="bg-[#0B1417]">{s}</option>
+                        <option key={s} value={s} className="bg-[#0E1120]">{s}</option>
                       ))}
                     </select>
                     {err.serviceInterest && <p className="text-red-400 text-xs mt-1.5">{err.serviceInterest.message}</p>}
@@ -211,6 +251,14 @@ export default function GetStartedPage() {
                     {...form.register('message')}
                   />
 
+                  {bookedSlot && (
+                    <div className="flex items-center gap-2 text-sm text-sea-soft bg-sea/10 border border-sea/20 rounded-xl px-4 py-2.5">
+                      <CalendarDays className="h-4 w-4 shrink-0" />
+                      <span className="flex-1">Preferred call: {bookedSlot.date} at {bookedSlot.time}</span>
+                      <button type="button" onClick={() => { setBookedSlot(null); form.setValue('preferredCallDate', ''); form.setValue('preferredCallTime', ''); }} className="text-xs underline hover:text-sea">Change</button>
+                    </div>
+                  )}
+
                   {status === 'error' && (
                     <p className="text-red-400 text-xs">
                       Something went wrong. Please email us directly at{' '}
@@ -222,7 +270,7 @@ export default function GetStartedPage() {
                     type="submit"
                     disabled={status === 'sending'}
                     className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-onink text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                    style={{ background: 'linear-gradient(135deg, #00707C, #00939F)', boxShadow: '0 8px 32px rgba(0,112,124,0.35)' }}
+                    style={{ background: 'linear-gradient(135deg, #4338CA, #4F46E5)', boxShadow: '0 8px 32px rgba(67,56,202,0.35)' }}
                   >
                     {status === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Sending…</>) : (<>Request my scoping call <ArrowRight className="h-4 w-4" /></>)}
                   </button>

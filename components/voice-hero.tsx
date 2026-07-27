@@ -158,12 +158,12 @@ export function VoiceHero() {
       </button>
 
       <div className="mt-4 flex items-center gap-2">
-        <p className="text-sm font-medium" style={{ color: '#52696F' }}>{statusLabel[status]}</p>
+        <p className="text-sm font-medium" style={{ color: '#565C72' }}>{statusLabel[status]}</p>
         <button
           onClick={() => { setMuted(!muted); if (!muted) window.speechSynthesis?.cancel(); }}
           aria-label={muted ? 'Unmute voice' : 'Mute voice'}
           className="p-1 rounded-md transition-colors hover:bg-black/5"
-          style={{ color: '#5C7278' }}
+          style={{ color: '#60667C' }}
         >
           {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
         </button>
@@ -177,14 +177,14 @@ export function VoiceHero() {
             <div
               className={`max-w-[92%] rounded-2xl px-4 py-2.5 text-[13.5px] leading-relaxed ${t.role === 'user' ? 'rounded-br-md text-white' : 'rounded-bl-md'}`}
               style={t.role === 'user'
-                ? { background: '#0B1417' }
-                : { background: '#FFFFFF', color: '#22333A', border: '1px solid #CBE1E9', boxShadow: '0 2px 12px rgba(11,20,23,0.05)' }}
+                ? { background: '#0E1120' }
+                : { background: '#FFFFFF', color: '#333A4E', border: '1px solid #D8DBEC', boxShadow: '0 2px 12px rgba(14,17,32,0.05)' }}
             >
               {t.content || <Loader2 className="h-4 w-4 animate-spin" style={{ color: SKY }} />}
             </div>
           </div>
         ))}
-        {interim && <p className="text-[13px] italic text-right" style={{ color: '#5C7278' }}>{interim}…</p>}
+        {interim && <p className="text-[13px] italic text-right" style={{ color: '#60667C' }}>{interim}…</p>}
       </div>
 
       {/* Chips */}
@@ -195,7 +195,7 @@ export function VoiceHero() {
             onClick={() => ask(c)}
             disabled={status !== 'idle'}
             className="text-xs font-medium rounded-full px-3.5 py-1.5 transition-all disabled:opacity-40 hover:-translate-y-0.5"
-            style={{ background: '#FFFFFF', border: '1px solid #CBE1E9', color: '#3D5259' }}
+            style={{ background: '#FFFFFF', border: '1px solid #D8DBEC', color: '#454B5E' }}
           >
             {c}
           </button>
@@ -212,14 +212,14 @@ export function VoiceHero() {
           onChange={(e) => setInput(e.target.value)}
           placeholder="…or type your question"
           className="flex-1 min-w-0 rounded-full px-4 py-2.5 text-[13px] outline-none transition-colors"
-          style={{ background: '#FFFFFF', border: '1px solid #CBE1E9', color: '#0B1417' }}
+          style={{ background: '#FFFFFF', border: '1px solid #D8DBEC', color: '#0E1120' }}
         />
         <button
           type="submit"
           disabled={status !== 'idle' || !input.trim()}
           aria-label="Send"
           className="w-10 h-10 rounded-full flex items-center justify-center text-white shrink-0 disabled:opacity-30 transition-all hover:scale-105"
-          style={{ background: '#0B1417' }}
+          style={{ background: '#0E1120' }}
         >
           <Send className="h-4 w-4" />
         </button>

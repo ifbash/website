@@ -36,52 +36,55 @@ const config: Config = {
         // CSS variables and used by components/ui/*.
         // Cool tinted base — the page carries a hint of colour before any
         // accent is used. Cards stay pure white so they lift off it.
-        paper: '#EAF4F8',
+        paper: '#F4F5FA',
         surface: '#FFFFFF',
-        wash: '#D9EAF2',
+        wash: '#E8EAF6',
         ink: {
-          DEFAULT: '#0B1417',
-          body: '#22333A',
-          soft: '#3D5259',
+          DEFAULT: '#0E1120',
+          body: '#333A4E',
+          soft: '#454B5E',
         },
         // Cool greys. `faint` is decorative only — below AA for copy.
         slate: {
-          DEFAULT: '#52696F',
-          light: '#5C7278',
-          faint: '#7A9098',
+          DEFAULT: '#565C72',
+          light: '#60667C',
+          faint: '#82879C',
         },
-        // sea = the ServiceNow platform. sky = the AI layer on top.
-        // `bright` on either is ~9:1 on ink and ~1.9:1 on paper: it is the
+        // sea = the ServiceNow platform (indigo). sky = the AI layer (azure).
+        // `bright` on either is ~6.5-7.5:1 on ink and ~2.5-2.7:1 on paper: it is the
         // shine — glows, fills, dark bands — and NEVER text on a light
         // surface. See the brightness rule in lib/design.ts.
         sea: {
-          DEFAULT: '#00707C',
-          deep: '#005059',
-          mid: '#00939F',
-          bright: '#1FD3E3',
-          soft: '#79D8E2',
-          tint: '#C8E9EE',
-          strong: '#A6DCE5',
+          DEFAULT: '#4338CA',
+          deep: '#312E81',
+          mid: '#4F46E5',
+          bright: '#818CF8',
+          soft: '#A5B4FC',
+          tint: '#E0E7FF',
+          strong: '#C7D2FE',
         },
         sky: {
-          DEFAULT: '#0A6FB0',
-          deep: '#075287',
-          mid: '#1090D8',
-          bright: '#3FC6FF',
-          soft: '#86CDF2',
-          tint: '#CCE6F8',
-          strong: '#AFD9F5',
+          DEFAULT: '#2563EB',
+          deep: '#1E3A8A',
+          mid: '#3B82F6',
+          bright: '#60A5FA',
+          soft: '#93C5FD',
+          tint: '#DBEAFE',
+          strong: '#BFDBFE',
         },
         hairline: {
-          DEFAULT: '#CBE1E9',
-          soft: '#DCEBF1',
+          DEFAULT: '#D8DBEC',
+          soft: '#E4E6F2',
         },
+        // Highlighter amber — ONLY for hand-drawn strokes (CircleMark,
+        // Scribble, margin marks). Never body text, never fills.
+        marker: '#D97706',
         onink: {
-          DEFAULT: '#E8F4F6',
-          muted: '#9FB6BC',
-          faint: '#7E969D',
-          line: '#1E2C31',
-          fill: '#15242A',
+          DEFAULT: '#ECEEF8',
+          muted: '#A2A8C0',
+          faint: '#7E8399',
+          line: '#23273D',
+          fill: '#181C2E',
         },
 
         background: 'hsl(var(--background))',

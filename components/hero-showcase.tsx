@@ -134,7 +134,7 @@ function AgentChatDemo() {
 
       <div className="flex-1 space-y-2.5">
         <motion.div {...rise(0.4)} className="flex justify-end">
-          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #00707C, #00939F)' }}>
+          <div className="max-w-[80%] rounded-2xl rounded-br-md px-3 py-2 text-[11px] text-white" style={{ background: 'linear-gradient(135deg, #4338CA, #4F46E5)' }}>
             Hi — can I get a refund on our enterprise plan? We signed up two weeks ago.
           </div>
         </motion.div>
@@ -220,12 +220,12 @@ function MobileDemo() {
     <div className="h-full flex items-center justify-center gap-6 p-4">
       {/* Phone frame */}
       <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] }}
-        className="relative w-[168px] h-[330px] rounded-[2rem] border-[5px] border-white/15 overflow-hidden shrink-0" style={{ background: '#0B1417' }}>
+        className="relative w-[168px] h-[330px] rounded-[2rem] border-[5px] border-white/15 overflow-hidden shrink-0" style={{ background: '#0E1120' }}>
         <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-black/80 z-10" />
         <div className="p-3 pt-7 h-full flex flex-col">
           <motion.div {...rise(0.5)} className="text-[10px] text-onink-muted mb-0.5">Good evening, Aisha</motion.div>
           <motion.div {...rise(0.65)} className="text-[13px] font-bold text-white mb-2.5">Your fleet today</motion.div>
-          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #00707C, #00939F)' }}>
+          <motion.div {...rise(0.9)} className="rounded-xl p-2.5 mb-2.5" style={{ background: 'linear-gradient(135deg, #4338CA, #4F46E5)' }}>
             <div className="text-[8px] text-sea-soft mb-0.5">Deliveries completed</div>
             <div className="text-lg font-bold text-white leading-none">1,284</div>
             <div className="text-[8px] text-sea-soft mt-1">↑ 12% vs yesterday</div>
@@ -269,7 +269,7 @@ function MobileDemo() {
 function WebDemo() {
   return (
     <div className="h-full flex flex-col p-4">
-      <motion.div {...rise(0.1)} className="rounded-xl border border-white/10 overflow-hidden flex-1 flex flex-col" style={{ background: '#0B1417' }}>
+      <motion.div {...rise(0.1)} className="rounded-xl border border-white/10 overflow-hidden flex-1 flex flex-col" style={{ background: '#0E1120' }}>
         {/* Browser chrome */}
         <div className="flex items-center gap-2 px-3 py-2 border-b border-onink-line" style={{ background: 'rgba(255,255,255,0.04)' }}>
           <div className="flex gap-1.5">
@@ -289,7 +289,7 @@ function WebDemo() {
             </span>
           </motion.div>
           <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 1.1, duration: 0.5 }}
-            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(0,112,124,0.5), rgba(127,210,218,0.35))' }}>
+            className="rounded-lg h-[76px] flex flex-col justify-center px-4 gap-1.5" style={{ background: 'linear-gradient(135deg, rgba(67,56,202,0.5), rgba(165,180,252,0.35))' }}>
             <span className="w-2/3 h-3 rounded bg-white/85" />
             <span className="w-1/2 h-2 rounded bg-white/45" />
             <span className="w-16 h-4 rounded-md bg-white/90 mt-1" />
@@ -361,7 +361,7 @@ export function HeroShowcase() {
       onMouseLeave={() => setPaused(false)}
     >
       {/* Tab strip */}
-      <div className="flex items-stretch border-b border-white/10 shrink-0" style={{ background: '#15242A' }}>
+      <div className="flex items-stretch border-b border-white/10 shrink-0" style={{ background: '#181C2E' }}>
         {TABS.map(({ key, label, icon: Icon }) => (
           <button
             key={key}
