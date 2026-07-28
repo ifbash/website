@@ -64,6 +64,19 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // www served the whole site at 200 alongside the apex — two live copies of
+      // every URL, and the pages that set no canonical (the home page most of
+      // all) left Google to pick a winner. It reported the home page as
+      // "Duplicate without user-selected canonical". One host, one copy.
+      // Vercel's domain-level redirect would do the same; keeping it here means
+      // it travels with the repo instead of living only in project settings.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.ifbash.com' }],
+        destination: 'https://ifbash.com/:path*',
+        permanent: true,
+      },
+
       // /solutions/* was a duplicate layer over the same ServiceNow topics as
       // /portfolio and /services — never linked from the nav, but indexed.
       // Each URL goes to its closest surviving equivalent.

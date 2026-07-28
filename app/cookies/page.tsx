@@ -4,6 +4,7 @@ import { Cookie, ArrowLeft } from "lucide-react";
 export const metadata = {
   title: "Cookie Policy | ifBash",
   description: "How ifBash uses cookies and similar tracking technologies on its website.",
+  alternates: { canonical: "/cookies" },
 };
 
 export default function CookiePolicyPage() {

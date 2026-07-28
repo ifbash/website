@@ -24,6 +24,12 @@ const plexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://ifbash.com'),
+  // The home page is a client component, so it cannot export metadata of its
+  // own and this is the only place its canonical can live. Every other route
+  // sets its own — the /services/* and /company/* layouts, the [slug] pages via
+  // generateMetadata, /ar/* via alternatesForAr — so nothing inherits this by
+  // accident. Add a canonical alongside any new page rather than relying on it.
+  alternates: { canonical: '/' },
   title: {
     default: 'ifBash | ServiceNow Delivery, and the AI Layer On Top',
     template: '%s | ifBash',

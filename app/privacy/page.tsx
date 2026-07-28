@@ -4,6 +4,7 @@ import { Shield, ArrowLeft } from "lucide-react";
 export const metadata = {
   title: "Privacy Policy | ifBash",
   description: "How ifBash collects, uses, and protects your personal information.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPolicyPage() {

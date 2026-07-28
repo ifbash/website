@@ -4,6 +4,7 @@ import { FileText, ArrowLeft } from "lucide-react";
 export const metadata = {
   title: "Terms of Service | ifBash",
   description: "Terms and conditions governing your use of ifBash services and website.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsOfServicePage() {
