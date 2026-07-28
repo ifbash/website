@@ -48,7 +48,7 @@ export function ScrollProgress() {
       className="fixed top-0 left-0 h-[2px] z-[9999]"
       style={{
         width: `${progress * 100}%`,
-        background: 'linear-gradient(90deg, #4338CA, #818CF8)',
+        background: 'linear-gradient(90deg, #B23A2B, #F0836F)',
         transition: 'width 0.1s linear',
       }}
       aria-hidden="true"

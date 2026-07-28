@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Bot, Workflow, Wrench, ShieldCheck, GitBranch, Gauge } from 'lucide-react';
 import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
-  FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
+  FaqSection, CtaBand, PillLink, BrowserFrame, type Feature, type Phase, type Faq,
 } from '@/components/site';
 import { WorkflowCompare } from '@/components/workflow-compare';
 
@@ -178,6 +178,37 @@ export default function AiAgentsPage() {
       </Section>
 
       <FaqSection faqs={faqs} heading="Questions we hear a lot." />
+
+      {/* AN AGENT, READING A REAL TICKET — capture of the /work demo */}
+      <Section tone="wash" divide>
+        <div className="grid lg:grid-cols-5 gap-10 items-center">
+          <div className="lg:col-span-2">
+            <Eyebrow rule className="mb-4">Captured live on this site</Eyebrow>
+            <DisplayHeading as="h2" size="sm" className="mb-5">
+              This is an agent reading a real ticket.
+            </DisplayHeading>
+            <p className="text-base text-slate leading-relaxed mb-4">
+              A messy, angry, vague inbound ticket — the kind your desk actually gets —
+              classified, prioritized, routed, and answered. The priority came from the
+              impact &times; urgency matrix in code, not from the model&apos;s mood.
+            </p>
+            <p className="text-base text-slate leading-relaxed mb-7">
+              The demo is live on our work page. Paste your own worst ticket and watch
+              the same pipeline run.
+            </p>
+            <PillLink href="/work" variant="outline" size="lg">
+              Run your own ticket <ArrowRight className="h-4 w-4" />
+            </PillLink>
+          </div>
+          <BrowserFrame
+            className="lg:col-span-3"
+            src="/images/screenshots/demo-triage-loop.webp"
+            alt="A recorded run of the triage agent: a messy ticket is classified P2 High, routed to Network Operations, and answered with a drafted first response."
+            url="ifbash.com/work"
+            caption="A real recorded run of the triage demo — ticket in, classification, routing, drafted reply."
+          />
+        </div>
+      </Section>
 
       <CtaBand
         headline="Have a use case"

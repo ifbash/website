@@ -53,7 +53,7 @@ export default function LearningCenterPage() {
           {available.map(({ icon: Icon, title, desc, href, cta }) => (
             <div
               key={title}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)]"
             >
               <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-5 transition-colors">
                 <Icon className="h-5 w-5 text-sea" />

@@ -46,8 +46,8 @@ def silhouette(img, rgb):
     return out
 
 WHITE = (255, 255, 255)
-INK = (14, 17, 32)
-INDIGO = (67, 56, 202)
+INK = (24, 19, 18)
+BRICK = (178, 58, 43)
 
 # ── logo suite ─────────────────────────────────────────────────────────
 FULL.save(f"{ROOT}/logo/logo-primary.png")                    # color, light bg use
@@ -56,7 +56,7 @@ silhouette(FULL, INK).save(f"{ROOT}/logo/logo-mono.png")      # mono ink, print/
 MARK.save(f"{ROOT}/logo/mark-color.png")                      # icon form, color
 silhouette(MARK, WHITE).save(f"{ROOT}/logo/mark-white.png")
 silhouette(MARK, INK).save(f"{ROOT}/logo/mark-ink.png")
-silhouette(MARK, INDIGO).save(f"{ROOT}/logo/mark-indigo.png")
+silhouette(MARK, BRICK).save(f"{ROOT}/logo/mark-brick.png")
 
 # stacked lockup: mark centered above wordmark
 pad = 30
@@ -82,6 +82,8 @@ def padded(img, size, fill=0.66):
 for s in (16, 32, 48, 64, 96, 180, 192, 256, 512):
     padded(MARK, s).save(f"{ROOT}/icons/icon-{s}.png")
 padded(MARK, 180).save(f"{ROOT}/icons/apple-touch-icon.png")
+# browser tab favicon — the brick mark at 512, transparent
+padded(MARK, 512).save("public/favicon.png")
 
 # ── palette sheet ──────────────────────────────────────────────────────
 def font(size, bold=False):
@@ -89,17 +91,17 @@ def font(size, bold=False):
     return ImageFont.truetype(f, size) if os.path.exists(f) else ImageFont.load_default()
 
 RAMPS = [
-    ("Sea - indigo (ServiceNow practice)", [
-        ("sea-deep", "#312E81"), ("sea", "#4338CA"), ("sea-mid", "#4F46E5"),
-        ("sea-bright", "#818CF8"), ("sea-soft", "#A5B4FC"), ("sea-strong", "#C7D2FE"), ("sea-tint", "#E0E7FF"),
+    ("Sea - brick (ServiceNow practice)", [
+        ("sea-deep", "#7C2418"), ("sea", "#B23A2B"), ("sea-mid", "#C8482F"),
+        ("sea-bright", "#F0836F"), ("sea-soft", "#F2A38F"), ("sea-strong", "#F6CDBF"), ("sea-tint", "#FBE9E2"),
     ]),
     ("Sky - azure (AI layer)", [
         ("sky-deep", "#1E3A8A"), ("sky", "#2563EB"), ("sky-mid", "#3B82F6"),
         ("sky-bright", "#60A5FA"), ("sky-soft", "#93C5FD"), ("sky-strong", "#BFDBFE"), ("sky-tint", "#DBEAFE"),
     ]),
     ("Neutrals", [
-        ("ink", "#0E1120"), ("ink-body", "#333A4E"), ("slate", "#565C72"), ("slate-faint", "#82879C"),
-        ("hairline", "#D8DBEC"), ("wash", "#E8EAF6"), ("paper", "#F4F5FA"),
+        ("ink", "#181312"), ("ink-body", "#3A2A26"), ("slate", "#6E5B52"), ("slate-faint", "#9C8A80"),
+        ("hairline", "#E5DCD2"), ("wash", "#F1E9E1"), ("paper", "#F8F5F1"),
     ]),
     ("Marker (hand-drawn strokes only)", [("marker", "#D97706")]),
 ]
@@ -109,16 +111,16 @@ sheet_w = pad * 2 + 7 * (sw_w + gap)
 rows_h = sum(56 + sw_h for _ in RAMPS)
 sheet = Image.new("RGB", (sheet_w, 96 + rows_h + pad), "#FFFFFF")
 d = ImageDraw.Draw(sheet)
-d.text((pad, 30), "ifBash Executive Indigo - brand color system", fill="#0E1120", font=F_T)
+d.text((pad, 30), "ifBash Brick & Charcoal - brand color system", fill="#181312", font=F_T)
 y = 96
 for title, sws in RAMPS:
-    d.text((pad, y), title, fill="#333A4E", font=F_L)
+    d.text((pad, y), title, fill="#3A2A26", font=F_L)
     y += 34
     x = pad
     for name, hexv in sws:
-        d.rounded_rectangle([x, y, x + sw_w, y + sw_h], 10, fill=hexv, outline="#C9CCDE", width=1)
-        dark = hexv in ("#312E81", "#4338CA", "#4F46E5", "#1E3A8A", "#2563EB", "#0E1120", "#333A4E", "#565C72", "#D97706")
-        t = "#FFFFFF" if dark else "#0E1120"
+        d.rounded_rectangle([x, y, x + sw_w, y + sw_h], 10, fill=hexv, outline="#D8CFC2", width=1)
+        dark = hexv in ("#7C2418", "#B23A2B", "#C8482F", "#1E3A8A", "#2563EB", "#181312", "#3A2A26", "#6E5B52", "#D97706")
+        t = "#FFFFFF" if dark else "#181312"
         d.text((x + 12, y + 14), name, fill=t, font=F_L)
         d.text((x + 12, y + 44), hexv, fill=t, font=F_H)
         x += sw_w + gap

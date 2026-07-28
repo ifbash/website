@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Globe, Smartphone, Paintbrush, Server, Sparkles, LifeBuoy } from 'lucide-react';
 import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, PhaseGrid, FaqSection,
-  CtaBand, FeatureGrid, type Feature, type Phase, type Faq,
+  CtaBand, FeatureGrid, BrowserFrame, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
 
 const tracks = [
@@ -98,7 +98,7 @@ export default function WebMobilePracticePage() {
             <Link
               key={name}
               href={href}
-              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-8 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)] hover:-translate-y-0.5"
+              className="group flex flex-col rounded-2xl border border-hairline bg-paper p-8 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)] hover:-translate-y-0.5"
             >
               <div className="w-12 h-12 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center mb-5 transition-colors">
                 <Icon className="h-6 w-6 text-sea" />
@@ -141,6 +141,37 @@ export default function WebMobilePracticePage() {
           </DisplayHeading>
         </div>
         <PhaseGrid phases={phases} />
+      </Section>
+
+      {/* PROOF — this site is the portfolio piece */}
+      <Section tone="wash" divide>
+        <div className="grid lg:grid-cols-5 gap-10 items-center">
+          <div className="lg:col-span-2">
+            <Eyebrow rule className="mb-4">The portfolio piece you are on</Eyebrow>
+            <DisplayHeading as="h2" size="sm" className="mb-5">
+              This site is the reference build.
+            </DisplayHeading>
+            <p className="text-base text-slate leading-relaxed mb-4">
+              You are using it right now: Next.js, a voice agent in the hero, a live
+              assistant on every page, real demos instead of screenshots of demos.
+              Every practice on this page — design, build, agent layer — is visible
+              in this one product.
+            </p>
+            <p className="text-base text-slate leading-relaxed mb-7">
+              Judge us on it. View source, run Lighthouse, try to break the agent.
+            </p>
+            <PillLink href="/work" variant="outline" size="lg">
+              See the working demos <ArrowRight className="h-4 w-4" />
+            </PillLink>
+          </div>
+          <BrowserFrame
+            className="lg:col-span-3"
+            src="/images/screenshots/hero-voice.png"
+            alt="The ifBash homepage: headline, brick call-to-action, and the live voice orb."
+            url="ifbash.com"
+            caption="A real capture of this site's homepage — the voice orb answers visitors live."
+          />
+        </div>
       </Section>
 
       <FaqSection faqs={faqs} heading="Before you brief us." tone="surface" />

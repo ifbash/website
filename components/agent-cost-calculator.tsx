@@ -76,7 +76,7 @@ export function AgentCostCalculator() {
   const max = Math.max(...rows.map((r) => r.cost.perMonth));
 
   return (
-    <div className="grid lg:grid-cols-5 gap-5">
+    <div className="grid lg:grid-cols-5 gap-5" data-demo="calculator">
       {/* ── Controls ──────────────────────────────────────────────── */}
       <div className="lg:col-span-2 rounded-2xl border border-hairline bg-surface p-6 space-y-6">
         <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky">

@@ -70,17 +70,16 @@ export function Accented({
   accent?: 'navy' | 'mulberry';
   children: React.ReactNode;
 }) {
-  // On light surfaces the accent is a gradient — indigo melting into azure —
-  // which carries the "platform + AI layer" story in a single phrase and is
-  // far richer than one flat hue. On ink bands the soft solids stay (a
-  // gradient text fill over a dark photo-free band adds nothing).
+  // On light surfaces the accent is a gradient — brick deepening into ember —
+  // a monochrome warm ramp (brick→azure muddies mid-gradient). On ink bands
+  // the soft solids stay (a gradient text fill over a dark band adds nothing).
   if (onInk) {
     return <span className={accent === 'mulberry' ? 'text-sky-soft' : 'text-sea-soft'}>{children}</span>;
   }
   const gradient =
     accent === 'mulberry'
       ? 'from-sky to-sky-mid'
-      : 'from-sea to-sky';
+      : 'from-sea to-sea-mid';
   return (
     <span className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>
       {children}

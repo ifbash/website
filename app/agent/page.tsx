@@ -173,7 +173,7 @@ export default function AgentPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: '#0E1120' }}>
+      <section className="relative overflow-hidden" style={{ background: '#181312' }}>
         <div className="absolute inset-0 opacity-[0.035]" style={{ backgroundImage: 'radial-gradient(circle, #93C5FD 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[500px] opacity-[0.12]" style={{ background: 'radial-gradient(ellipse at top, #2563EB, transparent 60%)' }} />
 
@@ -225,7 +225,7 @@ export default function AgentPage() {
                     background: callState === 'idle' || callState === 'unsupported'
                       ? 'linear-gradient(135deg, #2563EB, #3B82F6)'
                       : 'linear-gradient(135deg, #dc2626, #b91c1c)',
-                    boxShadow: '0 8px 32px rgba(67,56,202,0.35)',
+                    boxShadow: '0 8px 32px rgba(178,58,43,0.35)',
                   }}
                 >
                   {callState === 'idle' || callState === 'unsupported' ? (
@@ -281,7 +281,7 @@ export default function AgentPage() {
                       type="submit"
                       disabled={phoneStatus === 'sending'}
                       className="w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-semibold text-white text-sm transition-all hover:-translate-y-0.5 disabled:opacity-60"
-                      style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)', boxShadow: '0 8px 32px rgba(67,56,202,0.35)' }}
+                      style={{ background: 'linear-gradient(135deg, #3B82F6, #2563EB)', boxShadow: '0 8px 32px rgba(178,58,43,0.35)' }}
                     >
                       {phoneStatus === 'sending' ? (<><Loader2 className="h-4 w-4 animate-spin" /> Connecting…</>) : (<><Phone className="h-4 w-4" /> Call me</>)}
                     </button>
@@ -308,7 +308,7 @@ export default function AgentPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {capabilities.map(({ icon: Icon, title, desc }) => (
-              <div key={title} className="border border-hairline rounded-2xl p-6 hover:border-sky-soft hover:shadow-[0_8px_30px_rgba(67,56,202,0.08)] transition-all duration-300">
+              <div key={title} className="border border-hairline rounded-2xl p-6 hover:border-sky-soft hover:shadow-[0_8px_30px_rgba(178,58,43,0.08)] transition-all duration-300">
                 <div className="w-11 h-11 rounded-xl bg-sky-tint flex items-center justify-center mb-4">
                   <Icon className="h-5 w-5 text-sky" />
                 </div>
@@ -321,7 +321,7 @@ export default function AgentPage() {
             <Link
               href="/get-started"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-sm transition-all hover:-translate-y-0.5"
-              style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)', boxShadow: '0 8px 32px rgba(67,56,202,0.35)' }}
+              style={{ background: 'linear-gradient(135deg, #2563EB, #3B82F6)', boxShadow: '0 8px 32px rgba(178,58,43,0.35)' }}
             >
               Build one for your business <ArrowRight className="h-4 w-4" />
             </Link>

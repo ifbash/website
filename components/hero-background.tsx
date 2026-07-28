@@ -16,7 +16,7 @@ export function HeroBackground() {
       <div
         className="absolute -top-[20%] -right-[10%] w-[70vw] h-[70vw] rounded-full opacity-[0.18] animate-float-slow"
         style={{
-          background: 'radial-gradient(circle, #C7D2FE 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #F6CDBF 0%, transparent 70%)',
           animationDuration: '12s',
         }}
       />
@@ -25,7 +25,7 @@ export function HeroBackground() {
       <div
         className="absolute -bottom-[30%] -left-[15%] w-[60vw] h-[60vw] rounded-full opacity-[0.12] animate-float-slow"
         style={{
-          background: 'radial-gradient(circle, #A5B4FC 0%, transparent 70%)',
+          background: 'radial-gradient(circle, #F2A38F 0%, transparent 70%)',
           animationDuration: '16s',
           animationDelay: '-4s',
         }}
@@ -45,7 +45,7 @@ export function HeroBackground() {
       <svg className="absolute inset-0 w-full h-full opacity-[0.035]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <pattern id="hero-grid" width="40" height="40" patternUnits="userSpaceOnUse">
-            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#0E1120" strokeWidth="0.5" />
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#181312" strokeWidth="0.5" />
           </pattern>
         </defs>
         <rect width="100%" height="100%" fill="url(#hero-grid)" />
@@ -58,9 +58,9 @@ export function HeroBackground() {
         xmlns="http://www.w3.org/2000/svg"
         style={{ animationDuration: '30s' }}
       >
-        <circle cx="100" cy="100" r="80" fill="none" stroke="#4338CA" strokeWidth="0.5" strokeDasharray="4 6" />
-        <circle cx="100" cy="100" r="60" fill="none" stroke="#4338CA" strokeWidth="0.5" strokeDasharray="2 8" />
-        <circle cx="100" cy="100" r="40" fill="none" stroke="#4338CA" strokeWidth="0.5" />
+        <circle cx="100" cy="100" r="80" fill="none" stroke="#B23A2B" strokeWidth="0.5" strokeDasharray="4 6" />
+        <circle cx="100" cy="100" r="60" fill="none" stroke="#B23A2B" strokeWidth="0.5" strokeDasharray="2 8" />
+        <circle cx="100" cy="100" r="40" fill="none" stroke="#B23A2B" strokeWidth="0.5" />
       </svg>
 
       <svg
@@ -69,8 +69,8 @@ export function HeroBackground() {
         xmlns="http://www.w3.org/2000/svg"
         style={{ animationDuration: '40s', animationDirection: 'reverse' }}
       >
-        <circle cx="70" cy="70" r="55" fill="none" stroke="#0E1120" strokeWidth="0.5" strokeDasharray="6 4" />
-        <circle cx="70" cy="70" r="35" fill="none" stroke="#0E1120" strokeWidth="0.5" strokeDasharray="2 6" />
+        <circle cx="70" cy="70" r="55" fill="none" stroke="#181312" strokeWidth="0.5" strokeDasharray="6 4" />
+        <circle cx="70" cy="70" r="35" fill="none" stroke="#181312" strokeWidth="0.5" strokeDasharray="2 6" />
       </svg>
     </div>
   );

@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Mic, MessageCircle, PhoneCall, Layout, Settings, PlayCircle } from 'lucide-react';
 import {
-  Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand, PillLink,
+  Section, Eyebrow, DisplayHeading, Accented, PageHero, CtaBand, PillLink, BrowserFrame,
 } from '@/components/site';
 import { TriageDemo } from '@/components/triage-demo';
 
@@ -116,6 +116,37 @@ export default function WorkPage() {
         <TriageDemo />
       </Section>
 
+      {/* MORE OF THE PRODUCT — real captures, not mockups */}
+      <Section tone="wash" divide>
+        <div className="mb-10 max-w-2xl">
+          <Eyebrow rule className="mb-4">Elsewhere on this site</Eyebrow>
+          <DisplayHeading as="h2" size="md" className="mb-4">
+            The same engineering, <Accented>running.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-slate leading-relaxed">
+            Real captures of the tools on this site — not mockups. The cost model on the left
+            is live on the Claude engineering page; the agent on the right answers questions
+            across every page but this one&apos;s hero.
+          </p>
+        </div>
+        <div className="grid lg:grid-cols-5 gap-6 items-start">
+          <BrowserFrame
+            className="lg:col-span-3"
+            src="/images/screenshots/demo-calculator.png"
+            alt="The agent cost calculator: sliders for conversation volume and model choice, with per-model annual costs."
+            url="ifbash.com/services/claude-ai-engineering"
+            caption="The agent cost calculator — honest napkin math, with the assumptions printed under it."
+          />
+          <BrowserFrame
+            className="lg:col-span-2"
+            src="/images/screenshots/demo-chat-widget.png"
+            alt="The ifBash assistant chat widget open on the site, with quick-reply options."
+            url="ifbash.com — every page"
+            caption="The assistant widget — seeded answers now, a live agent on your instance later."
+          />
+        </div>
+      </Section>
+
       {/* THE WORK */}
       <Section tone="paper">
         <div className="mb-12 max-w-2xl">
@@ -129,7 +160,7 @@ export default function WorkPage() {
           {items.map(({ kind, icon: Icon, title, what, built, href, cta }) => (
             <div
               key={title}
-              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
+              className="group flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)]"
             >
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div className="w-11 h-11 rounded-xl bg-sea-tint group-hover:bg-sea-strong flex items-center justify-center shrink-0 transition-colors">

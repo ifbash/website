@@ -94,7 +94,7 @@ function Track({
 
 export function WorkflowCompare() {
   return (
-    <div>
+    <div data-demo="workflow">
       <div className="grid sm:grid-cols-2 gap-5">
         <div className="rounded-2xl border border-hairline bg-surface p-6">
           <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sea mb-1">

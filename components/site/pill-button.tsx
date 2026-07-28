@@ -21,7 +21,7 @@ const VARIANTS: Record<Variant, string> = {
   // dead next to the tinted base; the gradient gives the one thing we want
   // clicked a lit, dimensional feel. Shadows glow in the button's own hue.
   primary:
-    'bg-gradient-to-r from-sea to-sea-mid text-white shadow-[0_6px_20px_rgba(67,56,202,0.32)] hover:from-sea-deep hover:to-sea hover:shadow-[0_10px_28px_rgba(67,56,202,0.44)] hover:-translate-y-0.5',
+    'bg-gradient-to-r from-sea to-sea-mid text-white shadow-[0_6px_20px_rgba(178,58,43,0.32)] hover:from-sea-deep hover:to-sea hover:shadow-[0_10px_28px_rgba(178,58,43,0.44)] hover:-translate-y-0.5',
   // The AI-layer counterpart — used on agent/voice/Claude surfaces.
   accent:
     'bg-gradient-to-r from-sky to-sky-mid text-white shadow-[0_6px_20px_rgba(37,99,235,0.30)] hover:from-sky-deep hover:to-sky hover:shadow-[0_10px_28px_rgba(37,99,235,0.42)] hover:-translate-y-0.5',

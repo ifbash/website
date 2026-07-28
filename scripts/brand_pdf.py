@@ -14,9 +14,9 @@ pdfmetrics.registerFont(TTFont("Plex-SB", f"{FD}/IBMPlexSans-SemiBold.ttf"))
 pdfmetrics.registerFont(TTFont("Plex-B", f"{FD}/IBMPlexSans-Bold.ttf"))
 pdfmetrics.registerFont(TTFont("PlexMono", f"{FD}/IBMPlexMono-Regular.ttf"))
 
-INK = HexColor("#0E1120"); PAPER = HexColor("#F4F5FA"); SLATE = HexColor("#565C72")
-SEA = HexColor("#4338CA"); SKY = HexColor("#2563EB"); MARKER = HexColor("#D97706")
-ONINK_MUTED = HexColor("#A2A8C0"); HAIR = HexColor("#D8DBEC")
+INK = HexColor("#181312"); PAPER = HexColor("#F8F5F1"); SLATE = HexColor("#6E5B52")
+SEA = HexColor("#B23A2B"); SKY = HexColor("#2563EB"); MARKER = HexColor("#D97706")
+ONINK_MUTED = HexColor("#C0A79C"); HAIR = HexColor("#E5DCD2")
 
 c = canvas.Canvas("brand/brand-guidelines.pdf", pagesize=(W, H))
 M = 54
@@ -30,16 +30,16 @@ def img(path, x, y, w):
 
 def footer(n):
     c.setFont("PlexMono", 8); c.setFillColor(SLATE)
-    c.drawString(M, 24, "ifBash Brand Guidelines - Executive Indigo - 2026-07-27")
+    c.drawString(M, 24, "ifBash Brand Guidelines - Brick & Charcoal - 2026-07-27")
     c.drawRightString(W - M, 24, f"{n}")
 
 # ── 1 COVER ────────────────────────────────────────────────────────────
 c.setFillColor(INK); c.rect(0, 0, W, H, stroke=0, fill=1)
 img("brand/logo/logo-reversed.png", M, H - 100, 210)
-c.setFillColor(HexColor("#ECEEF8")); c.setFont("Plex-B", 44)
+c.setFillColor(HexColor("#F7EEEA")); c.setFont("Plex-B", 44)
 c.drawString(M, H - 280, "Brand Guidelines")
-c.setFillColor(HexColor("#A5B4FC")); c.setFont("Plex", 20)
-c.drawString(M, H - 316, "Executive Indigo - logo, color, type, icons, voice")
+c.setFillColor(HexColor("#F2A38F")); c.setFont("Plex", 20)
+c.drawString(M, H - 316, "Brick & Charcoal - logo, color, type, icons, voice")
 c.setFillColor(MARKER); c.setFont("Plex-SB", 13)
 c.drawString(M, 70, "Edition 2026-07-27")
 footer(1); c.showPage()
@@ -52,11 +52,11 @@ c.drawString(M, H - 92, "The wordmark is custom hand-drawn lettering - never ret
 
 cards = [
     ("Primary - on light", "brand/logo/logo-primary.png", "#FFFFFF", False),
-    ("Reversed - on ink", "brand/logo/logo-reversed.png", "#0E1120", False),
+    ("Reversed - on ink", "brand/logo/logo-reversed.png", "#181312", False),
     ("Mono ink - print/legal", "brand/logo/logo-mono.png", "#FFFFFF", False),
     ("Stacked - avatars", "brand/logo/logo-stacked.png", "#FFFFFF", True),
-    ("Stacked reversed", "brand/logo/logo-stacked-reversed.png", "#0E1120", True),
-    ("Mark - icons", "brand/logo/mark-color.png", "#F4F5FA", True),
+    ("Stacked reversed", "brand/logo/logo-stacked-reversed.png", "#181312", True),
+    ("Mark - icons", "brand/logo/mark-color.png", "#F8F5F1", True),
 ]
 cw, ch, gx, gy = 232, 190, 16, 20
 x0, y0 = M, H - 130
@@ -67,7 +67,7 @@ for i, (label, path, bg, sq) in enumerate(cards):
     c.setStrokeColor(HAIR); c.roundRect(x, y - ch, cw, ch, 10, stroke=1, fill=0)
     lw = 130 if not sq else 110
     img(path, x + (cw - lw) / 2, y - 34, lw)
-    c.setFillColor(INK if bg != "#0E1120" else HexColor("#ECEEF8"))
+    c.setFillColor(INK if bg != "#181312" else HexColor("#F7EEEA"))
     c.setFont("Plex-SB", 10)
     c.drawString(x + 12, y - ch + 12, label)
 c.setFillColor(SLATE); c.setFont("Plex", 10)
@@ -80,8 +80,8 @@ c.setFillColor(PAPER); c.rect(0, 0, W, H, stroke=0, fill=1)
 c.setFillColor(INK); c.setFont("Plex-B", 28); c.drawString(M, H - 70, "Color system")
 img("brand/color/palette.png", M, H - 100, W - 2 * M)
 c.setFillColor(SLATE); c.setFont("Plex", 10)
-c.drawString(M, 96, "sea (indigo) = the ServiceNow platform practice. sky (azure) = the AI layer. Never use sky as a generic second color.")
-c.drawString(M, 82, "bright values (#818CF8, #60A5FA) are the shine: glows, fills, and text on dark bands only - never copy on paper.")
+c.drawString(M, 96, "sea (brick) = the ServiceNow platform practice. sky (azure) = the AI layer. Never use sky as a generic second color.")
+c.drawString(M, 82, "bright values (#F0836F, #60A5FA) are the shine: glows, fills, and text on dark bands only - never copy on paper.")
 c.setFillColor(MARKER); c.setFont("Plex-SB", 10)
 c.drawString(M, 64, "marker #D97706 - highlighter amber, hand-drawn strokes only. Never body text, never fills.")
 footer(3); c.showPage()
@@ -96,7 +96,7 @@ c.setFont("Plex", 14); c.drawString(M, H - 276, "Regular 14 - body copy. Hierarc
 c.setFont("PlexMono", 13); c.setFillColor(SLATE); c.drawString(M, H - 302, "Plex Mono 13 - code, URLs, data, ifbash.com")
 c.setFillColor(SLATE); c.setFont("Plex", 10)
 c.drawString(M, 96, "Display scale (fluid): xl 4.25rem / lg 3.4rem / md 2.75rem / sm 1.95rem, tracking -0.02em to -0.03em.")
-c.drawString(M, 82, "Arabic surfaces use IBM Plex Sans Arabic. No italics inside display headings - use the indigo-azure accent gradient.")
+c.drawString(M, 82, "Arabic surfaces use IBM Plex Sans Arabic. No italics inside display headings - use the brick-ember accent gradient.")
 c.drawString(M, 68, "Fonts folder: static TTFs (Regular/SemiBold/Bold/Italic, Mono, Arabic) plus variable masters for design tools. SIL Open Font License.")
 footer(4); c.showPage()
 

@@ -127,7 +127,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative overflow-hidden" style={{ background: "#0E1120", borderTop: "3px solid #4338CA" }}>
+    <footer className="relative overflow-hidden" style={{ background: "#181312", borderTop: "3px solid #B23A2B" }}>
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Top — logo + newsletter */}
@@ -175,7 +175,7 @@ export function Footer() {
                 type="submit"
                 disabled={newsletterState === "sending"}
                 className="px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0 disabled:opacity-60"
-                style={{ background: newsletterState === "done" ? "#3E7A52" : "#4338CA", boxShadow: "0 4px 16px rgba(67,56,202,0.3)" }}
+                style={{ background: newsletterState === "done" ? "#3E7A52" : "#B23A2B", boxShadow: "0 4px 16px rgba(178,58,43,0.3)" }}
               >
                 {newsletterState === "done" ? "✓ Done" : newsletterState === "sending" ? "…" : <ArrowRight className="h-4 w-4" />}
               </button>
@@ -224,7 +224,7 @@ export function Footer() {
                   <Link
                     href="/get-started"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 self-start"
-                    style={{ background: "#4338CA", boxShadow: "0 4px 16px rgba(67,56,202,0.3)" }}
+                    style={{ background: "#B23A2B", boxShadow: "0 4px 16px rgba(178,58,43,0.3)" }}
                   >
                     Start a project <ArrowRight className="h-3.5 w-3.5" />
                   </Link>

@@ -54,7 +54,7 @@ export function FeatureCard({
 
   const shell = cn(
     'group flex flex-col rounded-2xl border border-hairline bg-surface p-6',
-    'transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)] hover:-translate-y-0.5',
+    'transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)] hover:-translate-y-0.5',
     className,
   );
 

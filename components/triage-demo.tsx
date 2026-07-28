@@ -77,7 +77,7 @@ export function TriageDemo() {
   const priority = result ? priorityFor(result.impact as Level, result.urgency as Level) : null;
 
   return (
-    <div className="grid lg:grid-cols-2 gap-5">
+    <div className="grid lg:grid-cols-2 gap-5" data-demo="triage">
       {/* ── Input ─────────────────────────────────────────────────── */}
       <div className="flex flex-col rounded-2xl border border-hairline bg-surface p-6">
         <div className="font-mono text-[11px] uppercase tracking-[0.16em] text-sky mb-4">

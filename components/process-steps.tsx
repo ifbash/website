@@ -10,28 +10,28 @@ const STEPS = [
     step: '01',
     title: 'Discovery',
     desc: 'A 30-minute call to understand your platform, pain points, and what success looks like.',
-    color: '#4338CA',
+    color: '#B23A2B',
   },
   {
     icon: FileText,
     step: '02',
     title: 'Plan',
     desc: 'Written approach, sequence, team composition, and estimate — back within two working days.',
-    color: '#4F46E5',
+    color: '#C8482F',
   },
   {
     icon: Code,
     step: '03',
     title: 'Build',
     desc: 'Weekly demos, async updates, and direct access to the engineers writing the code.',
-    color: '#818CF8',
+    color: '#F0836F',
   },
   {
     icon: Rocket,
     step: '04',
     title: 'Ship',
     desc: 'Production launch with runbooks, training, and a managed-service handoff if you need it.',
-    color: '#4338CA',
+    color: '#B23A2B',
   },
 ];
 
@@ -48,7 +48,7 @@ export function ProcessSteps() {
         <motion.div
           key={step}
           {...fadeUp(i * 0.12)}
-          className="group relative rounded-2xl border border-hairline bg-surface p-6 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
+          className="group relative rounded-2xl border border-hairline bg-surface p-6 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)]"
         >
           {/* Step number */}
           <span

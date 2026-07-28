@@ -16,3 +16,5 @@ export type { Proof } from './proof-band';
 export { PhaseGrid } from './phase-grid';
 export type { Phase } from './phase-grid';
 export { ServicePage } from './service-page';
+export { BrowserFrame } from './browser-frame';
+export { ServiceVisual } from './service-visuals';

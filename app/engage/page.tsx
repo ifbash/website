@@ -125,7 +125,7 @@ export default function EngagePage() {
           {models.map(({ icon: Icon, name, when, desc, includes, price }) => (
             <div
               key={name}
-              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]"
+              className="flex flex-col rounded-2xl border border-hairline bg-paper p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)]"
             >
               <div className="w-11 h-11 rounded-xl bg-sea-tint flex items-center justify-center mb-5">
                 <Icon className="h-5 w-5 text-sea" />

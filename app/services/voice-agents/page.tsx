@@ -1,7 +1,7 @@
 import { ArrowRight, PhoneIncoming, PhoneOutgoing, Mic, Languages, ClipboardList, UserCheck } from 'lucide-react';
 import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
-  FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
+  FaqSection, CtaBand, PillLink, BrowserFrame, type Feature, type Phase, type Faq,
 } from '@/components/site';
 
 const offerings: Feature[] = [
@@ -148,6 +148,37 @@ export default function VoiceAgentsPage() {
               ))}
             </div>
           </div>
+        </div>
+      </Section>
+
+      {/* THE AGENT, LIVE — real capture of our own deployment */}
+      <Section tone="ink">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          <div>
+            <Eyebrow rule onInk className="mb-4">Running on our own site</Eyebrow>
+            <DisplayHeading as="h2" size="sm" onInk className="mb-5">
+              We run the agent we would build for you.
+            </DisplayHeading>
+            <p className="text-base text-onink-muted leading-relaxed mb-4">
+              This is the live voice agent on ifbash.com — browser calls, phone callbacks,
+              and a transcript you can watch as it speaks. No staged demo environment:
+              the same build answers visitors here every day.
+            </p>
+            <p className="text-base text-onink-muted leading-relaxed mb-7">
+              Try it before you brief us. If it ever gives you a bad answer, that is
+              useful information too — bring it to the scoping call.
+            </p>
+            <PillLink href="/agent" variant="primary" size="lg">
+              Talk to it now <ArrowRight className="h-4 w-4" />
+            </PillLink>
+          </div>
+          <BrowserFrame
+            src="/images/screenshots/agent-chat.png"
+            alt="The ifBash voice agent page: start a browser call, or leave a number for a callback."
+            url="ifbash.com/agent"
+            caption="A real capture of /agent — browser call on the left, phone callback on the right."
+            onInk
+          />
         </div>
       </Section>
 

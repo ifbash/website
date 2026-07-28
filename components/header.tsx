@@ -22,8 +22,8 @@ import {
 const DROP = {
   background: "rgba(255,255,255,0.99)",
   backdropFilter: "blur(20px)",
-  border: "1px solid #D8DBEC",
-  boxShadow: "0 24px 64px rgba(14,17,32,0.10), 0 8px 16px rgba(14,17,32,0.04)",
+  border: "1px solid #E5DCD2",
+  boxShadow: "0 24px 64px rgba(24,19,18,0.10), 0 8px 16px rgba(24,19,18,0.04)",
 };
 
 const TRIGGER_CLS =
@@ -148,7 +148,7 @@ export function Header() {
         className={cn(
           "sticky top-0 z-50 w-full transition-all duration-300",
           isScrolled
-            ? "bg-paper/95 backdrop-blur-md shadow-[0_4px_24px_rgba(14,17,32,0.05)] border-b border-hairline"
+            ? "bg-paper/95 backdrop-blur-md shadow-[0_4px_24px_rgba(24,19,18,0.05)] border-b border-hairline"
             : "bg-paper border-b border-hairline/60",
         )}
         role="banner"
@@ -186,7 +186,7 @@ export function Header() {
 
             {/* Logo */}
             <Link href={t.home} className="flex items-center shrink-0 group" aria-label="ifBash — Home">
-              <Image src="/images/logo.png" alt="ifBash" width={160} height={34} className="object-contain transition-opacity group-hover:opacity-90 drop-shadow-[0_1px_10px_rgba(79,70,229,0.28)]" priority style={{ width: '160px', height: '34px' }} />
+              <Image src="/images/logo.png" alt="ifBash" width={160} height={34} className="object-contain transition-opacity group-hover:opacity-90 drop-shadow-[0_1px_10px_rgba(178,58,43,0.28)]" priority style={{ width: '160px', height: '34px' }} />
             </Link>
 
             {/* Desktop nav */}
@@ -356,7 +356,7 @@ export function Header() {
               <LanguageToggle className="hidden md:inline-flex" />
 
               <Link href={t.getStarted}
-                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-sea text-white shadow-[0_4px_18px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:shadow-[0_8px_24px_rgba(67,56,202,0.42)] hover:-translate-y-0.5 transition-all duration-200">
+                className="hidden sm:inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap bg-sea text-white shadow-[0_4px_18px_rgba(178,58,43,0.30)] hover:bg-sea-deep hover:shadow-[0_8px_24px_rgba(178,58,43,0.42)] hover:-translate-y-0.5 transition-all duration-200">
                 {t.startProject}
               </Link>
 
@@ -428,7 +428,7 @@ export function Header() {
                     <Link
                       href="/get-started"
                       onClick={closeMobile}
-                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sea text-white text-sm font-semibold shadow-[0_4px_16px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all"
+                      className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-sea text-white text-sm font-semibold shadow-[0_4px_16px_rgba(178,58,43,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all"
                     >
                       Start a project <ArrowRight className="h-3.5 w-3.5" />
                     </Link>
@@ -456,7 +456,7 @@ export function Header() {
               {/* Footer */}
               <div className="mt-6 pt-4 border-t border-hairline-soft space-y-3">
                 <Link href={t.getStarted} onClick={closeMobile}
-                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(67,56,202,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">
+                  className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-full font-semibold text-sm bg-sea text-white shadow-[0_4px_18px_rgba(178,58,43,0.30)] hover:bg-sea-deep hover:-translate-y-0.5 transition-all">
                   {t.startProject} <ArrowRight className="h-4 w-4" />
                 </Link>
                 <LanguageToggle className="w-full justify-center h-11" />

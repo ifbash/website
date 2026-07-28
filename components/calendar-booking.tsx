@@ -108,7 +108,7 @@ export function CalendarBooking({
       <div
         ref={modalRef}
         className="relative w-full max-w-lg rounded-2xl border border-white/10 overflow-hidden flex flex-col"
-        style={{ background: '#0E1120', boxShadow: '0 40px 80px rgba(0,0,0,0.5)' }}
+        style={{ background: '#181312', boxShadow: '0 40px 80px rgba(0,0,0,0.5)' }}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-onink-line">
@@ -175,8 +175,8 @@ export function CalendarBooking({
             disabled={!selectedSlot}
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all hover:-translate-y-0.5 disabled:opacity-40 disabled:hover:translate-y-0"
             style={{
-              background: selectedSlot ? 'linear-gradient(135deg, #4338CA, #4F46E5)' : undefined,
-              boxShadow: selectedSlot ? '0 4px 16px rgba(67,56,202,0.35)' : undefined,
+              background: selectedSlot ? 'linear-gradient(135deg, #B23A2B, #C8482F)' : undefined,
+              boxShadow: selectedSlot ? '0 4px 16px rgba(178,58,43,0.35)' : undefined,
             }}
           >
             Confirm booking <ArrowRight className="h-3.5 w-3.5" />

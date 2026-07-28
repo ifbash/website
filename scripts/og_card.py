@@ -1,15 +1,15 @@
-"""ifBash OG share card 1200x630 — Executive Indigo."""
+"""ifBash OG share card 1200x630 — Brick & Charcoal."""
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H = 1200, 630
-INK = (14, 17, 32)
+INK = (24, 19, 18)
 
 card = Image.new("RGB", (W, H), INK)
 
-# soft indigo/azure glows on a separate layer, blurred
+# soft brick/azure glows on a separate layer, blurred
 glow = Image.new("RGB", (W, H), INK)
 g = ImageDraw.Draw(glow)
-g.ellipse([W - 560, -260, W + 260, 420], fill=(49, 46, 129))     # sea-deep top-right
+g.ellipse([W - 560, -260, W + 260, 420], fill=(124, 36, 24))     # sea-deep top-right
 g.ellipse([-320, H - 320, 380, H + 300], fill=(30, 58, 138))     # sky-deep bottom-left
 glow = glow.filter(ImageFilter.GaussianBlur(180))
 card = Image.blend(card, Image.blend(card, glow, 0.85), 0.5)
@@ -43,9 +43,9 @@ while True:
     size -= 2
 f_h = plex(size, "Bold")
 y = 268
-d.text((M, y), line1, fill=(236, 238, 248), font=f_h)
+d.text((M, y), line1, fill=(247, 238, 234), font=f_h)
 y += size + 18
-d.text((M, y), line2, fill=(165, 180, 252), font=f_h)  # sea-soft
+d.text((M, y), line2, fill=(242, 163, 143), font=f_h)  # sea-soft
 
 # hand-drawn amber underline beneath "AI layer" — the brand's marker accent
 prefix = "Then we build the "
@@ -59,8 +59,8 @@ for i in range(33):
 d.line(pts, fill=(217, 151, 6), width=7, joint="curve")
 
 # footer row
-d.text((M, H - 96), "ServiceNow  ·  AI Agents  ·  Web & Mobile", fill=(162, 168, 192), font=plex(24, "Regular"))
-d.text((M, H - 62), "ifbash.com", fill=(129, 140, 248), font=mono(24))
+d.text((M, H - 96), "ServiceNow  ·  AI Agents  ·  Web & Mobile", fill=(192, 167, 156), font=plex(24, "Regular"))
+d.text((M, H - 62), "ifbash.com", fill=(240, 131, 111), font=mono(24))
 
 card.save("public/images/og-card.png")
 card.save("brand/social/og-card.png")

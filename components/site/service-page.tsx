@@ -9,6 +9,7 @@ import { PhaseGrid } from './phase-grid';
 import { FaqSection } from './faq-section';
 import { CtaBand } from './cta-band';
 import { PillLink } from './pill-button';
+import { ServiceVisual } from './service-visuals';
 import type { ServiceEntry } from '@/lib/service-data';
 
 /**
@@ -39,6 +40,12 @@ export function ServicePage({
         primary={{ label: 'Scope this project', href: '/get-started' }}
         secondary={{ label: 'Ask our agent', href: '/agent' }}
       />
+
+      {/* Signature visual — one distinct diagram per service, so the six
+          ServiceNow pages don't share an identical silhouette. */}
+      <Section tone="paper" pad="tight" still>
+        <ServiceVisual slug={entry.slug} />
+      </Section>
 
       {entry.offerings.length > 0 && (
         <Section tone="surface" divide>

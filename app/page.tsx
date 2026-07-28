@@ -197,7 +197,7 @@ export default function Page() {
             const Icon = pillarIcons[label];
             return (
               <ScrollAnimation key={label} className="h-full">
-                <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(14,17,32,0.06)]">
+                <div className="group h-full flex flex-col rounded-2xl border border-hairline bg-surface p-7 transition-all duration-300 hover:border-sea-soft hover:shadow-[0_8px_30px_rgba(24,19,18,0.06)]">
                   <div className="flex items-start justify-between gap-3 mb-4">
                     <div className="w-10 h-10 rounded-xl bg-sea-tint flex items-center justify-center shrink-0 group-hover:bg-sea-strong transition-colors">
                       {Icon && <Icon className="h-5 w-5 text-sea" />}
