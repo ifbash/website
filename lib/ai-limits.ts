@@ -43,8 +43,9 @@ export function limits() {
 const ipHits = new Map<string, number[]>();
 const MAX_TRACKED_IPS = 5_000;
 
-// forEach rather than for-of: the project targets es5, where iterating a Map
-// needs --downlevelIteration.
+// forEach rather than for-of. This was originally required because the project
+// targeted es5; the target moved to ES2017 in July 2026, so for-of would compile
+// now. Left as-is because it reads fine and the rewrite buys nothing.
 function sweep(now: number) {
   const stale: string[] = [];
   ipHits.forEach((hits, ip) => {

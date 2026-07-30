@@ -208,6 +208,67 @@ export default function EngagePage() {
         </div>
       </Section>
 
+      {/* WORKING IN THE GULF
+          Deliberately limited to what is true today: working week, Ramadan
+          scheduling, on-site travel, and the time-zone arithmetic from the
+          Hyderabad base stated on /contactus. Currency and Arabic-language
+          delivery are NOT claimed here — see the truth policy. Do not add
+          either to this section without confirming it first. */}
+      <Section tone="surface" divide>
+        <div className="grid lg:grid-cols-2 gap-10 items-start">
+          <div>
+            <Eyebrow rule className="mb-4">Working in the Gulf</Eyebrow>
+            <DisplayHeading as="h2" size="sm" className="mb-5">
+              Your week, <Accented>not ours.</Accented>
+            </DisplayHeading>
+            <p className="text-base text-slate leading-relaxed mb-4">
+              Most of the Middle East runs Sunday to Thursday. A supplier working Monday to Friday
+              loses you two days of every week — one at each end — and it shows up as a sprint that
+              never quite lands on your calendar. We schedule sprints, stand-ups, and go-live
+              windows to the Gulf week, and we plan around Ramadan hours rather than discovering
+              them halfway through a phase.
+            </p>
+            <p className="text-base text-slate leading-relaxed mb-4">
+              We deliver from Hyderabad, which puts our working day 2½ hours ahead of Riyadh and
+              1½ ahead of Dubai — so your morning is our morning. That is a practical difference
+              from a European or American supplier, where the overlap is a few hours at best and
+              an urgent question can cost you a day.
+            </p>
+            <p className="text-base text-slate leading-relaxed">
+              When an engagement needs someone physically in the room — a workshop, a go-live, a
+              stakeholder session that will not work over video — we travel to site.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-hairline bg-paper p-7">
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
+              What that means in practice
+            </div>
+            <div className="space-y-3.5">
+              {[
+                ['Sunday–Thursday delivery week', 'Ceremonies and releases on your working days, not ours.'],
+                ['Ramadan-aware scheduling', 'Adjusted hours planned into the phase, not absorbed as slippage.'],
+                ['Full business-day overlap', 'Riyadh and Dubai mornings covered live, not answered overnight.'],
+                ['On-site when it matters', 'Workshops, go-lives, and stakeholder sessions in the room.'],
+              ].map(([title, note]) => (
+                <div key={title} className="flex items-start gap-2.5">
+                  <Check className="h-4 w-4 text-sea shrink-0 mt-1" />
+                  <div>
+                    <div className="text-sm font-semibold text-ink-body leading-snug">{title}</div>
+                    <div className="text-[13px] text-slate mt-0.5 leading-relaxed">{note}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[12px] text-slate-light leading-relaxed mt-5 pt-4 border-t border-hairline">
+              Two things we will not imply: we are not an in-region entity, and we do not staff
+              Arabic-language delivery. If either is a requirement, say so early and we will tell
+              you straight whether we fit.
+            </p>
+          </div>
+        </div>
+      </Section>
+
       <FaqSection faqs={faqs} heading="The questions procurement asks." askLabel="Ask us something else" />
 
       <CtaBand

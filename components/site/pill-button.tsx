@@ -53,7 +53,10 @@ function classesFor({ variant = 'primary', size = 'lg', onInk, className }: Base
     'inline-flex items-center justify-center rounded-full font-semibold whitespace-nowrap',
     'transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sea focus-visible:ring-offset-2',
     SIZES[size],
-    variant === 'quiet' ? 'px-0 py-0' : '',
+    // py-1 not py-0: a quiet link is bare text, which gave it a ~23px box —
+    // under the 24px WCAG 2.2 AA minimum tap target (SC 2.5.8). The padding
+    // grows the hit area only; the label stays put inside a flex items-center row.
+    variant === 'quiet' ? 'px-0 py-1' : '',
     (onInk ? ON_INK_VARIANTS : VARIANTS)[variant],
     className,
   );

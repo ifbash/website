@@ -43,8 +43,8 @@ export default function CookiePolicyPage() {
             <p className="text-slate">
               Cookies are small text files placed on your device when you visit a website. They are
               widely used to make websites work more efficiently and to provide information to the
-              site owners. Cookies can be "session" cookies (deleted when you close your browser)
-              or "persistent" cookies (remaining on your device for a set period).
+              site owners. Cookies can be &ldquo;session&rdquo; cookies (deleted when you close your
+              browser) or &ldquo;persistent&rdquo; cookies (remaining on your device for a set period).
             </p>
           </section>
 
@@ -99,7 +99,7 @@ export default function CookiePolicyPage() {
             <ul className="list-disc pl-6 space-y-2 text-slate">
               <li>
                 <strong>Browser settings</strong> — Most browsers allow you to refuse cookies or
-                delete existing ones. Refer to your browser's help documentation for instructions.
+                delete existing ones. Refer to your browser&rsquo;s help documentation for instructions.
               </li>
               <li>
                 <strong>Opt-out tools</strong> — For analytics cookies, you can install the{" "}
@@ -125,7 +125,7 @@ export default function CookiePolicyPage() {
             <p className="text-slate">
               Some cookies on this site are set by third-party services that appear on our pages
               (for example, embedded videos or social media share buttons). We do not control
-              these third-party cookies; please refer to the relevant third party's privacy and
+              these third-party cookies; please refer to the relevant third party&rsquo;s privacy and
               cookie policies for more information.
             </p>
           </section>

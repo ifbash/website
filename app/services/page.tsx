@@ -64,7 +64,7 @@ export default function ServicesIndexPage() {
               <p className="text-base text-slate leading-relaxed mb-6">{p.blurb}</p>
               <Link
                 href={p.more.href}
-                className="inline-flex items-center gap-2 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
+                className="inline-flex items-center gap-2 py-1 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
               >
                 {p.more.label} <ArrowRight className="h-4 w-4" />
               </Link>

@@ -7,6 +7,7 @@ import {
   MonitorSmartphone, Briefcase, Layers, Target, FileText, CloudLightning, Car, Factory,
   ShoppingBag, Bolt, Landmark, MapPin, Wrench, BookOpen, CalendarCheck, Database, Star,
   Info, Mic, BrainCircuit, Zap, Bot, Smartphone, Globe, Sparkles, Handshake, PenLine,
+  Banknote, Plane, BedDouble, HardHat, Construction,
 } from 'lucide-react';
 
 export interface NavItem {
@@ -133,6 +134,14 @@ export const industryItems: NavItem[] = [
   { title: 'Retail', href: '/industries/retail-ecommerce', icon: ShoppingBag },
   { title: 'Telecom', href: '/industries/telecommunications', icon: MonitorSmartphone },
   { title: 'Energy & Utilities', href: '/industries/energy-utilities', icon: Bolt },
+  // Gulf-priority verticals. Added because the Middle East is the primary
+  // market and these five carry the region's largest platform spend, with no
+  // page to land on before now.
+  { title: 'Banking & Finance', href: '/industries/banking-financial-services', icon: Banknote },
+  { title: 'Giga-Projects', href: '/industries/giga-projects', icon: Construction },
+  { title: 'Aviation & Airports', href: '/industries/aviation-airports', icon: Plane },
+  { title: 'Construction & Real Estate', href: '/industries/construction-real-estate', icon: HardHat },
+  { title: 'Hospitality', href: '/industries/hospitality', icon: BedDouble },
 ];
 
 // ── Company ─────────────────────────────────────────────────────────

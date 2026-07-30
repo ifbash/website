@@ -3,6 +3,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 import { AgentCostCalculator } from '@/components/agent-cost-calculator';
 
 const offerings: Feature[] = [
@@ -81,6 +82,20 @@ const faqs: Faq[] = [
 export default function ClaudeAiEngineeringPage() {
   return (
     <>
+      <ServiceSchema
+        name="AI Engineering on Claude"
+        description="Agents, voice systems, and retrieval over your own knowledge, engineered on Claude with cost and accuracy measured rather than assumed."
+        url={`${SITE_URL}/services/claude-ai-engineering`}
+        serviceType="AI Engineering on Claude"
+        category="AI & Agents"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'AI Engineering on Claude', href: '/services/claude-ai-engineering' },
+        ]}
+      />
+
       <PageHero
         tags={['Claude', 'RAG', 'Evals']}
         eyebrow="AI & Agents"

@@ -1,8 +1,10 @@
+import Link from 'next/link';
 import { ArrowRight, Globe, Gauge, Search, Paintbrush, Server, RefreshCw } from 'lucide-react';
 import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 
 const offerings: Feature[] = [
   {
@@ -80,6 +82,20 @@ const faqs: Faq[] = [
 export default function WebsiteDevelopmentPage() {
   return (
     <>
+      <ServiceSchema
+        name="Website & Web App Development"
+        description="Fast, accessible, SEO-ready builds on Next.js, with assistants and agents inside the product rather than bolted on afterwards."
+        url={`${SITE_URL}/services/website-development`}
+        serviceType="Website & Web App Development"
+        category="Web & Mobile"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Website & Web App Development', href: '/services/website-development' },
+        ]}
+      />
+
       <PageHero
         tags={['Next.js', 'Performance', 'AI-native']}
         eyebrow="Web & Mobile"
@@ -114,8 +130,13 @@ export default function WebsiteDevelopmentPage() {
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           <div>
             <Eyebrow rule className="mb-4">The reference</Eyebrow>
+            {/* Deliberately not the word "portfolio": /portfolio is a route on
+                this site and it means the ServiceNow capability catalogue, not
+                web work. This block points at /work, which is the testable
+                proof. Using both words interchangeably made it unclear which
+                page owns which query. */}
             <DisplayHeading as="h2" size="sm" className="mb-5">
-              You are looking at the portfolio.
+              You are looking at the reference build.
             </DisplayHeading>
             <p className="text-base text-slate leading-relaxed mb-4">
               This site is our own work: the design system, the fluid type scale, the structured
@@ -126,7 +147,7 @@ export default function WebsiteDevelopmentPage() {
               than a screenshot of someone else&apos;s project.
             </p>
             <PillLink href="/work" variant="outline" size="lg">
-              How this site is built <ArrowRight className="h-4 w-4" />
+              Try what we have shipped <ArrowRight className="h-4 w-4" />
             </PillLink>
           </div>
 
@@ -149,6 +170,29 @@ export default function WebsiteDevelopmentPage() {
             </ul>
           </div>
         </div>
+      </Section>
+
+      {/* HUB LINK — this page and /services/mobile-app-development are the two
+          specific offers; /services/web-mobile-development is the practice that
+          contains both. The hub already links down to each of us; without this
+          link back up, the hierarchy is one-directional and all three read as
+          siblings competing for the same queries. Anchor text is deliberately
+          about the practice, never "website development", so it reinforces the
+          parent rather than competing with this page for its own term. */}
+      <Section tone="surface" divide pad="tight" innerClassName="max-w-3xl">
+        <Eyebrow rule className="mb-3">Part of a wider practice</Eyebrow>
+        <p className="text-base text-slate leading-relaxed mb-5">
+          Websites are one half of what this team does. If your project needs an app alongside the
+          site — shared design system, shared API, one team — the practice overview covers how the
+          two are built together, and{' '}
+          <Link href="/services/mobile-app-development" className="inline-block py-1 text-sea font-medium underline underline-offset-2 hover:text-sea-deep">
+            mobile app development
+          </Link>{' '}
+          covers the app side on its own.
+        </p>
+        <PillLink href="/services/web-mobile-development" variant="outline" size="lg">
+          Web &amp; mobile practice overview <ArrowRight className="h-4 w-4" />
+        </PillLink>
       </Section>
 
       <FaqSection faqs={faqs} heading="Before you brief us." />

@@ -1,6 +1,4 @@
-'use client';
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ScrollAnimation } from '@/components/scroll-animation';
 import { ArrowRight, ArrowDown, Settings, Bot, Globe } from 'lucide-react';
 import Link from 'next/link';
@@ -57,11 +55,21 @@ const pillars = [
   },
 ];
 
-const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] as const },
-});
+/*
+ * The hero used framer-motion fadeUp entry animations, which forced this whole
+ * page to be a client component — 'use client' plus framer-motion on the single
+ * highest-traffic route. Lighthouse mobile measured performance 56, LCP 4.2s and
+ * TBT 2.7s as a result.
+ *
+ * They are gone rather than replaced. app/globals.css already says it plainly:
+ * "Anything that must be visible immediately (a hero above the fold) should not
+ * carry .reveal — entry animations on first paint read as jank, not polish."
+ * Animating the hero contradicted the site's own documented position and cost
+ * the homepage its server rendering to do it.
+ *
+ * Sections below the fold keep their scroll reveal, which is CSS-driven and
+ * needs no JavaScript at all.
+ */
 
 export default function Page() {
   return (
@@ -72,6 +80,11 @@ export default function Page() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
+            // Stable @id so every Service on the site can point its `provider`
+            // here. Without it Google reads an anonymous organisation per page
+            // rather than one entity that offers many services. Keep in sync
+            // with ORG_ID in components/seo-schemas.tsx.
+            '@id': 'https://ifbash.com/#organization',
             name: 'ifBash',
             url: 'https://ifbash.com',
             logo: 'https://ifbash.com/images/logo.png',
@@ -98,6 +111,23 @@ export default function Page() {
                 { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Mobile App Development', url: 'https://ifbash.com/services/mobile-app-development' } },
               ],
             },
+            // ServiceNow practitioner certifications held across the team. Types
+            // only, never counts — see the truth-policy note on `certifications`
+            // in app/trust/page.tsx. These are individual credentials, NOT a
+            // ServiceNow partner tier.
+            hasCredential: [
+              'ServiceNow Certified Technical Architect (CTA)',
+              'ServiceNow Architect-level certification (ArchX)',
+              'ServiceNow Certified System Administrator (CSA)',
+              'ServiceNow Certified Application Developer (CAD)',
+              'ServiceNow Certified Implementation Specialist (CIS)',
+              'ServiceNow micro-certifications',
+            ].map((n) => ({
+              '@type': 'EducationalOccupationalCredential',
+              credentialCategory: 'certification',
+              name: n,
+              recognizedBy: { '@type': 'Organization', name: 'ServiceNow' },
+            })),
             sameAs: ['https://linkedin.com/company/ifbash', 'https://twitter.com/ifbashx', 'https://youtube.com/@c-ifbash'],
           }),
         }}
@@ -112,8 +142,7 @@ export default function Page() {
 
             {/* Left — the message */}
             <div>
-              <motion.h1
-                {...fadeUp(0)}
+              <h1
                 className="font-display leading-[1.06] mb-7 text-ink"
                 style={{ fontSize: 'clamp(2.5rem, 5.6vw, 4.25rem)', letterSpacing: '-0.030em' }}
               >
@@ -125,33 +154,31 @@ export default function Page() {
                   AI layer on top.
                   <CircleMark className="pointer-events-none absolute -inset-x-4 -inset-y-2 h-[calc(100%+1rem)] w-[calc(100%+2rem)] text-marker/80" />
                 </span>
-              </motion.h1>
-              <motion.p {...fadeUp(0.12)} className="text-lg leading-relaxed max-w-md mb-9 text-slate">
+              </h1>
+              <p className="text-lg leading-relaxed max-w-md mb-9 text-slate">
                 Implementation and managed services are the practice that pays the bills. The
                 agents we put on top are the reason clients stay. Don&apos;t read about it — ask
                 the agent on this page; we built it.
-              </motion.p>
-              <motion.div {...fadeUp(0.24)} className="flex flex-wrap items-center gap-5">
+              </p>
+              <div className="flex flex-wrap items-center gap-5">
                 <PillLink href="/get-started" variant="primary" size="lg">
                   Start a project <ArrowRight className="h-4 w-4" />
                 </PillLink>
                 <a
                   href="#work"
-                  className="inline-flex items-center gap-2 text-[15px] font-semibold text-slate hover:text-sea transition-colors"
+                  className="inline-flex items-center gap-2 py-1 text-[15px] font-semibold text-slate hover:text-sea transition-colors"
                 >
                   Watch the work <ArrowDown className="h-4 w-4" />
                 </a>
-              </motion.div>
+              </div>
             </div>
 
-            {/* Right — the speaking agent */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.35, duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-            >
+            {/* Right — the speaking agent. Previously scaled in on load with a
+                0.35s delay, which held the most interactive element on the page
+                behind an animation. It renders immediately now. */}
+            <div>
               <VoiceHero />
-            </motion.div>
+            </div>
           </div>
         </Container>
       </section>
@@ -214,7 +241,7 @@ export default function Page() {
                       <li key={h}>
                         <Link
                           href={h}
-                          className="group/link inline-flex items-center gap-2 text-sm font-medium text-ink-body hover:text-sea transition-colors"
+                          className="group/link inline-flex items-center gap-2 py-1 text-sm font-medium text-ink-body hover:text-sea transition-colors"
                         >
                           <span className="h-1 w-1 rounded-full bg-sea shrink-0" />
                           <span className="underline-offset-4 group-hover/link:underline">{l}</span>
@@ -225,7 +252,7 @@ export default function Page() {
 
                   <Link
                     href={href}
-                    className="mt-auto inline-flex items-center gap-1.5 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
+                    className="mt-auto inline-flex items-center gap-1.5 py-1 text-sm font-semibold text-sea hover:text-sea-deep transition-colors"
                   >
                     Explore {label}
                     <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />

@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Production AI agents with tool use, guardrails, and human approval gates. The agent on this site is one of ours.',
     url: 'https://ifbash.com/services/ai-agents',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — AI Agents' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — AI Agents' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/ai-agents' },
 };

@@ -30,6 +30,15 @@ export type Insight = {
   updated: string;
   author: string;
   tags: string[];
+  /**
+   * BCP 47 language tag, default 'en'. Set to 'ar' for an Arabic post so the
+   * article renders with lang/dir and screen readers and Google both get told
+   * which language it is. Same review bar as lib/i18n/ar.ts: no Arabic ships
+   * published until a native speaker has read it.
+   */
+  lang: string;
+  /** Derived from lang — 'rtl' for Arabic, otherwise 'ltr'. Not authored. */
+  dir: 'ltr' | 'rtl';
   readingMinutes: number;
   /** Compiled HTML, ready to render. Authored in-repo, so not sanitised. */
   html: string;
@@ -53,6 +62,12 @@ function readAll(): Insight[] {
       // ~200 wpm, rounded up, floor of 1.
       const words = content.trim().split(/\s+/).filter(Boolean).length;
 
+      // Only Arabic is RTL on this site today. Kept as a derived value rather
+      // than a frontmatter field so a post can't declare lang: 'ar' and then
+      // render left-to-right because someone forgot the second key.
+      const lang = String(data.lang ?? 'en');
+      const dir: 'ltr' | 'rtl' = lang.startsWith('ar') ? 'rtl' : 'ltr';
+
       return {
         slug,
         title: String(data.title ?? slug),
@@ -61,6 +76,8 @@ function readAll(): Insight[] {
         updated: String(data.updated ?? data.date ?? ''),
         author: String(data.author ?? 'ifBash'),
         tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+        lang,
+        dir,
         readingMinutes: Math.max(1, Math.ceil(words / 200)),
         html: marked.parse(content, { async: false }) as string,
         published: data.published === true,

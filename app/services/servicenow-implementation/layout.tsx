@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'ServiceNow Implementation — Go-Live in Weeks, Not Quarters',
+  title: 'ServiceNow Implementation — Live and Adopted, Not Just Configured',
   description: 'Pre-built accelerators, parallel workstreams, and phase gates that catch scope creep. ServiceNow implementations scoped in writing within two working days of the first call.',
   keywords: [
     // 'ServiceNow partner' is a query we target, not a badge we claim — the
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: 'ifBash',
-    title: 'ServiceNow Implementation — Go-Live in Weeks, Not Quarters | ifBash',
+    title: 'ServiceNow Implementation — Live and Adopted, Not Just Configured | ifBash',
     description: 'Pre-built accelerators, parallel workstreams, and phase gates that catch scope creep. The team that scopes it builds it.',
     url: 'https://ifbash.com/services/servicenow-implementation',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/servicenow-implementation' },
 };

@@ -1,0 +1,95 @@
+name: CI
+
+# Gate on every push to main and every PR. Vercel builds independently, so this
+# is not the deploy — it is the check that catches what a Vercel build won't:
+# lint regressions, truth-policy violations, retired palette colours, and
+# redirect chains.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+# A new push to the same branch makes the in-flight run obsolete.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # app/sitemap.ts derives each URL's lastmod from `git log -1` on the
+          # files it renders. The default shallow checkout makes the graft commit
+          # look like it added every file, which the sitemap detects and responds
+          # to by emitting no lastmod at all. Full history is what makes the
+          # dates real, so keep this at 0.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      # Content and design audit first: it is seconds, needs no build output, and
+      # its failures are the ones a human most needs to see before anything else.
+      - name: Audit content and design
+        run: bash scripts/audit.sh
+
+      - name: Lint
+        run: npm run lint
+
+      # Unit tests over lib/. Runs before the build because it is faster and its
+      # failures are more specific — a broken rate limit is a clearer signal
+      # than whatever the build would report downstream of it.
+      - name: Test
+        run: npm test
+
+      # No secrets needed — every process.env read in app/ and lib/ is guarded by
+      # a default or a runtime check, so the build is clean without API keys.
+      - name: Build
+        run: npm run build
+
+      # Layout, contrast and tap-target audit across 26 routes x 3 viewports.
+      # Needs a running server, which is why it lives after the build rather than
+      # in scripts/audit.sh. It found a 10,000px RTL overflow on every /ar page
+      # and two AA contrast failures that no static check could see, so it is
+      # worth the ~90s. The script aborts if the page is not fully styled, so a
+      # broken deploy fails loudly instead of reporting a clean sheet.
+      - name: Layout and accessibility audit
+        run: |
+          npx next start &
+          SERVER_PID=$!
+          for i in $(seq 1 30); do
+            curl -sf -o /dev/null http://localhost:3000/ && break
+            sleep 2
+          done
+          set +e
+          node scripts/viewport-audit.mjs
+          STATUS=$?
+          kill $SERVER_PID 2>/dev/null || true
+          exit $STATUS
+
+      # Catches the regression this workflow was added alongside: if every URL
+      # carries the same lastmod, the dates are coming from build time rather
+      # than from git, and the sitemap is telling Google the whole site changed.
+      - name: Check sitemap dates are not uniform
+        run: |
+          xml=$(find .next -name 'sitemap.xml*' -type f | head -1)
+          if [ -z "$xml" ]; then
+            echo "No prerendered sitemap found; skipping."
+            exit 0
+          fi
+          echo "Reading $xml"
+          total=$(grep -c '<lastmod>' "$xml" || true)
+          distinct=$(grep -o '<lastmod>[^<]*' "$xml" | sort -u | wc -l)
+          echo "$total lastmod values, $distinct distinct"
+          if [ "$total" -gt 5 ] && [ "$distinct" -le 1 ]; then
+            echo "::error::All $total sitemap lastmod values are identical - dates are not coming from git history."
+            exit 1
+          fi

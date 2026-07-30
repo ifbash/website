@@ -33,7 +33,7 @@ export async function generateMetadata(
       title: entry.metaTitle,
       description: entry.metaDescription,
       url,
-      images: [{ url: '/images/logo.png', width: 400, height: 100, alt: `ifBash — ${entry.metaTitle}` }],
+      images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: `ifBash — ${entry.metaTitle}` }],
     },
     alternates: { canonical: url },
   };
@@ -70,9 +70,9 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
       <nav aria-label="Breadcrumb" className="bg-paper border-b border-hairline-soft">
         <div className="w-[92%] md:w-[88%] lg:w-[84%] max-w-6xl mx-auto flex items-center gap-1.5 py-3 text-[13px] text-slate">
-          <Link href="/" className="hover:text-sea transition-colors">Home</Link>
+          <Link href="/" className="inline-block py-1 hover:text-sea transition-colors">Home</Link>
           <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
-          <Link href="/industries" className="hover:text-sea transition-colors">Industries</Link>
+          <Link href="/industries" className="inline-block py-1 hover:text-sea transition-colors">Industries</Link>
           <ChevronRight className="h-3.5 w-3.5 text-slate-faint" />
           <span className="text-ink-body font-medium">{name}</span>
         </div>
@@ -133,6 +133,50 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
           </div>
         </div>
       </Section>
+
+      {/* REGIONAL — Gulf regulators and national transformation programmes.
+          Only rendered for sectors that carry the block, so the pages written
+          for US and EU buyers are unchanged. */}
+      {entry.regional && (
+        <Section tone="surface" divide>
+          <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] gap-10 items-start">
+            <div>
+              <Eyebrow rule className="mb-4">In the Gulf</Eyebrow>
+              <DisplayHeading as="h2" size="sm" className="mb-5">
+                The questions <Accented>procurement actually asks.</Accented>
+              </DisplayHeading>
+              <p className="text-base text-slate leading-relaxed mb-4">
+                {entry.regional.visionAlignment}
+              </p>
+              <p className="text-sm text-slate-light leading-relaxed">
+                We map platform configuration to the control families below and hand over the
+                mapping with the build. That is a description of how we work, not a certification
+                claim — where a framework requires an accredited audit, that audit is yours or your
+                assessor&apos;s, and we say so in writing.
+              </p>
+            </div>
+
+            <div className="rounded-2xl border border-hairline bg-paper p-6 sm:p-7">
+              <div className="text-[11px] font-semibold tracking-widest uppercase text-sea mb-5">
+                Frameworks we design to
+              </div>
+              <dl className="space-y-4">
+                {entry.regional.frameworks.map((f) => (
+                  <div key={f.name} className="border-l-2 border-sea-soft pl-4">
+                    <dt className="text-sm font-semibold text-ink-body">
+                      {f.name}
+                      <span className="ml-2 font-normal text-[12px] text-slate-light">
+                        {f.jurisdiction}
+                      </span>
+                    </dt>
+                    <dd className="text-[13px] text-slate mt-1 leading-relaxed">{f.note}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </Section>
+      )}
 
       {/* HONEST NOTE */}
       <Section tone="paper" divide innerClassName="max-w-3xl">

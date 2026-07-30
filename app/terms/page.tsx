@@ -72,7 +72,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-xl font-semibold text-ink mb-3">4. Disclaimer of Warranties</h2>
             <p className="text-slate">
-              This website and its content are provided on an "as is" basis without warranties of
+              This website and its content are provided on an &ldquo;as is&rdquo; basis without warranties of
               any kind, either express or implied. ifBash does not warrant that the website will be
               uninterrupted, error-free, or free of viruses or other harmful components.
             </p>

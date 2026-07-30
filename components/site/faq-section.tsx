@@ -58,7 +58,7 @@ export function FaqSection({
           </DisplayHeading>
           <Link
             href={askHref}
-            className="inline-flex items-center gap-2 font-semibold text-sm text-sea hover:text-sea-deep hover:underline underline-offset-4 transition-colors"
+            className="inline-flex items-center gap-2 py-1 font-semibold text-sm text-sea hover:text-sea-deep hover:underline underline-offset-4 transition-colors"
           >
             {askLabel} <ArrowRight className="h-4 w-4" />
           </Link>

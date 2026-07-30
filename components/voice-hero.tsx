@@ -162,7 +162,7 @@ export function VoiceHero() {
         <button
           onClick={() => { setMuted(!muted); if (!muted) window.speechSynthesis?.cancel(); }}
           aria-label={muted ? 'Unmute voice' : 'Mute voice'}
-          className="p-1 rounded-md transition-colors hover:bg-black/5"
+          className="p-1.5 rounded-md transition-colors hover:bg-black/5"
           style={{ color: '#7A675D' }}
         >
           {muted ? <VolumeX className="h-3.5 w-3.5" /> : <Volume2 className="h-3.5 w-3.5" />}
@@ -225,7 +225,7 @@ export function VoiceHero() {
         </button>
       </form>
 
-      <Link href="/agent" className="mt-4 text-xs font-medium transition-colors hover:underline" style={{ color: SKY }}>
+      <Link href="/agent" className="mt-4 inline-block py-1.5 text-xs font-medium transition-colors hover:underline" style={{ color: SKY }}>
         Prefer a phone call? The agent can call you →
       </Link>
     </div>

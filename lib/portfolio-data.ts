@@ -157,7 +157,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow App Engine?', a: 'A low-code platform to build custom applications on ServiceNow. Create intelligent workflows, portals, and automation without traditional coding — powered by generative AI.' },
+      { q: 'What is ServiceNow App Engine?', a: 'A low-code platform for building custom applications on ServiceNow. The decision that determines whether what you build survives is scope: a scoped application restricts you to supported interfaces, which is exactly why it lives through upgrades. Applications built in global scope against core tables work perfectly until the first upgrade, and then cost more to repair than they did to build.' },
       { q: 'Can non-developers use it?', a: 'Yes. Creator Studio provides drag-and-drop tools for citizen developers. ServiceNow Studio provides a full IDE for professional developers. Both on the same governed platform.' },
       { q: 'What can I build with it?', a: 'Any business application — from simple approval workflows to complex case management systems with autonomous AI agents operating 24/7.' },
       { q: 'How fast can we build and deploy?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -358,7 +358,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow CSM?', a: 'AI-powered customer service platform connecting every channel, automating with AI agents, and mapping customer journeys end-to-end for proactive, personalized service.' },
+      { q: 'What is ServiceNow CSM?', a: 'A customer service platform that connects channels, automates with AI agents, and gives agents one workspace with full context. The decision that shapes the whole implementation is who your customer is: B2B means cases hang off accounts, contracts and entitlements with visibility following the hierarchy, while B2C has no account structure at all. Deciding that late is the most common cause of rework here.' },
       { q: 'How do AI Agents work in CSM?', a: 'Autonomous 24/7 agents gather data, make decisions, and execute tasks — from simple return requests to complex product recalls. They learn and improve continuously.' },
       { q: 'What channels does it support?', a: 'Email, chat, phone, social media, web portal, SMS — all unified into a single agent workspace with complete customer context.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -556,7 +556,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow Field Service Management?', a: 'Intelligent field service management combining dynamic scheduling, mobile workforce enablement, route optimization, and preventive maintenance — all on one AI-powered platform.' },
+      { q: 'What is ServiceNow Field Service Management?', a: 'Dynamic scheduling, a mobile app for technicians, and optimisation that matches the right engineer to the right job. The scheduling engine is only as good as data most organisations do not yet hold: technician skills, certifications, territories and travel assumptions, maintained. We normally start with assisted dispatch rather than full automation, because it delivers value immediately and exposes where the skill model is wrong.' },
       { q: 'Does it work offline?', a: 'Yes. Mobile Agent provides full FSM functionality offline and automatically syncs when connectivity returns. Technicians never lose access to critical job information.' },
       { q: 'How does dynamic scheduling work?', a: 'AI considers skills, location, availability, priority, SLA, and travel time to assign the right technician automatically. Schedule adjusts in real time as conditions change.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -753,8 +753,8 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow HR Service Delivery?', a: 'HRSD provides a unified employee portal, AI-powered case management, and automated employee journeys — from onboarding to offboarding — all on one platform. It replaces siloed HR tools with a single, intelligent experience.' },
-      { q: 'What is Employee Journey Management?', a: 'Complete workflow automation for key employee moments: onboarding, promotions, transfers, parental leave, and offboarding. No-code journey creation with cross-department integration across HR, IT, and facilities.' },
+      { q: 'What is ServiceNow HR Service Delivery?', a: 'A unified employee portal, HR case management, and automated lifecycle journeys — onboarding, transfers, offboarding. The part that catches teams out is confidentiality. HR cases are not IT tickets: a grievance or a medical accommodation must be invisible to people who can see every other record, including platform administrators. That role model has to be designed up front, because retrofitting it means revisiting every report built on top.' },
+      { q: 'What is Employee Journey Management?', a: 'Workflow automation for the employee moments that cross departments — onboarding, promotions, transfers, offboarding. Onboarding is the obvious first candidate and also the most cross-functional, touching IT, facilities, payroll and security. A narrower event with a single owner is often the better first delivery, precisely because it does not need four departments to agree before anything ships.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What HR systems does it integrate with?', a: 'Oracle HCM, SAP SuccessFactors, Workday — plus LMS, payroll, ATS, and productivity tools like Microsoft 365 and Google Workspace.' },
       { q: 'What outcomes should we expect?', a: 'The outcomes depend entirely on your starting point, so we agree the measures with you up front and report against those rather than quoting figures from engagements you cannot verify. ServiceNow HRSD is scoped against your own baseline.' },
@@ -823,7 +823,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow Integrated Risk Management?', a: 'IRM transforms inefficient, siloed GRC processes into an integrated risk program with continuous monitoring, intelligent automation, and real-time visibility across the enterprise.' },
+      { q: 'What is ServiceNow Integrated Risk Management?', a: 'It replaces siloed GRC spreadsheets with a connected programme — controls, risks, continuous monitoring and evidence collection in one place. These implementations rarely fail loudly; they go live and then nothing changes, because the control library was imported from a framework document rather than mapped to how the organisation runs, and no named person owns any of it. Ownership is the design decision that matters most.' },
       { q: 'How does Operational Resilience Management work?', a: 'Real-time visibility into the resilience of your technology, people, processes, and facilities. Identify vulnerabilities across all four dimensions and manage business disruptions proactively.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What frameworks does it support?', a: 'NIST, ISO 27001, SOC 2, HIPAA, SOX, GDPR, PCI DSS — plus custom frameworks. Use Case Accelerators provide pre-built templates for popular regulations.' },
@@ -892,8 +892,8 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow Integration Hub?', a: 'Yes. ServiceNow ships connectors for the major enterprise systems, and Integration Hub covers the rest via REST, SOAP, or a custom spoke. We confirm every integration in scoping before committing to it.' },
-      { q: 'What is Spoke Generator?', a: 'A no-code tool that creates custom spokes from OpenAPI specifications. Powered by generative AI, it builds custom integrations in hours — not weeks.' },
+      { q: 'What is ServiceNow Integration Hub?', a: 'A library of pre-built connectors plus tooling to build your own, so integrations are configured rather than hand-coded. Two things to settle before building: what happens when the far system is down — retry, queue, or fail to a human — and the commercial shape, because IntegrationHub is licensed by transaction volume and a chatty integration designed without that in mind produces a bill nobody forecast.' },
+      { q: 'What is Spoke Generator?', a: 'A no-code tool that builds custom spokes from an OpenAPI specification, so a documented API becomes usable in a flow without scripting. Useful when the published spec is accurate and current. Where it is not, a hand-built integration with explicit error handling is the safer choice, and we will tell you which situation you are in rather than generating something brittle.' },
       { q: 'How many connectors are available?', a: 'We will answer this specifically for your environment during scoping — ServiceNow Integration Hub varies enough between organisations that a general answer would mislead.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What systems can it connect?', a: 'SAP, Salesforce, Oracle, Workday, Microsoft 365, AWS, Azure, GCP, Apache Kafka — and any system with a REST API.' },
@@ -967,7 +967,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow ITAM and what does it cover?', a: 'ITAM is a single platform to manage hardware, software, cloud, and enterprise assets across their entire lifecycle — from procurement to retirement. AI-powered insights eliminate waste and reduce risk.' },
+      { q: 'What is ServiceNow ITAM and what does it cover?', a: 'Hardware, software, cloud and enterprise assets across their lifecycle, from request through disposal. Worth separating the two halves before you buy: hardware tracking is mostly a process problem and responds to discipline, while software asset management depends on reconciling discovered installs against entitlements that usually live in purchase orders and reseller portals. No tool can invent an entitlement you never recorded.' },
       { q: 'How much can we save with ITAM?', a: 'We price a fixed scope after scoping rather than publishing a number that could not survive contact with your requirements. You get the figure in writing within two working days of the first call.' },
       { q: 'What assets does it manage?', a: 'Software licenses, hardware devices, SaaS subscriptions, cloud resources, and enterprise equipment — all in one unified data model with complete lifecycle tracking.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -1034,7 +1034,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow ITOM and how does it help?', a: 'ITOM gives you complete visibility across your entire IT estate — on-premises, cloud, and everything in between. Discover infrastructure, map services, manage events, and predict issues with AIOps before they impact users.' },
+      { q: 'What is ServiceNow ITOM and how does it help?', a: 'Discovery maps your estate, Event Management correlates alerts, and Service Mapping shows dependencies. In practice the value arrives in that order and stalls in two predictable places: Discovery needs credentials and firewall access that sit outside the platform team, and an unfiltered event stream creates more noise than the monitoring it replaced. Both are solvable, and both belong in scope from day one.' },
       { q: 'How does AIOps reduce false positives?', a: 'We will answer this specifically for your environment during scoping — ServiceNow ITOM varies enough between organisations that a general answer would mislead.' },
       { q: 'What environments does it support?', a: 'On-prem data centers, AWS, Azure, GCP, Kubernetes, serverless — everything. Discovery automatically finds and maps your entire IT estate.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -1106,7 +1106,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow ITSM and how does it help?', a: 'ServiceNow ITSM is a cloud-based platform that unifies incident, problem, change, and request management. It automates routine tasks, provides AI-powered recommendations, and gives you complete visibility into IT service delivery — all on a single platform.' },
+      { q: 'What is ServiceNow ITSM and how does it help?', a: 'It unifies incident, problem, change and request management on one platform. The honest version of the value: the forms and workflows are the easy part and go live quickly. What ITSM actually buys you is a trustworthy record of what changed and what it affected — and that rests entirely on the CMDB underneath, which is where these programmes succeed or stall.' },
       { q: 'How long does a typical ITSM implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What modules are included?', a: 'Incident Management, Problem Management, Change Management, Knowledge Management, Service Catalog, Request Management, Release Management, and Now Assist for ITSM — AI-powered virtual agent and automation.' },
       { q: 'Can it integrate with our existing tools?', a: 'Yes. ServiceNow ships connectors for the major enterprise systems, and Integration Hub covers the rest via REST, SOAP, or a custom spoke. We confirm every integration in scoping before committing to it.' },
@@ -1574,7 +1574,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is Security Incident Response?', a: 'SIR manages the complete lifecycle of security incidents — from detection and analysis to containment, eradication, and recovery — with AI-powered automation and MITRE ATT&CK integration.' },
+      { q: 'What is Security Incident Response?', a: 'It manages the security incident lifecycle from detection through analysis to containment and closure. The line worth drawing before go-live is what auto-remediates and what never does. Enriching an incident with threat intelligence is safe to automate; isolating a production host is not, until the signal has enough history to trust — because a false positive there is a self-inflicted outage.' },
       { q: 'How does MITRE ATT&CK integration help?', a: 'Incidents are automatically mapped to ATT&CK tactics and techniques. Analysts instantly understand attacker behavior, see detection coverage gaps, and know the next investigative steps.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'How does it handle major incidents like ransomware?', a: 'Dedicated major incident workspace with crisis coordination, evidence management, communication templates, and recovery planning — all in one place.' },
@@ -1644,7 +1644,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow Security Operations?', a: 'SecOps connects your disparate security tools into orchestrated, automated workflows. It prioritizes vulnerabilities by business impact, accelerates incident response with MITRE ATT&CK, and gives you complete visibility into your security posture — all on one platform.' },
+      { q: 'What is ServiceNow Security Operations?', a: 'An umbrella over incident response, vulnerability response, threat intelligence and the orchestration between them. Implemented module by module without a shared asset and ownership model, you get three tools that each work and none of which talk — a vulnerability with no link to the incident it caused. The value was always in the connections, and those are what gets deferred to a phase that never arrives.' },
       { q: 'How does MITRE ATT&CK integration work?', a: 'Incidents are automatically mapped to ATT&CK tactics and techniques, giving analysts instant context on attacker behavior. Detection coverage gaps become visible. Investigation accelerates from hours to minutes.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What security tools does it integrate with?', a: 'Splunk, IBM QRadar, ArcSight, CrowdStrike, SentinelOne, Tenable, Qualys, Rapid7 — plus any SIEM, EDR, or threat intel platform via Integration Hub.' },
@@ -1963,7 +1963,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is ServiceNow SPM?', a: 'Formerly IT Business Management (ITBM). SPM connects strategy, planning, and delivery on one platform — from idea to business outcome. It supports traditional, agile, and hybrid methodologies.' },
+      { q: 'What is ServiceNow SPM?', a: 'Formerly IT Business Management. It connects demand intake, portfolio prioritisation, resource management and financial tracking on one platform. Our standing advice is to leave resource management out of phase one: demand and portfolio visibility deliver value on their own, whereas capacity planning needs every project plan accurate and every timesheet honest — behaviours a tool cannot create, and partial data gets contradicted in the first planning meeting.' },
       { q: 'What methodologies does it support?', a: 'Traditional waterfall, agile (Scrum, SAFe), and hybrid approaches — all managed in one unified view. Teams work how they want; leadership sees everything.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
       { q: 'What does it integrate with?', a: 'Jira, Microsoft Project, Azure DevOps, PowerPoint, and collaboration platforms. Integration Hub connects to any project or financial system.' },
@@ -2407,7 +2407,7 @@ export const portfolioEntries: PortfolioEntry[] = [
         ] },
     ],
     faqs: [
-      { q: 'What is Vulnerability Response?', a: 'Risk-based vulnerability management that prioritizes by business impact — not just CVSS score. Integrates with all major scanners and provides automated patch orchestration.' },
+      { q: 'What is Vulnerability Response?', a: 'Risk-based vulnerability management that prioritises by business impact rather than raw CVSS score. The whole implementation lives or dies on matching: scanners identify hosts by IP, hostname or agent ID while the CMDB identifies them by CI, and when those fail to reconcile, findings arrive unassigned and become a backlog nobody works. Reconciliation rate is the metric to own from the start.' },
       { q: 'How does container security work?', a: 'We will answer this specifically for your environment during scoping — ServiceNow VR varies enough between organisations that a general answer would mislead.' },
       { q: 'What scanners does it integrate with?', a: 'Tenable, Qualys, Rapid7, Wiz, Prisma Cloud, Sysdig — plus any scanner via Integration Hub.' },
       { q: 'How long does implementation take?', a: 'It depends on scope, data quality, and how many systems are in play. We give you a specific timeline in the written plan that follows your scoping call — not a range lifted from someone else’s project.' },
@@ -2478,6 +2478,591 @@ export const portfolioEntries: PortfolioEntry[] = [
     ],
   },
 ];
+
+/**
+ * What actually happens when this product gets implemented.
+ *
+ * WHY THIS EXISTS: the rest of this file describes what each ServiceNow product
+ * does. That is ServiceNow's own story, they tell it better, and their docs will
+ * outrank us for it forever. Worse, thirteen sibling pages all telling it made
+ * 41% of each page identical to the other twelve (measured July 2026).
+ *
+ * This block is the part only an implementer can write: the place these projects
+ * actually fail, and the decision that determines whether they work. It is the
+ * reason for someone to read our page instead of ServiceNow's.
+ *
+ * TRUTH POLICY: no clients, no metrics, no durations. Every claim here is about
+ * platform behaviour and delivery mechanics — things that are true because of
+ * how the product works, not because of an engagement we cannot cite.
+ */
+export interface ImplementationNote {
+  /** The failure mode specific to this product. */
+  failureMode: { heading: string; body: string };
+  /** Decisions the buyer will face, phrased as they'd ask them. */
+  decisions: { q: string; a: string }[];
+}
+
+export const implementationNotes: Record<string, ImplementationNote> = {
+  'it-service-management': {
+    failureMode: {
+      heading: 'It dies in the CMDB.',
+      body: 'Incident, problem, and change are the easy part — they are forms and a workflow, and they can be live quickly. What sinks ITSM programmes is the configuration management database underneath them. Without trustworthy CI data, change impact analysis is guesswork, major incident triage cannot tell you what else is affected, and the reporting that justified the project stops being believable. Teams discover this around the time they try to use it for something that matters.',
+    },
+    decisions: [
+      {
+        q: 'How much CMDB do you build before go-live?',
+        a: 'Enough to support the workflows you are launching, and no more. A full CI model built speculatively goes stale before anyone depends on it. We would rather launch with hardware and applications discovered and owned, then extend as each new workflow actually needs a class.',
+      },
+      {
+        q: 'Do you model services, or just assets?',
+        a: 'Service modelling is what makes impact analysis useful, and it is also the most expensive thing in the programme. Doing it for your top handful of business services is usually worth it. Doing it for everything is where budgets disappear.',
+      },
+      {
+        q: 'Who owns a CI when nobody wants to?',
+        a: 'This is an organisational question that arrives disguised as a technical one. Unassigned CIs are how a CMDB rots. We settle the ownership rule during design rather than leaving it to whoever runs Discovery.',
+      },
+    ],
+  },
+
+  'it-operations-management': {
+    failureMode: {
+      heading: 'Discovery gets blocked, then event noise buries the value.',
+      body: 'ITOM has two distinct failure points and they arrive in order. First, Discovery needs credentials and network reachability into every segment you care about — which means security review, firewall changes, and service accounts, none of which are on the platform team\'s critical path. Then, once events start flowing, an unfiltered stream creates more alerts than the old monitoring did, and the operations team concludes the new tool is worse.',
+    },
+    decisions: [
+      {
+        q: 'Where do MID servers go, and who owns their credentials?',
+        a: 'Placement follows your network segmentation, not your org chart. Getting this wrong means Discovery quietly returns partial data for months. The credential question needs a security owner named before the project starts, not during it.',
+      },
+      {
+        q: 'Is Service Mapping in scope, honestly?',
+        a: 'It is the most valuable and most expensive part of ITOM. Pattern-based mapping works well on standard stacks and poorly on bespoke ones. We would rather scope it to the services where the answer is worth the effort than promise a complete map.',
+      },
+      {
+        q: 'What is the alert-to-incident rule on day one?',
+        a: 'Aggressive filtering at launch, loosened later. Starting permissive and tightening afterwards means the operations team has already stopped trusting it by the time you fix the noise.',
+      },
+    ],
+  },
+
+  'it-asset-management': {
+    failureMode: {
+      heading: 'Entitlement data, not the tool.',
+      body: 'Hardware asset tracking is mostly a process problem and gets solved with discipline. Software asset management is different: it depends entirely on reconciling discovered installs against what you are actually entitled to, and entitlement records live in purchase orders, reseller portals, and email threads. The software content library normalises publisher data well, but it cannot invent an entitlement you never recorded. Licence position reports built on incomplete entitlements read as authoritative and are not.',
+    },
+    decisions: [
+      {
+        q: 'Which publishers actually matter?',
+        a: 'Usually a small number carry nearly all the audit exposure and cost. Getting those right is worth more than partial coverage of everything, and it is a far smaller data-gathering exercise.',
+      },
+      {
+        q: 'Where does entitlement data come from, and who keeps it current?',
+        a: 'This is the question that determines whether SAM works. If the answer is "we will backfill it from procurement," the follow-up is who owns it in month six — because an entitlement record that stops being updated makes the reports worse than having none.',
+      },
+      {
+        q: 'Do you connect asset disposal to the CMDB?',
+        a: 'Worth doing early. An asset lifecycle that ends at "disposed" without retiring the CI leaves ITSM reporting against equipment that no longer exists.',
+      },
+    ],
+  },
+
+  'customer-service-management': {
+    failureMode: {
+      heading: 'The account data model, decided too late.',
+      body: 'CSM looks like ITSM with different labels, and that assumption is what causes the rework. The difference is who the customer is. B2B means cases hang off accounts, contacts, contracts, and entitlements, with visibility rules that follow the hierarchy. B2C means consumers with no account structure at all. Choosing wrong, or trying to serve both with one model, produces a data structure that has to be rebuilt after go-live — and by then it has cases attached to it.',
+    },
+    decisions: [
+      {
+        q: 'B2B, B2C, or genuinely both?',
+        a: 'If both, they are usually better modelled as two distinct case types with separate visibility rules than as one flexible model. The flexible model is where the edge cases accumulate.',
+      },
+      {
+        q: 'Does entitlement drive SLA, or does contract?',
+        a: 'Both are supported and they behave differently. Deciding this after cases exist means recalculating SLAs against historical records, which is exactly as unpleasant as it sounds.',
+      },
+      {
+        q: 'Portal, agent workspace, or both first?',
+        a: 'Self-service deflection is usually the business case, but a portal launched before the agent side is stable generates cases nobody can service well. We would rather sequence the agent experience first.',
+      },
+    ],
+  },
+
+  'field-service-management': {
+    failureMode: {
+      heading: 'The scheduling engine is only as good as the data you never collected.',
+      body: 'Dynamic scheduling is the headline capability, and it needs technician skills, certifications, territories, working time, and travel assumptions to be accurate and maintained. Most organisations do not have that data anywhere, or have it in a spreadsheet one dispatcher owns. Turn on automated scheduling against incomplete skill data and it produces assignments the dispatchers immediately override — after which you have a scheduling engine nobody uses and a dispatcher who is now also maintaining a system.',
+    },
+    decisions: [
+      {
+        q: 'Do you start with assisted or fully automated dispatch?',
+        a: 'Assisted first, almost always. It gives dispatchers a ranked suggestion they can accept or reject, which both delivers value immediately and produces the data showing where the skill model is wrong.',
+      },
+      {
+        q: 'How offline does the mobile app need to be?',
+        a: 'This is the requirement that most changes cost. Genuinely offline field work — basements, remote sites, no coverage — constrains what the mobile experience can do. Intermittent connectivity is a much easier problem. Worth being precise about which one you have.',
+      },
+      {
+        q: 'Who owns parts availability?',
+        a: 'First-visit resolution depends on the technician having the part. If inventory lives in a system nobody has connected, scheduling will keep promising visits that cannot complete.',
+      },
+    ],
+  },
+
+  'hr-service-delivery': {
+    failureMode: {
+      heading: 'Confidentiality, discovered during UAT.',
+      body: 'HR cases are not IT tickets. A grievance, a workplace investigation, or a medical accommodation must be invisible to people who can see every other record, including platform administrators. Teams routinely build HRSD with standard ITIL-shaped roles and find out during user acceptance testing that an HR business partner can read a case about their own manager. Retrofitting that means revisiting the role model, the domain configuration, and every report already built on top.',
+    },
+    decisions: [
+      {
+        q: 'Which case types are restricted, and from whom — including admins?',
+        a: 'Decided during design, in writing, with HR in the room. This is the single most expensive thing to change later, and platform administrators are the part people forget.',
+      },
+      {
+        q: 'How much employee data do you replicate from the HRIS?',
+        a: 'Enough for routing and eligibility, and no more. Every replicated field is a synchronisation burden and a data-protection question. Live lookup is often better than a nightly copy.',
+      },
+      {
+        q: 'Which lifecycle events are in the first phase?',
+        a: 'Onboarding is the obvious candidate and also the most cross-functional — it touches IT, facilities, payroll, and security. A narrower event with a single owner is often a better first delivery.',
+      },
+    ],
+  },
+
+  'integrated-risk-management': {
+    failureMode: {
+      heading: 'A control library nobody owns.',
+      body: 'IRM implementations fail quietly. The tool goes live, controls and risks are loaded, and then nothing changes — because the control library was imported from a framework document rather than mapped to how the organisation actually operates, and no named person owns any of it. Two quarters later the risk register is stale, evidence is still collected by email before each audit, and the platform is a place where reports are generated rather than where risk is managed.',
+    },
+    decisions: [
+      {
+        q: 'What is the authoritative source for your control set?',
+        a: 'A framework, an internal policy set, or a regulator\'s requirements — and if more than one, which wins when they conflict. Without this decided, the control library becomes a superset nobody can attest to.',
+      },
+      {
+        q: 'Which evidence can be collected automatically?',
+        a: 'Controls whose evidence comes from platform data — access reviews, change approvals, patch state — are worth automating first, because they stop being manual work permanently. Controls that need human attestation stay manual, and pretending otherwise creates false assurance.',
+      },
+      {
+        q: 'Who owns a risk, and what happens when they leave?',
+        a: 'Ownership without succession is how a register goes stale. This is a governance decision the platform can enforce but not make.',
+      },
+    ],
+  },
+
+  'integration-hub': {
+    failureMode: {
+      heading: 'Nobody owns the failure path.',
+      body: 'Integrations are straightforward to build and hard to operate. The build gets attention; what happens when the downstream system is down, returns a partial response, or rejects a payload usually does not. The result is a flow that works in testing and, in production, silently drops records or retries into a duplicate. The other surprise is commercial: IntegrationHub is licensed by transaction volume, and a chatty integration designed without that in mind produces a bill nobody forecast.',
+    },
+    decisions: [
+      {
+        q: 'What happens when the other system is unavailable?',
+        a: 'Retry with backoff, queue for later, or fail loudly to a human — per integration, decided deliberately. The default of retrying forever is how duplicates get created.',
+      },
+      {
+        q: 'IntegrationHub spoke or custom REST?',
+        a: 'Spokes are faster to build and consume licensed transactions. Custom scripted integrations cost engineering time and do not. For high-volume flows the arithmetic often favours custom, and it is worth doing that arithmetic before building.',
+      },
+      {
+        q: 'Who gets paged when an integration breaks at 2am?',
+        a: 'If the answer is nobody, the integration is not production-ready regardless of how well it works. Monitoring and ownership are part of the build, not a follow-up phase.',
+      },
+    ],
+  },
+
+  'security-incident-response': {
+    failureMode: {
+      heading: 'Alert volume, then playbooks nobody trusts.',
+      body: 'Connecting a SIEM to security incident response is easy and immediately overwhelming: detection tooling generates volumes calibrated for a security analyst\'s dashboard, not for a case queue with SLAs. The second failure is subtler. Automated containment — isolating a host, disabling an account — is where the value is, and also where a false positive becomes a self-inflicted outage. Teams that get burned once turn automation off, and are left with a ticketing system for security.',
+    },
+    decisions: [
+      {
+        q: 'What auto-remediates without a human, and what never does?',
+        a: 'Drawn explicitly, per action, before go-live. Enriching an incident with threat intelligence is safe to automate. Isolating a production host is not, until you have enough history to trust the signal.',
+      },
+      {
+        q: 'Which alerts become incidents, and which stay in the SIEM?',
+        a: 'Not everything a detection tool emits deserves a case with an SLA clock. Deciding this is the difference between a queue analysts work and a queue they ignore.',
+      },
+      {
+        q: 'How does a security incident relate to an ITSM incident?',
+        a: 'They overlap during a real event, and the handoff needs to be modelled. Two teams working the same outage in two record types with no link between them is a coordination failure waiting for a bad week.',
+      },
+    ],
+  },
+
+  'security-operations': {
+    failureMode: {
+      heading: 'Bought as a programme, delivered as three disconnected modules.',
+      body: 'Security operations is an umbrella — incident response, vulnerability response, threat intelligence, and the orchestration between them. Implemented module by module without a shared model, you get three tools that each work and do not talk: a vulnerability with no link to the incident it caused, threat intelligence that enriches nothing, and orchestration that automates within a module but never across. The value was always in the connections, and the connections are what gets deferred to a later phase that does not happen.',
+    },
+    decisions: [
+      {
+        q: 'Which module comes first, and what does it have to leave behind?',
+        a: 'Sequencing is fine — doing everything at once is worse. But the first module needs to establish the shared asset and ownership model the others will attach to, or each subsequent one rebuilds it.',
+      },
+      {
+        q: 'Does asset ownership come from the CMDB or from the security team?',
+        a: 'Security operations lives or dies on knowing who owns an affected system. If the CMDB is not trustworthy for this, that is a dependency to resolve before the programme, not during it.',
+      },
+      {
+        q: 'What does orchestration actually touch?',
+        a: 'Automation that reaches into production systems needs an approval model and an audit trail. Deciding its blast radius up front is what stops the capability being switched off after the first incident.',
+      },
+    ],
+  },
+
+  'vulnerability-response': {
+    failureMode: {
+      heading: 'Scanner findings that match nothing.',
+      body: 'The mechanics are simple: ingest scanner output, group it, assign it, track remediation. The failure is in matching. Scanners identify hosts by IP, hostname, or agent ID; the CMDB identifies them by CI. When those do not reconcile, findings arrive unassigned, and unassigned findings become a backlog measured in tens of thousands that nobody works. The programme then spends its energy arguing about data quality instead of patching anything.',
+    },
+    decisions: [
+      {
+        q: 'How do scanner records reconcile to CIs?',
+        a: 'This is the whole implementation. It needs a matching rule, a plan for what happens to unmatched findings, and someone who owns the reconciliation rate as a metric. Everything else is downstream of it.',
+      },
+      {
+        q: 'Do you prioritise by severity or by exposure?',
+        a: 'Raw severity produces a queue sorted by a number that ignores whether the system is internet-facing or holds regulated data. Exposure-based prioritisation is more useful and needs business context on the CI to work.',
+      },
+      {
+        q: 'What is the remediation SLA, and who agreed to it?',
+        a: 'Patch windows belong to infrastructure teams, not the security team that opens the finding. An SLA set without them is a report of missed targets rather than a driver of work.',
+      },
+    ],
+  },
+
+  'strategic-portfolio-management': {
+    failureMode: {
+      heading: 'Resource management, attempted too early.',
+      body: 'Demand intake and a project register go live without much trouble and give leadership a view they did not have. Resource management is where SPM implementations stall. It requires every project to maintain an accurate plan, every person to have a role and capacity, and time to be recorded honestly — three organisational behaviours that do not appear because a tool asks for them. Capacity reports built on partial data get contradicted in the first planning meeting, and the platform loses credibility as a source of truth.',
+    },
+    decisions: [
+      {
+        q: 'Is resource management in phase one?',
+        a: 'Usually it should not be. Demand, portfolio visibility, and financial tracking deliver value without depending on universal timesheet discipline. Add capacity planning once projects are reliably maintained.',
+      },
+      {
+        q: 'Agile, waterfall, or both — and does the reporting need to span them?',
+        a: 'Both is normal and supported. The hard part is roll-up reporting across two planning models, which needs a common unit of progress agreed before configuration.',
+      },
+      {
+        q: 'Does demand intake replace the existing route in?',
+        a: 'If email and hallway conversations still work, intake will be bypassed and the portfolio view will be incomplete. Closing the old path is a management decision the platform cannot make.',
+      },
+    ],
+  },
+
+  'app-engine': {
+    failureMode: {
+      heading: 'Built in global scope, unupgradeable by year two.',
+      body: 'Custom applications are where platform discipline pays off or comes due. Applications built in global scope, extending core tables directly and using unsupported APIs, work perfectly until an upgrade — at which point they break, and fixing them means understanding decisions nobody documented. The other failure is governance: low-code tooling put in front of business teams with no review produces dozens of overlapping applications, each owned by whoever happened to build it, several of which duplicate each other.',
+    },
+    decisions: [
+      {
+        q: 'Scoped application or global?',
+        a: 'Scoped, in almost every case. It restricts you to supported interfaces, which is precisely why the application survives upgrades. Global scope should be a deliberate, documented exception rather than a default.',
+      },
+      {
+        q: 'Extend task, or create a standalone table?',
+        a: 'Extending task inherits SLA, approval, and assignment behaviour for free, and inherits fields you may not want. Standalone gives a clean model and means rebuilding what task already does. Worth deciding per application rather than by habit.',
+      },
+      {
+        q: 'Who reviews a citizen-developed app before it goes live?',
+        a: 'If the answer is nobody, expect duplication and abandoned applications with production data in them. A lightweight review gate is the difference between low-code being leverage and being technical debt with a friendly interface.',
+      },
+    ],
+  },
+
+  // ── Dormant capabilities ────────────────────────────────────────────
+  // The entries below are not currently routed: portfolioCategories in
+  // components/nav-data.ts decides the live set, and these are 301'd. Notes are
+  // written anyway so that restoring a capability stays the one-line nav change
+  // it is meant to be, instead of a content project. The test in
+  // tests/content-integrity.test.ts asserts EVERY entry has a note, so a page
+  // cannot be activated back into a bare product description.
+
+  'accounts-payable-operations': {
+    failureMode: {
+      heading: 'Exception handling, not invoice capture.',
+      body: 'Optical capture and three-way matching handle the invoices that are already clean, and those were never the expensive ones. The cost sits in exceptions: a purchase order that does not match, a receipt nobody filed, a supplier who changed bank details. If the exception path is not modelled with an owner and an ageing clock, automation simply routes the same problems into a queue faster than before.',
+    },
+    decisions: [
+      { q: 'What happens to an invoice that does not match?', a: 'This is the whole design. Decide who owns each exception type, what evidence they need attached, and how long it may sit before escalating — before configuring the happy path.' },
+      { q: 'Does the supplier see status, or do they email you?', a: 'A supplier portal removes a large share of inbound queries permanently. Without one, the team keeps answering where is my payment by hand no matter how automated the matching becomes.' },
+    ],
+  },
+
+  'cloud-governance-suite': {
+    failureMode: {
+      heading: 'Tagging discipline you do not have yet.',
+      body: 'Cloud cost and policy reporting depends on resources being tagged with an owner, an environment and a cost centre. Most estates are partially tagged at best, and the untagged remainder is exactly where the unexplained spend lives. Reports built on incomplete tags look authoritative and quietly exclude the problem, which is worse than having no report.',
+    },
+    decisions: [
+      { q: 'What is the enforcement point for tagging?', a: 'Either provisioning refuses an untagged resource, or tagging is advisory and coverage will plateau. That is a platform-team decision to make before the reporting is built, not after.' },
+      { q: 'Do you report cost, enforce policy, or both?', a: 'Cost visibility is straightforward and useful early. Automated policy enforcement touches live infrastructure and needs an approval model and a rollback path agreed first.' },
+    ],
+  },
+
+  'configure-price-quote': {
+    failureMode: {
+      heading: 'Pricing rules nobody has written down.',
+      body: 'CPQ implementations stall on discovery rather than configuration. Product rules, bundling logic, discount authority and approval thresholds usually exist as institutional knowledge held by a handful of sales operations people, contradicting each other at the edges. Encoding them exposes the contradictions, and resolving those is a commercial decision the platform cannot make.',
+    },
+    decisions: [
+      { q: 'Who has authority to approve a discount, and at what level?', a: 'A concrete matrix is needed before build. Where authority is currently informal, the implementation will force the organisation to make it explicit, and that conversation belongs early.' },
+      { q: 'Does the quote drive the order, or are they separate systems?', a: 'If quote and order live apart, the handoff needs modelling including what happens when a signed quote changes. That integration is usually the larger half of the work.' },
+    ],
+  },
+
+  'digital-end-user-experience': {
+    failureMode: {
+      heading: 'Telemetry with no owner for the findings.',
+      body: 'Device and application telemetry produces a great deal of signal quickly: slow boots, crashing applications, saturated laptops. The failure is organisational rather than technical. Without a named team accountable for acting on what it surfaces, the data becomes a dashboard reviewed monthly and nothing improves, while the licence renews.',
+    },
+    decisions: [
+      { q: 'Who acts on a degradation the tooling detects?', a: 'Proactive detection is only valuable if it creates work someone owns. Decide whether findings raise incidents automatically, feed a backlog, or trigger self-healing scripts.' },
+      { q: 'What do you do about privacy on the endpoint?', a: 'Endpoint telemetry is employee data. Which attributes are collected and how long they are kept needs an answer that satisfies your works council or data protection lead before rollout.' },
+    ],
+  },
+
+  'enterprise-architecture': {
+    failureMode: {
+      heading: 'A repository that is accurate on day one only.',
+      body: 'Application portfolio and capability models are straightforward to populate through a discovery exercise and begin decaying immediately. Unless the repository is fed by something operational — a real intake process, discovery data, a lifecycle gate that cannot be bypassed — it becomes a snapshot of what was true during the project, cited confidently in decisions long after it stopped being current.',
+    },
+    decisions: [
+      { q: 'What keeps the portfolio current after go-live?', a: 'Ideally a gate: no application enters production without an entry, and lifecycle changes update it. Manual annual refreshes are how these repositories lose credibility.' },
+      { q: 'How deep does the capability model go?', a: 'Two or three levels supports investment decisions. Deeper models take far longer to build and are the first thing to go stale, because nobody uses that detail.' },
+    ],
+  },
+
+  'financial-services-operations': {
+    failureMode: {
+      heading: 'Regulated change treated as ordinary change.',
+      body: 'Servicing workflows for banking and insurance carry obligations that generic case management does not assume: segregation of duties, evidence retention, complaint reporting deadlines set by a regulator rather than an SLA policy. Configured as standard cases, they work until the first audit, at which point the missing approvals and unretained evidence become findings rather than inconveniences.',
+    },
+    decisions: [
+      { q: 'Which processes are in regulatory scope, and under whose rules?', a: 'This determines the record model, retention and approval enforcement. It needs risk and compliance in the design sessions, not reviewing the result afterwards.' },
+      { q: 'Where does the core system remain authoritative?', a: 'The platform orchestrates and records; the core banking or policy system usually stays the book of record. Drawing that line early prevents two systems disagreeing about a customer balance.' },
+    ],
+  },
+
+  'healthcare-and-life-sciences-service-management': {
+    failureMode: {
+      heading: 'Clinical and corporate requests in one undifferentiated queue.',
+      body: 'A hospital or provider group runs two very different service populations: corporate functions that behave like any enterprise, and clinical operations where a delayed request has patient consequences and the data is the most sensitive category any regulation defines. Modelled as one queue with one priority scheme, clinical urgency competes with password resets and the access model becomes impossible to defend.',
+    },
+    decisions: [
+      { q: 'Are clinical and corporate services one catalogue or two?', a: 'Usually two, with distinct priority definitions and access rules. One flexible catalogue is where the edge cases and the compliance problems accumulate.' },
+      { q: 'Who may see a request containing patient information?', a: 'Decided in design, in writing, including platform administrators. Retrofitting restriction means revisiting every report and integration touching those records.' },
+    ],
+  },
+
+  'legal-service-delivery': {
+    failureMode: {
+      heading: 'Privilege and confidentiality, discovered late.',
+      body: 'Legal intake looks like a straightforward request workflow until the confidentiality requirements land. Matters involving litigation, employment disputes or investigations must be invisible to colleagues who can see every other record, and legally privileged material carries handling obligations that a standard case table does not respect. This is the same class of problem as HR case management and it is equally expensive to fix after go-live.',
+    },
+    decisions: [
+      { q: 'Which matter types are restricted, and from whom?', a: 'Including administrators. Legal will have a clear view, and capturing it during design is far cheaper than reworking the role model once matters exist.' },
+      { q: 'Does this replace the matter management system?', a: 'Usually not. Intake, triage and routine requests fit the platform well; specialist matter and document management often stays where it is, with an integration rather than a migration.' },
+    ],
+  },
+
+  'operational-technology-management': {
+    failureMode: {
+      heading: 'IT assumptions applied to plant equipment.',
+      body: 'Operational technology does not behave like IT. Devices may not tolerate active scanning, maintenance windows are dictated by production schedules rather than change boards, and the people responsible report to operations rather than to IT. An OT programme run on IT conventions gets stopped by the plant, correctly, the first time a discovery scan disturbs a controller.',
+    },
+    decisions: [
+      { q: 'How is OT inventory collected, given scanning may be unsafe?', a: 'Passive collection or an OT-specific sensor rather than active discovery. This constraint shapes the whole architecture and needs confirming with plant engineering first.' },
+      { q: 'Who owns an OT asset record, IT or operations?', a: 'Almost always operations, which makes the workflow cross-organisational. Agreeing that before build avoids a system that IT maintains and the plant ignores.' },
+    ],
+  },
+
+  'privacy-management': {
+    failureMode: {
+      heading: 'Subject requests without a data map.',
+      body: 'Handling a data subject access or deletion request requires knowing where personal data actually lives. Most organisations discover during the first real request that the inventory is incomplete, so the workflow exists but each request still becomes a manual hunt across systems under a statutory clock. The workflow is the easy half; the data map is the work.',
+    },
+    decisions: [
+      { q: 'How complete is the personal data inventory today?', a: 'If the honest answer is partial, sequence the inventory before the request workflow. A request process built on an incomplete map creates statutory deadlines you cannot reliably meet.' },
+      { q: 'Which jurisdictions apply, and do they conflict?', a: 'Retention and transfer rules differ, and a group operating across regions will hold more than one obligation over the same record. That belongs in the data model, not a policy document.' },
+    ],
+  },
+
+  'public-sector-digital-services': {
+    failureMode: {
+      heading: 'Digital channels that exclude the people who need them most.',
+      body: 'Citizen service programmes are measured on digital adoption, which creates pressure to move transactions online quickly. The population that most depends on public services is also the most likely to lack digital access or confidence. A programme that ships a portal without keeping phone, in-person and assisted channels feeding the same record ends up with two disconnected service systems and worse outcomes.',
+    },
+    decisions: [
+      { q: 'Do assisted and offline channels write to the same record?', a: 'They should. An agent submitting on behalf of a citizen must produce an identical case, or reporting and follow-up fragment by channel.' },
+      { q: 'What accessibility standard applies, and who verifies it?', a: 'Usually a legal requirement rather than a preference. Deciding the standard and the verification method up front is far cheaper than remediating an audited service.' },
+    ],
+  },
+
+  'sales-and-order-management': {
+    failureMode: {
+      heading: 'Order orchestration exposing every upstream data problem.',
+      body: 'Connecting quote to order to fulfilment makes existing data quality visible in a way nothing else does. Product catalogues that disagree between systems, customer records that duplicate, addresses that fail validation — all of it surfaces as stuck orders. The orchestration is usually correct; the inputs are not, and remediation is the part nobody scoped.',
+    },
+    decisions: [
+      { q: 'Which system owns the product catalogue?', a: 'One must be authoritative. Where two disagree, orchestration will keep failing on mismatches, and the fix is a data ownership decision rather than a workflow change.' },
+      { q: 'What happens to a partially fulfilled order?', a: 'Splits, backorders and cancellations need explicit modelling. The happy path is quick to build; these cases are most of the real traffic.' },
+    ],
+  },
+
+  'sales-and-order-management-for-technology-providers': {
+    failureMode: {
+      heading: 'Subscription change, not initial sale.',
+      body: 'Technology provider order flows are dominated by mid-term change rather than new orders: upgrades, seat adjustments, co-termination, renewals that overlap. Implementations built around a clean new-customer path meet reality when the first amendment arrives and there is no model for prorating, superseding or reconciling an entitlement that already exists.',
+    },
+    decisions: [
+      { q: 'How is a mid-term change represented?', a: 'As a new order superseding the old, or an amendment to the existing one. This shapes billing reconciliation and entitlement history, and it is expensive to change later.' },
+      { q: 'What is the source of truth for entitlement?', a: 'The order system, the licensing platform, or the product itself. If more than one claims it, support and billing will disagree with each other in front of the customer.' },
+    ],
+  },
+
+  'sales-and-order-management-for-telecommunications': {
+    failureMode: {
+      heading: 'Service feasibility, not order capture.',
+      body: 'Telecom order flows depend on whether a service can actually be delivered at an address: available infrastructure, port capacity, installation windows. Feasibility lives in network inventory systems that were not designed to answer questions in real time. Without that integration, orders are accepted and then fail days later during provisioning, which is the most expensive point to discover a problem.',
+    },
+    decisions: [
+      { q: 'Can feasibility be checked before the order is accepted?', a: 'If yes, that integration is the highest-value part of the build. If not, the workflow needs an explicit qualification stage so a customer is not promised a date that cannot hold.' },
+      { q: 'How are multi-site and bulk orders handled?', a: 'Enterprise telecom orders routinely span many sites with different feasibility per location. A single-site model does not extend to this without rework.' },
+    ],
+  },
+
+  'security-posture-control': {
+    failureMode: {
+      heading: 'Findings with no route to remediation.',
+      body: 'Posture tooling is good at producing a prioritised list of misconfigurations. The gap is what happens next: the systems needing change are owned by infrastructure and application teams with their own backlogs and change windows. Without an agreed remediation path and ownership mapping, posture management becomes a report that security presents and nobody actions.',
+    },
+    decisions: [
+      { q: 'Who owns remediation for a misconfigured resource?', a: 'Derived from asset ownership, which means the CMDB must be trustworthy for it. If it is not, that dependency needs resolving before the programme rather than during it.' },
+      { q: 'Which findings auto-remediate?', a: 'Some misconfigurations are safe to correct automatically; others would cause an outage. Draw that line per finding type explicitly, with an approval path for the rest.' },
+    ],
+  },
+
+  'service-operations-workspace': {
+    failureMode: {
+      heading: 'A unified view over data that is not unified.',
+      body: 'The workspace presents incidents, alerts, changes and CIs in one place for an operator. Its usefulness is entirely a function of whether those records are properly related underneath. Where alerts are not linked to CIs and changes are not linked to services, the workspace becomes four lists in one window, which is not what was bought.',
+    },
+    decisions: [
+      { q: 'Are alerts, changes and CIs actually related in the data today?', a: 'If not, that relationship work is the project and the workspace is the outcome. Deploying the interface first shows operators the gaps rather than hiding them.' },
+      { q: 'Which roles get the workspace, and configured how?', a: 'A network operator and a service desk agent need different defaults. One shared configuration usually satisfies neither and gets abandoned by both.' },
+    ],
+  },
+
+  'servicenow-cloud-observability': {
+    failureMode: {
+      heading: 'Instrumentation cost discovered after rollout.',
+      body: 'Observability pricing follows data volume, and application telemetry grows faster than teams expect once tracing is enabled across services. Programmes that instrument broadly before agreeing what they intend to observe end up either with a bill nobody forecast or with sampling turned up so high that the traces stop answering the questions they were added for.',
+    },
+    decisions: [
+      { q: 'What questions must this answer, before instrumenting anything?', a: 'Start from the diagnostic questions that currently take too long, and instrument for those. Broad instrumentation without that framing produces volume rather than insight.' },
+      { q: 'How does an observability signal become an incident?', a: 'Left unconnected, this becomes a parallel tool the operations team does not watch. Correlating it into the incident record is what makes it operational rather than an engineering curiosity.' },
+    ],
+  },
+
+  'sourcing-and-procurement-operations': {
+    failureMode: {
+      heading: 'A process that is easy to bypass.',
+      body: 'Procurement workflow succeeds or fails on whether it is the only route to buying something. If a requester can still email a supplier or use a corporate card, the platform captures the compliant subset of spend and the reporting understates reality. That is a policy and enforcement decision, and no amount of workflow design substitutes for it.',
+    },
+    decisions: [
+      { q: 'Is this the only way to raise a purchase?', a: 'If informal routes remain open, expect partial adoption and incomplete spend visibility. Closing them is a management decision the platform depends on but cannot make.' },
+      { q: 'Where does the ERP remain authoritative?', a: 'The platform typically owns intake, approval and supplier interaction while the ERP owns the financial record. Overlapping ownership of purchase orders causes reconciliation problems that surface at period close.' },
+    ],
+  },
+
+  'supplier-lifecycle-operations': {
+    failureMode: {
+      heading: 'Onboarding solved, ongoing management ignored.',
+      body: 'Supplier onboarding is a well-bounded workflow and usually goes live successfully. What follows is where value is lost: certifications expiring, insurance lapsing, performance reviews never happening, and offboarding that leaves access and data in place. A lifecycle implementation that only covers the first stage becomes an onboarding tool with a lifecycle name.',
+    },
+    decisions: [
+      { q: 'What triggers a review after onboarding?', a: 'Time, spend threshold, risk tier or an incident. Without a defined trigger, ongoing management defaults to nobody, and the register ages quietly.' },
+      { q: 'What happens at offboarding?', a: 'Access revocation, data return and final reconciliation need to be as modelled as onboarding. This is where audit findings usually originate.' },
+    ],
+  },
+
+  'talent-development': {
+    failureMode: {
+      heading: 'Skills data that goes stale immediately.',
+      body: 'Skills and development platforms depend on self-assessment and manager review to stay current, and both decay quickly once the initial rollout enthusiasm passes. Six months later the skills inventory reflects who filled in a form during launch week, and any staffing or capability decision made from it is worse than one made by asking people directly.',
+    },
+    decisions: [
+      { q: 'What keeps skills data current without relying on goodwill?', a: 'Tie updates to something already happening — project assignment, certification completion, review cycles. Standalone annual self-assessment is where these inventories die.' },
+      { q: 'Is this for capability planning or individual development?', a: 'They need different data at different granularity. Trying to serve both with one model usually produces something too coarse for planning and too heavy for individuals.' },
+    ],
+  },
+
+  'technology-provider-service-management': {
+    failureMode: {
+      heading: 'Your customers become your ticket queue.',
+      body: 'Support workflows for a technology provider differ from internal IT in one decisive way: the requester is a paying customer with contractual entitlements. Response obligations come from contracts rather than internal policy, escalation has commercial consequences, and visibility rules must prevent one customer seeing another. Modelled as internal ITSM with external users, these constraints surface as breaches rather than as design.',
+    },
+    decisions: [
+      { q: 'Does entitlement or contract drive the response clock?', a: 'Both are supported and they behave differently. Deciding after cases exist means recalculating obligations against historical records.' },
+      { q: 'How is multi-tenant visibility enforced?', a: 'Domain separation or explicit account scoping. This is a foundational decision, and one customer seeing another is the failure nobody recovers from reputationally.' },
+    ],
+  },
+
+  'telecommunications-service-management': {
+    failureMode: {
+      heading: 'Customer impact invisible from a network fault.',
+      body: 'Network operations and customer service typically run on separate systems, so an outage is understood technically long before anyone knows which customers are affected or what was promised to them. Without the link between network inventory, service instances and customer records, the first sign of impact is call volume, and proactive notification stays impossible regardless of how good the fault detection is.',
+    },
+    decisions: [
+      { q: 'Can you resolve a network element to affected customers?', a: 'That chain — element to service to customer — is the integration that makes everything else possible. Without it, customer communication remains reactive.' },
+      { q: 'Who owns customer notification during an outage?', a: 'If it requires someone to compose a message, it will lag the incident. Notifications generated from the incident record itself are what make the timing credible.' },
+    ],
+  },
+
+  'third-party-risk-management': {
+    failureMode: {
+      heading: 'Assessments collected, risk not reduced.',
+      body: 'Questionnaire distribution and collection is the visible part of third-party risk and the part that automates well. The programme still fails if nothing happens with the answers: findings without owners, risk tiers that do not change the depth of assessment, and reassessment dates that pass unnoticed. The result is a repository of completed questionnaires and no reduction in exposure.',
+    },
+    decisions: [
+      { q: 'Does risk tier change what you actually ask?', a: 'It should. A uniform questionnaire for every supplier is both too heavy for low-risk vendors and too shallow for critical ones, which is why response quality degrades.' },
+      { q: 'Who owns a finding raised against a supplier?', a: 'The business relationship owner, not the risk team that raised it. Without that assignment, findings accumulate unresolved and the register loses authority.' },
+    ],
+  },
+
+  'threat-intelligence-security-center': {
+    failureMode: {
+      heading: 'Feeds subscribed to, nothing enriched.',
+      body: 'Threat intelligence feeds are easy to connect and produce large volumes of indicators. Value depends entirely on those indicators reaching the point of decision — enriching an incident an analyst is working, or matching against observed activity. Left as a standalone repository, intelligence becomes a dashboard nobody consults during the incidents it was bought to inform.',
+    },
+    decisions: [
+      { q: 'Where does an indicator change a decision?', a: 'Enrichment on incident creation is usually the highest-value integration. Start there rather than with breadth of feeds, which mostly adds volume.' },
+      { q: 'How do you avoid drowning analysts in low-confidence indicators?', a: 'Confidence and source scoring applied before anything reaches a case. Without it, analysts learn to ignore the enrichment entirely.' },
+    ],
+  },
+
+  'workplace-service-delivery': {
+    failureMode: {
+      heading: 'Space data that does not match the building.',
+      body: 'Room booking, desk reservation and workplace requests all depend on an accurate model of floors, spaces and their capacity. That data usually lives in facilities drawings rather than in a system, and where it is imported once without an update path it diverges from the building after the first refurbishment. Users lose trust quickly once a booking system offers a desk that no longer exists.',
+    },
+    decisions: [
+      { q: 'Who maintains the space model after go-live?', a: 'Facilities usually own the source drawings, so the update path runs through them. Without an agreed process, the model degrades with every office change.' },
+      { q: 'Does this integrate with building systems or stand alone?', a: 'Access control and sensor integration make occupancy real rather than declared, and also raise employee data questions that need answering before rollout.' },
+    ],
+  },
+};
+
+export function implementationNote(entrySlug: string): ImplementationNote | null {
+  return implementationNotes[entrySlug] ?? null;
+}
 
 /** Title, category, and icon for a slug — sourced from the nav so the two
  *  can never drift apart. */

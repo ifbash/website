@@ -3,6 +3,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, BrowserFrame, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 
 const offerings: Feature[] = [
   {
@@ -80,6 +81,20 @@ const faqs: Faq[] = [
 export default function VoiceAgentsPage() {
   return (
     <>
+      <ServiceSchema
+        name="Voice AI Agents"
+        description="Inbound and outbound voice agents that answer, qualify, and call back — escalating to a person with the full conversation attached."
+        url={`${SITE_URL}/services/voice-agents`}
+        serviceType="Voice AI Agents"
+        category="AI & Agents"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Voice AI Agents', href: '/services/voice-agents' },
+        ]}
+      />
+
       <PageHero
         tags={['Inbound', 'Outbound', 'In-browser']}
         eyebrow="AI & Agents"

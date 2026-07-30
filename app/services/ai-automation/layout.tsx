@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'ServiceNow Agentic AI — Agents That Think, Decide, Act | ifBash',
     description: 'Now Assist, virtual agents, and predictive intelligence wired into real ServiceNow workflows.',
     url: 'https://ifbash.com/services/ai-automation',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/ai-automation' },
 };

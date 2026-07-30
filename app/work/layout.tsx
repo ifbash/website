@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Working software you can use, not case studies you cannot verify.',
     url: 'https://ifbash.com/work',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — Our Work' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — Our Work' }],
   },
   alternates: { canonical: 'https://ifbash.com/work' },
 };

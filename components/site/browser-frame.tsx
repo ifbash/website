@@ -33,7 +33,7 @@ export function BrowserFrame({
             <span className="w-2.5 h-2.5 rounded-full bg-hairline" />
             <span className="w-2.5 h-2.5 rounded-full bg-hairline" />
           </span>
-          <span className="flex-1 max-w-sm mx-auto truncate rounded-md bg-wash px-3 py-1 text-center font-mono text-[11px] text-slate-light">
+          <span className="flex-1 max-w-sm mx-auto truncate rounded-md bg-wash px-3 py-1 text-center font-mono text-[11px] text-slate">
             {url}
           </span>
           <span className="w-10" />

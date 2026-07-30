@@ -23,7 +23,7 @@ function Frame({ label, note, children }: { label: string; note?: string; childr
     <div className="rounded-2xl border border-hairline bg-surface p-6 sm:p-8 shadow-[0_2px_24px_rgba(24,19,18,0.05)]">
       <div className="flex items-baseline justify-between gap-4 mb-6">
         <span className={LABEL}>{label}</span>
-        {note && <span className="text-[12px] text-slate-faint hidden sm:block">{note}</span>}
+        {note && <span className="text-[12px] text-slate-light hidden sm:block">{note}</span>}
       </div>
       {children}
     </div>
@@ -149,7 +149,7 @@ function CustomAppsVisual() {
           </div>
         ))}
       </div>
-      <p className="text-center text-[12px] text-slate-faint mt-4">The custom layer is the top one. Everything below is ServiceNow doing what it already does well.</p>
+      <p className="text-center text-[12px] text-slate-light mt-4">The custom layer is the top one. Everything below is ServiceNow doing what it already does well.</p>
     </Frame>
   );
 }
@@ -164,21 +164,27 @@ function TransformationVisual() {
   ];
   return (
     <Frame label="Transformation is a staircase, not a leap" note="Each step pays for the next — we sequence it that way">
-      <div className="flex items-end gap-3 h-56">
+      {/* min-w-0 on the flex children is load-bearing: flex items default to
+          min-width:auto, so without it they cannot shrink below the min-content
+          width of a label like "Automated" plus its padding. Four of those at
+          p-4 overflowed a 390px viewport by 49px and made the whole page scroll
+          sideways. Padding, gap and label size step down on mobile so the
+          staircase still fits without needing a horizontal scroller. */}
+      <div className="flex items-end gap-1.5 sm:gap-3 h-56">
         {steps.map((s, i) => (
-          <div key={s.name} className="flex-1 flex flex-col justify-end h-full">
+          <div key={s.name} className="flex-1 min-w-0 flex flex-col justify-end h-full">
             <div
-              className={`rounded-t-xl border p-4 ${i === steps.length - 1 ? 'bg-sea text-paper border-sea' : 'bg-paper border-hairline'}`}
+              className={`rounded-t-xl border p-2 sm:p-4 ${i === steps.length - 1 ? 'bg-sea text-paper border-sea' : 'bg-paper border-hairline'}`}
               style={{ height: `${34 + i * 22}%` }}
             >
-              <s.icon className={`h-5 w-5 mb-2 ${i === steps.length - 1 ? 'text-sea-soft' : 'text-sea'}`} />
-              <div className={`text-sm font-semibold ${i === steps.length - 1 ? 'text-paper' : 'text-ink-body'}`}>{s.name}</div>
-              <div className={`text-[11px] mt-1 leading-snug hidden md:block ${i === steps.length - 1 ? 'text-sea-soft' : 'text-slate-light'}`}>{s.desc}</div>
+              <s.icon className={`h-4 w-4 sm:h-5 sm:w-5 mb-1.5 sm:mb-2 ${i === steps.length - 1 ? 'text-sea-soft' : 'text-sea'}`} />
+              <div className={`text-[11px] sm:text-sm font-semibold leading-tight ${i === steps.length - 1 ? 'text-paper' : 'text-ink-body'}`}>{s.name}</div>
+              <div className={`text-[11px] mt-1 leading-snug hidden md:block ${i === steps.length - 1 ? 'text-sea-tint' : 'text-slate-light'}`}>{s.desc}</div>
             </div>
           </div>
         ))}
       </div>
-      <div className="mt-4 flex items-center gap-2 text-[12px] text-slate-faint">
+      <div className="mt-4 flex items-center gap-2 text-[12px] text-slate-light">
         <TrendingUp className="h-3.5 w-3.5 text-sea" />
         Most clients arrive at step one or two. Nobody needs to reach step four everywhere — only where it pays.
       </div>
@@ -205,7 +211,7 @@ function ManagedServicesVisual() {
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-2 text-[11px] text-slate-faint font-mono">
+          <div className="flex justify-between mt-2 text-[11px] text-slate-light font-mono">
             <span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span>
           </div>
           <div className="mt-3 text-[12px] text-slate-light">Open tickets (light) vs resolved (solid) — the gap closing is the job.</div>
@@ -215,7 +221,7 @@ function ManagedServicesVisual() {
             <div key={s.k} className="flex items-center gap-3 rounded-xl border border-hairline bg-paper p-3.5">
               <s.icon className="h-4.5 w-4.5 h-5 w-5 text-sea shrink-0" />
               <div>
-                <div className="text-[11px] font-mono uppercase tracking-[0.12em] text-slate-faint">{s.k}</div>
+                <div className="text-[11px] font-mono uppercase tracking-[0.12em] text-slate-light">{s.k}</div>
                 <div className="text-sm font-semibold text-ink-body">{s.v}</div>
               </div>
             </div>

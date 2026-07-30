@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Voice agents that answer, qualify, and hand off with context. Talk to the live one on this site.',
     url: 'https://ifbash.com/services/voice-agents',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — Voice AI Agents' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — Voice AI Agents' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/voice-agents' },
 };

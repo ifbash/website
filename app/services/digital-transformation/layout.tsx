@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'ServiceNow Digital Transformation — Stop Managing Silos | ifBash',
     description: 'Transformation measured in workflows, not slide decks. Operations unified onto a single ServiceNow platform.',
     url: 'https://ifbash.com/services/digital-transformation',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/digital-transformation' },
 };

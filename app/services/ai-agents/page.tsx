@@ -4,6 +4,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, BrowserFrame, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 import { WorkflowCompare } from '@/components/workflow-compare';
 
 const offerings: Feature[] = [
@@ -82,6 +83,20 @@ const faqs: Faq[] = [
 export default function AiAgentsPage() {
   return (
     <>
+      <ServiceSchema
+        name="AI Agents"
+        description="Chat and workflow agents built on Claude, wired into ServiceNow or standalone — with governance, audit trails, and human approval on consequential actions."
+        url={`${SITE_URL}/services/ai-agents`}
+        serviceType="AI Agents"
+        category="AI & Agents"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'AI Agents', href: '/services/ai-agents' },
+        ]}
+      />
+
       <PageHero
         tags={['Claude', 'Tool use', 'Guardrails']}
         eyebrow="AI & Agents"
@@ -142,7 +157,7 @@ export default function AiAgentsPage() {
               We can&apos;t show you another client&apos;s agent — those are behind their logins.
               So we put ours in public. The agent in the corner of this page, the voice agent on
               the homepage, and the one that will call you back from{' '}
-              <Link href="/agent" className="text-sky font-medium underline underline-offset-4 hover:text-sky-deep">
+              <Link href="/agent" className="inline-block py-1 text-sky font-medium underline underline-offset-4 hover:text-sky-deep">
                 our agent page
               </Link>{' '}
               are all built by us on the same stack we&apos;d use for you.

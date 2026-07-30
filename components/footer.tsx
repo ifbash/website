@@ -173,6 +173,9 @@ export function Footer() {
               />
               <button
                 type="submit"
+                // Icon-only in its default state, so there is no accessible name
+                // without this. "…" while sending is not a name either.
+                aria-label={isAr ? ar.footer.newsletterCta : "Subscribe to the newsletter"}
                 disabled={newsletterState === "sending"}
                 className="px-4 py-2.5 rounded-full text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shrink-0 disabled:opacity-60"
                 style={{ background: newsletterState === "done" ? "#3E7A52" : "#B23A2B", boxShadow: "0 4px 16px rgba(178,58,43,0.3)" }}
@@ -194,7 +197,11 @@ export function Footer() {
               <ul className="space-y-3">
                 {items.map(({ label, href }) => (
                   <li key={label}>
-                    <Link href={href} className="text-onink-muted hover:text-sea-tint text-sm transition-colors">
+                    {/* inline-block + py-1 lifts the hit area from 18px to 26px,
+                        clearing the 24px WCAG 2.2 AA minimum (SC 2.5.8). These are
+                        standalone nav links, not links inside a sentence, so the
+                        inline-target exception does not apply to them. */}
+                    <Link href={href} className="inline-block py-1 text-onink-muted hover:text-sea-tint text-sm transition-colors">
                       {label}
                     </Link>
                   </li>
@@ -270,7 +277,7 @@ export function Footer() {
               { label: isAr ? ar.footer.terms : "Terms", href: "/terms" },
               { label: isAr ? ar.footer.cookies : "Cookies", href: "/cookies" },
             ].map(({ label, href }) => (
-              <Link key={label} href={href} className="text-onink-muted hover:text-onink text-[13px] transition-colors">{label}</Link>
+              <Link key={label} href={href} className="inline-block py-1 text-onink-muted hover:text-onink text-[13px] transition-colors">{label}</Link>
             ))}
             <button
               onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

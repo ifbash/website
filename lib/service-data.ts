@@ -144,7 +144,12 @@ export const serviceEntries: ServiceEntry[] = [
   {
     slug: 'digital-transformation',
     metaTitle: 'ServiceNow Digital Transformation — Stop Managing Silos, Start Running Your Business',
-    metaDescription: '',
+    // Also the hero sub-heading in components/site/service-page.tsx. This was
+    // empty until 2026-07-30, so the hero ran straight from the h1 into the CTA
+    // with no explanatory line. Copy taken from the openGraph description in
+    // app/services/digital-transformation/layout.tsx so the two agree.
+    metaDescription:
+      'Transformation measured in workflows, not slide decks. Operations unified onto a single ServiceNow platform, sequenced so each phase earns the next.',
     offerings: [
       { icon: Workflow, title: 'Digital Strategy', desc: 'Digital Strategy delivered and documented as part of the engagement.', points: [] },
       { icon: Layers, title: 'Modernisation', desc: 'Seamless legacy migration with zero unplanned downtime for users.', points: [] },
@@ -227,7 +232,7 @@ export const serviceEntries: ServiceEntry[] = [
   },
   {
     slug: 'servicenow-implementation',
-    metaTitle: 'ServiceNow Implementation — Go-Live in Weeks, Not Quarters',
+    metaTitle: 'ServiceNow Implementation — Live and Adopted, Not Just Configured',
     metaDescription: 'Pre-built accelerators, parallel workstreams, and phase gates that catch scope creep. ServiceNow implementations scoped in writing within two working days of the first call.',
     offerings: [
       { icon: Workflow, title: 'Rapid Implementation', desc: 'Pre-built accelerators and parallel workstreams, with working configuration demoed early rather than revealed at the end.', points: [] },

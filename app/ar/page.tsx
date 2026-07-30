@@ -65,7 +65,7 @@ export default function ArabicHome() {
                 <p className="text-[15px] leading-[1.85] text-slate flex-1 mb-6">{p.desc}</p>
                 <Link
                   href={practiceHrefs[i]}
-                  className="inline-flex items-center gap-2 text-[14px] font-medium text-sea hover:text-sea-deep transition-colors"
+                  className="inline-flex items-center gap-2 py-1 text-[14px] font-medium text-sea hover:text-sea-deep transition-colors"
                 >
                   {p.cta}
                   <ArrowLeft className="h-3.5 w-3.5" />
@@ -92,7 +92,7 @@ export default function ArabicHome() {
             <p className="text-[14px] text-onink-muted">{ar.meta.ctaStrip}</p>
             <Link
               href="/ar/contactus"
-              className="inline-flex items-center gap-2 text-[14px] font-medium text-sea-soft hover:text-onink transition-colors"
+              className="inline-flex items-center gap-2 py-1 text-[14px] font-medium text-sea-soft hover:text-onink transition-colors"
             >
               {ar.common.talkToAgent}
               <ArrowLeft className="h-3.5 w-3.5" />

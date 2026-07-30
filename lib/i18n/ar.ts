@@ -250,6 +250,8 @@ export const ar = {
       'ننفّذ ServiceNow ونديره، ثم نبني طبقة الذكاء الاصطناعي فوقه — وكلاء ومساعدون مبنيون على Claude، وواجهات الويب والموبايل التي يعملون داخلها.',
     newsletterTitle: 'ابقَ على اطلاع بوكلاء الذكاء الاصطناعي و ServiceNow',
     newsletterSub: 'أنماط الوكلاء واتجاهات الذكاء الاصطناعي ورؤى التنفيذ — شهريًا.',
+    /** Accessible name for the icon-only subscribe button. Not visible text. */
+    newsletterCta: 'اشترك في النشرة البريدية',
     ctaBlurb: 'جاهز للانطلاق مع ServiceNow — أو لبناء أول وكيل لديك؟ ابدأ بمحادثة، دون أي التزام.',
     worldwide: 'نخدم عملاء حول العالم',
     practices: 'الممارسات',

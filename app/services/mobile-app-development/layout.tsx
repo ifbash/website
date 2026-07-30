@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       'One codebase, both platforms, AI inside from day one. Designed, built, and shipped to the stores.',
     url: 'https://ifbash.com/services/mobile-app-development',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — Mobile App Development' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — Mobile App Development' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/mobile-app-development' },
 };

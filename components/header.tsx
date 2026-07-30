@@ -165,9 +165,13 @@ export function Header() {
               {practiceStrip.map(({ label, href }, i) => (
                 <React.Fragment key={href}>
                   {i > 0 && <span className="text-slate-faint text-xs px-1.5">·</span>}
+                  {/* py-1.5 lifts the hit area from 16px to 28px, clearing the
+                      24px WCAG 2.2 AA minimum (SC 2.5.8). The strip is a fixed
+                      h-9 flex row with items-center, so the bar's height and the
+                      label positions are unchanged — only the target grows. */}
                   <Link
                     href={href}
-                    className="text-xs font-medium tracking-wide text-slate hover:text-sea transition-colors"
+                    className="py-1.5 text-xs font-medium tracking-wide text-slate hover:text-sea transition-colors"
                   >
                     {label}
                   </Link>

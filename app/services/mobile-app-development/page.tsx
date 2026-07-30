@@ -3,6 +3,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, FeatureGrid, PhaseGrid,
   FaqSection, CtaBand, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 
 const offerings: Feature[] = [
   {
@@ -80,6 +81,20 @@ const faqs: Faq[] = [
 export default function MobileAppDevelopmentPage() {
   return (
     <>
+      <ServiceSchema
+        name="Mobile App Development"
+        description="iOS and Android from one codebase — offline-capable, push-enabled, submitted to both stores under your own accounts."
+        url={`${SITE_URL}/services/mobile-app-development`}
+        serviceType="Mobile App Development"
+        category="Web & Mobile"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Mobile App Development', href: '/services/mobile-app-development' },
+        ]}
+      />
+
       <PageHero
         tags={['iOS', 'Android', 'AI inside']}
         eyebrow="Web & Mobile"
@@ -150,6 +165,22 @@ export default function MobileAppDevelopmentPage() {
             </div>
           </div>
         </div>
+      </Section>
+
+      {/* HUB LINK — mirrors the block on /services/website-development. See the
+          comment there: the practice page links down to both specific offers, so
+          both need to link back up or the three read as competing siblings.
+          Anchor text stays on the practice, never "mobile app development". */}
+      <Section tone="surface" divide pad="tight" innerClassName="max-w-3xl">
+        <Eyebrow rule className="mb-3">Part of a wider practice</Eyebrow>
+        <p className="text-base text-slate leading-relaxed mb-5">
+          Apps are one half of what this team does. Most projects need a site or a web console
+          alongside the app, sharing a design system and an API. The practice overview covers how
+          both are built by one team.
+        </p>
+        <PillLink href="/services/web-mobile-development" variant="outline" size="lg">
+          Web &amp; mobile practice overview <ArrowRight className="h-4 w-4" />
+        </PillLink>
       </Section>
 
       <FaqSection faqs={faqs} heading="Before you brief us." />

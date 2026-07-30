@@ -10,6 +10,7 @@ import { FaqSection } from './faq-section';
 import { CtaBand } from './cta-band';
 import { PillLink } from './pill-button';
 import { ServiceVisual } from './service-visuals';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 import type { ServiceEntry } from '@/lib/service-data';
 
 /**
@@ -29,8 +30,31 @@ export function ServicePage({
   tags?: string[];
   deliveryNote?: string;
 }) {
+  // The metaTitle carries "ServiceNow X — editorial promise"; the part before
+  // the dash is the service name a buyer would actually search for.
+  const serviceName = entry.metaTitle.split('—')[0].trim();
+  const url = `${SITE_URL}/services/${entry.slug}`;
+
   return (
     <>
+      {/* Structured data for the six ServiceNow service pages. These are the
+          highest commercial-intent pages on the site and carried only FAQPage
+          before this. Declared here rather than per page so all six stay
+          consistent and none can be forgotten. */}
+      <ServiceSchema
+        name={serviceName}
+        description={entry.metaDescription}
+        url={url}
+        serviceType={serviceName}
+        category="ServiceNow"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: serviceName, href: `/services/${entry.slug}` },
+        ]}
+      />
+
       <PageHero
         tags={tags}
         eyebrow="ServiceNow"
@@ -86,9 +110,18 @@ export function ServicePage({
               We don&apos;t scope with seniors and staff with juniors. If the team would change
               between the proposal and the work, we tell you who and why during scoping.
             </p>
-            <p className="text-base text-slate leading-relaxed mb-7">
+            <p className="text-base text-slate leading-relaxed mb-4">
               Everything is documented as it is built, so your team can run it afterwards — and so
               can any other partner you choose later.
+            </p>
+            <p className="text-base text-slate leading-relaxed mb-7">
+              The team holds ServiceNow certifications from CSA and CAD through CIS product
+              specialisations to CTA and architect level. We will tell you who is certified in what,
+              by name, during scoping —{' '}
+              <Link href="/trust" className="inline-block py-1 text-sea font-medium underline underline-offset-2 hover:text-sea-deep">
+                the full list is on our trust page
+              </Link>
+              .
             </p>
             <PillLink href="/engage" variant="outline" size="lg">
               How we engage <ArrowRight className="h-4 w-4" />
@@ -103,7 +136,10 @@ export function ServicePage({
               {[
                 ['AI Agents', 'Chat and workflow agents on top of the platform.', '/services/ai-agents'],
                 ['Managed Services', 'We keep running it, or hand it over cleanly.', '/services/managed-services-support'],
-                ['Product portfolio', 'Every ServiceNow product we implement.', '/portfolio'],
+                // "Which ServiceNow products" — distinct from /work, which is
+                // the testable proof. The two pages are easy to conflate, so
+                // each link says which of the two it is.
+                ['ServiceNow product catalogue', 'Which platform products we implement, and where each one breaks.', '/portfolio'],
               ]
                 .filter(([, , href]) => !href.endsWith(entry.slug))
                 .map(([t, d, href]) => (

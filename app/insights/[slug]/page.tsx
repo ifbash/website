@@ -52,17 +52,20 @@ const PROSE = [
   '[&>p]:text-[16.5px] [&>p]:leading-[1.75] [&>p]:text-ink-body [&>p]:mb-6',
   '[&>h2]:font-display [&>h2]:text-[27px] [&>h2]:leading-snug [&>h2]:text-ink [&>h2]:mt-12 [&>h2]:mb-4',
   '[&>h3]:font-display [&>h3]:text-[21px] [&>h3]:leading-snug [&>h3]:text-ink [&>h3]:mt-9 [&>h3]:mb-3',
-  '[&>ul]:mb-6 [&>ul]:space-y-2 [&>ul]:pl-5 [&>ul]:list-disc [&>ul]:marker:text-sea-soft',
-  '[&>ol]:mb-6 [&>ol]:space-y-2 [&>ol]:pl-5 [&>ol]:list-decimal [&>ol]:marker:text-slate-light',
+  // Logical properties (ps/border-s) rather than physical (pl/border-l), so an
+  // Arabic post with dir="rtl" indents and rules on the correct side. Identical
+  // rendering in LTR — ps-5 resolves to padding-left there.
+  '[&>ul]:mb-6 [&>ul]:space-y-2 [&>ul]:ps-5 [&>ul]:list-disc [&>ul]:marker:text-sea-soft',
+  '[&>ol]:mb-6 [&>ol]:space-y-2 [&>ol]:ps-5 [&>ol]:list-decimal [&>ol]:marker:text-slate-light',
   '[&_li]:text-[16.5px] [&_li]:leading-[1.7] [&_li]:text-ink-body',
-  '[&>blockquote]:border-l-2 [&>blockquote]:border-sea-soft [&>blockquote]:pl-5 [&>blockquote]:italic [&>blockquote]:text-slate [&>blockquote]:my-7',
+  '[&>blockquote]:border-s-2 [&>blockquote]:border-sea-soft [&>blockquote]:ps-5 [&>blockquote]:italic [&>blockquote]:text-slate [&>blockquote]:my-7',
   '[&_a]:text-sea [&_a]:font-medium [&_a]:underline [&_a]:underline-offset-2 hover:[&_a]:text-sea-deep',
   '[&_code]:font-mono [&_code]:text-[13.5px] [&_code]:bg-wash [&_code]:border [&_code]:border-hairline [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5',
   '[&>pre]:bg-ink [&>pre]:text-onink [&>pre]:rounded-xl [&>pre]:p-5 [&>pre]:overflow-x-auto [&>pre]:mb-6 [&>pre]:text-[13.5px]',
   '[&>pre_code]:bg-transparent [&>pre_code]:border-0 [&>pre_code]:p-0 [&>pre_code]:text-onink',
   '[&>hr]:border-hairline [&>hr]:my-10',
   '[&>table]:w-full [&>table]:text-[15px] [&>table]:mb-6',
-  '[&_th]:text-left [&_th]:font-semibold [&_th]:text-ink [&_th]:border-b [&_th]:border-hairline [&_th]:pb-2',
+  '[&_th]:text-start [&_th]:font-semibold [&_th]:text-ink [&_th]:border-b [&_th]:border-hairline [&_th]:pb-2',
   '[&_td]:border-b [&_td]:border-hairline-soft [&_td]:py-2.5 [&_td]:text-ink-body',
 ].join(' ');
 
@@ -95,7 +98,7 @@ export default async function InsightPage({
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': `${SITE}/insights/${post.slug}` },
     keywords: post.tags.join(', '),
-    inLanguage: 'en',
+    inLanguage: post.lang,
   };
 
   const breadcrumbLd = {
@@ -128,7 +131,10 @@ export default async function InsightPage({
             <ArrowLeft className="h-3.5 w-3.5" /> All insights
           </Link>
 
-          <article>
+          {/* lang/dir sit on the article, not the page: the surrounding chrome
+              stays English even when the post is Arabic. Both default to
+              en/ltr, so every existing post renders exactly as before. */}
+          <article lang={post.lang} dir={post.dir}>
             <header className="max-w-2xl mb-10">
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-5">
                 {post.tags.map((tag) => (

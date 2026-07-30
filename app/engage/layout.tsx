@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     description:
       'Discovery sprint, fixed-scope build, retainer. How we scope, how we price, and what you own.',
     url: 'https://ifbash.com/engage',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — How We Engage' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — How We Engage' }],
   },
   alternates: { canonical: 'https://ifbash.com/engage' },
 };

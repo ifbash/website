@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'ServiceNow Custom App Development — Built for Your Business | ifBash',
     description: 'Purpose-built ServiceNow apps with native performance and full upgrade safety. Documented as built.',
     url: 'https://ifbash.com/services/custom-apps',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — ServiceNow & AI Consulting' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — ServiceNow & AI Consulting' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/custom-apps' },
 };

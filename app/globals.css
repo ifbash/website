@@ -107,15 +107,37 @@
 /* The skip link sits off-screen until focused, then pins to the top-left.
    Without it, tabbing into any of the 77 pages means traversing the whole
    five-item mega-menu before reaching content — WCAG 2.4.1. */
+/* Hidden until focused.
+   NOT `left: -9999px`. That is the classic off-screen trick and it is harmless
+   in LTR, where content to the left of the origin simply is not scrollable. In
+   RTL the inline start is on the right, so a box parked at left:-9999px becomes
+   real scrollable overflow: every /ar page gained ~10,000px of horizontal
+   scroll into empty space, which on a phone means one swipe throws the whole
+   page off screen. Found 2026-07-30 by the RTL pass in scripts/viewport-audit.mjs.
+   The clip-rect pattern below occupies 1px and overflows in neither direction. */
 .skip-link {
   position: absolute;
-  left: -9999px;
-  top: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
   z-index: 100;
 }
 .skip-link:focus {
-  left: 1rem;
+  /* Logical inset so it lands top-left in LTR and top-right in RTL. */
+  inset-inline-start: 1rem;
   top: 1rem;
+  width: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
   padding: 0.75rem 1.25rem;
   background: #181312;
   color: #F7EEEA;

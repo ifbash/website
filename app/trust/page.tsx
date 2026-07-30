@@ -64,10 +64,110 @@ const complianceRoadmap = [
   { label: 'Background checks', status: 'Active', eta: 'Live', note: 'All client-facing staff verified annually' },
 ];
 
+/**
+ * ServiceNow certifications held across the delivery team.
+ *
+ * WHY: ServiceNow is the main revenue line and the site carried no credential
+ * signal at all — no certifications, no named expertise. For a ServiceNow buyer
+ * that is the most direct competence evidence available, and unlike a case study
+ * it needs no client's permission to publish.
+ *
+ * TRUTH POLICY — two rules for this block:
+ *   1. NO COUNTS. "Many people" is what we were told, and "many" is not a number
+ *      we can evidence. List what is held, never how many hold it. Do not add
+ *      "12 certified engineers" later without a verifiable source.
+ *   2. NEVER the phrase "certified partner". These are individual practitioner
+ *      certifications, not a ServiceNow partner tier. scripts/audit.sh greps for
+ *      that phrase precisely because it is the easy lie to drift into — and
+ *      /company/about-us states plainly that we are not a ServiceNow partner.
+ */
+const certifications = [
+  {
+    code: 'CTA',
+    name: 'Certified Technical Architect',
+    note: 'ServiceNow\'s senior architecture credential. Relevant when the question is whether a design will survive three upgrades, not whether a form can be built.',
+  },
+  {
+    code: 'ArchX',
+    name: 'Architect-level certification',
+    note: 'Architect-track credentials covering platform design, data modelling, and instance strategy across a multi-application estate.',
+  },
+  {
+    code: 'CSA',
+    name: 'Certified System Administrator',
+    note: 'The platform baseline — administration, configuration, and the upgrade discipline every engagement depends on.',
+  },
+  {
+    code: 'CAD',
+    name: 'Certified Application Developer',
+    note: 'Scoped application development against supported APIs, which is what keeps a custom app upgradeable.',
+  },
+  {
+    code: 'CIS',
+    name: 'Certified Implementation Specialist',
+    note: 'Product-specific implementation credentials across the modules we deliver — the certification that maps to a named product rather than to the platform generally.',
+  },
+  {
+    code: 'Micro-certifications',
+    name: 'Targeted capability credentials',
+    note: 'Narrower ServiceNow credentials for individual capabilities, kept current as the platform releases change.',
+  },
+];
+
+/**
+ * Gulf regulatory frameworks, for Middle East buyers.
+ *
+ * Separate from complianceRoadmap above on purpose. That list is about
+ * certifications ifBash holds or is pursuing. This one is about frameworks our
+ * CLIENTS are held to, and what we do about them — a different claim entirely.
+ * Conflating the two would read as though we were accredited under these, which
+ * we are not. See the truth policy note in lib/industry-data.ts.
+ */
+const gulfFrameworks = [
+  {
+    label: 'NCA ECC',
+    jurisdiction: 'Saudi Arabia',
+    note: 'Essential Cybersecurity Controls, mandatory for government entities and critical national infrastructure. We map platform access control, logging, change management, and third-party access to the relevant control families, and hand over the mapping.',
+  },
+  {
+    label: 'PDPL',
+    jurisdiction: 'Saudi Arabia',
+    note: 'Personal Data Protection Law, enforced by SDAIA. Consent, retention, and cross-border transfer are design decisions in any workflow carrying personal data — we settle them before build, not after.',
+  },
+  {
+    label: 'PDPL',
+    jurisdiction: 'UAE',
+    note: 'Federal Decree-Law 45/2021. Free-zone entities in DIFC and ADGM operate under their own data protection regimes, so a group spanning both mainland and free zone has more than one to satisfy.',
+  },
+  {
+    label: 'NDMO standards',
+    jurisdiction: 'Saudi Arabia',
+    note: 'National Data Management Office standards for classification, quality, and retention. Classification drives platform configuration, so it belongs in the design phase.',
+  },
+  {
+    label: 'SAMA CSF',
+    jurisdiction: 'Saudi Arabia',
+    note: 'Saudi Central Bank Cyber Security Framework, applying to banks, insurers, and financing companies. Change management and privileged access are where a workflow platform is most directly in scope.',
+  },
+  {
+    label: 'DESC / TDRA',
+    jurisdiction: 'UAE',
+    note: 'Dubai Electronic Security Center requirements for Dubai government entities, alongside federal TDRA regulation. Multi-emirate programmes frequently answer to both.',
+  },
+];
+
 const faqs: Faq[] = [
   {
     q: 'Where is client data stored?',
     a: 'For ServiceNow work, data lives in your ServiceNow instance — we do not host it. For AI agents we build, conversation data is processed via the Claude API (US-based, with zero-retention settings) and stored only where you explicitly configure retention. Web form data is stored in Vercel edge infrastructure.',
+  },
+  {
+    q: 'Can our data stay inside Saudi Arabia or the UAE?',
+    a: 'For the ServiceNow layer this is a question about your instance, not about us — instances are region-bound, and the hosting regions available to you depend on your ServiceNow agreement rather than on anything we control. We confirm the specific regions on offer for your instance during scoping and put the answer in the written plan, because it changes the architecture. For AI agents, be aware the Claude API is US-based; where in-region processing is a hard requirement, that constrains which parts of a design can use a hosted model at all, and we will tell you that before you commit rather than after.',
+  },
+  {
+    q: 'Which Gulf regulatory frameworks do you work against?',
+    a: 'Most commonly NCA ECC and PDPL in Saudi Arabia, Federal PDPL and DESC or TDRA requirements in the UAE, NDMO standards for data classification, and SAMA CSF for financial services. We design and configure to those control families and hand over the mapping with the build. We are not accredited under any of them — where a framework requires an accredited audit, that audit is yours or your assessor\'s, and we say so in writing rather than letting a logo imply otherwise.',
   },
   {
     q: 'Do you train AI models on client data?',
@@ -138,6 +238,76 @@ export default function TrustPage() {
               <h3 className="font-semibold text-onink mb-1">{label}</h3>
               <p className="text-xs text-onink-faint mb-3">Target: {eta}</p>
               <p className="text-sm text-onink-muted leading-relaxed">{note}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* CERTIFICATIONS — individual practitioner credentials, deliberately
+          without counts. See the note on `certifications` for why. */}
+      <Section tone="paper" divide>
+        <div className="mb-10 max-w-3xl">
+          <Eyebrow rule className="mb-4">Certifications</Eyebrow>
+          <DisplayHeading as="h2" size="sm" className="mb-4">
+            What the team <Accented>is actually certified in.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-slate leading-relaxed mb-3">
+            ServiceNow certifications are held by individuals, not companies, and they are the one
+            competence signal we can publish without needing a client&apos;s permission. So here is
+            what the delivery team holds.
+          </p>
+          <p className="text-sm text-slate-light leading-relaxed">
+            To be precise: these are practitioner certifications held across the team. They are not
+            a ServiceNow partner tier — we are not a ServiceNow partner, and we say so on our{' '}
+            <Link href="/company/about-us" className="inline-block py-1 text-sea font-medium underline underline-offset-2 hover:text-sea-deep">
+              about page
+            </Link>{' '}
+            too. We will tell you who specifically is certified in what, by name, during scoping.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {certifications.map(({ code, name, note }) => (
+            <div key={code} className="rounded-2xl border border-hairline bg-surface p-6">
+              <div className="flex items-baseline gap-2 mb-1.5 flex-wrap">
+                <h3 className="font-semibold text-ink-body">{code}</h3>
+                <span className="text-[12px] text-slate-light">{name}</span>
+              </div>
+              <p className="text-sm text-slate leading-relaxed">{note}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* GULF FRAMEWORKS — what our clients are held to, not what we are
+          certified under. The distinction is the point; see gulfFrameworks. */}
+      <Section tone="surface" divide>
+        <div className="mb-10 max-w-3xl">
+          <Eyebrow rule className="mb-4">Middle East</Eyebrow>
+          <DisplayHeading as="h2" size="sm" className="mb-4">
+            The frameworks <Accented>your regulator cares about.</Accented>
+          </DisplayHeading>
+          <p className="text-base text-slate leading-relaxed mb-3">
+            SOC 2, ISO 27001 and GDPR above are about us. This list is about you. A Gulf security
+            questionnaire asks a different set of questions from a US or European one, and the
+            honest answer to most of them is architectural rather than a certificate.
+          </p>
+          <p className="text-sm text-slate-light leading-relaxed">
+            To be precise about what this section claims: we design and configure against these
+            control families and give you the mapping in writing. We are not accredited under any
+            of them, and where a framework requires an accredited audit, that audit belongs to you
+            or your assessor. Anyone telling you otherwise is selling you something.
+          </p>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {gulfFrameworks.map(({ label, jurisdiction, note }) => (
+            <div key={`${label}-${jurisdiction}`} className="rounded-2xl border border-hairline bg-paper p-6">
+              <div className="flex items-baseline gap-2 mb-2">
+                <h3 className="font-semibold text-ink-body">{label}</h3>
+                <span className="text-[11px] font-medium uppercase tracking-wide text-sea">
+                  {jurisdiction}
+                </span>
+              </div>
+              <p className="text-sm text-slate leading-relaxed">{note}</p>
             </div>
           ))}
         </div>

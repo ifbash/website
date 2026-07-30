@@ -366,6 +366,11 @@ export function HeroShowcase() {
           <button
             key={key}
             onClick={() => { setActive(key); setRound((r) => r + 1); }}
+            // The visible label is `hidden sm:inline`, so below the sm breakpoint
+            // this button contains only an icon and had no accessible name at all.
+            // aria-label covers every width rather than depending on the span.
+            aria-label={label}
+            aria-pressed={active === key}
             className={`relative flex-1 flex items-center justify-center gap-1.5 py-3 text-[11px] sm:text-xs font-semibold transition-colors ${
               active === key ? 'text-white' : 'text-onink-faint hover:text-onink-muted'
             }`}
@@ -401,7 +406,7 @@ export function HeroShowcase() {
       {/* Footer */}
       <div className="flex items-center justify-between px-4 py-2.5 border-t border-onink-line shrink-0" style={{ background: 'rgba(255,255,255,0.015)' }}>
         <span className="text-[10px] text-onink-faint font-mono">Demos — the experiences we build for clients</span>
-        <Link href="/agent" className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-sea-soft hover:text-sea-soft transition-colors">
+        <Link href="/agent" className="inline-flex items-center gap-1.5 py-1.5 text-[11px] font-semibold text-sea-soft hover:text-sea-soft transition-colors">
           <Mic className="h-3 w-3" /> Talk to our real agent
         </Link>
       </div>

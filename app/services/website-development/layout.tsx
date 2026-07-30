@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     description:
       'Fast, SEO-ready sites and web apps on Next.js — with AI assistants built in, not bolted on.',
     url: 'https://ifbash.com/services/website-development',
-    images: [{ url: '/images/logo.png', width: 400, height: 100, alt: 'ifBash — Website Development' }],
+    images: [{ url: '/images/og-card.png', width: 1200, height: 630, alt: 'ifBash — Website Development' }],
   },
   alternates: { canonical: 'https://ifbash.com/services/website-development' },
 };

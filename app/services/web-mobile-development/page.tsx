@@ -4,6 +4,7 @@ import {
   Section, Eyebrow, DisplayHeading, Accented, PageHero, PhaseGrid, FaqSection,
   CtaBand, FeatureGrid, BrowserFrame, PillLink, type Feature, type Phase, type Faq,
 } from '@/components/site';
+import { BreadcrumbSchema, ServiceSchema, SITE_URL } from '@/components/seo-schemas';
 
 const tracks = [
   {
@@ -74,6 +75,20 @@ const faqs: Faq[] = [
 export default function WebMobilePracticePage() {
   return (
     <>
+      <ServiceSchema
+        name="Web & Mobile Product Development"
+        description="Design, web, and mobile delivered by one team, so the site and the app share a design system and an API instead of diverging."
+        url={`${SITE_URL}/services/web-mobile-development`}
+        serviceType="Web & Mobile Product Development"
+        category="Web & Mobile"
+      />
+      <BreadcrumbSchema
+        items={[
+          { label: 'Services', href: '/services' },
+          { label: 'Web & Mobile Product Development', href: '/services/web-mobile-development' },
+        ]}
+      />
+
       <PageHero
         tags={['Web', 'Mobile', 'AI-native']}
         eyebrow="Web & Mobile"
